@@ -26,3 +26,11 @@
   - RevenueCat iOS autolinking passed
   - Read/Create native back navigation added and committed
 - Next task: install on provisioned iPhone and manually test landing pages, auth pages, Read app, imports, reader/player behavior, Create auth, and Create coming-soon flow.
+
+## M20-Y1 Read Web Color Parity - 2026-06-25 09:15 UTC
+
+- Mobile Read/Create redesign installed and TypeScript/Expo Doctor passed.
+- Read public/web landing colors updated to match the new mobile Read direction.
+- New Read visual direction: dark navy/indigo base, elevated indigo cards, purple accent, softer violet borders/glows.
+- Scope: `apps/client/features/publicMarketing/screens/NativePublicMarketingScreens.tsx`.
+- Next: visual test, commit, push, then iOS OTA/build.

@@ -1,8 +1,6 @@
-import { useEffect, useMemo, useRef, useState, type ReactNode } from 'react';
+import { useEffect, useMemo, useState, type ReactNode } from 'react';
 import {
   ActivityIndicator,
-  Animated,
-  Easing,
   Image,
   Pressable,
   ScrollView,
@@ -12,40 +10,184 @@ import {
   TextInput,
   View,
 } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 import * as DocumentPicker from 'expo-document-picker';
 import { setAudioModeAsync, useAudioPlayer, useAudioPlayerStatus } from 'expo-audio';
 import Svg, { Circle } from 'react-native-svg';
 import { router } from 'expo-router';
 
-import { useActiveReadDocument, useReadMobileStore, type ReadDocument } from './readMobileStore';
+import {
+  useActiveReadDocument,
+  useReadMobileStore,
+  type ReadDocument,
+  type ReadTheme,
+} from './readMobileStore';
 import { readTtsApi, type ReadTtsResult } from './readTtsApi';
 import { readRenderApi } from './readRenderApi';
 import { restoreReadStorePurchases, startReadStorePurchase, type ReadStorePlanId } from '../../billing/services/storeBillingService';
 import { useSubscriptionStore } from '../../../state/subscriptionStore';
 
-type ButtonTone = 'primary' | 'secondary' | 'ghost' | 'warm';
-type ReadTab = 'reader' | 'library' | 'import' | 'settings' | 'analytics' | 'subscribe';
-type ImportMode = 'paste' | 'file' | 'url';
-type SyncStatus = 'idle' | 'loading' | 'syncing' | 'offline' | 'error';
+type ReadTab = 'home' | 'library' | 'import' | 'reader' | 'settings' | 'analytics' | 'subscribe' | 'create';
+type ImportMode = 'file' | 'paste' | 'url' | 'scan' | 'record';
 type AudioPlaybackState = 'idle' | 'preparing' | 'ready' | 'playing' | 'paused' | 'error';
+type ReadTone = 'blue' | 'purple' | 'teal' | 'amber' | 'rose' | 'neutral';
+
+type Palette = {
+  key: ReadTheme;
+  isLight: boolean;
+  background: string;
+  surface: string;
+  surfaceSoft: string;
+  surfaceRaised: string;
+  text: string;
+  muted: string;
+  faint: string;
+  border: string;
+  borderStrong: string;
+  accent: string;
+  accent2: string;
+  accentText: string;
+  success: string;
+  warning: string;
+  danger: string;
+  readerPaper: string;
+  readerText: string;
+  readerMuted: string;
+  nav: string;
+  shadow: string;
+};
 
 const READ_LOGO = require('./assets/floently_read.png');
+const sampleText = 'Paste an article, a note, a chapter, or a script. Floently will save it to your library instantly and prepare natural narration while you keep moving.';
 
-const sampleText = 'Deep focus is the ability to concentrate without distraction on a cognitively demanding task. It is becoming rare, but it can be trained with the right environment, rhythm, and deliberate practice.';
-
-const tabs: Array<{ key: ReadTab; label: string; route: string; icon: string }> = [
-  { key: 'reader', label: 'Reader', route: '/read/reader', icon: 'book' },
-  { key: 'library', label: 'Library', route: '/read/library', icon: 'books' },
-  { key: 'import', label: 'Import', route: '/read/import', icon: 'upload' },
-  { key: 'settings', label: 'Preferences', route: '/read/settings', icon: 'sliders' },
-  { key: 'analytics', label: 'Analytics', route: '/read/analytics', icon: 'trend' },
+const bottomTabs: Array<{ key: ReadTab; label: string; route: string; icon: string }> = [
+  { key: 'home', label: 'Home', route: '/read/app', icon: 'Home' },
+  { key: 'library', label: 'Library', route: '/read/library', icon: 'Files' },
+  { key: 'import', label: 'Import', route: '/read/import', icon: '+' },
+  { key: 'create', label: 'Create', route: '/create', icon: 'AI' },
+  { key: 'settings', label: 'Settings', route: '/read/settings', icon: 'Set' },
 ];
 
-const importChannels: Array<{ mode: ImportMode; label: string; detail: string; icon: string }> = [
-  { mode: 'file', label: 'PDF / Document', detail: 'PDF, DOCX, TXT, EPUB - up to 25 MB', icon: 'file' },
-  { mode: 'paste', label: 'Paste text', detail: 'Article, notes, script, transcript', icon: 'text' },
-  { mode: 'url', label: 'Paste URL', detail: 'Any public article or page', icon: 'world' },
+const importActions: Array<{ mode: ImportMode; label: string; detail: string; icon: string; soon?: boolean }> = [
+  { mode: 'file', label: 'File', detail: 'PDF, DOCX, TXT, EPUB', icon: 'File' },
+  { mode: 'scan', label: 'Scan', detail: 'Camera scan soon', icon: 'Cam', soon: true },
+  { mode: 'url', label: 'Link', detail: 'Paste any URL', icon: 'Link' },
+  { mode: 'paste', label: 'Paste', detail: 'Text from clipboard', icon: 'Text' },
+  { mode: 'record', label: 'Record', detail: 'Audio import soon', icon: 'Mic', soon: true },
 ];
+
+const readPlans: Array<{ id: ReadStorePlanId; title: string; priceHint: string; body: string; platformNote?: string }> = [
+  { id: 'reader_monthly', title: 'Reader Monthly', priceHint: '11.99 EUR / month', body: 'Read, listen, import text, and continue your library across sessions.' },
+  { id: 'reader_yearly', title: 'Reader Yearly', priceHint: '119.90 EUR / year', body: 'Annual Reader access for reading, listening, and document practice.', platformNote: 'Android yearly can be enabled after RevenueCat compatibility is clear; iOS yearly is ready.' },
+];
+
+function paletteFor(theme: ReadTheme): Palette {
+  if (theme === 'light') {
+    return {
+      key: theme,
+      isLight: true,
+      background: '#F5F7FE',
+      surface: '#FFFFFF',
+      surfaceSoft: '#EEF2FF',
+      surfaceRaised: '#FFFFFF',
+      text: '#111827',
+      muted: '#667085',
+      faint: '#9AA4B2',
+      border: 'rgba(15, 35, 78, 0.10)',
+      borderStrong: 'rgba(88, 76, 255, 0.28)',
+      accent: '#6D5DFF',
+      accent2: '#3CD5C7',
+      accentText: '#FFFFFF',
+      success: '#19A974',
+      warning: '#B87900',
+      danger: '#DC3545',
+      readerPaper: '#FFFFFF',
+      readerText: '#111827',
+      readerMuted: '#6B7280',
+      nav: 'rgba(255,255,255,0.92)',
+      shadow: 'rgba(32, 41, 74, 0.12)',
+    };
+  }
+
+  if (theme === 'sepia') {
+    return {
+      key: theme,
+      isLight: true,
+      background: '#F6EFE2',
+      surface: '#FFF8EA',
+      surfaceSoft: '#F1E4CF',
+      surfaceRaised: '#FFFDF6',
+      text: '#2D2015',
+      muted: '#766A5E',
+      faint: '#A99B89',
+      border: 'rgba(95, 67, 38, 0.13)',
+      borderStrong: 'rgba(139, 92, 246, 0.25)',
+      accent: '#8B5CF6',
+      accent2: '#C0832F',
+      accentText: '#FFFFFF',
+      success: '#408A63',
+      warning: '#9A6500',
+      danger: '#B33A3A',
+      readerPaper: '#FFF8EA',
+      readerText: '#2D2015',
+      readerMuted: '#766A5E',
+      nav: 'rgba(255,248,234,0.92)',
+      shadow: 'rgba(74, 46, 20, 0.12)',
+    };
+  }
+
+  if (theme === 'ink') {
+    return {
+      key: theme,
+      isLight: false,
+      background: '#030407',
+      surface: '#0B0D12',
+      surfaceSoft: '#11141C',
+      surfaceRaised: '#171B25',
+      text: '#F6F4EF',
+      muted: '#B5B7C2',
+      faint: '#747987',
+      border: 'rgba(255,255,255,0.11)',
+      borderStrong: 'rgba(255,255,255,0.22)',
+      accent: '#FFFFFF',
+      accent2: '#A9B4FF',
+      accentText: '#030407',
+      success: '#49D19E',
+      warning: '#F5B84B',
+      danger: '#FF6B7A',
+      readerPaper: '#0B0D12',
+      readerText: '#F6F4EF',
+      readerMuted: '#B5B7C2',
+      nav: 'rgba(8,10,15,0.94)',
+      shadow: 'rgba(0, 0, 0, 0.42)',
+    };
+  }
+
+  return {
+    key: theme,
+    isLight: false,
+    background: '#07111F',
+    surface: '#101A2B',
+    surfaceSoft: '#13223B',
+    surfaceRaised: '#182641',
+    text: '#FFFFFF',
+    muted: '#B7C0D4',
+    faint: '#7E89A3',
+    border: 'rgba(255,255,255,0.10)',
+    borderStrong: 'rgba(134, 113, 255, 0.34)',
+    accent: '#8B5CF6',
+    accent2: '#38D9C0',
+    accentText: '#FFFFFF',
+    success: '#39D98A',
+    warning: '#F5A623',
+    danger: '#FF5E6C',
+    readerPaper: '#F8FAFF',
+    readerText: '#111827',
+    readerMuted: '#5D6679',
+    nav: 'rgba(12, 19, 34, 0.94)',
+    shadow: 'rgba(0, 0, 0, 0.38)',
+  };
+}
 
 function navigate(path: string) {
   router.push(path as never);
@@ -57,12 +199,6 @@ function goBack(fallback = '/read/app') {
     return;
   }
   router.push(fallback as never);
-}
-
-function formatDate(value: string) {
-  const parsed = Date.parse(value);
-  if (Number.isNaN(parsed)) return 'Saved reading';
-  return new Date(parsed).toLocaleDateString();
 }
 
 function countWords(text: string) {
@@ -77,273 +213,258 @@ function safePct(value: number) {
   return Math.max(0, Math.min(100, Math.round(value * 100)));
 }
 
-function FloatingAtmosphere({ tone = 'read' }: { tone?: 'read' | 'create' }) {
-  const motion = useRef(new Animated.Value(0)).current;
+function formatDate(value: string) {
+  const parsed = Date.parse(value);
+  if (Number.isNaN(parsed)) return 'Saved reading';
+  return new Date(parsed).toLocaleDateString();
+}
 
-  useEffect(() => {
-    const loop = Animated.loop(
-      Animated.timing(motion, {
-        toValue: 1,
-        duration: 7600,
-        easing: Easing.inOut(Easing.quad),
-        useNativeDriver: true,
-      }),
-    );
-    loop.start();
-    return () => loop.stop();
-  }, [motion]);
+function sourceLabel(document?: ReadDocument | null) {
+  if (!document) return 'Reading';
+  if (document.sourceType === 'url') return 'Web page';
+  if (document.sourceType === 'file') return 'Document';
+  if (document.sourceType === 'text') return 'Text';
+  return document.sourceType || 'Reading';
+}
 
-  const lift = motion.interpolate({ inputRange: [0, 0.5, 1], outputRange: [0, -18, 0] });
-  const drift = motion.interpolate({ inputRange: [0, 0.5, 1], outputRange: [0, 14, 0] });
-  const pulse = motion.interpolate({ inputRange: [0, 0.5, 1], outputRange: [0.82, 1.06, 0.82] });
+function cardTone(tone: ReadTone, palette: Palette) {
+  if (tone === 'teal') return { backgroundColor: palette.isLight ? '#E5FAF5' : 'rgba(56,217,192,0.12)', borderColor: palette.isLight ? '#B2F2E6' : 'rgba(56,217,192,0.25)' };
+  if (tone === 'amber') return { backgroundColor: palette.isLight ? '#FFF6DF' : 'rgba(245,166,35,0.12)', borderColor: palette.isLight ? '#F9D586' : 'rgba(245,166,35,0.26)' };
+  if (tone === 'rose') return { backgroundColor: palette.isLight ? '#FFF0F2' : 'rgba(255,94,108,0.12)', borderColor: palette.isLight ? '#F9B8C0' : 'rgba(255,94,108,0.25)' };
+  if (tone === 'purple') return { backgroundColor: palette.isLight ? '#F0EDFF' : 'rgba(139,92,246,0.14)', borderColor: palette.isLight ? '#C8BEFF' : 'rgba(139,92,246,0.32)' };
+  if (tone === 'neutral') return { backgroundColor: palette.surfaceSoft, borderColor: palette.border };
+  return { backgroundColor: palette.isLight ? '#EAF1FF' : 'rgba(79,131,255,0.12)', borderColor: palette.isLight ? '#B6CAFF' : 'rgba(79,131,255,0.26)' };
+}
 
+function setPlayerPlaybackRate(player: ReturnType<typeof useAudioPlayer>, rate: number) {
+  const safeRate = Math.max(0.1, Math.min(2, Number.isFinite(rate) ? rate : 1));
+  const maybePlayer = player as unknown as { setPlaybackRate?: (rate: number) => void; playbackRate?: number };
+
+  try {
+    if (typeof maybePlayer.setPlaybackRate === 'function') {
+      maybePlayer.setPlaybackRate(safeRate);
+      return;
+    }
+
+    Reflect.set(maybePlayer, 'playbackRate', safeRate);
+  } catch (error) {
+    console.warn('Unable to set audio playback rate', error);
+  }
+}
+
+function AppShell({ active, children, showBottomNav = true }: { active: ReadTab; children: ReactNode; showBottomNav?: boolean }) {
+  const theme = useReadMobileStore((state) => state.readTheme);
+  const palette = paletteFor(theme);
   return (
-    <View pointerEvents="none" style={StyleSheet.absoluteFill}>
-      <Animated.View
-        style={[
-          styles.orbLarge,
-          tone === 'create' && styles.orbCreate,
-          { transform: [{ translateY: lift }, { scale: pulse }] },
-        ]}
-      />
-      <Animated.View
-        style={[
-          styles.orbSmall,
-          tone === 'create' && styles.orbCreateSoft,
-          { transform: [{ translateX: drift }, { scale: pulse }] },
-        ]}
-      />
-      <Animated.View style={[styles.floatingLine, { transform: [{ translateX: drift }] }]} />
-    </View>
+    <SafeAreaView style={[styles.safeArea, { backgroundColor: palette.background }]} edges={['top', 'bottom']}>
+      <View pointerEvents="none" style={StyleSheet.absoluteFill}>
+        <View style={[styles.glowA, { backgroundColor: palette.accent }]} />
+        <View style={[styles.glowB, { backgroundColor: palette.accent2 }]} />
+      </View>
+      <View style={styles.appContent}>{children}</View>
+      {showBottomNav ? <BottomNav active={active} palette={palette} /> : null}
+    </SafeAreaView>
   );
 }
 
-function ProductLogo() {
-  return <Image source={READ_LOGO} resizeMode="contain" style={styles.productLogo} />;
-}
-
-function ProductSwitcher() {
+function Header({ title, subtitle, showBack = false, right }: { title?: string; subtitle?: string; showBack?: boolean; right?: ReactNode }) {
+  const theme = useReadMobileStore((state) => state.readTheme);
+  const palette = paletteFor(theme);
   return (
-    <View style={styles.productSwitcher}>
-      <Pressable accessibilityRole="button" onPress={() => navigate('/read/app')} style={[styles.productTab, styles.productTabActive]}>
-        <View style={[styles.productDot, styles.blueDot]} />
-        <Text style={styles.productTabTextActive}>Floently Read</Text>
-      </Pressable>
-      <Pressable accessibilityRole="button" onPress={() => navigate('/create')} style={styles.productTab}>
-        <View style={[styles.productDot, styles.tealDot]} />
-        <Text style={styles.productTabText}>Floently Create</Text>
-      </Pressable>
-    </View>
-  );
-}
-
-function iconBadgeToneStyle(tone: 'blue' | 'teal' | 'purple' | 'amber' | 'red') {
-  if (tone === 'teal') return styles.iconBadge_teal;
-  if (tone === 'purple') return styles.iconBadge_purple;
-  if (tone === 'amber') return styles.iconBadge_amber;
-  if (tone === 'red') return styles.iconBadge_red;
-  return styles.iconBadge_blue;
-}
-
-function IconBadge({ label, tone = 'blue' }: { label: string; tone?: 'blue' | 'teal' | 'purple' | 'amber' | 'red' }) {
-  return (
-    <View style={[styles.iconBadge, iconBadgeToneStyle(tone)]}>
-      <Text style={styles.iconBadgeText}>{label.slice(0, 2).toUpperCase()}</Text>
-    </View>
-  );
-}
-
-function TopNav({ active = 'reader' }: { active?: ReadTab }) {
-  return (
-    <View style={styles.topShell}>
-      <View style={styles.topBar}>
-        <Pressable accessibilityRole="button" onPress={() => navigate('/read')} style={styles.logoButton}>
-          <ProductLogo />
-        </Pressable>
-        <View style={styles.navActions}>
-          <Pressable accessibilityRole="button" onPress={() => goBack()} style={styles.topIconButton}>
-            <Text style={styles.topIconText}>Back</Text>
+    <View style={styles.header}>
+      <View style={styles.headerLeft}>
+        {showBack ? (
+          <Pressable accessibilityRole="button" onPress={() => goBack()} style={[styles.iconButton, { backgroundColor: palette.surfaceSoft, borderColor: palette.border }]}>
+            <Text style={[styles.iconButtonText, { color: palette.text }]}>‹</Text>
           </Pressable>
-          <Pressable accessibilityRole="button" onPress={() => navigate('/')} style={styles.topIconButton}>
-            <Text style={styles.topIconText}>Home</Text>
+        ) : (
+          <Pressable accessibilityRole="button" onPress={() => navigate('/read/app')} style={styles.logoPressable}>
+            <Image source={READ_LOGO} resizeMode="contain" style={styles.logo} />
           </Pressable>
-          <Pressable accessibilityRole="button" onPress={() => navigate('/read')} style={styles.topIconButton}>
-            <Text style={styles.topIconText}>Read landing</Text>
-          </Pressable>
+        )}
+        <View style={styles.headerTitleWrap}>
+          {title ? <Text numberOfLines={1} style={[styles.headerTitle, { color: palette.text }]}>{title}</Text> : null}
+          {subtitle ? <Text numberOfLines={1} style={[styles.headerSubtitle, { color: palette.muted }]}>{subtitle}</Text> : null}
         </View>
       </View>
-
-      <ProductSwitcher />
-
-      <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={styles.innerTabRail}>
-        {tabs.map((item) => (
-          <Pressable
-            accessibilityRole="button"
-            accessibilityState={{ selected: item.key === active }}
-            key={item.key}
-            onPress={() => navigate(item.route)}
-            style={[styles.innerTab, item.key === active && styles.innerTabActive]}
-          >
-            <Text style={[styles.innerTabIcon, item.key === active && styles.innerTabTextActive]}>{item.icon}</Text>
-            <Text style={[styles.innerTabText, item.key === active && styles.innerTabTextActive]}>{item.label}</Text>
+      <View style={styles.headerRight}>
+        {right ?? (
+          <Pressable accessibilityRole="button" onPress={() => navigate('/')} style={[styles.pillButton, { backgroundColor: palette.surfaceSoft, borderColor: palette.border }]}>
+            <Text style={[styles.pillButtonText, { color: palette.text }]}>Home</Text>
           </Pressable>
-        ))}
-        <Pressable
-          accessibilityRole="button"
-          accessibilityState={{ selected: active === 'subscribe' }}
-          onPress={() => navigate('/read/subscribe')}
-          style={[styles.innerTab, active === 'subscribe' && styles.innerTabActive]}
-        >
-          <Text style={[styles.innerTabIcon, active === 'subscribe' && styles.innerTabTextActive]}>crown</Text>
-          <Text style={[styles.innerTabText, active === 'subscribe' && styles.innerTabTextActive]}>Upgrade</Text>
-        </Pressable>
-      </ScrollView>
+        )}
+      </View>
     </View>
   );
 }
 
-function ReadAppFrame({
-  active,
-  eyebrow,
-  title,
-  subtitle,
-  children,
-}: {
-  active?: ReadTab;
-  eyebrow: string;
-  title: string;
-  subtitle: string;
-  children: ReactNode;
-}) {
+function BottomNav({ active, palette }: { active: ReadTab; palette: Palette }) {
   return (
-    <ScrollView contentContainerStyle={styles.screen} showsVerticalScrollIndicator={false}>
-      <FloatingAtmosphere />
-      <TopNav active={active} />
-      <View style={styles.heroCard}>
-        <View style={styles.heroAccent} />
-        <Text style={styles.eyebrow}>{eyebrow}</Text>
-        <Text style={styles.title}>{title}</Text>
-        <Text style={styles.subtitle}>{subtitle}</Text>
-      </View>
-      {children}
-    </ScrollView>
-  );
-}
-
-function Pill({ label, tone = 'neutral' }: { label: string; tone?: 'neutral' | 'read' | 'create' | 'warning' }) {
-  return (
-    <Text
-      style={[
-        styles.pill,
-        tone === 'read' && styles.readPill,
-        tone === 'create' && styles.createPill,
-        tone === 'warning' && styles.warningPill,
-      ]}
-    >
-      {label}
-    </Text>
-  );
-}
-
-function AppButton({
-  label,
-  onPress,
-  tone = 'secondary',
-  disabled = false,
-}: {
-  label: string;
-  onPress: () => void;
-  tone?: ButtonTone;
-  disabled?: boolean;
-}) {
-  const buttonStyle =
-    tone === 'primary'
-      ? styles.primaryButton
-      : tone === 'ghost'
-        ? styles.ghostButton
-        : tone === 'warm'
-          ? styles.warmButton
-          : styles.secondaryButton;
-  const textStyle =
-    tone === 'primary'
-      ? styles.primaryButtonText
-      : tone === 'ghost'
-        ? styles.ghostButtonText
-        : tone === 'warm'
-          ? styles.warmButtonText
-          : styles.secondaryButtonText;
-
-  return (
-    <Pressable
-      accessibilityRole="button"
-      disabled={disabled}
-      onPress={onPress}
-      style={[buttonStyle, disabled && styles.buttonDisabled]}
-    >
-      <Text style={[textStyle, disabled && styles.buttonTextDisabled]}>{label}</Text>
-    </Pressable>
+    <View style={[styles.bottomNav, { backgroundColor: palette.nav, borderColor: palette.border, shadowColor: palette.shadow }]}>
+      {bottomTabs.map((item) => {
+        const isActive = item.key === active;
+        const isPlus = item.key === 'import';
+        return (
+          <Pressable
+            accessibilityRole="button"
+            accessibilityState={{ selected: isActive }}
+            key={item.key}
+            onPress={() => navigate(item.route)}
+            style={[styles.navItem, isPlus && [styles.navPlus, { backgroundColor: palette.accent }]]}
+          >
+            <Text style={[styles.navIcon, { color: isPlus ? palette.accentText : isActive ? palette.accent : palette.faint }]}>{item.icon}</Text>
+            {!isPlus ? <Text style={[styles.navLabel, { color: isActive ? palette.accent : palette.faint }]}>{item.label}</Text> : null}
+          </Pressable>
+        );
+      })}
+    </View>
   );
 }
 
 function PrimaryButton({ label, onPress, disabled = false }: { label: string; onPress: () => void; disabled?: boolean }) {
-  return <AppButton label={label} onPress={onPress} tone="primary" disabled={disabled} />;
+  const theme = useReadMobileStore((state) => state.readTheme);
+  const palette = paletteFor(theme);
+  return (
+    <Pressable accessibilityRole="button" disabled={disabled} onPress={onPress} style={[styles.primaryButton, { backgroundColor: palette.accent }, disabled && styles.disabled]}>
+      <Text style={[styles.primaryButtonText, { color: palette.accentText }]}>{label}</Text>
+    </Pressable>
+  );
 }
 
 function SecondaryButton({ label, onPress, disabled = false }: { label: string; onPress: () => void; disabled?: boolean }) {
-  return <AppButton label={label} onPress={onPress} tone="secondary" disabled={disabled} />;
-}
-
-function GhostButton({ label, onPress, disabled = false }: { label: string; onPress: () => void; disabled?: boolean }) {
-  return <AppButton label={label} onPress={onPress} tone="ghost" disabled={disabled} />;
-}
-
-function WarmButton({ label, onPress, disabled = false }: { label: string; onPress: () => void; disabled?: boolean }) {
-  return <AppButton label={label} onPress={onPress} tone="warm" disabled={disabled} />;
-}
-
-function SyncBanner({ status, error, onRefresh }: { status: SyncStatus; error: string | null; onRefresh?: () => void }) {
-  const isBusy = status === 'loading' || status === 'syncing';
-  const isOffline = status === 'offline' || status === 'error';
-
+  const theme = useReadMobileStore((state) => state.readTheme);
+  const palette = paletteFor(theme);
   return (
-    <View style={[styles.syncBanner, isOffline && styles.syncBannerWarning]}>
-      <View style={styles.syncTextBlock}>
-        <Text style={styles.syncTitle}>{isBusy ? 'Syncing Read library' : isOffline ? 'Read is using local fallback' : 'Read library connected'}</Text>
-        <Text style={styles.syncText} numberOfLines={2}>
-          {isBusy
-            ? 'Syncing documents and progress.'
-            : isOffline
-              ? error || 'Online library is temporarily unavailable. Local readings stay open.'
-              : 'Documents, narration, progress, and mobile state sync when you are signed in.'}
-        </Text>
+    <Pressable accessibilityRole="button" disabled={disabled} onPress={onPress} style={[styles.secondaryButton, { backgroundColor: palette.surfaceSoft, borderColor: palette.border }, disabled && styles.disabled]}>
+      <Text style={[styles.secondaryButtonText, { color: palette.text }]}>{label}</Text>
+    </Pressable>
+  );
+}
+
+function MetricPill({ label, value, tone = 'neutral' }: { label: string; value: string; tone?: ReadTone }) {
+  const theme = useReadMobileStore((state) => state.readTheme);
+  const palette = paletteFor(theme);
+  return (
+    <View style={[styles.metricPill, cardTone(tone, palette)]}>
+      <Text style={[styles.metricValue, { color: palette.text }]}>{value}</Text>
+      <Text style={[styles.metricLabel, { color: palette.muted }]}>{label}</Text>
+    </View>
+  );
+}
+
+function ProgressBar({ progress, height = 5 }: { progress: number; height?: number }) {
+  const theme = useReadMobileStore((state) => state.readTheme);
+  const palette = paletteFor(theme);
+  return (
+    <View style={[styles.progressTrack, { height, backgroundColor: palette.isLight ? 'rgba(17,24,39,0.08)' : 'rgba(255,255,255,0.09)' }]}>
+      <View style={[styles.progressFill, { width: `${safePct(progress)}%`, backgroundColor: palette.accent }]} />
+    </View>
+  );
+}
+
+function ProgressRing({ progress, size = 68 }: { progress: number; size?: number }) {
+  const theme = useReadMobileStore((state) => state.readTheme);
+  const palette = paletteFor(theme);
+  const stroke = 6;
+  const radius = (size - stroke) / 2;
+  const circumference = 2 * Math.PI * radius;
+  const dashOffset = circumference * (1 - Math.max(0, Math.min(1, progress)));
+  return (
+    <View style={[styles.ringWrap, { width: size, height: size }]}>
+      <Svg width={size} height={size}>
+        <Circle cx={size / 2} cy={size / 2} r={radius} stroke={palette.border} strokeWidth={stroke} fill="none" />
+        <Circle
+          cx={size / 2}
+          cy={size / 2}
+          r={radius}
+          stroke={palette.accent}
+          strokeWidth={stroke}
+          strokeLinecap="round"
+          fill="none"
+          strokeDasharray={`${circumference} ${circumference}`}
+          strokeDashoffset={dashOffset}
+          rotation="-90"
+          originX={size / 2}
+          originY={size / 2}
+        />
+      </Svg>
+      <Text style={[styles.ringText, { color: palette.text }]}>{safePct(progress)}%</Text>
+    </View>
+  );
+}
+
+function DocumentCover({ document, large = false }: { document: ReadDocument; large?: boolean }) {
+  const theme = useReadMobileStore((state) => state.readTheme);
+  const palette = paletteFor(theme);
+  const initials = document.title.trim().slice(0, 2).toUpperCase() || 'RD';
+  return (
+    <View style={[large ? styles.coverLarge : styles.cover, { backgroundColor: palette.surfaceSoft, borderColor: palette.borderStrong }]}>
+      <Text style={[large ? styles.coverTextLarge : styles.coverText, { color: palette.accent }]}>{initials}</Text>
+      <Text numberOfLines={1} style={[styles.coverType, { color: palette.muted }]}>{sourceLabel(document)}</Text>
+    </View>
+  );
+}
+
+function MiniPlayer({ document }: { document: ReadDocument | null }) {
+  const theme = useReadMobileStore((state) => state.readTheme);
+  const palette = paletteFor(theme);
+  if (!document) return null;
+  return (
+    <Pressable accessibilityRole="button" onPress={() => navigate('/read/reader')} style={[styles.miniPlayer, { backgroundColor: palette.surfaceRaised, borderColor: palette.border, shadowColor: palette.shadow }]}>
+      <DocumentCover document={document} />
+      <View style={styles.miniPlayerText}>
+        <Text numberOfLines={1} style={[styles.miniTitle, { color: palette.text }]}>{document.title}</Text>
+        <Text numberOfLines={1} style={[styles.miniSub, { color: palette.muted }]}>{document.status === 'processing' ? 'Processing document' : `${readingMinutes(document.generatedText)} min • ${safePct(document.readingProgress)}%`}</Text>
+        <ProgressBar progress={document.readingProgress} />
       </View>
-      {isBusy ? <ActivityIndicator color="#7BA3FF" /> : onRefresh ? <GhostButton label="Refresh" onPress={onRefresh} /> : null}
-    </View>
+      <View style={[styles.miniPlay, { backgroundColor: palette.accent }]}>
+        <Text style={[styles.miniPlayText, { color: palette.accentText }]}>▶</Text>
+      </View>
+    </Pressable>
   );
 }
 
-function MetricCard({ value, label }: { value: string; label: string }) {
+function SyncBanner() {
+  const syncStatus = useReadMobileStore((state) => state.syncStatus);
+  const syncError = useReadMobileStore((state) => state.syncError);
+  const refreshLibrary = useReadMobileStore((state) => state.refreshLibrary);
+  const theme = useReadMobileStore((state) => state.readTheme);
+  const palette = paletteFor(theme);
+
+  if (syncStatus === 'idle') return null;
+  const isBusy = syncStatus === 'loading' || syncStatus === 'syncing';
+  const title = isBusy ? 'Syncing Read library' : syncStatus === 'offline' ? 'Read is using local fallback' : 'Read needs attention';
+  const body = isBusy ? 'Documents and progress are updating in the background.' : syncError || 'Online Read service is temporarily unavailable.';
+
   return (
-    <View style={styles.metricCard}>
-      <Text style={styles.metricValue}>{value}</Text>
-      <Text style={styles.metricLabel}>{label}</Text>
-    </View>
+    <Pressable accessibilityRole="button" onPress={() => void refreshLibrary()} style={[styles.syncBanner, { backgroundColor: isBusy ? cardTone('teal', palette).backgroundColor : cardTone('amber', palette).backgroundColor, borderColor: isBusy ? cardTone('teal', palette).borderColor : cardTone('amber', palette).borderColor }]}>
+      {isBusy ? <ActivityIndicator color={palette.accent} /> : <Text style={[styles.syncIcon, { color: palette.warning }]}>!</Text>}
+      <View style={styles.syncTextWrap}>
+        <Text style={[styles.syncTitle, { color: palette.text }]}>{title}</Text>
+        <Text style={[styles.syncBody, { color: palette.muted }]}>{body}</Text>
+      </View>
+    </Pressable>
   );
 }
 
-function EmptyState({ title, body, actionLabel, onAction }: { title: string; body: string; actionLabel: string; onAction: () => void }) {
+function QuickAction({ mode, label, detail, icon, soon, onPress }: { mode: ImportMode; label: string; detail: string; icon: string; soon?: boolean; onPress: (mode: ImportMode) => void }) {
+  const theme = useReadMobileStore((state) => state.readTheme);
+  const palette = paletteFor(theme);
   return (
-    <View style={styles.emptyState}>
-      <IconBadge label="RE" tone="blue" />
-      <Text style={styles.emptyTitle}>{title}</Text>
-      <Text style={styles.bodyText}>{body}</Text>
-      <PrimaryButton label={actionLabel} onPress={onAction} />
-    </View>
+    <Pressable accessibilityRole="button" onPress={() => onPress(mode)} style={[styles.quickAction, { backgroundColor: palette.surfaceRaised, borderColor: palette.border }]}>
+      <View style={[styles.quickIcon, { backgroundColor: soon ? cardTone('amber', palette).backgroundColor : cardTone('purple', palette).backgroundColor, borderColor: soon ? cardTone('amber', palette).borderColor : cardTone('purple', palette).borderColor }]}>
+        <Text style={[styles.quickIconText, { color: soon ? palette.warning : palette.accent }]}>{icon}</Text>
+      </View>
+      <Text style={[styles.quickLabel, { color: palette.text }]}>{label}</Text>
+      <Text numberOfLines={1} style={[styles.quickDetail, { color: palette.muted }]}>{soon ? 'Soon' : detail}</Text>
+    </Pressable>
   );
 }
 
-function DocumentCard({ document }: { document: ReadDocument }) {
-  const pct = safePct(document.readingProgress);
+function DocumentListCard({ document, compact = false }: { document: ReadDocument; compact?: boolean }) {
+  const theme = useReadMobileStore((state) => state.readTheme);
+  const palette = paletteFor(theme);
+  const isProcessing = document.status === 'processing';
   return (
     <Pressable
       accessibilityRole="button"
@@ -351,123 +472,102 @@ function DocumentCard({ document }: { document: ReadDocument }) {
         useReadMobileStore.getState().openDocument(document.id);
         navigate('/read/reader');
       }}
-      style={styles.documentCard}
+      style={[compact ? styles.documentCardCompact : styles.documentCard, { backgroundColor: palette.surfaceRaised, borderColor: isProcessing ? palette.borderStrong : palette.border }]}
     >
-      <View style={styles.documentTopRow}>
-        <IconBadge label={document.detectedLanguageLabel} tone="purple" />
-        <View style={styles.documentTitleBlock}>
-          <Text numberOfLines={1} style={styles.documentTitle}>{document.title}</Text>
-          <Text style={styles.documentMeta}>{formatDate(document.createdAtIso)} . {readingMinutes(document.generatedText)} min read</Text>
-        </View>
-        <Pill label={`${pct}%`} tone={pct >= 100 ? 'read' : 'neutral'} />
+      <DocumentCover document={document} large={!compact} />
+      <View style={styles.documentMeta}>
+        <Text numberOfLines={2} style={[styles.documentTitle, { color: palette.text }]}>{document.title}</Text>
+        <Text numberOfLines={1} style={[styles.documentSub, { color: palette.muted }]}>{isProcessing ? 'Processing...' : `${sourceLabel(document)} • ${formatDate(document.createdAtIso)}`}</Text>
+        <ProgressBar progress={document.readingProgress} height={4} />
       </View>
-      <Text numberOfLines={3} style={styles.documentPreview}>{document.generatedText}</Text>
-      <View style={styles.progressTrack}>
-        <View style={[styles.progressFill, { width: `${pct}%` }]} />
-      </View>
+      <Text style={[styles.documentPct, { color: isProcessing ? palette.warning : palette.accent }]}>{isProcessing ? '...' : `${safePct(document.readingProgress)}%`}</Text>
     </Pressable>
   );
 }
 
-function QuickActionCard({ label, detail, tone, onPress }: { label: string; detail: string; tone: 'blue' | 'teal' | 'purple' | 'amber' | 'red'; onPress: () => void }) {
+function EmptyState({ title, body, actionLabel, onAction }: { title: string; body: string; actionLabel: string; onAction: () => void }) {
+  const theme = useReadMobileStore((state) => state.readTheme);
+  const palette = paletteFor(theme);
   return (
-    <Pressable accessibilityRole="button" onPress={onPress} style={styles.quickActionCard}>
-      <IconBadge label={label} tone={tone} />
-      <Text style={styles.quickTitle}>{label}</Text>
-      <Text style={styles.quickDetail}>{detail}</Text>
-    </Pressable>
-  );
-}
-
-function ImportChannelCard({ mode, label, detail, activeMode, onPress }: { mode: ImportMode; label: string; detail: string; activeMode: ImportMode; onPress: () => void }) {
-  const active = activeMode === mode;
-  return (
-    <Pressable accessibilityRole="button" onPress={onPress} style={[styles.sourceCard, active && styles.sourceCardActive]}>
-      <IconBadge label={label} tone={mode === 'file' ? 'red' : mode === 'url' ? 'teal' : mode === 'paste' ? 'blue' : 'purple'} />
-      <Text style={styles.sourceTitle}>{label}</Text>
-      <Text style={styles.sourceDetail}>{detail}</Text>
-    </Pressable>
+    <View style={[styles.emptyState, { backgroundColor: palette.surfaceRaised, borderColor: palette.border }]}>
+      <Text style={styles.emptyBook}>▰</Text>
+      <Text style={[styles.emptyTitle, { color: palette.text }]}>{title}</Text>
+      <Text style={[styles.emptyBody, { color: palette.muted }]}>{body}</Text>
+      <PrimaryButton label={actionLabel} onPress={onAction} />
+    </View>
   );
 }
 
 export function ReadHomeScreen() {
   const documents = useReadMobileStore((state) => state.documents);
-  const syncStatus = useReadMobileStore((state) => state.syncStatus);
-  const syncError = useReadMobileStore((state) => state.syncError);
+  const activeDocument = useActiveReadDocument();
   const refreshLibrary = useReadMobileStore((state) => state.refreshLibrary);
-  const readAutomatically = useReadMobileStore((state) => state.readAutomatically);
-  const setReadAutomatically = useReadMobileStore((state) => state.setReadAutomatically);
+  const theme = useReadMobileStore((state) => state.readTheme);
+  const palette = paletteFor(theme);
 
   useEffect(() => {
     void refreshLibrary();
   }, [refreshLibrary]);
 
-  const activeReading = documents.find((document) => document.readingProgress > 0 && document.readingProgress < 1) ?? documents[0] ?? null;
-  const completedCount = documents.filter((document) => document.readingProgress >= 1).length;
+  const completed = documents.filter((document) => document.readingProgress >= 1).length;
+  const processing = documents.filter((document) => document.status === 'processing').length;
 
   return (
-    <ReadAppFrame
-      active="reader"
-      eyebrow="Read dashboard"
-      title="Listen to any text, anytime, anywhere"
-      subtitle="The native app mirrors the web Read suite: Reader, Library, Import, Preferences, Analytics, and Upgrade stay in the same product flow."
-    >
-      <SyncBanner status={syncStatus} error={syncError} onRefresh={() => void refreshLibrary()} />
+    <AppShell active="home">
+      <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={styles.scrollScreen}>
+        <Header right={<Pressable accessibilityRole="button" onPress={() => navigate('/read/settings')} style={[styles.iconButton, { backgroundColor: palette.surfaceSoft, borderColor: palette.border }]}><Text style={[styles.iconMini, { color: palette.text }]}>Set</Text></Pressable>} />
 
-      <View style={styles.dashboardGrid}>
-        <View style={styles.panelLarge}>
-          <Text style={styles.panelKicker}>Reader</Text>
-          <Text style={styles.panelTitle}>Open a document or import something new.</Text>
-          <Text style={styles.bodyText}>Load an article, paste text, upload a PDF, or open a saved reading from your library to start reading and listening.</Text>
-          <View style={styles.buttonRow}>
-            <PrimaryButton label="Open reader" onPress={() => navigate('/read/reader')} />
-            <SecondaryButton label="Import" onPress={() => navigate('/read/import')} />
+        <View style={styles.homeHeroRow}>
+          <View style={styles.homeHeroText}>
+            <Text style={[styles.kicker, { color: palette.accent2 }]}>Floently Read</Text>
+            <Text style={[styles.homeTitle, { color: palette.text }]}>Read, listen, and understand.</Text>
+            <Text style={[styles.homeSubtitle, { color: palette.muted }]}>Import anything, continue instantly, and listen with a calm native reader.</Text>
+          </View>
+          <MetricPill label="Day streak" value="7" tone="amber" />
+        </View>
+
+        <SyncBanner />
+
+        <View style={[styles.sectionCard, { backgroundColor: palette.surface, borderColor: palette.border }]}>
+          <View style={styles.sectionHeaderRow}>
+            <Text style={[styles.sectionTitle, { color: palette.text }]}>Continue reading</Text>
+            <Pressable onPress={() => navigate('/read/library')}>
+              <Text style={[styles.linkText, { color: palette.accent }]}>See all</Text>
+            </Pressable>
+          </View>
+          {activeDocument ? (
+            <MiniPlayer document={activeDocument} />
+          ) : (
+            <EmptyState title="No reading yet" body="Import a file, paste text, or add a link to create your first reading." actionLabel="Add content" onAction={() => navigate('/read/import')} />
+          )}
+        </View>
+
+        <View style={styles.sectionBlock}>
+          <Text style={[styles.sectionTitle, { color: palette.text }]}>Import content</Text>
+          <View style={styles.quickGrid}>
+            {importActions.map((action) => (
+              <QuickAction key={action.mode} {...action} onPress={(mode) => navigate(mode === 'file' || mode === 'paste' || mode === 'url' ? `/read/import?mode=${mode}` : '/read/import')} />
+            ))}
           </View>
         </View>
 
-        <View style={styles.panelSmall}>
-          <View style={styles.settingRow}>
-            <View style={styles.settingTextBlock}>
-              <Text style={styles.panelKicker}>Preferences</Text>
-              <Text style={styles.cardTitle}>Read automatically</Text>
-              <Text style={styles.bodyText}>New imports detect language, save to library, and open the reader when enabled.</Text>
-            </View>
-            <Switch value={readAutomatically} onValueChange={setReadAutomatically} />
-          </View>
-          <View style={styles.inlinePills}>
-            <Pill label="Auto language" tone="read" />
-            <Pill label={readAutomatically ? 'Auto-open reader' : 'Save first'} tone={readAutomatically ? 'read' : 'warning'} />
-          </View>
+        <View style={styles.metricsGrid}>
+          <MetricPill label="Saved" value={String(documents.length)} tone="blue" />
+          <MetricPill label="Done" value={String(completed)} tone="teal" />
+          <MetricPill label="Processing" value={String(processing)} tone="purple" />
         </View>
-      </View>
 
-      <View style={styles.metricsRow}>
-        <MetricCard value={String(documents.length)} label="Saved" />
-        <MetricCard value={String(completedCount)} label="Finished" />
-        <MetricCard value={activeReading ? `${safePct(activeReading.readingProgress)}%` : '0%'} label="Current" />
-      </View>
-
-      <View style={styles.qaGrid}>
-        <QuickActionCard label="Import document" detail="PDF, DOCX, TXT - up to 25 MB" tone="blue" onPress={() => navigate('/read/import')} />
-        <QuickActionCard label="Open reader" detail="Continue text or narration" tone="purple" onPress={() => navigate('/read/reader')} />
-        <QuickActionCard label="Create from content" detail="Read can feed future Create flows" tone="teal" onPress={() => navigate('/create')} />
-      </View>
-
-      <View style={styles.sectionHeader}>
-        <Text style={styles.sectionTitle}>Recently opened</Text>
-        <GhostButton label="View all" onPress={() => navigate('/read/library')} />
-      </View>
-      {activeReading ? (
-        <DocumentCard document={activeReading} />
-      ) : (
-        <EmptyState
-          title="Nothing open yet"
-          body="Import a file, paste text, or use a URL to create your first native Read item."
-          actionLabel="Add new content"
-          onAction={() => navigate('/read/import')}
-        />
-      )}
-    </ReadAppFrame>
+        <View style={styles.sectionBlock}>
+          <View style={styles.sectionHeaderRow}>
+            <Text style={[styles.sectionTitle, { color: palette.text }]}>Recently opened</Text>
+            <Pressable onPress={() => navigate('/read/library')}>
+              <Text style={[styles.linkText, { color: palette.accent }]}>Library</Text>
+            </Pressable>
+          </View>
+          {documents.length ? documents.slice(0, 4).map((document) => <DocumentListCard key={document.id} document={document} compact />) : null}
+        </View>
+      </ScrollView>
+    </AppShell>
   );
 }
 
@@ -476,37 +576,36 @@ export function ReadImportScreen() {
   const createFromUrl = useReadMobileStore((state) => state.createFromUrl);
   const createFromFile = useReadMobileStore((state) => state.createFromFile);
   const readAutomatically = useReadMobileStore((state) => state.readAutomatically);
-  const syncStatus = useReadMobileStore((state) => state.syncStatus);
-  const syncError = useReadMobileStore((state) => state.syncError);
-  const [title, setTitle] = useState('The Neuroscience of Deep Focus');
-  const [text, setText] = useState(sampleText);
+  const setReadAutomatically = useReadMobileStore((state) => state.setReadAutomatically);
   const [mode, setMode] = useState<ImportMode>('file');
+  const [title, setTitle] = useState('New reading');
+  const [text, setText] = useState(sampleText);
   const [url, setUrl] = useState('');
   const [fileName, setFileName] = useState<string | null>(null);
   const [importError, setImportError] = useState<string | null>(null);
   const [isImporting, setIsImporting] = useState(false);
+  const theme = useReadMobileStore((state) => state.readTheme);
+  const palette = paletteFor(theme);
 
   const trimmedText = text.trim();
-  const wordCount = useMemo(() => countWords(trimmedText), [trimmedText]);
-  const estimatedMinutes = Math.max(1, Math.ceil(wordCount / 170));
   const canGenerate = trimmedText.length >= 8;
+  const estimatedMinutes = readingMinutes(trimmedText || sampleText);
 
-  function openAfterImport(id: string) {
-    useReadMobileStore.getState().openDocument(id);
+  function openAfterImport(document: ReadDocument) {
+    useReadMobileStore.getState().openDocument(document.id);
     navigate(readAutomatically ? '/read/reader' : '/read/library');
   }
 
-  function generate() {
+  function generateFromText() {
     if (!canGenerate) return;
     setImportError(null);
     const document = createFromText({ title, text: trimmedText, language: 'auto' });
-    openAfterImport(document.id);
+    openAfterImport(document);
   }
 
   async function importFile() {
-    setIsImporting(true);
     setImportError(null);
-
+    setIsImporting(true);
     try {
       const result = await DocumentPicker.getDocumentAsync({
         copyToCacheDirectory: true,
@@ -524,7 +623,6 @@ export function ReadImportScreen() {
       if (result.canceled) return;
       const asset = result.assets?.[0];
       if (!asset?.uri) throw new Error('No readable file was selected.');
-
       const selectedName = asset.name || 'Imported document.txt';
       setFileName(selectedName);
       const document = await createFromFile({
@@ -533,7 +631,7 @@ export function ReadImportScreen() {
         mimeType: asset.mimeType ?? null,
         title: title?.trim() || selectedName.replace(/\.[^/.]+$/, ''),
       });
-      openAfterImport(document.id);
+      openAfterImport(document);
     } catch (error) {
       setImportError(error instanceof Error ? error.message : String(error));
     } finally {
@@ -543,11 +641,11 @@ export function ReadImportScreen() {
 
   async function importUrl() {
     if (!url.trim()) return;
-    setIsImporting(true);
     setImportError(null);
+    setIsImporting(true);
     try {
       const document = await createFromUrl({ title, url });
-      openAfterImport(document.id);
+      openAfterImport(document);
     } catch (error) {
       setImportError(error instanceof Error ? error.message : String(error));
     } finally {
@@ -556,270 +654,124 @@ export function ReadImportScreen() {
   }
 
   return (
-    <ReadAppFrame
-      active="import"
-      eyebrow="Read . Import"
-      title="Add new content"
-      subtitle="Import a PDF, paste text, or paste a URL. Content is saved to your library and opened in the reader."
-    >
-      <SyncBanner status={syncStatus} error={syncError} />
+    <AppShell active="import">
+      <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={styles.scrollScreen}>
+        <Header showBack title="Add content" subtitle="Import now, process in background" right={<Pressable accessibilityRole="button" onPress={() => navigate('/read/library')} style={[styles.pillButton, { backgroundColor: palette.surfaceSoft, borderColor: palette.border }]}><Text style={[styles.pillButtonText, { color: palette.text }]}>Library</Text></Pressable>} />
 
-      <View style={styles.uploadDropzone}>
-        <View style={styles.uploadIconRing}>
-          <Text style={styles.uploadIconText}>up</Text>
-        </View>
-        <Text style={styles.dropzoneTitle}>Drop a file here, or tap to browse</Text>
-        <Text style={styles.dropzoneSub}>Supports PDF . DOCX . TXT . EPUB - up to 25 MB</Text>
-        <WarmButton label={isImporting ? 'Importing...' : readAutomatically ? 'Choose file and open reader' : 'Choose file and save'} onPress={() => void importFile()} disabled={isImporting} />
-        {fileName ? <Text style={styles.helpText}>Selected: {fileName}</Text> : null}
-      </View>
-
-      <View style={styles.sourceGrid}>
-        {importChannels.map((channel) => (
-          <ImportChannelCard
-            key={channel.mode}
-            mode={channel.mode}
-            label={channel.label}
-            detail={channel.detail}
-            activeMode={mode}
-            onPress={() => setMode(channel.mode)}
-          />
-        ))}
-      </View>
-
-      {mode === 'paste' ? (
-        <View style={styles.card}>
-          <Text style={styles.cardTitle}>Paste text</Text>
-          <Text style={styles.bodyText}>Save pasted content to your library or open it directly in the reader.</Text>
-          <Text style={styles.label}>Title</Text>
-          <TextInput value={title} onChangeText={setTitle} style={styles.input} placeholder="Reading title" placeholderTextColor="rgba(255,255,255,0.36)" />
-          <Text style={styles.label}>Text</Text>
-          <TextInput
-            value={text}
-            onChangeText={setText}
-            multiline
-            style={[styles.input, styles.textArea]}
-            placeholder="Paste text here"
-            placeholderTextColor="rgba(255,255,255,0.36)"
-            textAlignVertical="top"
-          />
-          <View style={styles.inlinePills}>
-            <Pill label={`${wordCount} words`} tone="read" />
-            <Pill label={`About ${estimatedMinutes} min`} tone="read" />
-            <Pill label={readAutomatically ? 'Open in reader' : 'Save to library'} tone={readAutomatically ? 'read' : 'warning'} />
+        <View style={[styles.dropZone, { backgroundColor: palette.surface, borderColor: palette.borderStrong }]}>
+          <View style={[styles.bookIcon, { backgroundColor: cardTone('purple', palette).backgroundColor, borderColor: cardTone('purple', palette).borderColor }]}>
+            <Text style={[styles.bookIconText, { color: palette.accent }]}>book</Text>
           </View>
-          <View style={styles.buttonRow}>
-            <PrimaryButton label="Save to library" onPress={generate} disabled={!canGenerate} />
-            <SecondaryButton label="Open in reader" onPress={generate} disabled={!canGenerate} />
-          </View>
-          {!canGenerate ? <Text style={styles.helpText}>Paste at least a short paragraph to generate a reading.</Text> : null}
+          <Text style={[styles.dropTitle, { color: palette.text }]}>Drop or choose a file</Text>
+          <Text style={[styles.dropBody, { color: palette.muted }]}>PDF, EPUB, DOCX, TXT and more. Floently creates a reading item immediately.</Text>
+          <PrimaryButton label={isImporting ? 'Opening picker...' : 'Choose file'} onPress={() => void importFile()} disabled={isImporting} />
+          {fileName ? <Text numberOfLines={2} style={[styles.fileName, { color: palette.muted }]}>Selected: {fileName}</Text> : null}
         </View>
-      ) : null}
 
-      {mode === 'url' ? (
-        <View style={styles.card}>
-          <Text style={styles.cardTitle}>Paste URL</Text>
-          <Text style={styles.bodyText}>Import a public article or web page. Floently saves the readable text to your library.</Text>
-          <Text style={styles.label}>Web link</Text>
-          <TextInput
-            value={url}
-            onChangeText={setUrl}
-            autoCapitalize="none"
-            keyboardType="url"
-            style={styles.input}
-            placeholder="https://example.com/article"
-            placeholderTextColor="rgba(255,255,255,0.36)"
-          />
-          <View style={styles.buttonRow}>
-            <PrimaryButton label={isImporting ? 'Importing...' : 'Save to library'} onPress={() => void importUrl()} disabled={isImporting || !url.trim()} />
-            <SecondaryButton label={isImporting ? 'Importing...' : 'Open in reader'} onPress={() => void importUrl()} disabled={isImporting || !url.trim()} />
+        <View style={styles.autoRow}>
+          <View style={styles.autoTextWrap}>
+            <Text style={[styles.cardTitle, { color: palette.text }]}>Read automatically after import</Text>
+            <Text style={[styles.cardBody, { color: palette.muted }]}>Open the reader as soon as a local item is created.</Text>
           </View>
-          {importError ? <Text style={styles.errorText}>{importError}</Text> : null}
+          <Switch value={readAutomatically} onValueChange={setReadAutomatically} />
         </View>
-      ) : null}
 
-      {mode === 'file' ? (
-        <View style={styles.cardMuted}>
-          <Text style={styles.cardTitle}>Native document upload</Text>
-          <Text style={styles.bodyText}>The mobile upload uses the native iOS/Android document picker while matching the web dropzone structure.</Text>
-          <View style={styles.inlinePills}>
-            <Pill label="PDF" tone="read" />
-            <Pill label="DOCX" tone="read" />
-            <Pill label="TXT" tone="read" />
-            <Pill label="EPUB" tone="read" />
-          </View>
-          {importError ? <Text style={styles.errorText}>{importError}</Text> : null}
+        <View style={styles.importGrid}>
+          {importActions.map((action) => (
+            <Pressable
+              accessibilityRole="button"
+              key={action.mode}
+              onPress={() => setMode(action.mode)}
+              style={[styles.importOption, { backgroundColor: palette.surfaceRaised, borderColor: mode === action.mode ? palette.borderStrong : palette.border }]}
+            >
+              <Text style={[styles.importOptionIcon, { color: action.soon ? palette.warning : palette.accent }]}>{action.icon}</Text>
+              <View style={styles.importOptionText}>
+                <Text style={[styles.importOptionTitle, { color: palette.text }]}>{action.label}</Text>
+                <Text style={[styles.importOptionBody, { color: palette.muted }]}>{action.soon ? 'Coming soon' : action.detail}</Text>
+              </View>
+            </Pressable>
+          ))}
         </View>
-      ) : null}
-    </ReadAppFrame>
+
+        {mode === 'paste' ? (
+          <View style={[styles.panel, { backgroundColor: palette.surface, borderColor: palette.border }]}>
+            <Text style={[styles.cardTitle, { color: palette.text }]}>Paste text</Text>
+            <TextInput value={title} onChangeText={setTitle} style={[styles.input, { backgroundColor: palette.surfaceSoft, borderColor: palette.border, color: palette.text }]} placeholder="Reading title" placeholderTextColor={palette.faint} />
+            <TextInput value={text} onChangeText={setText} multiline style={[styles.input, styles.textArea, { backgroundColor: palette.surfaceSoft, borderColor: palette.border, color: palette.text }]} placeholder="Paste text here" placeholderTextColor={palette.faint} textAlignVertical="top" />
+            <View style={styles.inlineRow}>
+              <MetricPill label="Words" value={String(countWords(trimmedText))} tone="blue" />
+              <MetricPill label="Minutes" value={String(estimatedMinutes)} tone="purple" />
+            </View>
+            <PrimaryButton label="Save and open" onPress={generateFromText} disabled={!canGenerate} />
+          </View>
+        ) : null}
+
+        {mode === 'url' ? (
+          <View style={[styles.panel, { backgroundColor: palette.surface, borderColor: palette.border }]}>
+            <Text style={[styles.cardTitle, { color: palette.text }]}>Paste URL</Text>
+            <TextInput value={title} onChangeText={setTitle} style={[styles.input, { backgroundColor: palette.surfaceSoft, borderColor: palette.border, color: palette.text }]} placeholder="Reading title" placeholderTextColor={palette.faint} />
+            <TextInput value={url} onChangeText={setUrl} autoCapitalize="none" keyboardType="url" style={[styles.input, { backgroundColor: palette.surfaceSoft, borderColor: palette.border, color: palette.text }]} placeholder="https://example.com/article" placeholderTextColor={palette.faint} />
+            <PrimaryButton label={isImporting ? 'Creating item...' : 'Save and open'} onPress={() => void importUrl()} disabled={isImporting || !url.trim()} />
+          </View>
+        ) : null}
+
+        {(mode === 'scan' || mode === 'record') ? (
+          <View style={[styles.panel, cardTone('amber', palette)]}>
+            <Text style={[styles.cardTitle, { color: palette.text }]}>{mode === 'scan' ? 'Scan document' : 'Record audio'}</Text>
+            <Text style={[styles.cardBody, { color: palette.muted }]}>This entry is designed into the app now and will be connected after the reader/import foundation is stable.</Text>
+          </View>
+        ) : null}
+
+        {importError ? <Text style={[styles.errorText, { color: palette.danger }]}>{importError}</Text> : null}
+      </ScrollView>
+    </AppShell>
   );
 }
 
 export function ReadLibraryScreen() {
   const documents = useReadMobileStore((state) => state.documents);
-  const syncStatus = useReadMobileStore((state) => state.syncStatus);
-  const syncError = useReadMobileStore((state) => state.syncError);
   const refreshLibrary = useReadMobileStore((state) => state.refreshLibrary);
+  const [query, setQuery] = useState('');
+  const theme = useReadMobileStore((state) => state.readTheme);
+  const palette = paletteFor(theme);
 
   useEffect(() => {
     void refreshLibrary();
   }, [refreshLibrary]);
 
-  return (
-    <ReadAppFrame
-      active="library"
-      eyebrow="Read . Library"
-      title="Continue reading"
-      subtitle="All your saved documents, articles, PDFs, and web pages in one place."
-    >
-      <SyncBanner status={syncStatus} error={syncError} onRefresh={() => void refreshLibrary()} />
-      <View style={styles.qaGrid}>
-        <QuickActionCard label="Import document" detail="PDF, DOCX, TXT - up to 25 MB" tone="blue" onPress={() => navigate('/read/import')} />
-        <QuickActionCard label="Open reader" detail="Pasted text or saved document" tone="purple" onPress={() => navigate('/read/reader')} />
-        <QuickActionCard label="Create from content" detail="Turn saved material into assets" tone="teal" onPress={() => navigate('/create')} />
-      </View>
-      <View style={styles.sectionHeader}>
-        <Text style={styles.sectionTitle}>All projects</Text>
-        <GhostButton label="Refresh" onPress={() => void refreshLibrary()} />
-      </View>
-      {documents.length ? (
-        <View style={styles.documentList}>
-          {documents.map((document) => <DocumentCard key={document.id} document={document} />)}
-        </View>
-      ) : (
-        <EmptyState
-          title="Your Read library is empty"
-          body="Import text now. This screen holds books, files, web articles, and saved reading progress."
-          actionLabel="Import first reading"
-          onAction={() => navigate('/read/import')}
-        />
-      )}
-    </ReadAppFrame>
-  );
-}
-
-function CircularProgress({ progress }: { progress: number }) {
-  const size = 126;
-  const stroke = 9;
-  const radius = (size - stroke) / 2;
-  const circumference = 2 * Math.PI * radius;
-  const safeProgress = Math.max(0, Math.min(1, progress));
-  const dashOffset = circumference * (1 - safeProgress);
+  const filtered = documents.filter((document) => document.title.toLowerCase().includes(query.trim().toLowerCase()));
 
   return (
-    <View style={styles.progressWrap}>
-      <View style={styles.progressHalo} />
-      <Svg width={size} height={size} style={styles.progressSvg}>
-        <Circle cx={size / 2} cy={size / 2} r={radius} stroke="rgba(255,255,255,0.10)" strokeWidth={stroke} fill="none" />
-        <Circle
-          cx={size / 2}
-          cy={size / 2}
-          r={radius}
-          stroke="#7BA3FF"
-          strokeWidth={stroke}
-          fill="none"
-          strokeDasharray={`${circumference} ${circumference}`}
-          strokeDashoffset={dashOffset}
-          strokeLinecap="round"
-          rotation="-90"
-          originX={size / 2}
-          originY={size / 2}
-        />
-      </Svg>
-      <View style={styles.progressCenter}>
-        <Text style={styles.progressNumber}>{safePct(safeProgress)}%</Text>
-        <Text style={styles.progressLabel}>read</Text>
-      </View>
-    </View>
-  );
-}
-
-function Waveform({ active }: { active: boolean }) {
-  const bars = [12, 20, 14, 28, 16, 24, 18, 31, 14, 23, 17, 26, 13, 22, 18, 30];
-  const motion = useRef(new Animated.Value(0)).current;
-
-  useEffect(() => {
-    if (!active) {
-      motion.stopAnimation();
-      motion.setValue(0);
-      return;
-    }
-    const loop = Animated.loop(
-      Animated.timing(motion, {
-        toValue: 1,
-        duration: 950,
-        easing: Easing.inOut(Easing.sin),
-        useNativeDriver: true,
-      }),
-    );
-    loop.start();
-    return () => loop.stop();
-  }, [active, motion]);
-
-  const scale = motion.interpolate({ inputRange: [0, 0.5, 1], outputRange: [0.55, 1.05, 0.55] });
-
-  return (
-    <View style={styles.waveform}>
-      {bars.map((height, index) => (
-        <Animated.View
-          key={`${height}-${index}`}
-          style={[
-            styles.waveBar,
-            { height, opacity: active ? 0.95 : 0.45, transform: [{ scaleY: index % 2 === 0 ? scale : 1 }] },
-          ]}
-        />
-      ))}
-    </View>
-  );
-}
-
-function ReaderSidePanel({ document, onSpeed }: { document: ReadDocument; onSpeed: (speed: number) => void }) {
-  return (
-    <View style={styles.readerSidePanel}>
-      <View style={styles.sideSection}>
-        <Text style={styles.sideLabel}>Voice</Text>
-        <View style={styles.selectBox}>
-          <Text style={styles.selectText}>Aria - Natural</Text>
-        </View>
-      </View>
-      <View style={styles.sideSection}>
-        <View style={styles.sideRowBetween}>
-          <Text style={styles.sideLabel}>Speed</Text>
-          <Text style={styles.speedValue}>{document.playbackSpeed.toFixed(1)}x</Text>
-        </View>
-        <View style={styles.speedButtons}>
-          {[0.8, 1.0, 1.2, 1.5].map((speed) => (
-            <Pressable key={speed} onPress={() => onSpeed(speed)} style={[styles.speedButton, Math.abs(document.playbackSpeed - speed) < 0.01 && styles.speedButtonActive]}>
-              <Text style={[styles.speedButtonText, Math.abs(document.playbackSpeed - speed) < 0.01 && styles.speedButtonTextActive]}>{speed.toFixed(1)}x</Text>
-            </Pressable>
+    <AppShell active="library">
+      <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={styles.scrollScreen}>
+        <Header showBack title="Library" subtitle={`${documents.length} saved items`} right={<Pressable accessibilityRole="button" onPress={() => navigate('/read/import')} style={[styles.iconButton, { backgroundColor: palette.accent, borderColor: palette.accent }]}><Text style={[styles.iconMini, { color: palette.accentText }]}>+</Text></Pressable>} />
+        <TextInput value={query} onChangeText={setQuery} style={[styles.searchInput, { backgroundColor: palette.surface, borderColor: palette.border, color: palette.text }]} placeholder="Search your readings" placeholderTextColor={palette.faint} />
+        <View style={styles.filterRow}>
+          {['All', 'Books', 'Articles', 'Notes', 'Processing'].map((label) => (
+            <View key={label} style={[styles.filterChip, { backgroundColor: label === 'All' ? palette.accent : palette.surfaceSoft, borderColor: label === 'All' ? palette.accent : palette.border }]}>
+              <Text style={[styles.filterText, { color: label === 'All' ? palette.accentText : palette.muted }]}>{label}</Text>
+            </View>
           ))}
         </View>
-      </View>
-      <View style={styles.sideSection}>
-        <Text style={styles.sideLabel}>Font size</Text>
-        <View style={styles.hmButtons}>
-          <Text style={styles.hmButton}>A</Text>
-          <Text style={[styles.hmButton, styles.hmButtonActive]}>A</Text>
-          <Text style={[styles.hmButton, styles.hmButtonLarge]}>A</Text>
-        </View>
-      </View>
-      <View style={styles.sideSection}>
-        <Text style={styles.sideLabel}>Highlight mode</Text>
-        <View style={styles.hmButtons}>
-          <Text style={styles.hmButton}>None</Text>
-          <Text style={[styles.hmButton, styles.hmButtonActive]}>Sentence</Text>
-          <Text style={styles.hmButton}>Word</Text>
-        </View>
-      </View>
-      <View style={styles.sideSection}>
-        <Text style={styles.sideLabel}>Display</Text>
-        {['Auto-scroll', 'Dim others', 'Focus mode', 'Dark reader'].map((label, index) => (
-          <View key={label} style={styles.toggleRowMini}>
-            <Text style={styles.toggleLabelMini}>{label}</Text>
-            <View style={[styles.toggleMini, index !== 2 && styles.toggleMiniOn]} />
-          </View>
-        ))}
-      </View>
+        {filtered.length ? filtered.map((document) => <DocumentListCard key={document.id} document={document} />) : <EmptyState title="Library is empty" body="Import a file, paste text, or add a URL. New items appear here instantly." actionLabel="Add content" onAction={() => navigate('/read/import')} />}
+      </ScrollView>
+    </AppShell>
+  );
+}
+
+function ReaderText({ document }: { document: ReadDocument }) {
+  const theme = useReadMobileStore((state) => state.readTheme);
+  const palette = paletteFor(theme);
+  const paragraphs = document.generatedText.split(/\n{2,}|(?<=[.!?])\s+(?=[A-Z])/).filter(Boolean);
+  return (
+    <View style={[styles.readerPaper, { backgroundColor: palette.readerPaper, borderColor: palette.border }]}>
+      <Text style={[styles.readerChapter, { color: palette.readerMuted }]}>Chapter 1</Text>
+      <Text style={[styles.readerTitle, { color: palette.readerText }]}>{document.title}</Text>
+      {paragraphs.slice(0, 12).map((paragraph, index) => (
+        <Text key={`${paragraph.slice(0, 16)}-${index}`} style={[styles.readerParagraph, { color: palette.readerText }, index === 0 && { backgroundColor: palette.key === 'dark' ? 'rgba(139,92,246,0.16)' : 'rgba(139,92,246,0.10)', borderColor: palette.borderStrong }]}>
+          {paragraph.trim()}
+        </Text>
+      ))}
     </View>
   );
 }
@@ -833,6 +785,8 @@ export function ReadReaderScreen() {
   const [audioState, setAudioState] = useState<AudioPlaybackState>('idle');
   const [audioError, setAudioError] = useState<string | null>(null);
   const [audioResult, setAudioResult] = useState<ReadTtsResult | null>(null);
+  const theme = useReadMobileStore((state) => state.readTheme);
+  const palette = paletteFor(theme);
 
   useEffect(() => {
     void setAudioModeAsync({ playsInSilentMode: true });
@@ -840,7 +794,7 @@ export function ReadReaderScreen() {
 
   useEffect(() => {
     if (!document) return;
-    player.playbackRate = document.playbackSpeed;
+    setPlayerPlaybackRate(player, document.playbackSpeed);
   }, [document, player]);
 
   useEffect(() => {
@@ -859,28 +813,26 @@ export function ReadReaderScreen() {
     }
   }, [audioResult, audioState, playbackStatus.playing]);
 
-  const timeLabel = useMemo(() => {
-    if (!document) return '00:00 / 00:00';
-    const estimatedTotalSeconds = Math.max(20, Math.ceil(document.generatedText.length / 12));
-    const totalSeconds = playbackStatus.duration > 0 ? Math.ceil(playbackStatus.duration) : estimatedTotalSeconds;
-    const currentSeconds = playbackStatus.duration > 0
-      ? Math.floor(playbackStatus.currentTime)
-      : Math.floor(totalSeconds * document.readingProgress);
-    const format = (seconds: number) => `${String(Math.floor(seconds / 60)).padStart(2, '0')}:${String(seconds % 60).padStart(2, '0')}`;
-    return `${format(currentSeconds)} / ${format(totalSeconds)}`;
-  }, [document, playbackStatus.currentTime, playbackStatus.duration]);
-
   const displayedProgress = useMemo(() => {
     if (!document) return 0;
     if (playbackStatus.duration > 0) return Math.max(0, Math.min(1, playbackStatus.currentTime / playbackStatus.duration));
     return document.readingProgress;
   }, [document, playbackStatus.currentTime, playbackStatus.duration]);
 
+  const timeLabel = useMemo(() => {
+    if (!document) return '00:00 / 00:00';
+    const estimatedTotalSeconds = Math.max(30, Math.ceil(document.generatedText.length / 12));
+    const totalSeconds = playbackStatus.duration > 0 ? Math.ceil(playbackStatus.duration) : estimatedTotalSeconds;
+    const currentSeconds = playbackStatus.duration > 0 ? Math.floor(playbackStatus.currentTime) : Math.floor(totalSeconds * displayedProgress);
+    const format = (seconds: number) => `${String(Math.floor(seconds / 60)).padStart(2, '0')}:${String(seconds % 60).padStart(2, '0')}`;
+    return `${format(currentSeconds)} / ${format(totalSeconds)}`;
+  }, [displayedProgress, document, playbackStatus.currentTime, playbackStatus.duration]);
+
   async function generateAndPlayAudio() {
-    if (!document) return;
+    if (!document || document.status === 'processing') return;
 
     if (audioResult?.audioUrl) {
-      player.playbackRate = document.playbackSpeed;
+      setPlayerPlaybackRate(player, document.playbackSpeed);
       player.play();
       setAudioState('playing');
       return;
@@ -890,10 +842,11 @@ export function ReadReaderScreen() {
     setAudioError(null);
 
     try {
-      const result = await readTtsApi.prerenderReading({ text: document.generatedText, language: document.language });
+      const ttsText = document.generatedText.slice(0, 4000);
+      const result = await readTtsApi.prerenderReading({ text: ttsText, language: document.language });
       setAudioResult(result);
       player.replace(result.audioUrl);
-      player.playbackRate = document.playbackSpeed;
+      setPlayerPlaybackRate(player, document.playbackSpeed);
       player.play();
       setAudioState('playing');
     } catch (error) {
@@ -909,133 +862,181 @@ export function ReadReaderScreen() {
 
   function replayAudio() {
     void player.seekTo(0);
-    player.playbackRate = document?.playbackSpeed ?? 1;
+    if (document) setPlayerPlaybackRate(player, document.playbackSpeed);
     player.play();
     setAudioState('playing');
   }
 
   if (!document) {
     return (
-      <ReadAppFrame active="reader" eyebrow="Reader" title="Nothing open yet" subtitle="Load an article, paste text, or open something from your library to start reading and listening.">
-        <EmptyState title="Nothing open yet" body="Import or paste text to open the native reader." actionLabel="Import" onAction={() => navigate('/read/import')} />
-      </ReadAppFrame>
+      <AppShell active="reader">
+        <ScrollView contentContainerStyle={styles.scrollScreen}>
+          <Header showBack title="Reader" subtitle="Nothing open yet" />
+          <EmptyState title="Nothing open yet" body="Import a file, paste text, or open something from your library to start reading." actionLabel="Add content" onAction={() => navigate('/read/import')} />
+        </ScrollView>
+      </AppShell>
     );
   }
 
   const isPreparing = audioState === 'preparing' || playbackStatus.isBuffering;
   const isPlaying = audioState === 'playing' || playbackStatus.playing;
-  const sentences = document.generatedText.split(/(?<=[.!?])\s+/).filter(Boolean);
+  const isProcessing = document.status === 'processing';
 
   return (
-    <ReadAppFrame active="reader" eyebrow="Reader" title={document.title} subtitle={`${sentences.length || 1} sentences . ${document.detectedLanguageLabel} . ${readingMinutes(document.generatedText)} min read`}>
-      <View style={styles.readerLayout}>
-        <View style={styles.readerMain}>
-          <Text style={styles.docTitle}>{document.title}</Text>
-          <Text style={styles.docMeta}>{sentences.length || 1} sentences . {document.detectedLanguageLabel} . {readingMinutes(document.generatedText)} min read</Text>
-          <View style={styles.docDivider} />
-          <Text style={styles.readerText}>{document.generatedText}</Text>
-        </View>
-        <ReaderSidePanel document={document} onSpeed={(speed) => setPlaybackSpeed(document.id, speed)} />
-      </View>
-
-      <View style={styles.playerDock}>
-        <View style={styles.playerTopRow}>
-          <View style={styles.playerThumb}><Text style={styles.playerThumbText}>R</Text></View>
-          <View style={styles.playerInfo}>
-            <Text numberOfLines={1} style={styles.playerTitle}>{document.title}</Text>
-            <Text style={styles.playerSub}>Aria . {document.playbackSpeed.toFixed(1)}x . {timeLabel}</Text>
+    <AppShell active="reader" showBottomNav={false}>
+      <View style={[styles.readerScreen, { backgroundColor: palette.background }]}>
+        <Header showBack title={document.title} subtitle={`${sourceLabel(document)} • ${document.detectedLanguageLabel}`} right={<Pressable accessibilityRole="button" onPress={() => navigate('/read/settings')} style={[styles.iconButton, { backgroundColor: palette.surfaceSoft, borderColor: palette.border }]}><Text style={[styles.iconMini, { color: palette.text }]}>Aa</Text></Pressable>} />
+        <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={styles.readerScroll}>
+          {isProcessing ? (
+            <View style={[styles.processingReader, { backgroundColor: palette.surface, borderColor: palette.borderStrong }]}>
+              <ActivityIndicator color={palette.accent} />
+              <Text style={[styles.processingTitle, { color: palette.text }]}>Preparing your reading</Text>
+              <Text style={[styles.processingBody, { color: palette.muted }]}>{document.statusMessage || 'Extracting text and preparing audio in the background.'}</Text>
+              <ProgressBar progress={0.62} />
+              <SecondaryButton label="Open library" onPress={() => navigate('/read/library')} />
+            </View>
+          ) : (
+            <ReaderText document={document} />
+          )}
+        </ScrollView>
+        <View style={[styles.readerDock, { backgroundColor: palette.nav, borderColor: palette.border, shadowColor: palette.shadow }]}>
+          <View style={styles.readerDockTop}>
+            <Text style={[styles.readerTime, { color: palette.muted }]}>{timeLabel}</Text>
+            <Text style={[styles.readerTime, { color: palette.muted }]}>{safePct(displayedProgress)}%</Text>
           </View>
-          <Text style={styles.playerTime}>{safePct(displayedProgress)}%</Text>
-        </View>
-        <View style={styles.playerControls}>
-          <Pressable accessibilityRole="button" onPress={() => updateProgress(document.id, Math.max(0, document.readingProgress - 0.1))} style={styles.plButton}>
-            <Text style={styles.plButtonText}>-10</Text>
-          </Pressable>
-          <Pressable accessibilityRole="button" onPress={isPlaying ? pauseAudio : generateAndPlayAudio} disabled={isPreparing} style={[styles.playButton, isPreparing && styles.buttonDisabled]}>
-            <Text style={styles.playButtonText}>{isPreparing ? '...' : isPlaying ? 'Pause' : audioResult ? 'Play' : 'Listen'}</Text>
-          </Pressable>
-          <Pressable accessibilityRole="button" onPress={replayAudio} disabled={!audioResult || isPreparing} style={[styles.plButton, (!audioResult || isPreparing) && styles.buttonDisabled]}>
-            <Text style={styles.plButtonText}>Replay</Text>
-          </Pressable>
-        </View>
-        <Waveform active={isPlaying || isPreparing} />
-        <View style={styles.progressTrackTall}>
-          <View style={[styles.progressFill, { width: `${safePct(displayedProgress)}%` }]} />
-        </View>
-        <View style={styles.playerBottomRow}>
-          <Text style={styles.compactMeta}>{timeLabel}</Text>
-          <Pressable onPress={() => setPlaybackSpeed(document.id, document.playbackSpeed >= 1.5 ? 1 : document.playbackSpeed + 0.1)} style={styles.speedChip}>
-            <Text style={styles.speedChipText}>{document.playbackSpeed.toFixed(1)}x</Text>
-          </Pressable>
-          <SecondaryButton label="Library" onPress={() => navigate('/read/library')} />
-        </View>
-        {audioError ? <Text style={styles.errorText}>{audioError}</Text> : null}
-      </View>
-
-      <View style={styles.readerProgressCard}>
-        <CircularProgress progress={displayedProgress} />
-        <View style={styles.readerProgressCopy}>
-          <Text style={styles.cardTitle}>Progress</Text>
-          <Text style={styles.bodyText}>Est. {Math.max(1, readingMinutes(document.generatedText) - Math.round(readingMinutes(document.generatedText) * displayedProgress))} min remaining.</Text>
-          <View style={styles.buttonRow}>
-            <GhostButton label="25%" onPress={() => updateProgress(document.id, 0.25)} />
-            <GhostButton label="50%" onPress={() => updateProgress(document.id, 0.5)} />
-            <GhostButton label="Done" onPress={() => updateProgress(document.id, 1)} />
+          <ProgressBar progress={displayedProgress} height={4} />
+          <View style={styles.readerControls}>
+            <Pressable accessibilityRole="button" onPress={() => updateProgress(document.id, Math.max(0, document.readingProgress - 0.1))} style={[styles.roundControl, { backgroundColor: palette.surfaceSoft, borderColor: palette.border }]}>
+              <Text style={[styles.roundControlText, { color: palette.text }]}>-10</Text>
+            </Pressable>
+            <Pressable accessibilityRole="button" onPress={isPlaying ? pauseAudio : generateAndPlayAudio} disabled={isPreparing || isProcessing} style={[styles.mainPlay, { backgroundColor: palette.accent }, (isPreparing || isProcessing) && styles.disabled]}>
+              <Text style={[styles.mainPlayText, { color: palette.accentText }]}>{isPreparing ? '...' : isPlaying ? 'Pause' : 'Play'}</Text>
+            </Pressable>
+            <Pressable accessibilityRole="button" onPress={replayAudio} disabled={!audioResult || isPreparing || isProcessing} style={[styles.roundControl, { backgroundColor: palette.surfaceSoft, borderColor: palette.border }, (!audioResult || isPreparing || isProcessing) && styles.disabled]}>
+              <Text style={[styles.roundControlText, { color: palette.text }]}>Replay</Text>
+            </Pressable>
           </View>
+          <View style={styles.readerDockBottom}>
+            <SecondaryButton label={`Voice`} onPress={() => navigate('/read/settings')} />
+            <SecondaryButton label={`${document.playbackSpeed.toFixed(1)}x`} onPress={() => setPlaybackSpeed(document.id, document.playbackSpeed >= 1.5 ? 1 : document.playbackSpeed + 0.1)} />
+            <SecondaryButton label={document.detectedLanguageLabel} onPress={() => navigate('/read/settings')} />
+          </View>
+          {audioError ? <Text style={[styles.errorText, { color: palette.danger }]}>{audioError}</Text> : null}
         </View>
       </View>
-    </ReadAppFrame>
+    </AppShell>
   );
 }
 
-const READ_PLANS: Array<{
-  id: ReadStorePlanId;
-  title: string;
-  priceHint: string;
-  body: string;
-  platformNote?: string;
-}> = [
-  { id: 'reader_monthly', title: 'Reader Monthly', priceHint: '11.99 EUR / month', body: 'Read, listen, import text, and continue your library across sessions.' },
-  { id: 'reader_yearly', title: 'Reader Yearly', priceHint: '119.90 EUR / year', body: 'Annual Reader access for reading, listening, and document practice.', platformNote: 'Android yearly is added after the RevenueCat compatibility warning is cleared; iOS yearly is ready.' },
-  { id: 'creator_monthly', title: 'Creator Monthly', priceHint: '29.99 EUR / month', body: 'Creator-tier access for Read content tools, summaries, captions, and hooks as they are enabled.' },
-  { id: 'creator_yearly', title: 'Creator Yearly', priceHint: '299.90 EUR / year', body: 'Annual Creator access for Read content tools and richer creator workflows.', platformNote: 'Android yearly is added after the RevenueCat compatibility warning is cleared; iOS yearly is ready.' },
-];
+export function ReadSettingsScreen() {
+  const readAutomatically = useReadMobileStore((state) => state.readAutomatically);
+  const setReadAutomatically = useReadMobileStore((state) => state.setReadAutomatically);
+  const readTheme = useReadMobileStore((state) => state.readTheme);
+  const setReadTheme = useReadMobileStore((state) => state.setReadTheme);
+  const activeDocument = useActiveReadDocument();
+  const setPlaybackSpeed = useReadMobileStore((state) => state.setPlaybackSpeed);
+  const theme = useReadMobileStore((state) => state.readTheme);
+  const palette = paletteFor(theme);
+
+  return (
+    <AppShell active="settings">
+      <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={styles.scrollScreen}>
+        <Header showBack title="Reader settings" subtitle="Appearance, speed, import behavior" />
+        <View style={[styles.panel, { backgroundColor: palette.surface, borderColor: palette.border }]}>
+          <Text style={[styles.sectionTitle, { color: palette.text }]}>Appearance</Text>
+          <View style={styles.themeGrid}>
+            {([
+              ['light', 'Light'],
+              ['sepia', 'Sepia'],
+              ['dark', 'Dark'],
+              ['ink', 'Ink'],
+            ] as Array<[ReadTheme, string]>).map(([key, label]) => (
+              <Pressable key={key} onPress={() => setReadTheme(key)} style={[styles.themeCard, { backgroundColor: paletteFor(key).surface, borderColor: readTheme === key ? palette.accent : palette.border }]}>
+                <Text style={[styles.themeAa, { color: paletteFor(key).text }]}>Aa</Text>
+                <Text style={[styles.themeLabel, { color: paletteFor(key).muted }]}>{label}</Text>
+              </Pressable>
+            ))}
+          </View>
+        </View>
+        <View style={[styles.panel, { backgroundColor: palette.surface, borderColor: palette.border }]}>
+          <View style={styles.autoRowInner}>
+            <View style={styles.autoTextWrap}>
+              <Text style={[styles.cardTitle, { color: palette.text }]}>Read automatically after import</Text>
+              <Text style={[styles.cardBody, { color: palette.muted }]}>Open new imports in the reader immediately.</Text>
+            </View>
+            <Switch value={readAutomatically} onValueChange={setReadAutomatically} />
+          </View>
+          {activeDocument ? (
+            <View style={styles.speedRow}>
+              {[0.8, 1.0, 1.2, 1.5].map((speed) => (
+                <Pressable key={speed} onPress={() => setPlaybackSpeed(activeDocument.id, speed)} style={[styles.speedChip, { backgroundColor: Math.abs(activeDocument.playbackSpeed - speed) < 0.01 ? palette.accent : palette.surfaceSoft, borderColor: Math.abs(activeDocument.playbackSpeed - speed) < 0.01 ? palette.accent : palette.border }]}>
+                  <Text style={[styles.speedChipText, { color: Math.abs(activeDocument.playbackSpeed - speed) < 0.01 ? palette.accentText : palette.text }]}>{speed.toFixed(1)}x</Text>
+                </Pressable>
+              ))}
+            </View>
+          ) : null}
+        </View>
+      </ScrollView>
+    </AppShell>
+  );
+}
+
+export function ReadAnalyticsScreen() {
+  const documents = useReadMobileStore((state) => state.documents);
+  const theme = useReadMobileStore((state) => state.readTheme);
+  const palette = paletteFor(theme);
+  const totalWords = documents.reduce((sum, document) => sum + countWords(document.generatedText), 0);
+  const averageProgress = documents.length ? documents.reduce((sum, document) => sum + document.readingProgress, 0) / documents.length : 0;
+
+  return (
+    <AppShell active="analytics">
+      <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={styles.scrollScreen}>
+        <Header showBack title="Reading analytics" subtitle="Progress, library health, and activity" />
+        <View style={styles.analyticsGrid}>
+          <MetricPill label="Documents" value={String(documents.length)} tone="blue" />
+          <MetricPill label="Words" value={String(totalWords)} tone="purple" />
+          <MetricPill label="Average" value={`${safePct(averageProgress)}%`} tone="teal" />
+        </View>
+        <View style={[styles.panel, { backgroundColor: palette.surface, borderColor: palette.border }]}>
+          <ProgressRing progress={averageProgress} size={116} />
+          <Text style={[styles.cardTitle, { color: palette.text }]}>Library health</Text>
+          <Text style={[styles.cardBody, { color: palette.muted }]}>Analytics are now represented in the native app. Detailed weekly trends can be connected after the reader foundation is stable.</Text>
+        </View>
+      </ScrollView>
+    </AppShell>
+  );
+}
 
 type ReadRevenueCatSyncSource = {
-  readAccess: boolean;
-  creatorAccess: boolean;
-  activeEntitlements: string[];
+  readAccess?: boolean;
+  creatorAccess?: boolean;
+  activeEntitlements?: string[];
   packageId?: string | null;
+  productId?: string | null;
+  planId?: string | null;
   platform?: string | null;
   status?: string | null;
 };
 
-function getReadPurchasePackageId(value: unknown): ReadStorePlanId | null {
-  if (!value || typeof value !== 'object') return null;
-  const record = value as { packageId?: unknown; productId?: unknown; planId?: unknown };
-  const raw = record.packageId ?? record.productId ?? record.planId;
-  if (typeof raw !== 'string') return null;
-  const normalized = raw.trim();
+function getReadPurchasePackageId(source: ReadRevenueCatSyncSource): ReadStorePlanId | null {
+  const normalized = String(source.packageId || source.planId || source.productId || '').trim();
   if (normalized === 'reader_monthly' || normalized === 'reader_yearly' || normalized === 'creator_monthly' || normalized === 'creator_yearly') return normalized;
   return null;
 }
 
 async function syncReadPurchaseToBackend(result: ReadRevenueCatSyncSource, planId?: ReadStorePlanId | null): Promise<boolean> {
-  const activeEntitlements = Array.isArray(result.activeEntitlements) ? result.activeEntitlements : [];
-  const shouldSync = result.readAccess || result.creatorAccess || activeEntitlements.length > 0;
-  if (!shouldSync) return false;
-
   try {
-    await readRenderApi.syncRevenueCatEntitlements({
+    const syncResult = await readRenderApi.syncRevenueCatEntitlements({
       readAccess: result.readAccess,
       creatorAccess: result.creatorAccess,
-      activeEntitlements,
+      activeEntitlements: result.activeEntitlements,
       packageId: result.packageId ?? planId ?? null,
-      planId: planId ?? result.packageId ?? null,
-      platform: result.platform ?? null,
-      status: result.status ?? null,
+      productId: result.productId,
+      planId: planId ?? result.planId ?? null,
+      platform: result.platform,
+      status: result.status,
     });
-    return true;
+    return syncResult.ignoredReason !== 'not_authenticated';
   } catch (error) {
     console.warn('Read RevenueCat backend sync failed', error);
     return false;
@@ -1043,398 +1044,256 @@ async function syncReadPurchaseToBackend(result: ReadRevenueCatSyncSource, planI
 }
 
 export function ReadSubscriptionScreen() {
-  const subscriptionStatus = useSubscriptionStore((state) => state.status);
-  const applyStoreReadAccess = useSubscriptionStore((state) => state.applyStoreReadAccess);
-  const refreshSubscription = useSubscriptionStore((state) => state.refresh);
+  const subscriptionState = useSubscriptionStore((state) => state);
+  const subscriptionAny = subscriptionState as unknown as {
+    status?: {
+      readAccess?: boolean;
+      read_access?: boolean;
+      creatorAccess?: boolean;
+      creator_access?: boolean;
+      createAccess?: boolean;
+      create_access?: boolean;
+      entitlements?: {
+        readAccess?: boolean;
+        read_access?: boolean;
+        creatorAccess?: boolean;
+        creator_access?: boolean;
+        createAccess?: boolean;
+        create_access?: boolean;
+      };
+    } | null;
+    applyStoreReadAccess?: (input: { readAccess?: boolean; creatorAccess?: boolean }) => void;
+    refresh?: () => Promise<void> | void;
+  };
+  const subscriptionStatus = subscriptionAny.status;
+  const applyStoreReadAccess = subscriptionAny.applyStoreReadAccess;
+  const refreshSubscription = subscriptionAny.refresh;
+  const readAccess = Boolean(
+    subscriptionStatus?.readAccess ||
+    subscriptionStatus?.read_access ||
+    subscriptionStatus?.entitlements?.readAccess ||
+    subscriptionStatus?.entitlements?.read_access
+  );
+  const creatorAccess = Boolean(
+    subscriptionStatus?.creatorAccess ||
+    subscriptionStatus?.creator_access ||
+    subscriptionStatus?.createAccess ||
+    subscriptionStatus?.create_access ||
+    subscriptionStatus?.entitlements?.creatorAccess ||
+    subscriptionStatus?.entitlements?.creator_access ||
+    subscriptionStatus?.entitlements?.createAccess ||
+    subscriptionStatus?.entitlements?.create_access
+  );
   const [busyPlan, setBusyPlan] = useState<ReadStorePlanId | 'restore' | null>(null);
-  const [purchaseMessage, setPurchaseMessage] = useState<string | null>(null);
-  const [purchaseError, setPurchaseError] = useState<string | null>(null);
-
-  const hasReadAccess = Boolean(subscriptionStatus?.readAccess || subscriptionStatus?.entitlements.readAccess);
-  const hasCreatorAccess = Boolean(subscriptionStatus?.createAccess || subscriptionStatus?.entitlements.createAccess);
+  const [message, setMessage] = useState<string | null>(null);
+  const theme = useReadMobileStore((state) => state.readTheme);
+  const palette = paletteFor(theme);
 
   async function purchase(planId: ReadStorePlanId) {
     setBusyPlan(planId);
-    setPurchaseMessage(null);
-    setPurchaseError(null);
+    setMessage(null);
     try {
       const result = await startReadStorePurchase(planId);
-      applyStoreReadAccess({ readAccess: result.readAccess, creatorAccess: result.creatorAccess });
+      const accessResult = result as unknown as { readAccess?: boolean; creatorAccess?: boolean };
+      if (typeof applyStoreReadAccess === 'function') {
+        applyStoreReadAccess({
+          readAccess: Boolean(accessResult.readAccess),
+          creatorAccess: Boolean(accessResult.creatorAccess),
+        });
+      }
+      if (typeof refreshSubscription === 'function') {
+        await refreshSubscription();
+      }
       const backendSynced = await syncReadPurchaseToBackend(result, planId);
-      await refreshSubscription();
-      applyStoreReadAccess({ readAccess: result.readAccess, creatorAccess: result.creatorAccess });
-      const syncSuffix = backendSynced ? ' Backend access is synced.' : '';
-      setPurchaseMessage(result.creatorAccess ? `Creator access is active.${syncSuffix}` : result.readAccess ? `Read access is active.${syncSuffix}` : 'Purchase completed. If access does not update immediately, tap Restore purchases.');
+      setMessage(`Purchase complete.${backendSynced ? ' Backend access is synced.' : ''}`);
     } catch (error) {
-      setPurchaseError(error instanceof Error ? error.message : String(error));
+      setMessage(error instanceof Error ? error.message : String(error));
     } finally {
       setBusyPlan(null);
     }
   }
 
-  async function restorePurchases() {
+  async function restore() {
     setBusyPlan('restore');
-    setPurchaseMessage(null);
-    setPurchaseError(null);
+    setMessage(null);
     try {
       const result = await restoreReadStorePurchases();
-      applyStoreReadAccess({ readAccess: result.readAccess, creatorAccess: result.creatorAccess });
+      const accessResult = result as unknown as { readAccess?: boolean; creatorAccess?: boolean };
+      if (typeof applyStoreReadAccess === 'function') {
+        applyStoreReadAccess({
+          readAccess: Boolean(accessResult.readAccess),
+          creatorAccess: Boolean(accessResult.creatorAccess),
+        });
+      }
+      if (typeof refreshSubscription === 'function') {
+        await refreshSubscription();
+      }
       const backendSynced = await syncReadPurchaseToBackend(result, getReadPurchasePackageId(result));
-      await refreshSubscription();
-      applyStoreReadAccess({ readAccess: result.readAccess, creatorAccess: result.creatorAccess });
-      const syncSuffix = backendSynced ? ' Backend access is synced.' : '';
-      setPurchaseMessage(result.creatorAccess ? `Creator access restored.${syncSuffix}` : result.readAccess ? `Read access restored.${syncSuffix}` : 'No active Read purchase was found for this store account.');
+      setMessage(`Purchases restored.${backendSynced ? ' Backend access is synced.' : ''}`);
     } catch (error) {
-      setPurchaseError(error instanceof Error ? error.message : String(error));
+      setMessage(error instanceof Error ? error.message : String(error));
     } finally {
       setBusyPlan(null);
     }
   }
 
   return (
-    <ReadAppFrame active="subscribe" eyebrow="Upgrade" title="Floently Read access" subtitle="Native mobile plans stay connected to RevenueCat and backend Read entitlements.">
-      <View style={styles.cardMuted}>
-        <Text style={styles.cardTitle}>Current access</Text>
-        <Text style={styles.bodyText}>{hasCreatorAccess ? 'Creator access active.' : hasReadAccess ? 'Read access active.' : 'No active Read access detected yet.'}</Text>
-      </View>
-      <View style={styles.planList}>
-        {READ_PLANS.map((plan) => (
-          <View key={plan.id} style={styles.planCard}>
-            <View style={styles.planHeaderRow}>
-              <View style={{ flex: 1 }}>
-                <Text style={styles.planTitle}>{plan.title}</Text>
-                <Text style={styles.planPrice}>{plan.priceHint}</Text>
-              </View>
-              <Pill label={plan.id.includes('creator') ? 'Creator' : 'Read'} tone={plan.id.includes('creator') ? 'create' : 'read'} />
-            </View>
-            <Text style={styles.bodyText}>{plan.body}</Text>
-            {plan.platformNote ? <Text style={styles.helpText}>{plan.platformNote}</Text> : null}
+    <AppShell active="subscribe">
+      <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={styles.scrollScreen}>
+        <Header showBack title="Floently Read access" subtitle="Native plans, RevenueCat, and backend entitlements" />
+        <View style={[styles.panel, { backgroundColor: palette.surface, borderColor: palette.border }]}>
+          <Text style={[styles.cardTitle, { color: palette.text }]}>{readAccess || creatorAccess ? 'Access active' : 'Upgrade Read'}</Text>
+          <Text style={[styles.cardBody, { color: palette.muted }]}>Read, listen, import, and continue your library across sessions.</Text>
+        </View>
+        {readPlans.map((plan) => (
+          <View key={plan.id} style={[styles.planCard, { backgroundColor: palette.surfaceRaised, borderColor: palette.border }]}>
+            <Text style={[styles.cardTitle, { color: palette.text }]}>{plan.title}</Text>
+            <Text style={[styles.priceText, { color: palette.accent }]}>{plan.priceHint}</Text>
+            <Text style={[styles.cardBody, { color: palette.muted }]}>{plan.body}</Text>
+            {plan.platformNote ? <Text style={[styles.noteText, { color: palette.warning }]}>{plan.platformNote}</Text> : null}
             <PrimaryButton label={busyPlan === plan.id ? 'Processing...' : 'Choose plan'} onPress={() => void purchase(plan.id)} disabled={Boolean(busyPlan)} />
           </View>
         ))}
-      </View>
-      <SecondaryButton label={busyPlan === 'restore' ? 'Restoring...' : 'Restore purchases'} onPress={() => void restorePurchases()} disabled={Boolean(busyPlan)} />
-      {purchaseMessage ? <Text style={styles.successText}>{purchaseMessage}</Text> : null}
-      {purchaseError ? <Text style={styles.errorText}>{purchaseError}</Text> : null}
-    </ReadAppFrame>
-  );
-}
-
-export function ReadSettingsScreen() {
-  const readAutomatically = useReadMobileStore((state) => state.readAutomatically);
-  const setReadAutomatically = useReadMobileStore((state) => state.setReadAutomatically);
-
-  return (
-    <ReadAppFrame active="settings" eyebrow="Read . Preferences" title="Reading preferences" subtitle="Customise your reader, voice, and narration settings.">
-      <View style={styles.preferenceGrid}>
-        <View style={styles.prefCard}>
-          <Text style={styles.prefTitle}>Typography</Text>
-          <Text style={styles.bodyText}>Font size, line height, paragraph width, serif vs sans-serif reading surface.</Text>
-        </View>
-        <View style={styles.prefCard}>
-          <Text style={styles.prefTitle}>Voice & narration</Text>
-          <Text style={styles.bodyText}>Default voice, speed, pitch, pause length, auto-play next document.</Text>
-        </View>
-        <View style={styles.prefCard}>
-          <Text style={styles.prefTitle}>Highlighting</Text>
-          <Text style={styles.bodyText}>Sentence or word highlight, colour, dim-others behaviour, scroll mode.</Text>
-        </View>
-        <View style={styles.prefCard}>
-          <Text style={styles.prefTitle}>Language & locale</Text>
-          <Text style={styles.bodyText}>Interface language, subtitle language, translation default, locale settings.</Text>
-        </View>
-      </View>
-      <View style={styles.card}>
-        <View style={styles.settingRow}>
-          <View style={styles.settingTextBlock}>
-            <Text style={styles.cardTitle}>Read automatically after import</Text>
-            <Text style={styles.bodyText}>When enabled, new readings open directly in the reader after text, URL, or file import.</Text>
-          </View>
-          <Switch value={readAutomatically} onValueChange={setReadAutomatically} />
-        </View>
-      </View>
-    </ReadAppFrame>
-  );
-}
-
-export function ReadAnalyticsScreen() {
-  const documents = useReadMobileStore((state) => state.documents);
-  const syncStatus = useReadMobileStore((state) => state.syncStatus);
-  const syncError = useReadMobileStore((state) => state.syncError);
-  const refreshLibrary = useReadMobileStore((state) => state.refreshLibrary);
-
-  useEffect(() => {
-    void refreshLibrary();
-  }, [refreshLibrary]);
-
-  const completedCount = documents.filter((document) => document.readingProgress >= 1).length;
-  const activeCount = documents.filter((document) => document.readingProgress > 0 && document.readingProgress < 1).length;
-  const totalWords = documents.reduce((total, document) => total + countWords(document.generatedText || document.sourceText || ''), 0);
-  const averageProgress = documents.length ? Math.round((documents.reduce((total, document) => total + document.readingProgress, 0) / documents.length) * 100) : 0;
-
-  return (
-    <ReadAppFrame active="analytics" eyebrow="Read . Analytics" title="Reading analytics" subtitle="The native app now represents the web Analytics product area with progress, library health, and reading activity signals.">
-      <SyncBanner status={syncStatus} error={syncError} onRefresh={() => void refreshLibrary()} />
-      <View style={styles.metricsRow}>
-        <MetricCard value={String(documents.length)} label="Saved" />
-        <MetricCard value={String(activeCount)} label="Active" />
-        <MetricCard value={String(completedCount)} label="Finished" />
-      </View>
-      <View style={styles.metricsRow}>
-        <MetricCard value={`${averageProgress}%`} label="Average" />
-        <MetricCard value={String(totalWords)} label="Words" />
-        <MetricCard value={documents.length ? 'On' : 'Ready'} label="Library" />
-      </View>
-      <View style={styles.card}>
-        <Text style={styles.cardTitle}>Analytics represented</Text>
-        <Text style={styles.bodyText}>Reader, Library, Import, Preferences, Analytics, and Upgrade now exist in the native mobile product structure.</Text>
-        <View style={styles.inlinePills}>
-          <Pill label="Progress" tone="read" />
-          <Pill label="Library health" tone="read" />
-          <Pill label="Reading activity" tone="read" />
-        </View>
-      </View>
-    </ReadAppFrame>
+        <SecondaryButton label={busyPlan === 'restore' ? 'Restoring...' : 'Restore purchases'} onPress={() => void restore()} disabled={Boolean(busyPlan)} />
+        {message ? <Text style={[styles.messageText, { color: palette.muted }]}>{message}</Text> : null}
+      </ScrollView>
+    </AppShell>
   );
 }
 
 const styles = StyleSheet.create({
-  screen: {
-    flexGrow: 1,
-    backgroundColor: '#07111F',
-    paddingHorizontal: 18,
-    paddingTop: 16,
-    paddingBottom: 42,
-    gap: 16,
-    overflow: 'hidden',
-  },
-  orbLarge: {
-    position: 'absolute',
-    width: 280,
-    height: 280,
-    borderRadius: 140,
-    left: -110,
-    top: 140,
-    backgroundColor: 'rgba(79,131,255,0.15)',
-  },
-  orbSmall: {
-    position: 'absolute',
-    width: 230,
-    height: 230,
-    borderRadius: 115,
-    right: -95,
-    top: 30,
-    backgroundColor: 'rgba(155,114,255,0.13)',
-  },
-  orbCreate: { backgroundColor: 'rgba(56,201,168,0.16)' },
-  orbCreateSoft: { backgroundColor: 'rgba(245,166,35,0.12)' },
-  floatingLine: {
-    position: 'absolute',
-    width: 190,
-    height: 1,
-    right: 34,
-    top: 190,
-    backgroundColor: 'rgba(255,255,255,0.10)',
-  },
-  topShell: { gap: 10, position: 'relative' },
-  topBar: { minHeight: 70, flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', gap: 12 },
-  logoButton: { minHeight: 64, justifyContent: 'center' },
-  productLogo: { width: 154, height: 76 },
-  navActions: { flex: 1, flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'flex-end', gap: 8 },
-  topIconButton: {
-    minHeight: 36,
-    borderRadius: 999,
-    paddingHorizontal: 12,
-    alignItems: 'center',
-    justifyContent: 'center',
-    backgroundColor: 'rgba(255,255,255,0.05)',
-    borderWidth: 1,
-    borderColor: 'rgba(255,255,255,0.10)',
-  },
-  topIconText: { color: 'rgba(255,255,255,0.76)', fontSize: 12, fontWeight: '800' },
-  productSwitcher: {
-    flexDirection: 'row',
-    gap: 8,
-    padding: 5,
-    borderRadius: 16,
-    backgroundColor: 'rgba(255,255,255,0.04)',
-    borderWidth: 1,
-    borderColor: 'rgba(255,255,255,0.07)',
-  },
-  productTab: { flex: 1, minHeight: 42, borderRadius: 13, flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 8 },
-  productTabActive: { backgroundColor: 'rgba(255,255,255,0.09)' },
-  productDot: { width: 8, height: 8, borderRadius: 4 },
-  blueDot: { backgroundColor: '#4F83FF' },
-  tealDot: { backgroundColor: '#38C9A8' },
-  productTabText: { color: 'rgba(255,255,255,0.58)', fontSize: 13, fontWeight: '800' },
-  productTabTextActive: { color: '#FFFFFF', fontSize: 13, fontWeight: '900' },
-  innerTabRail: { gap: 8, paddingRight: 10 },
-  innerTab: {
-    minHeight: 40,
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center',
-    gap: 6,
-    borderRadius: 999,
-    paddingHorizontal: 14,
-    backgroundColor: 'rgba(255,255,255,0.045)',
-    borderWidth: 1,
-    borderColor: 'rgba(255,255,255,0.10)',
-  },
-  innerTabActive: { backgroundColor: '#FFFFFF', borderColor: '#FFFFFF' },
-  innerTabIcon: { color: 'rgba(255,255,255,0.48)', fontSize: 11, fontWeight: '900' },
-  innerTabText: { color: 'rgba(255,255,255,0.70)', fontSize: 13, fontWeight: '800' },
-  innerTabTextActive: { color: '#07111F' },
-  heroCard: {
-    borderRadius: 30,
-    padding: 22,
-    gap: 13,
-    minHeight: 190,
-    overflow: 'hidden',
-    backgroundColor: '#0C1A2E',
-    borderWidth: 1,
-    borderColor: 'rgba(255,255,255,0.08)',
-  },
-  heroAccent: { position: 'absolute', width: 240, height: 240, borderRadius: 120, right: -80, top: -80, backgroundColor: 'rgba(79,131,255,0.16)' },
-  eyebrow: { alignSelf: 'flex-start', color: '#7BA3FF', fontSize: 12, fontWeight: '900', letterSpacing: 1.1, textTransform: 'uppercase', paddingHorizontal: 13, paddingVertical: 7, borderRadius: 999, backgroundColor: 'rgba(79,131,255,0.14)', borderWidth: 1, borderColor: 'rgba(79,131,255,0.28)', overflow: 'hidden' },
-  title: { color: '#FFFFFF', fontSize: 36, lineHeight: 41, fontWeight: '900', letterSpacing: -1.05 },
-  subtitle: { color: 'rgba(255,255,255,0.65)', fontSize: 15, lineHeight: 23 },
-  dashboardGrid: { gap: 14 },
-  panelLarge: { borderRadius: 24, padding: 20, gap: 12, backgroundColor: '#111F36', borderWidth: 1, borderColor: 'rgba(255,255,255,0.07)' },
-  panelSmall: { borderRadius: 22, padding: 18, gap: 12, backgroundColor: 'rgba(255,255,255,0.045)', borderWidth: 1, borderColor: 'rgba(255,255,255,0.07)' },
-  panelKicker: { color: '#7BA3FF', fontSize: 12, fontWeight: '900', letterSpacing: 1, textTransform: 'uppercase' },
-  panelTitle: { color: '#FFFFFF', fontSize: 23, lineHeight: 29, fontWeight: '900' },
-  card: { borderRadius: 22, padding: 18, gap: 13, backgroundColor: '#111F36', borderWidth: 1, borderColor: 'rgba(255,255,255,0.08)' },
-  cardMuted: { borderRadius: 22, padding: 18, gap: 12, backgroundColor: 'rgba(255,255,255,0.04)', borderWidth: 1, borderColor: 'rgba(255,255,255,0.07)' },
-  cardTitle: { color: '#FFFFFF', fontSize: 18, fontWeight: '900' },
-  bodyText: { color: 'rgba(255,255,255,0.65)', fontSize: 14, lineHeight: 22 },
-  buttonRow: { flexDirection: 'row', flexWrap: 'wrap', gap: 10 },
-  primaryButton: { minHeight: 48, borderRadius: 999, backgroundColor: '#4F83FF', alignItems: 'center', justifyContent: 'center', paddingHorizontal: 18 },
-  primaryButtonText: { color: '#FFFFFF', fontSize: 14, fontWeight: '900' },
-  secondaryButton: { minHeight: 46, borderRadius: 999, backgroundColor: 'rgba(255,255,255,0.065)', borderWidth: 1, borderColor: 'rgba(255,255,255,0.13)', alignItems: 'center', justifyContent: 'center', paddingHorizontal: 16 },
-  secondaryButtonText: { color: '#FFFFFF', fontSize: 13, fontWeight: '900' },
-  ghostButton: { minHeight: 38, borderRadius: 999, backgroundColor: 'rgba(255,255,255,0.045)', borderWidth: 1, borderColor: 'rgba(255,255,255,0.09)', alignItems: 'center', justifyContent: 'center', paddingHorizontal: 14 },
-  ghostButtonText: { color: 'rgba(255,255,255,0.82)', fontSize: 13, fontWeight: '900' },
-  warmButton: { minHeight: 50, borderRadius: 999, backgroundColor: '#F5A623', alignItems: 'center', justifyContent: 'center', paddingHorizontal: 18 },
-  warmButtonText: { color: '#07111F', fontSize: 14, fontWeight: '900' },
-  buttonDisabled: { opacity: 0.55 },
-  buttonTextDisabled: { opacity: 0.75 },
-  inlinePills: { flexDirection: 'row', flexWrap: 'wrap', gap: 8 },
-  pill: { alignSelf: 'flex-start', borderRadius: 999, paddingHorizontal: 10, paddingVertical: 6, overflow: 'hidden', backgroundColor: 'rgba(255,255,255,0.07)', color: 'rgba(255,255,255,0.76)', fontSize: 11, fontWeight: '900' },
-  readPill: { backgroundColor: 'rgba(56,201,168,0.12)', color: '#38C9A8' },
-  createPill: { backgroundColor: 'rgba(245,166,35,0.12)', color: '#F5A623' },
-  warningPill: { backgroundColor: 'rgba(255,94,108,0.12)', color: '#FF5E6C' },
-  settingRow: { flexDirection: 'row', gap: 14, alignItems: 'center', justifyContent: 'space-between' },
-  settingTextBlock: { flex: 1, gap: 7 },
-  syncBanner: { flexDirection: 'row', alignItems: 'center', gap: 12, borderRadius: 18, padding: 14, backgroundColor: 'rgba(56,201,168,0.10)', borderWidth: 1, borderColor: 'rgba(56,201,168,0.18)' },
-  syncBannerWarning: { backgroundColor: 'rgba(245,166,35,0.10)', borderColor: 'rgba(245,166,35,0.18)' },
-  syncTextBlock: { flex: 1, gap: 3 },
-  syncTitle: { color: '#FFFFFF', fontSize: 13, fontWeight: '900' },
-  syncText: { color: 'rgba(255,255,255,0.60)', fontSize: 12, lineHeight: 17 },
-  metricsRow: { flexDirection: 'row', gap: 10 },
-  metricCard: { flex: 1, borderRadius: 18, padding: 14, backgroundColor: 'rgba(255,255,255,0.045)', borderWidth: 1, borderColor: 'rgba(255,255,255,0.08)' },
-  metricValue: { color: '#FFFFFF', fontSize: 22, fontWeight: '900' },
-  metricLabel: { marginTop: 4, color: 'rgba(255,255,255,0.54)', fontSize: 12, fontWeight: '800' },
-  qaGrid: { gap: 10 },
-  quickActionCard: { borderRadius: 20, padding: 16, gap: 8, backgroundColor: 'rgba(255,255,255,0.045)', borderWidth: 1, borderColor: 'rgba(255,255,255,0.08)' },
-  quickTitle: { color: '#FFFFFF', fontSize: 16, fontWeight: '900' },
-  quickDetail: { color: 'rgba(255,255,255,0.56)', fontSize: 13, lineHeight: 19 },
-  sectionHeader: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', gap: 12 },
-  sectionTitle: { color: '#FFFFFF', fontSize: 20, fontWeight: '900' },
-  emptyState: { borderRadius: 24, padding: 22, gap: 12, alignItems: 'flex-start', backgroundColor: 'rgba(255,255,255,0.04)', borderWidth: 1, borderColor: 'rgba(255,255,255,0.08)' },
-  emptyTitle: { color: '#FFFFFF', fontSize: 20, fontWeight: '900' },
-  iconBadge: { width: 44, height: 44, borderRadius: 14, alignItems: 'center', justifyContent: 'center', backgroundColor: 'rgba(79,131,255,0.12)' },
-  iconBadge_blue: { backgroundColor: 'rgba(79,131,255,0.13)' },
-  iconBadge_teal: { backgroundColor: 'rgba(56,201,168,0.13)' },
-  iconBadge_purple: { backgroundColor: 'rgba(155,114,255,0.13)' },
-  iconBadge_amber: { backgroundColor: 'rgba(245,166,35,0.13)' },
-  iconBadge_red: { backgroundColor: 'rgba(255,94,108,0.13)' },
-  iconBadgeText: { color: '#FFFFFF', fontSize: 11, fontWeight: '900' },
-  documentList: { gap: 12 },
-  documentCard: { borderRadius: 22, padding: 16, gap: 12, backgroundColor: '#111F36', borderWidth: 1, borderColor: 'rgba(255,255,255,0.08)' },
-  documentTopRow: { flexDirection: 'row', alignItems: 'center', gap: 12 },
-  documentTitleBlock: { flex: 1, gap: 2 },
-  documentTitle: { color: '#FFFFFF', fontSize: 16, fontWeight: '900' },
-  documentMeta: { color: 'rgba(255,255,255,0.48)', fontSize: 12, fontWeight: '700' },
-  documentPreview: { color: 'rgba(255,255,255,0.62)', fontSize: 13, lineHeight: 20 },
-  progressTrack: { height: 5, borderRadius: 999, overflow: 'hidden', backgroundColor: 'rgba(255,255,255,0.08)' },
-  progressTrackTall: { height: 7, borderRadius: 999, overflow: 'hidden', backgroundColor: 'rgba(255,255,255,0.08)' },
-  progressFill: { height: '100%', borderRadius: 999, backgroundColor: '#4F83FF' },
-  uploadDropzone: { borderRadius: 28, padding: 22, gap: 12, alignItems: 'center', backgroundColor: 'rgba(79,131,255,0.08)', borderWidth: 1, borderStyle: 'dashed', borderColor: 'rgba(123,163,255,0.45)' },
-  uploadIconRing: { width: 64, height: 64, borderRadius: 22, alignItems: 'center', justifyContent: 'center', backgroundColor: 'rgba(79,131,255,0.14)' },
-  uploadIconText: { color: '#7BA3FF', fontWeight: '900', fontSize: 16 },
-  dropzoneTitle: { color: '#FFFFFF', fontSize: 20, fontWeight: '900', textAlign: 'center' },
-  dropzoneSub: { color: 'rgba(255,255,255,0.58)', fontSize: 13, textAlign: 'center' },
-  sourceGrid: { gap: 10 },
-  sourceCard: { borderRadius: 20, padding: 16, gap: 8, backgroundColor: 'rgba(255,255,255,0.04)', borderWidth: 1, borderColor: 'rgba(255,255,255,0.08)' },
-  sourceCardActive: { borderColor: 'rgba(123,163,255,0.50)', backgroundColor: 'rgba(79,131,255,0.10)' },
-  sourceTitle: { color: '#FFFFFF', fontSize: 16, fontWeight: '900' },
-  sourceDetail: { color: 'rgba(255,255,255,0.56)', fontSize: 13, lineHeight: 19 },
-  label: { color: 'rgba(255,255,255,0.70)', fontSize: 12, fontWeight: '900', textTransform: 'uppercase', letterSpacing: 0.8 },
-  input: { minHeight: 50, borderRadius: 16, paddingHorizontal: 14, paddingVertical: 11, backgroundColor: 'rgba(255,255,255,0.055)', borderWidth: 1, borderColor: 'rgba(255,255,255,0.10)', color: '#FFFFFF', fontSize: 15 },
-  textArea: { minHeight: 160, lineHeight: 22 },
-  helpText: { color: 'rgba(255,255,255,0.52)', fontSize: 12, lineHeight: 18 },
-  errorText: { color: '#FF5E6C', fontSize: 13, lineHeight: 19, fontWeight: '800' },
-  successText: { color: '#38C9A8', fontSize: 13, lineHeight: 19, fontWeight: '800' },
-  readerLayout: { gap: 14 },
-  readerMain: { borderRadius: 24, padding: 20, gap: 10, backgroundColor: 'rgba(255,255,255,0.92)', borderWidth: 1, borderColor: 'rgba(255,255,255,0.13)' },
-  docTitle: { color: '#07111F', fontSize: 26, lineHeight: 32, fontWeight: '900' },
-  docMeta: { color: 'rgba(7,17,31,0.52)', fontSize: 13, fontWeight: '800' },
-  docDivider: { height: 1, backgroundColor: 'rgba(7,17,31,0.12)', marginVertical: 6 },
-  readerText: { color: '#111F36', fontSize: 18, lineHeight: 31, fontWeight: '500' },
-  readerSidePanel: { borderRadius: 24, padding: 16, gap: 14, backgroundColor: '#0C1A2E', borderWidth: 1, borderColor: 'rgba(255,255,255,0.08)' },
-  sideSection: { gap: 9 },
-  sideLabel: { color: 'rgba(255,255,255,0.56)', fontSize: 12, fontWeight: '900', textTransform: 'uppercase', letterSpacing: 0.8 },
-  selectBox: { minHeight: 44, borderRadius: 14, justifyContent: 'center', paddingHorizontal: 12, backgroundColor: 'rgba(255,255,255,0.055)', borderWidth: 1, borderColor: 'rgba(255,255,255,0.10)' },
-  selectText: { color: '#FFFFFF', fontSize: 13, fontWeight: '800' },
-  sideRowBetween: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' },
-  speedValue: { color: '#7BA3FF', fontSize: 13, fontWeight: '900' },
-  speedButtons: { flexDirection: 'row', flexWrap: 'wrap', gap: 7 },
-  speedButton: { borderRadius: 12, paddingHorizontal: 11, paddingVertical: 8, backgroundColor: 'rgba(255,255,255,0.055)', borderWidth: 1, borderColor: 'rgba(255,255,255,0.09)' },
-  speedButtonActive: { backgroundColor: '#FFFFFF', borderColor: '#FFFFFF' },
-  speedButtonText: { color: 'rgba(255,255,255,0.76)', fontWeight: '900', fontSize: 12 },
-  speedButtonTextActive: { color: '#07111F' },
-  hmButtons: { flexDirection: 'row', flexWrap: 'wrap', gap: 7 },
-  hmButton: { borderRadius: 12, paddingHorizontal: 10, paddingVertical: 8, overflow: 'hidden', backgroundColor: 'rgba(255,255,255,0.055)', color: 'rgba(255,255,255,0.70)', fontWeight: '900', fontSize: 12 },
-  hmButtonActive: { backgroundColor: '#FFFFFF', color: '#07111F' },
-  hmButtonLarge: { fontSize: 16 },
-  toggleRowMini: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', minHeight: 28 },
-  toggleLabelMini: { color: 'rgba(255,255,255,0.68)', fontSize: 13, fontWeight: '700' },
-  toggleMini: { width: 34, height: 18, borderRadius: 999, backgroundColor: 'rgba(255,255,255,0.14)' },
-  toggleMiniOn: { backgroundColor: '#38C9A8' },
-  playerDock: { borderRadius: 28, padding: 16, gap: 12, backgroundColor: 'rgba(0,0,0,0.55)', borderWidth: 1, borderColor: 'rgba(255,255,255,0.13)' },
-  playerTopRow: { flexDirection: 'row', alignItems: 'center', gap: 12 },
-  playerThumb: { width: 42, height: 42, borderRadius: 14, alignItems: 'center', justifyContent: 'center', backgroundColor: '#4F83FF' },
-  playerThumbText: { color: '#FFFFFF', fontSize: 17, fontWeight: '900' },
-  playerInfo: { flex: 1, gap: 2 },
-  playerTitle: { color: '#FFFFFF', fontSize: 15, fontWeight: '900' },
-  playerSub: { color: 'rgba(255,255,255,0.56)', fontSize: 12, fontWeight: '700' },
-  playerTime: { color: '#7BA3FF', fontSize: 13, fontWeight: '900' },
-  playerControls: { flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 10 },
-  plButton: { minHeight: 42, borderRadius: 999, paddingHorizontal: 14, justifyContent: 'center', alignItems: 'center', backgroundColor: 'rgba(255,255,255,0.075)', borderWidth: 1, borderColor: 'rgba(255,255,255,0.12)' },
-  plButtonText: { color: '#FFFFFF', fontSize: 12, fontWeight: '900' },
-  playButton: { minHeight: 54, borderRadius: 999, paddingHorizontal: 24, justifyContent: 'center', alignItems: 'center', backgroundColor: '#FFFFFF' },
-  playButtonText: { color: '#07111F', fontSize: 15, fontWeight: '900' },
-  waveform: { flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 4, minHeight: 38, overflow: 'hidden' },
-  waveBar: { width: 4, borderRadius: 999, backgroundColor: '#7BA3FF' },
-  playerBottomRow: { flexDirection: 'row', flexWrap: 'wrap', alignItems: 'center', gap: 10 },
-  compactMeta: { color: 'rgba(255,255,255,0.60)', fontSize: 12, fontWeight: '700' },
-  speedChip: { borderRadius: 999, paddingHorizontal: 12, paddingVertical: 8, backgroundColor: 'rgba(255,255,255,0.08)' },
-  speedChipText: { color: '#FFFFFF', fontWeight: '900', fontSize: 12 },
-  readerProgressCard: { flexDirection: 'row', gap: 16, alignItems: 'center', borderRadius: 24, padding: 16, backgroundColor: 'rgba(255,255,255,0.045)', borderWidth: 1, borderColor: 'rgba(255,255,255,0.08)' },
-  readerProgressCopy: { flex: 1, gap: 8 },
-  progressWrap: { width: 126, height: 126, alignItems: 'center', justifyContent: 'center' },
-  progressHalo: { position: 'absolute', width: 116, height: 116, borderRadius: 58, backgroundColor: 'rgba(79,131,255,0.13)' },
-  progressSvg: { position: 'absolute' },
-  progressCenter: { alignItems: 'center', justifyContent: 'center' },
-  progressNumber: { color: '#FFFFFF', fontSize: 24, fontWeight: '900' },
-  progressLabel: { color: 'rgba(255,255,255,0.52)', fontSize: 11, fontWeight: '900', textTransform: 'uppercase' },
-  planList: { gap: 12 },
-  planCard: { borderRadius: 22, padding: 18, gap: 12, backgroundColor: '#111F36', borderWidth: 1, borderColor: 'rgba(255,255,255,0.08)' },
-  planHeaderRow: { flexDirection: 'row', alignItems: 'flex-start', gap: 12 },
-  planTitle: { color: '#FFFFFF', fontSize: 18, fontWeight: '900' },
-  planPrice: { color: '#7BA3FF', fontSize: 13, fontWeight: '900', marginTop: 4 },
-  preferenceGrid: { gap: 10 },
-  prefCard: { borderRadius: 20, padding: 16, gap: 8, backgroundColor: 'rgba(255,255,255,0.045)', borderWidth: 1, borderColor: 'rgba(255,255,255,0.08)' },
-  prefTitle: { color: '#FFFFFF', fontSize: 17, fontWeight: '900' },
+  safeArea: { flex: 1 },
+  appContent: { flex: 1 },
+  glowA: { position: 'absolute', width: 260, height: 260, borderRadius: 130, right: -92, top: 30, opacity: 0.16 },
+  glowB: { position: 'absolute', width: 300, height: 300, borderRadius: 150, left: -140, top: 190, opacity: 0.13 },
+  scrollScreen: { paddingHorizontal: 18, paddingTop: 12, paddingBottom: 120, gap: 18 },
+  header: { minHeight: 64, flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', gap: 12 },
+  headerLeft: { flex: 1, flexDirection: 'row', alignItems: 'center', gap: 10 },
+  headerRight: { flexDirection: 'row', alignItems: 'center', gap: 8 },
+  headerTitleWrap: { flex: 1, gap: 2 },
+  headerTitle: { fontSize: 18, fontWeight: '900' },
+  headerSubtitle: { fontSize: 12, fontWeight: '700' },
+  logoPressable: { minHeight: 56, justifyContent: 'center' },
+  logo: { width: 126, height: 52 },
+  iconButton: { minWidth: 44, minHeight: 44, borderRadius: 22, alignItems: 'center', justifyContent: 'center', borderWidth: 1 },
+  iconButtonText: { fontSize: 30, fontWeight: '700', marginTop: -2 },
+  iconMini: { fontSize: 13, fontWeight: '900' },
+  pillButton: { minHeight: 40, borderRadius: 999, alignItems: 'center', justifyContent: 'center', borderWidth: 1, paddingHorizontal: 14 },
+  pillButtonText: { fontSize: 13, fontWeight: '900' },
+  homeHeroRow: { flexDirection: 'row', gap: 12, alignItems: 'flex-start' },
+  homeHeroText: { flex: 1, gap: 8 },
+  kicker: { fontSize: 12, fontWeight: '900', letterSpacing: 1.4, textTransform: 'uppercase' },
+  homeTitle: { fontSize: 34, lineHeight: 38, fontWeight: '900' },
+  homeSubtitle: { fontSize: 15, lineHeight: 23, fontWeight: '600' },
+  sectionBlock: { gap: 12 },
+  sectionCard: { borderRadius: 28, borderWidth: 1, padding: 16, gap: 14 },
+  sectionHeaderRow: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', gap: 12 },
+  sectionTitle: { fontSize: 18, fontWeight: '900' },
+  linkText: { fontSize: 13, fontWeight: '900' },
+  syncBanner: { borderRadius: 20, borderWidth: 1, padding: 14, flexDirection: 'row', alignItems: 'center', gap: 12 },
+  syncIcon: { fontSize: 20, fontWeight: '900' },
+  syncTextWrap: { flex: 1, gap: 2 },
+  syncTitle: { fontSize: 15, fontWeight: '900' },
+  syncBody: { fontSize: 13, lineHeight: 19, fontWeight: '600' },
+  miniPlayer: { borderRadius: 22, borderWidth: 1, padding: 12, flexDirection: 'row', alignItems: 'center', gap: 12, shadowOpacity: 1, shadowRadius: 20, shadowOffset: { width: 0, height: 12 } },
+  miniPlayerText: { flex: 1, gap: 5 },
+  miniTitle: { fontSize: 15, fontWeight: '900' },
+  miniSub: { fontSize: 12, fontWeight: '700' },
+  miniPlay: { width: 44, height: 44, borderRadius: 22, alignItems: 'center', justifyContent: 'center' },
+  miniPlayText: { fontSize: 15, fontWeight: '900' },
+  quickGrid: { flexDirection: 'row', flexWrap: 'wrap', gap: 10 },
+  quickAction: { width: '30.8%', minHeight: 104, borderRadius: 20, borderWidth: 1, padding: 12, gap: 7, alignItems: 'center', justifyContent: 'center' },
+  quickIcon: { minWidth: 42, height: 42, borderRadius: 16, borderWidth: 1, alignItems: 'center', justifyContent: 'center' },
+  quickIconText: { fontSize: 12, fontWeight: '900' },
+  quickLabel: { fontSize: 13, fontWeight: '900' },
+  quickDetail: { fontSize: 10, fontWeight: '700', textAlign: 'center' },
+  metricsGrid: { flexDirection: 'row', gap: 10 },
+  metricPill: { flex: 1, borderRadius: 18, borderWidth: 1, padding: 12, gap: 2 },
+  metricValue: { fontSize: 20, fontWeight: '900' },
+  metricLabel: { fontSize: 11, fontWeight: '800' },
+  cover: { width: 50, height: 62, borderRadius: 14, borderWidth: 1, alignItems: 'center', justifyContent: 'center', gap: 4 },
+  coverLarge: { width: 78, height: 102, borderRadius: 20, borderWidth: 1, alignItems: 'center', justifyContent: 'center', gap: 6 },
+  coverText: { fontSize: 15, fontWeight: '900' },
+  coverTextLarge: { fontSize: 22, fontWeight: '900' },
+  coverType: { fontSize: 9, fontWeight: '800', textTransform: 'uppercase' },
+  documentCard: { borderRadius: 24, borderWidth: 1, padding: 14, flexDirection: 'row', alignItems: 'center', gap: 13 },
+  documentCardCompact: { borderRadius: 20, borderWidth: 1, padding: 12, flexDirection: 'row', alignItems: 'center', gap: 12, marginBottom: 10 },
+  documentMeta: { flex: 1, gap: 6 },
+  documentTitle: { fontSize: 15, fontWeight: '900', lineHeight: 20 },
+  documentSub: { fontSize: 12, fontWeight: '700' },
+  documentPct: { fontSize: 13, fontWeight: '900' },
+  progressTrack: { width: '100%', borderRadius: 999, overflow: 'hidden' },
+  progressFill: { height: '100%', borderRadius: 999 },
+  emptyState: { borderRadius: 26, borderWidth: 1, padding: 22, gap: 10, alignItems: 'center' },
+  emptyBook: { fontSize: 36 },
+  emptyTitle: { fontSize: 20, fontWeight: '900', textAlign: 'center' },
+  emptyBody: { fontSize: 14, lineHeight: 21, textAlign: 'center', fontWeight: '600' },
+  dropZone: { borderRadius: 30, borderWidth: 1.5, borderStyle: 'dashed', padding: 24, gap: 12, alignItems: 'center' },
+  bookIcon: { width: 80, height: 72, borderRadius: 24, borderWidth: 1, alignItems: 'center', justifyContent: 'center' },
+  bookIconText: { fontSize: 15, fontWeight: '900' },
+  dropTitle: { fontSize: 22, fontWeight: '900', textAlign: 'center' },
+  dropBody: { fontSize: 14, lineHeight: 21, textAlign: 'center', fontWeight: '600' },
+  fileName: { fontSize: 13, lineHeight: 18, textAlign: 'center', fontWeight: '700' },
+  autoRow: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', gap: 12 },
+  autoRowInner: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', gap: 12 },
+  autoTextWrap: { flex: 1, gap: 4 },
+  importGrid: { flexDirection: 'row', flexWrap: 'wrap', gap: 10 },
+  importOption: { width: '48.5%', borderRadius: 18, borderWidth: 1, padding: 13, flexDirection: 'row', alignItems: 'center', gap: 10 },
+  importOptionIcon: { width: 34, fontSize: 12, fontWeight: '900' },
+  importOptionText: { flex: 1, gap: 2 },
+  importOptionTitle: { fontSize: 13, fontWeight: '900' },
+  importOptionBody: { fontSize: 11, fontWeight: '700' },
+  panel: { borderRadius: 26, borderWidth: 1, padding: 16, gap: 14, alignItems: 'stretch' },
+  cardTitle: { fontSize: 17, fontWeight: '900' },
+  cardBody: { fontSize: 13, lineHeight: 20, fontWeight: '600' },
+  input: { minHeight: 50, borderRadius: 16, borderWidth: 1, paddingHorizontal: 14, paddingVertical: 11, fontSize: 15, fontWeight: '600' },
+  textArea: { minHeight: 150, lineHeight: 21 },
+  inlineRow: { flexDirection: 'row', gap: 10 },
+  errorText: { fontSize: 13, lineHeight: 19, fontWeight: '700' },
+  primaryButton: { minHeight: 52, borderRadius: 999, alignItems: 'center', justifyContent: 'center', paddingHorizontal: 20 },
+  primaryButtonText: { fontSize: 15, fontWeight: '900' },
+  secondaryButton: { minHeight: 44, borderRadius: 999, borderWidth: 1, alignItems: 'center', justifyContent: 'center', paddingHorizontal: 14 },
+  secondaryButtonText: { fontSize: 13, fontWeight: '900' },
+  disabled: { opacity: 0.52 },
+  searchInput: { minHeight: 50, borderRadius: 18, borderWidth: 1, paddingHorizontal: 16, fontSize: 15, fontWeight: '700' },
+  filterRow: { flexDirection: 'row', flexWrap: 'wrap', gap: 8 },
+  filterChip: { borderRadius: 999, borderWidth: 1, paddingHorizontal: 12, paddingVertical: 8 },
+  filterText: { fontSize: 12, fontWeight: '900' },
+  readerScreen: { flex: 1 },
+  readerScroll: { paddingHorizontal: 18, paddingBottom: 250, gap: 18 },
+  readerPaper: { borderRadius: 28, borderWidth: 1, paddingHorizontal: 22, paddingTop: 24, paddingBottom: 30, gap: 14 },
+  readerChapter: { textAlign: 'center', fontSize: 13, fontWeight: '800', textTransform: 'uppercase', letterSpacing: 1.4 },
+  readerTitle: { textAlign: 'center', fontSize: 24, lineHeight: 30, fontWeight: '900', marginBottom: 8 },
+  readerParagraph: { fontSize: 18, lineHeight: 31, padding: 10, borderRadius: 14, borderWidth: 0, fontFamily: 'serif' },
+  processingReader: { borderRadius: 28, borderWidth: 1, padding: 26, gap: 14, alignItems: 'center' },
+  processingTitle: { fontSize: 22, fontWeight: '900', textAlign: 'center' },
+  processingBody: { fontSize: 14, lineHeight: 21, textAlign: 'center', fontWeight: '600' },
+  readerDock: { position: 'absolute', left: 14, right: 14, bottom: 16, borderRadius: 30, borderWidth: 1, padding: 14, gap: 10, shadowOpacity: 1, shadowRadius: 26, shadowOffset: { width: 0, height: 14 } },
+  readerDockTop: { flexDirection: 'row', justifyContent: 'space-between' },
+  readerTime: { fontSize: 12, fontWeight: '800' },
+  readerControls: { flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 20 },
+  roundControl: { minWidth: 56, height: 48, borderRadius: 24, borderWidth: 1, alignItems: 'center', justifyContent: 'center', paddingHorizontal: 8 },
+  roundControlText: { fontSize: 12, fontWeight: '900' },
+  mainPlay: { minWidth: 82, height: 62, borderRadius: 31, alignItems: 'center', justifyContent: 'center', paddingHorizontal: 14 },
+  mainPlayText: { fontSize: 15, fontWeight: '900' },
+  readerDockBottom: { flexDirection: 'row', gap: 8, justifyContent: 'space-between' },
+  ringWrap: { alignItems: 'center', justifyContent: 'center', alignSelf: 'center' },
+  ringText: { position: 'absolute', fontSize: 16, fontWeight: '900' },
+  analyticsGrid: { flexDirection: 'row', gap: 10 },
+  themeGrid: { flexDirection: 'row', gap: 10 },
+  themeCard: { flex: 1, minHeight: 82, borderRadius: 18, borderWidth: 1, alignItems: 'center', justifyContent: 'center', gap: 5 },
+  themeAa: { fontSize: 24, fontWeight: '900' },
+  themeLabel: { fontSize: 11, fontWeight: '900' },
+  speedRow: { flexDirection: 'row', gap: 8, flexWrap: 'wrap' },
+  speedChip: { borderRadius: 999, borderWidth: 1, paddingHorizontal: 14, paddingVertical: 10 },
+  speedChipText: { fontSize: 13, fontWeight: '900' },
+  planCard: { borderRadius: 24, borderWidth: 1, padding: 16, gap: 12 },
+  priceText: { fontSize: 22, fontWeight: '900' },
+  noteText: { fontSize: 12, lineHeight: 18, fontWeight: '700' },
+  messageText: { fontSize: 13, lineHeight: 20, fontWeight: '700', textAlign: 'center' },
+  bottomNav: { position: 'absolute', left: 14, right: 14, bottom: 12, minHeight: 72, borderRadius: 32, borderWidth: 1, flexDirection: 'row', alignItems: 'center', justifyContent: 'space-around', paddingHorizontal: 8, shadowOpacity: 1, shadowRadius: 26, shadowOffset: { width: 0, height: 16 } },
+  navItem: { minWidth: 56, alignItems: 'center', justifyContent: 'center', gap: 3 },
+  navPlus: { width: 58, height: 58, borderRadius: 29, marginTop: -22 },
+  navIcon: { fontSize: 12, fontWeight: '900' },
+  navLabel: { fontSize: 10, fontWeight: '900' },
 });

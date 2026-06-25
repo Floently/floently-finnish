@@ -3,6 +3,9 @@ import { create } from 'zustand';
 import { readRenderApi, type ReadRenderDocument } from './readRenderApi';
 
 export type ReadLanguage = 'auto' | 'en' | 'fi' | 'sv' | 'de' | 'fr' | 'es' | 'other';
+export type ReadTheme = 'dark' | 'light' | 'sepia' | 'ink';
+
+export type ReadDocumentStatus = 'ready' | 'processing' | 'offline' | 'error';
 
 export type ReadDocument = {
   id: string;
@@ -16,6 +19,9 @@ export type ReadDocument = {
   createdAtIso: string;
   readingProgress: number;
   playbackSpeed: number;
+  status?: ReadDocumentStatus;
+  statusMessage?: string | null;
+  fileName?: string | null;
 };
 
 type ReadMobileState = {
@@ -23,9 +29,11 @@ type ReadMobileState = {
   syncError: string | null;
   refreshLibrary: () => Promise<void>;
   readAutomatically: boolean;
+  readTheme: ReadTheme;
   documents: ReadDocument[];
   activeDocumentId: string | null;
   setReadAutomatically: (enabled: boolean) => void;
+  setReadTheme: (theme: ReadTheme) => void;
   createFromText: (input: { title?: string; text: string; language?: ReadLanguage; sourceType?: string | null }) => ReadDocument;
   createFromUrl: (input: { title?: string; url: string }) => Promise<ReadDocument>;
   createFromFile: (input: { uri: string; name: string; mimeType?: string | null; title?: string }) => Promise<ReadDocument>;
@@ -45,6 +53,8 @@ const LANGUAGE_LABELS: Record<ReadLanguage, string> = {
   es: 'Spanish',
   other: 'Other',
 };
+
+const PROCESSING_COPY = 'Floently is extracting readable text and preparing this document. You can continue using the app while it finishes.';
 
 function normalizeReadLanguage(value: unknown): ReadLanguage {
   const normalized = String(value || 'auto').trim().toLowerCase();
@@ -118,6 +128,25 @@ function toLocalDocument(remote: ReadRenderDocument): ReadDocument {
     createdAtIso: String(remote.createdAt ?? remote.created_at ?? new Date().toISOString()),
     readingProgress: progressToRatio(remote.progress ?? remote.progressPercent ?? remote.progress_percent),
     playbackSpeed: Number(remote.playbackSpeed ?? remote.playback_speed ?? 1) || 1,
+    status: sourceText ? 'ready' : 'processing',
+    statusMessage: sourceText ? null : PROCESSING_COPY,
+  };
+}
+
+function replaceOptimisticDocument(stateDocuments: ReadDocument[], localId: string, remoteDocument: ReadDocument) {
+  return [
+    remoteDocument,
+    ...stateDocuments.filter((item) => item.id !== localId && item.id !== remoteDocument.id),
+  ];
+}
+
+function markLocalDocumentStatus(document: ReadDocument, status: ReadDocumentStatus, message: string): ReadDocument {
+  return {
+    ...document,
+    status,
+    statusMessage: message,
+    generatedText: document.generatedText || message,
+    sourceText: document.sourceText || message,
   };
 }
 
@@ -125,6 +154,7 @@ export const useReadMobileStore = create<ReadMobileState>((set, get) => ({
   syncStatus: 'idle',
   syncError: null,
   readAutomatically: true,
+  readTheme: 'dark',
   documents: [],
   activeDocumentId: null,
 
@@ -141,6 +171,7 @@ export const useReadMobileStore = create<ReadMobileState>((set, get) => ({
   },
 
   setReadAutomatically: (enabled) => set({ readAutomatically: enabled }),
+  setReadTheme: (theme) => set({ readTheme: theme }),
 
   createFromText: ({ title, text, language = 'auto', sourceType = 'text' }) => {
     const sourceText = cleanForReading(text);
@@ -157,6 +188,8 @@ export const useReadMobileStore = create<ReadMobileState>((set, get) => ({
       createdAtIso: new Date().toISOString(),
       readingProgress: 0,
       playbackSpeed: 1,
+      status: 'ready',
+      statusMessage: null,
     };
 
     set((state) => ({
@@ -174,10 +207,7 @@ export const useReadMobileStore = create<ReadMobileState>((set, get) => ({
     }).then((remoteDocument) => {
       const syncedDocument = toLocalDocument(remoteDocument);
       set((state) => ({
-        documents: [
-          syncedDocument,
-          ...state.documents.filter((item) => item.id !== localDocument.id && item.id !== syncedDocument.id),
-        ],
+        documents: replaceOptimisticDocument(state.documents, localDocument.id, syncedDocument),
         activeDocumentId: syncedDocument.id,
         syncStatus: 'idle',
         syncError: null,
@@ -196,25 +226,47 @@ export const useReadMobileStore = create<ReadMobileState>((set, get) => ({
       throw new Error('Enter a valid web link starting with http:// or https://.');
     }
 
-    set({ syncStatus: 'syncing', syncError: null });
-    try {
-      const remoteDocument = await readRenderApi.createFromUrl({ title, url: cleanUrl });
-      const document = toLocalDocument(remoteDocument);
+    const localDocument: ReadDocument = {
+      id: makeId(),
+      title: title?.trim() || cleanUrl.replace(/^https?:\/\//i, '').split('/')[0] || 'Web reading',
+      language: 'auto',
+      detectedLanguageLabel: 'Fetching web page',
+      sourceText: `Fetching ${cleanUrl}. Floently will open the readable version as soon as it is ready.`,
+      generatedText: `Fetching ${cleanUrl}. Floently will open the readable version as soon as it is ready.`,
+      sourceType: 'url',
+      sourceUrl: cleanUrl,
+      createdAtIso: new Date().toISOString(),
+      readingProgress: 0,
+      playbackSpeed: 1,
+      status: 'processing',
+      statusMessage: 'Fetching and cleaning the web page in the background.',
+    };
+
+    set((state) => ({
+      documents: [localDocument, ...state.documents],
+      activeDocumentId: localDocument.id,
+      syncStatus: 'syncing',
+      syncError: null,
+    }));
+
+    void readRenderApi.createFromUrl({ title: localDocument.title, url: cleanUrl }).then((remoteDocument) => {
+      const syncedDocument = toLocalDocument(remoteDocument);
       set((state) => ({
-        documents: [
-          document,
-          ...state.documents.filter((item) => item.id !== document.id),
-        ],
-        activeDocumentId: document.id,
+        documents: replaceOptimisticDocument(state.documents, localDocument.id, syncedDocument),
+        activeDocumentId: syncedDocument.id,
         syncStatus: 'idle',
         syncError: null,
       }));
-      return document;
-    } catch (error) {
+    }).catch((error) => {
       const message = error instanceof Error ? error.message : String(error);
-      set({ syncStatus: 'error', syncError: message });
-      throw error;
-    }
+      set((state) => ({
+        documents: state.documents.map((item) => item.id === localDocument.id ? markLocalDocumentStatus(item, 'offline', message) : item),
+        syncStatus: 'offline',
+        syncError: message,
+      }));
+    });
+
+    return localDocument;
   },
 
   async createFromFile({ uri, name, mimeType, title }) {
@@ -223,31 +275,54 @@ export const useReadMobileStore = create<ReadMobileState>((set, get) => ({
     }
 
     const safeName = name?.trim() || 'Imported document.txt';
-    set({ syncStatus: 'syncing', syncError: null });
+    const documentTitle = title?.trim() || safeName.replace(/\.[^/.]+$/, '') || 'Imported document';
+    const localDocument: ReadDocument = {
+      id: makeId(),
+      title: documentTitle,
+      language: 'auto',
+      detectedLanguageLabel: 'Preparing file',
+      sourceText: `Processing ${safeName}. ${PROCESSING_COPY}`,
+      generatedText: `Processing ${safeName}. ${PROCESSING_COPY}`,
+      sourceType: 'file',
+      sourceUrl: null,
+      createdAtIso: new Date().toISOString(),
+      readingProgress: 0,
+      playbackSpeed: 1,
+      status: 'processing',
+      statusMessage: 'Extracting readable text and preparing audio in the background.',
+      fileName: safeName,
+    };
 
-    try {
-      const remoteDocument = await readRenderApi.uploadDocument({
-        uri,
-        name: safeName,
-        mimeType: mimeType ?? null,
-        title: title?.trim() || safeName.replace(/\.[^/.]+$/, '') || 'Imported document',
-      });
-      const document = toLocalDocument(remoteDocument);
+    set((state) => ({
+      documents: [localDocument, ...state.documents],
+      activeDocumentId: localDocument.id,
+      syncStatus: 'syncing',
+      syncError: null,
+    }));
+
+    void readRenderApi.uploadDocument({
+      uri,
+      name: safeName,
+      mimeType: mimeType ?? null,
+      title: documentTitle,
+    }).then((remoteDocument) => {
+      const syncedDocument = toLocalDocument(remoteDocument);
       set((state) => ({
-        documents: [
-          document,
-          ...state.documents.filter((item) => item.id !== document.id),
-        ],
-        activeDocumentId: document.id,
+        documents: replaceOptimisticDocument(state.documents, localDocument.id, syncedDocument),
+        activeDocumentId: syncedDocument.id,
         syncStatus: 'idle',
         syncError: null,
       }));
-      return document;
-    } catch (error) {
+    }).catch((error) => {
       const message = error instanceof Error ? error.message : String(error);
-      set({ syncStatus: 'error', syncError: message });
-      throw error;
-    }
+      set((state) => ({
+        documents: state.documents.map((item) => item.id === localDocument.id ? markLocalDocumentStatus(item, 'offline', message) : item),
+        syncStatus: 'offline',
+        syncError: message,
+      }));
+    });
+
+    return localDocument;
   },
 
   async deleteDocument(id) {

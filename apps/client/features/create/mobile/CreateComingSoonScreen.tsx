@@ -1,7 +1,15 @@
-import { Image, Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
+import { Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 import { router } from 'expo-router';
 
-const CREATE_LOGO = require('./assets/floently_create_word_logo_no_shadow.png');
+import { useReadMobileStore, type ReadTheme } from '../../read/mobile/readMobileStore';
+
+function paletteFor(theme: ReadTheme) {
+  if (theme === 'light') return { background: '#F5F7FE', surface: '#FFFFFF', soft: '#EEF2FF', text: '#111827', muted: '#667085', border: 'rgba(15,35,78,0.10)', accent: '#6D5DFF', accentText: '#FFFFFF' };
+  if (theme === 'sepia') return { background: '#F6EFE2', surface: '#FFF8EA', soft: '#F1E4CF', text: '#2D2015', muted: '#766A5E', border: 'rgba(95,67,38,0.13)', accent: '#8B5CF6', accentText: '#FFFFFF' };
+  if (theme === 'ink') return { background: '#030407', surface: '#0B0D12', soft: '#171B25', text: '#F6F4EF', muted: '#B5B7C2', border: 'rgba(255,255,255,0.11)', accent: '#FFFFFF', accentText: '#030407' };
+  return { background: '#07111F', surface: '#101A2B', soft: '#182641', text: '#FFFFFF', muted: '#B7C0D4', border: 'rgba(255,255,255,0.10)', accent: '#8B5CF6', accentText: '#FFFFFF' };
+}
 
 function navigate(path: string) {
   router.push(path as never);
@@ -16,139 +24,57 @@ function goBack(fallback = '/create') {
 }
 
 export default function CreateComingSoonScreen() {
+  const theme = useReadMobileStore((state) => state.readTheme);
+  const palette = paletteFor(theme);
+
   return (
-    <ScrollView contentContainerStyle={styles.screen} showsVerticalScrollIndicator={false}>
-      <View style={styles.ambientOne} />
-      <View style={styles.ambientTwo} />
-
-      <View style={styles.nav}>
-        <Pressable accessibilityRole="button" onPress={() => navigate('/create')} style={styles.logoButton}>
-          <Image source={CREATE_LOGO} resizeMode="contain" style={styles.logo} />
-        </Pressable>
-        <View style={styles.navActions}>
-          <Pressable accessibilityRole="button" onPress={() => goBack()} style={styles.navLink}>
-            <Text style={styles.navLinkText}>Back</Text>
+    <SafeAreaView style={[styles.safeArea, { backgroundColor: palette.background }]} edges={['top', 'bottom']}>
+      <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={styles.screen}>
+        <View style={styles.nav}>
+          <Pressable accessibilityRole="button" onPress={() => goBack()} style={[styles.navChip, { backgroundColor: palette.soft, borderColor: palette.border }]}>
+            <Text style={[styles.navChipText, { color: palette.text }]}>Back</Text>
           </Pressable>
-          <Pressable accessibilityRole="button" onPress={() => navigate('/')} style={styles.navLink}>
-            <Text style={styles.navLinkText}>Floently Home</Text>
-          </Pressable>
-          <Pressable accessibilityRole="button" onPress={() => navigate('/create')} style={styles.navLink}>
-            <Text style={styles.navLinkText}>Create landing</Text>
-          </Pressable>
-          <Pressable accessibilityRole="button" onPress={() => navigate('/create/auth')} style={styles.navLink}>
-            <Text style={styles.navLinkText}>Create auth</Text>
+          <Pressable accessibilityRole="button" onPress={() => navigate('/read/app')} style={[styles.navChip, { backgroundColor: palette.soft, borderColor: palette.border }]}>
+            <Text style={[styles.navChipText, { color: palette.text }]}>Read</Text>
           </Pressable>
         </View>
-      </View>
-
-      <View style={styles.hero}>
-        <Text style={styles.eyebrow}>Floently Create</Text>
-        <Text style={styles.title}>Create Studio is coming soon</Text>
-        <Text style={styles.subtitle}>
-          The native Create area is intentionally gated until the product is ready. Auth is already in place, but unfinished Create tools stay locked.
-        </Text>
-        <View style={styles.actions}>
-          <Pressable accessibilityRole="button" style={styles.primaryButton} onPress={() => navigate('/create')}>
-            <Text style={styles.primaryButtonText}>Back to Create landing</Text>
-          </Pressable>
-          <Pressable accessibilityRole="button" style={styles.secondaryButton} onPress={() => navigate('/read')}>
-            <Text style={styles.secondaryButtonText}>Go to Read</Text>
+        <View style={[styles.card, { backgroundColor: palette.surface, borderColor: palette.border }]}>
+          <View style={[styles.icon, { backgroundColor: palette.soft, borderColor: palette.border }]}>
+            <Text style={[styles.iconText, { color: palette.accent }]}>AI</Text>
+          </View>
+          <Text style={[styles.kicker, { color: palette.accent }]}>Floently Create</Text>
+          <Text style={[styles.title, { color: palette.text }]}>Create Studio is coming soon</Text>
+          <Text style={[styles.subtitle, { color: palette.muted }]}>Auth is already in place. The studio will open after the Read product, import flow, and payments are stable.</Text>
+          {['AI narration', 'Smart summaries', 'Custom voices'].map((item) => (
+            <View key={item} style={[styles.featureRow, { backgroundColor: palette.soft, borderColor: palette.border }]}>
+              <Text style={[styles.featureTitle, { color: palette.text }]}>{item}</Text>
+              <Text style={[styles.featureBody, { color: palette.muted }]}>Coming soon</Text>
+            </View>
+          ))}
+          <Pressable accessibilityRole="button" onPress={() => navigate('/create')} style={[styles.primaryButton, { backgroundColor: palette.accent }]}>
+            <Text style={[styles.primaryText, { color: palette.accentText }]}>Back to Create landing</Text>
           </Pressable>
         </View>
-      </View>
-
-      <View style={styles.card}>
-        <Text style={styles.cardTitle}>What will be here</Text>
-        <Text style={styles.body}>Dashboard, Create studio, writing tools, analytics, projects, CRM, brand deals, invoices, calendar, and automation will be connected after Read and payments are stable.</Text>
-      </View>
-
-      <View style={styles.cardMuted}>
-        <Text style={styles.cardTitle}>Access rule</Text>
-        <Text style={styles.body}>Read users should not see unfinished Create tools. Create has a separate auth entry and a safe coming-soon workspace.</Text>
-      </View>
-    </ScrollView>
+      </ScrollView>
+    </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
-  screen: {
-    flexGrow: 1,
-    backgroundColor: '#050403',
-    padding: 22,
-    gap: 16,
-    overflow: 'hidden',
-  },
-  ambientOne: {
-    position: 'absolute',
-    width: 300,
-    height: 300,
-    borderRadius: 150,
-    left: -110,
-    top: 120,
-    backgroundColor: 'rgba(157,96,36,0.15)',
-  },
-  ambientTwo: {
-    position: 'absolute',
-    width: 260,
-    height: 260,
-    borderRadius: 130,
-    right: -100,
-    top: 20,
-    backgroundColor: 'rgba(225,169,95,0.10)',
-  },
-  nav: {
-    minHeight: 74,
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    gap: 12,
-    position: 'relative',
-  },
-  logoButton: { minHeight: 66, justifyContent: 'center' },
-  logo: { width: 178, height: 70 },
-  navActions: { flex: 1, flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'flex-end', gap: 8 },
-  navLink: {
-    borderRadius: 999,
-    borderWidth: 1,
-    borderColor: 'rgba(225,169,95,0.18)',
-    paddingVertical: 9,
-    paddingHorizontal: 12,
-    backgroundColor: 'rgba(255,239,218,0.055)',
-  },
-  navLinkText: { color: 'rgba(255,239,218,0.72)', fontWeight: '900', fontSize: 12 },
-  hero: {
-    borderRadius: 34,
-    padding: 24,
-    backgroundColor: 'rgba(255,239,218,0.045)',
-    borderWidth: 1,
-    borderColor: 'rgba(225,169,95,0.13)',
-    gap: 16,
-    position: 'relative',
-  },
-  eyebrow: {
-    alignSelf: 'flex-start',
-    color: '#E2AA62',
-    fontSize: 12,
-    fontWeight: '900',
-    letterSpacing: 1.2,
-    textTransform: 'uppercase',
-    paddingHorizontal: 14,
-    paddingVertical: 7,
-    backgroundColor: 'rgba(169,107,46,0.16)',
-    borderWidth: 1,
-    borderColor: 'rgba(225,169,95,0.30)',
-    borderRadius: 999,
-    overflow: 'hidden',
-  },
-  title: { color: '#FFF7EC', fontSize: 38, fontWeight: '900', lineHeight: 43, letterSpacing: -1.1 },
-  subtitle: { color: 'rgba(255,239,218,0.62)', fontSize: 16, lineHeight: 25 },
-  actions: { gap: 12 },
-  primaryButton: { minHeight: 56, borderRadius: 999, backgroundColor: '#E2AA62', alignItems: 'center', justifyContent: 'center', paddingHorizontal: 18 },
-  primaryButtonText: { color: '#120804', fontSize: 16, fontWeight: '900' },
-  secondaryButton: { minHeight: 54, borderRadius: 999, backgroundColor: 'rgba(255,239,218,0.07)', borderWidth: 1, borderColor: 'rgba(225,169,95,0.18)', alignItems: 'center', justifyContent: 'center', paddingHorizontal: 18 },
-  secondaryButtonText: { color: '#FFF7EC', fontSize: 15, fontWeight: '900' },
-  card: { borderRadius: 24, padding: 18, backgroundColor: 'rgba(255,239,218,0.045)', borderWidth: 1, borderColor: 'rgba(225,169,95,0.12)', gap: 8 },
-  cardMuted: { borderRadius: 24, padding: 18, backgroundColor: 'rgba(255,239,218,0.03)', borderWidth: 1, borderColor: 'rgba(225,169,95,0.09)', gap: 8 },
-  cardTitle: { color: '#FFF7EC', fontSize: 18, fontWeight: '900' },
-  body: { color: 'rgba(255,239,218,0.58)', fontSize: 14, lineHeight: 22 },
+  safeArea: { flex: 1 },
+  screen: { paddingHorizontal: 18, paddingTop: 12, paddingBottom: 42, gap: 18 },
+  nav: { minHeight: 64, flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' },
+  navChip: { minHeight: 40, borderRadius: 999, borderWidth: 1, alignItems: 'center', justifyContent: 'center', paddingHorizontal: 14 },
+  navChipText: { fontSize: 13, fontWeight: '900' },
+  card: { borderRadius: 32, borderWidth: 1, padding: 24, gap: 16 },
+  icon: { width: 96, height: 96, borderRadius: 36, borderWidth: 1, alignItems: 'center', justifyContent: 'center', alignSelf: 'center' },
+  iconText: { fontSize: 30, fontWeight: '900' },
+  kicker: { fontSize: 12, fontWeight: '900', letterSpacing: 1.4, textTransform: 'uppercase' },
+  title: { fontSize: 32, lineHeight: 37, fontWeight: '900' },
+  subtitle: { fontSize: 15, lineHeight: 23, fontWeight: '600' },
+  featureRow: { borderRadius: 18, borderWidth: 1, padding: 14, gap: 3 },
+  featureTitle: { fontSize: 15, fontWeight: '900' },
+  featureBody: { fontSize: 12, fontWeight: '700' },
+  primaryButton: { minHeight: 54, borderRadius: 999, alignItems: 'center', justifyContent: 'center' },
+  primaryText: { fontSize: 15, fontWeight: '900' },
 });

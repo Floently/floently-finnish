@@ -235,7 +235,7 @@ function ReadComingSoonModal(_: { visible: boolean; onClose: () => void }) {
 
 export function NativeFloentlyProductGatewayScreen({ onOpenLearn, onOpenRead }: FloentlyGatewayProps) {
   return (
-    <SafeAreaView style={{ flex: 1, backgroundColor: '#07122F' }} edges={['top', 'bottom']}>
+    <SafeAreaView style={{ flex: 1, backgroundColor: '#070A1D' }} edges={['top', 'bottom']}>
       <ScrollView
         contentContainerStyle={{
           flexGrow: 1,
@@ -268,7 +268,7 @@ export function NativeFloentlyProductGatewayScreen({ onOpenLearn, onOpenRead }: 
                 minHeight: 38,
                 paddingHorizontal: 16,
                 borderRadius: 999,
-                backgroundColor: '#7470FF',
+                backgroundColor: '#8B5CF6',
                 alignItems: 'center',
                 justifyContent: 'center',
               }}
@@ -384,7 +384,7 @@ export function NativeFloentlyProductGatewayScreen({ onOpenLearn, onOpenRead }: 
                 borderRadius: 26,
                 borderWidth: 1,
                 borderColor: 'rgba(77, 197, 255, 0.28)',
-                backgroundColor: 'rgba(18, 83, 130, 0.58)',
+                backgroundColor: 'rgba(14, 21, 50, 0.88)',
                 padding: 24,
                 minHeight: 250,
               }}
@@ -508,7 +508,7 @@ export function NativeReadPreviewScreen({ onOpenGateway, onOpenLearn }: Floently
   const proofDots = ['#a78bfa', '#818cf8', '#60a5fa', '#34d399', '#f472b6'];
 
   return (
-    <SafeAreaView style={{ flex: 1, backgroundColor: '#0B0F24' }} edges={['top', 'bottom']}>
+    <SafeAreaView style={{ flex: 1, backgroundColor: '#070A1D' }} edges={['top', 'bottom']}>
       <ScrollView
         contentContainerStyle={{
           paddingHorizontal: 22,
@@ -523,23 +523,23 @@ export function NativeReadPreviewScreen({ onOpenGateway, onOpenLearn }: Floently
             <Image source={READ_BRAND_LOGO} style={{ width: 160, height: 84 }} resizeMode="contain" />
           </Pressable>
           <View style={{ flex: 1, flexDirection: 'row', alignItems: 'center', justifyContent: 'flex-end', gap: 8, flexWrap: 'wrap' }}>
-            <Pressable onPress={onOpenLearn} style={{ borderRadius: 999, paddingHorizontal: 11, paddingVertical: 8, backgroundColor: 'rgba(255,255,255,0.055)', borderWidth: 1, borderColor: 'rgba(255,255,255,0.10)' }}>
+            <Pressable onPress={onOpenLearn} style={{ borderRadius: 999, paddingHorizontal: 11, paddingVertical: 8, backgroundColor: 'rgba(139,92,246,0.10)', borderWidth: 1, borderColor: 'rgba(167,139,250,0.18)' }}>
               <Text style={{ color: 'rgba(255,255,255,0.72)', fontSize: 12, fontWeight: '900' }}>Floently Finnish</Text>
             </Pressable>
-            <Pressable onPress={onOpenGateway} style={{ borderRadius: 999, paddingHorizontal: 11, paddingVertical: 8, backgroundColor: 'rgba(255,255,255,0.055)', borderWidth: 1, borderColor: 'rgba(255,255,255,0.10)' }}>
+            <Pressable onPress={onOpenGateway} style={{ borderRadius: 999, paddingHorizontal: 11, paddingVertical: 8, backgroundColor: 'rgba(139,92,246,0.10)', borderWidth: 1, borderColor: 'rgba(167,139,250,0.18)' }}>
               <Text style={{ color: 'rgba(255,255,255,0.72)', fontSize: 12, fontWeight: '900' }}>Floently Home</Text>
             </Pressable>
-            <Pressable onPress={showReadAuth} style={{ borderRadius: 999, paddingHorizontal: 11, paddingVertical: 8, backgroundColor: 'rgba(255,255,255,0.055)', borderWidth: 1, borderColor: 'rgba(255,255,255,0.10)' }}>
+            <Pressable onPress={showReadAuth} style={{ borderRadius: 999, paddingHorizontal: 11, paddingVertical: 8, backgroundColor: 'rgba(139,92,246,0.10)', borderWidth: 1, borderColor: 'rgba(167,139,250,0.18)' }}>
               <Text style={{ color: 'rgba(255,255,255,0.72)', fontSize: 12, fontWeight: '900' }}>Sign In</Text>
             </Pressable>
           </View>
         </View>
 
-        <View style={{ borderRadius: 34, overflow: 'hidden', backgroundColor: '#101838', borderWidth: 1, borderColor: 'rgba(255,255,255,0.09)', padding: 24, minHeight: 430 }}>
-          <View style={{ position: 'absolute', width: 280, height: 280, borderRadius: 140, backgroundColor: 'rgba(79,107,255,0.18)', left: -100, top: -80 }} />
-          <View style={{ position: 'absolute', width: 240, height: 240, borderRadius: 120, backgroundColor: 'rgba(155,107,255,0.14)', right: -80, top: 10 }} />
+        <View style={{ borderRadius: 34, overflow: 'hidden', backgroundColor: '#0E1532', borderWidth: 1, borderColor: 'rgba(167,139,250,0.18)', padding: 24, minHeight: 430 }}>
+          <View style={{ position: 'absolute', width: 280, height: 280, borderRadius: 140, backgroundColor: 'rgba(79,131,255,0.22)', left: -100, top: -80 }} />
+          <View style={{ position: 'absolute', width: 240, height: 240, borderRadius: 120, backgroundColor: 'rgba(139,92,246,0.22)', right: -80, top: 10 }} />
           <View style={{ position: 'relative', gap: 20 }}>
-            <Text style={{ alignSelf: 'flex-start', color: '#8FA8FF', fontSize: 12, fontWeight: '900', letterSpacing: 1.1, textTransform: 'uppercase', borderRadius: 999, paddingHorizontal: 14, paddingVertical: 7, backgroundColor: 'rgba(79,107,255,0.15)', borderWidth: 1, borderColor: 'rgba(79,107,255,0.30)', overflow: 'hidden' }}>
+            <Text style={{ alignSelf: 'flex-start', color: '#C4B5FD', fontSize: 12, fontWeight: '900', letterSpacing: 1.1, textTransform: 'uppercase', borderRadius: 999, paddingHorizontal: 14, paddingVertical: 7, backgroundColor: 'rgba(139,92,246,0.18)', borderWidth: 1, borderColor: 'rgba(167,139,250,0.34)', overflow: 'hidden' }}>
               AI-powered text to speech
             </Text>
             <Text style={{ color: '#FFFFFF', fontSize: 44, lineHeight: 49, fontWeight: '900', letterSpacing: -1.4 }}>
@@ -550,17 +550,17 @@ export function NativeReadPreviewScreen({ onOpenGateway, onOpenLearn }: Floently
               Effortlessly transform your text into natural-sounding audio. Read articles, books, and notes without reading every word.
             </Text>
             <View style={{ flexDirection: 'row', flexWrap: 'wrap', gap: 12 }}>
-              <Pressable onPress={showReadAuth} style={{ minHeight: 52, borderRadius: 999, paddingHorizontal: 22, backgroundColor: '#6F77FF', alignItems: 'center', justifyContent: 'center' }}>
+              <Pressable onPress={showReadAuth} style={{ minHeight: 52, borderRadius: 999, paddingHorizontal: 22, backgroundColor: '#8B5CF6', alignItems: 'center', justifyContent: 'center' }}>
                 <Text style={{ color: '#FFFFFF', fontWeight: '900' }}>Get Started For Free</Text>
               </Pressable>
-              <Pressable onPress={showReadAuth} style={{ minHeight: 52, borderRadius: 999, paddingHorizontal: 22, backgroundColor: 'rgba(255,255,255,0.075)', borderWidth: 1, borderColor: 'rgba(255,255,255,0.15)', alignItems: 'center', justifyContent: 'center' }}>
+              <Pressable onPress={showReadAuth} style={{ minHeight: 52, borderRadius: 999, paddingHorizontal: 22, backgroundColor: 'rgba(167,139,250,0.12)', borderWidth: 1, borderColor: 'rgba(196,181,253,0.22)', alignItems: 'center', justifyContent: 'center' }}>
                 <Text style={{ color: '#FFFFFF', fontWeight: '900' }}>View Plans</Text>
               </Pressable>
             </View>
             <View style={{ flexDirection: 'row', alignItems: 'center', flexWrap: 'wrap', gap: 14 }}>
               <View style={{ flexDirection: 'row' }}>
                 {proofDots.map((color, index) => (
-                  <View key={color} style={{ width: 28, height: 28, borderRadius: 14, backgroundColor: color, borderWidth: 2, borderColor: '#101838', marginLeft: index === 0 ? 0 : -8 }} />
+                  <View key={color} style={{ width: 28, height: 28, borderRadius: 14, backgroundColor: color, borderWidth: 2, borderColor: '#0E1532', marginLeft: index === 0 ? 0 : -8 }} />
                 ))}
               </View>
               <Text style={{ color: 'rgba(255,255,255,0.50)', fontSize: 13, fontWeight: '700' }}>Join thousands already listening</Text>
@@ -574,7 +574,7 @@ export function NativeReadPreviewScreen({ onOpenGateway, onOpenLearn }: Floently
             <Text style={{ color: 'rgba(255,255,255,0.45)', fontSize: 15, textAlign: 'center' }}>Everything you need to listen smarter</Text>
           </View>
           {features.map(([title, body]) => (
-            <View key={title} style={{ borderRadius: 22, borderWidth: 1, borderColor: 'rgba(255,255,255,0.10)', backgroundColor: 'rgba(255,255,255,0.045)', padding: 20, gap: 8 }}>
+            <View key={title} style={{ borderRadius: 22, borderWidth: 1, borderColor: 'rgba(167,139,250,0.18)', backgroundColor: 'rgba(255,255,255,0.055)', padding: 20, gap: 8 }}>
               <Text style={{ color: '#FFFFFF', fontSize: 17, fontWeight: '900' }}>{title}</Text>
               <Text style={{ color: 'rgba(255,255,255,0.58)', lineHeight: 22 }}>{body}</Text>
             </View>
@@ -584,14 +584,14 @@ export function NativeReadPreviewScreen({ onOpenGateway, onOpenLearn }: Floently
         <View style={{ alignItems: 'center', gap: 14, borderTopWidth: 1, borderTopColor: 'rgba(255,255,255,0.09)', paddingTop: 36 }}>
           <Text style={{ color: '#FFFFFF', fontSize: 30, fontWeight: '900', textAlign: 'center' }}>Start listening today</Text>
           <Text style={{ color: 'rgba(255,255,255,0.50)', fontSize: 15, textAlign: 'center' }}>Your text. Your voice. Your pace.</Text>
-          <Pressable onPress={showReadAuth} style={{ minHeight: 54, borderRadius: 999, paddingHorizontal: 26, backgroundColor: '#6F77FF', alignItems: 'center', justifyContent: 'center' }}>
+          <Pressable onPress={showReadAuth} style={{ minHeight: 54, borderRadius: 999, paddingHorizontal: 26, backgroundColor: '#8B5CF6', alignItems: 'center', justifyContent: 'center' }}>
             <Text style={{ color: '#FFFFFF', fontWeight: '900' }}>Get Started For Free</Text>
           </Pressable>
         </View>
 
         <View style={{ borderTopWidth: 1, borderTopColor: 'rgba(255,255,255,0.08)', paddingTop: 20, alignItems: 'center', gap: 10 }}>
           <Pressable onPress={onOpenGateway}>
-            <Text style={{ color: '#8FA8FF', fontWeight: '900' }}>Back to Floently products</Text>
+            <Text style={{ color: '#C4B5FD', fontWeight: '900' }}>Back to Floently products</Text>
           </Pressable>
           <Text style={{ color: 'rgba(255,255,255,0.30)', fontSize: 12 }}>© 2026 Floently · Read</Text>
         </View>
