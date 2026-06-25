@@ -34,11 +34,14 @@ export default function config(_: ConfigContext): ExpoConfig {
   );
 
   const basePlugins = baseExpo.plugins ?? [];
-  let plugins = basePlugins.some(
-    (plugin) => plugin === 'expo-image' || (Array.isArray(plugin) && plugin[0] === 'expo-image'),
-  )
-    ? basePlugins
-    : [...basePlugins, 'expo-image'];
+  const ensurePlugin = (items: NonNullable<ExpoConfig['plugins']>, name: string) =>
+    items.some((plugin) => plugin === name || (Array.isArray(plugin) && plugin[0] === name))
+      ? items
+      : [...items, name];
+
+  let plugins = ['expo-image', 'expo-asset', 'expo-font', 'expo-web-browser'].reduce<
+    NonNullable<ExpoConfig['plugins']>
+  >((items, pluginName) => ensurePlugin(items, pluginName), basePlugins);
 
   const googleIosUrlScheme = getGoogleIosScheme(googleOAuth.iosClientId);
 
