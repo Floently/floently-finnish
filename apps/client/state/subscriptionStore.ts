@@ -74,6 +74,7 @@ type UserLike = {
 };
 
 const DEFAULT_ALL_ACCESS_EMAILS = ['ruka@ruka.com', 'obum@learn.floently.com', 'testuser@floently.com'];
+const DEFAULT_LEARN_ACCESS_EMAILS = ['vitus.idi@floently.com', 'learn@obum.floently.com'];
 const DEFAULT_READ_ACCESS_EMAILS = ['vitus.idi@floently.com', 'testuser@floently.com'];
 const DEFAULT_CREATE_ACCESS_EMAILS: string[] = [];
 
@@ -93,6 +94,11 @@ function allAccessEmails() {
   return Array.from(new Set([...DEFAULT_ALL_ACCESS_EMAILS, ...configured]));
 }
 
+function learnAccessEmails() {
+  const configured = typeof process !== 'undefined' ? parseCsvList(process.env?.EXPO_PUBLIC_LEARN_ACCESS_TEST_EMAILS) : [];
+  return Array.from(new Set([...DEFAULT_LEARN_ACCESS_EMAILS, ...configured]));
+}
+
 function readAccessEmails() {
   const configured = typeof process !== 'undefined' ? parseCsvList(process.env?.EXPO_PUBLIC_READ_ACCESS_TEST_EMAILS) : [];
   return Array.from(new Set([...DEFAULT_READ_ACCESS_EMAILS, ...configured]));
@@ -104,10 +110,13 @@ function createAccessEmails() {
 }
 
 function isAllAccessEmail(email?: string | null) {
-  const explicitInternalEmail = String(email ?? '').trim().toLowerCase();
-  if (explicitInternalEmail === 'vitus.idi@floently.com' || explicitInternalEmail === 'learn@obum.floently.com') return true;
   const normalized = normalizeEmail(email);
   return Boolean(normalized && allAccessEmails().includes(normalized));
+}
+
+function isLearnAccessEmail(email?: string | null) {
+  const normalized = normalizeEmail(email);
+  return Boolean(normalized && learnAccessEmails().includes(normalized));
 }
 
 function isReadAccessEmail(email?: string | null) {
@@ -414,6 +423,21 @@ function fallbackForUser(user?: UserLike | null): CompatSubscriptionStatus {
     });
   }
 
+  if (isLearnAccessEmail(email)) {
+    return compatStatusFromValues({
+      email,
+      tier: 'learn_internal_access',
+      ykiAccess: true,
+      professionalAccess: true,
+      professions: ['doctor', 'nurse', 'practical_nurse'],
+      readAccess: false,
+      createAccess: false,
+      isInternalAllAccess: false,
+      isActive: true,
+      accessSummary: 'Floently Learn full access is active.',
+    });
+  }
+
   const tier = String(user?.subscriptionTier ?? user?.subscriptionTierHint ?? 'free');
   const ykiAccess = tier.startsWith('yki_') || tier.startsWith('combined_') || tier.startsWith('bundle_') || tier === 'general_premium';
   const professions = tier.includes('doctor')
@@ -460,6 +484,22 @@ function normalizeRemoteStatus(payload: unknown, user?: UserLike | null): Compat
       professions: ['doctor', 'nurse', 'practical_nurse'],
       isInternalAllAccess: true,
       accessSummary: typeof current.accessSummary === 'string' ? current.accessSummary : undefined,
+    });
+  }
+
+  if (isLearnAccessEmail(email)) {
+    return compatStatusFromValues({
+      email,
+      tier: 'learn_internal_access',
+      ykiAccess: true,
+      professionalAccess: true,
+      professions: ['doctor', 'nurse', 'practical_nurse'],
+      readAccess: false,
+      createAccess: false,
+      isInternalAllAccess: false,
+      isActive: true,
+      accessSummary: 'Floently Learn full access is active.',
+      raw: current,
     });
   }
 
