@@ -9,6 +9,7 @@ type ModeConfig = { labelKey: 'cardsVocabularyLabel' | 'cardsSentencesLabel' | '
 const MODE_CONFIGS: ModeConfig[] = [
   { labelKey: 'cardsVocabularyLabel', value: 'vocabulary' },
   { labelKey: 'cardsSentencesLabel', value: 'phrases' },
+  { labelKey: 'cardsGrammarLabel', value: 'grammar' },
 ];
 
 export function CardModeTabs({ value, onChange }: { value: CardMode; onChange: (m: CardMode) => void }) {

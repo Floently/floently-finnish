@@ -215,7 +215,11 @@ export function CardPracticeSession() {
   const params = useLocalSearchParams();
   const requestedMode = typeof params.mode === 'string' ? params.mode : 'vocabulary';
   const normalizedRequestedMode = requestedMode === 'sentences' ? 'phrases' : requestedMode;
-  const initialMode: CardMode = normalizedRequestedMode === 'phrases' ? 'phrases' : 'vocabulary';
+  const initialMode: CardMode = normalizedRequestedMode === 'phrases'
+    ? 'phrases'
+    : normalizedRequestedMode === 'grammar'
+      ? 'grammar'
+      : 'vocabulary';
   const [mode, setMode] = useState<CardMode>(initialMode);
   const [banksVisible, setBanksVisible] = useState(false);
   const [reportPanelVisible, setReportPanelVisible] = useState(false);
@@ -270,7 +274,11 @@ export function CardPracticeSession() {
   } = useCardPractice(mode, scope);
 
   const cardTone = toneColor(displayedCard ?? null);
-  const header = mode === 'phrases' ? t('cardsSentencesLabel') : t('cardsVocabularyLabel');
+  const header = mode === 'phrases'
+    ? t('cardsSentencesLabel')
+    : mode === 'grammar'
+      ? t('cardsGrammarLabel')
+      : t('cardsVocabularyLabel');
   const followUp = displayedCard?.served_follow_up;
   const isRecallView = recallIndex !== null;
   const visibleOptions = safeOptions(followUp?.options);

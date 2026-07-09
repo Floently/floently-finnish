@@ -1074,7 +1074,10 @@ export default function AppShell({ requestedScreen = "root" }: Props) {
             setSpeakingPreset({
               initialLevelBand: config.levelBand ?? 'B1-B2',
               initialSurface: 'conversation',
-              initialProfession: (config.profession ?? 'general') as NonNullable<SpeakingPreset>['initialProfession'],
+              initialProfession: 'general',
+              initialScenarioId: config.scenarioHint ?? null,
+              lockProfession: false,
+              entryMode: 'workplace',
               contextLabel: t('appShellYkiSpeakingPracticeContext'),
             });
             void navigateTo("speaking-practice");

@@ -157,6 +157,107 @@ _ROLEPLAY_REGISTRY: dict[str, tuple[ScenarioSpec, ...]] = {
     # ───────────────────────────────────────────────────────────────────────────
     "general": (
         _spec(
+            scenario_id="general_everyday_conversation",
+            profession="general",
+            track="general",
+            title="Everyday Finnish conversation",
+            persona_name="Conversation partner",
+            intro="Harjoittelet tavallista arjen keskustelua Suomessa. Tilanne voi olla kaupassa, ajanvarauksessa, naapurustossa, asiakaspalvelussa tai muussa arkisessa paikassa.",
+            key_phrases=("tervehdys", "kysymys", "selvennys", "kiitos"),
+            grammar_tip="Käytä lyhyitä kohteliaita lauseita: kysy, tarkenna ja vastaa omin sanoin.",
+            voice_profile="yki_standard_female",
+            levels={
+                "A1-A2": LevelVariant(
+                    openers=(
+                        "Hei! Miten voin auttaa sinua tänään?",
+                        "Hei. Mitä asiaa sinulla on?",
+                        "Hyvää päivää. Kerro lyhyesti, mitä tarvitset.",
+                        "Hei! Aloitetaan rauhassa. Mitä haluat kysyä?",
+                    ),
+                    assistant_turns=(
+                        ("Selvä. Voitko sanoa sen vielä vähän tarkemmin?", "Hyvä. Kerro vielä yksi asia.", "Selvä. Mitä tarkoitat?"),
+                        ("Hyvä. Milloin tämä sopii sinulle?", "Selvä. Tarvitsetko sen tänään vai myöhemmin?", "Hyvä. Mikä aika sopii?"),
+                        ("Selvä. Onko sinulla vielä kysymys?", "Hyvä. Haluatko tarkistaa jotain?", "Selvä. Tarvitsetko apua vielä?"),
+                        ("Kiitos. Sano lopuksi lyhyesti, mitä sovimme.", "Hyvä. Tee lyhyt yhteenveto.", "Kiitos. Kerro vielä lopuksi tärkein asia."),
+                    ),
+                    closing_texts=(
+                        "Kiitos. Keskustelu meni hyvin.",
+                        "Hyvä. Puhuit selkeästi.",
+                        "Kiitos. Asia tuli ymmärretyksi.",
+                    ),
+                ),
+                "B1-B2": LevelVariant(
+                    openers=(
+                        "Hei. Miten voin auttaa? Kerro omin sanoin, mitä asia koskee.",
+                        "Hyvää päivää. Aloita kertomalla, mitä tarvitset ja mihin tilanteeseen apua haet.",
+                        "Hei. Kerro ensin lyhyesti taustatilanne, niin katsotaan asiaa yhdessä.",
+                        "Tervetuloa. Mistä haluaisit keskustella tänään?",
+                    ),
+                    assistant_turns=(
+                        (
+                            "Ymmärrän. Voisitko tarkentaa, mikä tässä on sinulle tärkeintä?",
+                            "Selvä. Kerro vielä, mikä vaihtoehto olisi sinulle paras.",
+                            "Hyvä. Mikä asia tässä pitäisi ratkaista ensin?",
+                        ),
+                        (
+                            "Selvä. Jos tämä ei onnistu heti, mikä toinen ratkaisu sopisi sinulle?",
+                            "Hyvä. Miten haluaisit edetä tässä tilanteessa?",
+                            "Ymmärrän. Mikä aikataulu olisi sinulle realistinen?",
+                        ),
+                        (
+                            "Hyvä. Haluatko vielä varmistaa jonkin yksityiskohdan?",
+                            "Selvä. Onko jokin kohta vielä epäselvä?",
+                            "Ymmärrän. Mitä kysyisit vielä ennen kuin päätät?",
+                        ),
+                        (
+                            "Kiitos. Tee lopuksi lyhyt yhteenveto siitä, mitä sovimme ja mitä tapahtuu seuraavaksi.",
+                            "Hyvä. Kerro lopuksi omin sanoin, mikä on seuraava askel.",
+                            "Kiitos. Tiivistä vielä keskustelun tärkein tulos.",
+                        ),
+                    ),
+                    closing_texts=(
+                        "Hyvä. Keskustelu oli selkeä ja arkeen sopiva.",
+                        "Kiitos. Pystyit tarkentamaan asiaa luontevasti.",
+                        "Hyvä työ. Sait asiasi esille ymmärrettävästi.",
+                    ),
+                ),
+                "C1-C2": LevelVariant(
+                    openers=(
+                        "Hei. Kerro vapaasti, mikä tilanne on ja millaista ratkaisua haet.",
+                        "Hyvää päivää. Kuvaile asia kokonaisuutena: tausta, tarve ja toivottu lopputulos.",
+                        "Hei. Aloitetaan siitä, miten itse näet tilanteen ja mikä olisi sinulle toimiva ratkaisu.",
+                    ),
+                    assistant_turns=(
+                        (
+                            "Hyvä kuvaus. Miten perustelisit toiveesi, jos vaihtoehtoja on useita?",
+                            "Selkeästi sanottu. Mitkä yksityiskohdat ovat tässä neuvottelun kannalta olennaisia?",
+                            "Ymmärrän. Miten muotoilisit asian kohteliaasti mutta napakasti?",
+                        ),
+                        (
+                            "Selvä. Jos vastapuoli ehdottaa toista ratkaisua, miten vastaisit rakentavasti?",
+                            "Hyvä. Millaisen kompromissin voisit hyväksyä?",
+                            "Ymmärrän. Miten pidät keskustelun asiallisena, jos tilanne pitkittyy?",
+                        ),
+                        (
+                            "Hyvä. Mitä haluaisit vielä varmistaa ennen lopullista sopimista?",
+                            "Selvä. Miten tarkistaisit, että molemmat ymmärtävät asian samalla tavalla?",
+                            "Hyvä. Millä tavalla pyytäisit vahvistuksen kirjallisesti tai suullisesti?",
+                        ),
+                        (
+                            "Kiitos. Tee lopuksi tiivis, kohtelias yhteenveto sovitusta asiasta ja seuraavista vaiheista.",
+                            "Hyvä. Päätä keskustelu niin, että vastapuolelle jää selkeä kuva jatkosta.",
+                            "Kiitos. Muotoile lopuksi lyhyt yhteenveto, joka sopii arjen viralliseen tilanteeseen.",
+                        ),
+                    ),
+                    closing_texts=(
+                        "Hyvä. Keskustelu oli luonteva, täsmällinen ja tilanteeseen sopiva.",
+                        "Kiitos. Perustelit asiasi selkeästi ja kohteliaasti.",
+                        "Hyvä työ. Pidit keskustelun jäsenneltynä ilman että se kuulosti liian muodolliselta.",
+                    ),
+                ),
+            },
+        ),
+        _spec(
             scenario_id="general_supervisor_instruction",
             profession="general",
             track="general",

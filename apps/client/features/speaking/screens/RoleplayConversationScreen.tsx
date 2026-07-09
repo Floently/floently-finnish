@@ -60,7 +60,7 @@ function scenarioIdForContext(profession: RoleplayProfession, contextLabel?: str
     if (normalized.includes('issue') || normalized.includes('problem') || normalized.includes('report')) {
       return 'general_issue_report';
     }
-    return 'general_supervisor_instruction';
+    return 'general_everyday_conversation';
   }
   if (profession === 'doctor') return 'doctor_patient_interview';
   if (profession === 'nurse') return 'nurse_shift_handover';

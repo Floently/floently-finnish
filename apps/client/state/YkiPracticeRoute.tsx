@@ -491,9 +491,9 @@ export default function YkiPracticeRoute({ onBack, onOpenMenu, onOpenExam, onOpe
 
   function handleStartRoleplay(config: any) {
     onOpenSpeaking?.({
-      levelBand: config.level_band ?? selectedLevel,
-      profession: config.profession ?? 'general',
-      scenarioHint: config.scenario_hint,
+      levelBand: config?.level_band ?? selectedLevel,
+      profession: 'general',
+      scenarioHint: config?.scenario_id ?? config?.scenario_hint ?? 'general_everyday_conversation',
     });
   }
 
@@ -573,6 +573,16 @@ export default function YkiPracticeRoute({ onBack, onOpenMenu, onOpenExam, onOpe
               style={[styles.cardsButton, { backgroundColor: T.yki }]}
             >
               <Text style={styles.cardsButtonText}>{t('ykiRouteOpenCards')}</Text>
+            </Pressable>
+            <Pressable
+              onPress={() => handleStartRoleplay({
+                level_band: selectedLevel,
+                profession: 'general',
+                scenario_id: 'general_everyday_conversation',
+              })}
+              style={[styles.cardsButton, { backgroundColor: T.warning, marginTop: 10 }]}
+            >
+              <Text style={styles.cardsButtonText}>{t('ykiRouteStartConversationRoleplay')}</Text>
             </Pressable>
           </View>
         )}

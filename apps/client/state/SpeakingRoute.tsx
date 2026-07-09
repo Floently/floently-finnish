@@ -99,9 +99,14 @@ export default function SpeakingRoute({ onBack, onOpenMenu, initialLevelBand = '
 
   useEffect(() => { setScenarioId(initialScenarioId); }, [initialScenarioId]);
   useEffect(() => {
-    const derived = initialProfession !== 'general' ? initialProfession : (activeContext === 'doctor' || activeContext === 'nurse' || activeContext === 'practical_nurse' ? activeContext : 'general');
+    const isExplicitGeneralEntry = initialProfession === 'general' && Boolean(contextLabel);
+    const derived = isExplicitGeneralEntry
+      ? 'general'
+      : initialProfession !== 'general'
+        ? initialProfession
+        : (activeContext === 'doctor' || activeContext === 'nurse' || activeContext === 'practical_nurse' ? activeContext : 'general');
     setProfession(derived);
-  }, [activeContext, initialProfession]);
+  }, [activeContext, contextLabel, initialProfession]);
 
   const entitledTracks = useMemo(() => {
     const professions = subscriptionStatus?.entitlements?.professions ?? [];
