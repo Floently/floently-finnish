@@ -104,6 +104,8 @@ function createAccessEmails() {
 }
 
 function isAllAccessEmail(email?: string | null) {
+  const explicitInternalEmail = String(email ?? '').trim().toLowerCase();
+  if (explicitInternalEmail === 'vitus.idi@floently.com' || explicitInternalEmail === 'learn@obum.floently.com') return true;
   const normalized = normalizeEmail(email);
   return Boolean(normalized && allAccessEmails().includes(normalized));
 }
