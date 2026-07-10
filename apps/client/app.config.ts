@@ -1,5 +1,9 @@
 import type { ExpoConfig, ConfigContext } from 'expo/config';
 
+const FLOENTLY_APP_NAME = 'Floently Finnish';
+const FLOENTLY_APP_SLUG = 'floently-finnish';
+const FLOENTLY_APP_ICON = './assets/images/icon.png';
+
 const appJson = require('./app.base.json');
 
 function getGoogleIosScheme(clientId?: string) {
@@ -66,6 +70,9 @@ export default function config(_: ConfigContext): ExpoConfig {
 
   return {
     ...baseExpo,
+    name: FLOENTLY_APP_NAME,
+    slug: FLOENTLY_APP_SLUG,
+    icon: FLOENTLY_APP_ICON,
     plugins,
     updates: {
       ...(baseExpo.updates ?? {}),
@@ -83,6 +90,7 @@ export default function config(_: ConfigContext): ExpoConfig {
 
     ios: {
       ...(baseExpo.ios ?? {}),
+      icon: FLOENTLY_APP_ICON,
       config: {
         ...(baseExpo.ios?.config ?? {}),
         usesNonExemptEncryption: false,
