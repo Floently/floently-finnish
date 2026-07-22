@@ -2,7 +2,7 @@ import type { ExpoConfig, ConfigContext } from 'expo/config';
 
 const FLOENTLY_APP_NAME = 'Floently Finnish';
 const FLOENTLY_APP_SLUG = 'floently-finnish';
-const FLOENTLY_APP_ICON = './components/public/logo.png';
+const FLOENTLY_APP_ICON = './assets/images/floently-finnish-icon.png';
 
 const appJson = require('./app.base.json');
 
