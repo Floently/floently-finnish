@@ -22,7 +22,7 @@ import {
 } from '../../../web/i18n/publicMarketingCopy';
 import { usePreferencesStore } from '../../../state/preferencesStore';
 
-const LOGO = require('../../../components/public/logo.png');
+const LOGO = require('../../../components/public/logo_background.png');
 const READ_BRAND_LOGO = require('../../read/mobile/assets/floently_read.png');
 
 const CONTACT_EMAIL = 'pilots@floently.com';
@@ -179,7 +179,7 @@ function CorrectionPreview() {
   const wrongWord = firstString(
     { demo },
     ['demo.wrongWord'],
-    '',
+    'apteekkiin',
   );
 
   const success = firstString(
@@ -191,29 +191,134 @@ function CorrectionPreview() {
   const note = firstString(
     { landing, demo },
     ['landing.demoCaption', 'landing.correction.note', 'landing.demo.note', 'landing.correctionBody', 'demo.tooltipBody'],
-    'Practice Finnish, get corrected, and learn the rule.',
+    'Practice Finnish → get corrected → learn the rule. Loops to show you how it works.',
   );
 
-  const parts = wrongWord && sentence.includes(wrongWord) ? sentence.split(wrongWord) : null;
+  const copyExamples = firstArray<AnyRecord>(
+    { landing, demo },
+    ['demo.examples', 'demo.items', 'landing.correction.examples', 'landing.demo.examples', 'landing.liveCorrectionExamples'],
+    [],
+  );
+
+  const fallbackExamples: AnyRecord[] = [
+    {
+      prompt,
+      sentence,
+      wrongWord,
+      correctedSentence: firstString({ demo }, ['demo.correctedSentence', 'demo.correctSentence'], 'Kävin apteekissa eilen.'),
+      correctedWord: 'apteekissa',
+      success,
+    },
+    {
+      prompt: 'Your answer in Finnish',
+      sentence: 'Menen työssä huomenna.',
+      wrongWord: 'työssä',
+      correctedSentence: 'Menen töihin huomenna.',
+      correctedWord: 'töihin',
+      success: 'Now the direction and case sound natural.',
+    },
+    {
+      prompt: 'Your answer in Finnish',
+      sentence: 'Olen kiinnostunut oppia lisää.',
+      wrongWord: 'oppia',
+      correctedSentence: 'Olen kiinnostunut oppimaan lisää.',
+      correctedWord: 'oppimaan',
+      success: 'The structure now sounds Finnish.',
+    },
+  ];
+
+  const examples = (copyExamples.length ? copyExamples : fallbackExamples)
+    .map((item) => ({
+      prompt: firstString(item, ['prompt', 'label'], prompt),
+      sentence: firstString(item, ['sentence', 'wrongSentence', 'before'], sentence),
+      wrongWord: firstString(item, ['wrongWord', 'highlight', 'badWord'], wrongWord),
+      correctedSentence: firstString(item, ['correctedSentence', 'correctSentence', 'after'], sentence),
+      correctedWord: firstString(item, ['correctedWord', 'goodWord', 'fixedWord'], ''),
+      success: firstString(item, ['success', 'caption', 'body'], success),
+    }))
+    .filter((item) => item.sentence.trim().length > 0);
+
+  const [exampleIndex, setExampleIndex] = useState(0);
+  const [showCorrected, setShowCorrected] = useState(false);
+  const correctionMotion = useRef(new Animated.Value(1)).current;
+
+  useEffect(() => {
+    if (examples.length <= 0) return;
+
+    let stopped = false;
+    const interval = setInterval(() => {
+      Animated.sequence([
+        Animated.timing(correctionMotion, {
+          toValue: 0,
+          duration: 180,
+          easing: Easing.out(Easing.ease),
+          useNativeDriver: true,
+        }),
+        Animated.timing(correctionMotion, {
+          toValue: 1,
+          duration: 260,
+          easing: Easing.out(Easing.ease),
+          useNativeDriver: true,
+        }),
+      ]).start();
+
+      setTimeout(() => {
+        if (stopped) return;
+        setShowCorrected((current) => {
+          if (current) {
+            setExampleIndex((index) => (index + 1) % examples.length);
+            return false;
+          }
+          return true;
+        });
+      }, 180);
+    }, 1900);
+
+    return () => {
+      stopped = true;
+      clearInterval(interval);
+    };
+  }, [correctionMotion, examples.length]);
+
+  const current = examples[exampleIndex % Math.max(1, examples.length)] ?? fallbackExamples[0];
+  const displayedSentence = showCorrected ? current.correctedSentence : current.sentence;
+  const displayedWord = showCorrected ? current.correctedWord : current.wrongWord;
+  const parts = displayedWord && displayedSentence.includes(displayedWord)
+    ? displayedSentence.split(displayedWord)
+    : null;
+
+  const correctionMotionStyle = {
+    opacity: correctionMotion,
+    transform: [
+      {
+        translateY: correctionMotion.interpolate({
+          inputRange: [0, 1],
+          outputRange: [10, 0],
+        }),
+      },
+    ],
+  };
 
   return (
     <View style={styles.correctionCard}>
       <Text style={styles.correctionKicker}>{label}</Text>
-      <View style={styles.correctionBox}>
-        <Text style={styles.correctionSmall}>{prompt}</Text>
+      <Animated.View style={[styles.correctionBox, correctionMotionStyle]}>
+        <Text style={styles.correctionSmall}>{showCorrected ? 'Correct Finnish' : current.prompt}</Text>
         <Text style={styles.correctionText}>
           {parts ? (
             <>
               {parts[0]}
-              <Text style={styles.correctionBad}>{wrongWord}</Text>
-              {parts.slice(1).join(wrongWord)}
+              <Text style={showCorrected ? styles.correctionFixed : styles.correctionBad}>{displayedWord}</Text>
+              {parts.slice(1).join(displayedWord)}
             </>
           ) : (
-            sentence
+            displayedSentence
           )}
         </Text>
-        <Text style={styles.correctionGood}>{success}</Text>
-      </View>
+        <Text style={styles.correctionGood}>
+          {showCorrected ? current.success : 'Watch Floently correct the sentence.'}
+        </Text>
+      </Animated.View>
       <Text style={styles.correctionNote}>{note}</Text>
     </View>
   );
@@ -1206,6 +1311,9 @@ const styles: Record<string, any> = StyleSheet.create({
   correctionBad: {
     color: '#FF8BA1',
     textDecorationLine: 'underline',
+  },
+  correctionFixed: {
+    color: '#69E2D2',
   },
   correctionGood: {
     color: '#69E2D2',
