@@ -362,12 +362,15 @@ export function useRoleplayRecorder(locale = 'fi-FI') {
         // the actual file before sending it to STT.
         await pause(350);
         const fileInfo = await nativeAudioFileInfo(uri);
-        const fileSizeBytes = typeof fileInfo.size === 'number' ? fileInfo.size : 0;
+        const rawFileSizeBytes = typeof fileInfo.size === 'number' ? fileInfo.size : 0;
+        const verifiedFileSizeBytes = fileInfo.exists && rawFileSizeBytes > 0 ? rawFileSizeBytes : undefined;
 
-        if (!fileInfo.exists || fileSizeBytes < MIN_ROLEPLAY_AUDIO_BYTES) {
-          setPhaseSafe('idle');
-          setError('The recording was not saved correctly. Try once more, speak close to the microphone, or type your response.');
-          return null;
+        if (!fileInfo.exists || rawFileSizeBytes < MIN_ROLEPLAY_AUDIO_BYTES) {
+          console.warn('[roleplay-recorder] Native file metadata was not reliable; attempting STT upload anyway.', {
+            exists: fileInfo.exists,
+            size: rawFileSizeBytes,
+            uri,
+          });
         }
 
       const nativeDurationMs = Math.max(
@@ -387,7 +390,7 @@ export function useRoleplayRecorder(locale = 'fi-FI') {
         attempts: inferNativeAudioAttempts(uri),
         locale,
         durationMs: nativeDurationMs,
-          fileSizeBytes,
+          fileSizeBytes: verifiedFileSizeBytes,
       });
 
       setPhaseSafe('idle');
