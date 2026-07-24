@@ -3,51 +3,6 @@ import { getAuthToken } from "./apiClient";
 import { extractResponseErrorMessage, isRecord, readResponseBody } from "./response";
 import { getClientDeviceHeaders } from "./deviceIdentity";
 
-// FLOENTLY_DEVICE_ID_HEADER_PATCH_START
-const DEVICE_ID_STORAGE_KEY = 'floently.release.deviceId.v1';
-
-function createReleaseDeviceId(): string {
-  const randomPart =
-    typeof crypto !== 'undefined' && typeof crypto.randomUUID === 'function'
-      ? crypto.randomUUID()
-      : `${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 12)}-${Math.random().toString(36).slice(2, 12)}`;
-  return `floently-${randomPart}`;
-}
-
-function memoryDeviceId(): string {
-  const globalKey = '__FLOENTLY_RELEASE_DEVICE_ID__';
-  const g = globalThis as unknown as Record<string, string | undefined>;
-  if (!g[globalKey]) g[globalKey] = createReleaseDeviceId();
-  return g[globalKey]!;
-}
-
-function getPersistentDeviceId(): string {
-  try {
-    if (typeof localStorage !== 'undefined') {
-      const existing = localStorage.getItem(DEVICE_ID_STORAGE_KEY);
-      if (existing && existing.trim()) return existing.trim();
-      const next = createReleaseDeviceId();
-      localStorage.setItem(DEVICE_ID_STORAGE_KEY, next);
-      return next;
-    }
-  } catch {
-    // Native runtimes may not expose localStorage. Fall through to a stable in-process id.
-  }
-
-  return memoryDeviceId();
-}
-
-function addDeviceHeaders(headers: Record<string, string>): Record<string, string> {
-  const deviceId = getPersistentDeviceId();
-  return {
-    ...headers: addDeviceHeaders(headers),
-    'X-Device-Id': deviceId,
-    'X-Floently-Device-Id': deviceId,
-  };
-}
-// FLOENTLY_DEVICE_ID_HEADER_PATCH_END
-
-
 type ApiResponse<T> = {
   ok: boolean;
   data?: T;
