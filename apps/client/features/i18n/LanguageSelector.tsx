@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { Dimensions, Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
+import { Dimensions, Pressable, ScrollView, StyleSheet, Text, View, Modal, Platform } from 'react-native';
 
 import { ENABLED_LANGUAGE_CODES, LANGUAGE_META, type AppLanguage } from './languages';
 
@@ -21,7 +21,9 @@ export default function LanguageSelector({
   const options: AppLanguage[] = [...ENABLED_LANGUAGE_CODES];
   const wrapRef = useRef<View>(null);
   const [open, setOpen] = useState(false);
-  const [resolvedPlacement, setResolvedPlacement] = useState<'up' | 'down' | 'right'>('right');
+  
+  const isNativeLanguageModal = Platform.OS !== 'web';
+const [resolvedPlacement, setResolvedPlacement] = useState<'up' | 'down' | 'right'>('right');
   const activeMeta = LANGUAGE_META[language];
   const menuHeight = compact ? 320 : 360;
   const menuWidth = compact ? 228 : 244;
@@ -149,12 +151,125 @@ export default function LanguageSelector({
           </Pressable>
         );
       })}
-    </View>
+    
+      {/* FLOENTLY_NATIVE_LANGUAGE_MODAL_START */}
+      <Modal
+        visible={isNativeLanguageModal && open}
+        transparent
+        animationType="fade"
+        onRequestClose={() => setOpen(false)}
+      >
+        <View style={styles.nativeModalBackdrop}>
+          <Pressable style={styles.nativeModalDismiss} onPress={() => setOpen(false)} />
+          <View style={styles.nativeLanguageSheet}>
+            <Text style={styles.nativeLanguageTitle}>Choose language</Text>
+            <ScrollView
+              style={styles.nativeLanguageList}
+              contentContainerStyle={styles.nativeLanguageListContent}
+              showsVerticalScrollIndicator
+              nestedScrollEnabled
+              keyboardShouldPersistTaps="handled"
+            >
+              {LANGUAGE_OPTIONS.map((option) => {
+                const active = option.code === language;
+                return (
+                  <Pressable
+                    key={option.code}
+                    onPress={() => {
+                      onChange(option.code as any);
+                      setOpen(false);
+                    }}
+                    style={[styles.nativeLanguageOption, active && styles.nativeLanguageOptionActive]}
+                    accessibilityRole="button"
+                  >
+                    <Text style={styles.nativeLanguageFlag}>{option.flag}</Text>
+                    <View style={styles.nativeLanguageTextWrap}>
+                      <Text style={styles.nativeLanguageLabel}>{option.nativeLabel ?? option.label}</Text>
+                      <Text style={styles.nativeLanguageSub}>{option.label}</Text>
+                    </View>
+                    {active ? <Text style={styles.nativeLanguageCheck}>✓</Text> : null}
+                  </Pressable>
+                );
+              })}
+            </ScrollView>
+          </View>
+        </View>
+      </Modal>
+      {/* FLOENTLY_NATIVE_LANGUAGE_MODAL_END */}
+</View>
   );
 }
 
 const styles = StyleSheet.create({
-  menuWrap: {
+  
+  nativeModalBackdrop: {
+    flex: 1,
+    justifyContent: 'flex-end',
+    backgroundColor: 'rgba(0, 0, 0, 0.42)',
+  },
+  nativeModalDismiss: {
+    ...StyleSheet.absoluteFillObject,
+  },
+  nativeLanguageSheet: {
+    maxHeight: Math.min(560, Math.max(360, Dimensions.get('window').height * 0.72)),
+    borderTopLeftRadius: 24,
+    borderTopRightRadius: 24,
+    paddingHorizontal: 18,
+    paddingTop: 18,
+    paddingBottom: 18,
+    backgroundColor: '#071832',
+  },
+  nativeLanguageTitle: {
+    marginBottom: 12,
+    fontSize: 18,
+    fontWeight: '800',
+    color: '#FFFFFF',
+  },
+  nativeLanguageList: {
+    maxHeight: Math.min(480, Math.max(280, Dimensions.get('window').height * 0.62)),
+  },
+  nativeLanguageListContent: {
+    gap: 10,
+    paddingBottom: 28,
+  },
+  nativeLanguageOption: {
+    minHeight: 58,
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 12,
+    borderWidth: 1,
+    borderColor: 'rgba(255, 255, 255, 0.14)',
+    borderRadius: 16,
+    paddingHorizontal: 14,
+    paddingVertical: 10,
+    backgroundColor: 'rgba(255, 255, 255, 0.06)',
+  },
+  nativeLanguageOptionActive: {
+    borderColor: '#7CE7D6',
+    backgroundColor: 'rgba(124, 231, 214, 0.16)',
+  },
+  nativeLanguageFlag: {
+    fontSize: 24,
+  },
+  nativeLanguageTextWrap: {
+    flex: 1,
+  },
+  nativeLanguageLabel: {
+    fontSize: 15,
+    fontWeight: '800',
+    color: '#FFFFFF',
+  },
+  nativeLanguageSub: {
+    marginTop: 2,
+    fontSize: 12,
+    color: 'rgba(255, 255, 255, 0.72)',
+  },
+  nativeLanguageCheck: {
+    fontSize: 18,
+    fontWeight: '900',
+    color: '#7CE7D6',
+  },
+menuWrap: {
     position: 'relative',
     alignItems: 'flex-end',
     zIndex: 60,
