@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { Dimensions, Pressable, ScrollView, StyleSheet, Text, View, Modal, Platform } from 'react-native';
+import { Dimensions, Modal, Platform, Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
 
 import { ENABLED_LANGUAGE_CODES, LANGUAGE_META, type AppLanguage } from './languages';
 
@@ -23,7 +23,7 @@ export default function LanguageSelector({
   const [open, setOpen] = useState(false);
   
   const isNativeLanguageModal = Platform.OS !== 'web';
-const [resolvedPlacement, setResolvedPlacement] = useState<'up' | 'down' | 'right'>('right');
+  const [resolvedPlacement, setResolvedPlacement] = useState<'up' | 'down' | 'right'>('right');
   const activeMeta = LANGUAGE_META[language];
   const menuHeight = compact ? 320 : 360;
   const menuWidth = compact ? 228 : 244;
@@ -78,7 +78,7 @@ const [resolvedPlacement, setResolvedPlacement] = useState<'up' | 'down' | 'righ
           <Text style={styles.menuFlag}>{activeMeta.flag}</Text>
         </Pressable>
 
-        {open ? (
+        {open && !isNativeLanguageModal ? (
           <View
             style={[
               styles.menuPanel,
@@ -126,6 +126,54 @@ const [resolvedPlacement, setResolvedPlacement] = useState<'up' | 'down' | 'righ
             </ScrollView>
           </View>
         ) : null}
+
+        {/* FLOENTLY_NATIVE_LANGUAGE_MODAL_START */}
+        <Modal
+          visible={isNativeLanguageModal && open}
+          transparent
+          animationType="fade"
+          onRequestClose={() => setOpen(false)}
+        >
+          <View style={styles.nativeModalBackdrop}>
+            <Pressable style={styles.nativeModalDismiss} onPress={() => setOpen(false)} />
+            <View style={styles.nativeLanguageSheet}>
+              <Text style={styles.nativeLanguageTitle}>Choose language</Text>
+              <ScrollView
+                style={styles.nativeLanguageList}
+                contentContainerStyle={styles.nativeLanguageListContent}
+                showsVerticalScrollIndicator
+                nestedScrollEnabled
+                keyboardShouldPersistTaps="handled"
+              >
+                {options.map((option) => {
+                  const meta = LANGUAGE_META[option];
+                  const active = option === language;
+                  return (
+                    <Pressable
+                      key={option}
+                      onPress={() => {
+                        void onChange(option);
+                        setOpen(false);
+                      }}
+                      style={[styles.nativeLanguageOption, active && styles.nativeLanguageOptionActive]}
+                      accessibilityRole="button"
+                      accessibilityState={{ selected: active }}
+                      accessibilityLabel={`${meta.nativeLabel} ${meta.flag}`}
+                    >
+                      <Text style={styles.nativeLanguageFlag}>{meta.flag}</Text>
+                      <View style={styles.nativeLanguageTextWrap}>
+                        <Text style={styles.nativeLanguageLabel}>{meta.nativeLabel}</Text>
+                        <Text style={styles.nativeLanguageSub}>{meta.label}</Text>
+                      </View>
+                      {active ? <Text style={styles.nativeLanguageCheck}>✓</Text> : null}
+                    </Pressable>
+                  );
+                })}
+              </ScrollView>
+            </View>
+          </View>
+        </Modal>
+        {/* FLOENTLY_NATIVE_LANGUAGE_MODAL_END */}
       </View>
     );
   }
@@ -152,50 +200,6 @@ const [resolvedPlacement, setResolvedPlacement] = useState<'up' | 'down' | 'righ
         );
       })}
     
-      {/* FLOENTLY_NATIVE_LANGUAGE_MODAL_START */}
-      <Modal
-        visible={isNativeLanguageModal && open}
-        transparent
-        animationType="fade"
-        onRequestClose={() => setOpen(false)}
-      >
-        <View style={styles.nativeModalBackdrop}>
-          <Pressable style={styles.nativeModalDismiss} onPress={() => setOpen(false)} />
-          <View style={styles.nativeLanguageSheet}>
-            <Text style={styles.nativeLanguageTitle}>Choose language</Text>
-            <ScrollView
-              style={styles.nativeLanguageList}
-              contentContainerStyle={styles.nativeLanguageListContent}
-              showsVerticalScrollIndicator
-              nestedScrollEnabled
-              keyboardShouldPersistTaps="handled"
-            >
-              {LANGUAGE_OPTIONS.map((option) => {
-                const active = option.code === language;
-                return (
-                  <Pressable
-                    key={option.code}
-                    onPress={() => {
-                      onChange(option.code as any);
-                      setOpen(false);
-                    }}
-                    style={[styles.nativeLanguageOption, active && styles.nativeLanguageOptionActive]}
-                    accessibilityRole="button"
-                  >
-                    <Text style={styles.nativeLanguageFlag}>{option.flag}</Text>
-                    <View style={styles.nativeLanguageTextWrap}>
-                      <Text style={styles.nativeLanguageLabel}>{option.nativeLabel ?? option.label}</Text>
-                      <Text style={styles.nativeLanguageSub}>{option.label}</Text>
-                    </View>
-                    {active ? <Text style={styles.nativeLanguageCheck}>✓</Text> : null}
-                  </Pressable>
-                );
-              })}
-            </ScrollView>
-          </View>
-        </View>
-      </Modal>
-      {/* FLOENTLY_NATIVE_LANGUAGE_MODAL_END */}
 </View>
   );
 }
