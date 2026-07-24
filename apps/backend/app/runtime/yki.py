@@ -43,6 +43,7 @@ def store_yki_session(*, user_id: str, runtime: dict[str, Any]) -> None:
                 "user_id": user_id,
                 "engine_session_token": token,
                 "runtime_schema_version": runtime.get("runtime_schema_version"),
+                "runtime": runtime,
                 "updated_at": iso_now(),
             },
         )
@@ -72,5 +73,6 @@ def get_yki_session_record(*, user_id: str, session_id: str) -> dict[str, Any]:
             "user_id": payload["user_id"],
             "engine_session_token": payload["engine_session_token"],
             "runtime_schema_version": payload.get("runtime_schema_version"),
+            "runtime": payload.get("runtime"),
             "updated_at": payload.get("updated_at"),
         }
