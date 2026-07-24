@@ -203,6 +203,7 @@ const styles = StyleSheet.create({
     shadowRadius: 16,
     shadowOffset: { width: 0, height: 8 },
     elevation: 8,
+    overflow: 'visible',
   },
   menuPanelDown: {
     top: 42,
