@@ -345,6 +345,18 @@ export function useRoleplayRecorder(locale = 'fi-FI') {
 
       const recording = recordingRef.current;
       if (!recording) throw new Error('Recorder missing');
+
+      // Native recorders can finalize a shorter file than the UI timer suggests
+      // if stop is triggered too quickly by a tap/gesture. Keep the recorder open
+      // for a real wall-clock minimum before calling stop(), so STT receives a
+      // usable voice sample instead of a 1-2 second fragment.
+      const startedAt = startedAtRef.current || Date.now();
+      const wallClockBeforeStopMs = Math.max(0, Date.now() - startedAt);
+      const requiredBeforeStopMs = MIN_ROLEPLAY_RECORDING_MS + 1200;
+      if (wallClockBeforeStopMs < requiredBeforeStopMs) {
+        await pause(requiredBeforeStopMs - wallClockBeforeStopMs);
+      }
+
       let uri: string | null = null;
       await audioSession.beginRecordingStop();
       try {
@@ -373,9 +385,11 @@ export function useRoleplayRecorder(locale = 'fi-FI') {
           });
         }
 
+      const wallClockDurationMs = Math.max(0, Date.now() - startedAt);
       const nativeDurationMs = Math.max(
         durationMs,
         nativeDurationMsRef.current,
+        wallClockDurationMs,
         Math.round(Number((recording as { currentTime?: number }).currentTime ?? 0) * 1000),
       );
 
