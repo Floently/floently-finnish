@@ -149,6 +149,18 @@ function pause(ms: number) {
   return new Promise((resolve) => setTimeout(resolve, ms));
 }
 
+async function waitForNativeDurationAtLeast(
+  durationRef: { current: number },
+  minimumMs: number,
+  timeoutMs: number,
+) {
+  const started = Date.now();
+  while (durationRef.current < minimumMs && Date.now() - started < timeoutMs) {
+    await pause(120);
+  }
+  return durationRef.current;
+}
+
 async function nativeAudioFileInfo(uri: string): Promise<{ exists: boolean; size?: number }> {
   if (Platform.OS === 'web') return { exists: true };
   try {
@@ -351,11 +363,21 @@ export function useRoleplayRecorder(locale = 'fi-FI') {
       // for a real wall-clock minimum before calling stop(), so STT receives a
       // usable voice sample instead of a 1-2 second fragment.
       const startedAt = startedAtRef.current || Date.now();
+
+      // Permanent guard: do not stop native recording based only on UI wall-clock.
+      // The uploaded file has repeatedly been only around 1.6s even when the UI
+      // timer looked longer. Wait until the native recorder reports enough
+      // captured duration before stop().
       const wallClockBeforeStopMs = Math.max(0, Date.now() - startedAt);
       const requiredBeforeStopMs = MIN_ROLEPLAY_RECORDING_MS + 1200;
       if (wallClockBeforeStopMs < requiredBeforeStopMs) {
         await pause(requiredBeforeStopMs - wallClockBeforeStopMs);
       }
+      await waitForNativeDurationAtLeast(
+        nativeDurationMsRef,
+        MIN_ROLEPLAY_RECORDING_MS,
+        5000,
+      );
 
       let uri: string | null = null;
       await audioSession.beginRecordingStop();
@@ -395,7 +417,7 @@ export function useRoleplayRecorder(locale = 'fi-FI') {
 
       if (nativeDurationMs < MIN_ROLEPLAY_RECORDING_MS) {
         setPhaseSafe('idle');
-        setError(`I only captured ${(nativeDurationMs / 1000).toFixed(1)}s of speech. Record at least 3 seconds, speak one full sentence, then tap the mic again. You can also type your answer.`);
+        setError(`The recorder only saved ${(nativeDurationMs / 1000).toFixed(1)}s of audio. Tap once to start, wait until the timer passes 3 seconds, then tap once to stop. You can also type your answer.`);
         return null;
       }
 
