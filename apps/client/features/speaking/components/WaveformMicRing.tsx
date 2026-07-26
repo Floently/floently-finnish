@@ -25,7 +25,7 @@
 
 import React, { useEffect, useMemo } from 'react';
 import { Pressable, StyleSheet, View } from 'react-native';
-import Svg, { Circle, Defs, G, LinearGradient, Path, RadialGradient, Stop } from 'react-native-svg';
+import Svg, { Circle, Defs, LinearGradient, Path, RadialGradient, Stop } from 'react-native-svg';
 import Animated, {
   cancelAnimation,
   Easing,
@@ -96,6 +96,17 @@ export function WaveformMicRing({
   const accent = accentColor ?? palette.accent;
   const bgForButton = themeMode === 'dark' ? palette.background : palette.surface;
 
+  // The conversation screen historically supplied a single toggle callback.
+  // A normal Pressable onPress fires only after release, so users who held the
+  // microphone and spoke were recorded only after they had finished speaking.
+  // Preserve the public API while restoring the intended push-to-talk contract:
+  // press-in starts recording and press-out stops it. Explicit press handlers
+  // still take precedence for callers that need custom behavior.
+  const usePushToTalkFallback = Boolean(onPress && !onPressIn && !onPressOut);
+  const resolvedOnPressIn = onPressIn ?? (usePushToTalkFallback ? onPress : undefined);
+  const resolvedOnPressOut = onPressOut ?? (usePushToTalkFallback ? onPress : undefined);
+  const resolvedOnPress = usePushToTalkFallback ? undefined : onPress;
+
   const cx = size / 2;
   const cy = size / 2;
   const buttonRadius = size * 0.16;
@@ -103,30 +114,21 @@ export function WaveformMicRing({
   const ring2Radius = size * 0.36;
   const ring3Radius = size * 0.44;
 
-  // Continuous drivers
   const ambientPulse = useSharedValue(0);
   const recordIntensity = useSharedValue(0);
   const uploadingSpin = useSharedValue(0);
   const errorShake = useSharedValue(0);
 
-  // Amplitude driver — smoothed toward the incoming `amplitude` prop to avoid
-  // jittery ring sizes. Worklet-safe.
   const amplitudeShared = useSharedValue(0);
   useEffect(() => {
     const clamped = Math.max(0, Math.min(1, amplitude));
     amplitudeShared.value = withTiming(clamped, { duration: 110, easing: Easing.out(Easing.quad) });
   }, [amplitude, amplitudeShared]);
 
-  // The effective amplitude the rings react to:
-  //   - During recording: real amplitude if any, otherwise a synthetic pulse so
-  //     screens that don't pipe amplitude still get visible motion.
-  //   - During idle/uploading/error: zero (rings use ambientPulse only).
   const effectiveAmplitude = useDerivedValue(() => {
     'worklet';
     if (phase !== 'recording') return 0;
-    // If there's any amplitude signal at all, prefer it over the synthetic pulse.
     if (amplitudeShared.value > 0.02) return amplitudeShared.value;
-    // Fallback synthetic pulse (breath-like, 0..0.4)
     return 0.15 + ambientPulse.value * 0.25;
   }, [phase]);
 
@@ -174,8 +176,6 @@ export function WaveformMicRing({
     [cx, cy, ring1Radius, ring2Radius, ring3Radius],
   );
 
-  // Ring 1 — closest to the mic. Reacts most strongly to amplitude, small ambient
-  // breath when idle. Loud speech → expands ~18%. Silence → sits at baseline.
   const ring1Props = useAnimatedProps(() => {
     const ambient = 1 + ambientPulse.value * 0.03;
     const amp = 1 + effectiveAmplitude.value * 0.18;
@@ -188,7 +188,6 @@ export function WaveformMicRing({
     } as any;
   });
 
-  // Ring 2 — medium radius. Slightly lagged pulse; larger amplitude expansion.
   const ring2Props = useAnimatedProps(() => {
     const ambient = 1 + (1 - ambientPulse.value) * 0.04;
     const amp = 1 + effectiveAmplitude.value * 0.26;
@@ -201,8 +200,6 @@ export function WaveformMicRing({
     } as any;
   });
 
-  // Ring 3 — outermost. Most sensitive to amplitude — this is the ring that
-  // visibly "reaches out" on loud speech. Subtle during idle.
   const ring3Props = useAnimatedProps(() => {
     const ambient = 1 + ambientPulse.value * 0.06;
     const amp = 1 + effectiveAmplitude.value * 0.38;
@@ -215,7 +212,6 @@ export function WaveformMicRing({
     } as any;
   });
 
-  // Uploading: whole ring group rotates slowly
   const uploadingGroupStyle = useAnimatedStyle(() => {
     const active = phase === 'uploading';
     return {
@@ -223,7 +219,6 @@ export function WaveformMicRing({
     };
   });
 
-  // Central button: subtle scale bump with recording + amplitude, error shake
   const buttonWrapperStyle = useAnimatedStyle(() => {
     const baseScale = 1 + recordIntensity.value * 0.06;
     const ampScale = 1 + effectiveAmplitude.value * 0.04;
@@ -280,9 +275,9 @@ export function WaveformMicRing({
 
       <Animated.View style={[styles.buttonWrapper, buttonWrapperStyle]}>
         <Pressable
-          onPressIn={onPressIn}
-          onPressOut={onPressOut}
-          onPress={onPress}
+          onPressIn={resolvedOnPressIn}
+          onPressOut={resolvedOnPressOut}
+          onPress={resolvedOnPress}
           disabled={disabled}
           hitSlop={16}
           style={({ pressed }) => [
@@ -317,7 +312,6 @@ export function WaveformMicRing({
   );
 }
 
-/** Inline mic SVG — no external icon dep. */
 function MicGlyph({ size, color }: { size: number; color: string }) {
   return (
     <Svg width={size} height={size} viewBox="0 0 24 24">
