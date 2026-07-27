@@ -726,7 +726,14 @@ export default function RoleplayConversationScreen({
             }
         } else {
           await stopRoleplayAudioPlayback();
-          await uiSounds.tap();
+
+          // The native app previously started tap_soft.wav and mic_on.wav
+          // immediately before recording. Their shared iOS audio players
+          // interrupted the recorder. Retain the cue only on the web path.
+          if (Platform.OS === 'web') {
+            await uiSounds.tap();
+          }
+
           await recorder.startRecording();
         }
       } finally {
@@ -968,12 +975,30 @@ export default function RoleplayConversationScreen({
                 </View>
                 <Pressable
                   onPress={() => void stopRoleplayAudioPlayback()}
+                  disabled={
+                    recorder.phase === 'recording' ||
+                    recorder.phase === 'uploading'
+                  }
                   style={[
                     styles.secondaryButton,
-                    isLight && { backgroundColor: palette.surfaceMuted, borderColor: palette.border },
+                    isLight && {
+                      backgroundColor: palette.surfaceMuted,
+                      borderColor: palette.border,
+                    },
+                    (
+                      recorder.phase === 'recording' ||
+                      recorder.phase === 'uploading'
+                    ) && styles.disabledButton,
                   ]}
                 >
-                  <Text style={[styles.secondaryButtonText, { color: mutedColor }]}>Pysäytä ääni</Text>
+                  <Text
+                    style={[
+                      styles.secondaryButtonText,
+                      { color: mutedColor },
+                    ]}
+                  >
+                    Pysäytä toisto
+                  </Text>
                 </Pressable>
               </View>
               <Pressable

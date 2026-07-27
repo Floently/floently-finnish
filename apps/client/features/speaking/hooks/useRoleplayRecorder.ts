@@ -241,7 +241,12 @@ export function useRoleplayRecorder(locale = 'fi-FI') {
     pendingStopRef.current = false;
     startedAtRef.current = Date.now();
     nativeDurationMsRef.current = 0;
-    await uiSounds.micOn();
+
+    // Browser recording can retain its audible cue. Native recording must
+    // enter the iOS/Android recording session with no player still active.
+    if (Platform.OS === 'web') {
+      await uiSounds.micOn();
+    }
 
     try {
       if (Platform.OS === 'web') {
@@ -475,9 +480,23 @@ export function useRoleplayRecorder(locale = 'fi-FI') {
           return null;
         }
 
+        const nativeAttempt = inferNativeAudioAttempt(uri);
+        const extension =
+          nativeAttempt.fileName.split('.').pop() || 'm4a';
+
+        // Embed non-sensitive timing evidence in the filename so the
+        // backend metrics can compare client timing with decoded duration.
+        const diagnosticAttempt = {
+          ...nativeAttempt,
+          fileName:
+            `roleplay-w${Math.round(wallClockDurationMs)}` +
+            `-n${Math.round(nativeDurationMs)}` +
+            `-b${Math.round(fileSizeBytes)}.${extension}`,
+        };
+
         const transcript = await transcribeRoleplayRecording({
           uriOrBlob: uri,
-          attempt: inferNativeAudioAttempt(uri),
+          attempt: diagnosticAttempt,
           locale,
           durationMs: nativeDurationMs,
           fileSizeBytes,
