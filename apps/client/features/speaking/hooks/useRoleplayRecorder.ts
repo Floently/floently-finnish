@@ -159,12 +159,21 @@ function pause(ms: number) {
 
 async function nativeAudioFileInfo(uri: string): Promise<{ exists: boolean; size?: number }> {
   if (Platform.OS === 'web') return { exists: true };
+
   try {
-    const info = await FileSystem.getInfoAsync(uri);
-    const record = info as { exists?: boolean; size?: number };
+    // Expo SDK 55 removed getInfoAsync from the modern FileSystem API.
+    // File accepts the recorder's file URI directly and exposes synchronous
+    // existence and size metadata on both iOS and Android.
+    const file = new FileSystem.File(uri);
+    const exists = file.exists;
+    const size = file.size;
+
     return {
-      exists: Boolean(record.exists),
-      size: typeof record.size === 'number' ? record.size : undefined,
+      exists,
+      size:
+        exists && typeof size === 'number' && Number.isFinite(size)
+          ? size
+          : undefined,
     };
   } catch {
     return { exists: false };
