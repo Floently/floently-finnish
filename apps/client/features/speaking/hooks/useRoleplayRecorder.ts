@@ -12,21 +12,36 @@ import { audioSession } from '../../shared/services/audioSession';
 import { uiSounds } from '../services/roleplayAudio';
 import type { RecorderPhase } from '../types';
 
-function inferNativeAudioAttempts(uri: string) {
+function inferNativeAudioAttempt(
+  uri: string,
+): { mimeType: string; fileName: string } {
   const lower = String(uri || '').toLowerCase();
+
   if (lower.endsWith('.wav')) {
-    return [{ mimeType: 'audio/wav', fileName: 'roleplay.wav' }];
+    return {
+      mimeType: 'audio/wav',
+      fileName: 'roleplay.wav',
+    };
   }
+
   if (lower.endsWith('.mp4')) {
-    return [
-      { mimeType: 'audio/mp4', fileName: 'roleplay.mp4' },
-      { mimeType: 'audio/m4a', fileName: 'roleplay.m4a' },
-    ];
+    return {
+      mimeType: 'audio/mp4',
+      fileName: 'roleplay.mp4',
+    };
   }
-  return [
-    { mimeType: 'audio/m4a', fileName: 'roleplay.m4a' },
-    { mimeType: 'audio/mp4', fileName: 'roleplay.mp4' },
-  ];
+
+  if (lower.endsWith('.caf')) {
+    return {
+      mimeType: 'audio/x-caf',
+      fileName: 'roleplay.caf',
+    };
+  }
+
+  return {
+    mimeType: 'audio/m4a',
+    fileName: 'roleplay.m4a',
+  };
 }
 
 function browserMicErrorMessage(error: unknown, details?: string): string {
@@ -115,30 +130,22 @@ function normalizeRecorderError(error: unknown): string {
 
 async function transcribeRoleplayRecording(input: {
   uriOrBlob: Blob | string;
-  attempts: Array<{ mimeType: string; fileName: string }>;
+  attempt: { mimeType: string; fileName: string };
   locale: string;
   durationMs?: number;
-    fileSizeBytes?: number;
+  fileSizeBytes?: number;
 }): Promise<string> {
-  let lastError: unknown = null;
-  for (const attempt of input.attempts) {
-    try {
-      return (await transcribeVoiceAudio({
-        uriOrBlob: input.uriOrBlob,
-        mimeType: attempt.mimeType,
-        fileName: attempt.fileName,
-        locale: input.locale,
-        sessionId: 'roleplay-session',
-        speakingSessionId: 'roleplay-session',
-        mode: 'roleplay',
-        durationMs: input.durationMs,
-          fileSizeBytes: input.fileSizeBytes,
-      })) ?? '';
-    } catch (error) {
-      lastError = error;
-    }
-  }
-  throw lastError ?? new Error('Voice transcription failed.');
+  return (await transcribeVoiceAudio({
+    uriOrBlob: input.uriOrBlob,
+    mimeType: input.attempt.mimeType,
+    fileName: input.attempt.fileName,
+    locale: input.locale,
+    sessionId: 'roleplay-session',
+    speakingSessionId: 'roleplay-session',
+    mode: 'roleplay',
+    durationMs: input.durationMs,
+    fileSizeBytes: input.fileSizeBytes,
+  })) ?? '';
 }
 
 const MIN_ROLEPLAY_RECORDING_MS = 3000;
@@ -149,17 +156,6 @@ function pause(ms: number) {
   return new Promise((resolve) => setTimeout(resolve, ms));
 }
 
-async function waitForNativeDurationAtLeast(
-  durationRef: { current: number },
-  minimumMs: number,
-  timeoutMs: number,
-) {
-  const started = Date.now();
-  while (durationRef.current < minimumMs && Date.now() - started < timeoutMs) {
-    await pause(120);
-  }
-  return durationRef.current;
-}
 
 async function nativeAudioFileInfo(uri: string): Promise<{ exists: boolean; size?: number }> {
   if (Platform.OS === 'web') return { exists: true };
@@ -340,13 +336,18 @@ export function useRoleplayRecorder(locale = 'fi-FI') {
           return null;
         }
         const apiMimeType = mimeType.split(';')[0];
-        const transcript = await transcribeRoleplayRecording({
-          uriOrBlob: blob,
-          attempts: [{ mimeType: apiMimeType, fileName: apiMimeType.includes('mp4') ? 'roleplay.mp4' : 'roleplay.webm' }],
-          locale,
-          durationMs,
+          const transcript = await transcribeRoleplayRecording({
+            uriOrBlob: blob,
+            attempt: {
+              mimeType: apiMimeType,
+              fileName: apiMimeType.includes('mp4')
+                ? 'roleplay.mp4'
+                : 'roleplay.webm',
+            },
+            locale,
+            durationMs,
             fileSizeBytes: blob.size,
-        });
+          });
         setPhaseSafe('idle');
         if (!transcript) {
           setError('No speech detected — try again or type your response.');
@@ -358,76 +359,120 @@ export function useRoleplayRecorder(locale = 'fi-FI') {
       const recording = recordingRef.current;
       if (!recording) throw new Error('Recorder missing');
 
-      // Native recorders can finalize a shorter file than the UI timer suggests
-      // if stop is triggered too quickly by a tap/gesture. Keep the recorder open
-      // for a real wall-clock minimum before calling stop(), so STT receives a
-      // usable voice sample instead of a 1-2 second fragment.
-      const startedAt = startedAtRef.current || Date.now();
+        const startedAt = startedAtRef.current || Date.now();
 
-      // Permanent guard: do not stop native recording based only on UI wall-clock.
-      // The uploaded file has repeatedly been only around 1.6s even when the UI
-      // timer looked longer. Wait until the native recorder reports enough
-      // captured duration before stop().
-      const wallClockBeforeStopMs = Math.max(0, Date.now() - startedAt);
-      const requiredBeforeStopMs = MIN_ROLEPLAY_RECORDING_MS + 1200;
-      if (wallClockBeforeStopMs < requiredBeforeStopMs) {
-        await pause(requiredBeforeStopMs - wallClockBeforeStopMs);
-      }
-      await waitForNativeDurationAtLeast(
-        nativeDurationMsRef,
-        MIN_ROLEPLAY_RECORDING_MS,
-        5000,
-      );
+        // Native recorder values—not the UI wall clock—determine
+        // whether the saved recording contains enough audio.
+        const recorderDurationBeforeStopMs = Math.max(
+          nativeDurationMsRef.current,
+          Math.round(
+            Number(
+              (recording as { currentTime?: number }).currentTime ?? 0,
+            ) * 1000,
+          ),
+        );
 
-      let uri: string | null = null;
-      await audioSession.beginRecordingStop();
-      try {
-        await recording.stop();
-        uri = recording.uri ?? null;
-      } finally {
-        recordingRef.current = null;
-        await audioSession.finishRecording();
-      }
-      await uiSounds.micOff();
-      if (!uri) throw new Error('No recording URI returned');
+        let uri: string | null = null;
 
-        // iOS can report a long UI duration even when the saved native file is
-        // missing, tiny, or not fully finalized yet. Wait briefly, then verify
-        // the actual file before sending it to STT.
-        await pause(350);
-        const fileInfo = await nativeAudioFileInfo(uri);
-        const rawFileSizeBytes = typeof fileInfo.size === 'number' ? fileInfo.size : 0;
-        const verifiedFileSizeBytes = fileInfo.exists && rawFileSizeBytes > 0 ? rawFileSizeBytes : undefined;
+        await audioSession.beginRecordingStop();
 
-        if (!fileInfo.exists || rawFileSizeBytes < MIN_ROLEPLAY_AUDIO_BYTES) {
-          console.warn('[roleplay-recorder] Native file metadata was not reliable; attempting STT upload anyway.', {
-            exists: fileInfo.exists,
-            size: rawFileSizeBytes,
-            uri,
-          });
+        try {
+          // The second tap stops recording immediately.
+          // Awaiting stop() finalizes the native file.
+          await recording.stop();
+          uri = recording.uri ?? null;
+        } finally {
+          recordingRef.current = null;
+          await audioSession.finishRecording();
         }
 
-      const wallClockDurationMs = Math.max(0, Date.now() - startedAt);
-      const nativeDurationMs = Math.max(
-        durationMs,
-        nativeDurationMsRef.current,
-        wallClockDurationMs,
-        Math.round(Number((recording as { currentTime?: number }).currentTime ?? 0) * 1000),
-      );
+        await uiSounds.micOff();
 
-      if (nativeDurationMs < MIN_ROLEPLAY_RECORDING_MS) {
-        setPhaseSafe('idle');
-        setError(`The recorder only saved ${(nativeDurationMs / 1000).toFixed(1)}s of audio. Tap once to start, wait until the timer passes 3 seconds, then tap once to stop. You can also type your answer.`);
-        return null;
-      }
+        if (!uri) {
+          throw new Error('No recording URI returned');
+        }
 
-      const transcript = await transcribeRoleplayRecording({
-        uriOrBlob: uri,
-        attempts: inferNativeAudioAttempts(uri),
-        locale,
-        durationMs: nativeDurationMs,
-          fileSizeBytes: verifiedFileSizeBytes,
-      });
+        // Poll only for finalized file metadata. Recording has already
+        // stopped, so this cannot extend or inflate recorded audio.
+        const fileInfoStartedAt = Date.now();
+        let fileInfo = await nativeAudioFileInfo(uri);
+        let fileSizeBytes =
+          typeof fileInfo.size === 'number' ? fileInfo.size : 0;
+
+        while (
+          (!fileInfo.exists ||
+            fileSizeBytes < MIN_ROLEPLAY_AUDIO_BYTES) &&
+          Date.now() - fileInfoStartedAt < 2500
+        ) {
+          await pause(100);
+          fileInfo = await nativeAudioFileInfo(uri);
+          fileSizeBytes =
+            typeof fileInfo.size === 'number'
+              ? fileInfo.size
+              : 0;
+        }
+
+        if (
+          !fileInfo.exists ||
+          fileSizeBytes < MIN_ROLEPLAY_AUDIO_BYTES
+        ) {
+          setPhaseSafe('idle');
+          setError(
+            'The recording file was not saved correctly. Try once more, speak close to the microphone, or type your response.',
+          );
+          return null;
+        }
+
+        const recorderDurationAfterStopMs = Math.max(
+          nativeDurationMsRef.current,
+          Math.round(
+            Number(
+              (recording as { currentTime?: number }).currentTime ?? 0,
+            ) * 1000,
+          ),
+        );
+
+        const nativeDurationMs = Math.max(
+          recorderDurationBeforeStopMs,
+          recorderDurationAfterStopMs,
+        );
+
+        // Wall-clock time is retained only for diagnostics.
+        const wallClockDurationMs = Math.max(
+          0,
+          Date.now() - startedAt,
+        );
+
+        setElapsedMs(nativeDurationMs);
+
+        console.info(
+          '[roleplay-recorder] Native recording finalized.',
+          {
+            uri,
+            wallClockDurationMs,
+            recorderDurationBeforeStopMs,
+            recorderDurationAfterStopMs,
+            nativeDurationMs,
+            fileExists: fileInfo.exists,
+            fileSizeBytes,
+          },
+        );
+
+        if (nativeDurationMs < MIN_ROLEPLAY_RECORDING_MS) {
+          setPhaseSafe('idle');
+          setError(
+            `The recorder saved only ${(nativeDurationMs / 1000).toFixed(1)}s of audio. Record at least 3 seconds, then tap the mic again. You can also type your response.`,
+          );
+          return null;
+        }
+
+        const transcript = await transcribeRoleplayRecording({
+          uriOrBlob: uri,
+          attempt: inferNativeAudioAttempt(uri),
+          locale,
+          durationMs: nativeDurationMs,
+          fileSizeBytes,
+        });
 
       setPhaseSafe('idle');
       if (!transcript) {
