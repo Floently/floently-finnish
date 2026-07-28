@@ -54,7 +54,19 @@ def sanitize_runtime_for_client(value: Any) -> Any:
     if isinstance(value, dict):
         sanitized: dict[str, Any] = {}
         for key, item in value.items():
-            if key in {"engine_session_token", "debug", "canonical_structure", "canonical_task", "internal_state", "raw_runtime"}:
+            if key in {
+                "engine_session_token",
+                "debug",
+                "canonical_structure",
+                "canonical_task",
+                "internal_state",
+                "raw_runtime",
+                "correct_index",
+                "correctIndex",
+                "correctBoolean",
+                "correct_answer",
+                "correctAnswer",
+            }:
                 continue
             sanitized[key] = sanitize_runtime_for_client(item)
         return sanitized

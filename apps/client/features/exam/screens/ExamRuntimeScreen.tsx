@@ -38,7 +38,7 @@ type MCQTask = TaskIdentity & {
   question: string;
   passage?: string;
   options: string[];
-  correct: number;
+  correct?: number;
 };
 
 type WritingTask = TaskIdentity & {
@@ -62,7 +62,7 @@ type ListeningTask = TaskIdentity & {
   audioText: string;
   audioUrl?: string;
   options: string[];
-  correct: number;
+  correct?: number;
 };
 
 type SectionTask =
@@ -267,7 +267,10 @@ function buildSectionsFromRuntimeExam(runtime: RuntimeExamPayload, levelBand: st
           passage: item.prompt?.text,
           question: q.question || item.prompt?.title || 'Read and answer.',
           options: q.options ?? ['A', 'B', 'C', 'D'],
-          correct: q.correct_index ?? 0,
+          correct:
+            typeof q.correct_index === 'number'
+              ? q.correct_index
+              : undefined,
         })),
       ),
     });
@@ -291,7 +294,10 @@ function buildSectionsFromRuntimeExam(runtime: RuntimeExamPayload, levelBand: st
           audioUrl,
           audioText,
           options: q.options ?? ['A', 'B', 'C', 'D'],
-          correct: q.correct_index ?? 0,
+          correct:
+            typeof q.correct_index === 'number'
+              ? q.correct_index
+              : undefined,
         }));
       }),
     });
@@ -884,7 +890,11 @@ export default function ExamRuntimeScreen() {
         correctOption:
           task.type === 'multiple_choice'
           || task.type === 'listening'
-            ? task.correct
+            ? (
+              typeof task.correct === 'number'
+                ? task.correct
+                : null
+            )
             : null,
         options:
           task.type === 'multiple_choice'

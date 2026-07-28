@@ -2,6 +2,9 @@ from __future__ import annotations
 
 import os
 
+from app.runtime.yki import (
+    sanitize_runtime_for_client,
+)
 from app.runtime.yki_local_fallback import (
     build_local_yki_runtime,
     local_submit_response,
@@ -22,11 +25,36 @@ runtime = build_local_yki_runtime(
     },
 )
 
-normalized = normalize_local_runtime_for_client(
-    runtime
+normalized = sanitize_runtime_for_client(
+    normalize_local_runtime_for_client(
+        runtime
+    )
 )
 
 sections = normalized.get("sections")
+
+forbidden_answer_keys = {
+    "correct_index",
+    "correctIndex",
+    "correctBoolean",
+    "correct_answer",
+    "correctAnswer",
+}
+
+
+def assert_no_answer_keys(value: object) -> None:
+    if isinstance(value, dict):
+        for key, nested in value.items():
+            assert key not in forbidden_answer_keys
+            assert_no_answer_keys(nested)
+        return
+
+    if isinstance(value, list):
+        for nested in value:
+            assert_no_answer_keys(nested)
+
+
+assert_no_answer_keys(normalized)
 
 assert isinstance(sections, list)
 assert len(sections) == 4
@@ -71,20 +99,40 @@ assert listening_question["question"]
 assert writing["items"][0]["prompt"]["instructions"]
 assert speaking["items"][0]["prompt"]["instructions"]
 
+reading_source_question = (
+    runtime["exam"]["reading"][0]
+    ["content"]["questions"][0]
+)
+
+listening_source_question = (
+    runtime["exam"]["listening"][0]
+    ["content"]["questions"][0]
+)
+
+assert (
+    reading_source_question["id"]
+    == reading_question["answer_id"]
+)
+
+assert (
+    listening_source_question["id"]
+    == listening_question["answer_id"]
+)
+
 objective_evidence = {
     (
         f"{reading_item['item_id']}:"
         f"{reading_question['answer_id']}"
     ): {
         "answer":
-            reading_question["correct_index"],
+            reading_source_question["correct_index"],
     },
     (
         f"{listening_item['item_id']}:"
         f"{listening_question['answer_id']}"
     ): {
         "answer":
-            listening_question["correct_index"],
+            listening_source_question["correct_index"],
     },
 }
 
@@ -156,6 +204,10 @@ assert (
 assert (
     report["audioEvidenceAvailable"]
     is True
+)
+
+print(
+    "YKI_LOCAL_FALLBACK_PUBLIC_RUNTIME_ANSWERS_HIDDEN=PASS"
 )
 
 print(

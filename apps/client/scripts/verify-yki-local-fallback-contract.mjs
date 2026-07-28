@@ -12,6 +12,18 @@ function requireText(source, value, label) {
   }
 }
 
+function forbidText(source, value, label) {
+  if (source.includes(value)) {
+    throw new Error(
+      `Forbidden ${label}: ${value}`,
+    );
+  }
+}
+
+const runtime = read(
+  'apps/backend/app/runtime/yki.py',
+);
+
 const fallback = read(
   'apps/backend/app/runtime/yki_local_fallback.py',
 );
@@ -34,6 +46,18 @@ const api = read(
 
 const screen = read(
   'apps/client/features/exam/screens/ExamRuntimeScreen.tsx',
+);
+
+requireText(
+  runtime,
+  '"correct_index",',
+  'correct-index runtime sanitization',
+);
+
+requireText(
+  runtime,
+  '"correctAnswer",',
+  'legacy answer-key runtime sanitization',
 );
 
 requireText(
@@ -94,6 +118,24 @@ requireText(
   screen,
   'transcriptText: upload.transcript',
   'runtime transcript submission',
+);
+
+requireText(
+  screen,
+  "typeof q.correct_index === 'number'",
+  'optional server answer-key handling',
+);
+
+requireText(
+  screen,
+  "typeof task.correct === 'number'",
+  'neutral stored correctness handling',
+);
+
+forbidText(
+  screen,
+  'correct: q.correct_index ?? 0',
+  'fabricated option-zero correctness',
 );
 
 console.log(
