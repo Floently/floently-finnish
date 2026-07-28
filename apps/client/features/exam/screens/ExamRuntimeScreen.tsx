@@ -14,8 +14,10 @@ import {
   type SubmitYkiExamResult,
 } from '@core/api/ykiExam';
 import { transcribeVoiceAudioDetailed } from '@core/api/voice';
-import { startYkiPracticeSession } from '@core/api/ykiPractice';
-import { getStoredExamSessionId } from '../../yki-exam/services/ykiExamService';
+import {
+  getStoredExamSessionId,
+  startExamSession,
+} from '../../yki-exam/services/ykiExamService';
 import { useAudioRecorder } from '../hooks/useAudioRecorder';
 import ExamTimer from '../components/ExamTimer';
 
@@ -527,45 +529,85 @@ export default function ExamRuntimeScreen() {
 
   useEffect(() => {
     let cancelled = false;
+
     void (async () => {
       try {
-        const storedBand = await AsyncStorage.getItem('floently:yki_exam_level_band') ?? 'B1-B2';
-        if (!cancelled) setLevelBand(storedBand);
+        const storedBand =
+          await AsyncStorage.getItem(
+            'floently:yki_exam_level_band',
+          ) ?? 'B1-B2';
 
-        const sessionId = await getStoredExamSessionId();
+        if (!cancelled) {
+          setLevelBand(storedBand);
+        }
+
+        let sessionId =
+          await getStoredExamSessionId();
+
+        if (!sessionId) {
+          await startExamSession(storedBand);
+          sessionId =
+            await getStoredExamSessionId();
+        }
+
+        if (!sessionId) {
+          throw new Error(
+            'The YKI evaluation session is unavailable.',
+          );
+        }
+
+        const payload =
+          await getYkiExamSession<{
+            runtime?: RuntimeExamPayload;
+          }>(sessionId);
+
+        const runtimePayload = payload.runtime;
+
+        if (
+          !Array.isArray(runtimePayload?.sections)
+          || runtimePayload.sections.length === 0
+        ) {
+          throw new Error(
+            'The YKI exam session returned no exam sections.',
+          );
+        }
+
+        const nextSections =
+          buildSectionsFromRuntimeExam(
+            runtimePayload,
+            storedBand,
+          );
+
+        if (nextSections.length === 0) {
+          throw new Error(
+            'The YKI exam session could not be prepared.',
+          );
+        }
 
         if (!cancelled) {
           setExamSessionId(sessionId);
+          setSections(nextSections);
+          setSubmissionError(null);
         }
-
-        if (sessionId) {
-          try {
-            const payload = await getYkiExamSession<{ runtime?: RuntimeExamPayload }>(sessionId);
-            const runtime = payload.runtime;
-            if (!cancelled && Array.isArray(runtime?.sections) && runtime.sections.length > 0) {
-              const nextSections = buildSectionsFromRuntimeExam(runtime, storedBand);
-              if (nextSections.length > 0) {
-                setSections(nextSections);
-                return;
-              }
-            }
-          } catch {
-            // fall back to guided practice tasks below
-          }
+      } catch (error) {
+        if (!cancelled) {
+          setExamSessionId(null);
+          setSubmissionError(
+            error instanceof Error
+              ? error.message
+              : 'The secure YKI exam session could not be loaded.',
+          );
         }
-
-        const practiceSession = await startYkiPracticeSession(storedBand, 'mixed');
-        const tasks = practiceSession.tasks ?? [];
-        if (!cancelled && tasks.length > 0) {
-          setSections(buildSectionsFromTasks(tasks, storedBand));
-        }
-      } catch {
-        // keep fallback sections
       } finally {
-        if (!cancelled) setLoadingTasks(false);
+        if (!cancelled) {
+          setLoadingTasks(false);
+        }
       }
     })();
-    return () => { cancelled = true; };
+
+    return () => {
+      cancelled = true;
+    };
   }, []);
 
   const section = sections[sectionIndex];
@@ -628,6 +670,12 @@ export default function ExamRuntimeScreen() {
   async function finishExam(
     finalResults: StoredExamTaskResult[],
   ) {
+    if (!examSessionId) {
+      throw new Error(
+        'This attempt is not connected to a YKI evaluation session.',
+      );
+    }
+
     const completedAt = new Date().toISOString();
 
     const objectiveResults = finalResults.filter(
@@ -657,21 +705,25 @@ export default function ExamRuntimeScreen() {
       };
     });
 
-    let submission: SubmitYkiExamResult | null = null;
-
-    if (examSessionId) {
-      submission = await submitYkiExamSession<SubmitYkiExamResult>(
+    const submission =
+      await submitYkiExamSession<SubmitYkiExamResult>(
         examSessionId,
         {
           confirm_incomplete: true,
         },
       );
-    }
 
     const evaluationReport =
-      submission?.evaluationReport
-      ?? submission?.evaluation
+      submission.evaluationReport
+      ?? submission.evaluation
       ?? null;
+
+    if (!evaluationReport) {
+      throw new Error(
+        'The exam was submitted, but the detailed AI evaluation '
+        + 'was not returned. Please retry the final submission.',
+      );
+    }
 
     const payload: StoredExamResults = {
       completedAt,
@@ -679,10 +731,11 @@ export default function ExamRuntimeScreen() {
       totalTasks,
       objectiveTasks: objectiveResults.length,
       objectiveCorrect,
-      objectiveIncorrect: objectiveResults.length - objectiveCorrect,
+      objectiveIncorrect:
+        objectiveResults.length - objectiveCorrect,
       sectionBreakdown,
       tasks: finalResults,
-      backendSubmitted: Boolean(submission),
+      backendSubmitted: true,
       submission,
       evaluationReport,
     };
@@ -931,10 +984,27 @@ export default function ExamRuntimeScreen() {
               </View>
             </View>
           )}
+          {submissionError ? (
+            <Text style={styles.errorText}>
+              {submissionError}
+            </Text>
+          ) : null}
+
           <Pressable
             onPress={() => setStarted(true)}
-            disabled={loadingTasks}
-            style={[styles.primaryButton, loadingTasks && { opacity: 0.5 }]}
+            disabled={
+              loadingTasks
+              || !examSessionId
+              || sections.length === 0
+            }
+            style={[
+              styles.primaryButton,
+              (
+                loadingTasks
+                || !examSessionId
+                || sections.length === 0
+              ) && { opacity: 0.5 },
+            ]}
           >
             <Text style={styles.primaryButtonText}>Start YKI exam</Text>
           </Pressable>
@@ -1275,6 +1345,17 @@ const styles = StyleSheet.create({
   container: { padding: 20, gap: 14, paddingBottom: 40 },
   title: { fontSize: 28, fontWeight: '800', color: '#111827' },
   subtitle: { fontSize: 14, lineHeight: 21, color: '#4B5563' },
+  errorText: {
+    color: '#A52828',
+    backgroundColor: '#FFF5F5',
+    borderWidth: 1,
+    borderColor: '#D64545',
+    borderRadius: 12,
+    padding: 12,
+    fontSize: 13,
+    lineHeight: 19,
+    fontWeight: '600',
+  },
   infoCard: { backgroundColor: '#FFFFFF', borderRadius: 18, borderWidth: 1, borderColor: '#D8E3F2', padding: 16, gap: 10 },
   infoTitle: { fontSize: 15, fontWeight: '800', color: '#111827', marginBottom: 4 },
   sectionRow: { flexDirection: 'row', alignItems: 'center', gap: 12 },

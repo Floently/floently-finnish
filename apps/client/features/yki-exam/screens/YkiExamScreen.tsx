@@ -69,14 +69,18 @@ export default function YkiExamScreen({
   async function handleStartExam() {
     setStarting(true);
     setError(null);
+
     try {
       await startExamSession(selectedLevel);
+      router.push('/yki-exam/runtime' as never);
     } catch {
-      // best-effort — navigate to runtime regardless; session tracking is non-blocking
+      setError(
+        'The secure YKI evaluation session could not be created. '
+        + 'Check your connection and try again.',
+      );
     } finally {
       setStarting(false);
     }
-    router.push('/yki-exam/runtime' as never);
   }
 
   return (

@@ -39,8 +39,30 @@ export type YkiExamOverview = {
 export type StartedExamSession = {
   session_id?: string;
   id?: string;
-  runtime?: unknown;
+  runtime?: {
+    session_id?: string;
+    id?: string;
+    [key: string]: unknown;
+  } | null;
 };
+
+export function resolveStartedYkiSessionId(
+  data: StartedExamSession,
+): string | null {
+  const candidate =
+    data.session_id
+    ?? data.id
+    ?? data.runtime?.session_id
+    ?? data.runtime?.id
+    ?? null;
+
+  return (
+    typeof candidate === 'string'
+    && candidate.trim()
+      ? candidate.trim()
+      : null
+  );
+}
 
 export type YkiExamAnswerPayload = {
   task_id?: string;

@@ -53,6 +53,23 @@ function getEvaluation(
   );
 }
 
+function evaluationUnavailableMessage(
+  results: StoredExamResults,
+) {
+  if (results.backendSubmitted === false) {
+    return (
+      'Evaluation failed: this attempt was not connected '
+      + 'to the YKI evaluator. Start a new mock exam after '
+      + 'updating the app.'
+    );
+  }
+
+  return (
+    'Detailed AI evaluation was not available '
+    + 'for this historical result.'
+  );
+}
+
 function displayLevel(value: string | null | undefined) {
   if (
     !value
@@ -142,7 +159,7 @@ function buildPlainTextReport(
 
   if (!evaluation) {
     lines.push(
-      'Detailed AI evaluation was not available for this older result.',
+      evaluationUnavailableMessage(results),
       '',
       `Objective score: ${results.objectiveCorrect}/${results.objectiveTasks}`,
       `Objective incorrect: ${results.objectiveIncorrect}`,
@@ -282,7 +299,9 @@ function buildHtmlReport(
         </strong>
       </p>
       <p>
-        A detailed evaluation was not available for this older result.
+        ${escapeHtml(
+          evaluationUnavailableMessage(results),
+        )}
       </p>
     </section>
   `;
@@ -1133,8 +1152,7 @@ export default function ResultsOverviewScreen() {
                 </Text>
 
                 <Text style={styles.body}>
-                  This result was created before detailed
-                  AI evaluation was available.
+                  {evaluationUnavailableMessage(results)}
                 </Text>
 
                 <Text style={styles.body}>
