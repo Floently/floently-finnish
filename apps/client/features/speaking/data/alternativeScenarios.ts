@@ -20,6 +20,7 @@ export type ScenarioOption = {
 
 export const SCENARIOS_BY_PROFESSION: Record<string, ScenarioOption[]> = {
   general: [
+    { id: 'general_everyday_conversation', title: 'Everyday Finnish conversation', profession: 'general' },
     { id: 'general_supervisor_instruction', title: 'Clarify a work task', profession: 'general' },
     { id: 'general_issue_report', title: 'Report a workplace issue', profession: 'general' },
   ],

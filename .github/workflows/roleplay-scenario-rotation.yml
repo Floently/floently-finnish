@@ -1,0 +1,48 @@
+name: Roleplay scenario rotation
+
+on:
+  pull_request:
+    paths:
+      - "apps/client/features/speaking/screens/RoleplayConversationScreen.tsx"
+      - "apps/client/features/speaking/components/SessionCompletion.tsx"
+      - "apps/client/features/speaking/data/alternativeScenarios.ts"
+      - "apps/client/features/speaking/services/roleplayScenarioRotationCore.ts"
+      - "apps/client/features/speaking/services/roleplayScenarioRotation.ts"
+      - "apps/client/scripts/verify-roleplay-scenario-rotation.mjs"
+      - "apps/client/package.json"
+      - ".github/workflows/roleplay-scenario-rotation.yml"
+  push:
+    paths:
+      - "apps/client/features/speaking/screens/RoleplayConversationScreen.tsx"
+      - "apps/client/features/speaking/components/SessionCompletion.tsx"
+      - "apps/client/features/speaking/data/alternativeScenarios.ts"
+      - "apps/client/features/speaking/services/roleplayScenarioRotationCore.ts"
+      - "apps/client/features/speaking/services/roleplayScenarioRotation.ts"
+      - "apps/client/scripts/verify-roleplay-scenario-rotation.mjs"
+      - "apps/client/package.json"
+      - ".github/workflows/roleplay-scenario-rotation.yml"
+
+jobs:
+  verify-roleplay-scenarios:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Enable Corepack
+        run: corepack enable
+
+      - name: Install frozen dependencies
+        run: corepack pnpm install --frozen-lockfile
+
+      - name: Verify scenario rotation
+        run: corepack pnpm --dir apps/client run verify:roleplay-scenarios
+
+      - name: Verify recorder invariants remain intact
+        run: corepack pnpm --dir apps/client run verify:roleplay-audio

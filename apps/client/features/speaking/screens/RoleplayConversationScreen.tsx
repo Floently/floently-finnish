@@ -14,6 +14,7 @@ import {
 } from 'react-native';
 import {
   finishRoleplaySession,
+  listRoleplayScenarios,
   startRoleplaySession,
   submitRoleplayTurn,
   type RoleplayLevelBand,
@@ -29,6 +30,7 @@ import { WaveformMicRing } from '../components/WaveformMicRing';
 import RoleplayScenarioHeader from '../components/RoleplayScenarioHeader';
 import RoleplayTranscriptList from '../components/RoleplayTranscriptList';
 import { primeRoleplayAudioPlayback, speakRoleplayText, stopRoleplayAudioPlayback, uiSounds } from '../services/roleplayAudio';
+import { pickRotatingRoleplayScenario } from '../services/roleplayScenarioRotation';
 import { useRoleplayRecorder } from '../hooks/useRoleplayRecorder';
 import { SessionCompletion } from '../components/SessionCompletion';
 import type { TranscriptMessage } from '../types';
@@ -39,33 +41,43 @@ function messageId(prefix: string) {
   return `${prefix}_${Date.now()}_${Math.random().toString(36).slice(2, 8)}`;
 }
 
-function scenarioIdForContext(profession: RoleplayProfession, contextLabel?: string): string | undefined {
-  const normalized = String(contextLabel || '').toLowerCase();
-  // Interview contexts route to interview-flavored scenarios where they exist.
-  // Note: general has no interview scenario today; it falls through to general defaults.
+function scenarioIdForContext(
+  profession: RoleplayProfession,
+  contextLabel?: string,
+): string | undefined {
+  const normalized = String(
+    contextLabel || '',
+  ).toLowerCase();
+
+  // Explicit interview and strongly contextual launches remain
+  // deterministic. Ordinary roleplay launches are intentionally left
+  // unresolved so the persistent shuffled rotation can choose them.
   if (normalized.includes('interview')) {
-    if (profession === 'doctor') return 'doctor_patient_interview';
-    if (profession === 'nurse') return 'nurse_interview_beta';
-    if (profession === 'practical_nurse') return 'practical_nurse_interview';
-  }
-  // ── Issue #9 fix ────────────────────────────────────────────────────────
-  // General profession was previously falling through to the default branch
-  // and only ever picking 'general_supervisor_instruction' — so general always
-  // looked the same. Now we explicitly route general by context:
-  //   - "issue", "problem", "report" hint → general_issue_report
-  //   - everything else → general_supervisor_instruction
-  // Both scenarios are non-medical workplace contexts (verified in the
-  // backend roleplay.py — they share zero clinical vocabulary).
-  if (profession === 'general') {
-    if (normalized.includes('issue') || normalized.includes('problem') || normalized.includes('report')) {
-      return 'general_issue_report';
+    if (profession === 'doctor') {
+      return 'doctor_patient_interview';
     }
-    return 'general_everyday_conversation';
+
+    if (profession === 'nurse') {
+      return 'nurse_interview_beta';
+    }
+
+    if (profession === 'practical_nurse') {
+      return 'practical_nurse_interview';
+    }
   }
-  if (profession === 'doctor') return 'doctor_patient_interview';
-  if (profession === 'nurse') return 'nurse_shift_handover';
-  if (profession === 'practical_nurse') return 'practical_nurse_daily_care';
-  return 'general_supervisor_instruction';
+
+  if (
+    profession === 'general' &&
+    (
+      normalized.includes('issue') ||
+      normalized.includes('problem') ||
+      normalized.includes('report')
+    )
+  ) {
+    return 'general_issue_report';
+  }
+
+  return undefined;
 }
 
 /**
@@ -548,17 +560,67 @@ export default function RoleplayConversationScreen({
     openingAudioPlayedRef.current = null;
     setShowTranscriptReport(false);
     try {
-      // ── Issue #9 fix ────────────────────────────────────────────────────
-      // Apply scenarioId in priority order, but DROP any scenarioId that
-      // doesn't match the current profession. This prevents stale or
-      // profession-mismatched ids from upstream callers from making the
-      // general roleplay behave as profession-specific.
-      const candidateIds: Array<string | undefined> = [overrideScenarioId ?? undefined, scenarioId ?? undefined];
-      const validIds = candidateIds.filter((id) => isScenarioIdValidForProfession(id, profession));
-      const resolvedScenarioId =
-        validIds[0]
-        ?? scenarioIdForContext(profession, contextLabel);
-      const payload = await startRoleplaySession({ profession, levelBand, scenarioId: resolvedScenarioId, contextLabel: contextLabel ?? (entryMode === 'interview' ? 'interview' : undefined) });
+      // Explicit scenario launches keep priority. Ordinary roleplay
+      // launches use a persistent shuffled bag so every available scenario
+      // appears before the cycle repeats.
+      const candidateIds: (string | undefined)[] = [
+        overrideScenarioId ?? undefined,
+        scenarioId ?? undefined,
+        scenarioIdForContext(
+          profession,
+          contextLabel ??
+            (
+              entryMode === 'interview'
+                ? 'interview'
+                : undefined
+            ),
+        ),
+      ];
+
+      const validIds = candidateIds.filter(
+        (id) =>
+          isScenarioIdValidForProfession(
+            id,
+            profession,
+          ),
+      );
+
+      let resolvedScenarioId =
+        validIds[0];
+
+      if (!resolvedScenarioId) {
+        try {
+          const availableScenarios =
+            await listRoleplayScenarios(
+              profession,
+              levelBand,
+            );
+
+          resolvedScenarioId =
+            await pickRotatingRoleplayScenario({
+              profession,
+              scenarios: availableScenarios,
+              scope: entryMode,
+            });
+        } catch {
+          // Starting the roleplay remains available if the scenario-list
+          // request fails. The backend will apply its compatible fallback.
+          resolvedScenarioId = undefined;
+        }
+      }
+
+      const payload = await startRoleplaySession({
+        profession,
+        levelBand,
+        scenarioId: resolvedScenarioId,
+        contextLabel:
+          contextLabel ??
+          (
+            entryMode === 'interview'
+              ? 'interview'
+              : undefined
+          ),
+      });
       setSessionId(payload.sessionId);
       setScenario(payload.scenario);
       setVoiceProfile(payload.voiceProfile);

@@ -175,7 +175,11 @@ export function SessionCompletion({
         </Pressable>
 
         <Pressable
-          onPress={() => onStartSession()}
+          onPress={() =>
+            onStartSession(
+              completedScenarioId ?? undefined,
+            )
+          }
           style={({ pressed }) => [
             styles.secondaryBtn,
             { borderColor: palette.border, opacity: pressed ? 0.85 : 1 },
