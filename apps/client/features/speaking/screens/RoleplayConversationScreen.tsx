@@ -18,6 +18,7 @@ import {
   startRoleplaySession,
   submitRoleplayTurn,
   type RoleplayLevelBand,
+  type RoleplayFinishResponse,
   type RoleplayProfession,
   type RoleplayScenarioSummary,
 } from '@core/api/roleplay';
@@ -108,30 +109,464 @@ function isScenarioIdValidForProfession(scenarioId: string | undefined, professi
 // Types
 // --------------------------------------------------------------------------
 
-type FeedbackReport = {
-  sessionId: string;
-  personaName: string;
-  track: string;
-  trackLabel: string;
-  levelBand: string;
-  scenario: RoleplayScenarioSummary;
-  summary: string;
-  scores: {
-    avgPhrasesCoverage: number;
-    avgWordCount: number;
-    repairLanguageUsed: boolean;
-    totalTurns: number;
-  };
-  transcriptAnnotated: Array<{
-    speaker: string;
-    text: string;
-    comment: string | null;
-  }>;
-  strongPhrases: string[];
-  difficultPhrases: string[];
-  grammarObservations: string[];
-  nextSteps: string[];
-};
+type FeedbackReport = RoleplayFinishResponse;
+
+function roleplayEvaluation(
+  report: FeedbackReport,
+) {
+  return (
+    report.evaluationReport
+    ?? report.evaluation
+    ?? null
+  );
+}
+
+function displayRoleplayLevel(
+  value: string | null | undefined,
+) {
+  if (
+    !value
+    || value === 'insufficient_evidence'
+  ) {
+    return 'Ei riittävästi näyttöä';
+  }
+
+  return value;
+}
+
+function displayRoleplayScore(
+  value: number | null | undefined,
+) {
+  if (typeof value !== 'number') {
+    return 'Ei pisteytetty';
+  }
+
+  const formatted = Number.isInteger(value)
+    ? String(value)
+    : value.toFixed(1);
+
+  return `${formatted}/100`;
+}
+
+function buildRoleplayEvaluationMarkdown(
+  report: FeedbackReport,
+): string[] {
+  const evaluation =
+    roleplayEvaluation(report);
+
+  if (!evaluation) {
+    return [];
+  }
+
+  const lines: string[] = [
+    `## AI-arvioitu harjoittelutaso`,
+    ``,
+    `**Arvioitu taso:** ${displayRoleplayLevel(evaluation.estimatedLevel)}  `,
+    `**Luottamus:** ${Math.round(evaluation.confidence * 100)} %  `,
+    `**Raportin tila:** ${evaluation.status === 'ready' ? 'AI-arvio valmis' : 'Rajoitettu vararaportti'}  `,
+    ``,
+    evaluation.overallSummary,
+    ``,
+    `> ${evaluation.disclaimer}`,
+    ``,
+    `> Ääntämistä, aksenttia tai äänen laatua ei arvioitu.`,
+    ``,
+    `### Arviointikriteerit`,
+    ``,
+  ];
+
+  for (const criterion of evaluation.criteria) {
+    lines.push(
+      `#### ${criterion.name}`,
+      ``,
+      `**Pisteet:** ${displayRoleplayScore(criterion.score)} · **Taso:** ${displayRoleplayLevel(criterion.level)}`,
+      ``,
+      criterion.rationale,
+      ``,
+    );
+
+    if (criterion.evidence.length) {
+      lines.push(
+        `**Näyttö:**`,
+        ...criterion.evidence.map(
+          (item) => `- “${item}”`,
+        ),
+        ``,
+      );
+    }
+  }
+
+  if (evaluation.strengths.length) {
+    lines.push(
+      `### Vahvuudet`,
+      ``,
+      ...evaluation.strengths.map(
+        (item) => `- ${item}`,
+      ),
+      ``,
+    );
+  }
+
+  if (evaluation.improvements.length) {
+    lines.push(
+      `### Tärkeimmät kehityskohteet`,
+      ``,
+      ...evaluation.improvements.map(
+        (item) => `- ${item}`,
+      ),
+      ``,
+    );
+  }
+
+  if (evaluation.corrections.length) {
+    lines.push(
+      `### Korjaukset`,
+      ``,
+    );
+
+    for (
+      const correction
+      of evaluation.corrections
+    ) {
+      lines.push(
+        `- **Alkuperäinen:** ${correction.original}`,
+        `  **Korjattu:** ${correction.corrected}`,
+        `  **Miksi:** ${correction.explanation}`,
+      );
+    }
+
+    lines.push(``);
+  }
+
+  lines.push(
+    `### Kolmen vaiheen harjoitussuunnitelma`,
+    ``,
+    ...evaluation.actionPlan.map(
+      (item, index) =>
+        `${index + 1}. ${item}`,
+    ),
+    ``,
+  );
+
+  return lines;
+}
+
+function buildRoleplayEvaluationPlainText(
+  report: FeedbackReport,
+): string[] {
+  const evaluation =
+    roleplayEvaluation(report);
+
+  if (!evaluation) {
+    return [];
+  }
+
+  const lines: string[] = [
+    `AI-ARVIOITU HARJOITTELUTASO`,
+    ``,
+    `Arvioitu taso: ${displayRoleplayLevel(evaluation.estimatedLevel)}`,
+    `Luottamus: ${Math.round(evaluation.confidence * 100)} %`,
+    `Raportin tila: ${evaluation.status}`,
+    ``,
+    evaluation.overallSummary,
+    ``,
+    evaluation.disclaimer,
+    `Ääntämistä, aksenttia tai äänen laatua ei arvioitu.`,
+    ``,
+    `Arviointikriteerit`,
+    ``,
+  ];
+
+  for (const criterion of evaluation.criteria) {
+    lines.push(
+      `${criterion.name}`,
+      `  Pisteet: ${displayRoleplayScore(criterion.score)}`,
+      `  Taso: ${displayRoleplayLevel(criterion.level)}`,
+      `  Arvio: ${criterion.rationale}`,
+    );
+
+    for (
+      const evidence
+      of criterion.evidence
+    ) {
+      lines.push(
+        `  Näyttö: "${evidence}"`,
+      );
+    }
+
+    lines.push(``);
+  }
+
+  if (evaluation.strengths.length) {
+    lines.push(
+      `Vahvuudet`,
+      ...evaluation.strengths.map(
+        (item) => `  - ${item}`,
+      ),
+      ``,
+    );
+  }
+
+  if (evaluation.improvements.length) {
+    lines.push(
+      `Tärkeimmät kehityskohteet`,
+      ...evaluation.improvements.map(
+        (item) => `  - ${item}`,
+      ),
+      ``,
+    );
+  }
+
+  if (evaluation.corrections.length) {
+    lines.push(
+      `Korjaukset`,
+    );
+
+    for (
+      const correction
+      of evaluation.corrections
+    ) {
+      lines.push(
+        `  Alkuperäinen: ${correction.original}`,
+        `  Korjattu: ${correction.corrected}`,
+        `  Miksi: ${correction.explanation}`,
+        ``,
+      );
+    }
+  }
+
+  lines.push(
+    `Kolmen vaiheen harjoitussuunnitelma`,
+    ...evaluation.actionPlan.map(
+      (item, index) =>
+        `  ${index + 1}. ${item}`,
+    ),
+    ``,
+  );
+
+  return lines;
+}
+
+function buildRoleplayEvaluationHtml(
+  report: FeedbackReport,
+) {
+  const evaluation =
+    roleplayEvaluation(report);
+
+  if (!evaluation) {
+    return `
+      <div style="
+        padding: 12pt;
+        border: 1px solid #E1E8F5;
+        border-radius: 8pt;
+        margin-bottom: 14pt;
+      ">
+        <strong>
+          Yksityiskohtainen AI-arvio ei ollut
+          saatavilla tälle vanhemmalle raportille.
+        </strong>
+      </div>
+    `;
+  }
+
+  const criteriaHtml =
+    evaluation.criteria.map(
+      (criterion) => `
+        <div style="
+          margin: 0 0 10pt;
+          padding: 9pt 10pt;
+          background: #F2F5FB;
+          border-left: 3pt solid #1F47E8;
+          page-break-inside: avoid;
+        ">
+          <div style="
+            font-weight: 800;
+            margin-bottom: 4pt;
+          ">
+            ${escapeHtml(criterion.name)}
+            ·
+            ${escapeHtml(
+              displayRoleplayScore(
+                criterion.score,
+              ),
+            )}
+            ·
+            ${escapeHtml(
+              displayRoleplayLevel(
+                criterion.level,
+              ),
+            )}
+          </div>
+
+          <div>
+            ${escapeHtml(
+              criterion.rationale,
+            )}
+          </div>
+
+          ${
+            criterion.evidence.length
+              ? `
+                <ul>
+                  ${criterion.evidence.map(
+                    (item) =>
+                      `<li>“${escapeHtml(item)}”</li>`,
+                  ).join('')}
+                </ul>
+              `
+              : ''
+          }
+        </div>
+      `,
+    ).join('');
+
+  const correctionsHtml =
+    evaluation.corrections.length
+      ? `
+        <h2>Korjaukset</h2>
+
+        ${evaluation.corrections.map(
+          (correction) => `
+            <div style="
+              margin-bottom: 9pt;
+              padding: 9pt;
+              background: #FFF8E5;
+              border-radius: 7pt;
+              page-break-inside: avoid;
+            ">
+              <div>
+                <strong>Alkuperäinen:</strong>
+                ${escapeHtml(correction.original)}
+              </div>
+              <div>
+                <strong>Korjattu:</strong>
+                ${escapeHtml(correction.corrected)}
+              </div>
+              <div>
+                <strong>Miksi:</strong>
+                ${escapeHtml(correction.explanation)}
+              </div>
+            </div>
+          `,
+        ).join('')}
+      `
+      : '';
+
+  return `
+    <section style="
+      margin-bottom: 16pt;
+      padding: 13pt;
+      border-radius: 9pt;
+      border: 1px solid #C9D9FF;
+      background: #EEF4FF;
+    ">
+      <div style="
+        color: #1F47E8;
+        font-size: 9pt;
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: 0.5pt;
+      ">
+        AI-arvioitu harjoittelutaso
+      </div>
+
+      <div style="
+        font-size: 24pt;
+        font-weight: 900;
+        margin-top: 3pt;
+      ">
+        ${escapeHtml(
+          displayRoleplayLevel(
+            evaluation.estimatedLevel,
+          ),
+        )}
+      </div>
+
+      <div style="
+        color: #5C7299;
+        font-weight: 700;
+      ">
+        Luottamus:
+        ${Math.round(
+          evaluation.confidence * 100,
+        )} %
+      </div>
+
+      <p>
+        ${escapeHtml(
+          evaluation.overallSummary,
+        )}
+      </p>
+    </section>
+
+    <section style="
+      margin-bottom: 16pt;
+      padding: 11pt;
+      border-radius: 8pt;
+      border: 1px solid #E8CB76;
+      background: #FFF8E5;
+    ">
+      <strong>
+        Ei virallinen YKI-tulos
+      </strong>
+
+      <p>
+        ${escapeHtml(
+          evaluation.disclaimer,
+        )}
+      </p>
+
+      <p>
+        Ääntämistä, aksenttia tai
+        äänen laatua ei arvioitu.
+      </p>
+    </section>
+
+    <h2>Arviointikriteerit</h2>
+    ${criteriaHtml}
+
+    ${
+      evaluation.strengths.length
+        ? `
+          <h2>Vahvuudet</h2>
+          <ul>
+            ${evaluation.strengths.map(
+              (item) =>
+                `<li>${escapeHtml(item)}</li>`,
+            ).join('')}
+          </ul>
+        `
+        : ''
+    }
+
+    ${
+      evaluation.improvements.length
+        ? `
+          <h2>Tärkeimmät kehityskohteet</h2>
+          <ul>
+            ${evaluation.improvements.map(
+              (item) =>
+                `<li>${escapeHtml(item)}</li>`,
+            ).join('')}
+          </ul>
+        `
+        : ''
+    }
+
+    ${correctionsHtml}
+
+    <h2>
+      Kolmen vaiheen harjoitussuunnitelma
+    </h2>
+
+    <ol>
+      ${evaluation.actionPlan.map(
+        (item) =>
+          `<li>${escapeHtml(item)}</li>`,
+      ).join('')}
+    </ol>
+  `;
+}
 
 // --------------------------------------------------------------------------
 // Download helper (web only — React Native would use Share API)
@@ -152,6 +587,7 @@ function buildMarkdownReport(report: FeedbackReport): string {
     ``,
     report.summary,
     ``,
+    ...buildRoleplayEvaluationMarkdown(report),
     `---`,
     ``,
     `## Pisteet`,
@@ -240,6 +676,7 @@ function buildPlainTextReport(report: FeedbackReport): string {
     `Taso:                ${report.levelBand}`,
     `Keskustelukumppani:  ${report.personaName}`,
     ``,
+    ...buildRoleplayEvaluationPlainText(report),
     `------------------------------------------------------------`,
     ``,
     `Pisteet`,
@@ -369,6 +806,7 @@ function buildHtmlReport(report: FeedbackReport): string {
     <strong>Keskustelukumppani:</strong> ${escapeHtml(report.personaName)}
   </div>
   <hr/>
+  ${buildRoleplayEvaluationHtml(report)}
   <h2>Pisteet</h2>
   <table class="scores">
     <tr><td>Avainsanojen käyttö (keskimäärin)</td><td>${report.scores.avgPhrasesCoverage} / 3</td></tr>
@@ -543,6 +981,11 @@ export default function RoleplayConversationScreen({
   const mutedColor = palette.textMuted;
   const accentColor = palette.accent;
   const textOnPrimary = isLight ? '#FFFFFF' : palette.background;
+
+  const detailedEvaluation =
+    feedbackReport
+      ? roleplayEvaluation(feedbackReport)
+      : null;
 
   // ---- session start ----
   const startSession = useCallback(async (overrideScenarioId?: string) => {
@@ -745,6 +1188,7 @@ export default function RoleplayConversationScreen({
           // Graceful degradation for old backend
           setFeedbackReport({
             sessionId: sessionId,
+            completed: true,
             personaName,
             track: 'general',
             trackLabel: 'Suomen kielen harjoittelu',
@@ -1086,6 +1530,473 @@ export default function RoleplayConversationScreen({
                   {feedbackReport.summary}
                 </Text>
 
+                {detailedEvaluation ? (
+                  <View
+                    style={[
+                      styles.deepEvaluationCard,
+                      {
+                        backgroundColor: cardBg,
+                        borderColor: cardBorder,
+                      },
+                    ]}
+                  >
+                    <Text
+                      style={[
+                        styles.deepEyebrow,
+                        {
+                          color: primaryColor,
+                        },
+                      ]}
+                    >
+                      AI-arvioitu harjoittelutaso
+                    </Text>
+
+                    <View style={styles.deepLevelRow}>
+                      <Text
+                        style={[
+                          styles.deepLevel,
+                          {
+                            color: textColor,
+                          },
+                        ]}
+                      >
+                        {displayRoleplayLevel(
+                          detailedEvaluation.estimatedLevel,
+                        )}
+                      </Text>
+
+                      <View
+                        style={[
+                          styles.deepStatusBadge,
+                          {
+                            backgroundColor:
+                              detailedEvaluation.status === 'ready'
+                                ? palette.primarySurface
+                                : palette.surfaceMuted,
+                          },
+                        ]}
+                      >
+                        <Text
+                          style={[
+                            styles.deepStatusText,
+                            {
+                              color: primaryColor,
+                            },
+                          ]}
+                        >
+                          {detailedEvaluation.status === 'ready'
+                            ? 'AI-arvio valmis'
+                            : 'Rajoitettu vararaportti'}
+                        </Text>
+                      </View>
+                    </View>
+
+                    <Text
+                      style={[
+                        styles.deepConfidence,
+                        {
+                          color: primaryColor,
+                        },
+                      ]}
+                    >
+                      Luottamus:{' '}
+                      {Math.round(
+                        detailedEvaluation.confidence
+                        * 100,
+                      )} %
+                    </Text>
+
+                    <Text
+                      style={[
+                        styles.reportSummary,
+                        {
+                          color: mutedColor,
+                        },
+                      ]}
+                    >
+                      {detailedEvaluation.overallSummary}
+                    </Text>
+
+                    <View
+                      style={[
+                        styles.deepDisclaimer,
+                        {
+                          borderColor: palette.warning,
+                          backgroundColor:
+                            isLight
+                              ? '#FFF8E5'
+                              : palette.surfaceMuted,
+                        },
+                      ]}
+                    >
+                      <Text
+                        style={[
+                          styles.deepDisclaimerTitle,
+                          {
+                            color: textColor,
+                          },
+                        ]}
+                      >
+                        Ei virallinen YKI-tulos
+                      </Text>
+
+                      <Text
+                        style={[
+                          styles.deepDisclaimerText,
+                          {
+                            color: mutedColor,
+                          },
+                        ]}
+                      >
+                        {detailedEvaluation.disclaimer}
+                      </Text>
+
+                      <Text
+                        style={[
+                          styles.deepDisclaimerText,
+                          {
+                            color: mutedColor,
+                          },
+                        ]}
+                      >
+                        Ääntämistä ei arvioitu.
+                        Aksenttia, äänen laatua tai
+                        akustista sujuvuutta ei pisteytetty.
+                      </Text>
+                    </View>
+
+                    <View style={styles.deepSection}>
+                      <Text
+                        style={[
+                          styles.deepSectionTitle,
+                          {
+                            color: textColor,
+                          },
+                        ]}
+                      >
+                        Arviointikriteerit
+                      </Text>
+
+                      {detailedEvaluation.criteria.map(
+                        (criterion) => (
+                          <View
+                            key={criterion.id}
+                            style={[
+                              styles.deepCriterionCard,
+                              {
+                                borderColor: cardBorder,
+                                backgroundColor:
+                                  isLight
+                                    ? palette.surfaceMuted
+                                    : palette.surface,
+                              },
+                            ]}
+                          >
+                            <View
+                              style={styles.deepCriterionHeader}
+                            >
+                              <Text
+                                style={[
+                                  styles.deepCriterionName,
+                                  {
+                                    color: textColor,
+                                  },
+                                ]}
+                              >
+                                {criterion.name}
+                              </Text>
+
+                              <Text
+                                style={[
+                                  styles.deepCriterionScore,
+                                  {
+                                    color: primaryColor,
+                                  },
+                                ]}
+                              >
+                                {displayRoleplayScore(
+                                  criterion.score,
+                                )}
+                              </Text>
+                            </View>
+
+                            <Text
+                              style={[
+                                styles.deepCriterionLevel,
+                                {
+                                  color: primaryColor,
+                                },
+                              ]}
+                            >
+                              Taso:{' '}
+                              {displayRoleplayLevel(
+                                criterion.level,
+                              )}
+                            </Text>
+
+                            <Text
+                              style={[
+                                styles.obsLine,
+                                {
+                                  color: mutedColor,
+                                },
+                              ]}
+                            >
+                              {criterion.rationale}
+                            </Text>
+
+                            {criterion.evidence.map(
+                              (evidence, index) => (
+                                <View
+                                  key={`${criterion.id}-${index}`}
+                                  style={[
+                                    styles.deepEvidence,
+                                    {
+                                      borderLeftColor:
+                                        accentColor,
+                                      backgroundColor:
+                                        isLight
+                                          ? '#F2FBF8'
+                                          : palette.surfaceMuted,
+                                    },
+                                  ]}
+                                >
+                                  <Text
+                                    style={[
+                                      styles.deepEvidenceText,
+                                      {
+                                        color: mutedColor,
+                                      },
+                                    ]}
+                                  >
+                                    “{evidence}”
+                                  </Text>
+                                </View>
+                              ),
+                            )}
+                          </View>
+                        ),
+                      )}
+                    </View>
+
+                    {detailedEvaluation.strengths.length ? (
+                      <View style={styles.deepSection}>
+                        <Text
+                          style={[
+                            styles.deepSectionTitle,
+                            {
+                              color: textColor,
+                            },
+                          ]}
+                        >
+                          Vahvuudet
+                        </Text>
+
+                        {detailedEvaluation.strengths.map(
+                          (item, index) => (
+                            <Text
+                              key={`${index}-${item}`}
+                              style={[
+                                styles.obsLine,
+                                {
+                                  color: mutedColor,
+                                },
+                              ]}
+                            >
+                              • {item}
+                            </Text>
+                          ),
+                        )}
+                      </View>
+                    ) : null}
+
+                    {detailedEvaluation.improvements.length ? (
+                      <View style={styles.deepSection}>
+                        <Text
+                          style={[
+                            styles.deepSectionTitle,
+                            {
+                              color: textColor,
+                            },
+                          ]}
+                        >
+                          Tärkeimmät kehityskohteet
+                        </Text>
+
+                        {detailedEvaluation.improvements.map(
+                          (item, index) => (
+                            <Text
+                              key={`${index}-${item}`}
+                              style={[
+                                styles.obsLine,
+                                {
+                                  color: mutedColor,
+                                },
+                              ]}
+                            >
+                              • {item}
+                            </Text>
+                          ),
+                        )}
+                      </View>
+                    ) : null}
+
+                    {detailedEvaluation.corrections.length ? (
+                      <View style={styles.deepSection}>
+                        <Text
+                          style={[
+                            styles.deepSectionTitle,
+                            {
+                              color: textColor,
+                            },
+                          ]}
+                        >
+                          Korjaukset
+                        </Text>
+
+                        {detailedEvaluation.corrections.map(
+                          (correction, index) => (
+                            <View
+                              key={`${index}-${correction.original}`}
+                              style={[
+                                styles.deepCorrectionCard,
+                                {
+                                  borderColor: cardBorder,
+                                  backgroundColor:
+                                    isLight
+                                      ? '#FFF8E5'
+                                      : palette.surfaceMuted,
+                                },
+                              ]}
+                            >
+                              <Text
+                                style={[
+                                  styles.deepCorrectionOriginal,
+                                  {
+                                    color: mutedColor,
+                                  },
+                                ]}
+                              >
+                                {correction.original}
+                              </Text>
+
+                              <Text
+                                style={[
+                                  styles.deepCorrectionArrow,
+                                  {
+                                    color: primaryColor,
+                                  },
+                                ]}
+                              >
+                                →
+                              </Text>
+
+                              <Text
+                                style={[
+                                  styles.deepCorrectionFixed,
+                                  {
+                                    color: textColor,
+                                  },
+                                ]}
+                              >
+                                {correction.corrected}
+                              </Text>
+
+                              <Text
+                                style={[
+                                  styles.obsLine,
+                                  {
+                                    color: mutedColor,
+                                  },
+                                ]}
+                              >
+                                {correction.explanation}
+                              </Text>
+                            </View>
+                          ),
+                        )}
+                      </View>
+                    ) : null}
+
+                    <View style={styles.deepSection}>
+                      <Text
+                        style={[
+                          styles.deepSectionTitle,
+                          {
+                            color: textColor,
+                          },
+                        ]}
+                      >
+                        Kolmen vaiheen harjoitussuunnitelma
+                      </Text>
+
+                      {detailedEvaluation.actionPlan.map(
+                        (step, index) => (
+                          <View
+                            key={`${index}-${step}`}
+                            style={styles.deepActionRow}
+                          >
+                            <View
+                              style={[
+                                styles.deepActionNumber,
+                                {
+                                  backgroundColor:
+                                    primaryColor,
+                                },
+                              ]}
+                            >
+                              <Text
+                                style={[
+                                  styles.deepActionNumberText,
+                                  {
+                                    color: textOnPrimary,
+                                  },
+                                ]}
+                              >
+                                {index + 1}
+                              </Text>
+                            </View>
+
+                            <Text
+                              style={[
+                                styles.deepActionText,
+                                {
+                                  color: mutedColor,
+                                },
+                              ]}
+                            >
+                              {step}
+                            </Text>
+                          </View>
+                        ),
+                      )}
+                    </View>
+                  </View>
+                ) : (
+                  <View
+                    style={[
+                      styles.deepLegacyNotice,
+                      {
+                        borderColor: cardBorder,
+                        backgroundColor:
+                          palette.surfaceMuted,
+                      },
+                    ]}
+                  >
+                    <Text
+                      style={[
+                        styles.obsLine,
+                        {
+                          color: mutedColor,
+                        },
+                      ]}
+                    >
+                      Yksityiskohtainen AI-arvio ei ollut
+                      saatavilla tälle vanhemmalle raportille.
+                    </Text>
+                  </View>
+                )}
+
                 {/* Score chips */}
                 <View style={styles.scoreRow}>
                   <ScoreChip label="Avainsanat" value={`${feedbackReport.scores.avgPhrasesCoverage}/3`} color={primaryColor} />
@@ -1324,6 +2235,170 @@ const styles = StyleSheet.create({
   },
   reportTitle: { ...typography.h3, color: colors.text },
   reportSummary: { ...typography.bodySm, lineHeight: 20 },
+
+  deepEvaluationCard: {
+    borderRadius: 18,
+    borderWidth: 1,
+    padding: 15,
+    gap: 12,
+  },
+
+  deepEyebrow: {
+    fontSize: 10,
+    fontWeight: '900',
+    textTransform: 'uppercase',
+    letterSpacing: 0.8,
+  },
+
+  deepLevelRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    flexWrap: 'wrap',
+    gap: 10,
+  },
+
+  deepLevel: {
+    flexGrow: 1,
+    fontSize: 30,
+    fontWeight: '900',
+  },
+
+  deepStatusBadge: {
+    borderRadius: 999,
+    paddingHorizontal: 9,
+    paddingVertical: 5,
+  },
+
+  deepStatusText: {
+    fontSize: 10,
+    fontWeight: '800',
+  },
+
+  deepConfidence: {
+    fontSize: 13,
+    fontWeight: '800',
+  },
+
+  deepDisclaimer: {
+    borderRadius: 13,
+    borderWidth: 1,
+    padding: 12,
+    gap: 5,
+  },
+
+  deepDisclaimerTitle: {
+    fontSize: 13,
+    fontWeight: '900',
+  },
+
+  deepDisclaimerText: {
+    fontSize: 12,
+    lineHeight: 18,
+  },
+
+  deepSection: {
+    gap: 8,
+  },
+
+  deepSectionTitle: {
+    fontSize: 14,
+    fontWeight: '900',
+  },
+
+  deepCriterionCard: {
+    borderRadius: 13,
+    borderWidth: 1,
+    padding: 12,
+    gap: 6,
+  },
+
+  deepCriterionHeader: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 8,
+  },
+
+  deepCriterionName: {
+    flex: 1,
+    fontSize: 13,
+    fontWeight: '800',
+  },
+
+  deepCriterionScore: {
+    fontSize: 13,
+    fontWeight: '900',
+  },
+
+  deepCriterionLevel: {
+    fontSize: 11,
+    fontWeight: '800',
+  },
+
+  deepEvidence: {
+    borderLeftWidth: 3,
+    borderRadius: 9,
+    paddingHorizontal: 10,
+    paddingVertical: 7,
+  },
+
+  deepEvidenceText: {
+    fontSize: 11,
+    lineHeight: 16,
+    fontStyle: 'italic',
+  },
+
+  deepCorrectionCard: {
+    borderRadius: 12,
+    borderWidth: 1,
+    padding: 11,
+    gap: 4,
+  },
+
+  deepCorrectionOriginal: {
+    fontSize: 12,
+    textDecorationLine: 'line-through',
+  },
+
+  deepCorrectionArrow: {
+    fontSize: 14,
+    fontWeight: '900',
+  },
+
+  deepCorrectionFixed: {
+    fontSize: 13,
+    fontWeight: '800',
+  },
+
+  deepActionRow: {
+    flexDirection: 'row',
+    alignItems: 'flex-start',
+    gap: 9,
+  },
+
+  deepActionNumber: {
+    width: 24,
+    height: 24,
+    borderRadius: 12,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+
+  deepActionNumberText: {
+    fontSize: 11,
+    fontWeight: '900',
+  },
+
+  deepActionText: {
+    flex: 1,
+    fontSize: 12,
+    lineHeight: 18,
+  },
+
+  deepLegacyNotice: {
+    borderRadius: 12,
+    borderWidth: 1,
+    padding: 11,
+  },
 
   scoreRow: { flexDirection: 'row', gap: 10, flexWrap: 'wrap' },
 
