@@ -410,6 +410,31 @@ def generate_ai_roleplay_reply(
     profession = str(session.get("profession") or _scenario_value(spec, "profession", "general")).strip().lower()
     level = str(session.get("level") or "B1-B2").strip()
     scenario = session.get("scenario") if isinstance(session.get("scenario"), dict) else {}
+    mission = session.get("mission") if isinstance(session.get("mission"), dict) else {}
+
+    mission_intents = _safe_list(
+        mission.get("questionIntents"),
+        8,
+    )
+
+    completed_turns = int(
+        (session.get("progress") or {}).get(
+            "user_turns_completed",
+            0,
+        )
+        or 0
+    )
+
+    next_question_intent = (
+        mission_intents[
+            min(
+                completed_turns,
+                len(mission_intents) - 1,
+            )
+        ]
+        if mission_intents
+        else None
+    )
 
     payload = {
         "profession": profession,
@@ -426,6 +451,20 @@ def generate_ai_roleplay_reply(
         "scenario_id": scenario.get("scenario_id") or _scenario_value(spec, "scenario_id", ""),
         "scenario_title": scenario.get("title") or _scenario_value(spec, "title", ""),
         "scenario_prompt": scenario.get("prompt") or _scenario_value(spec, "prompt", ""),
+        "mission": {
+            "mission_id": mission.get("missionId"),
+            "title": mission.get("title"),
+            "setting": mission.get("setting"),
+            "counterpart_role": mission.get("counterpartRole"),
+            "learner_goal": mission.get("learnerGoal"),
+            "complication": mission.get("complication"),
+            "required_actions": _safe_list(
+                mission.get("requiredActions"),
+                8,
+            ),
+            "question_intents": mission_intents,
+            "next_question_intent": next_question_intent,
+        } if mission else None,
         "persona_name": session.get("persona_name") or scenario.get("personaName") or _scenario_value(spec, "persona_name", "AI"),
         "persona_gender": session.get("persona_gender") or scenario.get("personaGender"),
         "role_contract": _role_contract_for_payload(
@@ -442,6 +481,11 @@ def generate_ai_roleplay_reply(
         "fallback_if_needed": _trim(fallback_text, 300),
         "constraints": [
             "Respond to the learner's actual latest message, not a fixed script.",
+            "If mission is present, stay inside its setting, learner goal, counterpart role, and complication.",
+            "Use mission.next_question_intent as the communicative purpose of the next turn when it is present.",
+            "Do not repeat a question that has already been answered in conversation_history.",
+            "Phrase the question naturally from the mission context instead of naming the intent.",
+            "Use only one main question or communicative action per turn.",
             "Obey role_contract strictly. Never speak as the learner's role or professional role.",
             "Keep ai_text concise enough for TTS.",
             "For B1-B2 and C1-C2, ai_text must sound like the persona speaking in the roleplay, not like an app coach. For A1-A2, beginner_phrase_coach overrides this: ai_text must be short, guided, and beginner-coach-like while still staying inside the scenario.",

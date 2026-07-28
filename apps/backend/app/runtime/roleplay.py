@@ -10,6 +10,7 @@ from app.core.errors import AppError
 from app.core.state_store import STORE
 from app.core.utils import iso_now, new_id, parse_iso, utc_now
 from app.runtime.finnish_personas import pick_persona
+from app.runtime.roleplay_missions import select_roleplay_mission
 from app.services.roleplay_ai_service import generate_ai_roleplay_reply, _violates_role_contract
 
 ROLEPLAY_STAGE_BY_TURN = {0: "OPENING", 1: "ACTIVE_1", 2: "ACTIVE_2", 3: "ACTIVE_3", 4: "ACTIVE_4", 5: "COMPLETE"}
@@ -1338,6 +1339,7 @@ def _serialize_session(session: dict[str, Any]) -> dict[str, Any]:
         "expires_at": session["expires_at"],
         "status": _external_status(session["status"]),
         "scenario": session["scenario"],
+        "mission": session.get("mission"),
         "level": session["level"],
         "progress": session["progress"],
         "messages": session["messages"],
@@ -1368,6 +1370,20 @@ def _feedback_line(spec: ScenarioSpec, transcript: str, missing: list[str], turn
 
 def _build_session(*, user_id: str, spec: ScenarioSpec, level_band: str, display_preferences: dict[str, Any] | None = None) -> dict[str, Any]:
     session_id = new_id("rp")
+
+    rotation_user_key = str(
+        (display_preferences or {}).get("_rotation_user_key")
+        or user_id
+        or "preview"
+    )
+
+    mission_payload = select_roleplay_mission(
+        user_key=rotation_user_key,
+        scenario_id=spec.scenario_id,
+        level_band=level_band,
+        session_seed=session_id,
+    )
+
     transcript_id = new_id("tr")
     review_id = new_id("rv")
     created_at = utc_now().replace(microsecond=0).isoformat()
@@ -1402,6 +1418,12 @@ def _build_session(*, user_id: str, spec: ScenarioSpec, level_band: str, display
     chosen_turns = selection["turns"]
     chosen_closing = selection["closing"]
 
+    if mission_payload:
+        chosen_opener = str(
+            mission_payload.get("openingText")
+            or chosen_opener
+        )
+
     opening = {
         "message_id": new_id("msg"),
         "speaker": "AI",
@@ -1411,6 +1433,20 @@ def _build_session(*, user_id: str, spec: ScenarioSpec, level_band: str, display
         "timestamp": iso_now(),
     }
     scenario = _scenario_payload(spec, level_band)
+
+    if mission_payload:
+        scenario.update(
+            {
+                "title": mission_payload["title"],
+                "prompt": mission_payload["prompt"],
+                "keyPhrases": mission_payload["usefulPhrases"],
+                "missionId": mission_payload["missionId"],
+                "setting": mission_payload["setting"],
+                "learnerGoal": mission_payload["learnerGoal"],
+                "complication": mission_payload["complication"],
+            }
+        )
+
     # Override the generic persona_name from the spec with the resolved Finnish persona
     scenario["personaName"] = persona_display
     scenario["personaId"] = persona.id
@@ -1422,6 +1458,7 @@ def _build_session(*, user_id: str, spec: ScenarioSpec, level_band: str, display
         "created_at": created_at,
         "expires_at": expires_at,
         "scenario": scenario,
+        "mission": mission_payload,
         "level": level_band,
         "profession": spec.profession,
         "persona_name": persona_display,
@@ -1711,11 +1748,30 @@ def _a1_beginner_opening(opening_text: str, profession: str) -> str:
     return _a1_beginner_phrase_from_opening(opening_text, profession)
 
 
-def start_session(*, profession: str, level_band: str, scenario_id: str | None = None, context_label: str | None = None) -> dict[str, Any]:
+def start_session(
+    *,
+    profession: str,
+    level_band: str,
+    scenario_id: str | None = None,
+    context_label: str | None = None,
+    rotation_user_key: str | None = None,
+) -> dict[str, Any]:
     normalized_profession = _normalize_profession(profession)
     band = _normalize_level(level_band)
     spec = _resolve_scenario(profession=normalized_profession, scenario_id=scenario_id, context_label=context_label)
-    created = _create_session(user_id="preview", scenario_id=spec.scenario_id, level=band, display_preferences={"context_label": context_label, "profession": normalized_profession})
+    created = _create_session(
+        user_id="preview",
+        scenario_id=spec.scenario_id,
+        level=band,
+        display_preferences={
+            "context_label": context_label,
+            "profession": normalized_profession,
+            "_rotation_user_key": (
+                rotation_user_key
+                or "preview"
+            ),
+        },
+    )
     # Pull the resolved Finnish persona (and any resolver-adjusted voice profile) from the
     # created session, rather than echoing back the spec's generic role label.
     created_scenario = created.get("scenario") or {}
@@ -1735,11 +1791,23 @@ def start_session(*, profession: str, level_band: str, scenario_id: str | None =
     if not chosen_opening_text:
         chosen_opening_text = spec.opener  # safety fallback
 
-    if _is_a1_a2_level(level_band):
-        chosen_opening_text = _a1_beginner_opening(chosen_opening_text, spec.profession)
+    if (
+        _is_a1_a2_level(level_band)
+        and not created.get("mission")
+    ):
+        chosen_opening_text = _a1_beginner_opening(
+            chosen_opening_text,
+            spec.profession,
+        )
     # Same for max user turns — read from the session's progress total which was
     # populated from the chosen variant, not from the spec's legacy length.
     chosen_max_turns = int(((created.get("progress") or {}).get("user_turns_total")) or len(spec.assistant_turns))
+
+    mission_payload = created.get("mission") or {}
+    intro_text = str(
+        mission_payload.get("learnerBrief")
+        or spec.intro
+    )
 
     return {
         "sessionId": created["session_id"],
@@ -1749,7 +1817,8 @@ def start_session(*, profession: str, level_band: str, scenario_id: str | None =
         "track": spec.track,
         "scenarioId": spec.scenario_id,
         "scenario": created_scenario or _scenario_payload(spec, band),
-        "introText": spec.intro,
+        "mission": mission_payload or None,
+        "introText": intro_text,
         "openingText": chosen_opening_text,
         "voiceProfile": voice_profile_display,
         "personaName": persona_name_display,

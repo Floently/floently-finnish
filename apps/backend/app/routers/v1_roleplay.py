@@ -61,6 +61,11 @@ def build_roleplay_router() -> APIRouter:
                 level_band=payload.level_band,  # type: ignore[arg-type]
                 scenario_id=payload.scenario_id,
                 context_label=payload.context_label,
+                rotation_user_key=str(
+                    user.get("user_id")
+                    or user.get("email")
+                    or "preview"
+                ),
             )
         except (ValueError, KeyError) as exc:
             raise HTTPException(status_code=400, detail=str(exc)) from exc
