@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import copy
 from typing import Any
 
 from ..adapters.yki_engine_adapter import EngineResponse, perform_engine_request
@@ -76,3 +77,103 @@ def get_yki_session_record(*, user_id: str, session_id: str) -> dict[str, Any]:
             "runtime": payload.get("runtime"),
             "updated_at": payload.get("updated_at"),
         }
+
+def record_yki_evaluation_evidence(
+    *,
+    user_id: str,
+    session_id: str,
+    category: str,
+    key: str,
+    value: Any,
+) -> None:
+    normalized_category = str(category or "").strip()
+    normalized_key = str(key or "").strip()
+
+    if not normalized_category or not normalized_key:
+        return
+
+    with STORE.locked(("yki_sessions", session_id)):
+        record = STORE.get_ref(
+            "yki_sessions",
+            session_id,
+        )
+
+        if not record:
+            raise AppError(
+                404,
+                "YKI_SESSION_NOT_FOUND",
+                "YKI session is not known to the adapter.",
+                False,
+                {"classification": "terminal"},
+            )
+
+        if record.get("user_id") != user_id:
+            raise AppError(
+                403,
+                "YKI_SESSION_FORBIDDEN",
+                "YKI session is not available for this user.",
+                False,
+                {"classification": "non_retryable"},
+            )
+
+        evidence = record.setdefault(
+            "evaluation_evidence",
+            {},
+        )
+
+        bucket = evidence.setdefault(
+            normalized_category,
+            {},
+        )
+
+        bucket[normalized_key] = copy.deepcopy(
+            value,
+        )
+
+        record["updated_at"] = iso_now()
+
+        STORE.set(
+            "yki_sessions",
+            session_id,
+            record,
+        )
+
+
+def read_yki_evaluation_evidence(
+    *,
+    user_id: str,
+    session_id: str,
+) -> dict[str, Any]:
+    with STORE.locked(("yki_sessions", session_id)):
+        record = STORE.get_ref(
+            "yki_sessions",
+            session_id,
+        )
+
+        if not record:
+            raise AppError(
+                404,
+                "YKI_SESSION_NOT_FOUND",
+                "YKI session is not known to the adapter.",
+                False,
+                {"classification": "terminal"},
+            )
+
+        if record.get("user_id") != user_id:
+            raise AppError(
+                403,
+                "YKI_SESSION_FORBIDDEN",
+                "YKI session is not available for this user.",
+                False,
+                {"classification": "non_retryable"},
+            )
+
+        evidence = record.get(
+            "evaluation_evidence",
+        )
+
+        return (
+            copy.deepcopy(evidence)
+            if isinstance(evidence, dict)
+            else {}
+        )

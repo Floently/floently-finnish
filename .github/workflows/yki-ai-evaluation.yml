@@ -1,0 +1,43 @@
+name: YKI AI evaluation contract
+
+on:
+  push:
+    paths:
+      - "apps/backend/app/runtime/yki.py"
+      - "apps/backend/app/services/yki_service.py"
+      - "apps/backend/app/services/yki_evaluation_service.py"
+      - "apps/backend/scripts/verify_yki_ai_evaluation.py"
+      - ".github/workflows/yki-ai-evaluation.yml"
+  pull_request:
+    paths:
+      - "apps/backend/app/runtime/yki.py"
+      - "apps/backend/app/services/yki_service.py"
+      - "apps/backend/app/services/yki_evaluation_service.py"
+      - "apps/backend/scripts/verify_yki_ai_evaluation.py"
+      - ".github/workflows/yki-ai-evaluation.yml"
+
+jobs:
+  verify-yki-evaluation:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Compile YKI evaluation source
+        run: |
+          python -m py_compile \
+            apps/backend/app/runtime/yki.py \
+            apps/backend/app/services/yki_service.py \
+            apps/backend/app/services/yki_evaluation_service.py \
+            apps/backend/scripts/verify_yki_ai_evaluation.py
+
+      - name: Verify safe fallback contract
+        env:
+          PYTHONPATH: apps/backend
+          OPENAI_EVALUATION_ENABLED: "false"
+        run: |
+          python apps/backend/scripts/verify_yki_ai_evaluation.py
