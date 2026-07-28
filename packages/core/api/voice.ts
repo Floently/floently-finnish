@@ -227,6 +227,7 @@ export async function transcribeVoiceAudioDetailed(
     stt_available?: boolean;
     transcript?: string | null;
     text?: string | null;
+    audio_ref?: string | null;
     voice_ref?: string | null;
     provider?: string | null;
     duration_ms?: number | null;
@@ -249,7 +250,13 @@ export async function transcribeVoiceAudioDetailed(
 
   const result: VoiceTranscriptionResult = {
     transcript: transcript || null,
-    voiceRef: String(data.voice_ref || '').trim() || null,
+    voiceRef:
+      String(
+        data.audio_ref
+        || data.voice_ref
+        || '',
+      ).trim()
+      || null,
     provider: String(data.provider || '').trim() || null,
     durationMs:
       typeof data.duration_ms === 'number'

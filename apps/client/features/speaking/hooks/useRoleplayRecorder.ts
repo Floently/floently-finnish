@@ -208,6 +208,7 @@ export function useRoleplayRecorder(locale = 'fi-FI') {
   const chunkRef = useRef<Blob[]>([]);
   const startedAtRef = useRef<number>(0);
   const phaseRef = useRef<RecorderPhase>('idle');
+  const startingRef = useRef(false);
   const pendingStopRef = useRef(false);
   const stopRecordingRef = useRef<() => Promise<string | null>>(async () => null);
   const amplitudePollRef = useRef<ReturnType<typeof setInterval> | null>(null);
@@ -237,17 +238,31 @@ export function useRoleplayRecorder(locale = 'fi-FI') {
 
   const startRecording = useCallback(async () => {
     setError(null);
-    if (phaseRef.current === 'recording' || phaseRef.current === 'uploading') return;
+
+    if (
+      startingRef.current
+      || phaseRef.current === 'recording'
+      || phaseRef.current === 'uploading'
+    ) {
+      return;
+    }
+
+    startingRef.current = true;
     pendingStopRef.current = false;
     startedAtRef.current = 0;
     nativeDurationMsRef.current = 0;
 
     // Web keeps its existing cue. Native uses a short cue that is awaited
     // and fully released before recording mode is enabled.
-    if (Platform.OS === 'web') {
-      await uiSounds.micOn();
-    } else {
-      await uiSounds.micOnBeforeRecording();
+    try {
+      if (Platform.OS === 'web') {
+        await uiSounds.micOn();
+      } else {
+        await uiSounds.micOnBeforeRecording();
+      }
+    } catch (err) {
+      startingRef.current = false;
+      throw err;
     }
 
     try {
@@ -315,9 +330,17 @@ export function useRoleplayRecorder(locale = 'fi-FI') {
       if (Platform.OS !== 'web') {
         await audioSession.finishRecording('VOICE_RECORDING_UNAVAILABLE');
       }
+
       setPhaseSafe('error');
-      setError(err instanceof Error ? err.message : 'Failed to start recording');
+      setError(
+        err instanceof Error
+          ? err.message
+          : 'Failed to start recording',
+      );
+
       await uiSounds.error();
+    } finally {
+      startingRef.current = false;
     }
   }, [nativeRecorder, setPhaseSafe]);
 
