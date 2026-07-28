@@ -450,6 +450,105 @@ export const audioSession = {
         }
       });
     },
+  async playRecordingStartCue(
+    moduleId: number,
+    timeoutMs = 900,
+  ) {
+    return queueExclusive(async () => {
+      if (isRecordingRuntime()) {
+        return false;
+      }
+
+      setRuntimeStatus('preparing_playback', null);
+      activePlaybackToken += 1;
+      releaseActivePlayer();
+      releaseTransientPlayers();
+
+      try {
+        const asset = Asset.fromModule(moduleId);
+        await asset.downloadAsync();
+
+        const uri = asset.localUri ?? asset.uri;
+
+        if (!uri) {
+          setRuntimeStatus('idle', null);
+          return false;
+        }
+
+        await applyAudioMode(playbackMode);
+
+        let player: AudioPlayer | null = null;
+        let subscription: PlaybackSubscription = null;
+        let timeout: ReturnType<typeof setTimeout> | null = null;
+
+        return await new Promise<boolean>((resolve) => {
+          let settled = false;
+
+          const finish = (completed: boolean) => {
+            if (settled) return;
+            settled = true;
+
+            if (timeout) {
+              clearTimeout(timeout);
+              timeout = null;
+            }
+
+            try {
+              subscription?.remove?.();
+            } catch {}
+
+            if (player) {
+              activeTransientPlayers.delete(player);
+            }
+
+            releasePlayer(player);
+            setRuntimeStatus('idle', null);
+            resolve(completed);
+          };
+
+          try {
+            const cuePlayer = createAudioPlayer(
+              { uri },
+              { updateInterval: 50 },
+            );
+
+            player = cuePlayer;
+            activeTransientPlayers.add(cuePlayer);
+
+            subscription = (
+              cuePlayer as unknown as {
+                addListener: (
+                  event: 'playbackStatusUpdate',
+                  listener: (status: AudioStatus) => void,
+                ) => { remove: () => void };
+              }
+            ).addListener(
+              'playbackStatusUpdate',
+              (status: AudioStatus) => {
+                if (status.didJustFinish) {
+                  finish(true);
+                }
+              },
+            );
+
+            timeout = setTimeout(
+              () => finish(false),
+              Math.max(300, timeoutMs),
+            );
+
+            cuePlayer.play();
+          } catch {
+            finish(false);
+          }
+        });
+      } catch {
+        releaseTransientPlayers();
+        setRuntimeStatus('idle', null);
+        return false;
+      }
+    });
+  },
+
   async playTransientAsset(moduleId: number) {
     return queueExclusive(async () => {
       if (isRecordingRuntime()) {

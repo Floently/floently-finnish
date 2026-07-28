@@ -1,0 +1,39 @@
+name: Roleplay audio invariants
+
+on:
+  pull_request:
+    paths:
+      - "apps/client/features/shared/services/audioSession.ts"
+      - "apps/client/features/speaking/hooks/useRoleplayRecorder.ts"
+      - "apps/client/features/speaking/services/roleplayAudio.ts"
+      - "apps/client/features/speaking/screens/RoleplayConversationScreen.tsx"
+      - "apps/client/components/public/sounds/ui/**"
+      - "apps/client/scripts/verify-roleplay-audio-invariants.mjs"
+      - "apps/client/package.json"
+      - ".github/workflows/roleplay-audio-invariants.yml"
+  push:
+    paths:
+      - "apps/client/features/shared/services/audioSession.ts"
+      - "apps/client/features/speaking/hooks/useRoleplayRecorder.ts"
+      - "apps/client/features/speaking/services/roleplayAudio.ts"
+      - "apps/client/features/speaking/screens/RoleplayConversationScreen.tsx"
+      - "apps/client/components/public/sounds/ui/**"
+      - "apps/client/scripts/verify-roleplay-audio-invariants.mjs"
+      - "apps/client/package.json"
+      - ".github/workflows/roleplay-audio-invariants.yml"
+
+jobs:
+  verify-roleplay-audio:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Verify roleplay audio invariants
+        run: node apps/client/scripts/verify-roleplay-audio-invariants.mjs

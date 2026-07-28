@@ -3,6 +3,7 @@ import { audioSession } from '../../shared/services/audioSession';
 
 const tapSound = require('../../../components/public/sounds/ui/tap_soft.wav');
 const micOnSound = require('../../../components/public/sounds/ui/mic_on.wav');
+const micStartSafeSound = require('../../../components/public/sounds/ui/mic_start_safe.wav');
 const micOffSound = require('../../../components/public/sounds/ui/mic_off.wav');
 const errorSound = require('../../../components/public/sounds/ui/error.wav');
 const successSound = require('../../../components/public/sounds/ui/success_chime.wav');
@@ -10,6 +11,11 @@ const successSound = require('../../../components/public/sounds/ui/success_chime
 export const uiSounds = {
   tap: () => audioSession.playTransientAsset(tapSound),
   micOn: () => audioSession.playTransientAsset(micOnSound),
+  micOnBeforeRecording: () =>
+    audioSession.playRecordingStartCue(
+      micStartSafeSound,
+      900,
+    ),
   micOff: () => audioSession.playTransientAsset(micOffSound),
   error: () => audioSession.playTransientAsset(errorSound),
   success: () => audioSession.playTransientAsset(successSound),

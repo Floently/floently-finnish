@@ -239,13 +239,15 @@ export function useRoleplayRecorder(locale = 'fi-FI') {
     setError(null);
     if (phaseRef.current === 'recording' || phaseRef.current === 'uploading') return;
     pendingStopRef.current = false;
-    startedAtRef.current = Date.now();
+    startedAtRef.current = 0;
     nativeDurationMsRef.current = 0;
 
-    // Browser recording can retain its audible cue. Native recording must
-    // enter the iOS/Android recording session with no player still active.
+    // Web keeps its existing cue. Native uses a short cue that is awaited
+    // and fully released before recording mode is enabled.
     if (Platform.OS === 'web') {
       await uiSounds.micOn();
+    } else {
+      await uiSounds.micOnBeforeRecording();
     }
 
     try {
@@ -265,6 +267,7 @@ export function useRoleplayRecorder(locale = 'fi-FI') {
           if (event.data.size > 0) chunkRef.current.push(event.data);
         };
         recorder.start(250);
+        startedAtRef.current = Date.now();
         mediaRecorderRef.current = recorder;
 
         try {
@@ -299,8 +302,9 @@ export function useRoleplayRecorder(locale = 'fi-FI') {
         await audioSession.prepareForRecording();
         await nativeRecorder.prepareToRecordAsync();
         nativeRecorder.record();
+        startedAtRef.current = Date.now();
         recordingRef.current = nativeRecorder;
-          await pause(120);
+        await pause(120);
       }
       setPhaseSafe('recording');
       if (pendingStopRef.current) {
