@@ -460,6 +460,16 @@ def _speaking_transcripts(
             result,
         )
 
+    speaking = evidence.get(
+        "speaking",
+    )
+
+    if isinstance(speaking, dict):
+        _find_transcripts(
+            speaking,
+            result,
+        )
+
     conversation = evidence.get(
         "conversation",
     )

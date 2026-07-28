@@ -206,6 +206,7 @@ export async function submitYkiExamSpeaking<T = unknown>(
     itemId: string;
     audioRef: string;
     durationSec: number;
+    transcriptText?: string | null;
   },
 ): Promise<T> {
   return postData(
@@ -214,6 +215,8 @@ export async function submitYkiExamSpeaking<T = unknown>(
       item_id: payload.itemId,
       audio_ref: payload.audioRef,
       duration_sec: payload.durationSec,
+      transcript_text:
+        payload.transcriptText ?? null,
     },
   );
 }

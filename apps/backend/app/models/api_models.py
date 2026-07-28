@@ -119,6 +119,10 @@ class SpeakingAnswerRequest(BaseModel):
     item_id: str
     audio_ref: str
     duration_sec: float = Field(default=0.0, ge=0.0)
+    transcript_text: str | None = Field(
+        default=None,
+        max_length=12000,
+    )
 
 
 class StartConversationRequest(BaseModel):

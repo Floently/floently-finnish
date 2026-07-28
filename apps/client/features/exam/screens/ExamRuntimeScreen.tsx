@@ -846,6 +846,7 @@ export default function ExamRuntimeScreen() {
         itemId: task.taskId,
         audioRef: upload.voiceRef,
         durationSec: taskState.speakingElapsed,
+        transcriptText: upload.transcript,
       },
     );
 

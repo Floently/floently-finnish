@@ -87,6 +87,7 @@ def build_yki_router() -> APIRouter:
             item_id=payload.item_id,
             audio_ref=payload.audio_ref,
             duration_sec=payload.duration_sec,
+            transcript_text=payload.transcript_text,
         )
         return success_payload(data=data, request_id=get_request_id(request))
 

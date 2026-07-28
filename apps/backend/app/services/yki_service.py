@@ -14,7 +14,14 @@ from app.runtime.yki import (
     sanitize_runtime_for_client,
     store_yki_session,
 )
-from app.runtime.yki_local_fallback import build_local_yki_runtime, is_local_runtime_record, local_accept_response, local_certificate_response, local_submit_response
+from app.runtime.yki_local_fallback import (
+    build_local_yki_runtime,
+    is_local_runtime_record,
+    local_accept_response,
+    local_certificate_response,
+    local_submit_response,
+    normalize_local_runtime_for_client,
+)
 
 
 async def start_yki_session(*, user: dict[str, Any], payload: dict[str, Any]) -> dict[str, Any]:
@@ -32,8 +39,22 @@ async def start_yki_session(*, user: dict[str, Any], payload: dict[str, Any]) ->
 async def get_yki_session(*, user_id: str, session_id: str) -> dict[str, Any]:
     record = get_yki_session_record(user_id=user_id, session_id=session_id)
     if is_local_runtime_record(record):
-        runtime = record.get("runtime") or {"session_id": session_id, "status": "in_progress", "local_fallback": True}
-        return {"runtime": sanitize_runtime_for_client(runtime)}
+        runtime = (
+            record.get("runtime")
+            or {
+                "session_id": session_id,
+                "status": "in_progress",
+                "local_fallback": True,
+            }
+        )
+
+        return {
+            "runtime": sanitize_runtime_for_client(
+                normalize_local_runtime_for_client(
+                    runtime
+                )
+            )
+        }
     response = await engine_request(method="GET", path=f"/exam/{session_id}")
     if response.status_code in {408, 429, 500, 502, 503, 504} and record.get("runtime"):
         return {"runtime": sanitize_runtime_for_client(record["runtime"])}
@@ -43,18 +64,16 @@ async def get_yki_session(*, user_id: str, session_id: str) -> dict[str, Any]:
     return {"runtime": sanitize_runtime_for_client(runtime)}
 
 
-async def submit_yki_answer(*, user_id: str, session_id: str, payload: dict[str, Any]) -> dict[str, Any]:
+async def submit_yki_answer(
+    *,
+    user_id: str,
+    session_id: str,
+    payload: dict[str, Any],
+) -> dict[str, Any]:
     record = get_yki_session_record(
         user_id=user_id,
         session_id=session_id,
     )
-
-    if is_local_runtime_record(record):
-        return local_accept_response(
-            session_id=session_id,
-            payload=payload,
-            action="answer_accepted",
-        )
 
     task_id = str(
         payload.get("task_id")
@@ -67,21 +86,43 @@ async def submit_yki_answer(*, user_id: str, session_id: str, payload: dict[str,
         or ""
     ).strip()
 
-    response = await engine_request(
-        method="POST",
-        path=f"/exam/{session_id}/answer",
-        payload={
-            "item_id": task_id,
+    if is_local_runtime_record(record):
+        result = local_accept_response(
+            session_id=session_id,
+            payload=payload,
+            action="answer_accepted",
+        )
+    else:
+        response = await engine_request(
+            method="POST",
+            path=f"/exam/{session_id}/answer",
+            payload={
+                "item_id": task_id,
+                "question_id": question_id,
+                "answer": payload.get("answer"),
+            },
+        )
+
+        map_engine_error(
+            response=response,
+        )
+
+        result = response.payload
+
+    record_yki_evaluation_evidence(
+        user_id=user_id,
+        session_id=session_id,
+        category="objective",
+        key=f"{task_id}:{question_id}",
+        value={
+            "task_id": task_id,
             "question_id": question_id,
             "answer": payload.get("answer"),
+            "engine": result,
         },
     )
 
-    map_engine_error(
-        response=response,
-    )
-
-    return response.payload
+    return result
 
 
 async def submit_yki_writing(*, user_id: str, session_id: str, payload: dict[str, Any]) -> dict[str, Any]:
@@ -171,7 +212,15 @@ async def submit_yki_audio(*, user_id: str, session_id: str, task_id: str, audio
     return result
 
 
-async def submit_yki_speaking(*, user_id: str, session_id: str, item_id: str, audio_ref: str, duration_sec: float) -> dict[str, Any]:
+async def submit_yki_speaking(
+    *,
+    user_id: str,
+    session_id: str,
+    item_id: str,
+    audio_ref: str,
+    duration_sec: float,
+    transcript_text: str | None = None,
+) -> dict[str, Any]:
     record = get_yki_session_record(
         user_id=user_id,
         session_id=session_id,
@@ -184,6 +233,7 @@ async def submit_yki_speaking(*, user_id: str, session_id: str, item_id: str, au
                 "item_id": item_id,
                 "audio_ref": audio_ref,
                 "duration_sec": duration_sec,
+                "transcript_text": transcript_text,
             },
             action="speaking_accepted",
         )
@@ -203,7 +253,11 @@ async def submit_yki_speaking(*, user_id: str, session_id: str, item_id: str, au
                 "duration_sec": duration_sec,
             },
         )
-        map_engine_error(response=response)
+
+        map_engine_error(
+            response=response,
+        )
+
         result = response.payload
 
     record_yki_evaluation_evidence(
@@ -214,6 +268,11 @@ async def submit_yki_speaking(*, user_id: str, session_id: str, item_id: str, au
         value={
             "audio_submitted": bool(audio_ref),
             "duration_sec": float(duration_sec),
+            "transcript_text": (
+                str(transcript_text).strip()
+                if transcript_text
+                else None
+            ),
             "engine": result,
         },
     )
@@ -304,16 +363,37 @@ async def generate_yki_reply(*, user_id: str, session_id: str, task_id: str) -> 
     return response.payload
 
 
-async def submit_yki_exam(*, user_id: str, session_id: str, confirm_incomplete: bool) -> dict[str, Any]:
+async def submit_yki_exam(
+    *,
+    user_id: str,
+    session_id: str,
+    confirm_incomplete: bool,
+) -> dict[str, Any]:
     record = get_yki_session_record(
         user_id=user_id,
         session_id=session_id,
     )
 
+    evidence = read_yki_evaluation_evidence(
+        user_id=user_id,
+        session_id=session_id,
+    )
+
     if is_local_runtime_record(record):
+        runtime = (
+            record.get("runtime")
+            if isinstance(
+                record.get("runtime"),
+                dict,
+            )
+            else {}
+        )
+
         result = local_submit_response(
             session_id=session_id,
             confirm_incomplete=confirm_incomplete,
+            runtime=runtime,
+            evidence=evidence,
         )
     else:
         response = await engine_request(
@@ -321,21 +401,24 @@ async def submit_yki_exam(*, user_id: str, session_id: str, confirm_incomplete: 
             path=f"/exam/{session_id}/submit",
             payload={
                 "confirm_incomplete": confirm_incomplete,
-                "session_token": record["engine_session_token"],
+                "session_token":
+                    record["engine_session_token"],
             },
         )
-        map_engine_error(response=response)
-        result = response.payload
 
-    evidence = read_yki_evaluation_evidence(
-        user_id=user_id,
-        session_id=session_id,
-    )
+        map_engine_error(
+            response=response,
+        )
+
+        result = response.payload
 
     evaluation_report = evaluate_yki_submission(
         runtime=(
             record.get("runtime")
-            if isinstance(record.get("runtime"), dict)
+            if isinstance(
+                record.get("runtime"),
+                dict,
+            )
             else {}
         ),
         submission=result,
@@ -346,7 +429,8 @@ async def submit_yki_exam(*, user_id: str, session_id: str, confirm_incomplete: 
         **result,
         "evaluation": evaluation_report,
         "evaluationReport": evaluation_report,
-        "disclaimer": evaluation_report["disclaimer"],
+        "disclaimer":
+            evaluation_report["disclaimer"],
     }
 
 
