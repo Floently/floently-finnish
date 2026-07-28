@@ -5,7 +5,15 @@ import { router } from 'expo-router';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { audioPlayer } from '../services/audioPlayer';
 import { saveExamResults, type StoredExamResults, type StoredExamTaskResult } from '../state/examResultsPersistence';
-import { getYkiExamSession } from '@core/api/ykiExam';
+import {
+  getYkiExamSession,
+  submitYkiExamAnswer,
+  submitYkiExamSession,
+  submitYkiExamSpeaking,
+  submitYkiExamWriting,
+  type SubmitYkiExamResult,
+} from '@core/api/ykiExam';
+import { transcribeVoiceAudioDetailed } from '@core/api/voice';
 import { startYkiPracticeSession } from '@core/api/ykiPractice';
 import { getStoredExamSessionId } from '../../yki-exam/services/ykiExamService';
 import { useAudioRecorder } from '../hooks/useAudioRecorder';
@@ -18,7 +26,12 @@ const SPEAKING_PREP_SEC = 30;
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
-type MCQTask = {
+type TaskIdentity = {
+  taskId?: string;
+  questionId?: string;
+};
+
+type MCQTask = TaskIdentity & {
   type: 'multiple_choice';
   question: string;
   passage?: string;
@@ -26,33 +39,22 @@ type MCQTask = {
   correct: number;
 };
 
-type WritingTask = {
+type WritingTask = TaskIdentity & {
   type: 'writing';
   prompt: string;
   wordTarget?: number;
 };
 
-type SpeakingTask = {
+type SpeakingTask = TaskIdentity & {
   type: 'speaking';
   prompt: string;
   minDurationSec: number;
   maxDurationSec: number;
-  // ── Speaking router (#7.4) ──────────────────────────────────────────
-  // 'monologue' = record-and-score (existing flow). User reads the prompt,
-  //               prepares, records 45-60s, gets STT-based scoring.
-  // 'conversation' = should be done with the roleplay engine. Currently
-  //               shown as a "Coming soon" surface that explains this is
-  //               a conversation task and offers to open the roleplay engine
-  //               at the user's level. The full conversational evaluation
-  //               with grammar feedback is part of Engine B (Beta), which
-  //               is locked at this stage.
   interactionMode?: 'monologue' | 'conversation';
-  // Optional: when interactionMode === 'conversation', this names a roleplay
-  // scenario to open. If omitted, generic conversation is used.
   conversationScenarioId?: string | null;
 };
 
-type ListeningTask = {
+type ListeningTask = TaskIdentity & {
   type: 'listening';
   question: string;
   audioText: string;
@@ -61,7 +63,11 @@ type ListeningTask = {
   correct: number;
 };
 
-type SectionTask = MCQTask | WritingTask | SpeakingTask | ListeningTask;
+type SectionTask =
+  | MCQTask
+  | WritingTask
+  | SpeakingTask
+  | ListeningTask;
 
 type Section = {
   title: string;
@@ -72,6 +78,10 @@ type Section = {
 };
 
 type RuntimeTask = {
+  id?: string;
+  task_id?: string;
+  item_id?: string;
+  question_id?: string;
   interaction_mode?: 'monologue' | 'conversation' | null;
   conversation_scenario_id?: string | null;
   skill: string;
@@ -156,6 +166,8 @@ function buildSectionsFromTasks(tasks: RuntimeTask[], levelBand: string): Sectio
       skill: 'reading',
       tasks: readingTasks.map((t) => ({
         type: 'multiple_choice' as const,
+        taskId: t.task_id ?? t.item_id ?? t.id,
+        questionId: t.question_id ?? t.id ?? t.task_id,
         passage: t.passage,
         question: t.question || t.prompt || t.title,
         options: t.options ?? ['A', 'B', 'C', 'D'],
@@ -173,6 +185,8 @@ function buildSectionsFromTasks(tasks: RuntimeTask[], levelBand: string): Sectio
       skill: 'listening',
       tasks: listeningTasks.map((t) => ({
         type: 'listening' as const,
+        taskId: t.task_id ?? t.item_id ?? t.id,
+        questionId: t.question_id ?? t.id ?? t.task_id,
         question: t.question || t.prompt || t.title,
         audioText: t.audio_script || t.guidance,
         options: t.options ?? ['A', 'B', 'C', 'D'],
@@ -190,6 +204,7 @@ function buildSectionsFromTasks(tasks: RuntimeTask[], levelBand: string): Sectio
       skill: 'writing',
       tasks: writingTasks.map((t) => ({
         type: 'writing' as const,
+        taskId: t.task_id ?? t.item_id ?? t.id,
         prompt: t.prompt || t.title,
         wordTarget: t.word_count_target,
       })),
@@ -205,6 +220,7 @@ function buildSectionsFromTasks(tasks: RuntimeTask[], levelBand: string): Sectio
       skill: 'speaking',
       tasks: speakingTasks.map((t) => ({
         type: 'speaking' as const,
+        taskId: t.task_id ?? t.item_id ?? t.id,
         prompt: t.prompt || t.title,
         minDurationSec: 30,
         maxDurationSec: 60,
@@ -244,6 +260,8 @@ function buildSectionsFromRuntimeExam(runtime: RuntimeExamPayload, levelBand: st
       tasks: readingItems.flatMap((item) =>
         (item.questions ?? []).map((q) => ({
           type: 'multiple_choice' as const,
+          taskId: item.item_id,
+          questionId: q.answer_id ?? q.id,
           passage: item.prompt?.text,
           question: q.question || item.prompt?.title || 'Read and answer.',
           options: q.options ?? ['A', 'B', 'C', 'D'],
@@ -265,6 +283,8 @@ function buildSectionsFromRuntimeExam(runtime: RuntimeExamPayload, levelBand: st
         const audioText = item.prompt?.instructions || '';
         return (item.questions ?? []).map((q) => ({
           type: 'listening' as const,
+          taskId: item.item_id,
+          questionId: q.answer_id ?? q.id,
           question: q.question || item.prompt?.instructions || 'Listen and answer.',
           audioUrl,
           audioText,
@@ -284,6 +304,7 @@ function buildSectionsFromRuntimeExam(runtime: RuntimeExamPayload, levelBand: st
       skill: 'writing',
       tasks: writingItems.map((item) => ({
         type: 'writing' as const,
+        taskId: item.item_id,
         prompt: item.prompt?.instructions || 'Write your response.',
       })),
     });
@@ -298,6 +319,7 @@ function buildSectionsFromRuntimeExam(runtime: RuntimeExamPayload, levelBand: st
       skill: 'speaking',
       tasks: speakingItems.map((item) => ({
         type: 'speaking' as const,
+        taskId: item.item_id,
         prompt: item.prompt?.instructions || 'Prepare and speak.',
         minDurationSec: item.recording?.min_duration_sec ?? 30,
         maxDurationSec: item.recording?.max_duration_sec ?? 60,
@@ -499,6 +521,9 @@ export default function ExamRuntimeScreen() {
   const [taskIndexInSection, setTaskIndexInSection] = useState(0);
   const [taskState, setTaskState] = useState<TaskState>(defaultTaskState());
   const [results, setResults] = useState<StoredExamTaskResult[]>([]);
+  const [examSessionId, setExamSessionId] = useState<string | null>(null);
+  const [submittingTask, setSubmittingTask] = useState(false);
+  const [submissionError, setSubmissionError] = useState<string | null>(null);
 
   useEffect(() => {
     let cancelled = false;
@@ -508,6 +533,11 @@ export default function ExamRuntimeScreen() {
         if (!cancelled) setLevelBand(storedBand);
 
         const sessionId = await getStoredExamSessionId();
+
+        if (!cancelled) {
+          setExamSessionId(sessionId);
+        }
+
         if (sessionId) {
           try {
             const payload = await getYkiExamSession<{ runtime?: RuntimeExamPayload }>(sessionId);
@@ -595,20 +625,53 @@ export default function ExamRuntimeScreen() {
     .slice(0, sectionIndex)
     .reduce((sum, s) => sum + s.tasks.length, 0) + taskIndexInSection;
 
-  async function finishExam(finalResults: StoredExamTaskResult[]) {
+  async function finishExam(
+    finalResults: StoredExamTaskResult[],
+  ) {
     const completedAt = new Date().toISOString();
-    const objectiveResults = finalResults.filter((item) => typeof item.correctOption === 'number');
-    const objectiveCorrect = objectiveResults.filter((item) => item.selectedOption === item.correctOption).length;
-    const sectionBreakdown = sections.map((section) => {
-      const sectionTasks = finalResults.filter((item) => item.sectionTitle === section.title);
-      const objectiveSectionTasks = sectionTasks.filter((item) => typeof item.correctOption === 'number');
+
+    const objectiveResults = finalResults.filter(
+      (item) => typeof item.correctOption === 'number',
+    );
+
+    const objectiveCorrect = objectiveResults.filter(
+      (item) => item.selectedOption === item.correctOption,
+    ).length;
+
+    const sectionBreakdown = sections.map((currentSection) => {
+      const sectionTasks = finalResults.filter(
+        (item) => item.sectionTitle === currentSection.title,
+      );
+
+      const objectiveSectionTasks = sectionTasks.filter(
+        (item) => typeof item.correctOption === 'number',
+      );
+
       return {
-        sectionTitle: section.title,
+        sectionTitle: currentSection.title,
         totalTasks: sectionTasks.length,
         objectiveTasks: objectiveSectionTasks.length,
-        objectiveCorrect: objectiveSectionTasks.filter((item) => item.selectedOption === item.correctOption).length,
+        objectiveCorrect: objectiveSectionTasks.filter(
+          (item) => item.selectedOption === item.correctOption,
+        ).length,
       };
     });
+
+    let submission: SubmitYkiExamResult | null = null;
+
+    if (examSessionId) {
+      submission = await submitYkiExamSession<SubmitYkiExamResult>(
+        examSessionId,
+        {
+          confirm_incomplete: true,
+        },
+      );
+    }
+
+    const evaluationReport =
+      submission?.evaluationReport
+      ?? submission?.evaluation
+      ?? null;
 
     const payload: StoredExamResults = {
       completedAt,
@@ -619,32 +682,199 @@ export default function ExamRuntimeScreen() {
       objectiveIncorrect: objectiveResults.length - objectiveCorrect,
       sectionBreakdown,
       tasks: finalResults,
+      backendSubmitted: Boolean(submission),
+      submission,
+      evaluationReport,
     };
+
     await saveExamResults(payload);
     router.push('/yki-exam/results' as never);
   }
 
-  async function advanceTask() {
-    if (!task || !section) return;
-    const nextResult: StoredExamTaskResult = {
-      sectionTitle: section.title,
-      taskType: task.type,
-      prompt: task.type === 'writing' || task.type === 'speaking' ? task.prompt : task.question,
-      selectedOption: task.type === 'multiple_choice' || task.type === 'listening' ? taskState.selectedOption : null,
-      correctOption: task.type === 'multiple_choice' || task.type === 'listening' ? task.correct : null,
-      options: task.type === 'multiple_choice' || task.type === 'listening' ? task.options : undefined,
-      writingAnswer: task.type === 'writing' || task.type === 'speaking' ? taskState.writingAnswer : undefined,
+  async function submitCurrentTaskEvidence(): Promise<{
+    speakingTranscript: string | null;
+  }> {
+    if (!examSessionId || !task?.taskId) {
+      return {
+        speakingTranscript: null,
+      };
+    }
+
+    if (
+      task.type === 'multiple_choice'
+      || task.type === 'listening'
+    ) {
+      if (!task.questionId) {
+        throw new Error(
+          'This YKI question is missing its backend question identity.',
+        );
+      }
+
+      await submitYkiExamAnswer(
+        examSessionId,
+        {
+          task_id: task.taskId,
+          item_id: task.questionId,
+          answer: taskState.selectedOption,
+        },
+      );
+
+      return {
+        speakingTranscript: null,
+      };
+    }
+
+    if (task.type === 'writing') {
+      await submitYkiExamWriting(
+        examSessionId,
+        {
+          taskId: task.taskId,
+          text: taskState.writingAnswer.trim(),
+        },
+      );
+
+      return {
+        speakingTranscript: null,
+      };
+    }
+
+    if (task.interactionMode === 'conversation') {
+      return {
+        speakingTranscript: null,
+      };
+    }
+
+    if (!taskState.speakingRecordedUri) {
+      throw new Error(
+        'The speaking recording has not finished saving yet.',
+      );
+    }
+
+    const normalizedUri =
+      taskState.speakingRecordedUri
+        .split('?')[0]
+        .toLowerCase();
+
+    const extension =
+      normalizedUri.endsWith('.webm')
+        ? 'webm'
+        : normalizedUri.endsWith('.wav')
+        ? 'wav'
+        : 'm4a';
+
+    const mimeType =
+      extension === 'webm'
+        ? 'audio/webm'
+        : extension === 'wav'
+        ? 'audio/wav'
+        : 'audio/m4a';
+
+    const upload = await transcribeVoiceAudioDetailed({
+      uriOrBlob: taskState.speakingRecordedUri,
+      mimeType,
+      fileName: `yki-${task.taskId}.${extension}`,
+      locale: 'fi-FI',
+      mode: 'yki_exam',
+      sessionId: examSessionId,
+      speakingSessionId: examSessionId,
+      taskId: task.taskId,
+      durationMs: taskState.speakingElapsed * 1000,
+    });
+
+    if (!upload.voiceRef) {
+      throw new Error(
+        'The speaking recording was uploaded, but no secure audio reference was returned.',
+      );
+    }
+
+    await submitYkiExamSpeaking(
+      examSessionId,
+      {
+        itemId: task.taskId,
+        audioRef: upload.voiceRef,
+        durationSec: taskState.speakingElapsed,
+      },
+    );
+
+    return {
+      speakingTranscript: upload.transcript,
     };
-    const finalResults = [...results, nextResult];
-    setResults(finalResults);
-    setTaskState(defaultTaskState());
-    if (!isLastTaskInSection) {
-      setTaskIndexInSection((i) => i + 1);
-    } else if (!isLastSection) {
-      setSectionIndex((i) => i + 1);
-      setTaskIndexInSection(0);
-    } else {
-      await finishExam(finalResults);
+  }
+
+  async function advanceTask() {
+    if (!task || !section || submittingTask) {
+      return;
+    }
+
+    setSubmittingTask(true);
+    setSubmissionError(null);
+
+    try {
+      const evidence = await submitCurrentTaskEvidence();
+
+      const nextResult: StoredExamTaskResult = {
+        sectionTitle: section.title,
+        taskType: task.type,
+        prompt:
+          task.type === 'writing'
+          || task.type === 'speaking'
+            ? task.prompt
+            : task.question,
+        taskId: task.taskId ?? null,
+        questionId: task.questionId ?? null,
+        selectedOption:
+          task.type === 'multiple_choice'
+          || task.type === 'listening'
+            ? taskState.selectedOption
+            : null,
+        correctOption:
+          task.type === 'multiple_choice'
+          || task.type === 'listening'
+            ? task.correct
+            : null,
+        options:
+          task.type === 'multiple_choice'
+          || task.type === 'listening'
+            ? task.options
+            : undefined,
+        writingAnswer:
+          task.type === 'writing'
+            ? taskState.writingAnswer
+            : undefined,
+        speakingTranscript:
+          task.type === 'speaking'
+            ? evidence.speakingTranscript
+            : undefined,
+        speakingDurationSec:
+          task.type === 'speaking'
+            ? taskState.speakingElapsed
+            : undefined,
+      };
+
+      const finalResults = [
+        ...results,
+        nextResult,
+      ];
+
+      setResults(finalResults);
+      setTaskState(defaultTaskState());
+
+      if (!isLastTaskInSection) {
+        setTaskIndexInSection((index) => index + 1);
+      } else if (!isLastSection) {
+        setSectionIndex((index) => index + 1);
+        setTaskIndexInSection(0);
+      } else {
+        await finishExam(finalResults);
+      }
+    } catch (error) {
+      setSubmissionError(
+        error instanceof Error
+          ? error.message
+          : 'The YKI response could not be saved.',
+      );
+    } finally {
+      setSubmittingTask(false);
     }
   }
 
@@ -652,10 +882,20 @@ export default function ExamRuntimeScreen() {
   const isSpeakingTask = task?.type === 'speaking';
   const isConversationSpeaking = task?.type === 'speaking' && task.interactionMode === 'conversation';
   const canAdvance =
-    (!isObjectiveTask || taskState.selectedOption !== null) &&
-    // Speaking router (#7.4): conversation tasks have no recording flow,
-    // so they're always advanceable.
-    (!isSpeakingTask || isConversationSpeaking || taskState.speakingPhase === 'done');
+    !submittingTask
+    && (!isObjectiveTask || taskState.selectedOption !== null)
+    && (
+      task?.type !== 'writing'
+      || Boolean(taskState.writingAnswer.trim())
+    )
+    && (
+      !isSpeakingTask
+      || isConversationSpeaking
+      || (
+        taskState.speakingPhase === 'done'
+        && Boolean(taskState.speakingRecordedUri)
+      )
+    );
 
   if (!started) {
     return (
@@ -962,13 +1202,56 @@ export default function ExamRuntimeScreen() {
           );
         })()}
 
+        {submissionError ? (
+          <View
+            style={{
+              borderRadius: 12,
+              borderWidth: 1,
+              borderColor: '#D64545',
+              backgroundColor: '#FFF5F5',
+              padding: 12,
+            }}
+          >
+            <Text
+              style={{
+                color: '#A52828',
+                fontSize: 13,
+                lineHeight: 19,
+                fontWeight: '600',
+              }}
+            >
+              {submissionError}
+            </Text>
+          </View>
+        ) : null}
+
+        {submittingTask ? (
+          <View
+            style={{
+              flexDirection: 'row',
+              alignItems: 'center',
+              gap: 8,
+            }}
+          >
+            <ActivityIndicator size="small" color="#2453D4" />
+            <Text style={{ color: '#4B5563', fontSize: 13 }}>
+              Saving response for detailed evaluation…
+            </Text>
+          </View>
+        ) : null}
+
         <Pressable
           onPress={() => void advanceTask()}
-          style={[styles.nextButton, !canAdvance && styles.nextButtonDisabled]}
+          style={[
+            styles.nextButton,
+            !canAdvance && styles.nextButtonDisabled,
+          ]}
           disabled={!canAdvance}
         >
           <Text style={styles.nextButtonText}>
-            {!isLastTaskInSection
+            {submittingTask
+              ? 'Saving…'
+              : !isLastTaskInSection
               ? 'Next question'
               : isLastSection
               ? 'Submit exam'

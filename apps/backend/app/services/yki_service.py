@@ -44,11 +44,43 @@ async def get_yki_session(*, user_id: str, session_id: str) -> dict[str, Any]:
 
 
 async def submit_yki_answer(*, user_id: str, session_id: str, payload: dict[str, Any]) -> dict[str, Any]:
-    record = get_yki_session_record(user_id=user_id, session_id=session_id)
+    record = get_yki_session_record(
+        user_id=user_id,
+        session_id=session_id,
+    )
+
     if is_local_runtime_record(record):
-        return local_accept_response(session_id=session_id, payload=payload, action="answer_accepted")
-    response = await engine_request(method="POST", path=f"/exam/{session_id}/answer", payload=payload)
-    map_engine_error(response=response)
+        return local_accept_response(
+            session_id=session_id,
+            payload=payload,
+            action="answer_accepted",
+        )
+
+    task_id = str(
+        payload.get("task_id")
+        or ""
+    ).strip()
+
+    question_id = str(
+        payload.get("item_id")
+        or payload.get("question_id")
+        or ""
+    ).strip()
+
+    response = await engine_request(
+        method="POST",
+        path=f"/exam/{session_id}/answer",
+        payload={
+            "item_id": task_id,
+            "question_id": question_id,
+            "answer": payload.get("answer"),
+        },
+    )
+
+    map_engine_error(
+        response=response,
+    )
+
     return response.payload
 
 
