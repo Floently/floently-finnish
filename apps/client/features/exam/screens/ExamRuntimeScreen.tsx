@@ -732,6 +732,7 @@ export default function ExamRuntimeScreen() {
     }
 
     const payload: StoredExamResults = {
+      sessionId: examSessionId,
       completedAt,
       levelBand,
       totalTasks,

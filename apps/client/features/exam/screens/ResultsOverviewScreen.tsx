@@ -19,11 +19,14 @@ import * as FileSystem from 'expo-file-system';
 import * as Print from 'expo-print';
 import {
   loadExamResults,
+  saveExamResults,
   type StoredExamResults,
 } from '../state/examResultsPersistence';
-import type {
-  YkiEvaluationReport,
-  YkiEvaluationSection,
+import {
+  getYkiExamSession,
+  type YkiEvaluationReport,
+  type YkiEvaluationSection,
+  type YkiPersistedSessionResult,
 } from '@core/api/ykiExam';
 
 const SECTION_KEYS = [
@@ -134,6 +137,64 @@ function exactObjectiveScore(
   );
 }
 
+function sectionPracticeScore(
+  report: YkiEvaluationReport,
+  sectionKey: SectionKey,
+) {
+  if (
+    sectionKey === 'reading'
+    || sectionKey === 'listening'
+  ) {
+    const percentage =
+      report.objectiveScores[
+        sectionKey
+      ].percentage;
+
+    return (
+      typeof percentage === 'number'
+        ? `${displayNumber(percentage)}%`
+        : null
+    );
+  }
+
+  const section =
+    report.sections[sectionKey];
+
+  return (
+    section.scoreAvailable
+      ? `${displayNumber(section.score)}%`
+      : null
+  );
+}
+
+function displayCriterionScore(
+  score: number,
+  scoreMax: number | undefined,
+) {
+  const maximum =
+    typeof scoreMax === 'number'
+    && scoreMax > 0
+      ? scoreMax
+      : 5;
+
+  return (
+    `${displayNumber(score)}`
+    + `/${displayNumber(maximum)}`
+  );
+}
+
+function persistedEvaluation(
+  value: YkiPersistedSessionResult,
+): YkiEvaluationReport | null {
+  return (
+    value.evaluationReport
+    ?? value.evaluation
+    ?? value.submission?.evaluationReport
+    ?? value.submission?.evaluation
+    ?? null
+  );
+}
+
 function escapeHtml(value: string) {
   return value
     .replace(/&/g, '&amp;')
@@ -203,14 +264,18 @@ function buildPlainTextReport(
 
   for (const key of SECTION_KEYS) {
     const section = evaluation.sections[key];
+    const practiceScore = sectionPracticeScore(
+      evaluation,
+      key,
+    );
 
     lines.push(
       SECTION_LABELS[key],
       `Status: ${displayStatus(section.status)}`,
       `Estimated level: ${displayLevel(section.estimatedLevel)}`,
       (
-        section.scoreAvailable
-          ? `Practice score: ${displayNumber(section.score)}/100`
+        practiceScore
+          ? `Practice score: ${practiceScore}`
           : 'Practice score: not provided'
       ),
       section.summary,
@@ -230,11 +295,29 @@ function buildPlainTextReport(
 
       for (const criterion of section.criteria) {
         lines.push(
-          `- ${criterion.name}: ${displayNumber(criterion.score)}/100`,
+          `- ${criterion.name}: ${displayCriterionScore(
+            criterion.score,
+            criterion.scoreMax,
+          )}`,
           `  ${criterion.rationale}`,
           ...criterion.evidence.map(
             (item) => `  Evidence: ${item}`,
           ),
+        );
+      }
+    }
+
+    if ((section.corrections ?? []).length) {
+      lines.push('Corrections:');
+
+      for (
+        const correction
+        of section.corrections ?? []
+      ) {
+        lines.push(
+          `- Original: ${correction.original}`,
+          `  Improved Finnish: ${correction.corrected}`,
+          `  Why: ${correction.explanation}`,
         );
       }
     }
@@ -378,6 +461,11 @@ function buildHtmlReport(
       ${SECTION_KEYS.map((key) => {
         const section =
           evaluation.sections[key];
+        const practiceScore =
+          sectionPracticeScore(
+            evaluation,
+            key,
+          );
 
         return `
           <section class="card">
@@ -406,13 +494,11 @@ function buildHtmlReport(
             </p>
 
             ${
-              section.scoreAvailable
+              practiceScore
                 ? `
                   <p>
                     <strong>Practice score:</strong>
-                    ${displayNumber(
-                      section.score,
-                    )}/100
+                    ${escapeHtml(practiceScore)}
                   </p>
                 `
                 : ''
@@ -448,9 +534,10 @@ function buildHtmlReport(
                             criterion.name,
                           )}
                           ·
-                          ${displayNumber(
-                            criterion.score,
-                          )}/100
+                          ${displayCriterionScore(
+                             criterion.score,
+                             criterion.scoreMax,
+                           )}
                         </strong>
                         <p>
                           ${escapeHtml(
@@ -469,6 +556,44 @@ function buildHtmlReport(
                             `
                             : ''
                         }
+                      </div>
+                    `,
+                  ).join('')}
+                `
+                : ''
+            }
+
+            ${
+              (section.corrections ?? []).length
+                ? `
+                  <h3>Corrections</h3>
+                  ${(
+                    section.corrections ?? []
+                  ).map(
+                    (correction) => `
+                      <div class="criterion">
+                        <strong>Original</strong>
+                        <p>
+                          ${escapeHtml(
+                            correction.original,
+                          )}
+                        </p>
+
+                        <strong>
+                          Improved Finnish
+                        </strong>
+                        <p>
+                          ${escapeHtml(
+                            correction.corrected,
+                          )}
+                        </p>
+
+                        <strong>Why</strong>
+                        <p>
+                          ${escapeHtml(
+                            correction.explanation,
+                          )}
+                        </p>
                       </div>
                     `,
                   ).join('')}
@@ -746,6 +871,10 @@ function SectionReport({
   report: YkiEvaluationReport;
 }) {
   const section = report.sections[sectionKey];
+  const practiceScore = sectionPracticeScore(
+    report,
+    sectionKey,
+  );
 
   return (
     <View style={styles.sectionCard}>
@@ -770,10 +899,10 @@ function SectionReport({
         </View>
       </View>
 
-      {section.scoreAvailable ? (
+      {practiceScore ? (
         <Text style={styles.sectionScore}>
           Practice score:{' '}
-          {displayNumber(section.score)}/100
+          {practiceScore}
         </Text>
       ) : null}
 
@@ -820,9 +949,10 @@ function SectionReport({
                   </Text>
 
                   <Text style={styles.criterionScore}>
-                    {displayNumber(
+                    {displayCriterionScore(
                       criterion.score,
-                    )}/100
+                      criterion.scoreMax,
+                    )}
                   </Text>
                 </View>
 
@@ -833,6 +963,47 @@ function SectionReport({
                 <BulletList
                   values={criterion.evidence}
                 />
+              </View>
+            ),
+          )}
+        </View>
+      ) : null}
+
+      {(section.corrections ?? []).length ? (
+        <View style={styles.subsection}>
+          <Text style={styles.subheading}>
+            Corrections
+          </Text>
+
+          {(section.corrections ?? []).map(
+            (correction, index) => (
+              <View
+                key={`${index}-${correction.original}`}
+                style={styles.criterionCard}
+              >
+                <Text style={styles.criterionName}>
+                  Original
+                </Text>
+
+                <Text style={styles.body}>
+                  {correction.original}
+                </Text>
+
+                <Text style={styles.criterionName}>
+                  Improved Finnish
+                </Text>
+
+                <Text style={styles.body}>
+                  {correction.corrected}
+                </Text>
+
+                <Text style={styles.criterionName}>
+                  Why
+                </Text>
+
+                <Text style={styles.body}>
+                  {correction.explanation}
+                </Text>
               </View>
             ),
           )}
@@ -859,11 +1030,61 @@ export default function ResultsOverviewScreen() {
     useState<StoredExamResults | null>(null);
 
   useEffect(() => {
+    let active = true;
+
     void (async () => {
-      setResults(
-        await loadExamResults(),
-      );
+      const stored =
+        await loadExamResults();
+
+      if (!active) {
+        return;
+      }
+
+      setResults(stored);
+
+      if (!stored?.sessionId) {
+        return;
+      }
+
+      try {
+        const persisted =
+          await getYkiExamSession<
+            YkiPersistedSessionResult
+          >(stored.sessionId);
+
+        const recoveredEvaluation =
+          persistedEvaluation(persisted);
+
+        if (!recoveredEvaluation) {
+          return;
+        }
+
+        const refreshed: StoredExamResults = {
+          ...stored,
+          completedAt:
+            persisted.submittedAt
+            ?? stored.completedAt,
+          submission:
+            persisted.submission
+            ?? stored.submission,
+          evaluationReport:
+            recoveredEvaluation,
+        };
+
+        await saveExamResults(refreshed);
+
+        if (active) {
+          setResults(refreshed);
+        }
+      } catch {
+        // Keep the locally saved report when
+        // backend recovery is temporarily offline.
+      }
     })();
+
+    return () => {
+      active = false;
+    };
   }, []);
 
   const evaluation = useMemo(

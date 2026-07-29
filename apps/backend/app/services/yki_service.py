@@ -12,6 +12,7 @@ from app.runtime.yki import (
     read_yki_evaluation_evidence,
     record_yki_evaluation_evidence,
     sanitize_runtime_for_client,
+    store_yki_evaluation_result,
     store_yki_session,
 )
 from app.runtime.yki_local_fallback import (
@@ -22,6 +23,57 @@ from app.runtime.yki_local_fallback import (
     local_submit_response,
     normalize_local_runtime_for_client,
 )
+
+
+def _session_payload(
+    *,
+    runtime: dict[str, Any],
+    record: dict[str, Any],
+) -> dict[str, Any]:
+    payload: dict[str, Any] = {
+        "runtime":
+            sanitize_runtime_for_client(
+                runtime
+            )
+    }
+
+    evaluation_report = record.get(
+        "evaluation_report"
+    )
+
+    if isinstance(
+        evaluation_report,
+        dict,
+    ):
+        payload["evaluation"] = (
+            evaluation_report
+        )
+        payload["evaluationReport"] = (
+            evaluation_report
+        )
+
+    submission_result = record.get(
+        "submission_result"
+    )
+
+    if isinstance(
+        submission_result,
+        dict,
+    ):
+        payload["submission"] = (
+            submission_result
+        )
+
+    submitted_at = record.get(
+        "submitted_at"
+    )
+
+    if submitted_at:
+        payload["submittedAt"] = (
+            submitted_at
+        )
+
+    return payload
 
 
 async def start_yki_session(*, user: dict[str, Any], payload: dict[str, Any]) -> dict[str, Any]:
@@ -36,8 +88,16 @@ async def start_yki_session(*, user: dict[str, Any], payload: dict[str, Any]) ->
     return {"runtime": sanitize_runtime_for_client(runtime)}
 
 
-async def get_yki_session(*, user_id: str, session_id: str) -> dict[str, Any]:
-    record = get_yki_session_record(user_id=user_id, session_id=session_id)
+async def get_yki_session(
+    *,
+    user_id: str,
+    session_id: str,
+) -> dict[str, Any]:
+    record = get_yki_session_record(
+        user_id=user_id,
+        session_id=session_id,
+    )
+
     if is_local_runtime_record(record):
         runtime = (
             record.get("runtime")
@@ -48,20 +108,57 @@ async def get_yki_session(*, user_id: str, session_id: str) -> dict[str, Any]:
             }
         )
 
-        return {
-            "runtime": sanitize_runtime_for_client(
+        return _session_payload(
+            runtime=(
                 normalize_local_runtime_for_client(
                     runtime
                 )
-            )
+            ),
+            record=record,
+        )
+
+    response = await engine_request(
+        method="GET",
+        path=f"/exam/{session_id}",
+    )
+
+    if (
+        response.status_code
+        in {
+            408,
+            429,
+            500,
+            502,
+            503,
+            504,
         }
-    response = await engine_request(method="GET", path=f"/exam/{session_id}")
-    if response.status_code in {408, 429, 500, 502, 503, 504} and record.get("runtime"):
-        return {"runtime": sanitize_runtime_for_client(record["runtime"])}
-    map_engine_error(response=response)
+        and record.get("runtime")
+    ):
+        return _session_payload(
+            runtime=record["runtime"],
+            record=record,
+        )
+
+    map_engine_error(
+        response=response
+    )
+
     runtime = response.payload
-    store_yki_session(user_id=user_id, runtime=runtime)
-    return {"runtime": sanitize_runtime_for_client(runtime)}
+
+    store_yki_session(
+        user_id=user_id,
+        runtime=runtime,
+    )
+
+    refreshed = get_yki_session_record(
+        user_id=user_id,
+        session_id=session_id,
+    )
+
+    return _session_payload(
+        runtime=runtime,
+        record=refreshed,
+    )
 
 
 async def submit_yki_answer(
@@ -423,6 +520,15 @@ async def submit_yki_exam(
         ),
         submission=result,
         evidence=evidence,
+    )
+
+    store_yki_evaluation_result(
+        user_id=user_id,
+        session_id=session_id,
+        submission=result,
+        evaluation_report=(
+            evaluation_report
+        ),
     )
 
     return {

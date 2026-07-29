@@ -18,6 +18,7 @@ export type StoredExamTaskResult = {
 };
 
 export type StoredExamResults = {
+  sessionId?: string;
   completedAt: string;
   levelBand: string;
   totalTasks: number;

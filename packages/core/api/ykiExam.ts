@@ -80,8 +80,15 @@ export type SubmitYkiExamPayload = {
 export type YkiEvaluationCriterion = {
   name: string;
   score: number;
+  scoreMax?: number;
   rationale: string;
   evidence: string[];
+};
+
+export type YkiEvaluationCorrection = {
+  original: string;
+  corrected: string;
+  explanation: string;
 };
 
 export type YkiEvaluationSection = {
@@ -92,6 +99,7 @@ export type YkiEvaluationSection = {
   summary: string;
   evidence: string[];
   criteria: YkiEvaluationCriterion[];
+  corrections?: YkiEvaluationCorrection[];
   improvements: string[];
 };
 
@@ -138,6 +146,14 @@ export type SubmitYkiExamResult = {
   evaluation?: YkiEvaluationReport;
   evaluationReport?: YkiEvaluationReport;
   disclaimer?: string;
+};
+
+export type YkiPersistedSessionResult = {
+  runtime?: Record<string, unknown> | null;
+  submission?: SubmitYkiExamResult | null;
+  evaluation?: YkiEvaluationReport;
+  evaluationReport?: YkiEvaluationReport;
+  submittedAt?: string;
 };
 
 function normalizeLevelBand(value: YkiLevelBand | string) {

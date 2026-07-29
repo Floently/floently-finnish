@@ -12,9 +12,9 @@ _LOG = logging.getLogger(
     "floently.yki.evaluation"
 )
 
-REPORT_VERSION = "1.0"
-PROMPT_VERSION = "yki-deep-evaluation-v1"
-RUBRIC_VERSION = "floently-yki-practice-v1"
+REPORT_VERSION = "1.1"
+PROMPT_VERSION = "yki-deep-evaluation-v2"
+RUBRIC_VERSION = "floently-yki-practice-v2"
 
 DISCLAIMER = (
     "AI-estimated YKI practice feedback. "
@@ -62,6 +62,13 @@ def _section_schema() -> dict[str, Any]:
             },
             "score": {
                 "type": "number",
+                "minimum": 0,
+                "maximum": 100,
+                "description": (
+                    "Section percentage from 0 to 100. "
+                    "Reading and listening must exactly match "
+                    "the supplied objective percentage."
+                ),
             },
             "summary": {
                 "type": "string",
@@ -83,6 +90,12 @@ def _section_schema() -> dict[str, Any]:
                         },
                         "score": {
                             "type": "number",
+                            "minimum": 0,
+                            "maximum": 5,
+                        },
+                        "score_max": {
+                            "type": "number",
+                            "enum": [5],
                         },
                         "rationale": {
                             "type": "string",
@@ -97,8 +110,32 @@ def _section_schema() -> dict[str, Any]:
                     "required": [
                         "name",
                         "score",
+                        "score_max",
                         "rationale",
                         "evidence",
+                    ],
+                },
+            },
+            "corrections": {
+                "type": "array",
+                "items": {
+                    "type": "object",
+                    "additionalProperties": False,
+                    "properties": {
+                        "original": {
+                            "type": "string",
+                        },
+                        "corrected": {
+                            "type": "string",
+                        },
+                        "explanation": {
+                            "type": "string",
+                        },
+                    },
+                    "required": [
+                        "original",
+                        "corrected",
+                        "explanation",
                     ],
                 },
             },
@@ -117,6 +154,7 @@ def _section_schema() -> dict[str, Any]:
             "summary",
             "evidence",
             "criteria",
+            "corrections",
             "improvements",
         ],
     }
@@ -196,6 +234,30 @@ def _env_bool(
         "no",
         "off",
     }
+
+
+def _is_production_environment() -> bool:
+    return any(
+        str(
+            os.environ.get(name)
+            or ""
+        ).strip().lower()
+        in {
+            "production",
+            "prod",
+        }
+        for name in (
+            "APP_ENV",
+            "FLOENTLY_ENV",
+        )
+    )
+
+
+def _evaluation_enabled() -> bool:
+    return _env_bool(
+        "OPENAI_EVALUATION_ENABLED",
+        _is_production_environment(),
+    )
 
 
 def _trim(
@@ -583,11 +645,12 @@ def _normalize_section(
                     _bounded(
                         item.get("score"),
                         0,
-                        100,
+                        5,
                         0,
                     ),
                     1,
                 ),
+                "scoreMax": 5,
                 "rationale": rationale,
                 "evidence": _safe_strings(
                     item.get("evidence"),
@@ -597,6 +660,39 @@ def _normalize_section(
         )
 
         if len(criteria) >= 8:
+            break
+
+    corrections: list[dict[str, str]] = []
+
+    for item in value.get("corrections") or []:
+        if not isinstance(item, dict):
+            continue
+
+        original = _trim(
+            item.get("original"),
+            700,
+        )
+        corrected = _trim(
+            item.get("corrected"),
+            700,
+        )
+        explanation = _trim(
+            item.get("explanation"),
+            900,
+        )
+
+        if not original or not corrected or not explanation:
+            continue
+
+        corrections.append(
+            {
+                "original": original,
+                "corrected": corrected,
+                "explanation": explanation,
+            }
+        )
+
+        if len(corrections) >= 6:
             break
 
     return {
@@ -625,6 +721,7 @@ def _normalize_section(
             8,
         ),
         "criteria": criteria,
+        "corrections": corrections,
         "improvements": _safe_strings(
             value.get("improvements"),
             6,
@@ -632,8 +729,83 @@ def _normalize_section(
     }
 
 
+def _normalized_match_text(
+    value: Any,
+) -> str:
+    return (
+        " ".join(
+            str(value or "")
+            .strip()
+            .split()
+        )
+        .strip('"“”')
+        .casefold()
+    )
+
+
+def _section_source_texts(
+    payload: dict[str, Any],
+    section_name: str,
+) -> list[str]:
+    values: list[str] = []
+
+    if section_name == "writing":
+        raw = payload.get(
+            "writing_responses"
+        )
+
+        if isinstance(raw, list):
+            for item in raw:
+                if not isinstance(item, dict):
+                    continue
+
+                text = _trim(
+                    item.get("text"),
+                    5000,
+                )
+
+                if text:
+                    values.append(text)
+
+    elif section_name == "speaking":
+        raw = payload.get(
+            "speaking_transcripts"
+        )
+
+        if isinstance(raw, list):
+            for item in raw:
+                text = _trim(
+                    item,
+                    3000,
+                )
+
+                if text:
+                    values.append(text)
+
+    return values
+
+
+def _is_verbatim_excerpt(
+    value: Any,
+    sources: list[str],
+) -> bool:
+    excerpt = _normalized_match_text(
+        value
+    )
+
+    if len(excerpt) < 5:
+        return False
+
+    return any(
+        excerpt
+        in _normalized_match_text(source)
+        for source in sources
+    )
+
+
 def _normalise_ai_report(
     value: Any,
+    payload: dict[str, Any],
 ) -> dict[str, Any] | None:
     if not isinstance(value, dict):
         return None
@@ -654,6 +826,51 @@ def _normalise_ai_report(
             return None
 
         sections[section_name] = normalized
+
+    for section_name in (
+        "writing",
+        "speaking",
+    ):
+        sources = _section_source_texts(
+            payload,
+            section_name,
+        )
+
+        if not sources:
+            continue
+
+        section = sections[section_name]
+
+        matched_evidence = [
+            item
+            for item in section["evidence"]
+            if _is_verbatim_excerpt(
+                item,
+                sources,
+            )
+        ]
+
+        matched_corrections = [
+            item
+            for item in section["corrections"]
+            if _is_verbatim_excerpt(
+                item["original"],
+                sources,
+            )
+        ]
+
+        if (
+            len(matched_evidence) < 2
+            or len(matched_corrections) < 1
+        ):
+            return None
+
+        section["evidence"] = (
+            matched_evidence[:8]
+        )
+        section["corrections"] = (
+            matched_corrections[:6]
+        )
 
     improvements = _safe_strings(
         value.get("improvements"),
@@ -724,10 +941,7 @@ def _normalise_ai_report(
 def _openai_report(
     payload: dict[str, Any],
 ) -> tuple[dict[str, Any] | None, str | None]:
-    if not _env_bool(
-        "OPENAI_EVALUATION_ENABLED",
-        False,
-    ):
+    if not _evaluation_enabled():
         return None, None
 
     api_key = str(
@@ -755,15 +969,25 @@ def _openai_report(
     system_prompt = (
         "You are Floently's Finnish YKI practice assessor. "
         "Evaluate reading, listening, writing, and speaking separately. "
-        "Preserve exact objective scores supplied for reading and listening. "
+        "Section scores use a 0-100 percentage scale. "
+        "Criterion scores use a 0-5 scale and score_max must equal 5. "
+        "For reading and listening, preserve the exact supplied score "
+        "and set the section score to the supplied percentage exactly. "
         "Never invent an incorrect answer or unseen question. "
-        "Evaluate writing only from the supplied learner texts. "
-        "Evaluate speaking only from transcripts, interaction records, "
-        "and durations. Do not assess pronunciation, accent, voice quality, "
-        "or acoustic fluency because acoustic features are not supplied. "
-        "Use concrete evidence and distinguish insufficient evidence clearly. "
-        "The result is an AI-estimated practice level and is never an official "
-        "YKI result, grade, assessment, or certificate. "
+        "Evaluate writing only from supplied learner texts. "
+        "Evaluate speaking only from supplied transcripts, interaction "
+        "records, and durations. When writing or speaking evidence exists, "
+        "return at least two evidence entries that are short verbatim "
+        "substrings copied directly from the learner evidence, without "
+        "labels or paraphrasing. Also return at least one correction whose "
+        "original field is copied verbatim from the learner evidence, whose "
+        "corrected field gives improved Finnish, and whose explanation "
+        "states the concrete language issue. Never invent learner text. "
+        "Do not assess pronunciation, accent, voice quality, or acoustic "
+        "fluency because acoustic features are not supplied. "
+        "Use task-specific evidence rather than generic advice. "
+        "The result is an AI-estimated practice level and is never an "
+        "official YKI result, grade, assessment, or certificate. "
         "Return exactly three concrete action-plan steps. "
         "Return only the required structured output."
     )
@@ -787,7 +1011,7 @@ def _openai_report(
         "max_tokens": int(
             os.environ.get(
                 "OPENAI_EVALUATION_MAX_TOKENS",
-                "2600",
+                "3200",
             )
             or "2600"
         ),
@@ -831,7 +1055,10 @@ def _openai_report(
         parsed = json.loads(content)
 
         return (
-            _normalise_ai_report(parsed),
+            _normalise_ai_report(
+                parsed,
+                payload,
+            ),
             model,
         )
 
@@ -925,6 +1152,7 @@ def _fallback_report(
                 else "Objective score details were incomplete."
             ],
             "criteria": [],
+            "corrections": [],
             "improvements": [
                 (
                     "Review the missed objective items and identify "
@@ -958,6 +1186,7 @@ def _fallback_report(
             f"Total writing words: {writing_words}",
         ],
         "criteria": [],
+        "corrections": [],
         "improvements": [
             (
                 "Rewrite one response with a clearer opening, "
@@ -988,6 +1217,7 @@ def _fallback_report(
             f"Speaking transcripts: {len(speaking)}",
         ],
         "criteria": [],
+        "corrections": [],
         "improvements": [
             (
                 "Repeat one speaking task and give a clear answer, "
@@ -1085,6 +1315,55 @@ def evaluate_yki_submission(
             speaking=speaking,
         )
     )
+
+    for section_name in (
+        "reading",
+        "listening",
+    ):
+        exact = objective[section_name]
+        percentage = exact.get(
+            "percentage"
+        )
+        section = report[
+            "sections"
+        ][section_name]
+
+        section["scoreAvailable"] = (
+            percentage is not None
+        )
+        section["score"] = float(
+            percentage
+            if percentage is not None
+            else 0
+        )
+
+        if (
+            exact.get("score") is not None
+            and exact.get("maximum")
+            is not None
+        ):
+            exact_line = (
+                f"Exact score: "
+                f"{exact['score']}"
+                f"/{exact['maximum']}"
+                + (
+                    f" ({percentage}%)."
+                    if percentage is not None
+                    else "."
+                )
+            )
+
+            section["evidence"] = [
+                exact_line,
+                *[
+                    item
+                    for item in section.get(
+                        "evidence",
+                        [],
+                    )
+                    if item != exact_line
+                ],
+            ][:8]
 
     return {
         "reportVersion": REPORT_VERSION,
