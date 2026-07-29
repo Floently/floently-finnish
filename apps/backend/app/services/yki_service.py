@@ -471,6 +471,27 @@ async def submit_yki_exam(
         session_id=session_id,
     )
 
+    # YKI_FINAL_SUBMIT_IDEMPOTENT_RECOVERY
+    existing_submission = record.get(
+        "submission_result"
+    )
+    existing_evaluation = record.get(
+        "evaluation_report"
+    )
+
+    if (
+        isinstance(existing_submission, dict)
+        and isinstance(existing_evaluation, dict)
+    ):
+        return {
+            **existing_submission,
+            "evaluation": existing_evaluation,
+            "evaluationReport": existing_evaluation,
+            "disclaimer": existing_evaluation.get(
+                "disclaimer"
+            ),
+        }
+
     evidence = read_yki_evaluation_evidence(
         user_id=user_id,
         session_id=session_id,

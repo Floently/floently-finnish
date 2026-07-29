@@ -12,6 +12,8 @@ import {
   submitYkiExamSpeaking,
   submitYkiExamWriting,
   type SubmitYkiExamResult,
+  type YkiEvaluationReport,
+  type YkiPersistedSessionResult,
 } from '@core/api/ykiExam';
 import { transcribeVoiceAudioDetailed } from '@core/api/voice';
 import {
@@ -25,6 +27,8 @@ import ExamTimer from '../components/ExamTimer';
 
 const SPEAKING_READ_SEC = 10;
 const SPEAKING_PREP_SEC = 30;
+const FINAL_SUBMISSION_POLL_INTERVAL_MS = 2500;
+const FINAL_SUBMISSION_POLL_ATTEMPTS = 48;
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
@@ -138,6 +142,10 @@ type RuntimeEngineSection = {
 
 type RuntimeExamPayload = {
   sections?: RuntimeEngineSection[];
+};
+
+type RuntimeSessionPayload = YkiPersistedSessionResult & {
+  runtime?: RuntimeExamPayload | null;
 };
 
 // ─── Helpers ──────────────────────────────────────────────────────────────────
@@ -503,6 +511,51 @@ function defaultTaskState(): TaskState {
   };
 }
 
+// YKI_FINAL_SUBMIT_PERSISTED_RECOVERY
+function resolvePersistedEvaluation(
+  value: YkiPersistedSessionResult,
+): YkiEvaluationReport | null {
+  return (
+    value.evaluationReport
+    ?? value.evaluation
+    ?? value.submission?.evaluationReport
+    ?? value.submission?.evaluation
+    ?? null
+  );
+}
+
+async function waitForPersistedSubmission(
+  sessionId: string,
+  attempts = FINAL_SUBMISSION_POLL_ATTEMPTS,
+): Promise<SubmitYkiExamResult | null> {
+  for (let attempt = 0; attempt < attempts; attempt += 1) {
+    try {
+      const persisted = await getYkiExamSession<
+        YkiPersistedSessionResult
+      >(sessionId);
+      const evaluationReport =
+        resolvePersistedEvaluation(persisted);
+
+      if (persisted.submission && evaluationReport) {
+        return {
+          ...persisted.submission,
+          evaluation: evaluationReport,
+          evaluationReport,
+        };
+      }
+    } catch {
+      // A gateway timeout or brief network interruption is indeterminate.
+      // Continue polling the persisted session rather than re-uploading audio.
+    }
+
+    await new Promise<void>((resolve) => {
+      setTimeout(resolve, FINAL_SUBMISSION_POLL_INTERVAL_MS);
+    });
+  }
+
+  return null;
+}
+
 // ─── Main screen ──────────────────────────────────────────────────────────────
 
 export default function ExamRuntimeScreen() {
@@ -532,6 +585,9 @@ export default function ExamRuntimeScreen() {
   const [examSessionId, setExamSessionId] = useState<string | null>(null);
   const [submittingTask, setSubmittingTask] = useState(false);
   const [submissionError, setSubmissionError] = useState<string | null>(null);
+  const [finalizingExam, setFinalizingExam] = useState(false);
+  const finalResultsRef = useRef<StoredExamTaskResult[] | null>(null);
+  const finalSubmitAttemptedRef = useRef(false);
 
   useEffect(() => {
     let cancelled = false;
@@ -563,9 +619,9 @@ export default function ExamRuntimeScreen() {
         }
 
         const payload =
-          await getYkiExamSession<{
-            runtime?: RuntimeExamPayload;
-          }>(sessionId);
+          await getYkiExamSession<RuntimeSessionPayload>(
+            sessionId,
+          );
 
         const runtimePayload = payload.runtime;
 
@@ -588,6 +644,78 @@ export default function ExamRuntimeScreen() {
           throw new Error(
             'The YKI exam session could not be prepared.',
           );
+        }
+
+        const recoveredEvaluation =
+          resolvePersistedEvaluation(payload);
+
+        if (payload.submission && recoveredEvaluation) {
+          const reading =
+            recoveredEvaluation.objectiveScores.reading;
+          const listening =
+            recoveredEvaluation.objectiveScores.listening;
+          const objectiveTasks =
+            Number(reading.maximum ?? 0)
+            + Number(listening.maximum ?? 0);
+          const objectiveCorrect =
+            Number(reading.score ?? 0)
+            + Number(listening.score ?? 0);
+          const totalRecoveredTasks = nextSections.reduce(
+            (sum, currentSection) =>
+              sum + currentSection.tasks.length,
+            0,
+          );
+          const recoveredSubmission: SubmitYkiExamResult = {
+            ...payload.submission,
+            evaluation: recoveredEvaluation,
+            evaluationReport: recoveredEvaluation,
+          };
+          const recoveredResults: StoredExamResults = {
+            sessionId,
+            completedAt:
+              payload.submittedAt
+              ?? new Date().toISOString(),
+            levelBand: storedBand,
+            totalTasks: totalRecoveredTasks,
+            objectiveTasks,
+            objectiveCorrect,
+            objectiveIncorrect: Math.max(
+              0,
+              objectiveTasks - objectiveCorrect,
+            ),
+            sectionBreakdown: nextSections.map(
+              (currentSection) => {
+                const objective =
+                  currentSection.skill === 'reading'
+                    ? reading
+                    : currentSection.skill === 'listening'
+                    ? listening
+                    : null;
+
+                return {
+                  sectionTitle: currentSection.title,
+                  totalTasks: currentSection.tasks.length,
+                  objectiveTasks: Number(
+                    objective?.maximum ?? 0,
+                  ),
+                  objectiveCorrect: Number(
+                    objective?.score ?? 0,
+                  ),
+                };
+              },
+            ),
+            tasks: [],
+            backendSubmitted: true,
+            submission: recoveredSubmission,
+            evaluationReport: recoveredEvaluation,
+          };
+
+          await saveExamResults(recoveredResults);
+
+          if (!cancelled) {
+            router.replace('/yki-exam/results' as never);
+          }
+          return;
         }
 
         if (!cancelled) {
@@ -622,14 +750,29 @@ export default function ExamRuntimeScreen() {
 
   // ─── Speaking: start recording when phase enters 'recording' ───────────────
   useEffect(() => {
-    if (task?.type !== 'speaking' || taskState.speakingPhase !== 'recording') return;
+    if (
+      submittingTask
+      || finalizingExam
+      || task?.type !== 'speaking'
+      || taskState.speakingPhase !== 'recording'
+    ) return;
     void recorder.start();
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [task?.type, taskState.speakingPhase]);
+  }, [
+    task?.type,
+    taskState.speakingPhase,
+    submittingTask,
+    finalizingExam,
+  ]);
 
   // ─── Speaking: countdown timer ─────────────────────────────────────────────
   useEffect(() => {
-    if (task?.type !== 'speaking') return;
+    // YKI_FINAL_SUBMIT_FREEZE_GUARD
+    if (
+      submittingTask
+      || finalizingExam
+      || task?.type !== 'speaking'
+    ) return;
     const phase = taskState.speakingPhase;
     if (phase === 'done') return;
 
@@ -663,7 +806,12 @@ export default function ExamRuntimeScreen() {
 
     return () => clearInterval(timer);
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [task, taskState.speakingPhase]);
+  }, [
+    task,
+    taskState.speakingPhase,
+    submittingTask,
+    finalizingExam,
+  ]);
 
   const isLastTaskInSection = taskIndexInSection >= totalTasksInSection - 1;
   const isLastSection = sectionIndex >= sections.length - 1;
@@ -711,23 +859,65 @@ export default function ExamRuntimeScreen() {
       };
     });
 
-    const submission =
-      await submitYkiExamSession<SubmitYkiExamResult>(
-        examSessionId,
-        {
-          confirm_incomplete: true,
-        },
-      );
+    let submission: SubmitYkiExamResult | null = null;
 
-    const evaluationReport =
-      submission.evaluationReport
-      ?? submission.evaluation
+    if (finalSubmitAttemptedRef.current) {
+      setSubmissionError(
+        'Checking whether your completed evaluation is already ready…',
+      );
+      submission = await waitForPersistedSubmission(
+        examSessionId,
+        4,
+      );
+    }
+
+    if (!submission) {
+      finalSubmitAttemptedRef.current = true;
+
+      try {
+        submission =
+          await submitYkiExamSession<SubmitYkiExamResult>(
+            examSessionId,
+            {
+              confirm_incomplete: true,
+            },
+          );
+      } catch {
+        // YKI_FINAL_SUBMIT_CONTROLLED_TIMEOUT
+        setSubmissionError(
+          'Your exam reached the evaluator, but the result is taking '
+          + 'longer than the gateway allows. Retrieving the completed '
+          + 'evaluation now…',
+        );
+        submission = await waitForPersistedSubmission(
+          examSessionId,
+        );
+      }
+    }
+
+    let evaluationReport =
+      submission?.evaluationReport
+      ?? submission?.evaluation
       ?? null;
 
     if (!evaluationReport) {
+      setSubmissionError(
+        'The exam is still being evaluated. Retrieving the persisted result…',
+      );
+      submission = await waitForPersistedSubmission(
+        examSessionId,
+      );
+      evaluationReport =
+        submission?.evaluationReport
+        ?? submission?.evaluation
+        ?? null;
+    }
+
+    if (!submission || !evaluationReport) {
       throw new Error(
-        'The exam was submitted, but the detailed AI evaluation '
-        + 'was not returned. Please retry the final submission.',
+        'The exam evidence was saved, but the detailed evaluation is '
+        + 'still processing. Tap Submit exam again to retrieve the same '
+        + 'attempt. Your final recording will not be uploaded again.',
       );
     }
 
@@ -748,7 +938,8 @@ export default function ExamRuntimeScreen() {
     };
 
     await saveExamResults(payload);
-    router.push('/yki-exam/results' as never);
+    setSubmissionError(null);
+    router.replace('/yki-exam/results' as never);
   }
 
   async function submitCurrentTaskEvidence(): Promise<{
@@ -871,6 +1062,17 @@ export default function ExamRuntimeScreen() {
     setSubmissionError(null);
 
     try {
+      // YKI_FINAL_SUBMIT_NO_REUPLOAD
+      if (
+        isLastTaskInSection
+        && isLastSection
+        && finalResultsRef.current
+      ) {
+        setFinalizingExam(true);
+        await finishExam(finalResultsRef.current);
+        return;
+      }
+
       const evidence = await submitCurrentTaskEvidence();
 
       const nextResult: StoredExamTaskResult = {
@@ -922,15 +1124,20 @@ export default function ExamRuntimeScreen() {
       ];
 
       setResults(finalResults);
-      setTaskState(defaultTaskState());
 
-      if (!isLastTaskInSection) {
-        setTaskIndexInSection((index) => index + 1);
-      } else if (!isLastSection) {
-        setSectionIndex((index) => index + 1);
-        setTaskIndexInSection(0);
-      } else {
+      if (isLastTaskInSection && isLastSection) {
+        finalResultsRef.current = finalResults;
+        setFinalizingExam(true);
         await finishExam(finalResults);
+      } else {
+        setTaskState(defaultTaskState());
+
+        if (!isLastTaskInSection) {
+          setTaskIndexInSection((index) => index + 1);
+        } else {
+          setSectionIndex((index) => index + 1);
+          setTaskIndexInSection(0);
+        }
       }
     } catch (error) {
       setSubmissionError(
@@ -939,6 +1146,7 @@ export default function ExamRuntimeScreen() {
           : 'The YKI response could not be saved.',
       );
     } finally {
+      setFinalizingExam(false);
       setSubmittingTask(false);
     }
   }
@@ -1317,7 +1525,9 @@ export default function ExamRuntimeScreen() {
           >
             <ActivityIndicator size="small" color="#2453D4" />
             <Text style={{ color: '#4B5563', fontSize: 13 }}>
-              Saving response for detailed evaluation…
+              {finalizingExam
+                ? 'Finalizing exam and retrieving detailed evaluation…'
+                : 'Saving response for detailed evaluation…'}
             </Text>
           </View>
         ) : null}
@@ -1332,7 +1542,9 @@ export default function ExamRuntimeScreen() {
         >
           <Text style={styles.nextButtonText}>
             {submittingTask
-              ? 'Saving…'
+              ? finalizingExam
+                ? 'Finalizing exam…'
+                : 'Saving…'
               : !isLastTaskInSection
               ? 'Next question'
               : isLastSection
