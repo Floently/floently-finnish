@@ -45,15 +45,70 @@ const SECTION_LABELS: Record<SectionKey, string> = {
   speaking: 'Speaking',
 };
 
+function displaySafeEvaluation(
+  report: YkiEvaluationReport,
+): YkiEvaluationReport {
+  const sections = {
+    ...report.sections,
+  };
+
+  for (const sectionKey of [
+    'reading',
+    'listening',
+  ] as const) {
+    const objective =
+      report.objectiveScores[sectionKey];
+    const score =
+      objective.score === null
+      || objective.maximum === null
+        ? 'Not available'
+        : (
+          `${displayNumber(objective.score)}`
+          + ` / ${displayNumber(objective.maximum)}`
+          + (
+            objective.percentage === null
+              ? ''
+              : ` · ${displayNumber(objective.percentage)}%`
+          )
+        );
+    const evidence = [
+      `Exact score: ${score}.`,
+    ];
+    const section =
+      report.sections[sectionKey];
+
+    sections[sectionKey] = {
+      ...section,
+      evidence,
+      corrections: [],
+      criteria: section.criteria.map(
+        (criterion) => ({
+          ...criterion,
+          evidence,
+        }),
+      ),
+    };
+  }
+
+  return {
+    ...report,
+    sections,
+  };
+}
+
 function getEvaluation(
   results: StoredExamResults,
 ): YkiEvaluationReport | null {
-  return (
+  const report = (
     results.evaluationReport
     ?? results.submission?.evaluationReport
     ?? results.submission?.evaluation
     ?? null
   );
+
+  return report
+    ? displaySafeEvaluation(report)
+    : null;
 }
 
 function evaluationUnavailableMessage(
@@ -137,6 +192,42 @@ function exactObjectiveScore(
   );
 }
 
+function derivedCriterionPercentage(
+  section: YkiEvaluationSection,
+): number | null {
+  const ratios = section.criteria
+    .map((criterion) => {
+      const maximum =
+        typeof criterion.scoreMax === 'number'
+        && criterion.scoreMax > 0
+          ? criterion.scoreMax
+          : 5;
+
+      return (
+        typeof criterion.score === 'number'
+          ? Math.max(
+            0,
+            Math.min(1, criterion.score / maximum),
+          )
+          : null
+      );
+    })
+    .filter(
+      (value): value is number =>
+        typeof value === 'number',
+    );
+
+  if (!ratios.length) {
+    return null;
+  }
+
+  return (
+    ratios.reduce((sum, value) => sum + value, 0)
+    / ratios.length
+    * 100
+  );
+}
+
 function sectionPracticeScore(
   report: YkiEvaluationReport,
   sectionKey: SectionKey,
@@ -146,9 +237,7 @@ function sectionPracticeScore(
     || sectionKey === 'listening'
   ) {
     const percentage =
-      report.objectiveScores[
-        sectionKey
-      ].percentage;
+      report.objectiveScores[sectionKey].percentage;
 
     return (
       typeof percentage === 'number'
@@ -157,12 +246,15 @@ function sectionPracticeScore(
     );
   }
 
-  const section =
-    report.sections[sectionKey];
+  const section = report.sections[sectionKey];
+  const derived = derivedCriterionPercentage(section);
+  const percentage =
+    derived
+    ?? (section.scoreAvailable ? section.score : null);
 
   return (
-    section.scoreAvailable
-      ? `${displayNumber(section.score)}%`
+    typeof percentage === 'number'
+      ? `${displayNumber(percentage)}%`
       : null
   );
 }
@@ -180,6 +272,77 @@ function displayCriterionScore(
   return (
     `${displayNumber(score)}`
     + `/${displayNumber(maximum)}`
+  );
+}
+
+function normalizeTargetBand(value: string) {
+  const candidate = value.trim().toUpperCase().replace(/_/g, '-');
+  return (
+    candidate === 'A1-A2'
+    || candidate === 'B1-B2'
+    || candidate === 'C1-C2'
+      ? candidate
+      : 'B1-B2'
+  );
+}
+
+function fallbackPredictedGrade(
+  targetBand: string,
+  estimatedLevel: string,
+) {
+  const band = normalizeTargetBand(targetBand);
+  const level = estimatedLevel.toUpperCase();
+
+  if (!level || level === 'INSUFFICIENT_EVIDENCE') {
+    return 'not enough evidence';
+  }
+
+  if (band === 'A1-A2') {
+    return level === 'A1' ? '1' : '2';
+  }
+
+  if (band === 'C1-C2') {
+    if (level === 'C1') return '5';
+    if (level === 'C2') return '6';
+    return 'below 5';
+  }
+
+  if (level === 'B1') return '3';
+  if (level === 'B2' || level === 'C1' || level === 'C2') {
+    return '4';
+  }
+  return 'below 3';
+}
+
+function predictedYkiGrade(
+  results: StoredExamResults,
+  report: YkiEvaluationReport,
+  sectionKey: SectionKey,
+) {
+  return (
+    report.predictedYki?.sections[sectionKey]?.grade
+    ?? fallbackPredictedGrade(
+      results.levelBand,
+      report.sections[sectionKey].estimatedLevel,
+    )
+  );
+}
+
+function predictedYkiSummary(
+  results: StoredExamResults,
+  report: YkiEvaluationReport,
+) {
+  return (
+    report.predictedYki?.summary
+    ?? (
+      'Most likely practice prediction: '
+      + SECTION_KEYS.map(
+        (key) =>
+          `${SECTION_LABELS[key]} `
+          + predictedYkiGrade(results, report, key),
+      ).join(', ')
+      + '.'
+    )
   );
 }
 
@@ -361,6 +524,15 @@ function buildPlainTextReport(
         `${index + 1}. ${item}`,
     ),
     '',
+    'Predicted YKI result',
+    ...SECTION_KEYS.map(
+      (key) =>
+        `${SECTION_LABELS[key]}: `
+        + predictedYkiGrade(results, evaluation, key),
+    ),
+    predictedYkiSummary(results, evaluation),
+    'This is a practice prediction, not an official YKI result.',
+    '',
     'Floently — AI-estimated practice feedback',
   );
 
@@ -458,6 +630,30 @@ function buildHtmlReport(
         </table>
       </section>
 
+      <section class="card result-summary">
+        <h2>Result overview</h2>
+        <table class="summary-table">
+          <thead>
+            <tr>
+              <th>Section</th>
+              <th>Practice</th>
+              <th>Level</th>
+              <th>Predicted YKI</th>
+            </tr>
+          </thead>
+          <tbody>
+            ${SECTION_KEYS.map((key) => `
+              <tr>
+                <td>${escapeHtml(SECTION_LABELS[key])}</td>
+                <td>${escapeHtml(sectionPracticeScore(evaluation, key) ?? '—')}</td>
+                <td>${escapeHtml(displayLevel(evaluation.sections[key].estimatedLevel))}</td>
+                <td>${escapeHtml(predictedYkiGrade(results, evaluation, key))}</td>
+              </tr>
+            `).join('')}
+          </tbody>
+        </table>
+      </section>
+
       ${SECTION_KEYS.map((key) => {
         const section =
           evaluation.sections[key];
@@ -468,7 +664,7 @@ function buildHtmlReport(
           );
 
         return `
-          <section class="card">
+          <section class="card section-card section-${key}">
             <div class="section-heading">
               <h2>
                 ${escapeHtml(
@@ -604,13 +800,15 @@ function buildHtmlReport(
             ${
               section.improvements.length
                 ? `
-                  <h3>Improvements</h3>
-                  <ul>
-                    ${section.improvements.map(
-                      (item) =>
-                        `<li>${escapeHtml(item)}</li>`,
-                    ).join('')}
-                  </ul>
+                  <div class="improvement-box">
+                    <h3>How to improve next</h3>
+                    <ul>
+                      ${section.improvements.map(
+                        (item) =>
+                          `<li>${escapeHtml(item)}</li>`,
+                      ).join('')}
+                    </ul>
+                  </div>
                 `
                 : ''
             }
@@ -642,6 +840,33 @@ function buildHtmlReport(
               `<li>${escapeHtml(item)}</li>`,
           ).join('')}
         </ol>
+      </section>
+
+      <section class="prediction-card">
+        <div class="eyebrow">Practice prediction</div>
+        <h2>Predicted YKI result</h2>
+        <table class="prediction-table">
+          <thead>
+            <tr>
+              <th>Subtest</th>
+              <th>Most likely result</th>
+            </tr>
+          </thead>
+          <tbody>
+            ${SECTION_KEYS.map((key) => `
+              <tr>
+                <td>${escapeHtml(SECTION_LABELS[key])}</td>
+                <td>${escapeHtml(predictedYkiGrade(results, evaluation, key))}</td>
+              </tr>
+            `).join('')}
+          </tbody>
+        </table>
+        <p class="prediction-summary">
+          ${escapeHtml(predictedYkiSummary(results, evaluation))}
+        </p>
+        <p class="prediction-note">
+          This is an AI-estimated practice prediction, not an official YKI grade or certificate.
+        </p>
       </section>
     `
     : legacyHtml;
@@ -777,6 +1002,82 @@ function buildHtmlReport(
     padding: 8pt 10pt;
     margin-bottom: 7pt;
     page-break-inside: avoid;
+  }
+
+  th {
+    background: #EAF1FF;
+    color: #173A8F;
+    border-bottom: 1px solid #C8D8F4;
+    padding: 7pt 5pt;
+    text-align: left;
+    font-size: 9pt;
+  }
+
+  .summary-table td,
+  .prediction-table td {
+    text-align: left;
+    vertical-align: top;
+  }
+
+  .summary-table td:last-child,
+  .prediction-table td:last-child {
+    text-align: right;
+    font-weight: 800;
+  }
+
+  .result-summary {
+    background: #F7FAFF;
+  }
+
+  .section-card {
+    border-top-width: 5px;
+  }
+
+  .section-reading { border-top-color: #2453D4; }
+  .section-listening { border-top-color: #7C3AED; }
+  .section-writing { border-top-color: #16865A; }
+  .section-speaking { border-top-color: #D97706; }
+  .section-reading h2 { color: #2453D4; }
+  .section-listening h2 { color: #6D28D9; }
+  .section-writing h2 { color: #087A50; }
+  .section-speaking h2 { color: #B45309; }
+
+  .improvement-box {
+    background: #ECFDF5;
+    border: 1px solid #A7E8C8;
+    border-radius: 8pt;
+    padding: 8pt 10pt;
+    margin-top: 10pt;
+  }
+
+  .improvement-box h3 {
+    color: #087A50;
+    margin-top: 0;
+  }
+
+  .prediction-card {
+    border: 2px solid #2453D4;
+    border-radius: 11pt;
+    padding: 14pt;
+    margin-top: 14pt;
+    background: #EEF4FF;
+    page-break-inside: avoid;
+  }
+
+  .prediction-card h2 {
+    color: #173A8F;
+    margin-top: 4pt;
+  }
+
+  .prediction-summary {
+    color: #173A8F;
+    font-weight: 800;
+    margin-top: 10pt;
+  }
+
+  .prediction-note {
+    color: #596579;
+    font-size: 9pt;
   }
 
   .footer {
@@ -1011,7 +1312,12 @@ function SectionReport({
       ) : null}
 
       {section.improvements.length ? (
-        <View style={styles.subsection}>
+        <View
+          style={[
+            styles.subsection,
+            styles.improvementBox,
+          ]}
+        >
           <Text style={styles.subheading}>
             How to improve
           </Text>
@@ -1365,6 +1671,47 @@ export default function ResultsOverviewScreen() {
                     ),
                   )}
                 </View>
+
+                <View style={styles.predictionCard}>
+                  <Text style={styles.eyebrow}>
+                    Practice prediction
+                  </Text>
+
+                  <Text style={styles.predictionTitle}>
+                    Predicted YKI result
+                  </Text>
+
+                  {SECTION_KEYS.map((key) => (
+                    <View
+                      key={`prediction-${key}`}
+                      style={styles.predictionRow}
+                    >
+                      <Text style={styles.predictionLabel}>
+                        {SECTION_LABELS[key]}
+                      </Text>
+
+                      <Text style={styles.predictionValue}>
+                        {predictedYkiGrade(
+                          results,
+                          evaluation,
+                          key,
+                        )}
+                      </Text>
+                    </View>
+                  ))}
+
+                  <Text style={styles.predictionSummary}>
+                    {predictedYkiSummary(
+                      results,
+                      evaluation,
+                    )}
+                  </Text>
+
+                  <Text style={styles.predictionNote}>
+                    This is an AI-estimated practice prediction,
+                    not an official YKI grade or certificate.
+                  </Text>
+                </View>
               </>
             ) : (
               <View style={styles.card}>
@@ -1539,6 +1886,63 @@ const styles = StyleSheet.create({
     color: '#6C5727',
     fontSize: 13,
     lineHeight: 20,
+  },
+
+  predictionCard: {
+    borderRadius: 20,
+    borderWidth: 2,
+    borderColor: '#2453D4',
+    backgroundColor: '#EEF4FF',
+    padding: 17,
+    gap: 10,
+  },
+
+  predictionTitle: {
+    color: '#173A8F',
+    fontSize: 21,
+    fontWeight: '900',
+  },
+
+  predictionRow: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    borderBottomWidth: 1,
+    borderBottomColor: '#CAD8F2',
+    paddingVertical: 8,
+  },
+
+  predictionLabel: {
+    color: '#374151',
+    fontSize: 14,
+    fontWeight: '700',
+  },
+
+  predictionValue: {
+    color: '#173A8F',
+    fontSize: 16,
+    fontWeight: '900',
+  },
+
+  predictionSummary: {
+    color: '#173A8F',
+    fontSize: 14,
+    lineHeight: 21,
+    fontWeight: '800',
+  },
+
+  predictionNote: {
+    color: '#596579',
+    fontSize: 12,
+    lineHeight: 18,
+  },
+
+  improvementBox: {
+    backgroundColor: '#ECFDF5',
+    borderWidth: 1,
+    borderColor: '#A7E8C8',
+    borderRadius: 12,
+    padding: 12,
   },
 
   card: {

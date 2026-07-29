@@ -12,9 +12,9 @@ _LOG = logging.getLogger(
     "floently.yki.evaluation"
 )
 
-REPORT_VERSION = "1.1"
-PROMPT_VERSION = "yki-deep-evaluation-v3"
-RUBRIC_VERSION = "floently-yki-practice-v2"
+REPORT_VERSION = "1.2"
+PROMPT_VERSION = "yki-deep-evaluation-v4"
+RUBRIC_VERSION = "floently-yki-practice-v3"
 
 DISCLAIMER = (
     "AI-estimated YKI practice feedback. "
@@ -86,6 +86,167 @@ def _ensure_section_improvements(
             break
 
     section["improvements"] = improvements[:6]
+
+
+
+def _objective_score_line(
+    exact: dict[str, Any],
+) -> str | None:
+    score = exact.get("score")
+    maximum = exact.get("maximum")
+    percentage = exact.get("percentage")
+
+    if score is None or maximum is None:
+        return None
+
+    return (
+        f"Exact score: {score}/{maximum}"
+        + (
+            f" ({percentage}%)."
+            if percentage is not None
+            else "."
+        )
+    )
+
+
+def _ground_objective_section(
+    *,
+    section: dict[str, Any],
+    exact: dict[str, Any],
+) -> None:
+    percentage = exact.get("percentage")
+    exact_line = _objective_score_line(exact)
+
+    section["scoreAvailable"] = percentage is not None
+    section["score"] = float(
+        percentage if percentage is not None else 0
+    )
+    section["evidence"] = [exact_line] if exact_line else []
+    section["corrections"] = []
+
+    for criterion in section.get("criteria", []):
+        if isinstance(criterion, dict):
+            criterion["evidence"] = [exact_line] if exact_line else []
+
+
+def _calibrate_subjective_score(
+    section: dict[str, Any],
+) -> None:
+    ratios: list[float] = []
+
+    for criterion in section.get("criteria", []):
+        if not isinstance(criterion, dict):
+            continue
+
+        maximum = _bounded(
+            criterion.get("scoreMax"),
+            0.1,
+            5,
+            5,
+        )
+        score = _bounded(
+            criterion.get("score"),
+            0,
+            maximum,
+            0,
+        )
+        ratios.append(score / maximum)
+
+    if not ratios:
+        section["scoreAvailable"] = False
+        section["score"] = 0.0
+        return
+
+    section["scoreAvailable"] = True
+    section["score"] = round(
+        sum(ratios) / len(ratios) * 100,
+        1,
+    )
+
+
+def _normalised_target_band(
+    value: Any,
+) -> str:
+    candidate = (
+        str(value or "B1-B2")
+        .strip()
+        .upper()
+        .replace("_", "-")
+    )
+
+    if candidate in {"A1-A2", "B1-B2", "C1-C2"}:
+        return candidate
+
+    return "B1-B2"
+
+
+def _predicted_grade(
+    *,
+    target_band: str,
+    estimated_level: Any,
+) -> str:
+    level = _level(estimated_level)
+
+    if level == "insufficient_evidence":
+        return "not enough evidence"
+
+    if target_band == "A1-A2":
+        return "1" if level == "A1" else "2"
+
+    if target_band == "C1-C2":
+        if level == "C1":
+            return "5"
+        if level == "C2":
+            return "6"
+        return "below 5"
+
+    if level == "B1":
+        return "3"
+    if level in {"B2", "C1", "C2"}:
+        return "4"
+    return "below 3"
+
+
+def _prediction_payload(
+    *,
+    target_level: Any,
+    sections: dict[str, dict[str, Any]],
+) -> dict[str, Any]:
+    target_band = _normalised_target_band(target_level)
+    predicted_sections: dict[str, dict[str, str]] = {}
+
+    for section_name in _SECTIONS:
+        section = sections.get(section_name, {})
+        estimated_level = _level(section.get("estimatedLevel"))
+        grade = _predicted_grade(
+            target_band=target_band,
+            estimated_level=estimated_level,
+        )
+        predicted_sections[section_name] = {
+            "grade": grade,
+            "estimatedLevel": estimated_level,
+            "label": (
+                f"Most likely YKI grade {grade}"
+                if grade[:1].isdigit()
+                else f"Most likely {grade} on the {target_band} test"
+            ),
+        }
+
+    summary = (
+        "Most likely practice prediction: "
+        + ", ".join(
+            f"{section_name.title()} {predicted_sections[section_name]['grade']}"
+            for section_name in _SECTIONS
+        )
+        + "."
+    )
+
+    return {
+        "targetBand": target_band,
+        "sections": predicted_sections,
+        "summary": summary,
+        "officialResult": False,
+    }
 
 
 def _section_schema() -> dict[str, Any]:
@@ -995,6 +1156,22 @@ def _normalise_ai_report(
             sources=sources,
         )
 
+    objective_scores = payload.get("objective_scores")
+    if not isinstance(objective_scores, dict):
+        objective_scores = {}
+
+    for section_name in ("reading", "listening"):
+        exact = objective_scores.get(section_name)
+        if not isinstance(exact, dict):
+            exact = {}
+        _ground_objective_section(
+            section=sections[section_name],
+            exact=exact,
+        )
+
+    for section_name in ("writing", "speaking"):
+        _calibrate_subjective_score(sections[section_name])
+
     for section_name in _SECTIONS:
         _ensure_section_improvements(
             section_name=section_name,
@@ -1088,15 +1265,29 @@ def _openai_report(
 
     system_prompt = (
         "You are Floently's Finnish YKI practice assessor. "
-        "Evaluate reading, listening, writing, and speaking separately. "
+        "Evaluate reading, listening, writing, and speaking independently. "
+        "Never let performance or evidence from one section influence another. "
         "Section scores use a 0-100 percentage scale. "
         "Criterion scores use a 0-5 scale and score_max must equal 5. "
-        "For reading and listening, preserve the exact supplied score "
-        "and set the section score to the supplied percentage exactly. "
+        "For reading and listening, preserve the exact supplied score, "
+        "set the section score to the supplied percentage exactly, and use "
+        "only objective score facts as evidence. Never quote writing or "
+        "speaking text inside reading or listening. "
         "Never invent an incorrect answer or unseen question. "
-        "Evaluate writing only from supplied learner texts. "
+        "Evaluate writing only from supplied learner texts. Assess task "
+        "fulfilment, coherence, vocabulary range, grammatical control, and "
+        "register. A connected response that fulfils the task, gives reasons, "
+        "and remains understandable should not be held below B1 merely because "
+        "minor errors or non-advanced vocabulary remain. Reserve A2 for "
+        "short, weakly connected, incomplete, or substantially limited writing. "
         "Evaluate speaking only from supplied transcripts, interaction "
-        "records, and durations. When writing or speaking evidence exists, "
+        "records, and durations. Assess task fulfilment, coherence, vocabulary "
+        "and grammar, and interaction. Normal hesitation in a transcript is not "
+        "by itself a reason to deny B1 when the message is developed and clear. "
+        "Be strict and accurate, but constructive: identify demonstrated "
+        "strengths before explaining the precise next-level gap. Do not apply "
+        "the same error as multiple penalties across criteria. "
+        "When writing or speaking evidence exists, "
         "return at least two evidence entries that are short verbatim "
         "substrings copied directly from the learner evidence, without "
         "labels, quotation marks, paraphrasing, or ellipses. Copy punctuation "
@@ -1440,8 +1631,6 @@ def evaluate_yki_submission(
         "evaluation_kind": "yki_practice",
         "target_level_band": target_level,
         "objective_scores": objective,
-        "engine_feedback": submission.get("feedback"),
-        "engine_analytics": submission.get("analytics"),
         "writing_responses": writing,
         "speaking_transcripts": speaking,
         "evidence_counts": {
@@ -1477,50 +1666,23 @@ def evaluate_yki_submission(
         "reading",
         "listening",
     ):
-        exact = objective[section_name]
-        percentage = exact.get(
-            "percentage"
-        )
-        section = report[
-            "sections"
-        ][section_name]
-
-        section["scoreAvailable"] = (
-            percentage is not None
-        )
-        section["score"] = float(
-            percentage
-            if percentage is not None
-            else 0
+        _ground_objective_section(
+            section=report["sections"][section_name],
+            exact=objective[section_name],
         )
 
-        if (
-            exact.get("score") is not None
-            and exact.get("maximum")
-            is not None
-        ):
-            exact_line = (
-                f"Exact score: "
-                f"{exact['score']}"
-                f"/{exact['maximum']}"
-                + (
-                    f" ({percentage}%)."
-                    if percentage is not None
-                    else "."
-                )
-            )
+    for section_name in (
+        "writing",
+        "speaking",
+    ):
+        _calibrate_subjective_score(
+            report["sections"][section_name]
+        )
 
-            section["evidence"] = [
-                exact_line,
-                *[
-                    item
-                    for item in section.get(
-                        "evidence",
-                        [],
-                    )
-                    if item != exact_line
-                ],
-            ][:8]
+    predicted_yki = _prediction_payload(
+        target_level=target_level,
+        sections=report["sections"],
+    )
 
     return {
         "reportVersion": REPORT_VERSION,
@@ -1551,5 +1713,6 @@ def evaluate_yki_submission(
             or evidence.get("conversation")
         ),
         "objectiveScores": objective,
+        "predictedYki": predicted_yki,
         **report,
     }

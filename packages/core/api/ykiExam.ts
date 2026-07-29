@@ -103,6 +103,22 @@ export type YkiEvaluationSection = {
   improvements: string[];
 };
 
+export type YkiPredictedSection = {
+  grade: string;
+  estimatedLevel: string;
+  label: string;
+};
+
+export type YkiPredictedResult = {
+  targetBand: string;
+  sections: Record<
+    'reading' | 'listening' | 'writing' | 'speaking',
+    YkiPredictedSection
+  >;
+  summary: string;
+  officialResult: false;
+};
+
 export type YkiEvaluationReport = {
   reportVersion: string;
   evaluationKind: 'yki_practice';
@@ -125,6 +141,7 @@ export type YkiEvaluationReport = {
   strengths: string[];
   improvements: string[];
   actionPlan: string[];
+  predictedYki?: YkiPredictedResult;
   objectiveScores: Record<
     'reading' | 'listening',
     {

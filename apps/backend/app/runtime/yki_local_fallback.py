@@ -40,8 +40,8 @@ _RECOMMENDED_MINUTES = {
 _TASKS_PER_SECTION = {
     "reading": 3,
     "listening": 2,
-    "writing": 2,
-    "speaking": 2,
+    "writing": 3,
+    "speaking": 3,
 }
 
 
@@ -130,6 +130,7 @@ def _public_task(task: dict[str, Any], section: str, index: int) -> dict[str, An
         "type": task_type,
         "level_band": level_band,
         "display_level_band": display_level_band(level_band),
+        "difficulty": task.get("difficulty"),
         "title": _task_title(task, section),
         "content": content,
         "materials": content.get("materials") if isinstance(content.get("materials"), dict) else {},
@@ -139,6 +140,51 @@ def _public_task(task: dict[str, Any], section: str, index: int) -> dict[str, An
         "recommended_minutes": _RECOMMENDED_MINUTES[section],
         "local_fallback": True,
     }
+
+
+def _task_difficulty(
+    task: dict[str, Any],
+) -> float | None:
+    try:
+        value = float(task.get("difficulty"))
+    except (TypeError, ValueError):
+        return None
+
+    return max(0.0, min(1.0, value))
+
+
+def _select_difficulty_spread(
+    *,
+    tasks: list[dict[str, Any]],
+    count: int,
+    rng: random.Random,
+) -> list[dict[str, Any]]:
+    if count <= 0:
+        return []
+
+    ranked = [
+        (difficulty, task)
+        for task in tasks
+        if (difficulty := _task_difficulty(task)) is not None
+    ]
+
+    if len(ranked) < count:
+        fallback_tasks = list(tasks)
+        rng.shuffle(fallback_tasks)
+        return fallback_tasks[:count]
+
+    ranked.sort(key=lambda item: item[0])
+    selected: list[tuple[float, dict[str, Any]]] = []
+    total = len(ranked)
+
+    for bucket_index in range(count):
+        start = bucket_index * total // count
+        end = (bucket_index + 1) * total // count
+        bucket = ranked[start:max(start + 1, end)]
+        selected.append(rng.choice(bucket))
+
+    selected.sort(key=lambda item: item[0])
+    return [task for _, task in selected]
 
 
 def _select_tasks(level_band: str, session_id: str) -> dict[str, list[dict[str, Any]]]:
@@ -154,10 +200,28 @@ def _select_tasks(level_band: str, session_id: str) -> dict[str, list[dict[str, 
         entries = level_pool.get(task_type)
         if not isinstance(entries, list):
             entries = []
+
         shuffled = list(entries)
         rng.shuffle(shuffled)
+        target_count = _TASKS_PER_SECTION[section]
 
-        tasks: list[dict[str, Any]] = []
+        if section not in {"writing", "speaking"}:
+            tasks: list[dict[str, Any]] = []
+            for entry in shuffled:
+                relative = _task_path_from_pool_entry(entry)
+                if not relative:
+                    continue
+                raw = _load_task(relative)
+                if not raw:
+                    continue
+                tasks.append(_public_task(raw, section, len(tasks)))
+                if len(tasks) >= target_count:
+                    break
+            selected[section] = tasks
+            continue
+
+        candidate_raw: list[dict[str, Any]] = []
+        candidate_limit = max(24, target_count * 8)
         for entry in shuffled:
             relative = _task_path_from_pool_entry(entry)
             if not relative:
@@ -165,11 +229,19 @@ def _select_tasks(level_band: str, session_id: str) -> dict[str, list[dict[str, 
             raw = _load_task(relative)
             if not raw:
                 continue
-            tasks.append(_public_task(raw, section, len(tasks)))
-            if len(tasks) >= _TASKS_PER_SECTION[section]:
+            candidate_raw.append(raw)
+            if len(candidate_raw) >= candidate_limit:
                 break
 
-        selected[section] = tasks
+        spread = _select_difficulty_spread(
+            tasks=candidate_raw,
+            count=target_count,
+            rng=rng,
+        )
+        selected[section] = [
+            _public_task(raw, section, index)
+            for index, raw in enumerate(spread)
+        ]
 
     return selected
 
