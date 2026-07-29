@@ -40,6 +40,54 @@ _LEVELS = (
 )
 
 
+_SECTION_IMPROVEMENT_DEFAULTS: dict[str, tuple[str, ...]] = {
+    "reading": (
+        "Review every missed item and classify the cause as vocabulary, main idea, detail, or inference.",
+        "Read one B1-B2 text and write a two-sentence summary with two supporting details.",
+    ),
+    "listening": (
+        "Replay one B1-B2 recording with a transcript and mark the words that changed the meaning.",
+        "Practise identifying the main point, speaker intention, and two concrete details.",
+    ),
+    "writing": (
+        "Rewrite one response using the grounded corrections and add two specific supporting details.",
+        "Check case endings, verb forms, word order, and connectors before submitting.",
+    ),
+    "speaking": (
+        "Repeat one task with a clear opening, two supporting points, and a concise conclusion.",
+        "Compare the new transcript with this report and correct recurring grammar and vocabulary errors.",
+    ),
+}
+
+
+def _ensure_section_improvements(
+    *,
+    section_name: str,
+    section: dict[str, Any],
+) -> None:
+    improvements = _safe_strings(
+        section.get("improvements"),
+        6,
+    )
+
+    for candidate in _SECTION_IMPROVEMENT_DEFAULTS.get(
+        section_name,
+        (),
+    ):
+        item = _trim(
+            candidate,
+            700,
+        )
+
+        if item and item not in improvements:
+            improvements.append(item)
+
+        if len(improvements) >= 2:
+            break
+
+    section["improvements"] = improvements[:6]
+
+
 def _section_schema() -> dict[str, Any]:
     return {
         "type": "object",
@@ -947,6 +995,12 @@ def _normalise_ai_report(
             sources=sources,
         )
 
+    for section_name in _SECTIONS:
+        _ensure_section_improvements(
+            section_name=section_name,
+            section=sections[section_name],
+        )
+
     improvements = _safe_strings(
         value.get("improvements"),
         8,
@@ -1052,6 +1106,7 @@ def _openai_report(
         "states the concrete language issue. Never invent learner text. "
         "Do not assess pronunciation, accent, voice quality, or acoustic "
         "fluency because acoustic features are not supplied. "
+        "Return at least two concrete improvement actions for every section. "
         "Use task-specific evidence rather than generic advice. "
         "The result is an AI-estimated practice level and is never an "
         "official YKI result, grade, assessment, or certificate. "

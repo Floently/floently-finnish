@@ -211,6 +211,22 @@ assert calls["count"] == 2, calls
 assert replay is not None
 assert model == "test-model"
 
+empty_section_improvements = json.loads(json.dumps(exact))
+for section_name in ("reading", "listening", "writing", "speaking"):
+    empty_section_improvements["sections"][section_name]["improvements"] = []
+
+improvements_normalized = svc._normalise_ai_report(
+    empty_section_improvements,
+    payload,
+)
+assert improvements_normalized is not None
+for section_name in ("reading", "listening", "writing", "speaking"):
+    section_result = improvements_normalized["sections"][section_name]
+    assert len(section_result["improvements"]) >= 2, section_result
+    assert all(item.strip() for item in section_result["improvements"]), section_result
+
+print("YKI_REGRESSION_SECTION_IMPROVEMENTS=PASS")
+
 print("YKI_REGRESSION_GROUNDED_SALVAGE=PASS")
 print("YKI_REGRESSION_EXACT_CORRECTIONS=PASS")
 print("YKI_REGRESSION_RETRY_CONTRACT=PASS")
