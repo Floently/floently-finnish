@@ -13,7 +13,7 @@ _LOG = logging.getLogger(
 )
 
 REPORT_VERSION = "1.1"
-PROMPT_VERSION = "yki-deep-evaluation-v2"
+PROMPT_VERSION = "yki-deep-evaluation-v3"
 RUBRIC_VERSION = "floently-yki-practice-v2"
 
 DISCLAIMER = (
@@ -803,6 +803,108 @@ def _is_verbatim_excerpt(
     )
 
 
+def _source_excerpts(
+    sources: list[str],
+    limit: int = 2,
+) -> list[str]:
+    result: list[str] = []
+
+    for source in sources:
+        words = _trim(
+            source,
+            3000,
+        ).split()
+
+        for offset in (
+            0,
+            18,
+        ):
+            excerpt = " ".join(
+                words[offset : offset + 18]
+            ).strip()
+
+            if (
+                len(excerpt) >= 5
+                and excerpt not in result
+            ):
+                result.append(excerpt)
+
+            if len(result) >= limit:
+                return result
+
+    return result
+
+
+def _ground_language_section(
+    *,
+    section_name: str,
+    section: dict[str, Any],
+    sources: list[str],
+) -> None:
+    matched_evidence = [
+        item
+        for item in section["evidence"]
+        if _is_verbatim_excerpt(
+            item,
+            sources,
+        )
+    ]
+
+    for excerpt in _source_excerpts(
+        sources,
+        2,
+    ):
+        if excerpt not in matched_evidence:
+            matched_evidence.append(excerpt)
+
+        if len(matched_evidence) >= 2:
+            break
+
+    matched_corrections = [
+        item
+        for item in section["corrections"]
+        if _is_verbatim_excerpt(
+            item["original"],
+            sources,
+        )
+    ]
+
+    for criterion in section["criteria"]:
+        grounded = [
+            item
+            for item in criterion.get(
+                "evidence",
+                [],
+            )
+            if _is_verbatim_excerpt(
+                item,
+                sources,
+            )
+        ]
+
+        if not grounded and matched_evidence:
+            grounded = matched_evidence[:1]
+
+        criterion["evidence"] = grounded[:4]
+
+    if len(matched_evidence) < 2:
+        _LOG.warning(
+            "YKI evaluation retained a language section with limited grounded evidence: section=%s matched=%s",
+            section_name,
+            len(matched_evidence),
+        )
+        section["status"] = "limited"
+
+    if not matched_corrections:
+        _LOG.warning(
+            "YKI evaluation retained a grounded language section without a verified correction: section=%s",
+            section_name,
+        )
+
+    section["evidence"] = matched_evidence[:8]
+    section["corrections"] = matched_corrections[:6]
+
+
 def _normalise_ai_report(
     value: Any,
     payload: dict[str, Any],
@@ -839,37 +941,10 @@ def _normalise_ai_report(
         if not sources:
             continue
 
-        section = sections[section_name]
-
-        matched_evidence = [
-            item
-            for item in section["evidence"]
-            if _is_verbatim_excerpt(
-                item,
-                sources,
-            )
-        ]
-
-        matched_corrections = [
-            item
-            for item in section["corrections"]
-            if _is_verbatim_excerpt(
-                item["original"],
-                sources,
-            )
-        ]
-
-        if (
-            len(matched_evidence) < 2
-            or len(matched_corrections) < 1
-        ):
-            return None
-
-        section["evidence"] = (
-            matched_evidence[:8]
-        )
-        section["corrections"] = (
-            matched_corrections[:6]
+        _ground_language_section(
+            section_name=section_name,
+            section=sections[section_name],
+            sources=sources,
         )
 
     improvements = _safe_strings(
@@ -882,34 +957,25 @@ def _normalise_ai_report(
         5,
     )
 
-    if len(action_plan) < 2:
-        return None
+    action_candidates = [
+        *improvements,
+        "Review the weakest objective section and explain every missed item.",
+        "Rewrite one writing response using the report corrections and criteria.",
+        "Repeat one speaking task and compare the new transcript with the evidence.",
+        "Complete one timed four-section practice run and compare the results.",
+    ]
 
-    if len(action_plan) == 2:
-        focus = (
-            improvements[0]
-            if improvements
-            else (
-                "Repeat the weakest section and compare "
-                "your new response with this report."
-            )
-        )
-
-        third_action = _trim(
-            "Complete one new timed practice task focusing on: "
-            + focus,
+    for candidate in action_candidates:
+        action = _trim(
+            candidate,
             600,
         )
 
-        if third_action in action_plan:
-            third_action = (
-                "Repeat a complete four-section practice run "
-                "and compare the section evidence."
-            )
+        if action and action not in action_plan:
+            action_plan.append(action)
 
-        action_plan.append(
-            third_action,
-        )
+        if len(action_plan) >= 3:
+            break
 
     return {
         "overallEstimatedLevel": _level(
@@ -979,9 +1045,10 @@ def _openai_report(
         "records, and durations. When writing or speaking evidence exists, "
         "return at least two evidence entries that are short verbatim "
         "substrings copied directly from the learner evidence, without "
-        "labels or paraphrasing. Also return at least one correction whose "
-        "original field is copied verbatim from the learner evidence, whose "
-        "corrected field gives improved Finnish, and whose explanation "
+        "labels, quotation marks, paraphrasing, or ellipses. Copy punctuation "
+        "exactly. Also return at least one correction whose original field is "
+        "copied verbatim from the learner evidence, whose corrected field "
+        "gives improved Finnish, and whose explanation "
         "states the concrete language issue. Never invent learner text. "
         "Do not assess pronunciation, accent, voice quality, or acoustic "
         "fluency because acoustic features are not supplied. "
@@ -1026,93 +1093,128 @@ def _openai_report(
         },
     }
 
-    request = urllib.request.Request(
-        "https://api.openai.com/v1/chat/completions",
-        data=json.dumps(
-            request_payload,
-        ).encode("utf-8"),
-        headers={
-            "Authorization": f"Bearer {api_key}",
-            "Content-Type": "application/json",
-        },
-        method="POST",
-    )
+    attempts = 2
 
-    try:
-        with urllib.request.urlopen(
-            request,
-            timeout=timeout,
-        ) as response:
-            response_data = json.loads(
-                response.read().decode("utf-8")
-            )
-
-        content = (
-            response_data["choices"][0]
-            ["message"]["content"]
+    for attempt in range(1, attempts + 1):
+        attempt_payload = dict(request_payload)
+        attempt_messages = list(
+            request_payload["messages"]
         )
 
-        parsed = json.loads(content)
+        if attempt > 1:
+            attempt_messages = [
+                {
+                    "role": "system",
+                    "content": (
+                        system_prompt
+                        + " This is a validation retry. Ensure learner evidence and correction originals are copied as exact contiguous substrings, with no added labels, quotation marks, or ellipses."
+                    ),
+                },
+                request_payload["messages"][1],
+            ]
 
-        return (
-            _normalise_ai_report(
-                parsed,
-                payload,
-            ),
-            model,
-        )
+        attempt_payload["messages"] = attempt_messages
 
-    except urllib.error.HTTPError as exc:
-        error_message = str(
-            getattr(exc, "reason", "")
-            or exc
+        request = urllib.request.Request(
+            "https://api.openai.com/v1/chat/completions",
+            data=json.dumps(
+                attempt_payload,
+            ).encode("utf-8"),
+            headers={
+                "Authorization": f"Bearer {api_key}",
+                "Content-Type": "application/json",
+            },
+            method="POST",
         )
 
         try:
-            raw = exc.read().decode(
-                "utf-8",
-                errors="replace",
-            )
-
-            parsed_error = json.loads(raw)
-            error = (
-                parsed_error.get("error")
-                if isinstance(parsed_error, dict)
-                else None
-            )
-
-            if isinstance(error, dict):
-                error_message = str(
-                    error.get("message")
-                    or error_message
+            with urllib.request.urlopen(
+                request,
+                timeout=timeout,
+            ) as response:
+                response_data = json.loads(
+                    response.read().decode("utf-8")
                 )
 
-        except Exception:
-            pass
+            content = (
+                response_data["choices"][0]
+                ["message"]["content"]
+            )
 
-        _LOG.warning(
-            "YKI evaluation HTTP failure: status=%s message=%s",
-            getattr(exc, "code", "unknown"),
-            _trim(error_message, 500),
-        )
+            parsed = json.loads(content)
+            normalized = _normalise_ai_report(
+                parsed,
+                payload,
+            )
 
-        return None, model
+            if normalized is not None:
+                if attempt > 1:
+                    _LOG.info(
+                        "YKI evaluation recovered on retry: attempt=%s",
+                        attempt,
+                    )
 
-    except (
-        urllib.error.URLError,
-        TimeoutError,
-        KeyError,
-        TypeError,
-        ValueError,
-        json.JSONDecodeError,
-    ) as exc:
-        _LOG.warning(
-            "YKI evaluation fell back safely: %s: %s",
-            type(exc).__name__,
-            _trim(exc, 500),
-        )
+                return normalized, model
 
-        return None, model
+            _LOG.warning(
+                "YKI evaluation response failed structural validation: attempt=%s/%s",
+                attempt,
+                attempts,
+            )
+
+        except urllib.error.HTTPError as exc:
+            error_message = str(
+                getattr(exc, "reason", "")
+                or exc
+            )
+
+            try:
+                raw = exc.read().decode(
+                    "utf-8",
+                    errors="replace",
+                )
+
+                parsed_error = json.loads(raw)
+                error = (
+                    parsed_error.get("error")
+                    if isinstance(parsed_error, dict)
+                    else None
+                )
+
+                if isinstance(error, dict):
+                    error_message = str(
+                        error.get("message")
+                        or error_message
+                    )
+
+            except Exception:
+                pass
+
+            _LOG.warning(
+                "YKI evaluation HTTP failure: attempt=%s/%s status=%s message=%s",
+                attempt,
+                attempts,
+                getattr(exc, "code", "unknown"),
+                _trim(error_message, 500),
+            )
+
+        except (
+            urllib.error.URLError,
+            TimeoutError,
+            KeyError,
+            TypeError,
+            ValueError,
+            json.JSONDecodeError,
+        ) as exc:
+            _LOG.warning(
+                "YKI evaluation attempt failed safely: attempt=%s/%s error=%s message=%s",
+                attempt,
+                attempts,
+                type(exc).__name__,
+                _trim(exc, 500),
+            )
+
+    return None, model
 
 
 def _fallback_report(
