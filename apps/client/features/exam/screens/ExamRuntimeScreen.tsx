@@ -485,7 +485,7 @@ const FALLBACK_SECTIONS: Section[] = [
 
 // ─── Per-task state ───────────────────────────────────────────────────────────
 
-type SpeakingPhase = 'reading' | 'prep' | 'recording' | 'done';
+type SpeakingPhase = 'reading' | 'prep' | 'recording' | 'stopping' | 'done';
 
 type TaskState = {
   selectedOption: number | null;
@@ -588,6 +588,15 @@ export default function ExamRuntimeScreen() {
   const [finalizingExam, setFinalizingExam] = useState(false);
   const finalResultsRef = useRef<StoredExamTaskResult[] | null>(null);
   const finalSubmitAttemptedRef = useRef(false);
+
+  // YKI_SPEAKING_TIMER_AUTOSAVE_GUARD
+  const recorderStopRef = useRef(recorder.stop);
+  const speakingStopPromiseRef =
+    useRef<Promise<string | null> | null>(null);
+
+  useEffect(() => {
+    recorderStopRef.current = recorder.stop;
+  }, [recorder.stop]);
 
   useEffect(() => {
     let cancelled = false;
@@ -774,7 +783,10 @@ export default function ExamRuntimeScreen() {
       || task?.type !== 'speaking'
     ) return;
     const phase = taskState.speakingPhase;
-    if (phase === 'done') return;
+    if (
+      phase === 'done'
+      || phase === 'stopping'
+    ) return;
 
     const maxRec = task.type === 'speaking' ? task.maxDurationSec : 60;
 
@@ -786,11 +798,13 @@ export default function ExamRuntimeScreen() {
         if (phase === 'recording') {
           const nextElapsed = s.speakingElapsed + 1;
           if (nextCountdown <= 0) {
-            // Time's up — stop recording async, transition to done
-            void recorder.stop().then((uri) => {
-              if (uri) setTaskState((prev) => ({ ...prev, speakingRecordedUri: uri }));
-            });
-            return { ...s, speakingPhase: 'done', speakingCountdown: 0, speakingElapsed: nextElapsed };
+            // YKI_SPEAKING_TIMER_AUTOSAVE_REQUEST
+            return {
+              ...s,
+              speakingPhase: 'stopping',
+              speakingCountdown: 0,
+              speakingElapsed: nextElapsed,
+            };
           }
           return { ...s, speakingCountdown: nextCountdown, speakingElapsed: nextElapsed };
         }
@@ -808,6 +822,78 @@ export default function ExamRuntimeScreen() {
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [
     task,
+    taskState.speakingPhase,
+    submittingTask,
+    finalizingExam,
+  ]);
+
+  // YKI_SPEAKING_TIMER_AUTOSAVE_COMMIT
+  useEffect(() => {
+    if (
+      submittingTask
+      || finalizingExam
+      || task?.type !== 'speaking'
+      || taskState.speakingPhase !== 'stopping'
+    ) {
+      return;
+    }
+
+    let cancelled = false;
+    const pending =
+      speakingStopPromiseRef.current
+      ?? recorderStopRef.current();
+
+    speakingStopPromiseRef.current = pending;
+
+    void pending
+      .then((uri) => {
+        if (speakingStopPromiseRef.current === pending) {
+          speakingStopPromiseRef.current = null;
+        }
+
+        if (cancelled) {
+          return;
+        }
+
+        if (!uri) {
+          setSubmissionError(
+            'The speaking recording could not be saved. '
+            + 'This task has been reset so you can record it again.',
+          );
+          setTaskState(defaultTaskState());
+          return;
+        }
+
+        setSubmissionError(null);
+        setTaskState((state) => ({
+          ...state,
+          speakingPhase: 'done',
+          speakingCountdown: 0,
+          speakingRecordedUri: uri,
+        }));
+      })
+      .catch(() => {
+        if (speakingStopPromiseRef.current === pending) {
+          speakingStopPromiseRef.current = null;
+        }
+
+        if (cancelled) {
+          return;
+        }
+
+        setSubmissionError(
+          'The speaking recording could not be saved. '
+          + 'This task has been reset so you can record it again.',
+        );
+        setTaskState(defaultTaskState());
+      });
+
+    return () => {
+      cancelled = true;
+    };
+  }, [
+    task?.taskId,
+    task?.type,
     taskState.speakingPhase,
     submittingTask,
     finalizingExam,
@@ -1460,13 +1546,10 @@ export default function ExamRuntimeScreen() {
                   </View>
                   <Pressable
                     onPress={() => {
-                      void recorder.stop().then((uri) => {
-                        setTaskState((s) => ({
-                          ...s,
-                          speakingPhase: 'done',
-                          speakingRecordedUri: uri ?? null,
-                        }));
-                      });
+                      setTaskState((state) => ({
+                        ...state,
+                        speakingPhase: 'stopping',
+                      }));
                     }}
                     disabled={!canStopEarly}
                     style={[styles.stopRecordingButton, !canStopEarly && styles.stopRecordingButtonDisabled]}
@@ -1478,6 +1561,19 @@ export default function ExamRuntimeScreen() {
                       Speak for at least {t.minDurationSec}s before stopping
                     </Text>
                   )}
+                </View>
+              )}
+
+              {/* Saving phase */}
+              {phase === 'stopping' && (
+                <View style={styles.speakingPhaseBox}>
+                  <ActivityIndicator size="small" color="#2453D4" />
+                  <Text style={styles.speakingDoneText}>
+                    Saving recording…
+                  </Text>
+                  <Text style={styles.speakingDoneSubtext}>
+                    Keep this screen open until your answer is ready.
+                  </Text>
                 </View>
               )}
 
