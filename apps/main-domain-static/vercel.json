@@ -1,6 +1,58 @@
 {
   "cleanUrls": true,
   "trailingSlash": false,
+  "redirects": [
+    {
+      "source": "/privacy",
+      "destination": "/learn/privacy",
+      "permanent": true
+    },
+    {
+      "source": "/privacy-policy",
+      "destination": "/learn/privacy",
+      "permanent": true
+    },
+    {
+      "source": "/learn/privacy-policy",
+      "destination": "/learn/privacy",
+      "permanent": true
+    },
+    {
+      "source": "/legal/privacy-policy",
+      "destination": "/learn/privacy",
+      "permanent": true
+    },
+    {
+      "source": "/delete-account",
+      "destination": "/learn/delete-account",
+      "permanent": true
+    },
+    {
+      "source": "/account-deletion",
+      "destination": "/learn/delete-account",
+      "permanent": true
+    },
+    {
+      "source": "/learn/account-deletion",
+      "destination": "/learn/delete-account",
+      "permanent": true
+    },
+    {
+      "source": "/legal/account-deletion",
+      "destination": "/learn/delete-account",
+      "permanent": true
+    },
+    {
+      "source": "/terms",
+      "destination": "/learn/terms",
+      "permanent": true
+    },
+    {
+      "source": "/support",
+      "destination": "/learn/support",
+      "permanent": true
+    }
+  ],
   "headers": [
     {
       "source": "/(.*)",
@@ -8,6 +60,14 @@
         {
           "key": "X-Robots-Tag",
           "value": "index, follow"
+        },
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "strict-origin-when-cross-origin"
         }
       ]
     }
