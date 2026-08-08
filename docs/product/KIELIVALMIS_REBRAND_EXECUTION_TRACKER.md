@@ -8,9 +8,11 @@
 
 ## Current milestone
 
-**R4G — Refined landing deployment + automated regression PASS; repeat desktop/iPhone visual approval pending**
+**R4G — New image-led landing design committed; static verification + isolated Vercel redeploy + fresh desktop/mobile visual QA pending.**
 
-## Locked architecture
+The previous two landing compositions were functionally correct but did **not** receive final visual approval, especially at an iPhone 15 Pro Max-class viewport. Do not advance to custom-domain/DNS work until the new R4G candidate passes both automated and visual QA.
+
+## Locked product architecture
 
 - Customer-facing Finnish-learning product: **KieliValmis**
 - Transition identity: **KieliValmis by Floently**
@@ -21,7 +23,9 @@
 - Android package / Apple Bundle ID: preserve `com.vitusidi.floently`
 - Existing users, billing, RevenueCat, backend, YKI engine, cards and roleplay: preserve
 - Existing `learn-api.floently.com`: preserve as compatibility infrastructure
-- Existing `learn.floently.com`: preserve until parallel KieliValmis app-host regression passes
+- Existing `learn.floently.com`: preserve until a future parallel KieliValmis app-host alias passes auth/payment/YKI regression
+- Existing Floently public Vercel project `main-domain-static`: preserve as Floently family gateway
+- KieliValmis public marketing site: separate Vercel project `kielivalmis-domain-static`
 
 ## Production rollback baseline
 
@@ -35,25 +39,26 @@
 - Web hostname: `learn.floently.com`
 - API hostname: `learn-api.floently.com`
 
+The live Learn checkout has remained unchanged throughout all KieliValmis static-site work.
+
 ### Floently public site
 
-- Existing Vercel project: `main-domain-static`
+- Vercel project: `main-domain-static`
 - Project ID: `prj_sTnnI02l9BLRIPcRIeGlblflul5Z`
 - Team/org ID: `team_Pi5Ylt8nVh9Jzc60Ck7rl5I6`
 - Scope slug: `kompyint-oys-projects`
 - Domains: `floently.com`, `www.floently.com`
 - Repo root: `apps/main-domain-static`
-- Must remain the Floently product-family gateway
 
-### KieliValmis public-site deployment
+### KieliValmis Vercel project
 
-- Vercel project: `kielivalmis-domain-static`
+- Project: `kielivalmis-domain-static`
 - Project ID: `prj_RJPEDkC38WfDxcwWbSsQdRKBSpjd`
-- Team/org ID: `team_Pi5Ylt8nVh9Jzc60Ck7rl5I6`
+- Org/team ID: `team_Pi5Ylt8nVh9Jzc60Ck7rl5I6`
 - Scope: `kompyint-oys-projects`
 - Stable Vercel alias: `https://kielivalmis-domain-static.vercel.app`
-- Current refined deployment: `https://kielivalmis-domain-static-qu1mszuha-kompyint-oys-projects.vercel.app`
-- Deployment Protection remains enabled; QA uses Protection Bypass for Automation + ordinary `curl`
+- Most recent deployed candidate before R4G source changes: `https://kielivalmis-domain-static-qu1mszuha-kompyint-oys-projects.vercel.app`
+- Deployment Protection is enabled; use Vercel Protection Bypass for Automation plus ordinary `curl` for automated QA
 
 ### KieliValmis DNS baseline
 
@@ -62,30 +67,26 @@
 - `www` baseline: `parkingpage.namecheap.com.`
 - No KieliValmis custom-domain DNS changes have been made yet
 
+**Do not change Namecheap DNS until the final visual design is approved, the custom domains are attached to the correct Vercel project, and Vercel shows the exact required records.**
+
 ## Completed checkpoints
 
-### R0 — Rebrand continuity lock
+### R0-R1 — Rebrand and infrastructure baselines
 
 - [x] Master rebrand plan committed
-- [x] Execution tracker committed
-- [x] Surface inventory committed
-- [x] Technical identifiers that must remain Floently documented
-- [x] Store rebrand/screenshot strategy documented
+- [x] Execution tracker created
+- [x] Surface inventory created
+- [x] Technical identifiers that must stay Floently documented
+- [x] Store rebrand / screenshot strategy documented
 - [x] Legal-route regression policy documented
-
-### R1 — Production, Vercel and DNS baselines
-
-- [x] Hetzner production branch/commit captured
-- [x] Backend image captured
-- [x] Nginx routing captured
-- [x] `floently.com` confirmed on Vercel
-- [x] Existing `main-domain-static` linkage captured
+- [x] Hetzner branch/commit/Nginx/backend baseline captured
+- [x] `floently.com` confirmed on existing Vercel project
 - [x] `kielivalmis.com` confirmed Namecheap parked
 - [x] Separate Vercel-project architecture locked
 
 ### R2 — Isolated KieliValmis static package
 
-Created under `apps/kielivalmis-domain-static` on the rebrand branch with:
+The isolated site lives at `apps/kielivalmis-domain-static` and includes:
 
 - [x] landing page
 - [x] privacy
@@ -97,42 +98,23 @@ Created under `apps/kielivalmis-domain-static` on the rebrand branch with:
 - [x] vercel.json
 - [x] regression verifier
 
-Verifier PASS markers:
+The static regression contract has repeatedly passed for identity, 20 languages, legal pages, canonicals, sitemap, redirect locks and transition links.
 
-- [x] `KIELIVALMIS_STATIC_IDENTITY=PASS`
-- [x] `KIELIVALMIS_STATIC_20_LANGUAGES=PASS`
-- [x] `KIELIVALMIS_STATIC_LEGAL_PAGES=PASS`
-- [x] `KIELIVALMIS_STATIC_CANONICALS=PASS`
-- [x] `KIELIVALMIS_STATIC_SITEMAP=PASS`
-- [x] `KIELIVALMIS_STATIC_REDIRECT_LOCKS=PASS`
-- [x] `KIELIVALMIS_STATIC_TRANSITION_LINKS=PASS`
-- [x] `RESULT: KIELIVALMIS STATIC SITE REGRESSION CONTRACT PASS`
+### R3 — Isolated Vercel project created
 
-### R3 — Isolated Vercel project created safely
+- [x] Short-lived Vercel token validated against scope `kompyint-oys-projects`
+- [x] Existing `main-domain-static` confirmed visible and untouched
+- [x] New project `kielivalmis-domain-static` created with project ID `prj_RJPEDkC38WfDxcwWbSsQdRKBSpjd`
+- [x] First deployment created successfully
+- [x] No custom domains added
+- [x] Namecheap DNS untouched
+- [x] Production Learn checkout remained at `e92b98e77...`
 
-- [x] Vercel token/scope validation PASS
-- [x] Active scope: `kompyint-oys-projects`
-- [x] Existing Floently `main-domain-static` remained separate
-- [x] New KieliValmis project created: `kielivalmis-domain-static`
-- [x] New project ID: `prj_RJPEDkC38WfDxcwWbSsQdRKBSpjd`
-- [x] First deployment created without changing Namecheap DNS
-- [x] Production Hetzner checkout remained `preview/enable-all-languages` at `e92b98e7799c390bc52b42d724c57f197ffd5c0d`
+### R4 automated deployment QA
 
-### R4A-R4C — Beta `vercel curl` abandoned safely
+After abandoning unreliable beta `vercel curl` behavior in CLI `58.9.0`, QA switched to Vercel Protection Bypass for Automation plus ordinary system `curl`.
 
-Three attempts to use beta `vercel curl` failed because of CLI/system-curl argument parsing/forwarding behavior in Vercel CLI `58.9.0`. None of those attempts changed the project, deployment, domain, DNS, Nginx, Docker, or runtime. The release gate was moved to Vercel Protection Bypass for Automation plus ordinary system `curl`.
-
-### R4D — Protection Bypass for Automation smoke PASS
-
-- [x] Home request returned HTTP 200 through ordinary `curl` + `x-vercel-protection-bypass`
-- [x] KieliValmis title marker matched
-- [x] `Prepare for YKI` marker matched
-- [x] `Guidance in 20 languages` marker matched
-- [x] Production checkout remained unchanged
-
-### R4E — Full deployed route/content/header/redirect QA PASS
-
-Primary routes:
+Automated QA passed for the deployed site:
 
 - [x] `/` -> HTTP 200
 - [x] `/privacy` -> HTTP 200
@@ -141,130 +123,119 @@ Primary routes:
 - [x] `/delete-account` -> HTTP 200
 - [x] `/robots.txt` -> HTTP 200
 - [x] `/sitemap.xml` -> HTTP 200
-
-Content contracts:
-
-- [x] `KIELIVALMIS_DEPLOYED_HOME=PASS`
-- [x] `KIELIVALMIS_DEPLOYED_20_LANGUAGES=PASS`
-- [x] `KIELIVALMIS_DEPLOYED_PRIVACY=PASS`
-- [x] `KIELIVALMIS_DEPLOYED_TERMS=PASS`
-- [x] `KIELIVALMIS_DEPLOYED_SUPPORT=PASS`
-- [x] `KIELIVALMIS_DEPLOYED_DELETE_ACCOUNT=PASS`
-- [x] `KIELIVALMIS_DEPLOYED_ROBOTS=PASS`
-- [x] `KIELIVALMIS_DEPLOYED_SITEMAP=PASS`
-
-Security/SEO headers:
-
+- [x] KieliValmis home identity contract PASS
+- [x] 20-language contract PASS
+- [x] privacy/terms/support/delete-account contracts PASS
+- [x] robots + sitemap contracts PASS
 - [x] `X-Content-Type-Options: nosniff`
 - [x] `Referrer-Policy: strict-origin-when-cross-origin`
 - [x] `x-robots-tag: index, follow`
-
-Permanent legal aliases:
-
 - [x] `/privacy-policy` -> HTTP 308 -> `/privacy`
 - [x] `/legal/privacy-policy` -> HTTP 308 -> `/privacy`
 - [x] `/account-deletion` -> HTTP 308 -> `/delete-account`
 - [x] `/legal/account-deletion` -> HTTP 308 -> `/delete-account`
 
-Final automated result:
+### R4F — First typography/mobile refinement deployed but not approved visually
 
-- [x] `RESULT: KIELIVALMIS R4 AUTOMATED DEPLOYMENT QA PASS`
-- [x] Production branch/commit unchanged
-- [x] No custom domain or Namecheap DNS changes made
+The first refinement reduced heading sizes, tightened typography and spacing, and attempted compact mobile cards. It deployed successfully and automated route QA remained PASS, but browser inspection still showed a cramped, clipped and card-heavy experience at iPhone 15 Pro Max-class widths.
 
-### R4F — First browser visual QA failed quality gate; responsive redesign committed
+Visual approval was therefore withheld again. Do not restore that layout as the final design.
 
-Browser inspection on desktop and an iPhone 15 Pro Max-class viewport found that the first design was functionally correct but not polished enough for release.
+## R4G — Active image-led redesign candidate
 
-Observed issues:
+The current source candidate replaces the old card-heavy hero with a new editorial image-led composition.
 
-- oversized hero and section typography
-- presentation-like visual hierarchy rather than website-like hierarchy
-- awkward narrow-width hero wrapping
-- mobile header CTA competing with product identity
-- excessive mobile vertical length
-- overly tall stacked capability cards
-- inconsistent card/body typography rhythm
-- desktop spacing/alignment could be more disciplined
+### New hero illustration
 
-Refinement committed:
+Asset:
 
-- [x] source: `apps/kielivalmis-domain-static/index.html`
-- [x] commit: `feaa5a6c42e5f02f03d1dc05f342a4d83ff025c9`
-- [x] refined system-UI typography stack
-- [x] hero max reduced from 84px to 68px
-- [x] smaller section/card typography and tighter line heights
-- [x] improved desktop hero proportions
-- [x] subtle section dividers
-- [x] mobile header/logo/button footprint reduced
-- [x] header CTA shortened to `Open app`
-- [x] compact two-column capability cards at 390–700px widths
-- [x] one-column capability cards retained below 390px
-- [x] mobile action buttons normalized into a grid
-- [x] mobile spacing/padding normalized
-- [x] product copy, 20-language list, legal URLs, current web-app URL and Android package URL preserved
+`apps/kielivalmis-domain-static/assets/kielivalmis-hero-ai.svg`
 
-### R4G — Refined deployment + automated regression PASS
+Commit creating the asset:
 
-The refined design was fetched from `growth/discovery-seo-d2-20260807`, extracted into a temporary directory, re-verified, linked explicitly to the existing KieliValmis Vercel project, deployed, and regression-tested.
+`940cb46d287ceb4e102757f46dcd1ec6a07c7bfb`
 
-Deployment result:
+Requirements implemented:
 
-- [x] Static regression contract PASS before deployment
-- [x] Existing KieliValmis project linkage explicitly locked to `prj_RJPEDkC38WfDxcwWbSsQdRKBSpjd`
-- [x] Refined production deployment created: `https://kielivalmis-domain-static-qu1mszuha-kompyint-oys-projects.vercel.app`
-- [x] Stable alias remains `https://kielivalmis-domain-static.vercel.app`
-- [x] Deployment reported Ready in 4s
+- [x] original AI-created vector illustration
+- [x] visible tiny label inside the artwork: `AI-generated illustration`
+- [x] embedded SVG metadata with `aiGenerated: true`
+- [x] embedded creator metadata: `OpenAI ChatGPT (GPT-5.6 Sol)`
+- [x] embedded generation method
+- [x] embedded creation date `2026-08-08`
+- [x] embedded purpose and prompt summary
+- [x] page-level AI disclosure metadata
+- [x] Schema.org `ImageObject` disclosure
+- [x] `data-ai-generated="true"` on the hero figure
 
-Refined deployment route QA:
+The artwork visually combines YKI practice, Finnish for work, speaking/feedback and multilingual guidance. It is deliberately an illustration rather than a fake photograph.
 
-- [x] `/` -> HTTP 200
-- [x] `/privacy` -> HTTP 200
-- [x] `/terms` -> HTTP 200
-- [x] `/support` -> HTTP 200
-- [x] `/delete-account` -> HTTP 200
-- [x] `/robots.txt` -> HTTP 200
-- [x] `/sitemap.xml` -> HTTP 200
-- [x] `KIELIVALMIS_REFINED_HOME=PASS`
+### New landing composition
 
-Refined legal redirect QA:
+Landing source:
 
-- [x] `/privacy-policy` -> HTTP 308 -> `/privacy`
-- [x] `/legal/privacy-policy` -> HTTP 308 -> `/privacy`
-- [x] `/account-deletion` -> HTTP 308 -> `/delete-account`
-- [x] `/legal/account-deletion` -> HTTP 308 -> `/delete-account`
+`apps/kielivalmis-domain-static/index.html`
 
-Final refined deployment result:
+Commit:
 
-- [x] `RESULT: KIELIVALMIS R4F REFINED DEPLOYMENT QA PASS`
-- [x] Temporary Vercel token/bypass values were removed from the server shell
-- [x] Temporary deployment files were removed
-- [x] Production Hetzner branch remained `preview/enable-all-languages`
-- [x] Production Hetzner commit remained `e92b98e7799c390bc52b42d724c57f197ffd5c0d`
-- [x] No custom domain or Namecheap DNS change occurred
+`b926afd5fe09e361a80976fa4d4fe79067598112`
 
-## Current next step — repeat visual QA on refined deployment
+Major changes:
 
-Use the refined deployment/stable alias in the browser and hard refresh. Inspect desktop plus iPhone 15 Pro Max-class widths for:
+- [x] replaced the capability-card hero with an image-led two-column desktop hero
+- [x] hero headline remains exactly: `Prepare for YKI. Prepare for work in Finland. In your language.`
+- [x] calmer typography and narrower text measure
+- [x] mobile-first single-column hero rather than shrinking the desktop grid
+- [x] explicit `overflow-x:hidden` and min-width-safe layout rules
+- [x] mobile CTA stack instead of side-by-side clipping
+- [x] dark hero plus alternating light/soft/dark website sections to avoid one long presentation-like dark canvas
+- [x] three outcome cards for YKI/work/guidance
+- [x] dedicated YKI layout with all four subtests
+- [x] dedicated work section
+- [x] 20-language section with precise clarification that the YKI exam itself is not offered in 20 languages
+- [x] final KieliValmis-by-Floently CTA and YKI independence disclaimer
+- [x] existing web-app link preserved
+- [x] existing Google Play package preserved
+- [x] legal/footer links preserved
+- [x] canonical and SEO identity remain KieliValmis
 
-- smaller, more website-like hero/section typography
-- improved font rendering and alignment
-- compact header with balanced KieliValmis identity + `Open app` CTA
-- no horizontal overflow or clipping
-- improved hero wrapping
-- compact 2x2 capability cards at 430px-class width
-- consistent YKI/work/language section spacing
-- balanced CTA and footer alignment
-- privacy, terms, support and delete-account pages still visually readable
+### Regression contract strengthened for AI disclosure
 
-If the refined browser visual QA passes, revoke/delete the temporary Vercel automation-bypass secret and advance to R5.
+Verifier:
 
-## Planned stages
+`apps/kielivalmis-domain-static/verify-kielivalmis-domain-static.mjs`
 
-- [x] R2 — isolated static package + regression PASS
-- [x] R3 — isolated KieliValmis Vercel project + initial deployment
-- [~] R4 — refined automated deployment QA PASS; repeat visual approval pending
-- [ ] R5 — add KieliValmis custom domains and capture Vercel DNS requirements
+Commit:
+
+`3254f14f81730b141eb3cfab98e22c43751b1b13`
+
+New guard:
+
+- [x] verifier loads the AI SVG asset
+- [x] verifies the hero reference exists in HTML
+- [x] verifies visible AI disclosure text exists
+- [x] verifies page AI disclosure metadata exists
+- [x] verifies embedded `aiGenerated`, creator, method, date, purpose and disclosure metadata exist
+- [x] adds expected PASS marker `KIELIVALMIS_STATIC_AI_HERO_DISCLOSURE=PASS`
+
+## Current next step — R4G redeploy and visual gate
+
+1. Fetch `growth/discovery-seo-d2-20260807` without changing the live production checkout.
+2. Extract only `apps/kielivalmis-domain-static` to a temporary directory.
+3. Run `npm run verify`; require the new AI disclosure PASS marker.
+4. Deploy the package to existing Vercel project `kielivalmis-domain-static` using the known project/org IDs.
+5. Re-run protected automated route/content/redirect QA.
+6. Open the stable Vercel alias and perform fresh desktop visual QA.
+7. Test an iPhone 15 Pro Max-class viewport and verify absolutely no horizontal clipping/overflow.
+8. Review the image quality, AI disclosure label, hero typography, CTA hierarchy, section rhythm and footer.
+9. Only if the user visually approves this design may R4 be closed.
+10. Revoke/delete the temporary automation-bypass secret after visual approval.
+11. Only then advance to R5 custom-domain attachment.
+
+## Remaining stages
+
+- [~] R4 — image-led candidate committed; redeploy + automated QA + visual approval pending
+- [ ] R5 — add `kielivalmis.com` / `www.kielivalmis.com` to KieliValmis Vercel project and capture exact DNS requirements
 - [ ] R6 — change only KieliValmis Namecheap DNS + verify HTTPS/canonical behavior
 - [ ] R7 — build `app.kielivalmis.com` parallel runtime hostname + auth/payment/YKI regression
 - [ ] R8 — SEO old-to-new URL map + Search Console migration
@@ -283,6 +254,6 @@ Do not proceed to native/store submission if any of these fail: authentication; 
 
 ## Active blocker
 
-**Only refined browser visual approval remains in R4.** Functional/static/deployed route QA has passed for the refined landing design. Custom domains and Namecheap DNS must remain unchanged until the user approves the refined desktop/mobile visual result.
+**R4G redeploy and visual approval.** Functional infrastructure is healthy, but the user has not approved the visual design yet. Custom domains and Namecheap DNS remain blocked until the new image-led candidate passes deployment QA and desktop/mobile visual approval.
 
-Trademark filing/clearance remains a parallel business/legal workstream and is not represented here as completed legal clearance.
+Trademark filing/clearance remains a separate legal/business workstream and is not represented here as completed legal clearance.
