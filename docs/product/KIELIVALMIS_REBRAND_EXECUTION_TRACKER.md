@@ -1,160 +1,175 @@
 # KieliValmis Rebrand Execution Tracker
 
 **Source of truth:** `docs/product/KIELIVALMIS_REBRAND_MASTERPLAN.md`  
+**Deployment addendum:** `docs/product/KIELIVALMIS_VERCEL_DEPLOYMENT_ARCHITECTURE.md`  
 **Repository:** `galapoto/floently-finnish`  
 **Working branch:** `growth/discovery-seo-d2-20260807`  
 **Started:** 2026-08-08
 
 ## Current milestone
 
-**R1 — Read-only branding/domain inventory in progress**
+**R2 — Isolated KieliValmis static site built in GitHub; verification pending**
 
-## Current status
+## Locked product architecture
 
-- Product name: **KieliValmis**
-- Primary domain: **kielivalmis.com** (purchased)
-- Parent/maker brand: **Floently**
-- Company: **Komplyint Oy**
-- Technical package/bundle IDs: **must remain unchanged**
-- Current Android/iOS production apps: **must remain the same store records**
-- Live server branch at R1 baseline: `preview/enable-all-languages`
-- Live server commit at R1 baseline: `e92b98e7799c390bc52b42d724c57f197ffd5c0d`
-- Main public `floently.com` site: confirmed Vercel deployment
-- KieliValmis domain: confirmed Namecheap-managed and still parked, not yet attached to Vercel
-- Current task: finish exact web/runtime/store surface inventory, then prepare parallel KieliValmis implementation without disturbing released binaries
+- Customer-facing Finnish-learning product: **KieliValmis**
+- Transition identity: **KieliValmis by Floently**
+- Parent/maker/product family: **Floently**
+- Legal company: **Komplyint Oy**
+- Primary purchased domain: **kielivalmis.com**
+- Existing Android/iOS store records: **preserve**
+- Android package / Apple Bundle ID: **preserve `com.vitusidi.floently`**
+- Existing users, billing, RevenueCat, backend, YKI engine, cards and roleplay: **preserve**
 
-## Completed
+## Production rollback baseline
 
-### 2026-08-08 — R0A Documentation lock
+### Hetzner Learn runtime
 
-- [x] Confirmed production repository: `galapoto/floently-finnish`
-- [x] Confirmed future separate native rebuild repository exists: `galapoto/floently-native`
-- [x] Confirmed discovery/marketing working branch: `growth/discovery-seo-d2-20260807`
-- [x] Recorded KieliValmis/Floently architecture and migration policy
-- [x] Recorded technical identifiers that must remain unchanged
-- [x] Recorded domain migration strategy
-- [x] Recorded legal-page regression requirements
-- [x] Recorded Google Play / App Store image migration strategy
-- [x] Recorded rollback and executor rules
-- [x] Created this progress tracker
+- Host: `ubuntu-4gb-hel1-2`
+- Repo: `/root/floently-finnish`
+- Branch: `preview/enable-all-languages`
+- Commit: `e92b98e7799c390bc52b42d724c57f197ffd5c0d`
+- Backend image: `floently-yki-report-calibration-overlay:20260729T183143Z`
+- Backend status at baseline: healthy / up 9 days
+- Web hostname: `learn.floently.com`
+- API hostname: `learn-api.floently.com`
+- API/audio environment still points to `https://learn-api.floently.com`
 
-### 2026-08-08 — R1A Live server baseline captured
+**Do not rename `learn-api.floently.com`.** It is a compatibility surface, not a branding requirement.
 
-Read-only production inspection performed on `ubuntu-4gb-hel1-2`.
+**Do not redirect `learn.floently.com` yet.** A future `app.kielivalmis.com` alias must first pass auth/payment/YKI regression testing.
 
-Confirmed:
+### Floently public site
 
-- [x] Server repo path: `/root/floently-finnish`
-- [x] Active server branch: `preview/enable-all-languages`
-- [x] Active server commit: `e92b98e7799c390bc52b42d724c57f197ffd5c0d`
-- [x] At inspection time, server also reported local/remote discovery branch ref at the same pre-documentation commit
-- [x] Backend container healthy/up for 9 days at inspection time
-- [x] Backend image: `floently-yki-report-calibration-overlay:20260729T183143Z`
-- [x] No KieliValmis hostname was present in live Nginx configuration at the baseline
-- [x] `learn.floently.com` is the active web/app hostname in Nginx
-- [x] `learn-api.floently.com` is the active API hostname in Nginx
-- [x] `.env.local` still points API/audio traffic to `https://learn-api.floently.com`
-- [x] Existing TLS certificates are for `learn.floently.com` and `learn-api.floently.com`
-- [x] Current live Nginx proxies requests to backend on `127.0.0.1:8000`
-- [x] Historical Nginx backup contains legacy legal redirects, confirming legal routing has changed/regressed before and needs a permanent regression lock
+- Hosting: Vercel
+- Existing project: `main-domain-static`
+- Vercel project ID: `prj_sTnnI02l9BLRIPcRIeGlblflul5Z`
+- Vercel team/org ID: `team_Pi5Ylt8nVh9Jzc60Ck7rl5I6`
+- Repo root: `apps/main-domain-static`
+- Domains: `floently.com`, `www.floently.com`
+- DNS: Namecheap nameservers
+- Apex baseline: `76.76.21.21`
+- `www` baseline: `cname.vercel-dns.com.`
+- Public response: HTTP 200 from Vercel
 
-Safety conclusion:
+This project remains the **Floently product-family gateway** and must not be repurposed as the dedicated KieliValmis site.
 
-**Do not rename `learn-api.floently.com` or API environment variables during the first customer-facing rebrand.** The API hostname is a compatibility surface, not a branding requirement.
+### KieliValmis domain baseline
 
-**Do not redirect `learn.floently.com` yet.** A parallel `app.kielivalmis.com` hostname must be tested first.
+- DNS provider/nameservers: Namecheap
+- Apex baseline: `192.64.119.155` (parking)
+- `www` baseline: `parkingpage.namecheap.com.`
+- HTTPS baseline: not working / timed out
+- No live KieliValmis Nginx configuration exists
 
-The first server command pasted through chat was partially line-wrapped/mangled by formatting, but the required read-only baseline sections still executed and produced sufficient evidence. No server write/deployment was performed.
+**Do not change Namecheap DNS until the new isolated KieliValmis Vercel project exists and Vercel shows the exact records required.**
 
-### 2026-08-08 — R1B Main-domain/Vercel/DNS baseline captured
+## Completed checkpoints
 
-A second read-only server inspection established the exact public-domain deployment architecture.
+### R0 — Rebrand continuity lock
 
-Confirmed:
+- [x] Master rebrand plan committed
+- [x] Execution tracker committed
+- [x] Surface inventory committed
+- [x] Technical identifiers that must remain Floently documented
+- [x] Store rebrand / screenshot strategy documented
+- [x] Legal-page regression requirements documented
+- [x] Rollback discipline documented
 
-- [x] `/etc/nginx/sites-enabled/learn` serves only `learn.floently.com` from `/var/www/learn` and proxies `/api/` plus card API routes to `127.0.0.1:8000`
-- [x] `/etc/nginx/sites-enabled/learn-api` serves only `learn-api.floently.com` and proxies to `127.0.0.1:8000`
-- [x] `floently.com` is **not** served by the Hetzner Nginx configuration inspected here
-- [x] Public `www.floently.com` responds from **Vercel** with HTTP 200
-- [x] Repository contains dedicated static deployment app at `apps/main-domain-static`
-- [x] `apps/main-domain-static/.vercel/project.json` exists
-- [x] Vercel project ID: `prj_sTnnI02l9BLRIPcRIeGlblflul5Z`
-- [x] Vercel org/team ID: `team_Pi5Ylt8nVh9Jzc60Ck7rl5I6`
-- [x] Vercel project name: `main-domain-static`
-- [x] `apps/main-domain-static/vercel.json` contains the current permanent legal aliases into `/learn/*`
-- [x] Vercel CLI is not installed on the Hetzner server; this is not a production defect
-- [x] `floently.com` DNS is managed through Namecheap nameservers
-- [x] `floently.com` apex currently resolves to Vercel (`76.76.21.21`)
-- [x] `www.floently.com` CNAME currently resolves to `cname.vercel-dns.com.`
-- [x] `kielivalmis.com` uses the same Namecheap nameservers but is still parked
-- [x] `kielivalmis.com` apex currently resolves to Namecheap parking (`192.64.119.155`)
-- [x] `www.kielivalmis.com` currently CNAMEs to `parkingpage.namecheap.com.`
-- [x] HTTPS requests to both `kielivalmis.com` and `www.kielivalmis.com` timed out at the baseline, confirming the domain is not yet provisioned for the product
-- [x] Final server Git safety check remained at `preview/enable-all-languages` / `e92b98e7799c390bc52b42d724c57f197ffd5c0d`
+### R1A — Live server baseline
 
-Safety conclusion:
+- [x] Active branch/commit captured
+- [x] Active backend image captured
+- [x] Active Nginx routing captured
+- [x] `learn.floently.com` and `learn-api.floently.com` dependencies captured
+- [x] Existing legal-route regression history identified
+- [x] No server write/deploy performed
 
-**The first KieliValmis web step should be a parallel Vercel-domain attachment, not an Nginx migration.**
+### R1B — Vercel + DNS baseline
 
-Do not change `floently.com`, `learn.floently.com`, or `learn-api.floently.com` to achieve the initial KieliValmis website bring-up.
+- [x] Confirmed `floently.com` is hosted by Vercel, not Hetzner Nginx
+- [x] Confirmed existing Vercel project linkage
+- [x] Confirmed Floently DNS configuration
+- [x] Confirmed KieliValmis is still Namecheap parked
+- [x] Confirmed no KieliValmis HTTPS site exists yet
+- [x] Confirmed server working tree/runtime remained unchanged
 
-Do not change Namecheap DNS until the exact Vercel custom-domain target has been added/verified in the Vercel project. This prevents pointing the purchased domain at a project that is not yet expecting it.
+### R1C — Deployment isolation decision
 
-## Repository findings already confirmed
+- [x] Locked separate Vercel-project architecture
+- [x] Existing `main-domain-static` stays Floently gateway
+- [x] New repo directory: `apps/kielivalmis-domain-static`
+- [x] Recommended new Vercel project: `kielivalmis-domain-static`
+- [x] DNS must remain untouched until project verification
 
-The current marketing branch still contains visible learning-product branding that must be changed semantically, including:
+### R2A — Isolated KieliValmis static site created
 
-- `Floently Product Gateway`
-- `Choose Your Floently Product`
-- `Floently Learn`
-- `Floently Finnish`
-- `Floently Home`
-- `Floently · live correction`
+Created on the working branch only; not deployed:
 
-Important distinction:
+- [x] `apps/kielivalmis-domain-static/package.json`
+- [x] `apps/kielivalmis-domain-static/vercel.json`
+- [x] `apps/kielivalmis-domain-static/index.html`
+- [x] `apps/kielivalmis-domain-static/privacy/index.html`
+- [x] `apps/kielivalmis-domain-static/terms/index.html`
+- [x] `apps/kielivalmis-domain-static/support/index.html`
+- [x] `apps/kielivalmis-domain-static/delete-account/index.html`
+- [x] `apps/kielivalmis-domain-static/robots.txt`
+- [x] `apps/kielivalmis-domain-static/sitemap.xml`
+- [x] `apps/kielivalmis-domain-static/verify-kielivalmis-domain-static.mjs`
 
-- Learning product -> KieliValmis
-- Floently product-family gateway -> stays Floently
-- Floently Read -> stays Floently Read
-- Floently Create -> stays Floently Create
-- Technical identifiers -> stay Floently where compatibility requires it
+Current KieliValmis landing strategy includes:
 
-The current discovery commit `e92b98e77` also contains Floently-focused SEO metadata, sitemap entries, canonical URLs, structured data, Google Play attribution URLs, and public Learn content. Those must be migrated deliberately rather than discarded.
+- YKI + work in Finland + learner's language
+- guidance in 20 supported languages
+- speaking, grammar, vocabulary, sentence practice and roleplay
+- all four YKI skills
+- explicit independent-YKI disclaimer
+- transition statement connecting KieliValmis to the existing Floently Finnish service
+- existing web app link retained at `learn.floently.com` during transition
+- existing Google Play package link retained
+- Floently attribution retained intentionally
 
-## R1 inventory still required
+Current legal strategy:
 
-Before patching runtime code, finish exact file/path inventory for:
+- Product identity: KieliValmis
+- Attribution: Floently product by Komplyint Oy
+- Existing support address preserved: `support@floently.com`
+- deletion page explicitly states uninstalling the app is not account deletion
+- subscription cancellation remains separate from account deletion
+- legal aliases are locked in `vercel.json`
 
-- public landing pages and Floently suite gateway
-- login/signup/onboarding
-- SEO metadata/canonical/hreflang/sitemap/structured data
-- legal/support pages
-- native display name/splash/icon
-- report/export branding
-- payment/paywall customer-facing wording
-- email/support wording
-- Google Play / App Store metadata and asset source files
-- auth/OAuth/reset/deep-link host dependencies
+## Verification still required before Vercel project creation
 
-**No global search-and-replace.**
+Run the KieliValmis static verifier from the GitHub branch without changing the production working tree.
 
-## Planned stages
+Expected PASS markers:
 
-- [~] R1 — Read-only branding/domain inventory
-- [ ] R2 — Central customer-facing brand configuration
-- [ ] R3 — KieliValmis public marketing copy in branch
-- [ ] R4 — KieliValmis legal/support pages + automated route locks
-- [ ] R5 — `kielivalmis.com` parallel deployment
-- [ ] R6 — `app.kielivalmis.com` parallel runtime hostname + auth/payment regression
-- [ ] R7 — SEO mapping, sitemap, canonical, redirects, Search Console migration
-- [ ] R8 — Store metadata package
-- [ ] R9 — Store graphic/screenshot package
-- [ ] R10 — Native visible-brand patch, same package/bundle IDs
-- [ ] R11 — Full regression gate
-- [ ] R12 — Android KieliValmis update
-- [ ] R13 — iOS KieliValmis update
-- [ ] R14 — Public post-release verification
-- [ ] R15 — Legacy URL/app-host retirement decision
+- `KIELIVALMIS_STATIC_IDENTITY=PASS`
+- `KIELIVALMIS_STATIC_20_LANGUAGES=PASS`
+- `KIELIVALMIS_STATIC_LEGAL_PAGES=PASS`
+- `KIELIVALMIS_STATIC_CANONICALS=PASS`
+- `KIELIVALMIS_STATIC_SITEMAP=PASS`
+- `KIELIVALMIS_STATIC_REDIRECT_LOCKS=PASS`
+- `KIELIVALMIS_STATIC_TRANSITION_LINKS=PASS`
+- `RESULT: KIELIVALMIS STATIC SITE REGRESSION CONTRACT PASS`
+
+## Next stages
+
+- [~] R2 — Verify isolated static package
+- [ ] R3 — Create isolated Vercel project and preview deployment
+- [ ] R4 — Visual/content QA of preview + legal-route QA
+- [ ] R5 — Add `kielivalmis.com` / `www.kielivalmis.com` to new project and capture exact DNS requirements
+- [ ] R6 — Change only KieliValmis Namecheap DNS and verify HTTPS/canonical behavior
+- [ ] R7 — Build `app.kielivalmis.com` parallel runtime hostname and run auth/payment regression
+- [ ] R8 — SEO old-to-new URL map + Search Console migration
+- [ ] R9 — Store metadata package
+- [ ] R10 — Store graphics/screenshots package
+- [ ] R11 — Native visible-brand patch, same package/bundle IDs
+- [ ] R12 — Full app regression gate
+- [ ] R13 — Android KieliValmis update
+- [ ] R14 — iOS KieliValmis update
+- [ ] R15 — Public post-release verification
+- [ ] R16 — Legacy hostname retirement decision
 
 ## Regression blockers
 
@@ -168,47 +183,21 @@ Do not proceed to native/store submission if any of these fail:
 - streak/progress
 - legal URLs
 - support/delete-account
-- production web API calls
+- production web/API calls
 - app upgrade continuity
 
-## Rollback baseline
+## Recent repository commits
 
-### Released app/runtime baseline
+- `78cb36c949fa92d3e9952d1b3769ebcbf4a0b48a` — master rebrand strategy
+- `82dc126c50b351916595436d8bf97994becf9222` — initial tracker
+- `4a8a54b3538178d225e2775d9a9435811f45ddf6` — surface inventory
+- `b3cf7bc93ddd84d4345697b324e2c9a310644efc` — live server baseline
+- `4ef5970c0b5bb4a1b1f90aba7c6bb15a37d8d7bf` — Vercel/DNS baseline
+- `177175788bb35d65e1e456adbcb006cc77c29b98` — isolated Vercel architecture
+- `8680b912921d4575a698a7940eea2a15742fee62` through `fedaf6c09bac20a4b2e3e48a39e1449d4741f98b` — initial isolated KieliValmis static site package
 
-- Server host: `ubuntu-4gb-hel1-2`
-- Repo path: `/root/floently-finnish`
-- Branch: `preview/enable-all-languages`
-- Commit: `e92b98e7799c390bc52b42d724c57f197ffd5c0d`
-- Backend image: `floently-yki-report-calibration-overlay:20260729T183143Z`
-- Web hostname: `learn.floently.com`
-- API hostname: `learn-api.floently.com`
+## Active blocker
 
-This remains the rollback baseline. No runtime rebrand change has been deployed as part of R0/R1.
-
-### Main public site baseline
-
-- Hosting: Vercel
-- Repo directory: `apps/main-domain-static`
-- Vercel project: `main-domain-static`
-- Existing public domain: `floently.com` / `www.floently.com`
-- KieliValmis domain state: Namecheap parking only; not yet attached to Vercel
-
-### Documentation branch
-
-KieliValmis documentation is being added on `growth/discovery-seo-d2-20260807` after the runtime baseline commit. The live server must not `git pull` this branch merely to obtain documentation.
-
-## Last completed repository commits
-
-- `78cb36c949fa92d3e9952d1b3769ebcbf4a0b48a` — Document KieliValmis rebrand and migration strategy
-- `82dc126c50b351916595436d8bf97994becf9222` — Add KieliValmis execution tracker
-- `4a8a54b3538178d225e2775d9a9435811f45ddf6` — Add KieliValmis surface inventory
-- `b3cf7bc93ddd84d4345697b324e2c9a310644efc` — Record live R1 server baseline
-- This tracker update records the Vercel/DNS R1B baseline
-
-## Active blockers
-
-No blocker for documentation/inventory work.
-
-Before changing Namecheap DNS, add/verify `kielivalmis.com` and `www.kielivalmis.com` on the existing Vercel project and capture the exact DNS records Vercel requests for this project/account.
+**Verification only.** The isolated static package must pass its regression verifier before a new Vercel project is created or any DNS change is made.
 
 Trademark filing/clearance remains a parallel business/legal workstream and is not represented here as completed legal clearance.
