@@ -8,7 +8,7 @@
 
 ## Current milestone
 
-**R4F — Visual QA found typography/mobile-layout issues; refined landing patch committed, redeploy + repeat visual QA pending**
+**R4G — Refined landing deployment + automated regression PASS; repeat desktop/iPhone visual approval pending**
 
 ## Locked architecture
 
@@ -44,6 +44,16 @@
 - Domains: `floently.com`, `www.floently.com`
 - Repo root: `apps/main-domain-static`
 - Must remain the Floently product-family gateway
+
+### KieliValmis public-site deployment
+
+- Vercel project: `kielivalmis-domain-static`
+- Project ID: `prj_RJPEDkC38WfDxcwWbSsQdRKBSpjd`
+- Team/org ID: `team_Pi5Ylt8nVh9Jzc60Ck7rl5I6`
+- Scope: `kompyint-oys-projects`
+- Stable Vercel alias: `https://kielivalmis-domain-static.vercel.app`
+- Current refined deployment: `https://kielivalmis-domain-static-qu1mszuha-kompyint-oys-projects.vercel.app`
+- Deployment Protection remains enabled; QA uses Protection Bypass for Automation + ordinary `curl`
 
 ### KieliValmis DNS baseline
 
@@ -98,72 +108,31 @@ Verifier PASS markers:
 - [x] `KIELIVALMIS_STATIC_TRANSITION_LINKS=PASS`
 - [x] `RESULT: KIELIVALMIS STATIC SITE REGRESSION CONTRACT PASS`
 
-### R3A — Device-login attempt safely aborted
+### R3 — Isolated Vercel project created safely
 
-- [x] Static package re-verified PASS
-- [x] SSH disconnected during Vercel device authorization
-- [x] No project/deployment/domain/DNS/runtime change occurred
-- [x] Switched to short-lived token authentication
-
-### R3B — Vercel token/scope validation PASS
-
-- [x] CLI authenticated as `komplyint-3139`
+- [x] Vercel token/scope validation PASS
 - [x] Active scope: `kompyint-oys-projects`
-- [x] Existing `main-domain-static` visible
-- [x] CLI confirmed `--scope` should replace deprecated `--team`
-- [x] Production Git checkout remained unchanged
+- [x] Existing Floently `main-domain-static` remained separate
+- [x] New KieliValmis project created: `kielivalmis-domain-static`
+- [x] New project ID: `prj_RJPEDkC38WfDxcwWbSsQdRKBSpjd`
+- [x] First deployment created without changing Namecheap DNS
+- [x] Production Hetzner checkout remained `preview/enable-all-languages` at `e92b98e7799c390bc52b42d724c57f197ffd5c0d`
 
-### R3C — Isolated KieliValmis Vercel project created
+### R4A-R4C — Beta `vercel curl` abandoned safely
 
-Created successfully:
-
-- Project: `kielivalmis-domain-static`
-- Project ID: `prj_RJPEDkC38WfDxcwWbSsQdRKBSpjd`
-- Org/team ID: `team_Pi5Ylt8nVh9Jzc60Ck7rl5I6`
-- Owner/scope: `kompyint-oys-projects`
-- Framework preset: Other
-- Project root at CLI-created project: `.` within the isolated deployment directory
-- Node.js version shown by Vercel: 24.x
-
-First deployment:
-
-- Deployment URL: `https://kielivalmis-domain-static-jotbo1nkc-kompyint-oys-projects.vercel.app`
-- Stable Vercel alias: `https://kielivalmis-domain-static.vercel.app`
-- Vercel treated the first-ever project deployment as the initial production deployment automatically, even though `--prod` was not supplied
-- Deployment reported `Ready in 4s`
-- Production Git checkout after deployment remained `preview/enable-all-languages` at `e92b98e7799c390bc52b42d724c57f197ffd5c0d`
-
-Deployment Protection finding:
-
-- Direct unauthenticated HTTP to the generated deployment URL returned `302`
-- Redirect target was Vercel `/sso-api`
-- This indicates Vercel Authentication/Deployment Protection on the generated deployment URL, not an application failure
-
-No custom domain has been added and Namecheap DNS remains untouched.
-
-### R4A-R4C — `vercel curl` attempts rejected before application QA
-
-Three attempts to use beta `vercel curl` failed because of CLI/system-curl parser and argument-forwarding behavior in Vercel CLI `58.9.0`. None of those attempts changed the project, deployment, domain, DNS, Nginx, Docker, or runtime. The release gate was moved to Vercel Protection Bypass for Automation plus ordinary system `curl`.
+Three attempts to use beta `vercel curl` failed because of CLI/system-curl argument parsing/forwarding behavior in Vercel CLI `58.9.0`. None of those attempts changed the project, deployment, domain, DNS, Nginx, Docker, or runtime. The release gate was moved to Vercel Protection Bypass for Automation plus ordinary system `curl`.
 
 ### R4D — Protection Bypass for Automation smoke PASS
 
-A Vercel Protection Bypass for Automation secret was created for QA and entered only through a hidden server-terminal prompt. Ordinary system `curl` requested the protected KieliValmis deployment with the `x-vercel-protection-bypass` header.
-
-Observed result:
-
-- [x] Home request returned `HTTP_CODE=200`
-- [x] `<title>KieliValmis...` marker matched
+- [x] Home request returned HTTP 200 through ordinary `curl` + `x-vercel-protection-bypass`
+- [x] KieliValmis title marker matched
 - [x] `Prepare for YKI` marker matched
 - [x] `Guidance in 20 languages` marker matched
-- [x] `KIELIVALMIS_PROTECTED_HOME=PASS`
-- [x] Production branch remained `preview/enable-all-languages`
-- [x] Production commit remained `e92b98e7799c390bc52b42d724c57f197ffd5c0d`
+- [x] Production checkout remained unchanged
 
 ### R4E — Full deployed route/content/header/redirect QA PASS
 
-Full automated QA was run against the actual protected deployment using ordinary `curl` plus the temporary `x-vercel-protection-bypass` header.
-
-Primary route results:
+Primary routes:
 
 - [x] `/` -> HTTP 200
 - [x] `/privacy` -> HTTP 200
@@ -188,8 +157,7 @@ Security/SEO headers:
 
 - [x] `X-Content-Type-Options: nosniff`
 - [x] `Referrer-Policy: strict-origin-when-cross-origin`
-- [x] Protected deployment returned `x-robots-tag: index, follow`
-- [x] `KIELIVALMIS_DEPLOYED_SECURITY_HEADERS=PASS`
+- [x] `x-robots-tag: index, follow`
 
 Permanent legal aliases:
 
@@ -197,65 +165,105 @@ Permanent legal aliases:
 - [x] `/legal/privacy-policy` -> HTTP 308 -> `/privacy`
 - [x] `/account-deletion` -> HTTP 308 -> `/delete-account`
 - [x] `/legal/account-deletion` -> HTTP 308 -> `/delete-account`
-- [x] `KIELIVALMIS_DEPLOYED_LEGAL_REDIRECTS=PASS`
 
 Final automated result:
 
 - [x] `RESULT: KIELIVALMIS R4 AUTOMATED DEPLOYMENT QA PASS`
-- [x] Production branch after QA remained `preview/enable-all-languages`
-- [x] Production commit after QA remained `e92b98e7799c390bc52b42d724c57f197ffd5c0d`
-- [x] QA secret was removed from the server shell and temporary files were deleted
-- [x] No custom domain or Namecheap DNS change occurred during R4E
+- [x] Production branch/commit unchanged
+- [x] No custom domain or Namecheap DNS changes made
 
-### R4F — Browser visual QA required refinement; landing redesign patch committed
+### R4F — First browser visual QA failed quality gate; responsive redesign committed
 
-Browser inspection of the deployed landing page was performed on desktop and at an iPhone 15 Pro Max-class viewport. Functional content was present and automated QA remained valid, but visual approval was **not** granted for the first design.
+Browser inspection on desktop and an iPhone 15 Pro Max-class viewport found that the first design was functionally correct but not polished enough for release.
 
-Observed visual issues from the review:
+Observed issues:
 
-- oversized white hero and section typography made the page feel presentation-like rather than website-like
-- hero wrapping and text alignment were too aggressive at narrow widths
-- mobile header CTA competed with the KieliValmis identity for horizontal space
-- mobile vertical rhythm felt too long and loosely organized
-- stacked capability cards consumed too much vertical space on a 430px-class viewport
-- card headings and body text needed a clearer hierarchy and more restrained sizing
-- desktop sections were functional but could use tighter alignment and more consistent spacing rhythm
+- oversized hero and section typography
+- presentation-like visual hierarchy rather than website-like hierarchy
+- awkward narrow-width hero wrapping
+- mobile header CTA competing with product identity
+- excessive mobile vertical length
+- overly tall stacked capability cards
+- inconsistent card/body typography rhythm
+- desktop spacing/alignment could be more disciplined
 
 Refinement committed:
 
-- [x] landing source: `apps/kielivalmis-domain-static/index.html`
+- [x] source: `apps/kielivalmis-domain-static/index.html`
 - [x] commit: `feaa5a6c42e5f02f03d1dc05f342a4d83ff025c9`
-- [x] switched to a refined system-UI font stack with improved rendering and less display-like typography
-- [x] reduced hero maximum from the previous 84px scale to a restrained responsive maximum of 68px
-- [x] reduced section heading/card typography and tightened line heights/letter spacing
-- [x] improved desktop hero grid proportions and spacing
-- [x] added subtle section dividers to improve page rhythm
-- [x] shortened the header CTA to `Open app`
-- [x] reduced mobile header/logo/button footprint
-- [x] created compact two-column capability cards for 390–700px widths, including iPhone 15 Pro Max-class widths
-- [x] retained one-column capability cards below 390px
-- [x] changed mobile action buttons to a consistent grid layout
-- [x] reduced mobile section/card padding and normalized spacing
-- [x] retained existing product copy, 20-language list, transition wording, legal links, web-app URL and Android package URL
+- [x] refined system-UI typography stack
+- [x] hero max reduced from 84px to 68px
+- [x] smaller section/card typography and tighter line heights
+- [x] improved desktop hero proportions
+- [x] subtle section dividers
+- [x] mobile header/logo/button footprint reduced
+- [x] header CTA shortened to `Open app`
+- [x] compact two-column capability cards at 390–700px widths
+- [x] one-column capability cards retained below 390px
+- [x] mobile action buttons normalized into a grid
+- [x] mobile spacing/padding normalized
+- [x] product copy, 20-language list, legal URLs, current web-app URL and Android package URL preserved
 
-The refinement has been committed but is **not yet visually approved**. It must be re-verified, redeployed to the isolated KieliValmis Vercel project, rerun through automated route QA, and reviewed again on desktop + mobile before R5.
+### R4G — Refined deployment + automated regression PASS
 
-## Current next step — R4F redeploy and repeat visual gate
+The refined design was fetched from `growth/discovery-seo-d2-20260807`, extracted into a temporary directory, re-verified, linked explicitly to the existing KieliValmis Vercel project, deployed, and regression-tested.
 
-1. Fetch `growth/discovery-seo-d2-20260807` without changing the live production checkout.
-2. Extract only `apps/kielivalmis-domain-static` to a temporary directory.
-3. Run `npm run verify` against the refined static package.
-4. Deploy the refined package to the already-existing Vercel project `kielivalmis-domain-static` using the known project/org IDs.
-5. Repeat protected automated route/content/header/redirect QA.
-6. Repeat browser visual QA on desktop and an iPhone 15 Pro Max-class viewport.
-7. Revoke/delete the temporary automation-bypass secret after R4 visual approval.
-8. Only then advance to R5 custom-domain attachment.
+Deployment result:
+
+- [x] Static regression contract PASS before deployment
+- [x] Existing KieliValmis project linkage explicitly locked to `prj_RJPEDkC38WfDxcwWbSsQdRKBSpjd`
+- [x] Refined production deployment created: `https://kielivalmis-domain-static-qu1mszuha-kompyint-oys-projects.vercel.app`
+- [x] Stable alias remains `https://kielivalmis-domain-static.vercel.app`
+- [x] Deployment reported Ready in 4s
+
+Refined deployment route QA:
+
+- [x] `/` -> HTTP 200
+- [x] `/privacy` -> HTTP 200
+- [x] `/terms` -> HTTP 200
+- [x] `/support` -> HTTP 200
+- [x] `/delete-account` -> HTTP 200
+- [x] `/robots.txt` -> HTTP 200
+- [x] `/sitemap.xml` -> HTTP 200
+- [x] `KIELIVALMIS_REFINED_HOME=PASS`
+
+Refined legal redirect QA:
+
+- [x] `/privacy-policy` -> HTTP 308 -> `/privacy`
+- [x] `/legal/privacy-policy` -> HTTP 308 -> `/privacy`
+- [x] `/account-deletion` -> HTTP 308 -> `/delete-account`
+- [x] `/legal/account-deletion` -> HTTP 308 -> `/delete-account`
+
+Final refined deployment result:
+
+- [x] `RESULT: KIELIVALMIS R4F REFINED DEPLOYMENT QA PASS`
+- [x] Temporary Vercel token/bypass values were removed from the server shell
+- [x] Temporary deployment files were removed
+- [x] Production Hetzner branch remained `preview/enable-all-languages`
+- [x] Production Hetzner commit remained `e92b98e7799c390bc52b42d724c57f197ffd5c0d`
+- [x] No custom domain or Namecheap DNS change occurred
+
+## Current next step — repeat visual QA on refined deployment
+
+Use the refined deployment/stable alias in the browser and hard refresh. Inspect desktop plus iPhone 15 Pro Max-class widths for:
+
+- smaller, more website-like hero/section typography
+- improved font rendering and alignment
+- compact header with balanced KieliValmis identity + `Open app` CTA
+- no horizontal overflow or clipping
+- improved hero wrapping
+- compact 2x2 capability cards at 430px-class width
+- consistent YKI/work/language section spacing
+- balanced CTA and footer alignment
+- privacy, terms, support and delete-account pages still visually readable
+
+If the refined browser visual QA passes, revoke/delete the temporary Vercel automation-bypass secret and advance to R5.
 
 ## Planned stages
 
 - [x] R2 — isolated static package + regression PASS
-- [x] R3 — create isolated Vercel project and initial deployment
-- [~] R4 — automated QA passed for first design; refined visual patch committed; redeploy + repeat visual QA pending
+- [x] R3 — isolated KieliValmis Vercel project + initial deployment
+- [~] R4 — refined automated deployment QA PASS; repeat visual approval pending
 - [ ] R5 — add KieliValmis custom domains and capture Vercel DNS requirements
 - [ ] R6 — change only KieliValmis Namecheap DNS + verify HTTPS/canonical behavior
 - [ ] R7 — build `app.kielivalmis.com` parallel runtime hostname + auth/payment/YKI regression
@@ -275,6 +283,6 @@ Do not proceed to native/store submission if any of these fail: authentication; 
 
 ## Active blocker
 
-**R4 visual refinement redeploy/review.** The first design passed functional automated QA but did not pass final visual review. The refined source is committed, but custom domains and Namecheap DNS must remain unchanged until the refined deployment passes both automated QA and desktop/mobile visual approval.
+**Only refined browser visual approval remains in R4.** Functional/static/deployed route QA has passed for the refined landing design. Custom domains and Namecheap DNS must remain unchanged until the user approves the refined desktop/mobile visual result.
 
 Trademark filing/clearance remains a parallel business/legal workstream and is not represented here as completed legal clearance.
