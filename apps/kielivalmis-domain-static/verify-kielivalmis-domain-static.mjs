@@ -13,6 +13,7 @@ const files = {
   robots: read('robots.txt'),
   sitemap: read('sitemap.xml'),
   config: read('vercel.json'),
+  heroAi: read('assets/kielivalmis-hero-ai.svg'),
 };
 
 for (const [name, page] of Object.entries({
@@ -37,6 +38,28 @@ for (const marker of [
   'KieliValmis is an independent Finnish-learning product',
 ]) {
   if (!files.home.includes(marker)) throw new Error(`Home marker missing: ${marker}`);
+}
+
+for (const marker of [
+  '/assets/kielivalmis-hero-ai.svg',
+  'data-ai-generated="true"',
+  'AI-generated illustration',
+  'ai-content-disclosure',
+  '"@type": "ImageObject"',
+]) {
+  if (!files.home.includes(marker)) throw new Error(`AI hero disclosure marker missing from home: ${marker}`);
+}
+
+for (const marker of [
+  '"aiGenerated": true',
+  '"creator": "OpenAI ChatGPT (GPT-5.6 Sol)"',
+  '"generationMethod": "Procedural vector illustration generated from AI-authored SVG"',
+  '"created": "2026-08-08"',
+  '"purpose": "KieliValmis website hero illustration"',
+  '"disclosure": "AI-generated illustration"',
+  '>AI-generated illustration</text>',
+]) {
+  if (!files.heroAi.includes(marker)) throw new Error(`AI hero metadata/disclosure missing: ${marker}`);
 }
 
 const languageMarkers = [
@@ -122,4 +145,5 @@ console.log('KIELIVALMIS_STATIC_CANONICALS=PASS');
 console.log('KIELIVALMIS_STATIC_SITEMAP=PASS');
 console.log('KIELIVALMIS_STATIC_REDIRECT_LOCKS=PASS');
 console.log('KIELIVALMIS_STATIC_TRANSITION_LINKS=PASS');
+console.log('KIELIVALMIS_STATIC_AI_HERO_DISCLOSURE=PASS');
 console.log('RESULT: KIELIVALMIS STATIC SITE REGRESSION CONTRACT PASS');
