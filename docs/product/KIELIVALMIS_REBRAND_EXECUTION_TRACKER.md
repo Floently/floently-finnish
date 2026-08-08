@@ -8,9 +8,9 @@
 
 ## Current milestone
 
-**R4I — Mobile-first landing rebuild committed. First deployment attempt stopped safely on a verifier false-negative; verifier is now whitespace-safe. Redeploy + automated QA + fresh desktop/mobile visual review pending.**
+**R4I — Mobile-first preview deployment created successfully. Source/static verification PASS. Preview HTTP QA is paused on a Vercel Deployment Protection 302; bypass diagnostics pending before any further deploy or promotion.**
 
-The user explicitly rejected the R4H mobile presentation because the headings remained too large and the hero illustration was not visible early enough in the mobile experience. Do not advance to custom-domain/DNS work until the R4I candidate is deployed and visually approved.
+The user explicitly rejected the R4H mobile presentation because the headings remained too large and the hero illustration was not visible early enough in the mobile experience. R4I exists only as a protected Vercel preview and has **not** been promoted to the stable production alias. Do not advance to custom-domain/DNS work until the R4I candidate passes protected-preview QA and is visually approved.
 
 ## Locked product architecture
 
@@ -59,7 +59,8 @@ The live Learn checkout has remained unchanged throughout all KieliValmis static
 - Stable Vercel alias: `https://kielivalmis-domain-static.vercel.app`
 - R4G deployment with failed external SVG: `https://kielivalmis-domain-static-pq08fyrx3-kompyint-oys-projects.vercel.app`
 - Current deployed R4H rollback candidate: `https://kielivalmis-domain-static-lk9ns71uv-kompyint-oys-projects.vercel.app`
-- Deployment Protection is enabled; use Vercel Protection Bypass for Automation plus ordinary `curl` for automated QA
+- Current R4I preview candidate: `https://kielivalmis-domain-static-4ll5bamsm-kompyint-oys-projects.vercel.app`
+- Deployment Protection is enabled; use Vercel Protection Bypass for Automation plus ordinary system `curl` for stable automation. R4I preview bypass behavior is currently under diagnostic investigation because the first protected request returned HTTP 302.
 
 ### KieliValmis DNS baseline
 
@@ -105,7 +106,7 @@ The static regression contract has repeatedly passed for identity, 20 languages,
 
 After abandoning unreliable beta `vercel curl` behavior in CLI `58.9.0`, QA switched to Vercel Protection Bypass for Automation plus ordinary system `curl`.
 
-Automated route/content/header/redirect QA has passed for the deployed site, including primary routes, legal pages, robots, sitemap, security headers and permanent legal aliases.
+Automated route/content/header/redirect QA has passed for the deployed R4H site, including primary routes, legal pages, robots, sitemap, security headers and permanent legal aliases.
 
 ### R4F — First typography/mobile refinement not visually approved
 
@@ -196,22 +197,37 @@ Resolution:
 - [x] no custom domain or Namecheap DNS change occurred
 - [x] live Learn production remained on `preview/enable-all-languages` at `e92b98e77...`
 
-## Current next step — redeploy R4I and repeat gates
+### R4I preview deployment — created, protected QA returned 302
 
-1. Fetch `growth/discovery-seo-d2-20260807` without changing the live Learn checkout.
-2. Extract only `apps/kielivalmis-domain-static` into a temporary deployment directory.
-3. Run `npm run verify` and require the inline AI disclosure PASS marker.
-4. Deploy to the existing Vercel project `kielivalmis-domain-static` using the known project/org IDs.
-5. Verify `/`, legal routes, robots and sitemap through the protection-bypass header.
-6. Verify deployed HTML contains the inline hero and AI metadata.
-7. Open the stable Vercel alias and hard refresh.
-8. Review desktop typography and hero composition.
-9. Test the same iPhone 15 Pro Max-class viewport and verify the picture is visible directly after the smaller headline, the navigation is brand-only, and there is no horizontal clipping.
-10. Only after explicit user visual approval may R4 close and R5 custom-domain attachment begin.
+The second R4I attempt passed all local source/static gates and created a **preview-only** Vercel deployment:
+
+- Preview: `https://kielivalmis-domain-static-4ll5bamsm-kompyint-oys-projects.vercel.app`
+- [x] `KIELIVALMIS_STATIC_INLINE_AI_HERO_DISCLOSURE=PASS`
+- [x] `RESULT: KIELIVALMIS STATIC SITE REGRESSION CONTRACT PASS`
+- [x] `KIELIVALMIS_R4I_SOURCE=PASS`
+- [x] preview created with `vercel deploy` without `--prod`
+- [x] Vercel explicitly reported that production would require a separate `vercel --prod`
+- [x] stable R4H production alias was therefore not intentionally promoted by this operation
+- [ ] first protected preview request `/` returned HTTP 302 instead of expected HTTP 200
+- [ ] protected-preview bypass needs diagnostic verification before route/content QA continues
+- [x] no Namecheap DNS change occurred
+
+Current diagnostic policy: do **not** redeploy again yet. First test the existing preview with the current Vercel automation secret using the documented header method, query-parameter method, and optional bypass-cookie flow, while printing response `Location`/status without `set -e` terminating the SSH session.
+
+## Current next step — diagnose R4I preview protection only
+
+1. Reuse the existing R4I preview; do not create another deployment.
+2. Test the preview with `x-vercel-protection-bypass` as an HTTP header.
+3. If not HTTP 200, test the same secret as the documented `x-vercel-protection-bypass` query parameter.
+4. Test the optional `x-vercel-set-bypass-cookie=true` flow and inspect the redirect/cookie if needed.
+5. Do not use `set -e` for this diagnostic so a 302 does not close the SSH session.
+6. Only after the bypass path is confirmed, run route/content/legal QA against this exact preview.
+7. Then visually inspect desktop and the iPhone 15 Pro Max-class viewport.
+8. Only after explicit user visual approval may R4 close and R5 custom-domain attachment begin.
 
 ## Remaining stages
 
-- [~] R4 — R4I mobile-first candidate committed; verifier fixed; redeploy + automated QA + visual approval pending
+- [~] R4 — R4I preview exists; protected-preview bypass diagnostic + automated QA + visual approval pending
 - [ ] R5 — add `kielivalmis.com` / `www.kielivalmis.com` to KieliValmis Vercel project and capture exact DNS requirements
 - [ ] R6 — change only KieliValmis Namecheap DNS + verify HTTPS/canonical behavior
 - [ ] R7 — build `app.kielivalmis.com` parallel runtime hostname + auth/payment/YKI regression
@@ -231,6 +247,6 @@ Do not proceed to native/store submission if any of these fail: authentication; 
 
 ## Active blocker
 
-**R4I redeployment and visual approval.** Functional infrastructure is healthy, the verifier false-negative is fixed, but visual approval has not been granted. Custom domains and Namecheap DNS remain blocked.
+**R4I protected-preview bypass diagnostics and visual approval.** Functional source verification is healthy and the preview exists, but route QA cannot proceed until the automation bypass succeeds on the preview. Custom domains and Namecheap DNS remain blocked.
 
 Trademark filing/clearance remains a separate legal/business workstream and is not represented here as completed legal clearance.
