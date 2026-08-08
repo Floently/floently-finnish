@@ -2,15 +2,16 @@
 
 **Source of truth:** `docs/product/KIELIVALMIS_REBRAND_MASTERPLAN.md`  
 **Deployment addendum:** `docs/product/KIELIVALMIS_VERCEL_DEPLOYMENT_ARCHITECTURE.md`  
+**Visual/localization direction:** `docs/product/KIELIVALMIS_VISUAL_BRAND_LOCALIZATION_DIRECTION.md`  
 **Repository:** `galapoto/floently-finnish`  
 **Working branch:** `growth/discovery-seo-d2-20260807`  
 **Started:** 2026-08-08
 
 ## Current milestone
 
-**R4I — Mobile-first preview exists and Vercel protection diagnostics PASS. Full preview route/content/legal QA + fresh desktop/mobile visual review pending.**
+**R4L direction lock — R4I protected preview has passed full automated QA. The user has not yet visually reviewed the actual R4I preview; the latest screenshots were from the stable R4H alias. Before the next visual patch, the product direction is now locked around a dedicated KieliValmis endorsed brand, a more photographic human-centered hero, slightly smaller typography, restrained animation, and a permanent 20-language-first localization contract.**
 
-The user explicitly rejected the R4H mobile presentation because the headings remained too large and the hero illustration was not visible early enough in the mobile experience. R4I exists only as a protected Vercel preview and has **not** been promoted to the stable production alias. Do not advance to custom-domain/DNS work until the R4I candidate passes full protected-preview QA and is visually approved.
+Do not advance to custom-domain/DNS work until the final website design is visually approved and the 20-language website architecture is implemented and QA-ready.
 
 ## Locked product architecture
 
@@ -26,6 +27,76 @@ The user explicitly rejected the R4H mobile presentation because the headings re
 - Existing `learn.floently.com`: preserve until a future parallel KieliValmis app-host alias passes auth/payment/YKI regression
 - Existing Floently public Vercel project `main-domain-static`: preserve as Floently family gateway
 - KieliValmis public marketing site: separate Vercel project `kielivalmis-domain-static`
+
+## Brand direction now locked
+
+- KieliValmis should have its **own product logo/wordmark/icon**.
+- Floently should remain as the smaller endorsement: **by Floently**.
+- Do not use the Floently logo alone as the KieliValmis product identity.
+- KieliValmis, Floently, YKI and Komplyint Oy are proper/brand names and are not translated.
+- The future app icon/store identity should follow the same KieliValmis visual system while preserving technical package/bundle IDs.
+
+## Visual direction now locked
+
+The current abstract inline SVG is not the intended final hero.
+
+Next visual candidate should:
+
+- keep the improved R4I mobile structure
+- reduce hero typography slightly again
+- use a premium human-centered AI-generated **photographic** hero rather than abstract dashboard-style artwork
+- avoid fake/baked-in Finnish text inside the image
+- place language-specific phrases, speaking feedback and similar UI as real HTML/CSS so they can be translated
+- preserve a small visible AI-generated disclosure and machine-readable provenance
+- use restrained motion only: slow ambient background movement, subtle waveform/feedback pulse, optional very gentle image drift
+- respect `prefers-reduced-motion`
+- avoid heavy autoplay video, bouncing text, mobile parallax and layout shift
+
+Typography target direction:
+
+- desktop hero: about 44–48 px maximum
+- mobile hero: about 26–28 px
+- desktop section headings: about 32–36 px
+- mobile section headings: about 22–25 px
+
+## Permanent 20-language contract
+
+From this point onward, **every new customer-facing website feature, section, CTA, label, navigation item, notice and newly introduced copy must be designed and implemented for all 20 supported languages from the start.**
+
+Supported languages:
+
+`en, fi, sv, et, es, tr, ru, uk, ar, zh, ku, vi, bn, sq, tl, th, so, ne, fa, ur`
+
+English, Finnish, Swedish, Estonian, Spanish, Turkish, Russian, Ukrainian, Arabic, Chinese, Kurdish, Vietnamese, Bengali, Albanian, Tagalog, Thai, Somali, Nepali, Persian, Urdu.
+
+Localization rules:
+
+- one source schema + locale dictionaries/content files; do not manually maintain 20 duplicated HTML pages
+- generated localized routes/pages
+- locale switcher
+- localized titles/meta descriptions/SEO copy
+- `hreflang` plus `x-default`
+- explicit fallback behavior
+- no raw translation keys may ship
+- Arabic, Persian and Urdu require real RTL layout QA
+- inspect the actual Kurdish script used by the existing product before assigning RTL/LTR behavior for `ku`
+- translation QA must include expansion, wrapping, buttons, nav, headings, cards, legal/footer links and mobile layouts
+- translations must be natural/native and suitable for a language-learning product, not literal machine output
+- preserve the precision that the YKI exam itself is not offered in 20 languages; KieliValmis provides guidance/interface/explanations/feedback in supported languages while Finnish practice remains Finnish
+
+## Website-first, app-second localization sequence
+
+1. finish and visually approve the KieliValmis website design
+2. finalize KieliValmis logo/wordmark and hero visual system
+3. implement website localization architecture
+4. complete and QA all 20 website translations
+5. freeze an approved KieliValmis website/rebrand terminology + translation pack
+6. build the app rebrand/localization pack from that same approved source
+7. update the existing Android/iOS product without changing package/bundle identity
+8. run full app functional + localization regression
+9. update store metadata/assets and release only after the app pack passes
+
+Do not independently rewrite website and app translations after the terminology pack is frozen.
 
 ## Production rollback baseline
 
@@ -48,7 +119,6 @@ The live Learn checkout has remained unchanged throughout all KieliValmis static
 - Team/org ID: `team_Pi5Ylt8nVh9Jzc60Ck7rl5I6`
 - Scope slug: `kompyint-oys-projects`
 - Domains: `floently.com`, `www.floently.com`
-- Repo root: `apps/main-domain-static`
 
 ### KieliValmis Vercel project
 
@@ -57,196 +127,125 @@ The live Learn checkout has remained unchanged throughout all KieliValmis static
 - Org/team ID: `team_Pi5Ylt8nVh9Jzc60Ck7rl5I6`
 - Scope: `kompyint-oys-projects`
 - Stable Vercel alias: `https://kielivalmis-domain-static.vercel.app`
-- R4G deployment with failed external SVG: `https://kielivalmis-domain-static-pq08fyrx3-kompyint-oys-projects.vercel.app`
-- Current deployed R4H rollback candidate: `https://kielivalmis-domain-static-lk9ns71uv-kompyint-oys-projects.vercel.app`
-- Current R4I preview candidate: `https://kielivalmis-domain-static-4ll5bamsm-kompyint-oys-projects.vercel.app`
-- Deployment Protection is enabled; Vercel Protection Bypass for Automation plus ordinary system `curl` is the stable QA path.
-- R4J diagnostics proved the current automation-bypass secret reaches the R4I preview successfully via header, query parameter, and cookie flow, all with HTTP 200.
+- Current stable rollback candidate: R4H at `https://kielivalmis-domain-static-lk9ns71uv-kompyint-oys-projects.vercel.app`
+- Current protected R4I preview: `https://kielivalmis-domain-static-4ll5bamsm-kompyint-oys-projects.vercel.app`
+- Deployment Protection is enabled
+- Vercel Protection Bypass for Automation + normal system `curl` is the QA path
 
 ### KieliValmis DNS baseline
 
 - Namecheap nameservers remain authoritative
-- Apex baseline: `192.64.119.155` (parking)
-- `www` baseline: `parkingpage.namecheap.com.`
-- No KieliValmis custom-domain DNS changes have been made yet
+- Apex: `192.64.119.155` (parking)
+- `www`: `parkingpage.namecheap.com.`
+- No KieliValmis custom-domain DNS changes have been made
 
-**Do not change Namecheap DNS until the final visual design is approved, the custom domains are attached to the correct Vercel project, and Vercel shows the exact required records.**
+**Do not change Namecheap DNS until the final visual design and localization architecture are approved, custom domains are attached to the correct Vercel project, and Vercel shows the exact required records.**
 
-## Completed checkpoints
+## R0–R3 completed
 
-### R0-R1 — Rebrand and infrastructure baselines
+- [x] master rebrand plan
+- [x] execution tracker
+- [x] surface inventory
+- [x] technical-ID preservation policy
+- [x] store rebrand/screenshot strategy
+- [x] legal-route regression policy
+- [x] Hetzner/Nginx/backend rollback baseline
+- [x] Floently domain/Vercel baseline
+- [x] KieliValmis Namecheap parking baseline
+- [x] separate KieliValmis Vercel project architecture
+- [x] isolated static package with landing/legal/support/delete/robots/sitemap/verifier
+- [x] isolated Vercel project created without touching `main-domain-static`
 
-- [x] Master rebrand plan committed
-- [x] Execution tracker created
-- [x] Surface inventory created
-- [x] Technical identifiers that must stay Floently documented
-- [x] Store rebrand / screenshot strategy documented
-- [x] Legal-route regression policy documented
-- [x] Hetzner branch/commit/Nginx/backend baseline captured
-- [x] `floently.com` confirmed on existing Vercel project
-- [x] `kielivalmis.com` confirmed Namecheap parked
-- [x] Separate Vercel-project architecture locked
+## R4 visual/deployment history
 
-### R2 — Isolated KieliValmis static package
+### R4F
 
-The isolated site lives at `apps/kielivalmis-domain-static` and includes landing, privacy, terms, support, delete-account, robots, sitemap, Vercel config and a static regression verifier.
+First typography/mobile refinement deployed but was visually rejected: still cramped, clipped and card-heavy on iPhone 15 Pro Max-class viewport.
 
-The static regression contract has repeatedly passed for identity, 20 languages, legal pages, canonicals, sitemap, redirect locks, transition links and AI-hero disclosure requirements.
+### R4G
 
-### R3 — Isolated Vercel project created
+Image-led redesign introduced an external SVG hero. Source/local verification passed but deployed `/assets/kielivalmis-hero-ai.svg` returned 404. QA stopped correctly. No DNS/runtime/app impact.
 
-- [x] Short-lived Vercel token validated against scope `kompyint-oys-projects`
-- [x] Existing `main-domain-static` confirmed visible and untouched
-- [x] New project `kielivalmis-domain-static` created with project ID `prj_RJPEDkC38WfDxcwWbSsQdRKBSpjd`
-- [x] First deployment created successfully
-- [x] No custom domains added
-- [x] Namecheap DNS untouched
-- [x] Production Learn checkout remained at `e92b98e77...`
+### R4H
 
-### R4 automated deployment QA baseline
+Hero was embedded inline in `index.html`, eliminating the external asset request. Automated deployment QA passed, but final mobile visual approval was withheld because headings were still too large, the mobile header was crowded and the image appeared too late.
 
-After abandoning unreliable beta `vercel curl` behavior in CLI `58.9.0`, QA switched to Vercel Protection Bypass for Automation plus ordinary system `curl`.
+### R4I
 
-Automated route/content/header/redirect QA has passed for the deployed R4H site, including primary routes, legal pages, robots, sitemap, security headers and permanent legal aliases.
+Mobile-first rebuild committed as `133deb42c8ee9d64f25712159c8b63610a470c90`.
 
-### R4F — First typography/mobile refinement not visually approved
+Key structural changes:
 
-The first refinement reduced heading sizes and attempted compact mobile cards, but the browser still showed a cramped, clipped and card-heavy experience on an iPhone 15 Pro Max-class viewport. Visual approval was withheld.
+- mobile hero about 28–31 px
+- mobile nav intended to be brand-only
+- mobile ordering intended as kicker → headline → image → copy → focus points → CTA → transition note
+- full-width primary mobile CTA
+- compact 2x2 focus points
+- smaller content/card typography
+- inline AI hero + provenance preserved
 
-### R4G — Image-led redesign and external-SVG deployment incident
+Verifier false-negative occurred because the source used compact JSON (`"@type":"ImageObject"`) while the verifier expected whitespace. Verifier was corrected without weakening the requirement in commit `4e148f79554b7fbd66cbba55b8a3f42122c631c4`.
 
-The landing was redesigned around an AI-generated editorial illustration. The external hero asset existed in source and local archive but returned HTTP 404 on Vercel. QA correctly stopped. No DNS, Nginx, runtime, billing or app changes occurred.
+R4I protected preview created:
 
-### R4H — Inline hero recovery and automated deployment QA PASS
+`https://kielivalmis-domain-static-4ll5bamsm-kompyint-oys-projects.vercel.app`
 
-The hero illustration was embedded directly in `index.html`, eliminating the external image request. The verifier forbids reintroducing `/assets/kielivalmis-hero-ai.svg`.
+R4J protection diagnostic:
 
-Recovery commits:
+- [x] header bypass HTTP 200
+- [x] query bypass HTTP 200
+- [x] cookie flow HTTP 200
+- [x] real KieliValmis HTML reached
 
-- `870dbb0121e07d615b2a32191c3baefd9c3cb515` — inline AI hero
-- `58b43b837600e5ced23cb940c8a371b937e611ae` — verifier guards inline AI disclosure
-- `669e82dd8c189be0170ce9bb808b16b8b68bf6d7` — remove obsolete external SVG
-- `317ed4e62a8dad0612676043908005840a88313b` — record SVG 404/recovery
+R4K full protected-preview QA:
 
-R4H deployed successfully:
-
-- Deployment: `https://kielivalmis-domain-static-lk9ns71uv-kompyint-oys-projects.vercel.app`
 - [x] all primary routes HTTP 200
-- [x] inline hero SVG present in deployed HTML
-- [x] AI metadata and visible `AI-generated illustration` disclosure present
-- [x] four legal compatibility redirects HTTP 308
-- [x] static regression contract PASS
-- [x] final Learn production branch/commit remained unchanged
-- [x] Namecheap DNS remained untouched
+- [x] R4I mobile layout markers PASS
+- [x] hero content PASS
+- [x] AI disclosure + metadata PASS
+- [x] all 20 language markers PASS
+- [x] legal content PASS
+- [x] robots + sitemap PASS
+- [x] security headers PASS
+- [x] `/privacy-policy` -> 308 -> `/privacy`
+- [x] `/legal/privacy-policy` -> 308 -> `/privacy`
+- [x] `/account-deletion` -> 308 -> `/delete-account`
+- [x] `/legal/account-deletion` -> 308 -> `/delete-account`
+- [x] `RESULT: KIELIVALMIS R4I PREVIEW FULL QA PASS`
+- [x] final Learn production remained `preview/enable-all-languages` at `e92b98e7799c390bc52b42d724c57f197ffd5c0d`
 
-However, R4H **did not pass final visual approval**. At the iPhone 15 Pro Max-class viewport the user reported:
+## Important screenshot clarification
 
-- headings still too large
-- mobile layout still felt like a compressed desktop page
-- top-right app CTA continued competing with brand identity
-- hero picture was not visible early enough in the mobile page
+The screenshots supplied after R4K were from the stable hostname `kielivalmis-domain-static.vercel.app`, which remained the R4H stable candidate. The visible mobile top-right `Open app` button and picture-after-copy layout also match R4H, not the R4I mobile ordering.
 
-## R4I — Active mobile-first visual rebuild
+Therefore:
 
-Landing source:
+- R4I is functionally QA-clean
+- R4I has **not yet received a real browser visual review by the user**
+- do not infer R4I visual approval from the latest screenshots
 
-`apps/kielivalmis-domain-static/index.html`
+## Immediate next step
 
-Commit:
+Before changing production or DNS:
 
-`133deb42c8ee9d64f25712159c8b63610a470c90`
-
-R4I deliberately replaces the R4H layout rather than layering another small CSS override on it.
-
-### R4I design changes
-
-- [x] exact hero headline preserved: `Prepare for YKI. Prepare for work in Finland. In your language.`
-- [x] desktop hero maximum reduced to about 54px
-- [x] desktop section headings reduced to about 40px maximum
-- [x] mobile hero headline reduced to roughly 28–31px
-- [x] mobile section headings reduced to roughly 24–28px
-- [x] mobile navigation is brand-only; the top-right `Open app` CTA is hidden
-- [x] mobile hero is explicitly reordered as kicker -> headline -> illustration -> short copy -> focus points -> primary CTA -> transition note
-- [x] hero illustration is therefore visible immediately after the headline instead of below the entire text/CTA block
-- [x] mobile primary action is full width
-- [x] Android remains available as a quiet secondary text link, preserving the existing Google Play package URL
-- [x] mobile focus points use a compact 2x2 grid
-- [x] content/card typography and padding reduced throughout mobile sections
-- [x] mobile remains strictly single-column for YKI/work content
-- [x] inline AI illustration remains self-contained with no external network asset dependency
-- [x] visible tiny `AI-generated illustration` label remains inside the SVG and in the caption
-- [x] page-level `ai-content-disclosure`, Schema.org `ImageObject`, `data-ai-generated="true"`, SVG metadata, creator, generation method, date, purpose and disclosure remain
-- [x] legal/footer links, canonical identity, 20 languages, YKI clarification, web-app URL and Android package URL remain
-
-### R4I first deployment attempt — verifier false-negative
-
-The first R4I deploy attempt stopped before Vercel deployment during `npm run verify`.
-
-Observed error:
-
-`Inline AI hero metadata/disclosure missing: "@type": "ImageObject"`
-
-Inspection confirmed that R4I **did still contain** the Schema.org `ImageObject`; the source used compact JSON formatting (`"@type":"ImageObject"`) while the verifier required an exact whitespace-sensitive string (`"@type": "ImageObject"`).
-
-Resolution:
-
-- [x] do not weaken or remove the ImageObject requirement
-- [x] preserve the R4I page metadata exactly
-- [x] make the verifier semantic/whitespace-safe with regex `"@type"\s*:\s*"ImageObject"`
-- [x] verifier fix committed as `4e148f79554b7fbd66cbba55b8a3f42122c631c4`
-- [x] no Vercel deployment occurred during the failed attempt
-- [x] no custom domain or Namecheap DNS change occurred
-- [x] live Learn production remained on `preview/enable-all-languages` at `e92b98e77...`
-
-### R4I preview deployment and R4J protection diagnostic
-
-The second R4I attempt passed all local source/static gates and created a **preview-only** Vercel deployment:
-
-- Preview: `https://kielivalmis-domain-static-4ll5bamsm-kompyint-oys-projects.vercel.app`
-- [x] `KIELIVALMIS_STATIC_INLINE_AI_HERO_DISCLOSURE=PASS`
-- [x] `RESULT: KIELIVALMIS STATIC SITE REGRESSION CONTRACT PASS`
-- [x] `KIELIVALMIS_R4I_SOURCE=PASS`
-- [x] preview created with `vercel deploy` without `--prod`
-- [x] Vercel explicitly reported that production would require a separate `vercel --prod`
-- [x] stable R4H production alias was therefore not intentionally promoted by this operation
-- [x] the first combined preview QA script observed `/` as HTTP 302 and stopped before route QA completed
-
-R4J reused the exact same preview and exact same automation bypass secret without redeploying. Results:
-
-- [x] header bypass -> HTTP 200
-- [x] header Location -> none
-- [x] query-parameter bypass -> HTTP 200
-- [x] query Location -> none
-- [x] bypass-cookie flow final status -> HTTP 200
-- [x] real KieliValmis preview HTML reached (`KIELIVALMIS_PREVIEW_BODY=PASS`)
-- [x] live Learn checkout remained `preview/enable-all-languages` at `e92b98e77...`
-- [x] no custom domain, DNS, Nginx, runtime, billing or app change occurred
-
-Interpretation: the preview deployment and bypass secret are healthy. The earlier 302 came from the specific combined QA invocation, not from a broken preview or invalid automation secret. Do not redeploy merely to address that historical 302.
-
-## Current next step — full QA on existing R4I preview, then visual review
-
-1. Reuse `https://kielivalmis-domain-static-4ll5bamsm-kompyint-oys-projects.vercel.app`; do not create another deployment.
-2. Run all primary route checks with the now-confirmed header bypass method.
-3. Verify R4I HTML markers, mobile-first CSS markers, inline SVG metadata/disclosure, 20-language content, legal pages, robots and sitemap.
-4. Verify the four permanent compatibility redirects.
-5. Keep stable R4H production alias unchanged while R4I is under review.
-6. Open the R4I preview while authenticated to Vercel (or use the bypass-cookie flow) and inspect desktop typography/hero composition.
-7. Test the same iPhone 15 Pro Max-class viewport and confirm the picture is directly after the smaller headline, navigation is brand-only, CTA hierarchy is calm, and there is no horizontal clipping.
-8. Only after explicit user visual approval may R4I be promoted to the stable KieliValmis alias.
-9. Only after promotion and final regression may R4 close and R5 custom-domain attachment begin.
+1. visually inspect the actual R4I preview URL, not the stable alias
+2. use that inspection only to preserve any R4I structural improvements worth keeping
+3. create the next preview candidate with the newly locked direction: smaller typography, KieliValmis-specific endorsed logo, premium photographic hero, restrained motion, 20-language-first structure
+4. keep the candidate preview-only
+5. add localization completeness/RTL/SEO gates before any public-domain promotion
+6. only after explicit user visual approval and 20-language readiness may R4 close and R5 begin
 
 ## Remaining stages
 
-- [~] R4 — R4I preview protection PASS; full preview QA + visual approval + promotion pending
-- [ ] R5 — add `kielivalmis.com` / `www.kielivalmis.com` to KieliValmis Vercel project and capture exact DNS requirements
-- [ ] R6 — change only KieliValmis Namecheap DNS + verify HTTPS/canonical behavior
+- [~] R4 — design/localization finalization, actual preview visual approval and promotion
+- [ ] R5 — attach `kielivalmis.com` / `www.kielivalmis.com` to the KieliValmis Vercel project and capture exact DNS requirements
+- [ ] R6 — change only KieliValmis Namecheap DNS + verify HTTPS/canonical/localized routing
 - [ ] R7 — build `app.kielivalmis.com` parallel runtime hostname + auth/payment/YKI regression
-- [ ] R8 — SEO old-to-new URL map + Search Console migration
-- [ ] R9 — store metadata package
+- [ ] R8 — multilingual SEO URL map + Search Console/hreflang validation
+- [ ] R9 — store metadata package in approved languages/markets
 - [ ] R10 — store graphics/screenshots package
-- [ ] R11 — native visible-brand patch, same package/bundle IDs
-- [ ] R12 — full app regression gate
+- [ ] R11 — app KieliValmis visible-brand + 20-language pack, same package/bundle IDs
+- [ ] R12 — full app functional/localization regression gate
 - [ ] R13 — Android KieliValmis update
 - [ ] R14 — iOS KieliValmis update
 - [ ] R15 — post-release verification
@@ -254,10 +253,10 @@ Interpretation: the preview deployment and bypass secret are healthy. The earlie
 
 ## Regression blockers
 
-Do not proceed to native/store submission if any of these fail: authentication; subscription purchase/restore; YKI completion/submission/evaluation/report; roleplay/export; card banks; streak/progress; legal URLs; support/delete-account; production web/API calls; app upgrade continuity.
+Do not proceed to native/store submission if any of these fail: authentication; subscription purchase/restore; YKI completion/submission/evaluation/report; roleplay/export; card banks; streak/progress; legal URLs; support/delete-account; production web/API calls; app upgrade continuity; localization completeness; RTL layout; or critical translated UI overflow.
 
 ## Active blocker
 
-**R4I full protected-preview QA and visual approval.** Functional source verification is healthy, the preview exists, and protection bypass is confirmed healthy. Custom domains and Namecheap DNS remain blocked.
+**Final KieliValmis website visual system + 20-language website architecture and translation QA.** Custom domains and Namecheap DNS remain blocked.
 
 Trademark filing/clearance remains a separate legal/business workstream and is not represented here as completed legal clearance.
