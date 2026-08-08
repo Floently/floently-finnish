@@ -8,7 +8,7 @@
 
 ## Current milestone
 
-**R4 — Complete deployed KieliValmis route/content/header/redirect QA before custom-domain/DNS work**
+**R4 — Automated deployed QA PASS; browser visual QA is the final gate before custom-domain attachment**
 
 ## Locked architecture
 
@@ -137,62 +137,13 @@ Deployment Protection finding:
 
 - Direct unauthenticated HTTP to the generated deployment URL returned `302`
 - Redirect target was Vercel `/sso-api`
-- Response included `x-robots-tag: noindex`
 - This indicates Vercel Authentication/Deployment Protection on the generated deployment URL, not an application failure
 
 No custom domain has been added and Namecheap DNS remains untouched.
 
-### R4A attempt 1 — QA command parser failure before any route request
+### R4A-R4C — `vercel curl` attempts rejected before application QA
 
-The first protected-route QA command did **not** reach the KieliValmis deployment. Vercel CLI exited while parsing arguments with:
-
-`ArgError: option requires argument: -S (alias for --scope)`
-
-Root cause: the QA script forwarded grouped native curl short flags `-sS`. Vercel CLI also reserves `-S` as the shorthand for its global `--scope` option, so the CLI parser interpreted the `S` in `-sS` as Vercel scope syntax instead of native curl `--show-error`.
-
-Safety/result:
-
-- [x] Failure occurred before route QA began
-- [x] No KieliValmis site content or redirect result was evaluated
-- [x] No Vercel project setting was changed
-- [x] No deployment was changed
-- [x] No custom domain was added
-- [x] No Namecheap DNS was changed
-- [x] No Nginx/Docker/runtime change was made
-
-### R4B attempt 2 — global options forwarded to system curl
-
-The minimal smoke command also did **not** reach the KieliValmis deployment. Vercel CLI started `vercel curl`, but the downstream system curl exited with:
-
-`curl: option --token: is unknown`
-
-Root cause: `--scope` and `--token` were placed after the `curl` subcommand/target. `vercel curl` is a passthrough wrapper around system curl, so those arguments were forwarded downstream rather than treated as Vercel global options.
-
-Safety/result:
-
-- [x] No application route was evaluated
-- [x] No deployment/project/domain setting was changed
-- [x] No custom domain was added
-- [x] Namecheap DNS remains untouched
-
-### R4C attempt 3 — documented global-option ordering still forwarded token in CLI 58.9.0
-
-The corrected smoke command placed `--scope` and `--token` before the `curl` subcommand exactly as intended for Vercel global options, but Vercel CLI `58.9.0` still launched the downstream system curl with `--token`, which failed with:
-
-`curl: option --token: is unknown`
-
-Observed result:
-
-- `VERCEL_CURL_EXIT_CODE=2`
-- Production branch remained `preview/enable-all-languages`
-- Production commit remained `e92b98e7799c390bc52b42d724c57f197ffd5c0d`
-- No protected application route was reached
-- No Vercel project/deployment/domain setting changed
-- No Namecheap DNS changed
-
-Decision after three beta-CLI parser/passthrough failures:
-
-**Stop retrying `vercel curl` for this release path.** Switch to Vercel's supported **Protection Bypass for Automation** method and ordinary system `curl` with the `x-vercel-protection-bypass` header.
+Three attempts to use beta `vercel curl` failed because of CLI/system-curl parser and argument-forwarding behavior in Vercel CLI `58.9.0`. None of those attempts changed the project, deployment, domain, DNS, Nginx, Docker, or runtime. The release gate was moved to Vercel Protection Bypass for Automation plus ordinary system `curl`.
 
 ### R4D — Protection Bypass for Automation smoke PASS
 
@@ -207,35 +158,74 @@ Observed result:
 - [x] `KIELIVALMIS_PROTECTED_HOME=PASS`
 - [x] Production branch remained `preview/enable-all-languages`
 - [x] Production commit remained `e92b98e7799c390bc52b42d724c57f197ffd5c0d`
-- [x] No Vercel project/deployment/domain setting changed during smoke QA
-- [x] No Namecheap DNS changed
 
-R4D proves the deployed application itself is reachable and correct through the supported automation-bypass route. Continue R4 with ordinary `curl`; do not return to `vercel curl` for this release gate.
+### R4E — Full deployed route/content/header/redirect QA PASS
 
-## Current next step — R4 full deployed QA via ordinary curl
+Full automated QA was run against the actual protected deployment using ordinary `curl` plus the temporary `x-vercel-protection-bypass` header.
 
-Using the same temporary automation-bypass secret, validate the actual deployment for:
+Primary route results:
 
-- `/`
-- `/privacy`
-- `/terms`
-- `/support`
-- `/delete-account`
-- `/robots.txt`
-- `/sitemap.xml`
-- permanent legal aliases from `vercel.json`
-- expected KieliValmis identity/canonical markers
-- expected security/SEO headers
+- [x] `/` -> HTTP 200
+- [x] `/privacy` -> HTTP 200
+- [x] `/terms` -> HTTP 200
+- [x] `/support` -> HTTP 200
+- [x] `/delete-account` -> HTTP 200
+- [x] `/robots.txt` -> HTTP 200
+- [x] `/sitemap.xml` -> HTTP 200
 
-After the full R4 route/content/header/redirect QA passes, perform visual QA of the protected deployment in a browser. Then revoke/delete the temporary automation-bypass secret.
+Content contracts:
 
-Only after R4 is fully complete should `kielivalmis.com` and `www.kielivalmis.com` be added to the Vercel project and the exact DNS records requested by Vercel captured.
+- [x] `KIELIVALMIS_DEPLOYED_HOME=PASS`
+- [x] `KIELIVALMIS_DEPLOYED_20_LANGUAGES=PASS`
+- [x] `KIELIVALMIS_DEPLOYED_PRIVACY=PASS`
+- [x] `KIELIVALMIS_DEPLOYED_TERMS=PASS`
+- [x] `KIELIVALMIS_DEPLOYED_SUPPORT=PASS`
+- [x] `KIELIVALMIS_DEPLOYED_DELETE_ACCOUNT=PASS`
+- [x] `KIELIVALMIS_DEPLOYED_ROBOTS=PASS`
+- [x] `KIELIVALMIS_DEPLOYED_SITEMAP=PASS`
+
+Security/SEO headers:
+
+- [x] `X-Content-Type-Options: nosniff`
+- [x] `Referrer-Policy: strict-origin-when-cross-origin`
+- [x] Protected deployment returned `x-robots-tag: index, follow`
+- [x] `KIELIVALMIS_DEPLOYED_SECURITY_HEADERS=PASS`
+
+Permanent legal aliases:
+
+- [x] `/privacy-policy` -> HTTP 308 -> `/privacy`
+- [x] `/legal/privacy-policy` -> HTTP 308 -> `/privacy`
+- [x] `/account-deletion` -> HTTP 308 -> `/delete-account`
+- [x] `/legal/account-deletion` -> HTTP 308 -> `/delete-account`
+- [x] `KIELIVALMIS_DEPLOYED_LEGAL_REDIRECTS=PASS`
+
+Final automated result:
+
+- [x] `RESULT: KIELIVALMIS R4 AUTOMATED DEPLOYMENT QA PASS`
+- [x] Production branch after QA remained `preview/enable-all-languages`
+- [x] Production commit after QA remained `e92b98e7799c390bc52b42d724c57f197ffd5c0d`
+- [x] QA secret was removed from the server shell and temporary files were deleted
+- [x] No custom domain or Namecheap DNS change occurred during R4E
+
+## Current next step — final R4 browser visual QA
+
+Open the protected deployment in a browser while authenticated to the Vercel team, or use the documented automation-bypass browser-cookie method. Check desktop and narrow/mobile layouts for:
+
+- KieliValmis brand header / `by Floently` attribution
+- hero text and CTAs
+- YKI and work sections
+- 20-language chips
+- footer/legal links
+- privacy, terms, support and delete-account pages
+- no clipping, overlap, horizontal overflow, broken typography or unreadable contrast
+
+After visual QA passes, revoke/delete the temporary automation-bypass secret. Then advance to R5.
 
 ## Planned stages
 
 - [x] R2 — isolated static package + regression PASS
 - [x] R3 — create isolated Vercel project and initial deployment
-- [~] R4 — protected route/content/header/redirect QA + visual QA
+- [~] R4 — automated deployed QA PASS; browser visual QA pending
 - [ ] R5 — add KieliValmis custom domains and capture Vercel DNS requirements
 - [ ] R6 — change only KieliValmis Namecheap DNS + verify HTTPS/canonical behavior
 - [ ] R7 — build `app.kielivalmis.com` parallel runtime hostname + auth/payment/YKI regression
@@ -255,6 +245,6 @@ Do not proceed to native/store submission if any of these fail: authentication; 
 
 ## Active blocker
 
-**R4 full deployed QA only.** The KieliValmis Vercel project and first deployment exist and are isolated correctly. Automation-bypass smoke QA is now PASS. Custom domains and Namecheap DNS must remain untouched until full route/content/header/redirect QA and visual QA pass.
+**Only browser visual QA remains in R4.** Automated route/content/header/redirect QA has passed completely. Custom domains may be attached after visual QA, but Namecheap DNS must remain unchanged until Vercel shows and we capture the exact required records for both `kielivalmis.com` and `www.kielivalmis.com`.
 
 Trademark filing/clearance remains a parallel business/legal workstream and is not represented here as completed legal clearance.
