@@ -8,7 +8,7 @@
 
 ## Current milestone
 
-**R4 — Validate deployed KieliValmis site through protected-route QA before custom-domain/DNS work**
+**R4 — Complete deployed KieliValmis route/content/header/redirect QA before custom-domain/DNS work**
 
 ## Locked architecture
 
@@ -192,20 +192,29 @@ Observed result:
 
 Decision after three beta-CLI parser/passthrough failures:
 
-**Stop retrying `vercel curl` for this release path.** The official command is still marked beta, and the observed CLI behavior on 58.9.0 is not reliable enough for our release gate. Switch to Vercel's documented **Protection Bypass for Automation** method, then use ordinary system `curl` with the `x-vercel-protection-bypass` header. This keeps Deployment Protection enabled while giving our QA request explicit, revocable access.
+**Stop retrying `vercel curl` for this release path.** Switch to Vercel's supported **Protection Bypass for Automation** method and ordinary system `curl` with the `x-vercel-protection-bypass` header.
 
-## Current next step — R4 protected deployment QA via automation bypass
+### R4D — Protection Bypass for Automation smoke PASS
 
-In the Vercel dashboard for `kielivalmis-domain-static`:
+A Vercel Protection Bypass for Automation secret was created for QA and entered only through a hidden server-terminal prompt. Ordinary system `curl` requested the protected KieliValmis deployment with the `x-vercel-protection-bypass` header.
 
-1. Open **Settings → Deployment Protection**.
-2. Under **Protection Bypass for Automation**, create a short-lived QA bypass secret (suggested note/name: `kielivalmis-r4-qa`).
-3. Do not paste the secret into chat or commit it.
-4. Enter it only into the server terminal using a hidden `read -rsp` prompt.
-5. Test the protected deployment with ordinary `curl` and the header `x-vercel-protection-bypass: <secret>`.
-6. After R4 QA passes, revoke/delete the temporary bypass secret.
+Observed result:
 
-Validate at minimum:
+- [x] Home request returned `HTTP_CODE=200`
+- [x] `<title>KieliValmis...` marker matched
+- [x] `Prepare for YKI` marker matched
+- [x] `Guidance in 20 languages` marker matched
+- [x] `KIELIVALMIS_PROTECTED_HOME=PASS`
+- [x] Production branch remained `preview/enable-all-languages`
+- [x] Production commit remained `e92b98e7799c390bc52b42d724c57f197ffd5c0d`
+- [x] No Vercel project/deployment/domain setting changed during smoke QA
+- [x] No Namecheap DNS changed
+
+R4D proves the deployed application itself is reachable and correct through the supported automation-bypass route. Continue R4 with ordinary `curl`; do not return to `vercel curl` for this release gate.
+
+## Current next step — R4 full deployed QA via ordinary curl
+
+Using the same temporary automation-bypass secret, validate the actual deployment for:
 
 - `/`
 - `/privacy`
@@ -218,13 +227,15 @@ Validate at minimum:
 - expected KieliValmis identity/canonical markers
 - expected security/SEO headers
 
-Only after route/content QA passes should `kielivalmis.com` and `www.kielivalmis.com` be added to the Vercel project and the exact DNS records requested by Vercel captured.
+After the full R4 route/content/header/redirect QA passes, perform visual QA of the protected deployment in a browser. Then revoke/delete the temporary automation-bypass secret.
+
+Only after R4 is fully complete should `kielivalmis.com` and `www.kielivalmis.com` be added to the Vercel project and the exact DNS records requested by Vercel captured.
 
 ## Planned stages
 
 - [x] R2 — isolated static package + regression PASS
 - [x] R3 — create isolated Vercel project and initial deployment
-- [~] R4 — protected route/content QA + visual QA
+- [~] R4 — protected route/content/header/redirect QA + visual QA
 - [ ] R5 — add KieliValmis custom domains and capture Vercel DNS requirements
 - [ ] R6 — change only KieliValmis Namecheap DNS + verify HTTPS/canonical behavior
 - [ ] R7 — build `app.kielivalmis.com` parallel runtime hostname + auth/payment/YKI regression
@@ -244,6 +255,6 @@ Do not proceed to native/store submission if any of these fail: authentication; 
 
 ## Active blocker
 
-**R4 deployed-route/content QA only.** The KieliValmis Vercel project and first deployment exist and are isolated correctly. Three `vercel curl` attempts failed before any protected application request because of CLI parser/passthrough behavior. Custom domains and Namecheap DNS must remain untouched until R4 passes through the supported automation-bypass route.
+**R4 full deployed QA only.** The KieliValmis Vercel project and first deployment exist and are isolated correctly. Automation-bypass smoke QA is now PASS. Custom domains and Namecheap DNS must remain untouched until full route/content/header/redirect QA and visual QA pass.
 
 Trademark filing/clearance remains a parallel business/legal workstream and is not represented here as completed legal clearance.
