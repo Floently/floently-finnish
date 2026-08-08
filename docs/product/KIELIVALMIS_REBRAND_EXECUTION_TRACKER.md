@@ -8,7 +8,7 @@
 
 ## Current milestone
 
-**R2 — Isolated KieliValmis static site built in GitHub; verification pending**
+**R3 — Create isolated KieliValmis Vercel project and preview deployment**
 
 ## Locked product architecture
 
@@ -138,25 +138,34 @@ Current legal strategy:
 - subscription cancellation remains separate from account deletion
 - legal aliases are locked in `vercel.json`
 
-## Verification still required before Vercel project creation
+### R2B — Isolated static regression contract PASS
 
-Run the KieliValmis static verifier from the GitHub branch without changing the production working tree.
+Read-only verification was executed from the server by fetching the rebrand branch, extracting only `apps/kielivalmis-domain-static` into a temporary directory, running the package verifier, then returning to the production checkout.
 
-Expected PASS markers:
+PASS markers captured:
 
-- `KIELIVALMIS_STATIC_IDENTITY=PASS`
-- `KIELIVALMIS_STATIC_20_LANGUAGES=PASS`
-- `KIELIVALMIS_STATIC_LEGAL_PAGES=PASS`
-- `KIELIVALMIS_STATIC_CANONICALS=PASS`
-- `KIELIVALMIS_STATIC_SITEMAP=PASS`
-- `KIELIVALMIS_STATIC_REDIRECT_LOCKS=PASS`
-- `KIELIVALMIS_STATIC_TRANSITION_LINKS=PASS`
-- `RESULT: KIELIVALMIS STATIC SITE REGRESSION CONTRACT PASS`
+- [x] `KIELIVALMIS_STATIC_IDENTITY=PASS`
+- [x] `KIELIVALMIS_STATIC_20_LANGUAGES=PASS`
+- [x] `KIELIVALMIS_STATIC_LEGAL_PAGES=PASS`
+- [x] `KIELIVALMIS_STATIC_CANONICALS=PASS`
+- [x] `KIELIVALMIS_STATIC_SITEMAP=PASS`
+- [x] `KIELIVALMIS_STATIC_REDIRECT_LOCKS=PASS`
+- [x] `KIELIVALMIS_STATIC_TRANSITION_LINKS=PASS`
+- [x] `RESULT: KIELIVALMIS STATIC SITE REGRESSION CONTRACT PASS`
+
+Production safety proof after verification:
+
+- [x] Branch remained `preview/enable-all-languages`
+- [x] Commit remained `e92b98e7799c390bc52b42d724c57f197ffd5c0d`
+- [x] No production checkout, Nginx, Docker, DNS or runtime changes were made
+- [x] Remote rebrand branch was successfully fetched at `96871c54dff8eaa8ee975fbbc3f1084d55b8ffe9` before this tracker update
+
+R2 verification is complete.
 
 ## Next stages
 
-- [~] R2 — Verify isolated static package
-- [ ] R3 — Create isolated Vercel project and preview deployment
+- [x] R2 — Verify isolated static package
+- [~] R3 — Create isolated Vercel project and preview deployment
 - [ ] R4 — Visual/content QA of preview + legal-route QA
 - [ ] R5 — Add `kielivalmis.com` / `www.kielivalmis.com` to new project and capture exact DNS requirements
 - [ ] R6 — Change only KieliValmis Namecheap DNS and verify HTTPS/canonical behavior
@@ -195,9 +204,13 @@ Do not proceed to native/store submission if any of these fail:
 - `4ef5970c0b5bb4a1b1f90aba7c6bb15a37d8d7bf` — Vercel/DNS baseline
 - `177175788bb35d65e1e456adbcb006cc77c29b98` — isolated Vercel architecture
 - `8680b912921d4575a698a7940eea2a15742fee62` through `fedaf6c09bac20a4b2e3e48a39e1449d4741f98b` — initial isolated KieliValmis static site package
+- `96871c54dff8eaa8ee975fbbc3f1084d55b8ffe9` — advance tracker to isolated static verification
+- This tracker update records R2 regression PASS and advances work to R3
 
 ## Active blocker
 
-**Verification only.** The isolated static package must pass its regression verifier before a new Vercel project is created or any DNS change is made.
+**New isolated Vercel project does not exist yet.**
+
+Create `kielivalmis-domain-static` as a separate Vercel project rooted at `apps/kielivalmis-domain-static`, deploy a preview, and test it before adding custom domains or changing Namecheap DNS.
 
 Trademark filing/clearance remains a parallel business/legal workstream and is not represented here as completed legal clearance.
