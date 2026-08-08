@@ -117,26 +117,9 @@ Created on the working branch only; not deployed:
 - [x] `apps/kielivalmis-domain-static/sitemap.xml`
 - [x] `apps/kielivalmis-domain-static/verify-kielivalmis-domain-static.mjs`
 
-Current KieliValmis landing strategy includes:
+Current KieliValmis landing strategy includes YKI + work in Finland + learner language, guidance in 20 supported languages, speaking/grammar/vocabulary/sentence/roleplay practice, all four YKI skills, an independent-YKI disclaimer, transition wording to the existing Floently Finnish service, the existing `learn.floently.com` web-app link, the existing Google Play package link, and intentional Floently attribution.
 
-- YKI + work in Finland + learner's language
-- guidance in 20 supported languages
-- speaking, grammar, vocabulary, sentence practice and roleplay
-- all four YKI skills
-- explicit independent-YKI disclaimer
-- transition statement connecting KieliValmis to the existing Floently Finnish service
-- existing web app link retained at `learn.floently.com` during transition
-- existing Google Play package link retained
-- Floently attribution retained intentionally
-
-Current legal strategy:
-
-- Product identity: KieliValmis
-- Attribution: Floently product by Komplyint Oy
-- Existing support address preserved: `support@floently.com`
-- deletion page explicitly states uninstalling the app is not account deletion
-- subscription cancellation remains separate from account deletion
-- legal aliases are locked in `vercel.json`
+Current legal strategy keeps KieliValmis as product identity, Floently/Komplyint Oy attribution, existing `support@floently.com`, explicit account-deletion instructions, separate subscription-cancellation guidance, and legal aliases locked in `vercel.json`.
 
 ### R2B — Isolated static regression contract PASS
 
@@ -158,9 +141,28 @@ Production safety proof after verification:
 - [x] Branch remained `preview/enable-all-languages`
 - [x] Commit remained `e92b98e7799c390bc52b42d724c57f197ffd5c0d`
 - [x] No production checkout, Nginx, Docker, DNS or runtime changes were made
-- [x] Remote rebrand branch was successfully fetched at `96871c54dff8eaa8ee975fbbc3f1084d55b8ffe9` before this tracker update
 
 R2 verification is complete.
+
+### R3A attempt 1 — Vercel device login interrupted before project creation
+
+A second isolated extraction on the server re-ran the full static verifier and again returned PASS for all seven KieliValmis regression markers.
+
+Vercel CLI was then launched ephemerally with `npx --yes vercel@latest` and reported CLI version `58.9.0` on Node.js `20.20.2`. `vercel login` generated a browser device-authorization URL/code, but the SSH connection closed while the CLI was waiting for browser authorization.
+
+Safety/result:
+
+- [x] Static package re-verification PASS
+- [x] No Vercel project was created before the disconnect
+- [x] No preview deployment was created before the disconnect
+- [x] No custom domain was added
+- [x] No Namecheap DNS was changed
+- [x] No Nginx/Docker/runtime change was made
+- [x] The deploy workspace/config was intentionally temporary; the shell cleanup trap removes it when the SSH shell exits
+
+Decision after attempt 1:
+
+**Do not repeat device-code authentication inside a fragile SSH session.** Use a short-lived Vercel account access token scoped to the same team as `main-domain-static`, enter it only in the server terminal, and authenticate the isolated CLI deployment with `--token`. Never paste the token into chat, commit it, write it into the repository, or leave it in shell history.
 
 ## Next stages
 
@@ -182,18 +184,7 @@ R2 verification is complete.
 
 ## Regression blockers
 
-Do not proceed to native/store submission if any of these fail:
-
-- authentication
-- subscription purchase/restore
-- YKI completion/submission/evaluation/report
-- roleplay/export
-- card banks
-- streak/progress
-- legal URLs
-- support/delete-account
-- production web/API calls
-- app upgrade continuity
+Do not proceed to native/store submission if any of these fail: authentication; subscription purchase/restore; YKI completion/submission/evaluation/report; roleplay/export; card banks; streak/progress; legal URLs; support/delete-account; production web/API calls; app upgrade continuity.
 
 ## Recent repository commits
 
@@ -204,13 +195,11 @@ Do not proceed to native/store submission if any of these fail:
 - `4ef5970c0b5bb4a1b1f90aba7c6bb15a37d8d7bf` — Vercel/DNS baseline
 - `177175788bb35d65e1e456adbcb006cc77c29b98` — isolated Vercel architecture
 - `8680b912921d4575a698a7940eea2a15742fee62` through `fedaf6c09bac20a4b2e3e48a39e1449d4741f98b` — initial isolated KieliValmis static site package
-- `96871c54dff8eaa8ee975fbbc3f1084d55b8ffe9` — advance tracker to isolated static verification
-- This tracker update records R2 regression PASS and advances work to R3
+- `6598019522657fb28e45eac3a50aa3179af4b31a` — record R2 regression PASS and advance to R3
+- This update records the interrupted R3A device-login attempt and token-authentication fallback.
 
 ## Active blocker
 
-**New isolated Vercel project does not exist yet.**
-
-Create `kielivalmis-domain-static` as a separate Vercel project rooted at `apps/kielivalmis-domain-static`, deploy a preview, and test it before adding custom domains or changing Namecheap DNS.
+**Vercel authentication/project creation only.** The isolated site itself has passed twice. Create `kielivalmis-domain-static` as a separate Vercel project and obtain a preview URL before any custom-domain or DNS work.
 
 Trademark filing/clearance remains a parallel business/legal workstream and is not represented here as completed legal clearance.
