@@ -43,7 +43,6 @@ for (const marker of [
   'data-ai-generated="true"',
   'AI-generated illustration',
   'ai-content-disclosure',
-  '"@type": "ImageObject"',
   '<svg class="hero-art"',
   '<metadata id="ai-generation-metadata">',
   '"aiGenerated": true',
@@ -55,6 +54,10 @@ for (const marker of [
   '>AI-generated illustration</text>',
 ]) {
   if (!files.home.includes(marker)) throw new Error(`Inline AI hero metadata/disclosure missing: ${marker}`);
+}
+
+if (!/"@type"\s*:\s*"ImageObject"/.test(files.home)) {
+  throw new Error('Inline AI hero metadata/disclosure missing: Schema.org ImageObject');
 }
 
 if (files.home.includes('/assets/kielivalmis-hero-ai.svg')) {
