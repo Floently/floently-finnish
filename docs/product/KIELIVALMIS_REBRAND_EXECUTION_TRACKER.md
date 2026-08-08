@@ -139,7 +139,6 @@ Deployment Protection finding:
 - Redirect target was Vercel `/sso-api`
 - Response included `x-robots-tag: noindex`
 - This indicates Vercel Authentication/Deployment Protection on the generated deployment URL, not an application failure
-- Do not disable protection merely to run route QA; use authenticated `vercel curl`
 
 No custom domain has been added and Namecheap DNS remains untouched.
 
@@ -160,7 +159,6 @@ Safety/result:
 - [x] No custom domain was added
 - [x] No Namecheap DNS was changed
 - [x] No Nginx/Docker/runtime change was made
-- [x] SSH shell exited because `set -e` stopped on the CLI parsing error
 
 ### R4B attempt 2 — global options forwarded to system curl
 
@@ -170,28 +168,55 @@ The minimal smoke command also did **not** reach the KieliValmis deployment. Ver
 
 Root cause: `--scope` and `--token` were placed after the `curl` subcommand/target. `vercel curl` is a passthrough wrapper around system curl, so those arguments were forwarded downstream rather than treated as Vercel global options.
 
-Correction locked from current Vercel documentation:
-
-- Put Vercel global options **before** the `curl` subcommand: `vercel --scope <scope> --token <token> curl ...`
-- Supply the target deployment using the `vercel curl`-specific `--deployment <url>` option.
-- Use a relative request path such as `/` as the curl target.
-- Do not use native curl flags until the minimal protected request succeeds.
-
 Safety/result:
 
 - [x] No application route was evaluated
 - [x] No deployment/project/domain setting was changed
 - [x] No custom domain was added
 - [x] Namecheap DNS remains untouched
-- [x] Production runtime remains logically untouched; the SSH shell exited only because `set -e` stopped on the CLI/curl argument error
 
-## Current next step — R4 protected deployment QA
+### R4C attempt 3 — documented global-option ordering still forwarded token in CLI 58.9.0
 
-Run one minimal authenticated protected request using global options before the `curl` subcommand:
+The corrected smoke command placed `--scope` and `--token` before the `curl` subcommand exactly as intended for Vercel global options, but Vercel CLI `58.9.0` still launched the downstream system curl with `--token`, which failed with:
 
-`vercel --scope kompyint-oys-projects --token <secret> curl / --deployment <deployment-url>`
+`curl: option --token: is unknown`
 
-If that returns KieliValmis HTML, then run the full route/content/header/redirect QA using the same option ordering.
+Observed result:
+
+- `VERCEL_CURL_EXIT_CODE=2`
+- Production branch remained `preview/enable-all-languages`
+- Production commit remained `e92b98e7799c390bc52b42d724c57f197ffd5c0d`
+- No protected application route was reached
+- No Vercel project/deployment/domain setting changed
+- No Namecheap DNS changed
+
+Decision after three beta-CLI parser/passthrough failures:
+
+**Stop retrying `vercel curl` for this release path.** The official command is still marked beta, and the observed CLI behavior on 58.9.0 is not reliable enough for our release gate. Switch to Vercel's documented **Protection Bypass for Automation** method, then use ordinary system `curl` with the `x-vercel-protection-bypass` header. This keeps Deployment Protection enabled while giving our QA request explicit, revocable access.
+
+## Current next step — R4 protected deployment QA via automation bypass
+
+In the Vercel dashboard for `kielivalmis-domain-static`:
+
+1. Open **Settings → Deployment Protection**.
+2. Under **Protection Bypass for Automation**, create a short-lived QA bypass secret (suggested note/name: `kielivalmis-r4-qa`).
+3. Do not paste the secret into chat or commit it.
+4. Enter it only into the server terminal using a hidden `read -rsp` prompt.
+5. Test the protected deployment with ordinary `curl` and the header `x-vercel-protection-bypass: <secret>`.
+6. After R4 QA passes, revoke/delete the temporary bypass secret.
+
+Validate at minimum:
+
+- `/`
+- `/privacy`
+- `/terms`
+- `/support`
+- `/delete-account`
+- `/robots.txt`
+- `/sitemap.xml`
+- permanent legal aliases from `vercel.json`
+- expected KieliValmis identity/canonical markers
+- expected security/SEO headers
 
 Only after route/content QA passes should `kielivalmis.com` and `www.kielivalmis.com` be added to the Vercel project and the exact DNS records requested by Vercel captured.
 
@@ -219,6 +244,6 @@ Do not proceed to native/store submission if any of these fail: authentication; 
 
 ## Active blocker
 
-**R4 deployed-route/content QA only.** The KieliValmis Vercel project and first deployment exist and are isolated correctly. Two QA command attempts failed before any protected application request because of Vercel/system-curl argument ordering. Custom domains and Namecheap DNS must remain untouched until R4 passes.
+**R4 deployed-route/content QA only.** The KieliValmis Vercel project and first deployment exist and are isolated correctly. Three `vercel curl` attempts failed before any protected application request because of CLI parser/passthrough behavior. Custom domains and Namecheap DNS must remain untouched until R4 passes through the supported automation-bypass route.
 
 Trademark filing/clearance remains a parallel business/legal workstream and is not represented here as completed legal clearance.
