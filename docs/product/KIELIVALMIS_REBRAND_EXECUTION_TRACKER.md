@@ -8,7 +8,7 @@
 
 ## Current milestone
 
-**R4I — R4H passed automated QA but did not pass mobile visual approval. A new mobile-first landing rebuild is committed; deploy + automated QA + fresh desktop/mobile visual review pending.**
+**R4I — Mobile-first landing rebuild committed. First deployment attempt stopped safely on a verifier false-negative; verifier is now whitespace-safe. Redeploy + automated QA + fresh desktop/mobile visual review pending.**
 
 The user explicitly rejected the R4H mobile presentation because the headings remained too large and the hero illustration was not visible early enough in the mobile experience. Do not advance to custom-domain/DNS work until the R4I candidate is deployed and visually approved.
 
@@ -176,7 +176,27 @@ R4I deliberately replaces the R4H layout rather than layering another small CSS 
 - [x] page-level `ai-content-disclosure`, Schema.org `ImageObject`, `data-ai-generated="true"`, SVG metadata, creator, generation method, date, purpose and disclosure remain
 - [x] legal/footer links, canonical identity, 20 languages, YKI clarification, web-app URL and Android package URL remain
 
-## Current next step — deploy R4I and repeat gates
+### R4I first deployment attempt — verifier false-negative
+
+The first R4I deploy attempt stopped before Vercel deployment during `npm run verify`.
+
+Observed error:
+
+`Inline AI hero metadata/disclosure missing: "@type": "ImageObject"`
+
+Inspection confirmed that R4I **did still contain** the Schema.org `ImageObject`; the source used compact JSON formatting (`"@type":"ImageObject"`) while the verifier required an exact whitespace-sensitive string (`"@type": "ImageObject"`).
+
+Resolution:
+
+- [x] do not weaken or remove the ImageObject requirement
+- [x] preserve the R4I page metadata exactly
+- [x] make the verifier semantic/whitespace-safe with regex `"@type"\s*:\s*"ImageObject"`
+- [x] verifier fix committed as `4e148f79554b7fbd66cbba55b8a3f42122c631c4`
+- [x] no Vercel deployment occurred during the failed attempt
+- [x] no custom domain or Namecheap DNS change occurred
+- [x] live Learn production remained on `preview/enable-all-languages` at `e92b98e77...`
+
+## Current next step — redeploy R4I and repeat gates
 
 1. Fetch `growth/discovery-seo-d2-20260807` without changing the live Learn checkout.
 2. Extract only `apps/kielivalmis-domain-static` into a temporary deployment directory.
@@ -191,7 +211,7 @@ R4I deliberately replaces the R4H layout rather than layering another small CSS 
 
 ## Remaining stages
 
-- [~] R4 — R4I mobile-first candidate committed; deploy + automated QA + visual approval pending
+- [~] R4 — R4I mobile-first candidate committed; verifier fixed; redeploy + automated QA + visual approval pending
 - [ ] R5 — add `kielivalmis.com` / `www.kielivalmis.com` to KieliValmis Vercel project and capture exact DNS requirements
 - [ ] R6 — change only KieliValmis Namecheap DNS + verify HTTPS/canonical behavior
 - [ ] R7 — build `app.kielivalmis.com` parallel runtime hostname + auth/payment/YKI regression
@@ -211,6 +231,6 @@ Do not proceed to native/store submission if any of these fail: authentication; 
 
 ## Active blocker
 
-**R4I deployment and visual approval.** Functional infrastructure is healthy, but visual approval has not been granted. Custom domains and Namecheap DNS remain blocked.
+**R4I redeployment and visual approval.** Functional infrastructure is healthy, the verifier false-negative is fixed, but visual approval has not been granted. Custom domains and Namecheap DNS remain blocked.
 
 Trademark filing/clearance remains a separate legal/business workstream and is not represented here as completed legal clearance.
