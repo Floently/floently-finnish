@@ -143,19 +143,34 @@ Deployment Protection finding:
 
 No custom domain has been added and Namecheap DNS remains untouched.
 
+### R4A attempt 1 — QA command parser failure before any route request
+
+The first protected-route QA command did **not** reach the KieliValmis deployment. Vercel CLI exited while parsing arguments with:
+
+`ArgError: option requires argument: -S (alias for --scope)`
+
+Root cause: the QA script forwarded grouped native curl short flags `-sS`. Vercel CLI also reserves `-S` as the shorthand for its global `--scope` option, so the CLI parser interpreted the `S` in `-sS` as Vercel scope syntax instead of native curl `--show-error`.
+
+Safety/result:
+
+- [x] Failure occurred before route QA began
+- [x] No KieliValmis site content or redirect result was evaluated
+- [x] No Vercel project setting was changed
+- [x] No deployment was changed
+- [x] No custom domain was added
+- [x] No Namecheap DNS was changed
+- [x] No Nginx/Docker/runtime change was made
+- [x] SSH shell exited because `set -e` stopped on the CLI parsing error
+
+Correction policy:
+
+- Do not use grouped curl flags such as `-sS` with `vercel curl` when they collide with Vercel global shorthands.
+- Prefer the full deployment URL directly with `vercel curl` and initially use no native curl flags at all for a smoke check.
+- Once bypass access is proven, use unambiguous long native curl options where needed.
+
 ## Current next step — R4 protected deployment QA
 
-Use Vercel CLI `vercel curl` against the exact deployment URL to bypass Deployment Protection in an authenticated, temporary test context. Validate:
-
-- `/`
-- `/privacy`
-- `/terms`
-- `/support`
-- `/delete-account`
-- `/robots.txt`
-- `/sitemap.xml`
-- selected legal aliases from `vercel.json`
-- expected KieliValmis identity/canonical markers
+First run a minimal authenticated `vercel curl` smoke request against the exact deployment URL with no native curl flags. After that returns the KieliValmis HTML, run the full route/content/header/redirect QA using non-conflicting long curl options.
 
 Only after route/content QA passes should `kielivalmis.com` and `www.kielivalmis.com` be added to the Vercel project and the exact DNS records requested by Vercel captured.
 
@@ -183,6 +198,6 @@ Do not proceed to native/store submission if any of these fail: authentication; 
 
 ## Active blocker
 
-**R4 deployed-route/content QA only.** The KieliValmis Vercel project and first deployment exist and are isolated correctly. Custom domains and Namecheap DNS must remain untouched until R4 passes.
+**R4 deployed-route/content QA only.** The KieliValmis Vercel project and first deployment exist and are isolated correctly. The first QA attempt failed only because of CLI argument parsing before any HTTP request. Custom domains and Namecheap DNS must remain untouched until R4 passes.
 
 Trademark filing/clearance remains a parallel business/legal workstream and is not represented here as completed legal clearance.
