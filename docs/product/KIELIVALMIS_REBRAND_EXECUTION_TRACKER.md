@@ -8,7 +8,7 @@
 
 ## Current milestone
 
-**R4 — Automated deployed QA PASS; browser visual QA is the final gate before custom-domain attachment**
+**R4F — Visual QA found typography/mobile-layout issues; refined landing patch committed, redeploy + repeat visual QA pending**
 
 ## Locked architecture
 
@@ -207,25 +207,55 @@ Final automated result:
 - [x] QA secret was removed from the server shell and temporary files were deleted
 - [x] No custom domain or Namecheap DNS change occurred during R4E
 
-## Current next step — final R4 browser visual QA
+### R4F — Browser visual QA required refinement; landing redesign patch committed
 
-Open the protected deployment in a browser while authenticated to the Vercel team, or use the documented automation-bypass browser-cookie method. Check desktop and narrow/mobile layouts for:
+Browser inspection of the deployed landing page was performed on desktop and at an iPhone 15 Pro Max-class viewport. Functional content was present and automated QA remained valid, but visual approval was **not** granted for the first design.
 
-- KieliValmis brand header / `by Floently` attribution
-- hero text and CTAs
-- YKI and work sections
-- 20-language chips
-- footer/legal links
-- privacy, terms, support and delete-account pages
-- no clipping, overlap, horizontal overflow, broken typography or unreadable contrast
+Observed visual issues from the review:
 
-After visual QA passes, revoke/delete the temporary automation-bypass secret. Then advance to R5.
+- oversized white hero and section typography made the page feel presentation-like rather than website-like
+- hero wrapping and text alignment were too aggressive at narrow widths
+- mobile header CTA competed with the KieliValmis identity for horizontal space
+- mobile vertical rhythm felt too long and loosely organized
+- stacked capability cards consumed too much vertical space on a 430px-class viewport
+- card headings and body text needed a clearer hierarchy and more restrained sizing
+- desktop sections were functional but could use tighter alignment and more consistent spacing rhythm
+
+Refinement committed:
+
+- [x] landing source: `apps/kielivalmis-domain-static/index.html`
+- [x] commit: `feaa5a6c42e5f02f03d1dc05f342a4d83ff025c9`
+- [x] switched to a refined system-UI font stack with improved rendering and less display-like typography
+- [x] reduced hero maximum from the previous 84px scale to a restrained responsive maximum of 68px
+- [x] reduced section heading/card typography and tightened line heights/letter spacing
+- [x] improved desktop hero grid proportions and spacing
+- [x] added subtle section dividers to improve page rhythm
+- [x] shortened the header CTA to `Open app`
+- [x] reduced mobile header/logo/button footprint
+- [x] created compact two-column capability cards for 390–700px widths, including iPhone 15 Pro Max-class widths
+- [x] retained one-column capability cards below 390px
+- [x] changed mobile action buttons to a consistent grid layout
+- [x] reduced mobile section/card padding and normalized spacing
+- [x] retained existing product copy, 20-language list, transition wording, legal links, web-app URL and Android package URL
+
+The refinement has been committed but is **not yet visually approved**. It must be re-verified, redeployed to the isolated KieliValmis Vercel project, rerun through automated route QA, and reviewed again on desktop + mobile before R5.
+
+## Current next step — R4F redeploy and repeat visual gate
+
+1. Fetch `growth/discovery-seo-d2-20260807` without changing the live production checkout.
+2. Extract only `apps/kielivalmis-domain-static` to a temporary directory.
+3. Run `npm run verify` against the refined static package.
+4. Deploy the refined package to the already-existing Vercel project `kielivalmis-domain-static` using the known project/org IDs.
+5. Repeat protected automated route/content/header/redirect QA.
+6. Repeat browser visual QA on desktop and an iPhone 15 Pro Max-class viewport.
+7. Revoke/delete the temporary automation-bypass secret after R4 visual approval.
+8. Only then advance to R5 custom-domain attachment.
 
 ## Planned stages
 
 - [x] R2 — isolated static package + regression PASS
 - [x] R3 — create isolated Vercel project and initial deployment
-- [~] R4 — automated deployed QA PASS; browser visual QA pending
+- [~] R4 — automated QA passed for first design; refined visual patch committed; redeploy + repeat visual QA pending
 - [ ] R5 — add KieliValmis custom domains and capture Vercel DNS requirements
 - [ ] R6 — change only KieliValmis Namecheap DNS + verify HTTPS/canonical behavior
 - [ ] R7 — build `app.kielivalmis.com` parallel runtime hostname + auth/payment/YKI regression
@@ -245,6 +275,6 @@ Do not proceed to native/store submission if any of these fail: authentication; 
 
 ## Active blocker
 
-**Only browser visual QA remains in R4.** Automated route/content/header/redirect QA has passed completely. Custom domains may be attached after visual QA, but Namecheap DNS must remain unchanged until Vercel shows and we capture the exact required records for both `kielivalmis.com` and `www.kielivalmis.com`.
+**R4 visual refinement redeploy/review.** The first design passed functional automated QA but did not pass final visual review. The refined source is committed, but custom domains and Namecheap DNS must remain unchanged until the refined deployment passes both automated QA and desktop/mobile visual approval.
 
 Trademark filing/clearance remains a parallel business/legal workstream and is not represented here as completed legal clearance.
