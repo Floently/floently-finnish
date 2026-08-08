@@ -164,6 +164,24 @@ Decision after attempt 1:
 
 **Do not repeat device-code authentication inside a fragile SSH session.** Use a short-lived Vercel account access token scoped to the same team as `main-domain-static`, enter it only in the server terminal, and authenticate the isolated CLI deployment with `--token`. Never paste the token into chat, commit it, write it into the repository, or leave it in shell history.
 
+### R3B — Vercel token and scope validation PASS
+
+A short-lived Vercel token was entered securely in the server terminal and validated without exposing it in chat or shell history.
+
+Confirmed:
+
+- [x] Vercel CLI authenticated as `komplyint-3139`
+- [x] Active Vercel scope/team: `kompyint-oys-projects` (`Kompyint Oy's projects` as displayed by Vercel)
+- [x] Existing `main-domain-static` project is visible in that scope
+- [x] Existing unrelated Vercel projects remained visible and untouched
+- [x] CLI warned that `--team` is deprecated; future commands should use `--scope`
+- [x] Token was unset after validation
+- [x] Production Git branch remained `preview/enable-all-languages`
+- [x] Production commit remained `e92b98e7799c390bc52b42d724c57f197ffd5c0d`
+- [x] No project, deployment, custom domain, DNS, Nginx, Docker, or runtime change occurred during validation
+
+R3 authentication prerequisite is complete. The next operation is to create/link only `kielivalmis-domain-static` inside scope `kompyint-oys-projects` and deploy a preview URL without `--prod` and without any custom domain.
+
 ## Next stages
 
 - [x] R2 — Verify isolated static package
@@ -196,10 +214,11 @@ Do not proceed to native/store submission if any of these fail: authentication; 
 - `177175788bb35d65e1e456adbcb006cc77c29b98` — isolated Vercel architecture
 - `8680b912921d4575a698a7940eea2a15742fee62` through `fedaf6c09bac20a4b2e3e48a39e1449d4741f98b` — initial isolated KieliValmis static site package
 - `6598019522657fb28e45eac3a50aa3179af4b31a` — record R2 regression PASS and advance to R3
-- This update records the interrupted R3A device-login attempt and token-authentication fallback.
+- `070e5d15e1e868269d42e674b8fa4fb7b15074d8` — record interrupted device-login attempt
+- This update records successful Vercel token/scope validation.
 
 ## Active blocker
 
-**Vercel authentication/project creation only.** The isolated site itself has passed twice. Create `kielivalmis-domain-static` as a separate Vercel project and obtain a preview URL before any custom-domain or DNS work.
+**New KieliValmis Vercel project and preview do not exist yet.** Authentication and scope access are now verified. Create/link `kielivalmis-domain-static` in `kompyint-oys-projects`, deploy a preview, and test it before adding custom domains or changing Namecheap DNS.
 
 Trademark filing/clearance remains a parallel business/legal workstream and is not represented here as completed legal clearance.
