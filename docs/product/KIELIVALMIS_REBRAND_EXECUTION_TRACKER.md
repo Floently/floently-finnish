@@ -8,9 +8,9 @@
 
 ## Current milestone
 
-**R4H — Inline image-led recovery deployed successfully and automated deployment QA PASS. Fresh desktop/mobile visual approval is the only remaining R4 gate.**
+**R4I — R4H passed automated QA but did not pass mobile visual approval. A new mobile-first landing rebuild is committed; deploy + automated QA + fresh desktop/mobile visual review pending.**
 
-The previous two landing compositions were functionally correct but did **not** receive final visual approval, especially at an iPhone 15 Pro Max-class viewport. The R4H image-led composition is now the active deployed candidate. Do not advance to custom-domain/DNS work until the user visually approves this exact deployed version.
+The user explicitly rejected the R4H mobile presentation because the headings remained too large and the hero illustration was not visible early enough in the mobile experience. Do not advance to custom-domain/DNS work until the R4I candidate is deployed and visually approved.
 
 ## Locked product architecture
 
@@ -58,7 +58,7 @@ The live Learn checkout has remained unchanged throughout all KieliValmis static
 - Scope: `kompyint-oys-projects`
 - Stable Vercel alias: `https://kielivalmis-domain-static.vercel.app`
 - R4G deployment with failed external SVG: `https://kielivalmis-domain-static-pq08fyrx3-kompyint-oys-projects.vercel.app`
-- Current R4H deployment: `https://kielivalmis-domain-static-lk9ns71uv-kompyint-oys-projects.vercel.app`
+- Current deployed R4H rollback candidate: `https://kielivalmis-domain-static-lk9ns71uv-kompyint-oys-projects.vercel.app`
 - Deployment Protection is enabled; use Vercel Protection Bypass for Automation plus ordinary `curl` for automated QA
 
 ### KieliValmis DNS baseline
@@ -87,19 +87,9 @@ The live Learn checkout has remained unchanged throughout all KieliValmis static
 
 ### R2 — Isolated KieliValmis static package
 
-The isolated site lives at `apps/kielivalmis-domain-static` and includes:
+The isolated site lives at `apps/kielivalmis-domain-static` and includes landing, privacy, terms, support, delete-account, robots, sitemap, Vercel config and a static regression verifier.
 
-- [x] landing page
-- [x] privacy
-- [x] terms
-- [x] support
-- [x] delete-account
-- [x] robots.txt
-- [x] sitemap.xml
-- [x] vercel.json
-- [x] regression verifier
-
-The static regression contract has repeatedly passed for identity, 20 languages, legal pages, canonicals, sitemap, redirect locks and transition links.
+The static regression contract has repeatedly passed for identity, 20 languages, legal pages, canonicals, sitemap, redirect locks, transition links and AI-hero disclosure requirements.
 
 ### R3 — Isolated Vercel project created
 
@@ -115,154 +105,93 @@ The static regression contract has repeatedly passed for identity, 20 languages,
 
 After abandoning unreliable beta `vercel curl` behavior in CLI `58.9.0`, QA switched to Vercel Protection Bypass for Automation plus ordinary system `curl`.
 
-Automated QA passed for the deployed site:
+Automated route/content/header/redirect QA has passed for the deployed site, including primary routes, legal pages, robots, sitemap, security headers and permanent legal aliases.
 
-- [x] `/` -> HTTP 200
-- [x] `/privacy` -> HTTP 200
-- [x] `/terms` -> HTTP 200
-- [x] `/support` -> HTTP 200
-- [x] `/delete-account` -> HTTP 200
-- [x] `/robots.txt` -> HTTP 200
-- [x] `/sitemap.xml` -> HTTP 200
-- [x] KieliValmis home identity contract PASS
-- [x] 20-language contract PASS
-- [x] privacy/terms/support/delete-account contracts PASS
-- [x] robots + sitemap contracts PASS
-- [x] `X-Content-Type-Options: nosniff`
-- [x] `Referrer-Policy: strict-origin-when-cross-origin`
-- [x] `x-robots-tag: index, follow`
-- [x] `/privacy-policy` -> HTTP 308 -> `/privacy`
-- [x] `/legal/privacy-policy` -> HTTP 308 -> `/privacy`
-- [x] `/account-deletion` -> HTTP 308 -> `/delete-account`
-- [x] `/legal/account-deletion` -> HTTP 308 -> `/delete-account`
+### R4F — First typography/mobile refinement not visually approved
 
-### R4F — First typography/mobile refinement deployed but not approved visually
+The first refinement reduced heading sizes and attempted compact mobile cards, but the browser still showed a cramped, clipped and card-heavy experience on an iPhone 15 Pro Max-class viewport. Visual approval was withheld.
 
-The first refinement reduced heading sizes, tightened typography and spacing, and attempted compact mobile cards. It deployed successfully and automated route QA remained PASS, but browser inspection still showed a cramped, clipped and card-heavy experience at iPhone 15 Pro Max-class widths.
+### R4G — Image-led redesign and external-SVG deployment incident
 
-Visual approval was therefore withheld again. Do not restore that layout as the final design.
+The landing was redesigned around an AI-generated editorial illustration. The external hero asset existed in source and local archive but returned HTTP 404 on Vercel. QA correctly stopped. No DNS, Nginx, runtime, billing or app changes occurred.
 
-## R4G — Image-led redesign candidate
+### R4H — Inline hero recovery and automated deployment QA PASS
 
-The active design direction replaces the old card-heavy hero with a new editorial image-led composition.
-
-### Design goals implemented
-
-- [x] hero headline remains exactly: `Prepare for YKI. Prepare for work in Finland. In your language.`
-- [x] calmer typography and narrower text measure
-- [x] image-led two-column desktop hero
-- [x] mobile-first single-column hero rather than shrinking the desktop grid
-- [x] explicit `overflow-x:hidden` and min-width-safe layout rules
-- [x] mobile CTA stack instead of side-by-side clipping
-- [x] dark hero plus alternating light/soft/dark website sections
-- [x] three outcome cards for YKI/work/guidance
-- [x] dedicated YKI layout with all four subtests
-- [x] dedicated work section
-- [x] 20-language section with precise clarification that the YKI exam itself is not offered in 20 languages
-- [x] final KieliValmis-by-Floently CTA and YKI independence disclaimer
-- [x] existing web-app link preserved
-- [x] existing Google Play package preserved
-- [x] legal/footer links preserved
-- [x] canonical and SEO identity remain KieliValmis
-
-### AI illustration disclosure requirements
-
-The visual is deliberately an illustration rather than a fake photograph. Requirements preserved:
-
-- [x] visible tiny label: `AI-generated illustration`
-- [x] machine-readable AI disclosure in page metadata
-- [x] Schema.org `ImageObject` disclosure
-- [x] `data-ai-generated="true"` on the hero figure
-- [x] inline SVG `<metadata>` contains `aiGenerated: true`
-- [x] creator metadata: `OpenAI ChatGPT (GPT-5.6 Sol)`
-- [x] generation method
-- [x] creation date `2026-08-08`
-- [x] purpose and prompt summary
-
-## R4G deployment incident — external hero SVG returned 404
-
-R4G deployment successfully reached the existing KieliValmis Vercel project:
-
-- Deployment: `https://kielivalmis-domain-static-pq08fyrx3-kompyint-oys-projects.vercel.app`
-- Stable alias was updated to the new deployment
-- Static source verification PASS before deployment
-- Local AI hero asset verification PASS before deployment
-- Primary deployed routes `/`, `/privacy`, `/terms`, `/support`, `/delete-account`, `/robots.txt`, `/sitemap.xml` all returned HTTP 200
-- External hero request `/assets/kielivalmis-hero-ai.svg` returned HTTP 404
-- Deployment QA correctly stopped on that failure
-- SSH exited because `set -e` stopped after the failing asset gate
-- No Namecheap DNS, Nginx, Docker, Learn runtime, Android, iOS or billing change occurred
-- Live Learn production baseline before deployment remained `preview/enable-all-languages` at `e92b98e77...`
-
-Important interpretation: the SVG existed in GitHub and in the local deployment archive, and no `.vercelignore` was found. The failure was therefore treated as a deployment-artifact delivery problem, not as a missing source file.
-
-## R4H — Inline hero recovery and deployment QA PASS
-
-To eliminate the external-static-hero failure class, the hero illustration was embedded directly in `index.html` as inline SVG.
+The hero illustration was embedded directly in `index.html`, eliminating the external image request. The verifier forbids reintroducing `/assets/kielivalmis-hero-ai.svg`.
 
 Recovery commits:
 
-- `870dbb0121e07d615b2a32191c3baefd9c3cb515` — inline AI hero and remove broken external social-image references
-- `58b43b837600e5ced23cb940c8a371b937e611ae` — verifier requires inline AI metadata/disclosure and forbids `/assets/kielivalmis-hero-ai.svg`
-- `669e82dd8c189be0170ce9bb808b16b8b68bf6d7` — remove obsolete external SVG asset
-- `317ed4e62a8dad0612676043908005840a88313b` — record R4G SVG 404 and R4H recovery plan
+- `870dbb0121e07d615b2a32191c3baefd9c3cb515` — inline AI hero
+- `58b43b837600e5ced23cb940c8a371b937e611ae` — verifier guards inline AI disclosure
+- `669e82dd8c189be0170ce9bb808b16b8b68bf6d7` — remove obsolete external SVG
+- `317ed4e62a8dad0612676043908005840a88313b` — record SVG 404/recovery
 
-Recovery properties:
-
-- [x] no external hero image HTTP request is required
-- [x] visible AI disclosure remains inside the rendered illustration
-- [x] SVG metadata remains embedded directly in the page
-- [x] page-level AI disclosure remains
-- [x] Schema.org `ImageObject` remains without a broken `contentUrl`
-- [x] broken `og:image` / `twitter:image` references were removed until a separately verified public social image is intentionally introduced
-- [x] verifier fails if the page reintroduces `/assets/kielivalmis-hero-ai.svg`
-- [x] obsolete external hero file was deleted to keep one source of truth
-
-R4H deployment result:
+R4H deployed successfully:
 
 - Deployment: `https://kielivalmis-domain-static-lk9ns71uv-kompyint-oys-projects.vercel.app`
-- Stable alias updated to the R4H deployment
-- [x] `KIELIVALMIS_STATIC_INLINE_AI_HERO_DISCLOSURE=PASS`
+- [x] all primary routes HTTP 200
+- [x] inline hero SVG present in deployed HTML
+- [x] AI metadata and visible `AI-generated illustration` disclosure present
+- [x] four legal compatibility redirects HTTP 308
 - [x] static regression contract PASS
-- [x] `KIELIVALMIS_INLINE_AI_HERO_LOCAL=PASS`
-- [x] `/` -> HTTP 200
-- [x] `/privacy` -> HTTP 200
-- [x] `/terms` -> HTTP 200
-- [x] `/support` -> HTTP 200
-- [x] `/delete-account` -> HTTP 200
-- [x] `/robots.txt` -> HTTP 200
-- [x] `/sitemap.xml` -> HTTP 200
-- [x] deployed HTML contains inline hero SVG
-- [x] deployed HTML contains embedded AI metadata and creator disclosure
-- [x] deployed HTML contains visible `AI-generated illustration` label
-- [x] `KIELIVALMIS_R4H_INLINE_AI_HERO=PASS`
-- [x] `/privacy-policy` -> HTTP 308 -> `/privacy`
-- [x] `/legal/privacy-policy` -> HTTP 308 -> `/privacy`
-- [x] `/account-deletion` -> HTTP 308 -> `/delete-account`
-- [x] `/legal/account-deletion` -> HTTP 308 -> `/delete-account`
-- [x] `RESULT: KIELIVALMIS R4H INLINE HERO DEPLOYMENT QA PASS`
-- [x] temporary Vercel token/bypass variables and files were cleaned after QA
-- [x] final Learn production branch remained `preview/enable-all-languages`
-- [x] final Learn production commit remained `e92b98e7799c390bc52b42d724c57f197ffd5c0d`
-- [x] Namecheap DNS remains untouched
+- [x] final Learn production branch/commit remained unchanged
+- [x] Namecheap DNS remained untouched
 
-## Current next step — R4H visual approval only
+However, R4H **did not pass final visual approval**. At the iPhone 15 Pro Max-class viewport the user reported:
 
-1. Open `https://kielivalmis-domain-static.vercel.app` while authenticated to the Vercel team.
-2. Hard refresh so the browser loads the R4H alias target.
-3. Review desktop hero composition, typography, inline illustration, CTA hierarchy and overall section rhythm.
-4. Test an iPhone 15 Pro Max-class viewport (about 430px CSS width).
-5. Confirm there is no horizontal clipping/overflow and no content disappearing off the right edge.
-6. Confirm the mobile layout is intentionally single-column and the hero image fits naturally below the copy/CTAs.
-7. Confirm the tiny `AI-generated illustration` disclosure is present but visually unobtrusive.
-8. Review the YKI, work, 20-language and final CTA sections on desktop and mobile.
-9. Only if the user visually approves this exact deployment may R4 be closed.
-10. After visual approval, revoke/delete the temporary automation-bypass secret if it is no longer needed.
-11. Only then advance to R5 custom-domain attachment.
+- headings still too large
+- mobile layout still felt like a compressed desktop page
+- top-right app CTA continued competing with brand identity
+- hero picture was not visible early enough in the mobile page
+
+## R4I — Active mobile-first visual rebuild
+
+Landing source:
+
+`apps/kielivalmis-domain-static/index.html`
+
+Commit:
+
+`133deb42c8ee9d64f25712159c8b63610a470c90`
+
+R4I deliberately replaces the R4H layout rather than layering another small CSS override on it.
+
+### R4I design changes
+
+- [x] exact hero headline preserved: `Prepare for YKI. Prepare for work in Finland. In your language.`
+- [x] desktop hero maximum reduced to about 54px
+- [x] desktop section headings reduced to about 40px maximum
+- [x] mobile hero headline reduced to roughly 28–31px
+- [x] mobile section headings reduced to roughly 24–28px
+- [x] mobile navigation is brand-only; the top-right `Open app` CTA is hidden
+- [x] mobile hero is explicitly reordered as kicker -> headline -> illustration -> short copy -> focus points -> primary CTA -> transition note
+- [x] hero illustration is therefore visible immediately after the headline instead of below the entire text/CTA block
+- [x] mobile primary action is full width
+- [x] Android remains available as a quiet secondary text link, preserving the existing Google Play package URL
+- [x] mobile focus points use a compact 2x2 grid
+- [x] content/card typography and padding reduced throughout mobile sections
+- [x] mobile remains strictly single-column for YKI/work content
+- [x] inline AI illustration remains self-contained with no external network asset dependency
+- [x] visible tiny `AI-generated illustration` label remains inside the SVG and in the caption
+- [x] page-level `ai-content-disclosure`, Schema.org `ImageObject`, `data-ai-generated="true"`, SVG metadata, creator, generation method, date, purpose and disclosure remain
+- [x] legal/footer links, canonical identity, 20 languages, YKI clarification, web-app URL and Android package URL remain
+
+## Current next step — deploy R4I and repeat gates
+
+1. Fetch `growth/discovery-seo-d2-20260807` without changing the live Learn checkout.
+2. Extract only `apps/kielivalmis-domain-static` into a temporary deployment directory.
+3. Run `npm run verify` and require the inline AI disclosure PASS marker.
+4. Deploy to the existing Vercel project `kielivalmis-domain-static` using the known project/org IDs.
+5. Verify `/`, legal routes, robots and sitemap through the protection-bypass header.
+6. Verify deployed HTML contains the inline hero and AI metadata.
+7. Open the stable Vercel alias and hard refresh.
+8. Review desktop typography and hero composition.
+9. Test the same iPhone 15 Pro Max-class viewport and verify the picture is visible directly after the smaller headline, the navigation is brand-only, and there is no horizontal clipping.
+10. Only after explicit user visual approval may R4 close and R5 custom-domain attachment begin.
 
 ## Remaining stages
 
-- [~] R4 — R4H automated deployment QA PASS; final desktop/mobile visual approval pending
+- [~] R4 — R4I mobile-first candidate committed; deploy + automated QA + visual approval pending
 - [ ] R5 — add `kielivalmis.com` / `www.kielivalmis.com` to KieliValmis Vercel project and capture exact DNS requirements
 - [ ] R6 — change only KieliValmis Namecheap DNS + verify HTTPS/canonical behavior
 - [ ] R7 — build `app.kielivalmis.com` parallel runtime hostname + auth/payment/YKI regression
@@ -282,6 +211,6 @@ Do not proceed to native/store submission if any of these fail: authentication; 
 
 ## Active blocker
 
-**R4 visual approval only.** R4H automated deployment QA passed completely, including the inline AI hero, primary routes and legal aliases. Custom domains and Namecheap DNS remain blocked until the user approves this exact image-led design on desktop and mobile.
+**R4I deployment and visual approval.** Functional infrastructure is healthy, but visual approval has not been granted. Custom domains and Namecheap DNS remain blocked.
 
 Trademark filing/clearance remains a separate legal/business workstream and is not represented here as completed legal clearance.
