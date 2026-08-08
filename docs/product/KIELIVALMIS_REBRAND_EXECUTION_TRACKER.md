@@ -19,7 +19,9 @@
 - Current Android/iOS production apps: **must remain the same store records**
 - Live server branch at R1 baseline: `preview/enable-all-languages`
 - Live server commit at R1 baseline: `e92b98e7799c390bc52b42d724c57f197ffd5c0d`
-- Current task: finish exact web/runtime/store surface inventory, then prepare parallel KieliValmis implementation without disturbing the released binaries
+- Main public `floently.com` site: confirmed Vercel deployment
+- KieliValmis domain: confirmed Namecheap-managed and still parked, not yet attached to Vercel
+- Current task: finish exact web/runtime/store surface inventory, then prepare parallel KieliValmis implementation without disturbing released binaries
 
 ## Completed
 
@@ -64,6 +66,40 @@ Safety conclusion:
 
 The first server command pasted through chat was partially line-wrapped/mangled by formatting, but the required read-only baseline sections still executed and produced sufficient evidence. No server write/deployment was performed.
 
+### 2026-08-08 — R1B Main-domain/Vercel/DNS baseline captured
+
+A second read-only server inspection established the exact public-domain deployment architecture.
+
+Confirmed:
+
+- [x] `/etc/nginx/sites-enabled/learn` serves only `learn.floently.com` from `/var/www/learn` and proxies `/api/` plus card API routes to `127.0.0.1:8000`
+- [x] `/etc/nginx/sites-enabled/learn-api` serves only `learn-api.floently.com` and proxies to `127.0.0.1:8000`
+- [x] `floently.com` is **not** served by the Hetzner Nginx configuration inspected here
+- [x] Public `www.floently.com` responds from **Vercel** with HTTP 200
+- [x] Repository contains dedicated static deployment app at `apps/main-domain-static`
+- [x] `apps/main-domain-static/.vercel/project.json` exists
+- [x] Vercel project ID: `prj_sTnnI02l9BLRIPcRIeGlblflul5Z`
+- [x] Vercel org/team ID: `team_Pi5Ylt8nVh9Jzc60Ck7rl5I6`
+- [x] Vercel project name: `main-domain-static`
+- [x] `apps/main-domain-static/vercel.json` contains the current permanent legal aliases into `/learn/*`
+- [x] Vercel CLI is not installed on the Hetzner server; this is not a production defect
+- [x] `floently.com` DNS is managed through Namecheap nameservers
+- [x] `floently.com` apex currently resolves to Vercel (`76.76.21.21`)
+- [x] `www.floently.com` CNAME currently resolves to `cname.vercel-dns.com.`
+- [x] `kielivalmis.com` uses the same Namecheap nameservers but is still parked
+- [x] `kielivalmis.com` apex currently resolves to Namecheap parking (`192.64.119.155`)
+- [x] `www.kielivalmis.com` currently CNAMEs to `parkingpage.namecheap.com.`
+- [x] HTTPS requests to both `kielivalmis.com` and `www.kielivalmis.com` timed out at the baseline, confirming the domain is not yet provisioned for the product
+- [x] Final server Git safety check remained at `preview/enable-all-languages` / `e92b98e7799c390bc52b42d724c57f197ffd5c0d`
+
+Safety conclusion:
+
+**The first KieliValmis web step should be a parallel Vercel-domain attachment, not an Nginx migration.**
+
+Do not change `floently.com`, `learn.floently.com`, or `learn-api.floently.com` to achieve the initial KieliValmis website bring-up.
+
+Do not change Namecheap DNS until the exact Vercel custom-domain target has been added/verified in the Vercel project. This prevents pointing the purchased domain at a project that is not yet expecting it.
+
 ## Repository findings already confirmed
 
 The current marketing branch still contains visible learning-product branding that must be changed semantically, including:
@@ -93,7 +129,6 @@ Before patching runtime code, finish exact file/path inventory for:
 - login/signup/onboarding
 - SEO metadata/canonical/hreflang/sitemap/structured data
 - legal/support pages
-- live website deployment target for `floently.com`
 - native display name/splash/icon
 - report/export branding
 - payment/paywall customer-facing wording
@@ -150,6 +185,14 @@ Do not proceed to native/store submission if any of these fail:
 
 This remains the rollback baseline. No runtime rebrand change has been deployed as part of R0/R1.
 
+### Main public site baseline
+
+- Hosting: Vercel
+- Repo directory: `apps/main-domain-static`
+- Vercel project: `main-domain-static`
+- Existing public domain: `floently.com` / `www.floently.com`
+- KieliValmis domain state: Namecheap parking only; not yet attached to Vercel
+
 ### Documentation branch
 
 KieliValmis documentation is being added on `growth/discovery-seo-d2-20260807` after the runtime baseline commit. The live server must not `git pull` this branch merely to obtain documentation.
@@ -159,12 +202,13 @@ KieliValmis documentation is being added on `growth/discovery-seo-d2-20260807` a
 - `78cb36c949fa92d3e9952d1b3769ebcbf4a0b48a` — Document KieliValmis rebrand and migration strategy
 - `82dc126c50b351916595436d8bf97994becf9222` — Add KieliValmis execution tracker
 - `4a8a54b3538178d225e2775d9a9435811f45ddf6` — Add KieliValmis surface inventory
-- This tracker update records the live R1 server baseline
+- `b3cf7bc93ddd84d4345697b324e2c9a310644efc` — Record live R1 server baseline
+- This tracker update records the Vercel/DNS R1B baseline
 
 ## Active blockers
 
 No blocker for documentation/inventory work.
 
-Before any DNS/Nginx write, determine where the public `floently.com` site is currently deployed and inspect the complete active `/etc/nginx/sites-enabled/learn` routing contract.
+Before changing Namecheap DNS, add/verify `kielivalmis.com` and `www.kielivalmis.com` on the existing Vercel project and capture the exact DNS records Vercel requests for this project/account.
 
 Trademark filing/clearance remains a parallel business/legal workstream and is not represented here as completed legal clearance.
