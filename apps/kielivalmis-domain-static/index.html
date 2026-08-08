@@ -6,17 +6,21 @@
   <title>KieliValmis | Finnish for YKI, Work and Everyday Life</title>
   <meta name="description" content="Prepare for YKI, work and everyday life in Finland with KieliValmis. Practise speaking, grammar, vocabulary, roleplay, reading, listening and writing with guidance in 20 languages.">
   <meta name="robots" content="index,follow">
+  <meta name="theme-color" content="#081a3a">
+  <meta name="ai-content-disclosure" content="The KieliValmis hero illustration is AI-generated and visibly labelled as such.">
   <link rel="canonical" href="https://www.kielivalmis.com/">
-  <meta name="theme-color" content="#071738">
 
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="KieliValmis">
   <meta property="og:title" content="KieliValmis | Prepare for YKI and Work in Finland">
   <meta property="og:description" content="YKI preparation and Finnish working-life practice with guidance in 20 languages.">
   <meta property="og:url" content="https://www.kielivalmis.com/">
-  <meta name="twitter:card" content="summary">
+  <meta property="og:image" content="https://www.kielivalmis.com/assets/kielivalmis-hero-ai.svg">
+  <meta property="og:image:alt" content="AI-generated KieliValmis illustration about YKI preparation, Finnish for work and multilingual guidance.">
+  <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="KieliValmis | Prepare for YKI and Work in Finland">
   <meta name="twitter:description" content="YKI preparation and Finnish working-life practice with guidance in 20 languages.">
+  <meta name="twitter:image" content="https://www.kielivalmis.com/assets/kielivalmis-hero-ai.svg">
 
   <script type="application/ld+json">
   {
@@ -27,7 +31,6 @@
     "url": "https://www.kielivalmis.com/"
   }
   </script>
-
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -37,7 +40,19 @@
     "url": "https://www.floently.com/"
   }
   </script>
-
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ImageObject",
+    "contentUrl": "https://www.kielivalmis.com/assets/kielivalmis-hero-ai.svg",
+    "caption": "AI-generated illustration for KieliValmis showing YKI preparation, Finnish for work and multilingual guidance.",
+    "creditText": "AI-generated illustration",
+    "creator": {
+      "@type": "Organization",
+      "name": "OpenAI ChatGPT"
+    }
+  }
+  </script>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -74,412 +89,407 @@
   <style>
     :root{
       color-scheme:dark;
-      --bg:#050d23;
-      --navy:#071738;
-      --surface:rgba(255,255,255,.058);
-      --surface-strong:rgba(255,255,255,.075);
-      --border:rgba(255,255,255,.13);
-      --border-soft:rgba(255,255,255,.085);
-      --text:#f7f9ff;
-      --muted:#c6d2e8;
-      --muted-soft:#91a7cc;
-      --blue:#527eff;
-      --teal:#68dfd3;
-      --gold:#efc86c;
-      --violet:#9c7cff;
+      --navy:#07152f;
+      --navy-2:#0b2347;
+      --ink:#0e1c35;
+      --blue:#4775f5;
+      --blue-dark:#2f5ddd;
+      --teal:#56d6cb;
+      --violet:#9d83ff;
+      --white:#ffffff;
+      --paper:#f6f8fc;
+      --paper-2:#edf3fb;
+      --line:#d9e2ef;
+      --muted:#5e6f89;
+      --muted-dark:#afbdd3;
+      --radius:24px;
     }
     *{box-sizing:border-box}
-    html{scroll-behavior:smooth}
+    html{scroll-behavior:smooth;overflow-x:hidden}
     body{
       margin:0;
-      font-family:ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+      min-width:0;
+      overflow-x:hidden;
+      font-family:Inter,ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+      color:var(--ink);
+      background:var(--paper);
       font-size:16px;
-      font-weight:400;
-      line-height:1.58;
+      line-height:1.6;
       letter-spacing:-.01em;
-      text-rendering:optimizeLegibility;
       -webkit-font-smoothing:antialiased;
-      background:
-        radial-gradient(circle at 14% 0%,rgba(82,126,255,.26),transparent 35%),
-        radial-gradient(circle at 90% 14%,rgba(104,223,211,.13),transparent 28%),
-        linear-gradient(180deg,var(--navy),var(--bg));
-      color:var(--text);
+      text-rendering:optimizeLegibility;
     }
     a{color:inherit}
-    .shell{width:min(1160px,calc(100% - 48px));margin:0 auto}
+    img{display:block;max-width:100%;height:auto}
+    .wrap{width:min(1180px,calc(100% - 48px));margin:0 auto;min-width:0}
 
+    .top{
+      background:
+        radial-gradient(circle at 14% 0%,rgba(71,117,245,.33),transparent 33%),
+        radial-gradient(circle at 92% 20%,rgba(86,214,203,.14),transparent 28%),
+        linear-gradient(145deg,#0a1c40 0%,#07152f 58%,#061226 100%);
+      color:#fff;
+    }
     nav{
-      min-height:80px;
+      min-height:78px;
       display:flex;
       align-items:center;
       justify-content:space-between;
       gap:28px;
-      border-bottom:1px solid var(--border-soft);
+      border-bottom:1px solid rgba(255,255,255,.10);
     }
-    .brand{display:flex;align-items:center;gap:11px;text-decoration:none;min-width:0}
+    .brand{display:flex;align-items:center;gap:11px;min-width:0;text-decoration:none}
     .mark{
-      width:44px;
-      height:44px;
-      border-radius:13px;
-      display:grid;
-      place-items:center;
-      flex:0 0 auto;
-      background:linear-gradient(135deg,var(--blue),var(--teal));
-      font-size:16px;
-      font-weight:800;
-      letter-spacing:.02em;
-      color:#fff;
-      box-shadow:0 10px 30px rgba(82,126,255,.24);
+      width:42px;height:42px;border-radius:13px;display:grid;place-items:center;flex:0 0 auto;
+      background:linear-gradient(135deg,#4775f5,#4fd3c9);color:#fff;font-size:15px;font-weight:800;letter-spacing:.03em;
+      box-shadow:0 10px 30px rgba(71,117,245,.22);
     }
-    .brand-copy strong{display:block;font-size:20px;line-height:1.05;letter-spacing:-.025em}
-    .brand-copy span{display:block;margin-top:4px;color:var(--muted-soft);font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1.45px}
-    .navlinks{display:flex;align-items:center;justify-content:flex-end;gap:24px;flex-wrap:wrap}
-    .navlinks>a{font-size:14.5px;text-decoration:none;color:var(--muted);font-weight:650;letter-spacing:0}
+    .brand-copy{min-width:0}
+    .brand-copy strong{display:block;font-size:19px;line-height:1.05;letter-spacing:-.02em;white-space:nowrap}
+    .brand-copy span{display:block;margin-top:4px;color:#9fb0cd;font-size:9px;line-height:1;text-transform:uppercase;letter-spacing:1.35px;font-weight:700}
+    .navlinks{display:flex;align-items:center;gap:24px}
+    .navlinks>a{font-size:14px;font-weight:650;text-decoration:none;color:#c7d3e7;white-space:nowrap}
     .navlinks>a:hover{color:#fff}
 
     .button{
-      display:inline-flex;
-      min-height:44px;
-      align-items:center;
-      justify-content:center;
-      padding:11px 18px;
-      border-radius:14px;
-      background:var(--blue);
-      color:#fff;
-      text-decoration:none;
-      font-size:15px;
-      line-height:1.1;
-      font-weight:700;
-      letter-spacing:-.01em;
-      border:1px solid transparent;
-      transition:transform .16s ease,border-color .16s ease,background .16s ease;
+      display:inline-flex;align-items:center;justify-content:center;min-height:46px;padding:11px 18px;border-radius:13px;
+      background:var(--blue);border:1px solid var(--blue);color:#fff;text-decoration:none;font-size:14px;font-weight:700;
+      transition:transform .16s ease,background .16s ease,border-color .16s ease;
     }
-    .button:hover{transform:translateY(-1px)}
-    .button.secondary{background:rgba(255,255,255,.055);border-color:var(--border);color:#edf3ff}
+    .button:hover{transform:translateY(-1px);background:var(--blue-dark);border-color:var(--blue-dark)}
+    .button.secondary{background:transparent;border-color:rgba(255,255,255,.23);color:#eef3ff}
 
-    .hero{
-      padding:82px 0 72px;
-      display:grid;
-      grid-template-columns:minmax(0,1.06fr) minmax(360px,.94fr);
-      gap:64px;
-      align-items:center;
-    }
+    .hero{padding:74px 0 80px}
+    .hero-grid{display:grid;grid-template-columns:minmax(0,.94fr) minmax(420px,1.06fr);gap:64px;align-items:center;min-width:0}
     .hero-copy{min-width:0}
-    .eyebrow{
-      display:flex;
-      align-items:center;
-      gap:9px;
-      color:var(--teal);
-      font-size:12px;
-      line-height:1.25;
-      font-weight:750;
-      letter-spacing:1.35px;
-      text-transform:uppercase;
-    }
-    .eyebrow:before{
-      content:"";
-      width:7px;
-      height:7px;
-      flex:0 0 auto;
-      border-radius:50%;
-      background:var(--teal);
-      box-shadow:0 0 14px rgba(104,223,211,.75);
-    }
+    .eyebrow{display:flex;align-items:center;gap:9px;color:#73e1d7;font-size:11px;line-height:1.3;font-weight:800;text-transform:uppercase;letter-spacing:1.45px}
+    .eyebrow:before{content:"";width:7px;height:7px;border-radius:50%;background:#65dcd2;box-shadow:0 0 13px rgba(101,220,210,.72);flex:0 0 auto}
     h1{
-      max-width:760px;
-      margin:18px 0 22px;
-      font-size:clamp(46px,5.15vw,68px);
-      line-height:1.025;
-      letter-spacing:-2.6px;
-      font-weight:730;
-      text-wrap:balance;
+      margin:17px 0 20px;max-width:670px;color:#fff;font-size:clamp(45px,4.7vw,62px);line-height:1.04;
+      letter-spacing:-2.35px;font-weight:720;text-wrap:balance;
     }
-    .accent{color:var(--teal)}
-    .lede{
-      max-width:720px;
-      margin:0;
-      color:var(--muted);
-      font-size:clamp(17px,1.55vw,19.5px);
-      line-height:1.68;
-      letter-spacing:-.005em;
-    }
-    .actions{display:flex;gap:11px;flex-wrap:wrap;margin-top:27px}
-    .transition{
-      max-width:720px;
-      margin-top:20px;
-      padding:15px 17px;
-      border:1px solid rgba(156,124,255,.22);
-      border-radius:15px;
-      background:rgba(156,124,255,.075);
-      color:#d6d8ee;
-      font-size:13.5px;
-      line-height:1.62;
-    }
-    .transition strong{color:#f0edff}
+    h1 .accent{color:#67ddd3}
+    .hero-lede{max-width:650px;margin:0;color:#c5d1e6;font-size:18px;line-height:1.72}
+    .hero-points{display:flex;gap:8px;flex-wrap:wrap;margin-top:22px}
+    .hero-point{padding:7px 10px;border-radius:999px;border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.065);color:#dfe7f5;font-size:12px;font-weight:700}
+    .hero-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:26px}
+    .transition-note{margin-top:18px;max-width:650px;color:#aab9d0;font-size:12.5px;line-height:1.6}
+    .transition-note strong{color:#ddd7ff;font-weight:700}
 
-    .hero-card{
-      border:1px solid var(--border);
-      border-radius:26px;
-      padding:18px;
-      background:rgba(3,10,28,.55);
-      box-shadow:0 26px 70px rgba(0,0,0,.25);
-    }
-    .score{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:11px}
-    .mini{
-      min-width:0;
-      border:1px solid var(--border);
-      border-radius:17px;
-      padding:18px;
-      background:var(--surface);
-    }
-    .mini strong{display:block;margin-bottom:5px;font-size:17px;line-height:1.3;font-weight:700;letter-spacing:-.015em}
-    .mini span{display:block;color:var(--muted);font-size:13.5px;line-height:1.58}
-    .status{
-      display:inline-flex;
-      align-items:center;
-      margin-top:10px;
-      border-radius:999px;
-      padding:5px 8px;
-      background:rgba(104,223,211,.12);
-      color:var(--teal);
-      font-size:9.5px;
-      line-height:1.15;
-      font-weight:800;
-      letter-spacing:.75px;
-      text-transform:uppercase;
-    }
+    .hero-visual{min-width:0}
+    .hero-figure{margin:0;position:relative;border:1px solid rgba(255,255,255,.13);border-radius:30px;padding:12px;background:rgba(255,255,255,.055);box-shadow:0 30px 90px rgba(0,0,0,.30)}
+    .hero-figure img{width:100%;border-radius:21px;aspect-ratio:4/3;object-fit:cover;background:#07152f}
+    .hero-figure figcaption{display:flex;justify-content:space-between;gap:12px;padding:9px 4px 1px;color:#8397b7;font-size:10px;line-height:1.35}
+    .hero-figure figcaption span:last-child{text-align:right}
 
-    main>section:not(.hero){border-top:1px solid var(--border-soft)}
-    section{padding:68px 0}
-    .section-head{max-width:760px;margin-bottom:27px}
-    .section-head .eyebrow{margin-bottom:13px}
-    h2{
-      max-width:900px;
-      margin:0 0 13px;
-      font-size:clamp(34px,3.7vw,48px);
-      line-height:1.08;
-      letter-spacing:-1.65px;
-      font-weight:710;
-      text-wrap:balance;
-    }
-    .section-head p{margin:0;color:var(--muted);font-size:17px;line-height:1.66}
+    .section{padding:84px 0}
+    .section.light{background:var(--paper);color:var(--ink)}
+    .section.soft{background:var(--paper-2);color:var(--ink)}
+    .section.dark{background:linear-gradient(145deg,#0b2044,#07152f);color:#fff}
+    .section-head{display:grid;grid-template-columns:minmax(0,.7fr) minmax(300px,.3fr);gap:60px;align-items:end;margin-bottom:34px}
+    .section-kicker{margin:0 0 10px;color:#2b68dc;font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:1.35px}
+    .dark .section-kicker{color:#66d9cf}
+    h2{margin:0;font-size:clamp(34px,3.7vw,48px);line-height:1.1;letter-spacing:-1.55px;font-weight:710;text-wrap:balance}
+    .section-head p{margin:0;color:var(--muted);font-size:16px;line-height:1.7}
+    .dark .section-head p{color:var(--muted-dark)}
 
-    .grid3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:15px}
-    .card{
-      min-width:0;
-      border:1px solid var(--border);
-      border-radius:21px;
-      padding:23px;
-      background:var(--surface);
-    }
-    .card h3{margin:13px 0 8px;font-size:22px;line-height:1.25;letter-spacing:-.4px;font-weight:700}
-    .card p{margin:0;color:var(--muted);font-size:15.5px;line-height:1.65}
-    .card ul{padding-left:20px;color:var(--muted)}
-    .pill{
-      display:inline-flex;
-      border-radius:999px;
-      padding:5px 9px;
-      background:rgba(82,126,255,.14);
-      color:#b8caff;
-      font-size:10px;
-      line-height:1.2;
-      font-weight:800;
-      letter-spacing:.7px;
-      text-transform:uppercase;
-    }
-    .pill.teal{background:rgba(104,223,211,.11);color:var(--teal)}
-    .pill.gold{background:rgba(239,200,108,.11);color:var(--gold)}
+    .outcomes{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+    .outcome{min-width:0;border:1px solid var(--line);border-radius:20px;background:#fff;padding:24px}
+    .outcome .num{display:grid;place-items:center;width:34px;height:34px;border-radius:11px;background:#e8efff;color:#3369df;font-size:13px;font-weight:800}
+    .outcome h3{margin:17px 0 8px;font-size:21px;line-height:1.25;letter-spacing:-.4px}
+    .outcome p{margin:0;color:var(--muted);font-size:14.5px;line-height:1.65}
 
-    .feature-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
-    .feature{
-      min-width:0;
-      border:1px solid var(--border);
-      border-radius:19px;
-      padding:21px 22px;
-      background:rgba(255,255,255,.04);
-    }
-    .feature h3{margin:0 0 7px;color:var(--teal);font-size:19px;line-height:1.32;font-weight:700;letter-spacing:-.25px}
-    .feature p{margin:0;color:var(--muted);font-size:15.5px;line-height:1.62}
+    .yki-layout{display:grid;grid-template-columns:minmax(0,.82fr) minmax(360px,.38fr);gap:18px;align-items:stretch}
+    .yki-main{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+    .feature-card{min-width:0;border:1px solid var(--line);background:#fff;border-radius:19px;padding:22px}
+    .feature-card .tag{display:inline-flex;padding:5px 8px;border-radius:999px;background:#e9f7f5;color:#15857c;font-size:9px;font-weight:800;text-transform:uppercase;letter-spacing:.8px}
+    .feature-card h3{margin:14px 0 8px;font-size:19px;line-height:1.3;letter-spacing:-.3px}
+    .feature-card p{margin:0;color:var(--muted);font-size:14.5px;line-height:1.65}
+    .yki-aside{display:flex;flex-direction:column;justify-content:space-between;border-radius:19px;padding:24px;background:linear-gradient(145deg,#123266,#0a1d40);color:#fff}
+    .yki-aside strong{font-size:24px;line-height:1.16;letter-spacing:-.7px}
+    .yki-aside p{margin:13px 0 0;color:#b9c8df;font-size:14px;line-height:1.65}
+    .skill-list{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:24px}
+    .skill{padding:9px 10px;border-radius:11px;background:rgba(255,255,255,.08);color:#dce7f8;font-size:12px;font-weight:700}
+
+    .work-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+    .work-card{min-width:0;padding:22px;border-radius:18px;border:1px solid rgba(255,255,255,.13);background:rgba(255,255,255,.055)}
+    .work-card h3{margin:0 0 8px;color:#70e0d6;font-size:18px;line-height:1.3}
+    .work-card p{margin:0;color:#bdcbe0;font-size:14.5px;line-height:1.65}
 
     .languages{display:flex;flex-wrap:wrap;gap:8px}
-    .language{
-      padding:8px 11px;
-      border-radius:999px;
-      border:1px solid var(--border);
-      background:rgba(255,255,255,.045);
-      color:#d8e3f8;
-      font-size:13.5px;
-      line-height:1.2;
-      font-weight:650;
-      letter-spacing:0;
-    }
+    .language{padding:8px 11px;border-radius:999px;border:1px solid #cfd9e8;background:#fff;color:#31435d;font-size:13px;font-weight:650}
+    .language-note{margin-top:22px;padding:16px 18px;border-left:3px solid #55d3c8;background:#e6f5f3;color:#486076;font-size:13.5px;line-height:1.62;border-radius:0 12px 12px 0}
 
-    .callout{
-      border:1px solid rgba(82,126,255,.36);
-      background:linear-gradient(135deg,rgba(82,126,255,.15),rgba(104,223,211,.055));
-      border-radius:24px;
-      padding:31px;
-    }
-    .callout .eyebrow{margin-bottom:13px}
-    .callout .lede{max-width:800px}
-    .disclaimer{margin:17px 0 0;color:var(--muted-soft);font-size:13px;line-height:1.55}
+    .final-card{display:grid;grid-template-columns:minmax(0,.72fr) minmax(260px,.28fr);gap:40px;align-items:center;border-radius:26px;padding:34px;background:linear-gradient(135deg,#163b76,#0c244c);color:#fff}
+    .final-card h2{max-width:740px}
+    .final-card p{max-width:720px;margin:13px 0 0;color:#c4d2e7;font-size:15.5px;line-height:1.7}
+    .final-actions{display:flex;flex-direction:column;gap:10px}
+    .final-actions .button{width:100%}
+    .disclaimer{margin-top:16px!important;color:#91a6c6!important;font-size:11.5px!important}
 
-    footer{padding:34px 0 44px;color:var(--muted-soft);font-size:14px;border-top:1px solid var(--border)}
-    .footer-row{display:flex;align-items:flex-start;justify-content:space-between;gap:24px;flex-wrap:wrap}
-    .legal{display:flex;gap:14px;flex-wrap:wrap}
-    .legal a{color:var(--muted)}
+    footer{background:#061226;color:#8fa3c2;padding:30px 0 38px;font-size:12.5px}
+    .footer-row{display:flex;justify-content:space-between;gap:20px;align-items:flex-start;flex-wrap:wrap}
+    .legal{display:flex;gap:13px;flex-wrap:wrap}
+    .legal a{color:#b7c4da}
 
     @media(max-width:980px){
-      .hero{grid-template-columns:1fr;gap:34px;padding:58px 0 54px}
-      .hero-copy,.hero .lede,.hero .transition{max-width:780px}
-      .hero-card{max-width:780px}
-      .grid3{grid-template-columns:1fr}
-      .feature-grid{grid-template-columns:1fr 1fr}
+      .hero{padding:58px 0 64px}
+      .hero-grid{grid-template-columns:1fr;gap:38px}
+      .hero-copy{max-width:760px}
+      .hero-visual{max-width:760px}
+      .section-head{grid-template-columns:1fr;gap:13px;align-items:start}
+      .section-head p{max-width:680px}
+      .outcomes{grid-template-columns:1fr}
+      .yki-layout{grid-template-columns:1fr}
+      .final-card{grid-template-columns:1fr}
+      .final-actions{flex-direction:row;flex-wrap:wrap}
+      .final-actions .button{width:auto}
     }
 
     @media(max-width:700px){
-      .shell{width:min(100% - 32px,1160px)}
-      nav{min-height:70px;gap:12px}
-      .mark{width:38px;height:38px;border-radius:11px;font-size:13px}
-      .brand{gap:9px}
-      .brand-copy strong{font-size:17px}
-      .brand-copy span{font-size:8.5px;letter-spacing:1.1px}
-      .navlinks{gap:8px}
+      .wrap{width:min(100% - 32px,1180px)}
+      nav{min-height:68px;gap:10px}
+      .mark{width:36px;height:36px;border-radius:11px;font-size:12px}
+      .brand{gap:8px}
+      .brand-copy strong{font-size:16px}
+      .brand-copy span{font-size:7.5px;letter-spacing:1px}
       .navlinks>a:not(.button){display:none}
-      .navlinks .button{min-height:39px;padding:9px 12px;border-radius:12px;font-size:12.5px;white-space:nowrap}
+      .navlinks .button{min-height:38px;padding:9px 11px;border-radius:11px;font-size:11.5px}
 
-      .hero{padding:46px 0 46px;gap:26px}
-      .eyebrow{font-size:10px;letter-spacing:1.05px;gap:7px}
+      .hero{padding:40px 0 48px}
+      .hero-grid{gap:30px}
+      .eyebrow{font-size:9px;letter-spacing:1.05px;gap:7px}
       .eyebrow:before{width:6px;height:6px}
-      h1{margin:15px 0 18px;font-size:clamp(36px,10vw,42px);line-height:1.045;letter-spacing:-1.65px;text-wrap:pretty}
-      .lede{font-size:16px;line-height:1.64}
-      .actions{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:22px}
-      .actions .button{width:100%;min-height:42px;padding:10px 12px;font-size:13px}
-      .transition{margin-top:15px;padding:13px 14px;border-radius:13px;font-size:12.5px;line-height:1.58}
+      h1{margin:14px 0 16px;font-size:clamp(34px,9.3vw,40px);line-height:1.06;letter-spacing:-1.45px;text-wrap:pretty}
+      .hero-lede{font-size:15.5px;line-height:1.65}
+      .hero-points{margin-top:17px;gap:6px}
+      .hero-point{padding:6px 8px;font-size:10.5px}
+      .hero-actions{display:grid;grid-template-columns:1fr;gap:8px;margin-top:20px}
+      .hero-actions .button{width:100%;min-height:44px}
+      .transition-note{margin-top:14px;font-size:11.5px;line-height:1.55}
+      .hero-figure{padding:8px;border-radius:20px}
+      .hero-figure img{border-radius:14px;aspect-ratio:4/3}
+      .hero-figure figcaption{font-size:8px;padding:7px 2px 0}
 
-      .hero-card{padding:12px;border-radius:20px;box-shadow:none}
-      .score{gap:9px}
-      .mini{padding:15px;border-radius:15px}
-      .mini strong{font-size:15px;margin-bottom:4px}
-      .mini span{font-size:12.5px;line-height:1.5}
-      .status{margin-top:8px;padding:4px 7px;font-size:8.5px;letter-spacing:.6px}
+      .section{padding:56px 0}
+      .section-head{margin-bottom:24px}
+      .section-kicker{font-size:9.5px;margin-bottom:8px}
+      h2{font-size:clamp(29px,8.1vw,34px);line-height:1.12;letter-spacing:-1px}
+      .section-head p{font-size:14.5px;line-height:1.65}
 
-      section{padding:50px 0}
-      .section-head{margin-bottom:21px}
-      .section-head .eyebrow{margin-bottom:10px}
-      h2{margin-bottom:10px;font-size:clamp(29px,8.3vw,34px);line-height:1.1;letter-spacing:-1px;text-wrap:pretty}
-      .section-head p{font-size:15.5px;line-height:1.62}
+      .outcome{padding:19px;border-radius:16px}
+      .outcome h3{font-size:18px;margin-top:14px}
+      .outcome p{font-size:13.5px}
 
-      .grid3{gap:11px}
-      .card{padding:19px;border-radius:17px}
-      .card h3{margin:11px 0 7px;font-size:19px;line-height:1.27}
-      .card p{font-size:14.5px;line-height:1.62}
-      .pill{font-size:9px;padding:5px 8px}
+      .yki-main{grid-template-columns:1fr;gap:10px}
+      .feature-card{padding:18px;border-radius:16px}
+      .feature-card h3{font-size:17px}
+      .feature-card p{font-size:13.5px}
+      .yki-aside{padding:20px;border-radius:16px}
+      .yki-aside strong{font-size:21px}
+      .skill-list{grid-template-columns:1fr 1fr;margin-top:19px}
+      .skill{font-size:11px}
 
-      .feature-grid{grid-template-columns:1fr;gap:10px}
-      .feature{padding:18px;border-radius:16px}
-      .feature h3{font-size:17px}
-      .feature p{font-size:14.5px}
+      .work-grid{grid-template-columns:1fr;gap:9px}
+      .work-card{padding:18px;border-radius:15px}
+      .work-card h3{font-size:16.5px}
+      .work-card p{font-size:13.5px}
 
-      .languages{gap:7px}
-      .language{padding:7px 10px;font-size:12.5px}
+      .languages{gap:6px}
+      .language{padding:7px 9px;font-size:11.5px}
+      .language-note{font-size:12px;padding:13px 14px}
 
-      .callout{padding:22px 19px;border-radius:19px}
-      .callout .eyebrow{margin-bottom:10px}
-      .callout .actions{margin-top:19px}
-      .disclaimer{font-size:12px}
-
-      footer{padding:28px 0 38px;font-size:12.5px}
-      .footer-row{display:grid;grid-template-columns:1fr;gap:15px}
-      .legal{gap:11px 14px}
+      .final-card{padding:22px 18px;border-radius:19px;gap:22px}
+      .final-card p{font-size:13.5px}
+      .final-actions{display:grid;grid-template-columns:1fr;gap:8px}
+      .final-actions .button{width:100%}
+      footer{padding:26px 0 34px;font-size:11.5px}
+      .footer-row{display:grid;grid-template-columns:1fr;gap:14px}
     }
 
-    @media(min-width:390px) and (max-width:700px){
-      .score{grid-template-columns:repeat(2,minmax(0,1fr))}
-    }
-
-    @media(max-width:389px){
-      .score{grid-template-columns:1fr}
-      .actions{grid-template-columns:1fr}
-      .navlinks .button{padding-left:10px;padding-right:10px}
+    @media(max-width:360px){
+      .wrap{width:min(100% - 24px,1180px)}
+      .brand-copy span{display:none}
+      .navlinks .button{padding-left:9px;padding-right:9px}
     }
   </style>
 </head>
 <body>
-  <div class="shell">
-    <nav>
-      <a class="brand" href="/" aria-label="KieliValmis home"><span class="mark">KV</span><span class="brand-copy"><strong>KieliValmis</strong><span>by Floently</span></span></a>
-      <div class="navlinks">
-        <a href="#yki">YKI</a><a href="#work">Work</a><a href="#languages">20 languages</a>
-        <a class="button" href="https://learn.floently.com/">Open app</a>
-      </div>
-    </nav>
+  <header class="top">
+    <div class="wrap">
+      <nav>
+        <a class="brand" href="/" aria-label="KieliValmis home">
+          <span class="mark">KV</span>
+          <span class="brand-copy"><strong>KieliValmis</strong><span>by Floently</span></span>
+        </a>
+        <div class="navlinks">
+          <a href="#yki">YKI</a>
+          <a href="#work">Work</a>
+          <a href="#languages">20 languages</a>
+          <a class="button" href="https://learn.floently.com/">Open app</a>
+        </div>
+      </nav>
 
-    <main>
       <section class="hero">
-        <div class="hero-copy">
-          <div class="eyebrow">YKI + work in Finland + your language</div>
-          <h1>Prepare for YKI. Prepare for work in Finland. <span class="accent">In your language.</span></h1>
-          <p class="lede">KieliValmis brings YKI preparation, Finnish speaking, grammar, vocabulary, sentence practice and realistic professional roleplay into one connected learning experience—with guidance in 20 languages.</p>
-          <div class="actions">
-            <a class="button" href="https://learn.floently.com/">Open the web app →</a>
-            <a class="button secondary" href="https://play.google.com/store/apps/details?id=com.vitusidi.floently&utm_source=kielivalmis.com&utm_medium=website&utm_campaign=kielivalmis_launch" rel="noopener">Android app →</a>
+        <div class="hero-grid">
+          <div class="hero-copy">
+            <div class="eyebrow">Finnish for YKI, work and everyday life</div>
+            <h1>Prepare for YKI. Prepare for work in Finland. <span class="accent">In your language.</span></h1>
+            <p class="hero-lede">KieliValmis helps you build practical Finnish for the YKI exam and real working life—with speaking practice, useful feedback and guidance in 20 languages.</p>
+            <div class="hero-points" aria-label="KieliValmis focus areas">
+              <span class="hero-point">YKI preparation</span>
+              <span class="hero-point">Finnish for work</span>
+              <span class="hero-point">Speaking + roleplay</span>
+              <span class="hero-point">20 guidance languages</span>
+            </div>
+            <div class="hero-actions">
+              <a class="button" href="https://learn.floently.com/">Start practising →</a>
+              <a class="button secondary" href="https://play.google.com/store/apps/details?id=com.vitusidi.floently&utm_source=kielivalmis.com&utm_medium=website&utm_campaign=kielivalmis_launch" rel="noopener">Android app</a>
+            </div>
+            <p class="transition-note"><strong>KieliValmis is the new customer-facing name for Floently Finnish.</strong> Existing accounts, learning progress and subscription continuity stay with the same service operated by Komplyint Oy.</p>
           </div>
-          <div class="transition"><strong>KieliValmis is the new customer-facing name for Floently Finnish.</strong> The product remains a Floently product by Komplyint Oy, so existing accounts, learning progress and subscription continuity stay with the same service.</div>
-        </div>
-        <div class="hero-card">
-          <div class="score">
-            <div class="mini"><strong>YKI preparation</strong><span>Speaking, writing, reading and listening practice.</span><div class="status">Practice all four skills</div></div>
-            <div class="mini"><strong>Finnish for work</strong><span>Professional communication and realistic workplace situations.</span><div class="status">Work-ready Finnish</div></div>
-            <div class="mini"><strong>20 languages</strong><span>Understand guidance and feedback in a language you already know.</span><div class="status">Clearer learning</div></div>
-            <div class="mini"><strong>Speaking + roleplay</strong><span>Practise before the real conversation happens.</span><div class="status">Build confidence</div></div>
+
+          <div class="hero-visual">
+            <figure class="hero-figure" data-ai-generated="true">
+              <img src="/assets/kielivalmis-hero-ai.svg" alt="AI-generated illustration showing YKI preparation, Finnish for work, speaking feedback and guidance in 20 languages." width="1200" height="900">
+              <figcaption><span>YKI + work + multilingual guidance</span><span>AI-generated illustration</span></figcaption>
+            </figure>
           </div>
         </div>
       </section>
+    </div>
+  </header>
 
-      <section id="yki">
-        <div class="section-head"><div class="eyebrow">Be ready for the exam</div><h2>YKI practice that connects the skills.</h2><p>Train the communication you need instead of treating reading, listening, writing and speaking as disconnected exercises.</p></div>
-        <div class="grid3">
-          <article class="card"><span class="pill teal">YKI</span><h3>All four subtests</h3><p>Practise reading, listening, writing and speaking in YKI-style situations with structured feedback and progress support.</p></article>
-          <article class="card"><span class="pill">Feedback</span><h3>Understand what to improve</h3><p>Use detailed evaluation and corrections to see what worked, what did not, and what to practise next.</p></article>
-          <article class="card"><span class="pill gold">Real situations</span><h3>Communicate, not memorize</h3><p>Build the Finnish needed for requests, opinions, messages, everyday situations and practical interaction.</p></article>
+  <main>
+    <section class="section light">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <p class="section-kicker">One connected learning path</p>
+            <h2>Learn the Finnish you need for the next step.</h2>
+          </div>
+          <p>KieliValmis connects exam preparation, working-life communication and everyday Finnish instead of treating them as separate learning worlds.</p>
         </div>
-      </section>
-
-      <section id="work">
-        <div class="section-head"><div class="eyebrow">Be ready for working life</div><h2>Finnish for the situations that actually happen at work.</h2><p>Build professional communication through vocabulary, sentence practice and roleplay rather than learning isolated word lists.</p></div>
-        <div class="feature-grid">
-          <article class="feature"><h3>Professional roleplay</h3><p>Practise realistic conversations and workplace situations before you need to handle them in real life.</p></article>
-          <article class="feature"><h3>Grammar in context</h3><p>See structures inside useful Finnish sentences and learn through correction, explanation and repetition.</p></article>
-          <article class="feature"><h3>Vocabulary that belongs somewhere</h3><p>Build useful vocabulary around real communication instead of memorizing disconnected translations.</p></article>
-          <article class="feature"><h3>Speaking confidence</h3><p>Practise responding, explaining, asking, clarifying and continuing conversations in Finnish.</p></article>
+        <div class="outcomes">
+          <article class="outcome">
+            <span class="num">01</span>
+            <h3>Prepare for YKI</h3>
+            <p>Practise speaking, writing, reading and listening in realistic YKI-style situations with structured feedback.</p>
+          </article>
+          <article class="outcome">
+            <span class="num">02</span>
+            <h3>Prepare for work</h3>
+            <p>Build the language you need for professional conversations, clarifying, explaining, asking and responding at work.</p>
+          </article>
+          <article class="outcome">
+            <span class="num">03</span>
+            <h3>Understand the guidance</h3>
+            <p>The Finnish practice stays Finnish, while explanations and learning support can help you in a language you already know.</p>
+          </article>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <section id="languages">
-        <div class="section-head"><div class="eyebrow">Your language can help you learn Finnish</div><h2>Guidance in 20 languages.</h2><p>The Finnish you practise remains Finnish. The interface, task guidance, explanations and learning support can help you understand what to do in a language you already know.</p></div>
+    <section id="yki" class="section soft">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <p class="section-kicker">Be ready for the exam</p>
+            <h2>YKI practice that connects the skills.</h2>
+          </div>
+          <p>Train communication instead of memorising isolated answers. Use feedback to see what worked, what needs improvement and what to practise next.</p>
+        </div>
+        <div class="yki-layout">
+          <div class="yki-main">
+            <article class="feature-card">
+              <span class="tag">YKI</span>
+              <h3>Realistic tasks</h3>
+              <p>Practise messages, opinions, requests and situations that require you to understand and communicate in Finnish.</p>
+            </article>
+            <article class="feature-card">
+              <span class="tag">Feedback</span>
+              <h3>Know what to improve</h3>
+              <p>Review structured evaluation and corrections so your next practice session has a clear purpose.</p>
+            </article>
+            <article class="feature-card">
+              <span class="tag">Progress</span>
+              <h3>Build confidence</h3>
+              <p>Repeat, adjust and practise again until the language feels more natural under real communication pressure.</p>
+            </article>
+          </div>
+          <aside class="yki-aside">
+            <div>
+              <strong>All four YKI subtests, one learning flow.</strong>
+              <p>Move between receptive and productive skills without losing the context of what you are learning.</p>
+            </div>
+            <div class="skill-list" aria-label="YKI skills">
+              <span class="skill">Speaking</span>
+              <span class="skill">Writing</span>
+              <span class="skill">Reading</span>
+              <span class="skill">Listening</span>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section id="work" class="section dark">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <p class="section-kicker">Be ready for working life</p>
+            <h2>Finnish for situations that actually happen at work.</h2>
+          </div>
+          <p>Build professional communication through useful vocabulary, sentences and realistic roleplay—not disconnected word lists.</p>
+        </div>
+        <div class="work-grid">
+          <article class="work-card"><h3>Professional roleplay</h3><p>Practise realistic conversations and workplace situations before you need to handle them in real life.</p></article>
+          <article class="work-card"><h3>Grammar in context</h3><p>See structures inside useful Finnish sentences and learn through correction, explanation and repetition.</p></article>
+          <article class="work-card"><h3>Useful vocabulary</h3><p>Build words around real communication needs so vocabulary has a situation, purpose and memory hook.</p></article>
+          <article class="work-card"><h3>Speaking confidence</h3><p>Practise responding, explaining, asking, clarifying and continuing conversations in Finnish.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="languages" class="section light">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <p class="section-kicker">Your language can help you learn Finnish</p>
+            <h2>Guidance in 20 languages.</h2>
+          </div>
+          <p>The YKI exam itself is not offered in 20 languages. KieliValmis uses multilingual interface text, task guidance, explanations and learning support to help you understand how to practise Finnish.</p>
+        </div>
         <div class="languages" aria-label="Supported guidance languages">
           <span class="language">English</span><span class="language">Finnish</span><span class="language">Swedish</span><span class="language">Estonian</span><span class="language">Spanish</span><span class="language">Turkish</span><span class="language">Russian</span><span class="language">Ukrainian</span><span class="language">Arabic</span><span class="language">Chinese</span><span class="language">Kurdish</span><span class="language">Vietnamese</span><span class="language">Bengali</span><span class="language">Albanian</span><span class="language">Tagalog</span><span class="language">Thai</span><span class="language">Somali</span><span class="language">Nepali</span><span class="language">Persian</span><span class="language">Urdu</span>
         </div>
-      </section>
-
-      <section>
-        <div class="callout">
-          <div class="eyebrow">20 languages. One goal: be ready for Finland.</div>
-          <h2>One learning product for YKI, work and daily Finnish.</h2>
-          <p class="lede">Use KieliValmis on the web and Android while the KieliValmis store-name transition is completed across the existing Floently app records.</p>
-          <div class="actions"><a class="button" href="https://learn.floently.com/">Start practising →</a><a class="button secondary" href="https://www.floently.com/">About Floently</a></div>
-          <p class="disclaimer">KieliValmis is an independent Finnish-learning product. It is not affiliated with or endorsed by the official YKI examination authorities.</p>
-        </div>
-      </section>
-    </main>
-
-    <footer>
-      <div class="footer-row">
-        <span>© 2026 Komplyint Oy. KieliValmis is a Floently product.</span>
-        <div class="legal"><a href="/privacy">Privacy</a><a href="/terms">Terms</a><a href="/support">Support</a><a href="/delete-account">Delete account</a><a href="https://www.floently.com/">Floently</a></div>
+        <div class="language-note">20 languages. One goal: be ready for Finland. The Finnish you practise remains Finnish; the multilingual layer exists to make the learning process clearer.</div>
       </div>
-    </footer>
-  </div>
+    </section>
+
+    <section class="section soft">
+      <div class="wrap">
+        <div class="final-card">
+          <div>
+            <p class="section-kicker" style="color:#70e0d6">KieliValmis by Floently</p>
+            <h2>One learning product for YKI, work and daily Finnish.</h2>
+            <p>Use KieliValmis on the web and Android while the KieliValmis store-name transition is completed across the existing Floently app records.</p>
+            <p class="disclaimer">KieliValmis is an independent Finnish-learning product. It is not affiliated with or endorsed by the official YKI examination authorities.</p>
+          </div>
+          <div class="final-actions">
+            <a class="button" href="https://learn.floently.com/">Start practising →</a>
+            <a class="button secondary" href="https://www.floently.com/">About Floently</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap footer-row">
+      <span>© 2026 Komplyint Oy. KieliValmis is a Floently product.</span>
+      <div class="legal"><a href="/privacy">Privacy</a><a href="/terms">Terms</a><a href="/support">Support</a><a href="/delete-account">Delete account</a><a href="https://www.floently.com/">Floently</a></div>
+    </div>
+  </footer>
 </body>
 </html>
