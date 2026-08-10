@@ -3,260 +3,231 @@
 **Source of truth:** `docs/product/KIELIVALMIS_REBRAND_MASTERPLAN.md`  
 **Deployment addendum:** `docs/product/KIELIVALMIS_VERCEL_DEPLOYMENT_ARCHITECTURE.md`  
 **Visual/localization direction:** `docs/product/KIELIVALMIS_VISUAL_BRAND_LOCALIZATION_DIRECTION.md`  
-**Repository:** `galapoto/floently-finnish`  
+**Repository:** `Floently/floently-finnish`  
 **Working branch:** `growth/discovery-seo-d2-20260807`  
 **Started:** 2026-08-08
 
 ## Current milestone
 
-**R4L direction lock — R4I protected preview has passed full automated QA. The user has not yet visually reviewed the actual R4I preview; the latest screenshots were from the stable R4H alias. Before the next visual patch, the product direction is now locked around a dedicated KieliValmis endorsed brand, a more photographic human-centered hero, slightly smaller typography, restrained animation, and a permanent 20-language-first localization contract.**
+**R4M — preview-only branded + photographic + animated + 20-language landing candidate committed in the Floently organization repository. Local/static R4M contract PASS. Vercel preview deployment, protected route QA and visual review are next.**
 
-Do not advance to custom-domain/DNS work until the final website design is visually approved and the 20-language website architecture is implemented and QA-ready.
+Do not replace the current root landing page, attach KieliValmis custom domains, or change Namecheap DNS until R4M is deployed as a preview, passes automated and visual QA, and the website localization gates below are complete.
+
+## Repository move
+
+- [x] GitHub source of truth moved from the personal repository to **`Floently/floently-finnish`**.
+- [x] Working branch exists in the organization repository: `growth/discovery-seo-d2-20260807`.
+- [x] R4M source commit created in the organization repository: `2c8809ea624fb11fc8d5d2efdbf58daf030cb25d`.
+- [x] All new GitHub writes must target `Floently/floently-finnish`.
+- [ ] Before server-side fetch/deploy commands, inspect the Hetzner checkout remote because the live checkout may still point at the former personal repository URL.
 
 ## Locked product architecture
 
 - Customer-facing Finnish-learning product: **KieliValmis**
-- Transition identity: **KieliValmis by Floently**
+- Endorsed identity: **KieliValmis by Floently**
 - Parent/maker/product family: **Floently**
-- Legal company: **Komplyint Oy**
-- Primary purchased domain: **kielivalmis.com**
+- Legal operator: **Komplyint Oy**
+- Purchased domain: **kielivalmis.com**
 - Existing Android/iOS store records: preserve
-- Android package / Apple Bundle ID: preserve `com.vitusidi.floently`
-- Existing users, billing, RevenueCat, backend, YKI engine, cards and roleplay: preserve
-- Existing `learn-api.floently.com`: preserve as compatibility infrastructure
-- Existing `learn.floently.com`: preserve until a future parallel KieliValmis app-host alias passes auth/payment/YKI regression
-- Existing Floently public Vercel project `main-domain-static`: preserve as Floently family gateway
-- KieliValmis public marketing site: separate Vercel project `kielivalmis-domain-static`
-
-## Brand direction now locked
-
-- KieliValmis should have its **own product logo/wordmark/icon**.
-- Floently should remain as the smaller endorsement: **by Floently**.
-- Do not use the Floently logo alone as the KieliValmis product identity.
-- KieliValmis, Floently, YKI and Komplyint Oy are proper/brand names and are not translated.
-- The future app icon/store identity should follow the same KieliValmis visual system while preserving technical package/bundle IDs.
-
-## Visual direction now locked
-
-The current abstract inline SVG is not the intended final hero.
-
-Next visual candidate should:
-
-- keep the improved R4I mobile structure
-- reduce hero typography slightly again
-- use a premium human-centered AI-generated **photographic** hero rather than abstract dashboard-style artwork
-- avoid fake/baked-in Finnish text inside the image
-- place language-specific phrases, speaking feedback and similar UI as real HTML/CSS so they can be translated
-- preserve a small visible AI-generated disclosure and machine-readable provenance
-- use restrained motion only: slow ambient background movement, subtle waveform/feedback pulse, optional very gentle image drift
-- respect `prefers-reduced-motion`
-- avoid heavy autoplay video, bouncing text, mobile parallax and layout shift
-
-Typography target direction:
-
-- desktop hero: about 44–48 px maximum
-- mobile hero: about 26–28 px
-- desktop section headings: about 32–36 px
-- mobile section headings: about 22–25 px
-
-## Permanent 20-language contract
-
-From this point onward, **every new customer-facing website feature, section, CTA, label, navigation item, notice and newly introduced copy must be designed and implemented for all 20 supported languages from the start.**
-
-Supported languages:
-
-`en, fi, sv, et, es, tr, ru, uk, ar, zh, ku, vi, bn, sq, tl, th, so, ne, fa, ur`
-
-English, Finnish, Swedish, Estonian, Spanish, Turkish, Russian, Ukrainian, Arabic, Chinese, Kurdish, Vietnamese, Bengali, Albanian, Tagalog, Thai, Somali, Nepali, Persian, Urdu.
-
-Localization rules:
-
-- one source schema + locale dictionaries/content files; do not manually maintain 20 duplicated HTML pages
-- generated localized routes/pages
-- locale switcher
-- localized titles/meta descriptions/SEO copy
-- `hreflang` plus `x-default`
-- explicit fallback behavior
-- no raw translation keys may ship
-- Arabic, Persian and Urdu require real RTL layout QA
-- inspect the actual Kurdish script used by the existing product before assigning RTL/LTR behavior for `ku`
-- translation QA must include expansion, wrapping, buttons, nav, headings, cards, legal/footer links and mobile layouts
-- translations must be natural/native and suitable for a language-learning product, not literal machine output
-- preserve the precision that the YKI exam itself is not offered in 20 languages; KieliValmis provides guidance/interface/explanations/feedback in supported languages while Finnish practice remains Finnish
-
-## Website-first, app-second localization sequence
-
-1. finish and visually approve the KieliValmis website design
-2. finalize KieliValmis logo/wordmark and hero visual system
-3. implement website localization architecture
-4. complete and QA all 20 website translations
-5. freeze an approved KieliValmis website/rebrand terminology + translation pack
-6. build the app rebrand/localization pack from that same approved source
-7. update the existing Android/iOS product without changing package/bundle identity
-8. run full app functional + localization regression
-9. update store metadata/assets and release only after the app pack passes
-
-Do not independently rewrite website and app translations after the terminology pack is frozen.
+- Android package / Apple bundle ID: preserve `com.vitusidi.floently`
+- Existing accounts, subscriptions, RevenueCat, progress, YKI engine, card banks and roleplay: preserve
+- Existing API host `learn-api.floently.com`: preserve
+- Existing web app host `learn.floently.com`: preserve until a future KieliValmis runtime alias passes auth/payment/YKI regression
+- Existing Floently public Vercel project `main-domain-static`: preserve as family gateway
+- KieliValmis public marketing project: separate Vercel project `kielivalmis-domain-static`
 
 ## Production rollback baseline
 
 ### Hetzner Learn runtime
 
 - Host: `ubuntu-4gb-hel1-2`
+- IP: `77.42.44.201`
 - Repo: `/root/floently-finnish`
-- Branch: `preview/enable-all-languages`
-- Commit: `e92b98e7799c390bc52b42d724c57f197ffd5c0d`
-- Backend image: `floently-yki-report-calibration-overlay:20260729T183143Z`
-- Web hostname: `learn.floently.com`
-- API hostname: `learn-api.floently.com`
+- Live branch: `preview/enable-all-languages`
+- Live commit: `e92b98e7799c390bc52b42d724c57f197ffd5c0d`
+- Web: `learn.floently.com`
+- API: `learn-api.floently.com`
 
-The live Learn checkout has remained unchanged throughout all KieliValmis static-site work.
+KieliValmis marketing work must not modify this live checkout state.
 
-### Floently public site
-
-- Vercel project: `main-domain-static`
-- Project ID: `prj_sTnnI02l9BLRIPcRIeGlblflul5Z`
-- Team/org ID: `team_Pi5Ylt8nVh9Jzc60Ck7rl5I6`
-- Scope slug: `kompyint-oys-projects`
-- Domains: `floently.com`, `www.floently.com`
-
-### KieliValmis Vercel project
+### KieliValmis Vercel
 
 - Project: `kielivalmis-domain-static`
 - Project ID: `prj_RJPEDkC38WfDxcwWbSsQdRKBSpjd`
 - Org/team ID: `team_Pi5Ylt8nVh9Jzc60Ck7rl5I6`
 - Scope: `kompyint-oys-projects`
-- Stable Vercel alias: `https://kielivalmis-domain-static.vercel.app`
-- Current stable rollback candidate: R4H at `https://kielivalmis-domain-static-lk9ns71uv-kompyint-oys-projects.vercel.app`
-- Current protected R4I preview: `https://kielivalmis-domain-static-4ll5bamsm-kompyint-oys-projects.vercel.app`
-- Deployment Protection is enabled
-- Vercel Protection Bypass for Automation + normal system `curl` is the QA path
+- Stable alias: `https://kielivalmis-domain-static.vercel.app`
+- R4H stable rollback candidate: `https://kielivalmis-domain-static-lk9ns71uv-kompyint-oys-projects.vercel.app`
+- R4I protected preview: `https://kielivalmis-domain-static-4ll5bamsm-kompyint-oys-projects.vercel.app`
+- Deployment Protection bypass + ordinary `curl` is the established automated-QA path
 
-### KieliValmis DNS baseline
+### DNS baseline
 
 - Namecheap nameservers remain authoritative
-- Apex: `192.64.119.155` (parking)
-- `www`: `parkingpage.namecheap.com.`
-- No KieliValmis custom-domain DNS changes have been made
+- Apex remains parked at `192.64.119.155`
+- `www` remains parked at `parkingpage.namecheap.com.`
+- No KieliValmis DNS changes have been made
 
-**Do not change Namecheap DNS until the final visual design and localization architecture are approved, custom domains are attached to the correct Vercel project, and Vercel shows the exact required records.**
+## Brand rule — LOCKED
 
-## R0–R3 completed
+The user supplied and approved the KieliValmis **K + flowing wave** logo family. **Do not redesign or alter the symbol geometry.**
 
-- [x] master rebrand plan
-- [x] execution tracker
-- [x] surface inventory
-- [x] technical-ID preservation policy
-- [x] store rebrand/screenshot strategy
-- [x] legal-route regression policy
-- [x] Hetzner/Nginx/backend rollback baseline
-- [x] Floently domain/Vercel baseline
-- [x] KieliValmis Namecheap parking baseline
-- [x] separate KieliValmis Vercel project architecture
-- [x] isolated static package with landing/legal/support/delete/robots/sitemap/verifier
-- [x] isolated Vercel project created without touching `main-domain-static`
+Approved usage:
 
-## R4 visual/deployment history
+- standalone K + wave = website/header mark and favicon source
+- rounded-square K + wave = future app/store icon source
+- website header uses the approved symbol plus live near-white `KieliValmis` text and a much smaller cyan/teal `by Floently` endorsement
+- live text is intentional so the wordmark stays short, responsive and high-contrast on the dark website background
+- `by Floently` is not baked into the app icon
 
-### R4F
+## R4 history condensed
 
-First typography/mobile refinement deployed but was visually rejected: still cramped, clipped and card-heavy on iPhone 15 Pro Max-class viewport.
+- **R4F:** first typography/mobile refinement functionally passed but was visually rejected as cramped/card-heavy.
+- **R4G:** external SVG hero existed in source but returned deployed HTTP 404; QA stopped safely.
+- **R4H:** hero moved inline; automated QA passed, but mobile visual approval was withheld.
+- **R4I:** mobile-first structure created; protected preview passed full automated route/content/legal/security QA.
+- **R4L:** direction locked around the approved KieliValmis brand, human-centered photographic hero, smaller typography, restrained animation and permanent 20-language-first implementation.
+- **R4M:** current preview-only implementation candidate.
 
-### R4G
+## R4M implementation
 
-Image-led redesign introduced an external SVG hero. Source/local verification passed but deployed `/assets/kielivalmis-hero-ai.svg` returned 404. QA stopped correctly. No DNS/runtime/app impact.
+Path: `apps/kielivalmis-domain-static/r4m/`
 
-### R4H
+The existing root landing page is intentionally unchanged.
 
-Hero was embedded inline in `index.html`, eliminating the external asset request. Automated deployment QA passed, but final mobile visual approval was withheld because headings were still too large, the mobile header was crowded and the image appeared too late.
+### Visual system
 
-### R4I
+- [x] approved K + wave mark used without geometry redesign
+- [x] live high-contrast `KieliValmis` wordmark + tiny `by Floently`
+- [x] desktop hero target approximately 39–48 px
+- [x] mobile hero target approximately 25.5–28 px
+- [x] human-centered AI-generated photographic hero replaces abstract dashboard art in R4M
+- [x] language-specific text is HTML/CSS, not baked into the photograph
+- [x] subtle CSS-only ambient aurora drift
+- [x] subtle hero image drift on desktop
+- [x] animated speaking waveform
+- [x] feedback/status pulse
+- [x] mobile photo drift disabled
+- [x] `prefers-reduced-motion: reduce` supported
 
-Mobile-first rebuild committed as `133deb42c8ee9d64f25712159c8b63610a470c90`.
+### AI image provenance
 
-Key structural changes:
+R4M hero files:
 
-- mobile hero about 28–31 px
-- mobile nav intended to be brand-only
-- mobile ordering intended as kicker → headline → image → copy → focus points → CTA → transition note
-- full-width primary mobile CTA
-- compact 2x2 focus points
-- smaller content/card typography
-- inline AI hero + provenance preserved
+- `r4m/assets/kielivalmis-hero-ai.webp`
+- `r4m/assets/kielivalmis-hero-ai.provenance.json`
 
-Verifier false-negative occurred because the source used compact JSON (`"@type":"ImageObject"`) while the verifier expected whitespace. Verifier was corrected without weakening the requirement in commit `4e148f79554b7fbd66cbba55b8a3f42122c631c4`.
+Contract:
 
-R4I protected preview created:
+- [x] tiny visible localized `AI-generated image` disclosure
+- [x] page-level AI disclosure metadata
+- [x] Schema.org `ImageObject`
+- [x] WebP contains embedded XMP provenance markers
+- [x] provenance sidecar preserves creator/model/date/purpose/prompt summary
+- [x] verifier fails if required provenance is lost
 
-`https://kielivalmis-domain-static-4ll5bamsm-kompyint-oys-projects.vercel.app`
+### Preview indexing safety
 
-R4J protection diagnostic:
+`vercel.json` now places explicit R4M rules before the public catch-all:
 
-- [x] header bypass HTTP 200
-- [x] query bypass HTTP 200
-- [x] cookie flow HTTP 200
-- [x] real KieliValmis HTML reached
+- `/r4m` → `X-Robots-Tag: noindex, nofollow`
+- `/r4m/(.*)` → `X-Robots-Tag: noindex, nofollow`
+- normal public routes retain `X-Robots-Tag: index, follow`
 
-R4K full protected-preview QA:
+R4M also carries page-level `noindex,nofollow` metadata.
 
-- [x] all primary routes HTTP 200
-- [x] R4I mobile layout markers PASS
-- [x] hero content PASS
-- [x] AI disclosure + metadata PASS
-- [x] all 20 language markers PASS
-- [x] legal content PASS
-- [x] robots + sitemap PASS
-- [x] security headers PASS
-- [x] `/privacy-policy` -> 308 -> `/privacy`
-- [x] `/legal/privacy-policy` -> 308 -> `/privacy`
-- [x] `/account-deletion` -> 308 -> `/delete-account`
-- [x] `/legal/account-deletion` -> 308 -> `/delete-account`
-- [x] `RESULT: KIELIVALMIS R4I PREVIEW FULL QA PASS`
-- [x] final Learn production remained `preview/enable-all-languages` at `e92b98e7799c390bc52b42d724c57f197ffd5c0d`
+## Permanent 20-language contract
 
-## Important screenshot clarification
+Supported set:
 
-The screenshots supplied after R4K were from the stable hostname `kielivalmis-domain-static.vercel.app`, which remained the R4H stable candidate. The visible mobile top-right `Open app` button and picture-after-copy layout also match R4H, not the R4I mobile ordering.
+`en, fi, sv, et, es, tr, ru, uk, ar, zh, ku, vi, bn, sq, tl, th, so, ne, fa, ur`
 
-Therefore:
+English, Finnish, Swedish, Estonian, Spanish, Turkish, Russian, Ukrainian, Arabic, Chinese, Kurdish, Vietnamese, Bengali, Albanian, Tagalog, Thai, Somali, Nepali, Persian and Urdu.
 
-- R4I is functionally QA-clean
-- R4I has **not yet received a real browser visual review by the user**
-- do not infer R4I visual approval from the latest screenshots
+R4M localization architecture:
 
-## Immediate next step
+- [x] one shared landing-page component structure
+- [x] lightweight locale loader
+- [x] 20 separate locale JSON dictionaries
+- [x] every locale currently has the same complete key set as English
+- [x] language switcher
+- [x] browser/local-storage/query-parameter locale selection
+- [x] Arabic, Persian and Urdu use RTL layout
+- [x] Kurdish is currently treated as Kurmanji Latin/LTR pending explicit audit against the existing app locale
+- [x] visible AI disclosure translates with the selected locale
+- [x] mobile/desktop copy is rendered from the same locale keys
 
-Before changing production or DNS:
+**Quality status:** the 20 dictionaries are an initial structurally complete translation pack, not yet a frozen native-quality pack. Language-by-language review for natural/native closeness, UI wording, YKI terminology and learning suitability is still required before public launch or reuse in the app.
 
-1. visually inspect the actual R4I preview URL, not the stable alias
-2. use that inspection only to preserve any R4I structural improvements worth keeping
-3. create the next preview candidate with the newly locked direction: smaller typography, KieliValmis-specific endorsed logo, premium photographic hero, restrained motion, 20-language-first structure
-4. keep the candidate preview-only
-5. add localization completeness/RTL/SEO gates before any public-domain promotion
-6. only after explicit user visual approval and 20-language readiness may R4 close and R5 begin
+## R4M verifier
+
+`r4m/verify-r4m.mjs` currently gates:
+
+- exact 20-language set
+- 20 locale files and complete identical key sets
+- RTL set
+- approved logo asset presence
+- photographic hero presence
+- embedded XMP AI provenance
+- provenance sidecar completeness
+- AI disclosure markers
+- motion/reduced-motion contract
+- desktop/mobile typography contract
+- external optimized raster assets rather than inline PNG/JPEG
+- preserved Learn/Google Play links
+- R4M no-index header rules
+
+Local result:
+
+`RESULT: KIELIVALMIS R4M PREVIEW CONTRACT PASS`
+
+`package.json` now runs both the original static-site verifier and the R4M verifier during Vercel build.
+
+## Immediate next gate
+
+1. Connect to Hetzner separately with `ssh root@77.42.44.201`.
+2. Inspect `/root/floently-finnish` branch/commit/clean state and inspect `git remote -v` before fetching because the GitHub repository moved to `Floently/floently-finnish`.
+3. Do not checkout the rebrand branch in the live working tree.
+4. Fetch/extract only `apps/kielivalmis-domain-static` from the organization branch into a temporary directory.
+5. Run both static verification contracts.
+6. Deploy **preview only** to the existing `kielivalmis-domain-static` Vercel project — no `--prod`.
+7. QA `/r4m/`, its CSS/JS, image assets, all 20 locale JSON endpoints, no-index response header, AI provenance/disclosure and representative LTR/RTL locale switching.
+8. Visually review desktop + iPhone 15 Pro Max-class layouts and the approved logo treatment.
+9. Keep root/stable site, Namecheap DNS and Learn runtime unchanged until explicit visual approval.
+
+## After R4M visual approval
+
+Before public KieliValmis domain promotion:
+
+- [ ] native-quality review of all 20 landing translations
+- [ ] audit existing app `ku` script/direction and align website
+- [ ] localized legal/support/delete-account pages where appropriate
+- [ ] localized SEO titles/descriptions/routes
+- [ ] canonical + `hreflang` + `x-default` strategy
+- [ ] locale fallback and text-expansion QA
+- [ ] RTL visual QA
+- [ ] freeze approved KieliValmis terminology/translation pack
+
+Then build the existing Android/iOS app rebrand from that same frozen source; do not independently rewrite translations in the app.
 
 ## Remaining stages
 
-- [~] R4 — design/localization finalization, actual preview visual approval and promotion
-- [ ] R5 — attach `kielivalmis.com` / `www.kielivalmis.com` to the KieliValmis Vercel project and capture exact DNS requirements
-- [ ] R6 — change only KieliValmis Namecheap DNS + verify HTTPS/canonical/localized routing
-- [ ] R7 — build `app.kielivalmis.com` parallel runtime hostname + auth/payment/YKI regression
-- [ ] R8 — multilingual SEO URL map + Search Console/hreflang validation
-- [ ] R9 — store metadata package in approved languages/markets
-- [ ] R10 — store graphics/screenshots package
-- [ ] R11 — app KieliValmis visible-brand + 20-language pack, same package/bundle IDs
-- [ ] R12 — full app functional/localization regression gate
-- [ ] R13 — Android KieliValmis update
-- [ ] R14 — iOS KieliValmis update
+- [~] R4 — R4M source committed; Vercel preview QA + visual approval + translation-quality gates pending
+- [ ] R5 — attach `kielivalmis.com` / `www.kielivalmis.com` to the correct Vercel project and capture exact DNS requirements
+- [ ] R6 — change only KieliValmis Namecheap DNS + verify HTTPS/canonical behavior
+- [ ] R7 — parallel `app.kielivalmis.com` runtime + auth/payment/YKI regression
+- [ ] R8 — SEO migration/Search Console/hreflang work
+- [ ] R9 — store metadata package
+- [ ] R10 — store graphics/screenshots
+- [ ] R11 — native visible-brand + localization pack, same package/bundle IDs
+- [ ] R12 — full app functional/localization regression
+- [ ] R13 — Android update
+- [ ] R14 — iOS update
 - [ ] R15 — post-release verification
 - [ ] R16 — legacy hostname retirement decision
 
 ## Regression blockers
 
-Do not proceed to native/store submission if any of these fail: authentication; subscription purchase/restore; YKI completion/submission/evaluation/report; roleplay/export; card banks; streak/progress; legal URLs; support/delete-account; production web/API calls; app upgrade continuity; localization completeness; RTL layout; or critical translated UI overflow.
-
-## Active blocker
-
-**Final KieliValmis website visual system + 20-language website architecture and translation QA.** Custom domains and Namecheap DNS remain blocked.
+Do not proceed to native/store release if any of these fail: authentication; purchase/restore; existing subscription continuity; YKI completion/submission/evaluation/report; roleplay/export; card banks; streak/progress; legal/support/delete-account URLs; production web/API calls; app upgrade continuity; localization/RTL gates.
 
 Trademark filing/clearance remains a separate legal/business workstream and is not represented here as completed legal clearance.
