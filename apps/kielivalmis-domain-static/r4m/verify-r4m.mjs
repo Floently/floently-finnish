@@ -31,7 +31,7 @@ for (const code of ['ar','fa','ur']) if (!I.rtl.includes(code)) throw new Error(
 if (I.rtl.includes('ku')) throw new Error('Kurdish is currently expected as Kurmanji Latin/LTR in R4M pending app-locale audit');
 
 for (const asset of ['assets/kielivalmis-mark.png','assets/kielivalmis-hero-ai.webp','assets/kielivalmis-hero-ai.provenance.json']) if (!exists(asset)) throw new Error(`R4M asset missing: ${asset}`);
-for (const marker of ['KieliValmis','by Floently','data-ai-generated="true"','AI-generated image','ImageObject','prefers-reduced-motion','./assets/kielivalmis-mark.png','./assets/kielivalmis-hero-ai.webp','heroTitleA','localeSelect','https://learn.floently.com/','play.google.com/store/apps/details?id=com.vitusidi.floently']) if (!surface.includes(marker)) throw new Error(`R4M marker missing: ${marker}`);
+for (const marker of ['<base href="/r4m/">','KieliValmis','by Floently','data-ai-generated="true"','AI-generated image','ImageObject','prefers-reduced-motion','./assets/kielivalmis-mark.png','./assets/kielivalmis-hero-ai.webp','heroTitleA','localeSelect','https://learn.floently.com/','play.google.com/store/apps/details?id=com.vitusidi.floently']) if (!surface.includes(marker)) throw new Error(`R4M marker missing: ${marker}`);
 if (!surface.includes('I.load(code)') || !localeSource.includes('./locales/${code}.json')) throw new Error('R4M locale loader contract missing');
 if (surface.includes('data:image/png') || surface.includes('data:image/jpeg')) throw new Error('R4M must ship optimized raster asset files, not embedded raster data URIs');
 
