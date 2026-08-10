@@ -5,302 +5,255 @@
 **Visual/localization direction:** `docs/product/KIELIVALMIS_VISUAL_BRAND_LOCALIZATION_DIRECTION.md`  
 **Repository:** `Floently/floently-finnish`  
 **Working branch:** `growth/discovery-seo-d2-20260807`  
-**Started:** 2026-08-08
+**Started:** 2026-08-08  
+**Last updated:** 2026-08-10
 
 ## Current milestone
 
-**R4N VISUAL APPROVED AND FROZEN. R4O WEBSITE + APP SOURCE GATE PASS. Remaining visible-brand remediation is now a four-string queue plus the native binary icon/splash gate.**
+**R4N VISUAL APPROVED AND FROZEN. R4O WEBSITE + APP SOURCE GATE PASS. R4P VISIBLE-BRAND REMEDIATION PASS. R4R TYPESCRIPT / NATIVE SOURCE COMPILE REMEDIATION PASS.**
 
-The user explicitly approved the R4N design on 2026-08-10 with “its good now.” Do not redesign the accepted landing unless a real regression is found.
+The approved R4N visual direction is frozen. Do not redesign the landing unless a real regression is found.
 
-The R4O source gate ran on the Hetzner server from an isolated `FETCH_HEAD` extraction and passed:
+The KieliValmis website/public-page source and existing Learn app source now pass the current rebrand contracts. Customer-visible `Floently Finnish` / `Floently Learn` naming debt is zero on the active and legacy gateway surfaces covered by the audit. The new KieliValmis landing compiles with TypeScript, targeted ESLint passes, and Expo resolves the compatibility identifiers exactly as required.
 
-- complete KieliValmis website regression contract
-- shared Privacy/Terms/Support/Delete Account shell
-- complete 20-locale public-page structure
-- RTL public-page contract
-- frozen R4N landing contract
-- native KieliValmis display identity
-- preserved technical IDs
-- direct KieliValmis app entry
-- shared website/app 20-language landing copy
-- R4N-style native landing
-- KieliValmis-branded canonical auth screen
-- unchanged release version/build
-- final live Learn safety check
+**Immediate native blocker:** the approved KieliValmis launcher/adaptive/monochrome/splash binary asset pack is not yet installed in the repository. Do not create or publish a new native build until this gate reports READY.
 
-Final server result:
+## Current Git / production safety state
 
-`RESULT: KIELIVALMIS R4O WEBSITE + APP SOURCE GATE PASS`
+GitHub source of truth:
 
-The first audit found 11 raw legacy-brand hits, but only **2 were on the active KieliValmis surface**. Those two were both in `app/+html.tsx` and have now been fixed in GitHub. The product drawer entry has also been changed from `Floently Learn` to `KieliValmis`. The audit was hardened to ignore its own scripts/internal review tooling and to classify `state/subscriptionStore.ts` as active customer-facing UI state.
+- repository: `Floently/floently-finnish`
+- branch: `growth/discovery-seo-d2-20260807`
+- R4P commit: `fef679efc95c64f46207925136969c57ee2af2a2`
+- R4R TypeScript remediation commit: `077599569809cfa6454f159c5675ab458c7d868f`
 
-**Do not release a new native build yet.** The approved rounded-square KieliValmis launcher/adaptive/splash binary asset gate is intentionally still pending. Do not increment build/version numbers, submit stores, change production Learn, promote the stable KieliValmis alias or touch Namecheap until the relevant gates pass.
-
-## Locked identity / compatibility
-
-- Customer-facing Finnish-learning product: **KieliValmis**
-- Endorsement: **by Floently**
-- Parent/maker/product family: **Floently**
-- Legal operator: **Komplyint Oy**
-- Floently Read/Create retain Floently branding; do not globally replace `Floently`
-- Approved logo: user-supplied **K + flowing wave**; geometry must not change
-- Android package: preserve `com.vitusidi.floently`
-- iOS bundle ID: preserve `com.vitusidi.floently`
-- Expo slug: preserve `client`
-- deep-link scheme: preserve `floently`
-- EAS project ID: preserve `fa02c141-0a3b-4dbc-9122-7c1cf31ba42c`
-- runtimeVersion: preserve `1.0.2`
-- owner: preserve `vitus-idi`
-- API host: preserve `https://learn-api.floently.com`
-- current learning web host: preserve `learn.floently.com` during transition
-- accounts, progress, YKI, cards, roleplay, RevenueCat and subscriptions: preserve
-
-## Repository / production baseline
-
-GitHub source of truth: **`Floently/floently-finnish`**.
-
-Live Hetzner Learn baseline:
+Live Hetzner Learn remains untouched:
 
 - repo: `/root/floently-finnish`
 - branch: `preview/enable-all-languages`
 - commit: `e92b98e7799c390bc52b42d724c57f197ffd5c0d`
-- checkout must remain clean
-- server `origin` may still show former personal repo; rebrand fetches explicitly use `git@github.com:Floently/floently-finnish.git`
+- expected working tree: clean
+- web: `learn.floently.com`
+- API: `learn-api.floently.com`
 
-R4O source-gate run ended with the live Learn checkout still exactly on this baseline.
+Every R4O/R4P/R4Q/R4R server operation ended with the live Learn checkout still on this baseline.
 
-KieliValmis Vercel:
+## Locked identity / compatibility
 
-- project: `kielivalmis-domain-static`
-- project ID: `prj_RJPEDkC38WfDxcwWbSsQdRKBSpjd`
-- org ID: `team_Pi5Ylt8nVh9Jzc60Ck7rl5I6`
-- scope: `kompyint-oys-projects`
-- stable alias: `https://kielivalmis-domain-static.vercel.app`
-- stable baseline SHA: `025a5a767a430ce4d7bdd8b7beb0f3ed33e71f3c1a5453c0b4247727e6073f8f`
-- approved R4N staged deployment: `https://kielivalmis-domain-static-bvfwu3a5z-kompyint-oys-projects.vercel.app/r4m`
-- Namecheap KieliValmis DNS remains untouched/parked
+- customer-facing Finnish-learning product: **KieliValmis**
+- endorsement: **by Floently**
+- parent/maker/product family: **Floently**
+- legal operator: **Komplyint Oy**
+- Floently Read/Create retain Floently branding
+- approved logo: user-supplied **K + flowing wave**; geometry must not change
+- Android package: `com.vitusidi.floently` — preserve
+- iOS bundle ID: `com.vitusidi.floently` — preserve
+- Expo slug: `client` — preserve
+- deep-link scheme: `floently` — preserve
+- EAS project ID: `fa02c141-0a3b-4dbc-9122-7c1cf31ba42c` — preserve
+- runtimeVersion: `1.0.2` — preserve
+- Expo owner: `vitus-idi` — preserve
+- API host: `https://learn-api.floently.com` — preserve
+- accounts, progress, YKI, cards, roleplay, RevenueCat and subscriptions — preserve
 
-## R4 visual history
-
-- R4F — rejected mobile typography/layout
-- R4G — external SVG 404; QA stopped safely
-- R4H — automated QA passed; mobile visual rejected
-- R4I — mobile-first protected preview passed automated QA
-- R4L — approved-logo + photographic hero + restrained motion + 20-language direction locked
-- R4M — branded photographic/animated/20-language candidate passed full staged QA; visually much better
-- R4N — smaller/stylish hero typography; full staged QA PASS; **user visually approved; visual design frozen**
-
-Approved R4N hero targets:
-
-- desktop about 35–43px
-- mobile about 23–25.5px
-- lighter/calmer weight
-- translated hero sentences use clear three-beat visual rhythm
-- final sentence uses restrained teal highlight
-- approved photo/motion/logo remain unchanged
+Do not globally replace the word `Floently`; only the Finnish-learning product identity becomes KieliValmis.
 
 ## Supported 20 languages
 
 `en, fi, sv, et, es, tr, ru, uk, ar, zh, ku, vi, bn, sq, tl, th, so, ne, fa, ur`
 
-Arabic, Persian and Urdu are RTL. Kurdish currently uses Kurmanji Latin/LTR pending existing-app locale audit.
+Arabic, Persian and Urdu are RTL. Kurdish currently uses Kurmanji Latin/LTR pending the dedicated locale-direction audit.
 
-## R4O-A — public website page parity
+## Approved website state
 
-The old Privacy, Terms, Support and Delete Account pages used duplicated inline styling, oversized headings, fake `KV` boxes and English-only content. They have been rebuilt using one shared KieliValmis shell.
+### R4N landing
 
-### Shared page shell
+- [x] photographic R4M composition retained
+- [x] approved K/wave mark
+- [x] live `KieliValmis` + small `by Floently`
+- [x] desktop hero about 35–43px
+- [x] mobile hero about 23–25.5px
+- [x] lighter three-beat heading treatment
+- [x] restrained teal final-line highlight
+- [x] user visually approved R4N
+- [x] R4N visual direction frozen
+- [x] 20 locale dictionaries structurally complete
+- [x] ar/fa/ur RTL implementation present
+
+Approved staged R4N deployment:
+
+`https://kielivalmis-domain-static-bvfwu3a5z-kompyint-oys-projects.vercel.app/r4m`
+
+Stable KieliValmis alias remains intentionally unchanged:
+
+`https://kielivalmis-domain-static.vercel.app`
+
+Stable baseline body SHA:
+
+`025a5a767a430ce4d7bdd8b7beb0f3ed33e71f3c1a5453c0b4247727e6073f8f`
+
+Namecheap KieliValmis DNS remains untouched/parked.
+
+### R4O public-page parity
+
+Privacy, Terms, Support and Delete Account have been rebuilt on the shared KieliValmis shell.
 
 - [x] `apps/kielivalmis-domain-static/shared/page-shell.css`
 - [x] `apps/kielivalmis-domain-static/shared/page-shell.js`
-- [x] approved K/wave mark + live `KieliValmis` + small `by Floently`
-- [x] R4N-like typography and contrast
-- [x] responsive mobile layout
-- [x] locale query/browser/localStorage selection
-- [x] `html lang` + RTL direction handling
-- [x] localized title/meta-description runtime
-
-### Public-page locale modules
-
-- [x] `page-locales-1.js` — en, fi, sv, et, es
-- [x] `page-locales-2.js` — tr, ru, uk, ar, zh
-- [x] `page-locales-3.js` — ku, vi, bn, sq, tl
-- [x] `page-locales-4.js` — th, so, ne, fa, ur
-- [x] Privacy, Terms, Support and Delete Account content has a complete initial 20-language structure
-- [x] proper names remain untranslated
-- [x] account-deletion subject remains exactly `Delete my KieliValmis account`
-
-Translation status: **structurally complete initial pack; not yet the final native/legal-language quality freeze.** Natural/native closeness, legal clarity, UI wording and terminology still require the language-quality audit before public promotion.
-
-### Pages converted
-
-- [x] `privacy/index.html`
-- [x] `terms/index.html`
-- [x] `support/index.html`
-- [x] `delete-account/index.html`
+- [x] approved K/wave mark
+- [x] responsive R4N-like visual hierarchy
+- [x] language selection/runtime localization
+- [x] complete initial 20-language structure
+- [x] ar/fa/ur RTL handling
 - [x] canonicals preserved
-- [x] old fake `KV` mark removed
-- [x] old 58px temporary page heading removed
-- [x] compatibility redirect URLs remain governed by `vercel.json`
+- [x] compatibility redirects preserved
+- [x] old fake `KV` boxes removed
+- [x] old oversized temporary headings removed
+- [x] static website regression contract PASS
+- [x] public-page shell contract PASS
+- [x] public-page 20-locale contract PASS
+- [x] public-page RTL contract PASS
+- [ ] staged Vercel QA after R4O changes
+- [ ] EN/FI/AR visual/RTL review
+- [ ] native/legal-language quality audit of all 20 translations
 
-Current approved mark is referenced from `/r4m/assets/kielivalmis-mark.png`. Before retiring the R4M preview folder, copy/promote that exact approved binary to a permanent shared/root asset path and update the verifier. Do not redraw it.
+## Existing app KieliValmis rebrand state
 
-### Website verifier status
+### Entry / brand / localization
 
-`verify-kielivalmis-domain-static.mjs` requires:
+- [x] direct KieliValmis public entry via `LandingRoute.tsx`
+- [x] `features/kielivalmis/KieliValmisLandingScreen.tsx`
+- [x] shared R4N website/app landing copy
+- [x] exact 20-language locale set
+- [x] ar/fa/ur RTL handling
+- [x] approved K/wave mark on landing
+- [x] approved photographic hero on landing
+- [x] Expo display name `KieliValmis`
+- [x] iOS `CFBundleDisplayName` `KieliValmis`
+- [x] microphone/speech-recognition permission copy uses KieliValmis
+- [x] canonical auth header uses KieliValmis + `BY FLOENTLY`
+- [x] email/password auth logic preserved
+- [x] Google sign-in preserved
+- [x] auth return routing/storage preserved
+- [x] active web metadata uses KieliValmis
+- [x] product drawer Learn entry uses KieliValmis
+- [x] Floently Read/Create labels preserved
 
-- shared shell on all four pages
-- all four locale modules
-- exact 20-locale set/order and complete non-empty key contracts
-- ar/fa/ur RTL and ku LTR
-- approved logo marker
-- no fake `KV` mark / no old oversized heading
-- English legal/support source markers
-- exact account-deletion email subject
+### Visible-brand audit
 
-R4O server PASS markers:
+R4P completed the remaining four runtime replacements.
 
-- [x] `KIELIVALMIS_STATIC_PUBLIC_PAGE_SHELL=PASS`
-- [x] `KIELIVALMIS_STATIC_PUBLIC_PAGE_20_LOCALES=PASS`
-- [x] `KIELIVALMIS_STATIC_PUBLIC_PAGE_RTL=PASS`
-- [x] `KIELIVALMIS_R4O_PUBLIC_PAGES=PASS`
-- [x] `KIELIVALMIS_R4N_FROZEN_DESIGN=PASS`
+- [x] two `subscriptionStore.ts` access summaries -> `KieliValmis full access is active.`
+- [x] legacy gateway `Floently Learn` -> `KieliValmis`
+- [x] legacy Read-preview `Floently Finnish` -> `KieliValmis`
+- [x] `legacy_visible_brand_hits=0`
+- [x] `active_kielivalmis_surface_hits=0`
+- [x] `legacy_gateway_hits=0`
 
-Public-page **staged Vercel QA has not yet run** after these R4O changes.
+## R4Q / R4R compile validation
 
-## R4O-B — existing app visible KieliValmis rebrand
+R4Q found TypeScript problems only in the newly added KieliValmis landing. There was no compatibility-ID, lint, Expo-config or live-runtime regression.
 
-### Direct app entry + shared copy
+R4R fixed and verifier-guarded those issues:
 
-- [x] new `features/kielivalmis/kielivalmisCopy.ts`
-- [x] exact same 20 R4N website locale JSON files are statically reused by the app landing
-- [x] new `features/kielivalmis/KieliValmisLandingScreen.tsx`
-- [x] approved K/wave mark reused
-- [x] approved AI hero reused
-- [x] R4N-style smaller heading / motion / photo overlays
-- [x] 20-language selector and ar/fa/ur RTL handling
-- [x] `LandingRoute.tsx` now opens KieliValmis directly instead of the cross-product Floently gateway
-- [x] Floently remains parent/maker; Read/Create remain separate Floently product identities
+- [x] explicit `ImageStyle` typing for the KieliValmis mark
+- [x] explicit `ImageStyle` typing for the hero image
+- [x] unsupported React Native `620` weight -> supported `600`
+- [x] unsupported `650` -> `700`
+- [x] unsupported `750` -> `700`
+- [x] unsupported `850` -> `800`
+- [x] verifier rejects unsupported non-standard weights
+- [x] verifier requires explicit image style typing
+- [x] full TypeScript `--noEmit` PASS
+- [x] targeted ESLint PASS
+- [x] `KIELIVALMIS_NATIVE_REACT_NATIVE_STYLE_TYPES=PASS`
+- [x] native rebrand source contract PASS
+- [x] visible-brand audit remains zero
 
-### Native display configuration
+### Expo identity validation
 
-- [x] Expo display name -> `KieliValmis`
-- [x] iOS `CFBundleDisplayName` -> `KieliValmis`
-- [x] microphone permission copy -> KieliValmis
-- [x] speech-recognition permission copy -> KieliValmis
-- [x] technical IDs deliberately preserved
-- [x] app version/build number deliberately unchanged during source work
+The original R4R attempt stopped on a brittle text `grep`; the separate JSON diagnostic proved Expo itself was healthy. The final R4R run used JSON parsing and passed.
 
-### Canonical auth screen
+Resolved values:
 
-- [x] existing auth logic retained; no duplicate auth implementation
-- [x] old Floently auth logo reference removed
-- [x] approved KieliValmis mark + `KieliValmis` + `BY FLOENTLY` header added
-- [x] email/password login/register retained
-- [x] Google sign-in retained
-- [x] login-email storage retained
-- [x] return routing retained
+- [x] `name="KieliValmis"`
+- [x] `slug="client"`
+- [x] `scheme="floently"`
+- [x] `runtimeVersion="1.0.2"`
+- [x] `ios.bundleIdentifier="com.vitusidi.floently"`
+- [x] `android.package="com.vitusidi.floently"`
+- [x] `extra.eas.projectId="fa02c141-0a3b-4dbc-9122-7c1cf31ba42c"`
+- [x] `R4R_EXPO_CONFIG_JSON_IDENTITY=PASS`
 
-### Active web metadata + navigation
+Final R4R result:
 
-- [x] `app/+html.tsx` application name changed from `Floently Finnish` to `KieliValmis`
-- [x] web description now uses KieliValmis and the 20-language positioning
-- [x] SoftwareApplication schema uses KieliValmis while publisher remains Floently
-- [x] organization schema remains Floently parent identity
-- [x] product drawer Learn entry changed from `Floently Learn` to `KieliValmis`
-- [x] Floently Read and Floently Create labels intentionally preserved
+`RESULT: KIELIVALMIS R4R TYPESCRIPT REMEDIATION PASS`
 
-### Native source verifier + audit
+## Native launcher / splash gate — NEXT
 
-- [x] `scripts/verify-kielivalmis-rebrand.mjs`
-- [x] `npm run verify:kielivalmis-rebrand`
-- [x] compatibility-ID locks
-- [x] exact 20 shared website/app locale checks
-- [x] direct KieliValmis landing guard
-- [x] canonical auth-brand guard
-- [x] source-only version/build guard
-- [x] native icon gate reports **PENDING** while old launcher asset remains configured
-- [x] `scripts/audit-kielivalmis-visible-brand.mjs`
-- [x] `npm run audit:kielivalmis-visible-brand`
-- [x] audit prints progress, file/line/snippet for remaining `Floently Finnish` / `Floently Learn` occurrences instead of globally replacing parent-brand references
-- [x] audit no longer counts its own script/internal translation-review tooling
-- [x] audit treats navigation and `state/subscriptionStore.ts` as active surfaces
+Current repository configuration still intentionally references the released Floently binaries:
 
-R4O server native PASS markers:
+- `./assets/images/floently-finnish-icon.png`
+- `./assets/images/android-icon-foreground.png`
+- `./assets/images/android-icon-monochrome.png`
+- `./assets/images/splash-icon.png`
 
-- [x] `KIELIVALMIS_NATIVE_DISPLAY_IDENTITY=PASS`
-- [x] `KIELIVALMIS_NATIVE_TECHNICAL_IDS_PRESERVED=PASS`
-- [x] `KIELIVALMIS_NATIVE_DIRECT_ENTRY=PASS`
-- [x] `KIELIVALMIS_NATIVE_20_LANGUAGES=PASS`
-- [x] `KIELIVALMIS_NATIVE_SHARED_WEB_COPY=PASS`
-- [x] `KIELIVALMIS_NATIVE_R4N_LANDING=PASS`
-- [x] `KIELIVALMIS_NATIVE_AUTH_BRAND=PASS`
-- [x] `KIELIVALMIS_NATIVE_RELEASE_VERSION_UNCHANGED=PASS`
-- [x] `RESULT: KIELIVALMIS NATIVE REBRAND SOURCE CONTRACT PASS`
-
-Expected and still intentional:
+Current verifier state:
 
 `KIELIVALMIS_NATIVE_ICON=PENDING_APPROVED_BINARY_INSTALL`
 
-## Remaining visible-brand remediation queue
+`native_icon_gate=PENDING`
 
-The original R4O audit reported these customer-facing/runtime strings after the main rebrand:
+The next native patch must install the approved KieliValmis binary family without redrawing the symbol:
 
-- [x] `app/+html.tsx` app name — fixed to KieliValmis
-- [x] `app/+html.tsx` description — fixed to KieliValmis
-- [x] `config/navigation/AppShell_sidebar_sections.ts` `Floently Learn` — fixed to KieliValmis
-- [ ] `state/subscriptionStore.ts` access summary occurrence 1 — change `Floently Learn full access is active.` to `KieliValmis full access is active.`
-- [ ] `state/subscriptionStore.ts` access summary occurrence 2 — same change
-- [ ] `features/publicMarketing/screens/NativePublicMarketingScreens.tsx` legacy gateway label `Floently Learn` — change to KieliValmis
-- [ ] `features/publicMarketing/screens/NativePublicMarketingScreens.tsx` legacy Read-preview link `Floently Finnish` — change to KieliValmis
+- [ ] 1024×1024 opaque app/store icon
+- [ ] 1024×1024 transparent Android adaptive foreground
+- [ ] 1024×1024 transparent Android monochrome mark
+- [ ] 1024×1024 transparent splash mark
+- [ ] update `app.config.ts`
+- [ ] update `app.base.json`
+- [ ] update verifier to require exact KieliValmis asset paths/dimensions/properties
+- [ ] rerun TypeScript, ESLint, Expo JSON identity and rebrand contracts
+- [ ] require `native_icon_gate=READY`
+- [ ] no app version/build-number increment during this source gate
 
-Non-runtime/internal hits from the first audit:
+Do not publish with the old Floently launcher icon under the KieliValmis display name.
 
-- onboarding file header comment — not customer visible
-- audit script needle definitions — now excluded
-- old translation-review script title — internal tooling; now excluded from visible-brand audit
+## Immediate next sequence
 
-Do not delete or globally rename Floently parent-brand references. Only the exact Learn/Finnish customer-facing product name should become KieliValmis.
-
-## Native icon / splash gate — intentionally pending
-
-Do not call the native rebrand complete yet.
-
-The approved rounded-square K/wave icon must replace the current native launcher icon/adaptive foreground/monochrome/splash assets **before any new app build**. Source config intentionally still points at the current released icon until a dedicated binary-asset installation step is completed and verified.
-
-Do not use a newly invented icon, do not redraw the approved symbol, and do not publish with the temporary old Floently icon under the KieliValmis display name.
-
-## Immediate next gate
-
-1. Remediate the two subscription access-summary strings and two legacy gateway labels in an isolated checkout of the organization branch.
-2. Rerun `npm run audit:kielivalmis-visible-brand`; require `active_kielivalmis_surface_hits=0`.
-3. Rerun static website, R4N and native source verifiers.
-4. Run TypeScript/lint/build-oriented checks for the new native landing/auth changes.
-5. Stage the updated public pages with `--prod --skip-domain`; verify the stable alias hash is unchanged.
-6. Visually spot-check Privacy/Terms/Support/Delete Account in English, Finnish and Arabic.
-7. Run native-quality audits for all 20 landing/public-page locale packs before public domain promotion or store release.
-8. Install the approved native launcher/adaptive/monochrome/splash binary asset pack and rerun the native source verifier until `native_icon_gate=READY`.
-9. Only then create a native preview/test build and run full functional/localization regression.
+1. Install and verify the approved KieliValmis native launcher/adaptive/monochrome/splash binaries.
+2. Rerun native source, TypeScript, ESLint, Expo JSON identity and visible-brand gates; require `native_icon_gate=READY`.
+3. Stage the R4O website/public pages with `vercel deploy --prod --skip-domain`; prove the stable alias did not move.
+4. Visually review Privacy/Terms/Support/Delete Account in English, Finnish and Arabic.
+5. Run native-quality audit of all 20 landing translations and legal/public-page translations.
+6. Audit Kurdish script/direction against the existing app locale.
+7. Add localized SEO routes, canonicals, `hreflang` and `x-default`.
+8. Only then create a native preview/test build.
+9. Run auth, Google, subscription/purchase/restore, YKI, cards/progress/streak, roleplay/audio/export and all-20-language layout/RTL regression.
+10. Prepare store metadata/screenshots and then Android/iOS updates.
 
 ## Remaining quality / release gates
 
-- [~] R4O source verification — PASS; four-string visible-brand remediation + compile checks pending
+- [x] R4N visual approval
+- [x] R4O website + app source gate
+- [x] R4P visible-brand remediation
+- [x] R4R TypeScript/native-source compile remediation
+- [ ] approved native launcher/adaptive/monochrome/splash binaries installed
+- [ ] native asset gate READY
 - [ ] R4O public-page staged QA
 - [ ] public-page EN/FI/AR visual/RTL review
 - [ ] native-quality audit of all 20 website/app landing translations
 - [ ] native/legal-language audit of all 20 public-page translations
-- [ ] Kurdish script/direction audit against existing app locale
+- [ ] Kurdish script/direction audit
 - [ ] permanent shared approved-logo asset path
-- [ ] localized SEO routes, canonicals, `hreflang`, `x-default`
-- [ ] approved native launcher/adaptive/monochrome/splash binaries installed
+- [ ] localized SEO routes/canonicals/hreflang/x-default
 - [ ] native KieliValmis preview build
 - [ ] authentication + Google sign-in regression
 - [ ] purchase/restore + RevenueCat regression
 - [ ] YKI completion/submission/evaluation/report regression
 - [ ] cards/progress/streak regression
 - [ ] roleplay/audio/export regression
-- [ ] all-20-language app layout/RTL/text-expansion regression
+- [ ] all-20-language layout/RTL/text-expansion regression
 - [ ] store metadata + screenshots
 - [ ] Android update
 - [ ] iOS update
