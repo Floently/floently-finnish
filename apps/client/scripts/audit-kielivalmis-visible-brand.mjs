@@ -4,6 +4,7 @@ import path from 'node:path';
 const root = process.cwd();
 const extensions = new Set(['.ts','.tsx','.js','.mjs','.json']);
 const ignoredDirs = new Set(['node_modules','.expo','dist','build','coverage','.git']);
+const ignoredPathPrefixes = ['scripts/'];
 const needles = ['Floently Finnish','Floently Learn'];
 const queue = [];
 let dirsScanned = 0;
@@ -24,14 +25,17 @@ function walk(dir) {
     }
     if (!extensions.has(path.extname(entry.name))) continue;
     const relative = path.relative(root, full).replaceAll(path.sep, '/');
+    if (ignoredPathPrefixes.some((prefix) => relative.startsWith(prefix))) continue;
     const text = fs.readFileSync(full, 'utf8');
     filesScanned += 1;
     bytesScanned += Buffer.byteLength(text);
     const lines = text.split(/\r?\n/);
     lines.forEach((line, index) => {
+      const trimmed = line.trim();
+      if (trimmed.startsWith('*') || trimmed.startsWith('//')) return;
       for (const needle of needles) {
         if (line.includes(needle)) {
-          queue.push({ path: relative, line: index + 1, needle, snippet: line.trim().slice(0, 240) });
+          queue.push({ path: relative, line: index + 1, needle, snippet: trimmed.slice(0, 240) });
         }
       }
     });
@@ -57,13 +61,20 @@ for (const item of queue) {
 const activeLearnHits = queue.filter((item) =>
   item.path.startsWith('features/kielivalmis/') ||
   item.path.startsWith('state/LandingRoute') ||
+  item.path === 'state/subscriptionStore.ts' ||
   item.path.startsWith('features/auth/') ||
+  item.path.startsWith('config/navigation/') ||
   item.path.startsWith('app/') ||
   item.path === 'app.config.ts' ||
   item.path === 'app.base.json'
 );
 
+const legacyGatewayHits = queue.filter((item) =>
+  item.path === 'features/publicMarketing/screens/NativePublicMarketingScreens.tsx'
+);
+
 console.log(`active_kielivalmis_surface_hits=${activeLearnHits.length}`);
+console.log(`legacy_gateway_hits=${legacyGatewayHits.length}`);
 if (activeLearnHits.length) {
   console.log('RESULT: KIELIVALMIS VISIBLE BRAND AUDIT NEEDS REMEDIATION');
   process.exitCode = 2;
