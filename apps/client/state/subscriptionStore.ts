@@ -434,7 +434,7 @@ function fallbackForUser(user?: UserLike | null): CompatSubscriptionStatus {
       createAccess: false,
       isInternalAllAccess: false,
       isActive: true,
-      accessSummary: 'Floently Learn full access is active.',
+      accessSummary: 'KieliValmis full access is active.',
     });
   }
 
@@ -498,7 +498,7 @@ function normalizeRemoteStatus(payload: unknown, user?: UserLike | null): Compat
       createAccess: false,
       isInternalAllAccess: false,
       isActive: true,
-      accessSummary: 'Floently Learn full access is active.',
+      accessSummary: 'KieliValmis full access is active.',
       raw: current,
     });
   }

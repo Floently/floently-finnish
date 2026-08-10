@@ -456,7 +456,7 @@ export function NativeFloentlyProductGatewayScreen({ onOpenLearn, onOpenRead }: 
                   marginBottom: 18,
                 }}
               >
-                Floently Learn
+                KieliValmis
               </Text>
               <Text style={{ color: '#FFFFFF', fontSize: 34, fontWeight: '900', marginBottom: 10 }}>Learn</Text>
               <Text style={{ color: '#CAD6F3', fontSize: 15, lineHeight: 23, marginBottom: 18 }}>
@@ -629,7 +629,7 @@ export function NativeReadPreviewScreen({ onOpenGateway, onOpenLearn }: Floently
           </Pressable>
           <View style={{ flex: 1, flexDirection: 'row', alignItems: 'center', justifyContent: 'flex-end', gap: 8, flexWrap: 'wrap' }}>
             <Pressable onPress={onOpenLearn} style={{ borderRadius: 999, paddingHorizontal: 11, paddingVertical: 8, backgroundColor: 'rgba(139,92,246,0.10)', borderWidth: 1, borderColor: 'rgba(167,139,250,0.18)' }}>
-              <Text style={{ color: 'rgba(255,255,255,0.72)', fontSize: 12, fontWeight: '900' }}>Floently Finnish</Text>
+              <Text style={{ color: 'rgba(255,255,255,0.72)', fontSize: 12, fontWeight: '900' }}>KieliValmis</Text>
             </Pressable>
             <Pressable onPress={onOpenGateway} style={{ borderRadius: 999, paddingHorizontal: 11, paddingVertical: 8, backgroundColor: 'rgba(139,92,246,0.10)', borderWidth: 1, borderColor: 'rgba(167,139,250,0.18)' }}>
               <Text style={{ color: 'rgba(255,255,255,0.72)', fontSize: 12, fontWeight: '900' }}>Floently Home</Text>
