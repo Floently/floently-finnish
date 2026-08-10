@@ -1,8 +1,10 @@
 import type { ExpoConfig, ConfigContext } from 'expo/config';
 
-const FLOENTLY_APP_NAME = 'Floently Finnish';
+const KIELIVALMIS_APP_NAME = 'KieliValmis';
 const FLOENTLY_APP_SLUG = 'client';
-const FLOENTLY_APP_ICON = './assets/images/floently-finnish-icon.png';
+// The approved KieliValmis native icon is added in the dedicated native-asset gate.
+// Keep the current icon path until that binary asset is committed and verified.
+const CURRENT_NATIVE_APP_ICON = './assets/images/floently-finnish-icon.png';
 
 const appJson = require('./app.base.json');
 
@@ -64,15 +66,15 @@ export default function config(_: ConfigContext): ExpoConfig {
           (Array.isArray(plugin) && plugin[0] === '@react-native-google-signin/google-signin')
         ),
     ),
-    "./plugins/withIosSwiftPodModularHeaders",
+    './plugins/withIosSwiftPodModularHeaders',
     googleSignInPlugin,
   ];
 
   return {
     ...baseExpo,
-    name: FLOENTLY_APP_NAME,
+    name: KIELIVALMIS_APP_NAME,
     slug: FLOENTLY_APP_SLUG,
-    icon: FLOENTLY_APP_ICON,
+    icon: CURRENT_NATIVE_APP_ICON,
     plugins,
     updates: {
       ...(baseExpo.updates ?? {}),
@@ -90,7 +92,7 @@ export default function config(_: ConfigContext): ExpoConfig {
 
     ios: {
       ...(baseExpo.ios ?? {}),
-      icon: FLOENTLY_APP_ICON,
+      icon: CURRENT_NATIVE_APP_ICON,
       config: {
         ...(baseExpo.ios?.config ?? {}),
         usesNonExemptEncryption: false,
@@ -98,7 +100,6 @@ export default function config(_: ConfigContext): ExpoConfig {
       infoPlist: {
         ...(baseExpo.ios?.infoPlist ?? {}),
         ITSAppUsesNonExemptEncryption: false,
-        ...(baseExpo.ios?.infoPlist ?? {}),
         CFBundleURLTypes: [
           ...existingUrlTypes,
           {
