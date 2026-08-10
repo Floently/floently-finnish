@@ -9,25 +9,24 @@
 
 ## Current milestone
 
-**R4N — R4M design direction visually accepted as much better; hero-heading typography refinement committed and verifier-guarded.** The user specifically requested the Finnish hero `Valmistaudu YKI-kokeeseen. Valmistaudu työelämään Suomessa. Omalla kielelläsi.` to be smaller and slightly more stylish. R4N keeps the approved R4M logo, photographic hero, animations, 20-language architecture and layout unchanged while reducing the hero scale and introducing a cleaner three-beat sentence rhythm with a restrained teal accent treatment on the final line. **R4N staged redeploy + visual review are next.**
+**R4N staged typography deployment automated QA PASS.** The R4M design direction remains the accepted visual base. R4N changes only the hero-heading treatment: smaller desktop/mobile sizing, lighter weight, clearer three-sentence rhythm, and a restrained teal highlight on the final line. The staged deployment passed source, deployment, noindex, all-20-locale, Finnish-copy, stable-alias and live-Learn safety gates. **Visual approval of the R4N hero is now the only immediate design gate.**
 
-Do not replace the current root landing, attach KieliValmis custom domains, or change Namecheap DNS until the refined candidate passes visual approval and the remaining localization-quality gates.
+Do not replace the current stable/root landing, attach KieliValmis custom domains, or change Namecheap DNS until the R4N visual is approved and the remaining localization-quality gates are complete.
 
 ## Repository move
 
 - [x] GitHub source of truth is **`Floently/floently-finnish`**.
 - [x] Working branch: `growth/discovery-seo-d2-20260807`.
-- [x] Initial R4M implementation commit: `2c8809ea624fb11fc8d5d2efdbf58daf030cb25d`.
-- [x] R4M clean-URL base-path verifier fix: `d0781fc2dcc5df049384b2dc3fd4ee642aa803be`.
-- [x] R4M header precedence fix: `280ced4afccc9045f2c186a75ea90744989650a3`.
-- [x] R4M verifier precedence guard: `0c070d87e9aacd4de297b8faa3656bd17602ab0e`.
-- [x] Header-incident tracker commit: `51040bdae818e0ca03cea4ee3ac62eabdee2ed47`.
-- [x] Post-first-staged-deploy safety tracker commit: `0ae52d09df494754f4cba27be98b2cbc5c111444`.
-- [x] R4M full staged-QA tracker commit: `1431314708f3a1b29468c4b6541466ac6e5374e0`.
-- [x] R4N hero typography source commit: `186766e45197b26c937bf2d0a4528fcd9bff8822`.
+- [x] Initial R4M implementation: `2c8809ea624fb11fc8d5d2efdbf58daf030cb25d`.
+- [x] R4M clean-URL base-path fix: `d0781fc2dcc5df049384b2dc3fd4ee642aa803be`.
+- [x] R4M Vercel header-precedence fix: `280ced4afccc9045f2c186a75ea90744989650a3`.
+- [x] R4M header-precedence verifier guard: `0c070d87e9aacd4de297b8faa3656bd17602ab0e`.
+- [x] R4M full staged-QA tracker: `1431314708f3a1b29468c4b6541466ac6e5374e0`.
+- [x] R4N hero typography source: `186766e45197b26c937bf2d0a4528fcd9bff8822`.
 - [x] R4N typography verifier guard: `6aa83349cdefe868bdeb77f946c3308d9f8d8331`.
+- [x] R4N pre-deploy tracker: `e6a57dffda7664c3a60f0599129657b0dc5eadd5`.
 - [x] All new GitHub writes target the organization repository.
-- [x] Hetzner checkout `origin` still points to the former personal repository; deployment fetches therefore explicitly use `git@github.com:Floently/floently-finnish.git` without changing the live working tree.
+- [x] Hetzner checkout `origin` still points to the former personal repository; deployment fetches explicitly use `git@github.com:Floently/floently-finnish.git` without changing the live working tree.
 
 ## Locked product architecture
 
@@ -53,7 +52,7 @@ Do not replace the current root landing, attach KieliValmis custom domains, or c
 - Web: `learn.floently.com`
 - API: `learn-api.floently.com`
 
-The corrected R4M staged-deployment run ended with this branch/commit unchanged and the checkout clean.
+The R4N staged-deployment run ended with this branch/commit unchanged and the checkout clean.
 
 ### KieliValmis Vercel
 
@@ -64,102 +63,12 @@ The corrected R4M staged-deployment run ended with this branch/commit unchanged 
 - Stable alias: `https://kielivalmis-domain-static.vercel.app`
 - R4H rollback deployment: `https://kielivalmis-domain-static-lk9ns71uv-kompyint-oys-projects.vercel.app`
 - R4I preview: `https://kielivalmis-domain-static-4ll5bamsm-kompyint-oys-projects.vercel.app`
-- First R4M staged deployment: `https://kielivalmis-domain-static-drguv6948-kompyint-oys-projects.vercel.app`
-- **Corrected R4M staged deployment:** `https://kielivalmis-domain-static-1su1qlmv2-kompyint-oys-projects.vercel.app`
+- Corrected R4M staged deployment: `https://kielivalmis-domain-static-1su1qlmv2-kompyint-oys-projects.vercel.app`
+- **R4N staged deployment:** `https://kielivalmis-domain-static-bvfwu3a5z-kompyint-oys-projects.vercel.app`
 - Stable-alias baseline SHA: `025a5a767a430ce4d7bdd8b7beb0f3ed33e71f3c1a5453c0b4247727e6073f8f`
 - Deployment Protection bypass + ordinary `curl` is the established automated-QA method
 
-The corrected R4M deployment was created with `vercel --prod --skip-domain`. The stable alias was hashed immediately before and after and remained byte-for-byte identical to the baseline SHA above.
-
-## R4M corrected staged deployment — FULL AUTOMATED QA PASS
-
-Run date: 2026-08-10.
-
-### Source/build gates
-
-- [x] live Learn baseline PASS
-- [x] Floently organization branch/head PASS
-- [x] organization source fetched into `FETCH_HEAD` without checkout
-- [x] original KieliValmis regression contract PASS
-- [x] R4M 20-language/brand/AI/motion/typography/noindex contract PASS
-- [x] Vercel header precedence source order PASS: global index `0`, `/r4m` index `1`, `/r4m/(.*)` index `2`
-- [x] stable alias predeploy hash PASS
-
-### Deployed routing/indexing gates
-
-- [x] staged public root HTTP 200
-- [x] staged public root retains `X-Robots-Tag: index, follow`
-- [x] `/r4m` HTTP 200
-- [x] deployed R4M HTML markers PASS
-- [x] `/r4m` returns `X-Robots-Tag: noindex, nofollow`
-- [x] R4M CSS/JS/locale loader/logo/hero/provenance assets all HTTP 200
-- [x] all R4M assets remain noindex
-
-### 20-language deployed gates
-
-All 20 locale endpoints returned HTTP 200 and valid JSON:
-
-`en, fi, sv, et, es, tr, ru, uk, ar, zh, ku, vi, bn, sq, tl, th, so, ne, fa, ur`
-
-- [x] all 20 locale endpoints PASS
-- [x] all locale endpoints remain noindex
-- [x] Arabic/Persian/Urdu RTL implementation remains enabled
-- [x] Kurdish is currently Kurmanji Latin/LTR pending existing-app locale audit
-
-### AI provenance gates
-
-- [x] hero WebP still contains `OpenAI ChatGPT`
-- [x] `aiGenerated` marker survives deployment
-- [x] KieliValmis hero purpose marker survives deployment
-- [x] visible `AI-generated image` disclosure marker survives deployment
-- [x] provenance JSON parses and preserves `aiGenerated=true`, creator, created date, purpose and prompt summary
-
-### Compatibility/safety gates
-
-- [x] `/privacy-policy` → HTTP 308 → `/privacy`
-- [x] `/legal/privacy-policy` → HTTP 308 → `/privacy`
-- [x] `/account-deletion` → HTTP 308 → `/delete-account`
-- [x] `/legal/account-deletion` → HTTP 308 → `/delete-account`
-- [x] stable KieliValmis alias after-hash exactly equals baseline SHA
-- [x] live Learn final branch remains `preview/enable-all-languages`
-- [x] live Learn final commit remains `e92b98e7799c390bc52b42d724c57f197ffd5c0d`
-- [x] live Learn final checkout clean
-
-Final result:
-
-`RESULT: KIELIVALMIS R4M CORRECTED STAGED DEPLOYMENT QA PASS`
-
-## R4N hero typography refinement
-
-The user visually reviewed R4M and said the overall design is **much better**. The remaining requested visual change is the hero-heading treatment.
-
-R4N keeps every other R4M design and product decision intact.
-
-### Hero typography changes
-
-- [x] desktop hero reduced from approximately `39–48px` to `35–43px`
-- [x] mobile hero reduced from approximately `25.5–28px` to `23–25.5px`
-- [x] font weight reduced to a calmer `625` desktop / `620` mobile treatment
-- [x] line-height relaxed slightly for Finnish and other expanding translations
-- [x] each translated hero sentence is rendered as its own block for clearer visual rhythm
-- [x] final `heroTitleC` line remains teal but now receives a restrained highlight/glow rather than relying on oversized weight
-- [x] wording and all 20 locale dictionaries remain unchanged
-- [x] approved K/wave logo, photograph, motion system, AI disclosure and layout remain unchanged
-- [x] R4M verifier now fails if the reduced sizes or editorial sentence/accent treatment disappear
-
-The Finnish copy remains exactly:
-
-`Valmistaudu YKI-kokeeseen. Valmistaudu työelämään Suomessa. Omalla kielelläsi.`
-
-## Visual review URLs
-
-Current deployed R4M reference before R4N redeploy:
-
-- English: `https://kielivalmis-domain-static-1su1qlmv2-kompyint-oys-projects.vercel.app/r4m?lang=en`
-- Finnish: `https://kielivalmis-domain-static-1su1qlmv2-kompyint-oys-projects.vercel.app/r4m?lang=fi`
-- Arabic RTL: `https://kielivalmis-domain-static-1su1qlmv2-kompyint-oys-projects.vercel.app/r4m?lang=ar`
-
-Do not treat these URLs as containing R4N until a new staged deployment is created from the latest branch head.
+The R4N staged deployment was created using the established no-domain staging flow. The stable alias was hashed before and after and remained byte-for-byte identical to the baseline SHA above.
 
 ## Approved logo — LOCKED
 
@@ -181,7 +90,100 @@ Usage:
 - **R4I:** mobile-first protected preview passed full automated route/content/legal/security QA.
 - **R4L:** approved-logo + photographic-hero + smaller-type + subtle-motion + 20-language direction locked.
 - **R4M:** branded photographic/animated/20-language staged candidate passed full automated QA and was visually judged much better.
-- **R4N:** active hero typography refinement; source and verifier committed, staged deployment pending.
+- **R4N:** smaller/stylish hero typography refinement; staged automated QA PASS; visual approval pending.
+
+## R4M/R4N visual + motion implementation
+
+Path: `apps/kielivalmis-domain-static/r4m/`
+
+The existing stable/root landing remains unchanged.
+
+- [x] approved K/wave mark; no geometry redesign
+- [x] high-contrast live `KieliValmis` + tiny `by Floently`
+- [x] human-centered AI-generated photographic hero
+- [x] language-specific copy kept outside the photograph
+- [x] ambient aurora drift
+- [x] desktop image drift
+- [x] speaking waveform
+- [x] feedback/status pulse
+- [x] lighter mobile motion
+- [x] `prefers-reduced-motion: reduce`
+- [x] `<base href="/r4m/">` clean-URL/path safety
+- [x] HTML `noindex,nofollow` plus deployed response-header noindex
+
+### R4N hero typography
+
+The user specifically requested the Finnish hero:
+
+`Valmistaudu YKI-kokeeseen. Valmistaudu työelämään Suomessa. Omalla kielelläsi.`
+
+to be smaller and slightly more stylish.
+
+R4N changes:
+
+- [x] desktop hero reduced from approximately `39–48px` to `35–43px`
+- [x] mobile hero reduced from approximately `25.5–28px` to `23–25.5px`
+- [x] lighter/calmer weight
+- [x] each translated hero sentence rendered as its own block for clearer visual rhythm
+- [x] final `heroTitleC` line uses a restrained teal highlight/glow treatment
+- [x] wording and all 20 locale dictionaries unchanged
+- [x] approved logo, photograph, animation system, AI disclosure and page layout unchanged
+- [x] verifier fails if the reduced sizes or editorial sentence/accent treatment disappear
+
+## R4N staged deployment — AUTOMATED QA PASS
+
+Run date: 2026-08-10.
+
+### Source/build gates
+
+- [x] live Learn baseline PASS
+- [x] organization branch/head PASS at `e6a57dffda7664c3a60f0599129657b0dc5eadd5` for the deployed source
+- [x] organization source fetched without checkout
+- [x] original KieliValmis static regression contract PASS
+- [x] R4M/R4N brand, AI, motion, localization, noindex and typography contract PASS
+- [x] `R4N_TYPOGRAPHY_SOURCE=PASS`
+
+### Staged deployment gates
+
+- [x] staged URL created: `https://kielivalmis-domain-static-bvfwu3a5z-kompyint-oys-projects.vercel.app`
+- [x] `/r4m` HTTP 200
+- [x] `R4N_NOINDEX=PASS`
+- [x] new desktop/mobile typography reached Vercel
+- [x] `R4N_DEPLOYED_TYPOGRAPHY=PASS`
+- [x] Finnish hero copy unchanged and present
+- [x] `R4N_FINNISH_HERO_COPY=PASS`
+
+### 20-language gates
+
+All 20 locale endpoints returned HTTP 200:
+
+`en, fi, sv, et, es, tr, ru, uk, ar, zh, ku, vi, bn, sq, tl, th, so, ne, fa, ur`
+
+- [x] `R4N_20_LOCALES=PASS`
+- [x] Arabic/Persian/Urdu RTL implementation remains enabled
+- [x] Kurdish remains Kurmanji Latin/LTR pending existing-app locale audit
+
+### Production-safety gates
+
+- [x] stable alias predeploy SHA matched baseline
+- [x] stable alias after-deploy SHA matched baseline
+- [x] `STABLE_KIELIVALMIS_ALIAS_UNCHANGED=PASS`
+- [x] live Learn final branch/commit/clean state unchanged
+- [x] `LIVE_LEARN_FINAL_SAFETY=PASS`
+
+Final result:
+
+`RESULT: KIELIVALMIS R4N TYPOGRAPHY STAGED QA PASS`
+
+## R4N visual review URLs
+
+Use these exact URLs for the current design review:
+
+- Finnish: `https://kielivalmis-domain-static-bvfwu3a5z-kompyint-oys-projects.vercel.app/r4m?lang=fi`
+- English: `https://kielivalmis-domain-static-bvfwu3a5z-kompyint-oys-projects.vercel.app/r4m?lang=en`
+- Arabic RTL: `https://kielivalmis-domain-static-bvfwu3a5z-kompyint-oys-projects.vercel.app/r4m?lang=ar`
+
+Do not use the stable alias when judging R4N because the stable alias intentionally remains unchanged.
 
 ## 20-language contract
 
@@ -191,12 +193,13 @@ R4M/R4N use one shared structure plus 20 locale JSON dictionaries, a locale swit
 
 ## Immediate next gate
 
-1. Create a new no-domain staged deployment from the latest organization-branch head containing R4N.
-2. Re-run original + R4M/R4N contracts, deployed noindex/asset/locale/provenance/legal gates and stable-alias/live-Learn safety checks.
-3. Visually review the refined Finnish hero on desktop and iPhone 15 Pro Max-class viewport.
-4. Spot-check English and Arabic to ensure the block-sentence rhythm behaves correctly for LTR and RTL.
-5. If the hero refinement is visually approved, move into native-quality audit of all 20 landing translations, Kurdish direction audit, legal/support localization, localized SEO/hreflang and terminology-pack freeze.
-6. Keep stable root, Learn runtime and Namecheap untouched until explicit approval.
+1. **Visual review only** of the R4N staged deployment.
+2. Review Finnish desktop and iPhone 15 Pro Max-class hero first.
+3. Spot-check English and Arabic for the new three-block heading rhythm, wrapping and RTL behavior.
+4. Judge hero size, stylishness, logo/header balance, photograph and motion; do not change the accepted R4M composition unless a real visual problem remains.
+5. If R4N is visually approved, begin native-quality audit of all 20 landing translations.
+6. Then audit Kurdish direction, localize legal/support/delete-account surfaces, implement localized SEO/hreflang, and freeze the terminology/translation pack for app reuse.
+7. Keep the stable root, Learn runtime and Namecheap untouched until those website gates are complete.
 
 ## After visual approval
 
@@ -214,7 +217,7 @@ Then build the existing Android/iOS rebrand from the same frozen terminology sou
 
 ## Remaining stages
 
-- [~] R4 — R4N typography refinement source ready; staged QA + visual approval + translation-quality gates pending
+- [~] R4 — R4N staged automated QA PASS; visual approval + translation-quality gates pending
 - [ ] R5 — attach `kielivalmis.com` / `www.kielivalmis.com` and capture exact DNS requirements
 - [ ] R6 — Namecheap DNS + HTTPS/canonical verification
 - [ ] R7 — parallel `app.kielivalmis.com` runtime + auth/payment/YKI regression
