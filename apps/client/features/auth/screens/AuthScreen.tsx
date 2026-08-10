@@ -29,7 +29,7 @@ import { useGoogleSignIn } from '../services/useGoogleSignIn';
 import { getLoginEmail, saveLoginEmail } from '../../../services/authStorage';
 import { useTranslator } from '../../i18n';
 
-const LOGO = require('../../../components/public/logo.png');
+const KIELIVALMIS_MARK = require('../../../../kielivalmis-domain-static/r4m/assets/kielivalmis-mark.png');
 
 type AuthTab = 'signin' | 'create';
 
@@ -90,7 +90,6 @@ export default function AuthScreen({ initialTab = 'signin' }: Props) {
     return value;
   }, [params.returnTo]);
 
-  // Translate the union state into a flat boolean for UI loading.
   const googleLoading = google.state.status === 'launching' || google.state.status === 'configuring';
   const googleErrorMessage =
     google.state.status === 'failed' ? google.state.error
@@ -204,28 +203,24 @@ export default function AuthScreen({ initialTab = 'signin' }: Props) {
       void saveLoginEmail(session.user.email);
       router.replace(returnToPath as never);
     }
-    // If signIn returns null, useGoogleSignIn has already populated its state
-    // with the appropriate cancelled/failed/unavailable status. We surface
-    // failure messages via googleErrorMessage above, not as form errors.
   }, [google, setAuth, returnToPath]);
 
   const styles = useMemo(() => buildStyles(palette, isDark), [palette, isDark]);
   const googleButtonSource = getGoogleButtonSource(tab);
   const googleButtonLabel = tab === 'signin' ? t('authSignInGoogleLabel') : t('authCreateGoogleLabel');
-  const logoWidth = Math.min(Math.max(width * 0.72, 280), 460);
-  const logoHeight = logoWidth * (1024 / 1536);
+  const markSize = Math.min(Math.max(width * 0.14, 54), 72);
   const logoAnimatedStyle = {
     transform: [
       {
         translateY: logoFloat.interpolate({
           inputRange: [0, 1],
-          outputRange: [0, -8],
+          outputRange: [0, -5],
         }),
       },
       {
         scale: logoFloat.interpolate({
           inputRange: [0, 0.5, 1],
-          outputRange: [1, 1.015, 1],
+          outputRange: [1, 1.012, 1],
         }),
       },
     ],
@@ -237,12 +232,17 @@ export default function AuthScreen({ initialTab = 'signin' }: Props) {
         <ScrollView contentContainerStyle={styles.scroll} keyboardShouldPersistTaps="handled">
           <View style={styles.header}>
             <View style={styles.logoRow}>
-              <Animated.Image
-                source={LOGO}
-                style={[styles.logo, { width: logoWidth, height: logoHeight }, logoAnimatedStyle]}
-                resizeMode="contain"
-                accessibilityLabel={t('authLogoAccessibilityLabel')}
-              />
+              <Animated.View style={[styles.authBrand, logoAnimatedStyle]} accessibilityLabel="KieliValmis by Floently">
+                <Animated.Image
+                  source={KIELIVALMIS_MARK}
+                  style={[styles.logo, { width: markSize, height: markSize * 0.94 }]}
+                  resizeMode="contain"
+                />
+                <View>
+                  <Text style={styles.authBrandName}>KieliValmis</Text>
+                  <Text style={styles.authBrandBy}>BY FLOENTLY</Text>
+                </View>
+              </Animated.View>
             </View>
             <Text style={styles.eyebrow}>{t('authEyebrow')}</Text>
             <Text style={styles.title}>{tab === 'signin' ? t('authSignInTitle') : t('authCreateTitle')}</Text>
@@ -253,7 +253,6 @@ export default function AuthScreen({ initialTab = 'signin' }: Props) {
             </Text>
           </View>
 
-          {/* Segmented control */}
           <View style={styles.tabs}>
             <Pressable
               onPress={() => onSwitchTab('signin')}
@@ -273,7 +272,6 @@ export default function AuthScreen({ initialTab = 'signin' }: Props) {
             </Pressable>
           </View>
 
-          {/* Form */}
           <View style={styles.form}>
             {tab === 'create' ? (
               <View style={styles.field}>
@@ -355,14 +353,12 @@ export default function AuthScreen({ initialTab = 'signin' }: Props) {
             ) : null}
           </View>
 
-          {/* OR separator */}
           <View style={styles.separator}>
             <View style={styles.separatorLine} />
             <Text style={styles.separatorText}>OR</Text>
             <View style={styles.separatorLine} />
           </View>
 
-          {/* Google Sign-In */}
           <Pressable
             onPress={handleGoogle}
             disabled={googleLoading || submitting}
@@ -402,8 +398,11 @@ function buildStyles(palette: ReturnType<typeof getFloentlyPalette>, isDark: boo
     safe: { flex: 1, backgroundColor: palette.background },
     scroll: { paddingHorizontal: spacing.lg, paddingVertical: spacing.lg, gap: spacing.md, flexGrow: 1 },
     header: { gap: 6, marginBottom: spacing.sm },
-    logoRow: { alignItems: 'center', marginBottom: 4 },
+    logoRow: { alignItems: 'center', marginBottom: 7 },
+    authBrand: { flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 10 },
     logo: { alignSelf: 'center' },
+    authBrandName: { color: palette.text, fontSize: 18, lineHeight: 20, fontWeight: '800', letterSpacing: -0.35 },
+    authBrandBy: { marginTop: 4, color: palette.primary, fontSize: 7, lineHeight: 9, fontWeight: '900', letterSpacing: 1.3 },
     eyebrow: {
       fontSize: 11,
       fontWeight: '800',
