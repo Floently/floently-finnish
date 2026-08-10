@@ -9,9 +9,31 @@
 
 ## Current milestone
 
-**R4N VISUAL APPROVED AND FROZEN. R4O website-page parity + native KieliValmis source rebrand is in progress.**
+**R4N VISUAL APPROVED AND FROZEN. R4O WEBSITE + APP SOURCE GATE PASS. Remaining visible-brand remediation is now a four-string queue plus the native binary icon/splash gate.**
 
-The user explicitly approved the R4N design on 2026-08-10 with “its good now.” Do not redesign the accepted landing unless a regression is found. Privacy, Terms, Support and Delete Account have now been rebuilt on a shared KieliValmis shell with a 20-language runtime, and the existing mobile Learn app now has a direct KieliValmis public entry, shared website/app landing copy, KieliValmis display name and a KieliValmis-branded canonical auth header. Source QA is the next gate.
+The user explicitly approved the R4N design on 2026-08-10 with “its good now.” Do not redesign the accepted landing unless a real regression is found.
+
+The R4O source gate ran on the Hetzner server from an isolated `FETCH_HEAD` extraction and passed:
+
+- complete KieliValmis website regression contract
+- shared Privacy/Terms/Support/Delete Account shell
+- complete 20-locale public-page structure
+- RTL public-page contract
+- frozen R4N landing contract
+- native KieliValmis display identity
+- preserved technical IDs
+- direct KieliValmis app entry
+- shared website/app 20-language landing copy
+- R4N-style native landing
+- KieliValmis-branded canonical auth screen
+- unchanged release version/build
+- final live Learn safety check
+
+Final server result:
+
+`RESULT: KIELIVALMIS R4O WEBSITE + APP SOURCE GATE PASS`
+
+The first audit found 11 raw legacy-brand hits, but only **2 were on the active KieliValmis surface**. Those two were both in `app/+html.tsx` and have now been fixed in GitHub. The product drawer entry has also been changed from `Floently Learn` to `KieliValmis`. The audit was hardened to ignore its own scripts/internal review tooling and to classify `state/subscriptionStore.ts` as active customer-facing UI state.
 
 **Do not release a new native build yet.** The approved rounded-square KieliValmis launcher/adaptive/splash binary asset gate is intentionally still pending. Do not increment build/version numbers, submit stores, change production Learn, promote the stable KieliValmis alias or touch Namecheap until the relevant gates pass.
 
@@ -45,6 +67,8 @@ Live Hetzner Learn baseline:
 - commit: `e92b98e7799c390bc52b42d724c57f197ffd5c0d`
 - checkout must remain clean
 - server `origin` may still show former personal repo; rebrand fetches explicitly use `git@github.com:Floently/floently-finnish.git`
+
+R4O source-gate run ended with the live Learn checkout still exactly on this baseline.
 
 KieliValmis Vercel:
 
@@ -122,9 +146,9 @@ Translation status: **structurally complete initial pack; not yet the final nati
 
 Current approved mark is referenced from `/r4m/assets/kielivalmis-mark.png`. Before retiring the R4M preview folder, copy/promote that exact approved binary to a permanent shared/root asset path and update the verifier. Do not redraw it.
 
-### Website verifier hardening
+### Website verifier status
 
-`verify-kielivalmis-domain-static.mjs` now additionally requires:
+`verify-kielivalmis-domain-static.mjs` requires:
 
 - shared shell on all four pages
 - all four locale modules
@@ -135,13 +159,15 @@ Current approved mark is referenced from `/r4m/assets/kielivalmis-mark.png`. Bef
 - English legal/support source markers
 - exact account-deletion email subject
 
-Expected new PASS markers include:
+R4O server PASS markers:
 
-- `KIELIVALMIS_STATIC_PUBLIC_PAGE_SHELL=PASS`
-- `KIELIVALMIS_STATIC_PUBLIC_PAGE_20_LOCALES=PASS`
-- `KIELIVALMIS_STATIC_PUBLIC_PAGE_RTL=PASS`
+- [x] `KIELIVALMIS_STATIC_PUBLIC_PAGE_SHELL=PASS`
+- [x] `KIELIVALMIS_STATIC_PUBLIC_PAGE_20_LOCALES=PASS`
+- [x] `KIELIVALMIS_STATIC_PUBLIC_PAGE_RTL=PASS`
+- [x] `KIELIVALMIS_R4O_PUBLIC_PAGES=PASS`
+- [x] `KIELIVALMIS_R4N_FROZEN_DESIGN=PASS`
 
-This source has **not yet been server/staged QA-tested** after R4O changes.
+Public-page **staged Vercel QA has not yet run** after these R4O changes.
 
 ## R4O-B — existing app visible KieliValmis rebrand
 
@@ -176,6 +202,15 @@ This source has **not yet been server/staged QA-tested** after R4O changes.
 - [x] login-email storage retained
 - [x] return routing retained
 
+### Active web metadata + navigation
+
+- [x] `app/+html.tsx` application name changed from `Floently Finnish` to `KieliValmis`
+- [x] web description now uses KieliValmis and the 20-language positioning
+- [x] SoftwareApplication schema uses KieliValmis while publisher remains Floently
+- [x] organization schema remains Floently parent identity
+- [x] product drawer Learn entry changed from `Floently Learn` to `KieliValmis`
+- [x] Floently Read and Floently Create labels intentionally preserved
+
 ### Native source verifier + audit
 
 - [x] `scripts/verify-kielivalmis-rebrand.mjs`
@@ -189,30 +224,68 @@ This source has **not yet been server/staged QA-tested** after R4O changes.
 - [x] `scripts/audit-kielivalmis-visible-brand.mjs`
 - [x] `npm run audit:kielivalmis-visible-brand`
 - [x] audit prints progress, file/line/snippet for remaining `Floently Finnish` / `Floently Learn` occurrences instead of globally replacing parent-brand references
+- [x] audit no longer counts its own script/internal translation-review tooling
+- [x] audit treats navigation and `state/subscriptionStore.ts` as active surfaces
+
+R4O server native PASS markers:
+
+- [x] `KIELIVALMIS_NATIVE_DISPLAY_IDENTITY=PASS`
+- [x] `KIELIVALMIS_NATIVE_TECHNICAL_IDS_PRESERVED=PASS`
+- [x] `KIELIVALMIS_NATIVE_DIRECT_ENTRY=PASS`
+- [x] `KIELIVALMIS_NATIVE_20_LANGUAGES=PASS`
+- [x] `KIELIVALMIS_NATIVE_SHARED_WEB_COPY=PASS`
+- [x] `KIELIVALMIS_NATIVE_R4N_LANDING=PASS`
+- [x] `KIELIVALMIS_NATIVE_AUTH_BRAND=PASS`
+- [x] `KIELIVALMIS_NATIVE_RELEASE_VERSION_UNCHANGED=PASS`
+- [x] `RESULT: KIELIVALMIS NATIVE REBRAND SOURCE CONTRACT PASS`
+
+Expected and still intentional:
+
+`KIELIVALMIS_NATIVE_ICON=PENDING_APPROVED_BINARY_INSTALL`
+
+## Remaining visible-brand remediation queue
+
+The original R4O audit reported these customer-facing/runtime strings after the main rebrand:
+
+- [x] `app/+html.tsx` app name — fixed to KieliValmis
+- [x] `app/+html.tsx` description — fixed to KieliValmis
+- [x] `config/navigation/AppShell_sidebar_sections.ts` `Floently Learn` — fixed to KieliValmis
+- [ ] `state/subscriptionStore.ts` access summary occurrence 1 — change `Floently Learn full access is active.` to `KieliValmis full access is active.`
+- [ ] `state/subscriptionStore.ts` access summary occurrence 2 — same change
+- [ ] `features/publicMarketing/screens/NativePublicMarketingScreens.tsx` legacy gateway label `Floently Learn` — change to KieliValmis
+- [ ] `features/publicMarketing/screens/NativePublicMarketingScreens.tsx` legacy Read-preview link `Floently Finnish` — change to KieliValmis
+
+Non-runtime/internal hits from the first audit:
+
+- onboarding file header comment — not customer visible
+- audit script needle definitions — now excluded
+- old translation-review script title — internal tooling; now excluded from visible-brand audit
+
+Do not delete or globally rename Floently parent-brand references. Only the exact Learn/Finnish customer-facing product name should become KieliValmis.
 
 ## Native icon / splash gate — intentionally pending
 
 Do not call the native rebrand complete yet.
 
-The approved rounded-square K/wave icon must replace the current native launcher icon/adaptive foreground/monochrome/splash assets **before any new app build**. The GitHub text connector cannot safely create the required binary PNG files through the normal contents action, so source config intentionally still points at the current released icon until a dedicated binary-asset installation step is completed and verified.
+The approved rounded-square K/wave icon must replace the current native launcher icon/adaptive foreground/monochrome/splash assets **before any new app build**. Source config intentionally still points at the current released icon until a dedicated binary-asset installation step is completed and verified.
 
 Do not use a newly invented icon, do not redraw the approved symbol, and do not publish with the temporary old Floently icon under the KieliValmis display name.
 
 ## Immediate next gate
 
-1. Fetch the latest organization branch into an isolated temporary directory; do not checkout rebrand code in the live Learn working tree.
-2. Run the KieliValmis static website verifier and R4N verifier.
-3. Run `npm run verify:kielivalmis-rebrand` from `apps/client`.
-4. Run `npm run audit:kielivalmis-visible-brand` and inspect all remaining legacy Learn-brand hits by context.
-5. Run TypeScript/lint/build-oriented checks for the new native landing/auth changes.
-6. Fix any source/compile/audit failures before staging the updated public pages.
-7. Stage the website with `--prod --skip-domain`, verify the stable alias hash is unchanged, then visually spot-check Privacy/Terms/Support/Delete Account in English, Finnish and Arabic.
-8. Install the approved native binary asset pack, update icon/splash config and rerun the native source verifier until `native_icon_gate=READY`.
-9. Only then proceed to a native preview/test build and full functional/localization regression.
+1. Remediate the two subscription access-summary strings and two legacy gateway labels in an isolated checkout of the organization branch.
+2. Rerun `npm run audit:kielivalmis-visible-brand`; require `active_kielivalmis_surface_hits=0`.
+3. Rerun static website, R4N and native source verifiers.
+4. Run TypeScript/lint/build-oriented checks for the new native landing/auth changes.
+5. Stage the updated public pages with `--prod --skip-domain`; verify the stable alias hash is unchanged.
+6. Visually spot-check Privacy/Terms/Support/Delete Account in English, Finnish and Arabic.
+7. Run native-quality audits for all 20 landing/public-page locale packs before public domain promotion or store release.
+8. Install the approved native launcher/adaptive/monochrome/splash binary asset pack and rerun the native source verifier until `native_icon_gate=READY`.
+9. Only then create a native preview/test build and run full functional/localization regression.
 
 ## Remaining quality / release gates
 
-- [ ] R4O source + compile verification
+- [~] R4O source verification — PASS; four-string visible-brand remediation + compile checks pending
 - [ ] R4O public-page staged QA
 - [ ] public-page EN/FI/AR visual/RTL review
 - [ ] native-quality audit of all 20 website/app landing translations
