@@ -98,6 +98,37 @@ for (const marker of [
 if (!files.metro.includes('repoRoot') || !files.metro.includes('watchFolders')) throw new Error('Metro monorepo sibling-asset support missing');
 console.log('KIELIVALMIS_NATIVE_R4N_LANDING=PASS');
 
+console.log('phase=react-native-style-types');
+
+for (const unsupportedWeight of [
+  "fontWeight:'620'",
+  "fontWeight:'650'",
+  "fontWeight:'750'",
+  "fontWeight:'850'",
+]) {
+  if (files.landing.includes(unsupportedWeight)) {
+    throw new Error(
+      `Unsupported React Native font weight remains: ${unsupportedWeight}`
+    );
+  }
+}
+
+if (!files.landing.includes('styles.brandMark as ImageStyle')) {
+  throw new Error(
+    'KieliValmis brand image style is not explicitly typed as ImageStyle'
+  );
+}
+
+if (!files.landing.includes('styles.heroImage as ImageStyle')) {
+  throw new Error(
+    'KieliValmis hero image style is not explicitly typed as ImageStyle'
+  );
+}
+
+console.log(
+  'KIELIVALMIS_NATIVE_REACT_NATIVE_STYLE_TYPES=PASS'
+);
+
 console.log('phase=auth-brand');
 for (const marker of [
   "kielivalmis-domain-static/r4m/assets/kielivalmis-mark.png",
