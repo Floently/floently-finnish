@@ -3,6 +3,7 @@
   "private": true,
   "scripts": {
     "verify": "node verify-kielivalmis-domain-static.mjs",
-    "vercel-build": "node verify-kielivalmis-domain-static.mjs"
+    "verify:r4m": "node r4m/verify-r4m.mjs",
+    "vercel-build": "node verify-kielivalmis-domain-static.mjs && node r4m/verify-r4m.mjs"
   }
 }

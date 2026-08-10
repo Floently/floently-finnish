@@ -2,43 +2,34 @@
   "cleanUrls": true,
   "trailingSlash": false,
   "redirects": [
-    {
-      "source": "/privacy-policy",
-      "destination": "/privacy",
-      "permanent": true
-    },
-    {
-      "source": "/legal/privacy-policy",
-      "destination": "/privacy",
-      "permanent": true
-    },
-    {
-      "source": "/account-deletion",
-      "destination": "/delete-account",
-      "permanent": true
-    },
-    {
-      "source": "/legal/account-deletion",
-      "destination": "/delete-account",
-      "permanent": true
-    }
+    {"source":"/privacy-policy","destination":"/privacy","permanent":true},
+    {"source":"/legal/privacy-policy","destination":"/privacy","permanent":true},
+    {"source":"/account-deletion","destination":"/delete-account","permanent":true},
+    {"source":"/legal/account-deletion","destination":"/delete-account","permanent":true}
   ],
   "headers": [
     {
+      "source": "/r4m",
+      "headers": [
+        {"key":"X-Robots-Tag","value":"noindex, nofollow"},
+        {"key":"X-Content-Type-Options","value":"nosniff"},
+        {"key":"Referrer-Policy","value":"strict-origin-when-cross-origin"}
+      ]
+    },
+    {
+      "source": "/r4m/(.*)",
+      "headers": [
+        {"key":"X-Robots-Tag","value":"noindex, nofollow"},
+        {"key":"X-Content-Type-Options","value":"nosniff"},
+        {"key":"Referrer-Policy","value":"strict-origin-when-cross-origin"}
+      ]
+    },
+    {
       "source": "/(.*)",
       "headers": [
-        {
-          "key": "X-Robots-Tag",
-          "value": "index, follow"
-        },
-        {
-          "key": "X-Content-Type-Options",
-          "value": "nosniff"
-        },
-        {
-          "key": "Referrer-Policy",
-          "value": "strict-origin-when-cross-origin"
-        }
+        {"key":"X-Robots-Tag","value":"index, follow"},
+        {"key":"X-Content-Type-Options","value":"nosniff"},
+        {"key":"Referrer-Policy","value":"strict-origin-when-cross-origin"}
       ]
     }
   ]
