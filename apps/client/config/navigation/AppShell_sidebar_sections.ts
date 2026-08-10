@@ -98,9 +98,9 @@ export function createDrawerSections(
   if (hasLearnAccess) {
     suiteItems.push({
       icon: '🎓',
-      label: 'Floently Learn',
+      label: 'KieliValmis',
       accentColor: '#4F7FFF',
-      hint: 'Practice Finnish with YKI and professional learning tools.',
+      hint: 'Prepare for YKI and working life in Finland.',
       onPress: () => void navigateTo('learning'),
     });
   }
