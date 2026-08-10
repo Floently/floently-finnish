@@ -9,6 +9,7 @@
     "ios": "expo run:ios",
     "web": "expo start --web",
     "lint": "expo lint",
+    "audit:kielivalmis-visible-brand": "node ./scripts/audit-kielivalmis-visible-brand.mjs",
     "verify:kielivalmis-rebrand": "node ./scripts/verify-kielivalmis-rebrand.mjs",
     "verify:roleplay-audio": "node ./scripts/verify-roleplay-audio-invariants.mjs",
     "verify:roleplay-scenarios": "node ./scripts/verify-roleplay-scenario-rotation.mjs"
@@ -62,7 +63,7 @@
     "@expo/config-plugins": "55.0.10",
     "@types/react": "~19.2.14",
     "eslint": "^9.25.0",
-    "eslint-config-expo": "~55.0.1",
+    "eslint-config-expo": "^55.0.1",
     "typescript": "~5.9.3"
   },
   "private": true,
