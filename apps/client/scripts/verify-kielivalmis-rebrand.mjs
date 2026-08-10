@@ -11,6 +11,7 @@ const files = {
   landingRoute: read('state/LandingRoute.tsx'),
   landing: read('features/kielivalmis/KieliValmisLandingScreen.tsx'),
   copy: read('features/kielivalmis/kielivalmisCopy.ts'),
+  auth: read('features/auth/screens/AuthScreen.tsx'),
   metro: read('metro.config.js'),
   packageJson: read('package.json'),
 };
@@ -47,7 +48,7 @@ if (!files.config.includes("const FLOENTLY_APP_SLUG = 'client'")) throw new Erro
 console.log('KIELIVALMIS_NATIVE_TECHNICAL_IDS_PRESERVED=PASS');
 
 console.log('phase=landing-routing');
-if (!files.landingRoute.includes("import KieliValmisLandingScreen")) throw new Error('LandingRoute does not import KieliValmis landing');
+if (!files.landingRoute.includes('import KieliValmisLandingScreen')) throw new Error('LandingRoute does not import KieliValmis landing');
 if (!files.landingRoute.includes('return <KieliValmisLandingScreen />')) throw new Error('KieliValmis is not the direct public app entry');
 if (files.landingRoute.includes('NativeFloentlyProductGatewayScreen')) throw new Error('Old cross-product gateway is still the KieliValmis default landing route');
 console.log('KIELIVALMIS_NATIVE_DIRECT_ENTRY=PASS');
@@ -80,8 +81,8 @@ console.log('KIELIVALMIS_NATIVE_SHARED_WEB_COPY=PASS');
 
 console.log('phase=brand-assets-and-layout');
 for (const marker of [
-  "kielivalmis-domain-static/r4m/assets/kielivalmis-mark.png",
-  "kielivalmis-domain-static/r4m/assets/kielivalmis-hero-ai.webp",
+  'kielivalmis-domain-static/r4m/assets/kielivalmis-mark.png',
+  'kielivalmis-domain-static/r4m/assets/kielivalmis-hero-ai.webp',
   'KieliValmis',
   'BY FLOENTLY',
   'getKieliValmisCopy',
@@ -96,6 +97,21 @@ for (const marker of [
 ]) if (!files.landing.includes(marker)) throw new Error(`Native KieliValmis landing marker missing: ${marker}`);
 if (!files.metro.includes('repoRoot') || !files.metro.includes('watchFolders')) throw new Error('Metro monorepo sibling-asset support missing');
 console.log('KIELIVALMIS_NATIVE_R4N_LANDING=PASS');
+
+console.log('phase=auth-brand');
+for (const marker of [
+  "kielivalmis-domain-static/r4m/assets/kielivalmis-mark.png",
+  'KieliValmis by Floently',
+  '<Text style={styles.authBrandName}>KieliValmis</Text>',
+  '<Text style={styles.authBrandBy}>BY FLOENTLY</Text>',
+  'useGoogleSignIn',
+  'authService.login',
+  'authService.register',
+  'saveLoginEmail',
+  'router.replace(returnToPath as never)',
+]) if (!files.auth.includes(marker)) throw new Error(`Canonical auth/rebrand marker missing: ${marker}`);
+if (files.auth.includes("components/public/logo.png")) throw new Error('Canonical auth screen still references the old Floently logo');
+console.log('KIELIVALMIS_NATIVE_AUTH_BRAND=PASS');
 
 console.log('phase=native-icon-gate');
 const oldIcon = './assets/images/floently-finnish-icon.png';
