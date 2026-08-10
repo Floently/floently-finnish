@@ -9,9 +9,9 @@
 
 ## Current milestone
 
-**R4M staged deployment reached Vercel successfully and the R4M page itself returned HTTP 200, but automated QA correctly stopped because `/r4m` returned `X-Robots-Tag: index, follow` instead of `noindex, nofollow`. Root cause was Vercel header precedence: the public catch-all header rule followed the R4M-specific rules and overwrote the robots header. GitHub fixes are now committed; redeploy + full protected QA are next.**
+**R4M recovery gate PASS — the first staged deployment exposed only a Vercel robots-header precedence issue; that source/verifier bug is fixed. A post-deployment safety check has now proven that the live Learn checkout remained unchanged, the organization rebrand branch was at the expected fixed commit, and the stable KieliValmis alias remained byte-for-byte identical to its pre-deployment baseline. Corrected staged redeploy + full protected QA + visual review are next.**
 
-Do not replace the current root landing, attach KieliValmis custom domains, or change Namecheap DNS until R4M passes staged-deployment QA, visual approval and the remaining localization-quality gates.
+Do not replace the current root landing, attach KieliValmis custom domains, or change Namecheap DNS until R4M passes corrected staged-deployment QA, visual approval and the remaining localization-quality gates.
 
 ## Repository move
 
@@ -21,6 +21,7 @@ Do not replace the current root landing, attach KieliValmis custom domains, or c
 - [x] R4M clean-URL base-path verifier fix: `d0781fc2dcc5df049384b2dc3fd4ee642aa803be`.
 - [x] R4M header precedence fix: `280ced4afccc9045f2c186a75ea90744989650a3`.
 - [x] R4M verifier precedence guard: `0c070d87e9aacd4de297b8faa3656bd17602ab0e`.
+- [x] First header-incident tracker commit: `51040bdae818e0ca03cea4ee3ac62eabdee2ed47`.
 - [x] All new GitHub writes target the organization repository.
 - [x] Hetzner checkout inspection showed `origin` still points to the former personal repository URL; deployment fetches therefore explicitly use `git@github.com:Floently/floently-finnish.git` without changing the live working tree.
 
@@ -60,10 +61,20 @@ KieliValmis marketing work must not alter this live checkout state.
 - R4H rollback deployment: `https://kielivalmis-domain-static-lk9ns71uv-kompyint-oys-projects.vercel.app`
 - R4I preview: `https://kielivalmis-domain-static-4ll5bamsm-kompyint-oys-projects.vercel.app`
 - First R4M staged deployment: `https://kielivalmis-domain-static-drguv6948-kompyint-oys-projects.vercel.app`
-- Stable-alias SHA captured immediately before first R4M staged deployment: `025a5a767a430ce4d7bdd8b7beb0f3ed33e71f3c1a5453c0b4247727e6073f8f`
+- Stable-alias baseline SHA: `025a5a767a430ce4d7bdd8b7beb0f3ed33e71f3c1a5453c0b4247727e6073f8f`
 - Deployment Protection bypass + ordinary `curl` is the established automated-QA method
 
-The first R4M staged deployment was created with `vercel --prod --skip-domain`. Vercel reported a production-class deployment URL and a generated project/team alias. QA stopped before the scripted stable-alias after-hash, so the next command must explicitly verify that `https://kielivalmis-domain-static.vercel.app` still hashes to the captured pre-deployment SHA before another deploy.
+The first R4M staged deployment was created with `vercel --prod --skip-domain`. It produced a production-class deployment URL but did not move the stable KieliValmis alias. The post-deployment safety check on 2026-08-10 returned the same stable-alias SHA as the pre-deployment baseline.
+
+### Post-staged-deployment safety check — PASS
+
+- [x] live Learn branch = `preview/enable-all-languages`
+- [x] live Learn commit = `e92b98e7799c390bc52b42d724c57f197ffd5c0d`
+- [x] live Learn checkout clean
+- [x] organization rebrand head = `51040bdae818e0ca03cea4ee3ac62eabdee2ed47` at check time
+- [x] stable KieliValmis alias HTTP 200
+- [x] stable KieliValmis alias SHA remained `025a5a767a430ce4d7bdd8b7beb0f3ed33e71f3c1a5453c0b4247727e6073f8f`
+- [x] `RESULT: R4M POST-STAGED-DEPLOY SAFETY CHECK PASS`
 
 ### DNS
 
@@ -202,16 +213,15 @@ and then stopped correctly at the robots-header gate.
 
 ## Immediate next gate
 
-1. Connect separately with `ssh root@77.42.44.201`.
-2. Verify live Learn branch/commit/clean state.
-3. Verify the stable KieliValmis alias still hashes to `025a5a767a430ce4d7bdd8b7beb0f3ed33e71f3c1a5453c0b4247727e6073f8f` before any new deployment.
-4. Fetch the latest `growth/discovery-seo-d2-20260807` explicitly from `Floently/floently-finnish` into `FETCH_HEAD`; do not checkout the rebrand branch in the live working tree.
-5. Run both static verifier contracts and confirm the new header-precedence guard passes.
-6. Create a staged production build using `vercel --prod --skip-domain`; this is the documented no-production-domain-assignment path for a staged production build.
-7. QA `/r4m`, the actual `X-Robots-Tag: noindex, nofollow`, CSS/JS/image assets, all 20 locale endpoints and AI provenance/disclosure.
-8. Re-hash the stable alias after the staged deploy and require an exact match with the captured baseline.
-9. Visually review desktop and iPhone 15 Pro Max-class layouts, logo contrast, photograph, motion, Finnish and at least one RTL language.
-10. Keep stable root, Learn runtime and Namecheap untouched until explicit approval.
+1. Verify the latest organization branch head and live Learn baseline.
+2. Verify the stable KieliValmis alias still hashes to `025a5a767a430ce4d7bdd8b7beb0f3ed33e71f3c1a5453c0b4247727e6073f8f` before the corrected deployment.
+3. Fetch the latest `growth/discovery-seo-d2-20260807` explicitly from `Floently/floently-finnish` into `FETCH_HEAD`; do not checkout the rebrand branch in the live working tree.
+4. Run both static verifier contracts and require the new header-precedence guard.
+5. Create a staged production build using `vercel --prod --skip-domain` so the production-class build is not automatically promoted to relevant production domains.
+6. QA `/r4m`, require `X-Robots-Tag: noindex, nofollow`, then QA CSS/JS/image assets, all 20 locale endpoints and AI provenance/disclosure.
+7. Re-hash the stable alias after the staged deploy and require an exact match with the captured baseline.
+8. Visually review desktop and iPhone 15 Pro Max-class layouts, logo contrast, photograph, motion, Finnish and at least one RTL language.
+9. Keep stable root, Learn runtime and Namecheap untouched until explicit approval.
 
 ## After R4M visual approval
 
@@ -229,7 +239,7 @@ Then build the existing Android/iOS rebrand from the same frozen terminology sou
 
 ## Remaining stages
 
-- [~] R4 — R4M header fix committed; staged redeploy QA + visual approval + translation-quality gates pending
+- [~] R4 — corrected R4M staged redeploy QA + visual approval + translation-quality gates pending
 - [ ] R5 — attach `kielivalmis.com` / `www.kielivalmis.com` and capture exact DNS requirements
 - [ ] R6 — Namecheap DNS + HTTPS/canonical verification
 - [ ] R7 — parallel `app.kielivalmis.com` runtime + auth/payment/YKI regression
