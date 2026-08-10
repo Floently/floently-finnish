@@ -43,8 +43,23 @@ if (!provenance.created || !provenance.purpose || !provenance.promptSummary) thr
 if (!styles.includes('font-size:clamp(25.5px,6.8vw,28px)')) throw new Error('Mobile hero typography contract missing');
 if (!styles.includes('font-size:clamp(39px,3.75vw,48px)')) throw new Error('Desktop hero typography contract missing');
 
-const r4mNoindexRules = (vercelConfig.headers || []).filter((rule) => ['/r4m','/r4m/(.*)'].includes(rule.source));
-if (r4mNoindexRules.length !== 2) throw new Error('R4M noindex header rules missing');
+const headerRules = vercelConfig.headers || [];
+const globalHeaderIndex = headerRules.findIndex((rule) => rule.source === '/(.*)');
+const r4mHeaderIndex = headerRules.findIndex((rule) => rule.source === '/r4m');
+const r4mCatchallHeaderIndex = headerRules.findIndex((rule) => rule.source === '/r4m/(.*)');
+if ([globalHeaderIndex, r4mHeaderIndex, r4mCatchallHeaderIndex].some((index) => index < 0)) {
+  throw new Error('R4M/global header rules missing');
+}
+if (!(globalHeaderIndex < r4mHeaderIndex && globalHeaderIndex < r4mCatchallHeaderIndex)) {
+  throw new Error('R4M noindex rules must follow the global header rule so R4M wins X-Robots-Tag precedence');
+}
+
+const globalRobots = (headerRules[globalHeaderIndex].headers || []).find((header) => String(header.key).toLowerCase() === 'x-robots-tag');
+if (!globalRobots || String(globalRobots.value).toLowerCase() !== 'index, follow') {
+  throw new Error('Global public-site robots header contract changed');
+}
+
+const r4mNoindexRules = [headerRules[r4mHeaderIndex], headerRules[r4mCatchallHeaderIndex]];
 for (const rule of r4mNoindexRules) {
   const robots = (rule.headers || []).find((header) => String(header.key).toLowerCase() === 'x-robots-tag');
   if (!robots || !String(robots.value).toLowerCase().includes('noindex')) throw new Error(`R4M noindex header missing for ${rule.source}`);
