@@ -40,8 +40,10 @@ for (const marker of ['OpenAI ChatGPT','aiGenerated','KieliValmis website hero',
 if (provenance.aiGenerated !== true) throw new Error('Hero provenance lost aiGenerated=true');
 if (!String(provenance.creator || '').includes('OpenAI')) throw new Error('Hero provenance lost creator');
 if (!provenance.created || !provenance.purpose || !provenance.promptSummary) throw new Error('Hero provenance incomplete');
-if (!styles.includes('font-size:clamp(25.5px,6.8vw,28px)')) throw new Error('Mobile hero typography contract missing');
-if (!styles.includes('font-size:clamp(39px,3.75vw,48px)')) throw new Error('Desktop hero typography contract missing');
+if (!styles.includes('font-size:clamp(23px,6vw,25.5px)')) throw new Error('Mobile hero typography contract missing');
+if (!styles.includes('font-size:clamp(35px,3.25vw,43px)')) throw new Error('Desktop hero typography contract missing');
+if (!styles.includes('h1>span{display:block}')) throw new Error('Hero sentence rhythm contract missing');
+if (!styles.includes('background:linear-gradient(180deg,transparent 72%,rgba(100,226,218,.11) 72%)')) throw new Error('Hero accent treatment contract missing');
 
 const headerRules = vercelConfig.headers || [];
 const globalHeaderIndex = headerRules.findIndex((rule) => rule.source === '/(.*)');
