@@ -2,9 +2,8 @@ import type { ExpoConfig, ConfigContext } from 'expo/config';
 
 const KIELIVALMIS_APP_NAME = 'KieliValmis';
 const FLOENTLY_APP_SLUG = 'client';
-// The approved KieliValmis native icon is added in the dedicated native-asset gate.
-// Keep the current icon path until that binary asset is committed and verified.
-const CURRENT_NATIVE_APP_ICON = './assets/images/floently-finnish-icon.png';
+// Approved KieliValmis launcher icon. Technical app identifiers remain unchanged.
+const KIELIVALMIS_NATIVE_APP_ICON = './assets/images/kielivalmis-app-icon.png';
 
 const appJson = require('./app.base.json');
 
@@ -74,7 +73,7 @@ export default function config(_: ConfigContext): ExpoConfig {
     ...baseExpo,
     name: KIELIVALMIS_APP_NAME,
     slug: FLOENTLY_APP_SLUG,
-    icon: CURRENT_NATIVE_APP_ICON,
+    icon: KIELIVALMIS_NATIVE_APP_ICON,
     plugins,
     updates: {
       ...(baseExpo.updates ?? {}),
@@ -92,7 +91,7 @@ export default function config(_: ConfigContext): ExpoConfig {
 
     ios: {
       ...(baseExpo.ios ?? {}),
-      icon: CURRENT_NATIVE_APP_ICON,
+      icon: KIELIVALMIS_NATIVE_APP_ICON,
       config: {
         ...(baseExpo.ios?.config ?? {}),
         usesNonExemptEncryption: false,

@@ -1,3 +1,4 @@
+import crypto from 'node:crypto';
 import fs from 'node:fs';
 import path from 'node:path';
 
@@ -145,13 +146,220 @@ if (files.auth.includes("components/public/logo.png")) throw new Error('Canonica
 console.log('KIELIVALMIS_NATIVE_AUTH_BRAND=PASS');
 
 console.log('phase=native-icon-gate');
-const oldIcon = './assets/images/floently-finnish-icon.png';
-const nativeIconPending = base.icon === oldIcon || files.config.includes(`CURRENT_NATIVE_APP_ICON = '${oldIcon}'`);
-if (nativeIconPending) {
-  console.log('KIELIVALMIS_NATIVE_ICON=PENDING_APPROVED_BINARY_INSTALL');
-} else {
-  console.log('KIELIVALMIS_NATIVE_ICON=CONFIGURED');
+
+const nativeAssetSpecs = {
+  appIcon: {
+    relative: 'assets/images/kielivalmis-app-icon.png',
+    config: './assets/images/kielivalmis-app-icon.png',
+    sha256: '44f807aa15544023ba7179bf7d4db7aeb8e981c70bd80bb2867d5f8a61a70a75',
+    colorType: 2,
+  },
+  androidForeground: {
+    relative: 'assets/images/kielivalmis-android-foreground.png',
+    config: './assets/images/kielivalmis-android-foreground.png',
+    sha256: 'd356ab8c45a24048ec369f061b27c1888a3b512a2df5af0fdeee825e3e126752',
+    colorType: 6,
+  },
+  androidMonochrome: {
+    relative: 'assets/images/kielivalmis-android-monochrome.png',
+    config: './assets/images/kielivalmis-android-monochrome.png',
+    sha256: 'fa95aac34c15ef2fe977a7106be48cbec8e8479c6dd6c715bf4ed7ac0ab6029b',
+    colorType: 6,
+  },
+  splash: {
+    relative: 'assets/images/kielivalmis-splash-icon.png',
+    config: './assets/images/kielivalmis-splash-icon.png',
+    sha256: '38e3b88ddebb450a6a3d24ef8c7a105c86ca92cf0ba247bab4b5af7a42bd34fc',
+    colorType: 6,
+  },
+};
+
+function verifyApprovedPng(label, spec) {
+  const absolute = path.join(root, spec.relative);
+
+  if (!fs.existsSync(absolute)) {
+    throw new Error(
+      `Approved native asset missing: ${label}`
+    );
+  }
+
+  const data = fs.readFileSync(absolute);
+
+  if (
+    data.subarray(0, 8).toString('hex') !==
+    '89504e470d0a1a0a'
+  ) {
+    throw new Error(
+      `Approved native asset is not PNG: ${label}`
+    );
+  }
+
+  const width = data.readUInt32BE(16);
+  const height = data.readUInt32BE(20);
+  const bitDepth = data[24];
+  const colorType = data[25];
+
+  const sha256 = crypto
+    .createHash('sha256')
+    .update(data)
+    .digest('hex');
+
+  if (width !== 1024 || height !== 1024) {
+    throw new Error(
+      `Approved native asset has wrong dimensions: ${label} ${width}x${height}`
+    );
+  }
+
+  if (bitDepth !== 8) {
+    throw new Error(
+      `Approved native asset has wrong bit depth: ${label} ${bitDepth}`
+    );
+  }
+
+  if (colorType !== spec.colorType) {
+    throw new Error(
+      `Approved native asset has wrong PNG color type: ${label} ${colorType}`
+    );
+  }
+
+  if (sha256 !== spec.sha256) {
+    throw new Error(
+      `Approved native asset SHA mismatch: ${label}`
+    );
+  }
+
+  console.log(
+    `native_asset=${label} width=${width} height=${height} sha256=${sha256}`
+  );
 }
+
+for (const [label, spec] of Object.entries(nativeAssetSpecs)) {
+  verifyApprovedPng(label, spec);
+}
+
+if (base.icon !== nativeAssetSpecs.appIcon.config) {
+  throw new Error(
+    'Expo root icon is not the approved KieliValmis app icon'
+  );
+}
+
+if (base.ios?.icon !== nativeAssetSpecs.appIcon.config) {
+  throw new Error(
+    'iOS icon is not the approved KieliValmis app icon'
+  );
+}
+
+if (base.android?.icon !== nativeAssetSpecs.appIcon.config) {
+  throw new Error(
+    'Android icon is not the approved KieliValmis app icon'
+  );
+}
+
+if (
+  base.android?.adaptiveIcon?.foregroundImage !==
+  nativeAssetSpecs.androidForeground.config
+) {
+  throw new Error(
+    'Android adaptive foreground is not the approved asset'
+  );
+}
+
+if (
+  base.android?.adaptiveIcon?.monochromeImage !==
+  nativeAssetSpecs.androidMonochrome.config
+) {
+  throw new Error(
+    'Android monochrome icon is not the approved asset'
+  );
+}
+
+if (
+  base.android?.adaptiveIcon?.backgroundColor !==
+  '#071832'
+) {
+  throw new Error(
+    'Android adaptive background lost KieliValmis navy'
+  );
+}
+
+const splashPlugin = (base.plugins ?? []).find(
+  (plugin) =>
+    Array.isArray(plugin) &&
+    plugin[0] === 'expo-splash-screen'
+);
+
+if (!splashPlugin) {
+  throw new Error(
+    'expo-splash-screen configuration missing'
+  );
+}
+
+const splashConfig = splashPlugin[1] ?? {};
+
+if (
+  splashConfig.image !==
+  nativeAssetSpecs.splash.config
+) {
+  throw new Error(
+    'Splash image is not the approved KieliValmis splash asset'
+  );
+}
+
+if (
+  splashConfig.backgroundColor !== '#071832' ||
+  splashConfig.dark?.backgroundColor !== '#071832'
+) {
+  throw new Error(
+    'Splash background lost KieliValmis navy'
+  );
+}
+
+if (
+  !files.config.includes(
+    "const KIELIVALMIS_NATIVE_APP_ICON = './assets/images/kielivalmis-app-icon.png'"
+  )
+) {
+  throw new Error(
+    'Dynamic Expo config lost approved KieliValmis icon'
+  );
+}
+
+if (files.config.includes('CURRENT_NATIVE_APP_ICON')) {
+  throw new Error(
+    'Legacy dynamic native icon constant remains'
+  );
+}
+
+const legacyVisualRefs = [
+  './assets/images/floently-finnish-icon.png',
+  './assets/images/android-icon-foreground.png',
+  './assets/images/android-icon-monochrome.png',
+  './assets/images/splash-icon.png',
+];
+
+for (const legacyRef of legacyVisualRefs) {
+  const quotedJson = `"${legacyRef}"`;
+  const quotedTs = `'${legacyRef}'`;
+
+  if (
+    files.base.includes(quotedJson) ||
+    files.config.includes(quotedTs)
+  ) {
+    throw new Error(
+      `Legacy native visual asset reference remains: ${legacyRef}`
+    );
+  }
+}
+
+const nativeIconPending = false;
+
+console.log(
+  'KIELIVALMIS_NATIVE_ICON=APPROVED_BINARY_READY'
+);
+
+console.log(
+  'KIELIVALMIS_NATIVE_ASSET_HASHES=PASS'
+);
 
 console.log('phase=release-safety');
 if (base.ios?.buildNumber !== '11') throw new Error('Build number changed during source-only rebrand');
