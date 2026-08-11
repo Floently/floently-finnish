@@ -10,13 +10,13 @@
 
 ## Current milestone
 
-**R4N VISUAL APPROVED AND FROZEN. R4O WEBSITE + APP SOURCE GATE PASS. R4P VISIBLE-BRAND REMEDIATION PASS. R4R TYPESCRIPT / NATIVE SOURCE COMPILE REMEDIATION PASS. R4S APPROVED NATIVE ASSET GATE PASS.**
+**R4N VISUAL APPROVED AND FROZEN. R4O WEBSITE + APP SOURCE GATE PASS. R4P VISIBLE-BRAND REMEDIATION PASS. R4R TYPESCRIPT / NATIVE SOURCE COMPILE REMEDIATION PASS. R4S APPROVED NATIVE ASSET GATE PASS. R4T STAGED PUBLIC-PAGE QA PASS.**
 
 The approved R4N visual direction is frozen. Do not redesign the landing unless a real regression is found.
 
-The KieliValmis website/public-page source and existing Learn app source now pass the current rebrand contracts. Customer-visible `Floently Finnish` / `Floently Learn` naming debt is zero on the active and legacy gateway surfaces covered by the audit. The new KieliValmis landing compiles with TypeScript, targeted ESLint passes, Expo resolves the compatibility identifiers exactly as required, and the approved launcher/adaptive/monochrome/splash binaries are installed with exact-hash verification.
+The KieliValmis website/public-page source, existing Learn app source, and approved native launcher/splash family now pass the current source contracts. The R4O public pages have also been deployed to an isolated Vercel production-environment deployment with `--prod --skip-domain` and passed staged route, redirect, robots, sitemap, shared-shell, and 20-locale delivery checks without moving the stable alias.
 
-**Immediate next gate:** stage the R4O public pages without moving the stable alias, visually review EN/FI/AR including RTL, then run the 20-language landing/public-page quality audits before creating the first KieliValmis native preview build.
+**Immediate next gate:** R4U visual review of the staged Privacy/Terms/Support/Delete Account pages in English, Finnish and Arabic, including desktop/mobile and RTL behavior. After R4U, run the 20-language landing/public-page language-quality audits before promoting the website or creating the first KieliValmis native preview build.
 
 ## Current Git / production safety state
 
@@ -28,6 +28,8 @@ GitHub source of truth:
 - R4R TypeScript remediation commit: `077599569809cfa6454f159c5675ab458c7d868f`
 - R4R tracker checkpoint commit: `1edda56d02fe7d06a6dce6eff620c1d8f5c7ead5`
 - R4S approved native asset commit: `6fef9bac3c0f05d1b93ddd46ea93acc0233aca8b`
+- R4S tracker checkpoint commit: `6c81ddbb83451732e3c018a472e555a58f6905c5`
+- R4T staged deployment source head: `6c81ddbb83451732e3c018a472e555a58f6905c5`
 
 Live Hetzner Learn remains untouched:
 
@@ -38,7 +40,7 @@ Live Hetzner Learn remains untouched:
 - web: `learn.floently.com`
 - API: `learn-api.floently.com`
 
-Every R4O/R4P/R4Q/R4R/R4S server operation ended with the live Learn checkout still on this baseline.
+Every R4O/R4P/R4Q/R4R/R4S/R4T server operation ended with the live Learn checkout still on this baseline.
 
 ## Locked identity / compatibility
 
@@ -68,7 +70,7 @@ Arabic, Persian and Urdu are RTL. Kurdish currently uses Kurmanji Latin/LTR pend
 
 ## Approved website state
 
-### R4N landing
+### R4N landing — visually approved and frozen
 
 - [x] photographic R4M composition retained
 - [x] approved K/wave mark
@@ -82,11 +84,11 @@ Arabic, Persian and Urdu are RTL. Kurdish currently uses Kurmanji Latin/LTR pend
 - [x] 20 locale dictionaries structurally complete
 - [x] ar/fa/ur RTL implementation present
 
-Approved staged R4N deployment:
+Earlier approved R4N staged deployment:
 
 `https://kielivalmis-domain-static-bvfwu3a5z-kompyint-oys-projects.vercel.app/r4m`
 
-Stable KieliValmis alias remains intentionally unchanged:
+Stable KieliValmis alias intentionally remains unchanged:
 
 `https://kielivalmis-domain-static.vercel.app`
 
@@ -115,8 +117,8 @@ Privacy, Terms, Support and Delete Account have been rebuilt on the shared Kieli
 - [x] public-page shell contract PASS
 - [x] public-page 20-locale contract PASS
 - [x] public-page RTL contract PASS
-- [ ] staged Vercel QA after R4O changes
-- [ ] EN/FI/AR visual/RTL review
+- [x] staged Vercel QA after R4O changes — R4T PASS
+- [ ] EN/FI/AR visual/RTL review — R4U NEXT
 - [ ] native/legal-language quality audit of all 20 translations
 
 ## Existing app KieliValmis rebrand state
@@ -141,9 +143,7 @@ Privacy, Terms, Support and Delete Account have been rebuilt on the shared Kieli
 - [x] product drawer Learn entry uses KieliValmis
 - [x] Floently Read/Create labels preserved
 
-### Visible-brand audit
-
-R4P completed the remaining four runtime replacements.
+### Visible-brand audit — R4P PASS
 
 - [x] two `subscriptionStore.ts` access summaries -> `KieliValmis full access is active.`
 - [x] legacy gateway `Floently Learn` -> `KieliValmis`
@@ -152,18 +152,13 @@ R4P completed the remaining four runtime replacements.
 - [x] `active_kielivalmis_surface_hits=0`
 - [x] `legacy_gateway_hits=0`
 
-## R4Q / R4R compile validation
+## R4Q / R4R compile validation — PASS
 
-R4Q found TypeScript problems only in the newly added KieliValmis landing. There was no compatibility-ID, lint, Expo-config or live-runtime regression.
-
-R4R fixed and verifier-guarded those issues:
+R4Q found TypeScript problems only in the newly added KieliValmis landing. R4R fixed and verifier-guarded them.
 
 - [x] explicit `ImageStyle` typing for the KieliValmis mark
 - [x] explicit `ImageStyle` typing for the hero image
-- [x] unsupported React Native `620` weight -> supported `600`
-- [x] unsupported `650` -> `700`
-- [x] unsupported `750` -> `700`
-- [x] unsupported `850` -> `800`
+- [x] unsupported React Native font weights replaced with supported weights
 - [x] verifier rejects unsupported non-standard weights
 - [x] verifier requires explicit image style typing
 - [x] full TypeScript `--noEmit` PASS
@@ -172,20 +167,15 @@ R4R fixed and verifier-guarded those issues:
 - [x] native rebrand source contract PASS
 - [x] visible-brand audit remains zero
 
-### Expo identity validation
+Resolved Expo compatibility values remain:
 
-The original R4R attempt stopped on a brittle text `grep`; the separate JSON diagnostic proved Expo itself was healthy. The final R4R run used JSON parsing and passed.
-
-Resolved values:
-
-- [x] `name="KieliValmis"`
-- [x] `slug="client"`
-- [x] `scheme="floently"`
-- [x] `runtimeVersion="1.0.2"`
-- [x] `ios.bundleIdentifier="com.vitusidi.floently"`
-- [x] `android.package="com.vitusidi.floently"`
-- [x] `extra.eas.projectId="fa02c141-0a3b-4dbc-9122-7c1cf31ba42c"`
-- [x] `R4R_EXPO_CONFIG_JSON_IDENTITY=PASS`
+- `name="KieliValmis"`
+- `slug="client"`
+- `scheme="floently"`
+- `runtimeVersion="1.0.2"`
+- `ios.bundleIdentifier="com.vitusidi.floently"`
+- `android.package="com.vitusidi.floently"`
+- `extra.eas.projectId="fa02c141-0a3b-4dbc-9122-7c1cf31ba42c"`
 
 Final R4R result:
 
@@ -193,7 +183,7 @@ Final R4R result:
 
 ## R4S native launcher / splash gate — PASS
 
-The approved KieliValmis native binary family is installed and verifier-locked. The asset transfer ZIP was hash-checked on the local machine and server, used only for the isolated R4S patch, and deleted from `/root/` after the successful push.
+The approved KieliValmis native binary family is installed and verifier-locked.
 
 Current repository configuration:
 
@@ -213,15 +203,9 @@ Locked approved SHA-256 values:
 
 R4S verification:
 
-- [x] 1024×1024 opaque app/store icon
-- [x] 1024×1024 transparent Android adaptive foreground
-- [x] 1024×1024 transparent Android monochrome mark
-- [x] 1024×1024 transparent splash mark
 - [x] exact binary hash verification
 - [x] PNG dimensions / bit depth / color type verification
-- [x] update `app.config.ts`
-- [x] update `app.base.json`
-- [x] verifier requires exact KieliValmis paths and hashes
+- [x] exact KieliValmis Expo asset paths
 - [x] verifier rejects legacy native visual paths
 - [x] full TypeScript PASS
 - [x] targeted ESLint PASS
@@ -239,16 +223,75 @@ Final R4S result:
 
 `RESULT: KIELIVALMIS R4S NATIVE ASSET GATE PASS`
 
-Do not redraw or silently replace these approved assets in later build/store work. A visual/build regression must be investigated without changing the locked logo geometry.
+Do not redraw or silently replace these approved assets in later build/store work.
+
+## R4T staged public-page QA — PASS
+
+R4T staged the current KieliValmis static site into the KieliValmis-only Vercel project using a production-environment deployment with `--skip-domain`. The stable alias and Namecheap DNS were not moved.
+
+Certified staged deployment:
+
+- deployment ID: `dpl_dsk4RUEFzXG9eE6nyU1TAbjug2UD`
+- URL: `https://kielivalmis-domain-static-g7twr1par-kompyint-oys-projects.vercel.app`
+- Vercel target: `production`
+- deployment status: `Ready`
+- source head: `6c81ddbb83451732e3c018a472e555a58f6905c5`
+- project: `kielivalmis-domain-static`
+- Vercel scope: `kompyint-oys-projects`
+
+R4T infrastructure notes:
+
+- Vercel CLI `58.9.1` was installed globally on the Hetzner server because no Vercel CLI was previously present.
+- authenticated Vercel account: `komplyint-3139`
+- active team: `kompyint-oys-projects`
+- the first automation bypass secret tested was stale/wrong for this project and continued to redirect to Vercel SSO
+- a new project-specific **Protection Bypass for Automation** secret was created in Vercel and validated with HTTP `200`
+- the secret is not stored in GitHub/tracker/chat and must remain secret
+- use ordinary `curl` with `x-vercel-protection-bypass`; do not expose the secret in logs or chat
+
+R4T verification:
+
+- [x] exact staged deployment ID/status checked with `vercel inspect`
+- [x] staged deployment access with project-specific bypass secret PASS
+- [x] `/` -> 200
+- [x] `/privacy` -> 200
+- [x] `/terms` -> 200
+- [x] `/support` -> 200
+- [x] `/delete-account` -> 200
+- [x] `/robots.txt` -> 200
+- [x] `/sitemap.xml` -> 200
+- [x] `/r4m` -> 200
+- [x] Privacy/Terms/Support/Delete Account all contain the shared KieliValmis page shell
+- [x] public routes emit `X-Robots-Tag: index, follow`
+- [x] `/r4m` remains `noindex`
+- [x] `/privacy-policy` -> permanent 308 `/privacy`
+- [x] `/legal/privacy-policy` -> permanent 308 `/privacy`
+- [x] `/account-deletion` -> permanent 308 `/delete-account`
+- [x] `/legal/account-deletion` -> permanent 308 `/delete-account`
+- [x] shared CSS/runtime/four locale modules all return 200
+- [x] all 20 R4N locale JSON files return 200 and contain required landing keys
+- [x] EN/FI/AR R4N entry routes return 200
+- [x] delete-account mail subject remains `Delete my KieliValmis account`
+- [x] sitemap contains all expected `www.kielivalmis.com` canonical URLs
+- [x] robots.txt references `https://www.kielivalmis.com/sitemap.xml`
+- [x] stable alias body SHA stayed exactly `025a5a767a430ce4d7bdd8b7beb0f3ed33e71f3c1a5453c0b4247727e6073f8f`
+- [x] GitHub source head remained unchanged during staged QA
+- [x] live Learn final safety PASS
+
+Final R4T result:
+
+`RESULT: KIELIVALMIS R4T STAGED PUBLIC-PAGE QA PASS`
+
+**Do not promote this deployment yet.** R4U and language-quality gates remain outstanding.
 
 ## Immediate next sequence
 
-1. Stage the R4O website/public pages with `vercel deploy --prod --skip-domain`; prove the stable alias did not move.
-2. Visually review Privacy/Terms/Support/Delete Account in English, Finnish and Arabic, including RTL behavior.
-3. Run native-quality audit of all 20 landing translations and legal/public-page translations.
-4. Audit Kurdish script/direction against the existing app locale.
+1. R4U: visually review staged Privacy/Terms/Support/Delete Account in English, Finnish and Arabic, including desktop/mobile and RTL.
+2. Run native-quality audit of all 20 website/app landing translations and legal/public-page translations.
+3. Audit Kurdish script/direction against the existing app locale.
+4. Promote the exact approved K/wave asset from `/r4m/assets/` to a permanent shared website asset path before retiring preview-only paths.
 5. Add localized SEO routes, canonicals, `hreflang` and `x-default`.
-6. Promote the approved website/public-page state only after the staged and language-quality gates pass.
+6. Promote the approved website/public-page state only after staged visual and language-quality gates pass.
 7. Only then create a native KieliValmis preview/test build using the existing app identity.
 8. Run auth, Google, subscription/purchase/restore, YKI, cards/progress/streak, roleplay/audio/export and all-20-language layout/RTL regression.
 9. Prepare store metadata/screenshots and then Android/iOS updates.
@@ -261,13 +304,14 @@ Do not redraw or silently replace these approved assets in later build/store wor
 - [x] R4R TypeScript/native-source compile remediation
 - [x] R4S approved native launcher/adaptive/monochrome/splash binaries installed
 - [x] native asset gate READY
-- [ ] R4O public-page staged QA
-- [ ] public-page EN/FI/AR visual/RTL review
+- [x] R4T public-page staged QA
+- [ ] R4U public-page EN/FI/AR visual/RTL review
 - [ ] native-quality audit of all 20 website/app landing translations
 - [ ] native/legal-language audit of all 20 public-page translations
 - [ ] Kurdish script/direction audit
 - [ ] permanent shared approved-logo asset path
 - [ ] localized SEO routes/canonicals/hreflang/x-default
+- [ ] website promotion / DNS decision after all gates
 - [ ] native KieliValmis preview build
 - [ ] authentication + Google sign-in regression
 - [ ] purchase/restore + RevenueCat regression
@@ -283,6 +327,6 @@ Do not redraw or silently replace these approved assets in later build/store wor
 
 ## Regression blockers
 
-Do not proceed to native/store submission if any of these fail: authentication; Google sign-in; purchase/restore; subscription continuity; YKI completion/submission/evaluation/report; roleplay/audio/export; card banks; streak/progress; legal/support/delete-account; production web/API calls; app-upgrade continuity; localization completeness; RTL/layout; or critical translated UI overflow.
+Do not proceed to website promotion/native/store submission if any relevant gate fails: authentication; Google sign-in; purchase/restore; subscription continuity; YKI completion/submission/evaluation/report; roleplay/audio/export; card banks; streak/progress; legal/support/delete-account; production web/API calls; app-upgrade continuity; localization completeness; RTL/layout; translated UI overflow; public-page visual integrity; sitemap/canonical integrity; or stable-host safety.
 
 Trademark filing/clearance remains a separate legal/business workstream and is not represented here as completed legal clearance.
