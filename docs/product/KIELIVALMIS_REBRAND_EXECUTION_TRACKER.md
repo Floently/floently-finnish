@@ -10,13 +10,13 @@
 
 ## Current milestone
 
-**R4N VISUAL APPROVED AND FROZEN. R4O WEBSITE + APP SOURCE GATE PASS. R4P VISIBLE-BRAND REMEDIATION PASS. R4R TYPESCRIPT / NATIVE SOURCE COMPILE REMEDIATION PASS. R4S APPROVED NATIVE ASSET GATE PASS. R4T STAGED PUBLIC-PAGE QA PASS. R4U EN/FI/AR VISUAL + RTL REVIEW PASS.**
+**R4N VISUAL APPROVED AND FROZEN. R4O WEBSITE + APP SOURCE GATE PASS. R4P VISIBLE-BRAND REMEDIATION PASS. R4R TYPESCRIPT / NATIVE SOURCE COMPILE REMEDIATION PASS. R4S APPROVED NATIVE ASSET GATE PASS. R4T STAGED PUBLIC-PAGE QA PASS. R4U EN/FI/AR VISUAL + RTL REVIEW PASS. R4V 20-LANGUAGE QUALITY AUDIT IN PROGRESS; TL/SO/UR RED-LOCALE REMEDIATION CHECKPOINT PASS.**
 
 The approved R4N visual direction is frozen. Do not redesign the landing unless a real regression is found.
 
-The KieliValmis website/public-page source, existing Learn app source, approved native launcher/splash family, staged public pages, and EN/FI/AR rendered visual/RTL surfaces now pass the current rebrand gates. R4U reviewed 24 real browser-rendered screenshots across Privacy, Terms, Support and Delete Account in English, Finnish and Arabic on desktop and mobile. No layout overflow, broken hierarchy, logo regression, mobile usability failure or RTL mirroring failure was found.
+The KieliValmis website/public-page source, existing Learn app source, approved native launcher/splash family, staged public pages, and EN/FI/AR rendered visual/RTL surfaces pass the completed rebrand gates. R4V has now audited the complete 20-language landing/public-page corpus and begun remediation. The three release-blocking red locales identified in the first audit — Tagalog/Filipino (`tl`), Somali (`so`) and Urdu (`ur`) — have been remediated, verifier-checked, committed and pushed. Full R4V is **not** complete until the targeted-fix and minor-polish locales are corrected and the whole corpus is re-audited.
 
-**Immediate next gate:** run the 20-language landing/public-page language-quality audit, including explicit cleanup of mixed Arabic/Latin bidi punctuation and wording where needed, before promoting the website or creating the first KieliValmis native preview build.
+**Immediate next gate:** remediate the 11 targeted-fix locales `fi, es, ru, uk, ar, ku, bn, sq, th, ne, fa`; then complete the five minor-polish locales `sv, et, tr, zh, vi`; then run the final 20-language quality/RTL re-audit before website promotion or the first KieliValmis native preview build.
 
 ## Current Git / production safety state
 
@@ -31,7 +31,11 @@ GitHub source of truth:
 - R4S tracker checkpoint commit: `6c81ddbb83451732e3c018a472e555a58f6905c5`
 - R4T staged deployment source head: `6c81ddbb83451732e3c018a472e555a58f6905c5`
 - R4T tracker checkpoint commit: `4835c38663d6010151f21754e17663c433aff173`
+- R4U tracker checkpoint commit: `cf79db0bd2ba6750fa7968f08711c0ddbecfee55`
 - R4U evidence pack SHA-256: `4b85336f60208c9222844021bbde5ecde95646de45faf82a6686f5fbc30815c0`
+- R4V audit-input pack SHA-256: `bb7074041ed8aeadda0ee8c1956821c295d5923e8fa47d7e74080e79567dfe83`
+- R4V red-locale remediation package SHA-256: `eafd53df37dd4b80dd171ba8a53ebdbd90826b389f239a66a8ca2cae09540ebe`
+- R4V red-locale remediation commit: `685f3b2824d8abd960c6ece6dbb338be02fc50c9`
 
 Live Hetzner Learn remains untouched:
 
@@ -42,7 +46,7 @@ Live Hetzner Learn remains untouched:
 - web: `learn.floently.com`
 - API: `learn-api.floently.com`
 
-Every R4O/R4P/R4Q/R4R/R4S/R4T/R4U server operation ended with the live Learn checkout still on this baseline.
+Every R4O/R4P/R4Q/R4R/R4S/R4T/R4U/R4V operation so far ended with the live Learn checkout still on this baseline.
 
 ## Locked identity / compatibility
 
@@ -68,7 +72,7 @@ Do not globally replace the word `Floently`; only the Finnish-learning product i
 
 `en, fi, sv, et, es, tr, ru, uk, ar, zh, ku, vi, bn, sq, tl, th, so, ne, fa, ur`
 
-Arabic, Persian and Urdu are RTL. Kurdish currently uses Kurmanji Latin/LTR pending the dedicated locale-direction audit.
+Arabic, Persian and Urdu are RTL. Kurdish is Kurmanji in Latin script and LTR in the current corpus; R4V confirmed that direction is correct, while Kurmanji wording/terminology still requires the targeted quality pass.
 
 ## Approved website state
 
@@ -121,7 +125,8 @@ Privacy, Terms, Support and Delete Account have been rebuilt on the shared Kieli
 - [x] public-page RTL contract PASS
 - [x] staged Vercel QA after R4O changes — R4T PASS
 - [x] EN/FI/AR visual/RTL review — R4U PASS
-- [ ] native/legal-language quality audit of all 20 translations
+- [ ] native/legal-language quality audit of all 20 translations — R4V IN PROGRESS
+- [x] `tl`/`so`/`ur` red-locale remediation checkpoint
 
 ## Existing app KieliValmis rebrand state
 
@@ -331,18 +336,84 @@ Final R4U result:
 
 `RESULT: KIELIVALMIS R4U EN/FI/AR VISUAL + RTL REVIEW PASS`
 
-**Do not promote this deployment yet.** The 20-language language-quality, Kurdish-direction, permanent asset-path and localized SEO gates remain outstanding.
+**Do not promote this deployment yet.** The 20-language language-quality, permanent asset-path and localized SEO gates remain outstanding.
+
+## R4V 20-language native-quality audit — IN PROGRESS
+
+R4V extracted and audited the complete current KieliValmis landing/app-copy and public-page translation corpus before any release promotion.
+
+Audit corpus:
+
+- source head audited: `cf79db0bd2ba6750fa7968f08711c0ddbecfee55`
+- audit input package: `/root/kielivalmis-r4v-language-audit-input.zip`
+- audit input SHA-256: `bb7074041ed8aeadda0ee8c1956821c295d5923e8fa47d7e74080e79567dfe83`
+- languages: 20
+- strings: 2,220
+- landing keys per language: 41
+- mechanical blockers: 0
+- source-language baseline: English
+
+Initial quality classification:
+
+- release-blocking major/substantial rewrite: `tl`, `so`, `ur`
+- targeted fixes: `fi`, `es`, `ru`, `uk`, `ar`, `ku`, `bn`, `sq`, `th`, `ne`, `fa`
+- minor polish: `sv`, `et`, `tr`, `zh`, `vi`
+- Kurdish direction: Kurmanji Latin/LTR is correct; remaining Kurdish work is wording/terminology quality
+- mixed-script RTL: Arabic, Persian and Urdu require safe handling of Latin product/provider/email/URL/subject tokens
+
+### R4V red-locale remediation checkpoint — PASS
+
+The first remediation batch repaired the three release-blocking locales `tl`, `so` and `ur` in an isolated clone before commit.
+
+Remediation evidence:
+
+- package SHA-256: `eafd53df37dd4b80dd171ba8a53ebdbd90826b389f239a66a8ca2cae09540ebe`
+- remediation commit: `685f3b2824d8abd960c6ece6dbb338be02fc50c9`
+- commit message: `Remediate KieliValmis Tagalog Somali and Urdu copy`
+- exact changed-file count: 5
+- `apps/kielivalmis-domain-static/r4m/locales/tl.json`
+- `apps/kielivalmis-domain-static/r4m/locales/so.json`
+- `apps/kielivalmis-domain-static/r4m/locales/ur.json`
+- `apps/kielivalmis-domain-static/shared/page-locales-3.js`
+- `apps/kielivalmis-domain-static/shared/page-locales-4.js`
+
+Semantic remediation counts:
+
+- `tl`: landing 20/41 strings changed; public pages 54/70 changed
+- `so`: landing 19/41 strings changed; public pages 28/70 changed
+- `ur`: landing 20/41 strings changed; public pages 46/70 changed
+
+Verification after remediation:
+
+- [x] exact five-file patch scope
+- [x] JS syntax for modified public-locale modules
+- [x] 20-language public runtime
+- [x] landing/public key parity for all three locales
+- [x] Tagalog generic-English rewrite gate
+- [x] Somali generic-English rewrite gate
+- [x] Urdu bidi isolation gate — 110 strings checked
+- [x] protected literal preservation
+- [x] existing KieliValmis static verifier PASS
+- [x] isolated worktree clean after commit
+- [x] branch push verified to exact remediation commit
+- [x] live Learn final safety PASS
+
+R4V is **not yet a full PASS**. The 11 targeted-fix locales and five minor-polish locales remain, followed by a final whole-corpus re-audit.
+
+Source-level release verification also remains required before legal/public-page publication: reconcile the English Terms processor list (including Apple, Google, RevenueCat, Stripe and Paddle) and Privacy analytics/crash-reporting statements against the actual production integrations. Translation quality alone does not certify those legal statements as operationally accurate.
 
 ## Immediate next sequence
 
-1. R4V: run native-quality audit of all 20 website/app landing translations and legal/public-page translations, including Arabic/Persian/Urdu mixed-script bidi quality.
-2. Audit Kurdish script/direction against the existing app locale.
-3. Promote the exact approved K/wave asset from `/r4m/assets/` to a permanent shared website asset path before retiring preview-only paths.
-4. Add localized SEO routes, canonicals, `hreflang` and `x-default`.
-5. Promote the approved website/public-page state only after staged visual and language-quality gates pass.
-6. Only then create a native KieliValmis preview/test build using the existing app identity.
-7. Run auth, Google, subscription/purchase/restore, YKI, cards/progress/streak, roleplay/audio/export and all-20-language layout/RTL regression.
-8. Prepare store metadata/screenshots and then Android/iOS updates.
+1. R4V targeted remediation: `fi, es, ru, uk, ar, ku, bn, sq, th, ne, fa`.
+2. R4V minor-polish remediation: `sv, et, tr, zh, vi`.
+3. R4V final 20-language semantic/mechanical/RTL re-audit; only then mark R4V PASS.
+4. Promote the exact approved K/wave asset from `/r4m/assets/` to a permanent shared website asset path before retiring preview-only paths.
+5. Add localized SEO routes, canonicals, `hreflang` and `x-default`.
+6. Promote the approved website/public-page state only after staged visual and language-quality gates pass.
+7. Create the native KieliValmis preview/test build using the existing app identity.
+8. Run auth, Google, subscription/purchase/restore, YKI, cards/progress/streak, roleplay/audio/export and all-20-language layout/RTL regression.
+9. Freeze the native release-candidate UI, then create the replacement Google Play/App Store screenshot and feature-graphic package from the real final app UI.
+10. Prepare store metadata and Android/iOS updates.
 
 ## Remaining quality / release gates
 
@@ -354,10 +425,17 @@ Final R4U result:
 - [x] native asset gate READY
 - [x] R4T public-page staged QA
 - [x] R4U public-page EN/FI/AR visual/RTL review
-- [ ] native-quality audit of all 20 website/app landing translations
-- [ ] native/legal-language audit of all 20 public-page translations
-- [ ] Arabic/Persian/Urdu mixed-script bidi language-quality cleanup
-- [ ] Kurdish script/direction audit
+- [ ] R4V native-quality audit of all 20 website/app landing translations — IN PROGRESS
+- [ ] R4V native/legal-language audit of all 20 public-page translations — IN PROGRESS
+- [x] R4V `tl`/`so`/`ur` red-locale remediation checkpoint
+- [x] R4V Urdu mixed-script bidi isolation cleanup
+- [ ] R4V targeted fixes: `fi, es, ru, uk, ar, ku, bn, sq, th, ne, fa`
+- [ ] R4V minor polish: `sv, et, tr, zh, vi`
+- [ ] R4V Arabic/Persian mixed-script bidi language-quality cleanup
+- [ ] R4V final whole-corpus re-audit and PASS decision
+- [x] Kurdish script/direction finding: current Kurmanji Latin corpus is LTR
+- [ ] Kurdish targeted native wording/terminology cleanup
+- [ ] production legal/processor/analytics statement reconciliation
 - [ ] permanent shared approved-logo asset path
 - [ ] localized SEO routes/canonicals/hreflang/x-default
 - [ ] website promotion / DNS decision after all gates
@@ -368,7 +446,9 @@ Final R4U result:
 - [ ] cards/progress/streak regression
 - [ ] roleplay/audio/export regression
 - [ ] all-20-language layout/RTL/text-expansion regression
-- [ ] store metadata + screenshots
+- [ ] final native release-candidate UI freeze
+- [ ] replacement Google Play/App Store screenshots + feature graphic from final real app UI
+- [ ] store metadata
 - [ ] Android update
 - [ ] iOS update
 - [ ] post-release verification
