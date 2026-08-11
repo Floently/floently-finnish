@@ -10,13 +10,13 @@
 
 ## Current milestone
 
-**R4N VISUAL APPROVED AND FROZEN. R4O WEBSITE + APP SOURCE GATE PASS. R4P VISIBLE-BRAND REMEDIATION PASS. R4R TYPESCRIPT / NATIVE SOURCE COMPILE REMEDIATION PASS. R4S APPROVED NATIVE ASSET GATE PASS. R4T STAGED PUBLIC-PAGE QA PASS.**
+**R4N VISUAL APPROVED AND FROZEN. R4O WEBSITE + APP SOURCE GATE PASS. R4P VISIBLE-BRAND REMEDIATION PASS. R4R TYPESCRIPT / NATIVE SOURCE COMPILE REMEDIATION PASS. R4S APPROVED NATIVE ASSET GATE PASS. R4T STAGED PUBLIC-PAGE QA PASS. R4U EN/FI/AR VISUAL + RTL REVIEW PASS.**
 
 The approved R4N visual direction is frozen. Do not redesign the landing unless a real regression is found.
 
-The KieliValmis website/public-page source, existing Learn app source, and approved native launcher/splash family now pass the current source contracts. The R4O public pages have also been deployed to an isolated Vercel production-environment deployment with `--prod --skip-domain` and passed staged route, redirect, robots, sitemap, shared-shell, and 20-locale delivery checks without moving the stable alias.
+The KieliValmis website/public-page source, existing Learn app source, approved native launcher/splash family, staged public pages, and EN/FI/AR rendered visual/RTL surfaces now pass the current rebrand gates. R4U reviewed 24 real browser-rendered screenshots across Privacy, Terms, Support and Delete Account in English, Finnish and Arabic on desktop and mobile. No layout overflow, broken hierarchy, logo regression, mobile usability failure or RTL mirroring failure was found.
 
-**Immediate next gate:** R4U visual review of the staged Privacy/Terms/Support/Delete Account pages in English, Finnish and Arabic, including desktop/mobile and RTL behavior. After R4U, run the 20-language landing/public-page language-quality audits before promoting the website or creating the first KieliValmis native preview build.
+**Immediate next gate:** run the 20-language landing/public-page language-quality audit, including explicit cleanup of mixed Arabic/Latin bidi punctuation and wording where needed, before promoting the website or creating the first KieliValmis native preview build.
 
 ## Current Git / production safety state
 
@@ -30,6 +30,8 @@ GitHub source of truth:
 - R4S approved native asset commit: `6fef9bac3c0f05d1b93ddd46ea93acc0233aca8b`
 - R4S tracker checkpoint commit: `6c81ddbb83451732e3c018a472e555a58f6905c5`
 - R4T staged deployment source head: `6c81ddbb83451732e3c018a472e555a58f6905c5`
+- R4T tracker checkpoint commit: `4835c38663d6010151f21754e17663c433aff173`
+- R4U evidence pack SHA-256: `4b85336f60208c9222844021bbde5ecde95646de45faf82a6686f5fbc30815c0`
 
 Live Hetzner Learn remains untouched:
 
@@ -40,7 +42,7 @@ Live Hetzner Learn remains untouched:
 - web: `learn.floently.com`
 - API: `learn-api.floently.com`
 
-Every R4O/R4P/R4Q/R4R/R4S/R4T server operation ended with the live Learn checkout still on this baseline.
+Every R4O/R4P/R4Q/R4R/R4S/R4T/R4U server operation ended with the live Learn checkout still on this baseline.
 
 ## Locked identity / compatibility
 
@@ -118,7 +120,7 @@ Privacy, Terms, Support and Delete Account have been rebuilt on the shared Kieli
 - [x] public-page 20-locale contract PASS
 - [x] public-page RTL contract PASS
 - [x] staged Vercel QA after R4O changes — R4T PASS
-- [ ] EN/FI/AR visual/RTL review — R4U NEXT
+- [x] EN/FI/AR visual/RTL review — R4U PASS
 - [ ] native/legal-language quality audit of all 20 translations
 
 ## Existing app KieliValmis rebrand state
@@ -282,19 +284,65 @@ Final R4T result:
 
 `RESULT: KIELIVALMIS R4T STAGED PUBLIC-PAGE QA PASS`
 
-**Do not promote this deployment yet.** R4U and language-quality gates remain outstanding.
+## R4U EN/FI/AR visual + RTL review — PASS
+
+R4U captured and visually reviewed real browser-rendered screenshots from the exact R4T staged deployment. This was a review of rendered output, not only source or DOM assertions.
+
+Evidence pack:
+
+- server package: `/root/kielivalmis-r4u-visual-qa.zip`
+- SHA-256: `4b85336f60208c9222844021bbde5ecde95646de45faf82a6686f5fbc30815c0`
+- files: 24 page screenshots + 6 contact sheets + `manifest.json` + render log
+- staged deployment ID: `dpl_dsk4RUEFzXG9eE6nyU1TAbjug2UD`
+- staged URL: `https://kielivalmis-domain-static-g7twr1par-kompyint-oys-projects.vercel.app`
+
+R4U coverage:
+
+- pages: Privacy, Terms, Support, Delete Account
+- languages: English, Finnish, Arabic
+- viewports: desktop 1440×1000 and mobile 390×844
+- total real page screenshots: 24
+- contact sheets: 6
+- structural issues reported by browser runner: 0
+- every rendered page returned HTTP 200
+- every page had the intended locale selected
+- EN/FI rendered LTR
+- Arabic rendered `dir=rtl` with RTL body direction
+- horizontal overflow: 0/24
+
+Visual inspection result:
+
+- [x] approved K/wave and KieliValmis/by Floently treatment remains coherent
+- [x] desktop and mobile hierarchy is clean and consistent
+- [x] heading size and card spacing remain readable without oversized temporary styling
+- [x] language selector remains usable on mobile
+- [x] buttons remain visible and appropriately sized
+- [x] footer remains readable and contained
+- [x] Finnish text expansion fits without clipping or layout damage
+- [x] Arabic navigation/header/card/footer mirroring is coherent
+- [x] Arabic cards and CTAs align correctly for RTL
+- [x] no visible clipping, overlap, broken card boundary or horizontal scroll regression found
+
+Non-blocking language-quality note for the next gate:
+
+- Arabic text that mixes Latin tokens such as `support@floently.com`, `KieliValmis`, provider names (`Apple`, `Google`, `RevenueCat`, `Stripe`, `Paddle`) and the quoted English deletion subject shows some bidi punctuation/spacing roughness in places. The layout itself remains correct. Fix this during the dedicated Arabic/native-language quality pass using appropriate wording and/or Unicode bidi isolation where needed; do not redesign the page shell to solve a content-level issue.
+
+Final R4U result:
+
+`RESULT: KIELIVALMIS R4U EN/FI/AR VISUAL + RTL REVIEW PASS`
+
+**Do not promote this deployment yet.** The 20-language language-quality, Kurdish-direction, permanent asset-path and localized SEO gates remain outstanding.
 
 ## Immediate next sequence
 
-1. R4U: visually review staged Privacy/Terms/Support/Delete Account in English, Finnish and Arabic, including desktop/mobile and RTL.
-2. Run native-quality audit of all 20 website/app landing translations and legal/public-page translations.
-3. Audit Kurdish script/direction against the existing app locale.
-4. Promote the exact approved K/wave asset from `/r4m/assets/` to a permanent shared website asset path before retiring preview-only paths.
-5. Add localized SEO routes, canonicals, `hreflang` and `x-default`.
-6. Promote the approved website/public-page state only after staged visual and language-quality gates pass.
-7. Only then create a native KieliValmis preview/test build using the existing app identity.
-8. Run auth, Google, subscription/purchase/restore, YKI, cards/progress/streak, roleplay/audio/export and all-20-language layout/RTL regression.
-9. Prepare store metadata/screenshots and then Android/iOS updates.
+1. R4V: run native-quality audit of all 20 website/app landing translations and legal/public-page translations, including Arabic/Persian/Urdu mixed-script bidi quality.
+2. Audit Kurdish script/direction against the existing app locale.
+3. Promote the exact approved K/wave asset from `/r4m/assets/` to a permanent shared website asset path before retiring preview-only paths.
+4. Add localized SEO routes, canonicals, `hreflang` and `x-default`.
+5. Promote the approved website/public-page state only after staged visual and language-quality gates pass.
+6. Only then create a native KieliValmis preview/test build using the existing app identity.
+7. Run auth, Google, subscription/purchase/restore, YKI, cards/progress/streak, roleplay/audio/export and all-20-language layout/RTL regression.
+8. Prepare store metadata/screenshots and then Android/iOS updates.
 
 ## Remaining quality / release gates
 
@@ -305,9 +353,10 @@ Final R4T result:
 - [x] R4S approved native launcher/adaptive/monochrome/splash binaries installed
 - [x] native asset gate READY
 - [x] R4T public-page staged QA
-- [ ] R4U public-page EN/FI/AR visual/RTL review
+- [x] R4U public-page EN/FI/AR visual/RTL review
 - [ ] native-quality audit of all 20 website/app landing translations
 - [ ] native/legal-language audit of all 20 public-page translations
+- [ ] Arabic/Persian/Urdu mixed-script bidi language-quality cleanup
 - [ ] Kurdish script/direction audit
 - [ ] permanent shared approved-logo asset path
 - [ ] localized SEO routes/canonicals/hreflang/x-default
