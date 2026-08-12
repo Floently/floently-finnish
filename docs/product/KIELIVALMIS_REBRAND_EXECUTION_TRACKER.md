@@ -68,7 +68,15 @@ Every R4O/R4P/R4Q/R4R/R4S/R4T/R4U/R4V operation so far ended with the live Learn
 - [x] complete staged release verification PASS
 - [x] TypeScript 5.9.3 `--noEmit` PASS
 - [x] Vercel blocked-deployment cause diagnosed: `TEAM_ACCESS_REQUIRED` from a commit author identity not associated with the Hobby-team owner
-- [ ] exact committed KieliValmis Vercel production-environment deployment staged
+- [x] exact committed KieliValmis Vercel production-environment deployment staged
+  - deployment ID: `dpl_JBXLvvmFLGv6VLzEG6VCp5tyq7k4`
+  - staged URL: `https://kielivalmis-domain-static-ihx2p6aqs-kompyint-oys-projects.vercel.app`
+  - state: `READY / STAGED`
+  - 20/20 localized landing route parity PASS
+  - 4/4 legal/public page parity PASS
+  - SEO + asset parity PASS
+  - RTL + canonical + hreflang + x-default PASS
+
 - [ ] `www.kielivalmis.com` DNS + TLS live
 - [ ] apex `kielivalmis.com` redirects to canonical `www`
 - [ ] `app.kielivalmis.com` DNS + Nginx + TLS live
