@@ -451,7 +451,7 @@ def _stripe_metadata(details: dict[str, Any], price_id: str) -> dict[str, str]:
 
 
 def _front_end_base_url() -> str:
-    return (SETTINGS.frontend_base_url or SETTINGS.public_base_url or "https://learn.floently.com").rstrip("/")
+    return (SETTINGS.frontend_base_url or "https://app.kielivalmis.com").rstrip("/")
 
 
 
@@ -2147,8 +2147,8 @@ def billing_checkout_session(*, payload: dict[str, Any], user_id: str) -> dict[s
                 "mode": "subscription",
                 "payment_method_collection": "always",
                 "line_items": [{"price": selected_price_id, "quantity": 1}],
-                "success_url": "https://learn.floently.com/billing/subscription?checkout=success&session_id={CHECKOUT_SESSION_ID}",
-                "cancel_url": "https://learn.floently.com/billing/subscription?checkout=cancelled",
+                "success_url": f"{front_end_base_url}/billing/subscription?checkout=success&session_id={{CHECKOUT_SESSION_ID}}",
+                "cancel_url": f"{front_end_base_url}/billing/subscription?checkout=cancelled",
                 "client_reference_id": user_id,
                 "metadata": metadata,
                 "subscription_data": subscription_data,
@@ -2233,7 +2233,7 @@ def billing_portal_url(*, user_id: str) -> str:
     try:
         session = stripe.billing_portal.Session.create(
             customer=stripe_customer_id,
-            return_url="https://learn.floently.com/billing/subscription",
+            return_url=f"{_front_end_base_url()}/billing/subscription",
         )
     except Exception as exc:
         raise AppError(

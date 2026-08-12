@@ -25,8 +25,8 @@ import {
   type KieliValmisLanguage,
 } from './kielivalmisCopy';
 
-const KIELIVALMIS_MARK = require('../../../kielivalmis-domain-static/r4m/assets/kielivalmis-mark.png');
-const KIELIVALMIS_HERO = require('../../../kielivalmis-domain-static/r4m/assets/kielivalmis-hero-ai.webp');
+const KIELIVALMIS_MARK = require('../../../kielivalmis-domain-static/assets/kielivalmis-mark.png');
+const KIELIVALMIS_HERO = require('../../../kielivalmis-domain-static/assets/kielivalmis-hero-ai.webp');
 
 export default function KieliValmisLandingScreen() {
   const language = usePreferencesStore((state) => state.language);

@@ -1,7 +1,8 @@
 import { useEffect } from 'react';
 import { Platform } from 'react-native';
 import AppShell from '../state/AppShell';
-import LearnLandingPage from '../web/LearnLandingPage';
+import KieliValmisLandingScreen from '../features/kielivalmis/KieliValmisLandingScreen';
+import { isLearnHost } from '../state/learnRouting';
 import { useAuthStore } from '../state/authStore';
 import { completeGoogleOAuthResult } from '@core/api/auth';
 
@@ -42,13 +43,13 @@ export default function IndexRoute() {
     };
   }, [setAuth]);
 
-  const isLearnHost = Platform.OS === 'web' && typeof window !== 'undefined' && window.location.hostname === 'learn.floently.com';
+  const onKieliValmisWebHost = Platform.OS === 'web' && isLearnHost();
 
-  if (isLearnHost) {
+  if (onKieliValmisWebHost) {
     if (hasHydrated && user) {
       return <AppShell requestedScreen="root" />;
     }
-    return <LearnLandingPage />;
+    return <KieliValmisLandingScreen />;
   }
 
   return <AppShell />;

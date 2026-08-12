@@ -122,9 +122,9 @@ class Settings:
         getenv("PASSWORD_RESET_DEEP_LINK_BASE", "floently://auth/reset-password") or "floently://auth/reset-password"
     ).strip() or "floently://auth/reset-password"
     password_reset_web_base_url: str = (
-        getenv("PASSWORD_RESET_WEB_BASE_URL", "https://learn.floently.com/auth/reset-password")
-        or "https://learn.floently.com/auth/reset-password"
-    ).strip() or "https://learn.floently.com/auth/reset-password"
+        getenv("PASSWORD_RESET_WEB_BASE_URL", "https://app.kielivalmis.com/auth/reset-password")
+        or "https://app.kielivalmis.com/auth/reset-password"
+    ).strip() or "https://app.kielivalmis.com/auth/reset-password"
     password_reset_email_from: str | None = _get_optional_str("PASSWORD_RESET_EMAIL_FROM")
     password_reset_email_webhook_url: str | None = _get_optional_str("PASSWORD_RESET_EMAIL_WEBHOOK_URL")
 

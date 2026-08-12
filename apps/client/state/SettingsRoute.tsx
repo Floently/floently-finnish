@@ -11,7 +11,7 @@ import { useAuthStore } from './authStore';
 import { SPEECH_RATE_PRESETS, usePreferencesStore } from './preferencesStore';
 import { useSubscriptionStore } from './subscriptionStore';
 
-const LOGO = require('../components/public/logo.png');
+const LOGO = require('../assets/images/kielivalmis-app-icon.png');
 
 type ImagePickerModule = {
   MediaTypeOptions?: { Images?: unknown };
@@ -162,7 +162,7 @@ export default function SettingsRoute({ onBack, onOpenBilling, onOpenHelp, onOpe
     (user as { name?: string; displayName?: string; email?: string } | null)?.displayName ??
     (user as { name?: string; displayName?: string; email?: string } | null)?.name ??
     user?.email ??
-    'Floently learner';
+    'KieliValmis learner';
 
   const initials = useMemo(() => {
     const source = displayName.trim() || user?.email || 'F';
@@ -415,7 +415,7 @@ export default function SettingsRoute({ onBack, onOpenBilling, onOpenHelp, onOpe
         </View>
         <SettingRow label={t('settingsBillingAndPlan')} hint={t('drawerPlansAndAccessHint')} actionLabel={t('commonOpen')} onPress={onOpenBilling} palette={palette} />
         <SettingRow label={t('settingsHelpAndSupport')} hint="Get route guidance and quick support answers." actionLabel={t('commonOpen')} onPress={onOpenHelp} palette={palette} />
-        <SettingRow label={t('settingsPrivacyPolicy')} hint="Review how Floently handles account, voice, and transcript data." actionLabel={t('commonOpen')} onPress={() => { void openExternalUrl(LEGAL_URLS.privacyPolicy, 'privacy policy'); }} palette={palette} />
+        <SettingRow label={t('settingsPrivacyPolicy')} hint="Review how KieliValmis handles account, voice, and transcript data." actionLabel={t('commonOpen')} onPress={() => { void openExternalUrl(LEGAL_URLS.privacyPolicy, 'privacy policy'); }} palette={palette} />
         <SettingRow label={t('settingsTermsOfUse')} hint="Read subscription and acceptable use terms." actionLabel={t('commonOpen')} onPress={() => { void openExternalUrl(LEGAL_URLS.termsOfUse, 'terms of use'); }} palette={palette} />
         <SettingRow label={t('settingsSupportAndContact')} hint="Public support page for response and escalation." actionLabel={t('commonOpen')} onPress={() => { void openExternalUrl(LEGAL_URLS.support, 'support page'); }} palette={palette} />
         <SettingRow label={t('settingsAccountDeletionPage')} hint="Public account deletion policy and request page." actionLabel={t('commonOpen')} onPress={() => { void openExternalUrl(LEGAL_URLS.accountDeletion, 'account deletion page'); }} palette={palette} />

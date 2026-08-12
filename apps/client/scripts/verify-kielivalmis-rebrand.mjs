@@ -63,9 +63,9 @@ if (JSON.stringify(declared) !== JSON.stringify(expectedCodes)) throw new Error(
 
 let localeFilesChecked = 0;
 for (const code of expectedCodes) {
-  const requiredPath = `../../../kielivalmis-domain-static/r4m/locales/${code}.json`;
+  const requiredPath = `../../../kielivalmis-domain-static/locales/${code}.json`;
   if (!files.copy.includes(requiredPath)) throw new Error(`Shared website/app locale require missing: ${code}`);
-  const repoRelativeLocale = `../kielivalmis-domain-static/r4m/locales/${code}.json`;
+  const repoRelativeLocale = `../kielivalmis-domain-static/locales/${code}.json`;
   if (!exists(repoRelativeLocale)) throw new Error(`Shared locale file missing on disk: ${repoRelativeLocale}`);
   const locale = JSON.parse(read(repoRelativeLocale));
   for (const key of ['chooseLanguage','heroKicker','heroTitleA','heroTitleB','heroTitleC','heroLead','start','transition','overlaySpeak','overlayFeedback','overlayReady','aiLabel','pathTitle','card1Title','card2Title','card3Title','ykiTitle','workTitle','langTitle','finalTitle','privacy','terms','support','deleteAccount','footerCopy']) {
@@ -82,8 +82,8 @@ console.log('KIELIVALMIS_NATIVE_SHARED_WEB_COPY=PASS');
 
 console.log('phase=brand-assets-and-layout');
 for (const marker of [
-  'kielivalmis-domain-static/r4m/assets/kielivalmis-mark.png',
-  'kielivalmis-domain-static/r4m/assets/kielivalmis-hero-ai.webp',
+  'kielivalmis-domain-static/assets/kielivalmis-mark.png',
+  'kielivalmis-domain-static/assets/kielivalmis-hero-ai.webp',
   'KieliValmis',
   'BY FLOENTLY',
   'getKieliValmisCopy',
@@ -132,7 +132,7 @@ console.log(
 
 console.log('phase=auth-brand');
 for (const marker of [
-  "kielivalmis-domain-static/r4m/assets/kielivalmis-mark.png",
+  "kielivalmis-domain-static/assets/kielivalmis-mark.png",
   'KieliValmis by Floently',
   '<Text style={styles.authBrandName}>KieliValmis</Text>',
   '<Text style={styles.authBrandBy}>BY FLOENTLY</Text>',

@@ -4,8 +4,8 @@ import type { PropsWithChildren } from 'react';
 const appName = 'KieliValmis';
 const description =
   'KieliValmis helps adults learn practical Finnish for YKI, workplace communication, grammar, vocabulary, roleplay and everyday life in Finland, with guidance in 20 languages.';
-const canonicalUrl = 'https://learn.floently.com/';
-const imageUrl = 'https://learn.floently.com/floently-finnish-icon.png';
+const canonicalUrl = 'https://app.kielivalmis.com/';
+const imageUrl = 'https://app.kielivalmis.com/icon.png';
 
 export default function Html({ children }: PropsWithChildren) {
   const organizationSchema = {
@@ -46,7 +46,8 @@ export default function Html({ children }: PropsWithChildren) {
 
         <title>{appName} | Finnish for YKI, Work and Daily Life</title>
         <meta name="description" content={description} />
-        <meta name="robots" content="index,follow" />
+        <meta name="robots" content="noindex,nofollow" />
+        <link rel="icon" type="image/png" href="/favicon.png" />
         <link rel="canonical" href={canonicalUrl} />
 
         <meta property="og:type" content="website" />

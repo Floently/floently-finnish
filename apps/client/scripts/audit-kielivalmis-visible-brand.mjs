@@ -61,6 +61,8 @@ for (const item of queue) {
 const activeLearnHits = queue.filter((item) =>
   item.path.startsWith('features/kielivalmis/') ||
   item.path.startsWith('state/LandingRoute') ||
+  item.path === 'state/AppShell.tsx' ||
+  item.path === 'state/SettingsRoute.tsx' ||
   item.path === 'state/subscriptionStore.ts' ||
   item.path.startsWith('features/auth/') ||
   item.path.startsWith('config/navigation/') ||

@@ -55,8 +55,6 @@ export function createDrawerSections(
     entitlements?.professionalAccess
   );
   const hasProfessionalAccess = Boolean(entitlements?.isInternalAllAccess || entitlements?.professionalAccess);
-  const hasReadAccess = Boolean(entitlements?.readAccess || entitlements?.isInternalAllAccess);
-  const hasCreateAccess = Boolean(entitlements?.createAccess || entitlements?.isInternalAllAccess);
 
   if (entitlements?.isPreview) {
     const previewLabel =
@@ -91,45 +89,6 @@ export function createDrawerSections(
       items: [{ icon: '⚙', label: translate(language, 'drawerSettings'), accentColor: '#8EA3C3', hint: translate(language, 'drawerSettingsHint'), onPress: () => void navigateTo('settings') }],
     });
     return sections;
-  }
-
-  const suiteItems: DrawerItem[] = [];
-
-  if (hasLearnAccess) {
-    suiteItems.push({
-      icon: '🎓',
-      label: 'KieliValmis',
-      accentColor: '#4F7FFF',
-      hint: 'Prepare for YKI and working life in Finland.',
-      onPress: () => void navigateTo('learning'),
-    });
-  }
-
-  if (hasReadAccess) {
-    suiteItems.push({
-      icon: '📖',
-      label: 'Floently Read',
-      accentColor: '#38C9A8',
-      hint: 'Read, listen, import, and keep your reading library.',
-      onPress: () => void navigateTo('read'),
-    });
-  }
-
-  if (hasCreateAccess) {
-    suiteItems.push({
-      icon: '✦',
-      label: 'Floently Create',
-      accentColor: '#C17A35',
-      hint: 'Create is safely gated until product release.',
-      onPress: () => void navigateTo('create'),
-    });
-  }
-
-  if (suiteItems.length > 0) {
-    sections.push({
-      label: 'Floently suite',
-      items: suiteItems,
-    });
   }
 
   if (hasLearnAccess || hasProfessionalAccess) {

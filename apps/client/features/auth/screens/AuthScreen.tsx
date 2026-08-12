@@ -29,7 +29,7 @@ import { useGoogleSignIn } from '../services/useGoogleSignIn';
 import { getLoginEmail, saveLoginEmail } from '../../../services/authStorage';
 import { useTranslator } from '../../i18n';
 
-const KIELIVALMIS_MARK = require('../../../../kielivalmis-domain-static/r4m/assets/kielivalmis-mark.png');
+const KIELIVALMIS_MARK = require('../../../../kielivalmis-domain-static/assets/kielivalmis-mark.png');
 
 type AuthTab = 'signin' | 'create';
 
