@@ -16,7 +16,7 @@ The approved R4N visual direction is frozen. Do not redesign the landing unless 
 
 The complete KieliValmis public website, localized public/legal pages, web-app brand shell, native-app brand surfaces, approved launcher/splash assets, Floently-to-KieliValmis gateway, and all 20 language surfaces have passed the source-level release gates. R4V is complete: all red, targeted and minor-polish locales were remediated and the final 2,220-string all-language regression passed, including RTL/bidi checks, Kurdish Kurmanji LTR checks, protected literals, static-site verification, native rebrand verification and TypeScript compilation.
 
-**Immediate next gate:** install the certified KieliValmis web export as a versioned Hetzner release, point only `app.kielivalmis.com` to that release for local Host-header QA, then update backend CORS / trusted-host / password-reset settings before the DNS and TLS cutover.
+**Immediate next gate:** update the live backend configuration to accept `app.kielivalmis.com` while preserving `learn.floently.com`, verify Host/CORS/auth/reset behavior locally, then perform the DNS and TLS cutover.
 
 ## Current Git / production safety state
 
@@ -87,6 +87,22 @@ Every R4O/R4P/R4Q/R4R/R4S/R4T/R4U/R4V operation so far ended with the live Learn
   - unresolved `EXPO_PUBLIC_*` references: `0`
   - build file manifest SHA-256: `22f9f0fc95a62ab7bb9cca768d36280145a08631cbe5c10bb6c3d67a0a759f66`
   - live `/var/www/learn` unchanged
+
+- [x] certified KieliValmis versioned Hetzner web release installed
+  - source commit: `8a66b89ceb934762fa3988956dfa645e7a1ad9ee`
+  - active release: `/var/www/kielivalmis/releases/8a66b89ceb934762fa3988956dfa645e7a1ad9ee`
+  - atomic pointer: `/var/www/kielivalmis/current`
+  - Nginx app root: `/var/www/kielivalmis/current`
+  - certified manifest SHA-256: `22f9f0fc95a62ab7bb9cca768d36280145a08631cbe5c10bb6c3d67a0a759f66`
+  - installed files: `91`
+  - local route content-parity QA PASS
+  - local KieliValmis root-brand QA PASS
+  - QA evidence: `/root/kielivalmis-local-web-qa-20260812T122417Z`
+  - legacy `/var/www/learn` hash unchanged
+  - legacy `learn.floently.com` HTTP/HTTPS regression PASS
+  - backend unchanged
+  - DNS unchanged
+  - TLS not configured yet
 
 - [ ] `www.kielivalmis.com` DNS + TLS live
 - [ ] apex `kielivalmis.com` redirects to canonical `www`
