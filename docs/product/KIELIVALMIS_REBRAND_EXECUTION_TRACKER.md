@@ -6,17 +6,17 @@
 **Repository:** `Floently/floently-finnish`  
 **Working branch:** `growth/discovery-seo-d2-20260807`  
 **Started:** 2026-08-08  
-**Last updated:** 2026-08-11
+**Last updated:** 2026-08-12
 
 ## Current milestone
 
-**R4N VISUAL APPROVED AND FROZEN. R4O WEBSITE + APP SOURCE GATE PASS. R4P VISIBLE-BRAND REMEDIATION PASS. R4R TYPESCRIPT / NATIVE SOURCE COMPILE REMEDIATION PASS. R4S APPROVED NATIVE ASSET GATE PASS. R4T STAGED PUBLIC-PAGE QA PASS. R4U EN/FI/AR VISUAL + RTL REVIEW PASS. R4V 20-LANGUAGE QUALITY AUDIT IN PROGRESS; TL/SO/UR RED-LOCALE REMEDIATION PASS; TARGETED BATCHES A+B PASS.**
+**R4N VISUAL APPROVED AND FROZEN. R4V 20-LANGUAGE QUALITY AUDIT PASS. FINAL ALL-20 REGRESSION PASS. KIELIVALMIS RELEASE-SURFACE WEB/NATIVE REMODEL PASS. DOMAIN + WEB RELEASE CUTOVER IN PROGRESS.**
 
 The approved R4N visual direction is frozen. Do not redesign the landing unless a real regression is found.
 
-The KieliValmis website/public-page source, existing Learn app source, approved native launcher/splash family, staged public pages, and EN/FI/AR rendered visual/RTL surfaces pass the completed rebrand gates. R4V has audited the complete 20-language landing/public-page corpus and completed remediation of the three release-blocking red locales plus all 11 targeted-fix locales. Full R4V is **not** complete until the five minor-polish locales are corrected and the whole 20-language corpus is re-audited.
+The complete KieliValmis public website, localized public/legal pages, web-app brand shell, native-app brand surfaces, approved launcher/splash assets, Floently-to-KieliValmis gateway, and all 20 language surfaces have passed the source-level release gates. R4V is complete: all red, targeted and minor-polish locales were remediated and the final 2,220-string all-language regression passed, including RTL/bidi checks, Kurdish Kurmanji LTR checks, protected literals, static-site verification, native rebrand verification and TypeScript compilation.
 
-**Immediate next gate:** complete the five minor-polish locales `sv, et, tr, zh, vi`, then run a fresh final 20-language semantic/mechanical/RTL re-audit before website promotion or the first KieliValmis native preview build.
+**Immediate next gate:** stage the exact committed KieliValmis release on Vercel without domain promotion, verify it, configure `www.kielivalmis.com` / `kielivalmis.com`, then configure `app.kielivalmis.com` on Hetzner before the native release-candidate build.
 
 ## Current Git / production safety state
 
@@ -51,6 +51,30 @@ Live Hetzner Learn remains untouched:
 - API: `learn-api.floently.com`
 
 Every R4O/R4P/R4Q/R4R/R4S/R4T/R4U/R4V operation so far ended with the live Learn checkout still on this baseline.
+
+
+## 2026-08-12 release-surface checkpoint
+
+- [x] final R4V all-20 regression PASS
+- [x] 20 × 111 = 2,220 landing/public strings covered
+- [x] Arabic / Persian / Urdu bidi validation PASS
+- [x] Kurdish Kurmanji Latin/LTR validation PASS
+- [x] permanent KieliValmis public landing routes generated for all 20 languages
+- [x] permanent KieliValmis web favicon/icon family installed from approved app icon
+- [x] KieliValmis web-app hostname source changed to `app.kielivalmis.com`
+- [x] legacy `learn.floently.com` compatibility retained
+- [x] Floently parent gateway now points Finnish-learning entry toward KieliValmis
+- [x] complete release-surface source commit: `3295aadb96e6979816d9fac395b2f05a5f73c850`
+- [x] complete staged release verification PASS
+- [x] TypeScript 5.9.3 `--noEmit` PASS
+- [ ] exact committed KieliValmis Vercel production-environment deployment staged
+- [ ] `www.kielivalmis.com` DNS + TLS live
+- [ ] apex `kielivalmis.com` redirects to canonical `www`
+- [ ] `app.kielivalmis.com` DNS + Nginx + TLS live
+- [ ] production web-app auth / Google OAuth / CORS / billing return regression
+- [ ] native Android/iOS release-candidate builds
+- [ ] final store screenshots after RC UI freeze
+- [ ] Android/iOS submission
 
 ## Locked identity / compatibility
 
@@ -129,7 +153,7 @@ Privacy, Terms, Support and Delete Account have been rebuilt on the shared Kieli
 - [x] public-page RTL contract PASS
 - [x] staged Vercel QA after R4O changes — R4T PASS
 - [x] EN/FI/AR visual/RTL review — R4U PASS
-- [ ] native/legal-language quality audit of all 20 translations — R4V IN PROGRESS
+- [ ] native/legal-language quality audit of all 20 translations — R4V PASS
 - [x] `tl`/`so`/`ur` red-locale remediation checkpoint
 
 ## Existing app KieliValmis rebrand state
