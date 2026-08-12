@@ -67,6 +67,7 @@ Every R4O/R4P/R4Q/R4R/R4S/R4T/R4U/R4V operation so far ended with the live Learn
 - [x] complete release-surface source commit: `3295aadb96e6979816d9fac395b2f05a5f73c850`
 - [x] complete staged release verification PASS
 - [x] TypeScript 5.9.3 `--noEmit` PASS
+- [x] Vercel blocked-deployment cause diagnosed: `TEAM_ACCESS_REQUIRED` from a commit author identity not associated with the Hobby-team owner
 - [ ] exact committed KieliValmis Vercel production-environment deployment staged
 - [ ] `www.kielivalmis.com` DNS + TLS live
 - [ ] apex `kielivalmis.com` redirects to canonical `www`
@@ -153,7 +154,7 @@ Privacy, Terms, Support and Delete Account have been rebuilt on the shared Kieli
 - [x] public-page RTL contract PASS
 - [x] staged Vercel QA after R4O changes — R4T PASS
 - [x] EN/FI/AR visual/RTL review — R4U PASS
-- [ ] native/legal-language quality audit of all 20 translations — R4V PASS
+- [x] native/legal-language quality audit of all 20 translations — R4V PASS
 - [x] `tl`/`so`/`ur` red-locale remediation checkpoint
 
 ## Existing app KieliValmis rebrand state
