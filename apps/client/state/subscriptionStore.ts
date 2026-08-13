@@ -73,9 +73,9 @@ type UserLike = {
   subscriptionTierHint?: string | null;
 };
 
-const DEFAULT_ALL_ACCESS_EMAILS = ['ruka@ruka.com', 'obum@learn.floently.com', 'testuser@floently.com'];
+const DEFAULT_ALL_ACCESS_EMAILS = ['ruka@ruka.com', 'obum@learn.floently.com'];
 const DEFAULT_LEARN_ACCESS_EMAILS = ['vitus.idi@floently.com', 'learn@obum.floently.com'];
-const DEFAULT_READ_ACCESS_EMAILS = ['vitus.idi@floently.com', 'testuser@floently.com'];
+const DEFAULT_READ_ACCESS_EMAILS = ['vitus.idi@floently.com'];
 const DEFAULT_CREATE_ACCESS_EMAILS: string[] = [];
 
 function normalizeEmail(value?: string | null) {
