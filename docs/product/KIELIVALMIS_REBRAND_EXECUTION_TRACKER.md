@@ -156,11 +156,11 @@ Previous App Store version `1.0` was rejected. The rejection was treated as a mu
 
 ### Store-side remediation still required before replacement iOS build
 
-- [ ] replace old Floently App Store metadata with KieliValmis metadata
+- [x] prepare replacement KieliValmis App Store metadata in repository
 - [ ] upload corrected App Store screenshots in the accepted device-size slot
 - [ ] configure a reviewer account with full application/subscription access
 - [ ] ensure required subscriptions/IAP products are complete and submitted for Apple review
-- [ ] prepare App Review notes answering every previous rejection point
+- [x] prepare App Review notes answering every previous rejection point
 - [ ] only after the above gates are ready, create the replacement iOS production build
 - [ ] verify replacement IPA identity and native plist
 - [ ] submit the replacement build to App Store Connect
