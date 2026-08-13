@@ -627,3 +627,44 @@ Source-level release verification also remains required before legal/public-page
 Do not proceed to website promotion/native/store submission if any relevant gate fails: authentication; Google sign-in; purchase/restore; subscription continuity; YKI completion/submission/evaluation/report; roleplay/audio/export; card banks; streak/progress; legal/support/delete-account; production web/API calls; app-upgrade continuity; localization completeness; RTL/layout; translated UI overflow; public-page visual integrity; sitemap/canonical integrity; or stable-host safety.
 
 Trademark filing/clearance remains a separate legal/business workstream and is not represented here as completed legal clearance.
+
+## 2026-08-13 Final iOS payment-surface compliance checkpoint
+
+Final App Store remediation before the replacement iOS production build.
+
+Verified:
+
+- iOS Stripe/external-payment explanatory copy isolated from consumer UI
+- employer/city organisation sales surface hidden on iOS
+- Restore Purchases retained on iOS
+- Apple mobile store purchase path retained
+- web Stripe billing path retained
+- Android/web payment behavior unchanged
+- KieliValmis native rebrand verifier PASS
+- KieliValmis visible-brand audit PASS
+- iOS JavaScript export PASS
+- NSCameraUsageDescription absent
+- photo-library permission limited to profile-picture selection
+- microphone and speech-recognition purpose strings remain specific
+- UIBackgroundModes contains no audio mode
+
+App Store Connect preparation:
+
+- KieliValmis Premium subscription group configured
+- Combined subscriptions are Level 1
+- YKI subscriptions are Level 2
+- Professional subscriptions are Level 2
+- nine subscription review screenshots replaced with KieliValmis screenshots
+- nine subscription review notes/localizations prepared
+- subscriptions remain unsubmitted until the replacement app build is ready
+
+Build 31 is retired and must not be resubmitted.
+
+Next release gate:
+
+1. create replacement iOS production build
+2. expected auto-incremented build number: 32
+3. verify the resulting IPA before App Store submission
+4. select build 32 in App Store Connect
+5. attach the prepared subscriptions to the review submission
+6. submit the corrected version for App Review

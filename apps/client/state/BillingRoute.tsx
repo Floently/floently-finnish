@@ -739,7 +739,9 @@ export default function BillingRoute({ onBack, onOpenMenu }: Props) {
       {showTrialStartCard ? (
       <View style={[styles.portalButton, { backgroundColor: palette.surface, borderColor: palette.border }]}>
         <Text style={[styles.portalTitle, { color: palette.text }]}>{trialCardTitle}</Text>
-        <Text style={[styles.portalBody, { color: palette.textMuted }]}>{trialCardBody}</Text>
+        {Platform.OS !== 'ios' ? (
+          <Text style={[styles.portalBody, { color: palette.textMuted }]}>{trialCardBody}</Text>
+        ) : null}
         <Pressable
           accessibilityRole="button"
           disabled={trialActionDisabled}
@@ -767,16 +769,20 @@ export default function BillingRoute({ onBack, onOpenMenu }: Props) {
 
       <View style={[styles.subscriptionManagementCard, { backgroundColor: palette.surface, borderColor: palette.border }]}>
         <Text style={[styles.portalTitle, { color: palette.text }]}>{t('billingSubscriptionManagementTitle')}</Text>
-        <Text style={[styles.portalBody, { color: palette.textMuted }]}>
-          {t('billingSubscriptionManagementBody')}
-        </Text>
+        {Platform.OS !== 'ios' ? (
+          <Text style={[styles.portalBody, { color: palette.textMuted }]}>
+            {t('billingSubscriptionManagementBody')}
+          </Text>
+        ) : null}
 
         <View style={[styles.subscriptionManagementSummary, { backgroundColor: palette.surfaceMuted ?? palette.surface, borderColor: palette.border }]}>
           <Text style={[styles.subscriptionManagementLabel, { color: palette.textMuted }]}>{t('billingCurrentStatusLabel')}</Text>
           <Text style={[styles.subscriptionManagementValue, { color: hasPaymentIssue ? '#991B1B' : palette.text }]}>
             {subscriptionManagementStatus}
           </Text>
-          <Text style={[styles.portalBody, { color: palette.textMuted }]}>{subscriptionManagementBody}</Text>
+          {Platform.OS !== 'ios' ? (
+            <Text style={[styles.portalBody, { color: palette.textMuted }]}>{subscriptionManagementBody}</Text>
+          ) : null}
         </View>
 
         {isTrial ? (
@@ -838,9 +844,11 @@ export default function BillingRoute({ onBack, onOpenMenu }: Props) {
           <Text style={[styles.subscriptionManagementActionText, { color: palette.text }]}>
             {portalBusy ? billingManagementBusyLabel : billingManagementActionLabel}
           </Text>
-          <Text style={[styles.portalBody, { color: palette.textMuted }]}>
-            {billingManagementActionBody}
-          </Text>
+          {Platform.OS !== 'ios' ? (
+            <Text style={[styles.portalBody, { color: palette.textMuted }]}>
+              {billingManagementActionBody}
+            </Text>
+          ) : null}
         </Pressable>
       </View>
 
@@ -897,6 +905,7 @@ export default function BillingRoute({ onBack, onOpenMenu }: Props) {
         })}
       </View>
 
+      {Platform.OS !== 'ios' ? (
       <View style={[styles.organisationCard, { backgroundColor: palette.surface, borderColor: palette.border }]}>
         <Text style={[styles.portalTitle, { color: palette.text }]}>{t('billingOrgTitle')}</Text>
         <Text style={[styles.portalBody, { color: palette.textMuted }]}>{t('billingOrgBody')}</Text>
@@ -912,6 +921,7 @@ export default function BillingRoute({ onBack, onOpenMenu }: Props) {
           </Pressable>
         </View>
       </View>
+      ) : null}
     </AppScaffold>
   );
 }
