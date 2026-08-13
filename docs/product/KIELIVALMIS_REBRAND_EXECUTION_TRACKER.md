@@ -6,7 +6,7 @@
 **Repository:** `Floently/floently-finnish`  
 **Working branch:** `growth/discovery-seo-d2-20260807`  
 **Started:** 2026-08-08  
-**Last updated:** 2026-08-12
+**Last updated:** 2026-08-13
 
 ## Current milestone
 
@@ -16,7 +16,7 @@ The approved R4N visual direction is frozen. Do not redesign the landing unless 
 
 The complete KieliValmis public website, localized public/legal pages, web-app brand shell, native-app brand surfaces, approved launcher/splash assets, Floently-to-KieliValmis gateway, and all 20 language surfaces have passed the source-level release gates. R4V is complete: all red, targeted and minor-polish locales were remediated and the final 2,220-string all-language regression passed, including RTL/bidi checks, Kurdish Kurmanji LTR checks, protected literals, static-site verification, native rebrand verification and TypeScript compilation.
 
-**Immediate next gate:** update the live backend configuration to accept `app.kielivalmis.com` while preserving `learn.floently.com`, verify Host/CORS/auth/reset behavior locally, then perform the DNS and TLS cutover.
+**Immediate next gate:** complete the remaining App Store Connect-side remediation — KieliValmis metadata, corrected screenshots, reviewer access, subscriptions/IAP review state and reviewer notes — before creating the replacement iOS build. Do not resubmit iOS build 31.
 
 ## Current Git / production safety state
 
@@ -111,6 +111,63 @@ Every R4O/R4P/R4Q/R4R/R4S/R4T/R4U/R4V operation so far ended with the live Learn
 - [ ] native Android/iOS release-candidate builds
 - [ ] final store screenshots after RC UI freeze
 - [ ] Android/iOS submission
+
+
+## 2026-08-13 Apple rejection remediation checkpoint
+
+Previous App Store version `1.0` was rejected. The rejection was treated as a multi-item remediation gate rather than resubmitting the same binary.
+
+### Audited rejected-build baseline
+
+- production source audited: `6201baabd4570b51e2ceef9399b2eb7a174efb31`
+- rejected replacement candidate audited: iOS `1.0.0 (31)`
+- EAS build ID: `2a3180b0-13cd-4195-a5de-f49f21a3a107`
+- bundle ID preserved: `com.vitusidi.floently`
+- display name: `KieliValmis`
+- build 31 must **not** be resubmitted
+- Android production build `1.0.0 (27)` remains separate and unchanged by this iOS remediation
+
+### Apple rejection categories being remediated
+
+- Guideline 2.3.10 — Accurate Metadata / other-platform references
+- Guideline 4.8 — Login Services
+- Guideline 2.1 — reviewer access / information needed
+- Guideline 2.1(b) — subscriptions / in-app purchase completeness
+- Guideline 5.1.1 — privacy purpose strings
+- Guideline 2.5.4 — background audio capability
+
+### Binary/source remediation completed
+
+- [x] iOS no longer exposes Google Sign-In; email/password authentication remains available
+- [x] Android/web Google Sign-In retained
+- [x] iOS-visible account-deletion copy no longer names Google Play
+- [x] photo-library purpose string now explains profile-picture use
+- [x] microphone purpose string explains Finnish speaking/YKI/roleplay recording
+- [x] speech-recognition purpose string explains transcription and learner review
+- [x] unused iOS camera permission removed
+- [x] `expo-image-picker` configured with `cameraPermission: false`
+- [x] `expo-audio` configured with background playback disabled
+- [x] `expo-audio` configured with background recording disabled
+- [x] introspected `UIBackgroundModes=[]`
+- [x] introspected `NSCameraUsageDescription=None`
+- [x] KieliValmis native rebrand verifier PASS
+- [x] visible-brand audit PASS with zero legacy visible-brand hits
+- [x] iOS Expo export / Metro bundle PASS after remediation
+
+### Store-side remediation still required before replacement iOS build
+
+- [ ] replace old Floently App Store metadata with KieliValmis metadata
+- [ ] upload corrected App Store screenshots in the accepted device-size slot
+- [ ] configure a reviewer account with full application/subscription access
+- [ ] ensure required subscriptions/IAP products are complete and submitted for Apple review
+- [ ] prepare App Review notes answering every previous rejection point
+- [ ] only after the above gates are ready, create the replacement iOS production build
+- [ ] verify replacement IPA identity and native plist
+- [ ] submit the replacement build to App Store Connect
+- [ ] select the replacement build for App Review
+
+The next iOS production build is expected to auto-increment from build 31. Do not manually reuse build number 31.
+
 
 ## Locked identity / compatibility
 

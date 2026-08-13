@@ -15,10 +15,9 @@
           "NSAllowsArbitraryLoads": false,
           "NSAllowsLocalNetworking": true
         },
-        "NSCameraUsageDescription": "Allow $(PRODUCT_NAME) to access your camera",
         "NSFaceIDUsageDescription": "Allow $(PRODUCT_NAME) to access your Face ID biometric data.",
-        "NSMicrophoneUsageDescription": "KieliValmis uses the microphone so you can practise speaking, roleplay, and YKI answers.",
-        "NSPhotoLibraryUsageDescription": "Allow $(PRODUCT_NAME) to access your photos",
+        "NSMicrophoneUsageDescription": "KieliValmis uses your microphone to record your Finnish speaking practice, roleplay responses, and YKI answers.",
+        "NSPhotoLibraryUsageDescription": "KieliValmis accesses your photo library only when you choose a profile picture.",
         "UIViewControllerBasedStatusBarAppearance": false,
         "CFBundleURLTypes": [
           {
@@ -34,7 +33,7 @@
           }
         ],
         "CFBundleDisplayName": "KieliValmis",
-        "NSSpeechRecognitionUsageDescription": "KieliValmis uses speech recognition to transcribe your Finnish speaking practice."
+        "NSSpeechRecognitionUsageDescription": "KieliValmis uses speech recognition to transcribe your Finnish speaking practice so you can review and improve your answers."
       },
       "icon": "./assets/images/kielivalmis-app-icon.png",
       "buildNumber": "11"
@@ -91,7 +90,22 @@
         }
       ],
       "expo-secure-store",
-      "expo-audio",
+      [
+        "expo-audio",
+        {
+          "microphonePermission": "KieliValmis uses your microphone to record your Finnish speaking practice, roleplay responses, and YKI answers.",
+          "enableBackgroundPlayback": false,
+          "enableBackgroundRecording": false
+        }
+      ],
+      [
+        "expo-image-picker",
+        {
+          "photosPermission": "KieliValmis accesses your photo library only when you choose a profile picture.",
+          "cameraPermission": false,
+          "microphonePermission": "KieliValmis uses your microphone to record your Finnish speaking practice, roleplay responses, and YKI answers."
+        }
+      ],
       "expo-image"
     ],
     "experiments": {

@@ -241,7 +241,7 @@ export default function SettingsRoute({ onBack, onOpenBilling, onOpenHelp, onOpe
   function handleDeleteAccount() {
     Alert.alert(
       t('commonDeleteAccount'),
-      'This deletes your account and associated personal data, subject to legal retention requirements. Deletion is usually completed within 24 hours. Active subscriptions must be managed in App Store or Google Play separately.',
+      'This deletes your account and associated personal data, subject to legal retention requirements. Deletion is usually completed within 24 hours. Active subscriptions must be managed separately in the app store on your device.',
       [
         { text: t('commonCancel'), style: 'cancel' },
         {

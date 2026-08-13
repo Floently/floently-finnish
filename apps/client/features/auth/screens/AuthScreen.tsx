@@ -1,5 +1,5 @@
 /**
- * AuthScreen — canonical email/password + Google sign-in flow.
+ * AuthScreen — email/password on iOS; email/password + Google sign-in on Android/web.
  *
  * Replaces the previously corrupted AuthScreen.tsx (which exported
  * WelcomeScreen and contained no auth form). Provides the email/password
@@ -353,35 +353,39 @@ export default function AuthScreen({ initialTab = 'signin' }: Props) {
             ) : null}
           </View>
 
-          <View style={styles.separator}>
-            <View style={styles.separatorLine} />
-            <Text style={styles.separatorText}>OR</Text>
-            <View style={styles.separatorLine} />
-          </View>
+          {Platform.OS !== 'ios' ? (
+            <>
+              <View style={styles.separator}>
+                <View style={styles.separatorLine} />
+                <Text style={styles.separatorText}>OR</Text>
+                <View style={styles.separatorLine} />
+              </View>
 
-          <Pressable
-            onPress={handleGoogle}
-            disabled={googleLoading || submitting}
-            style={[styles.googleBtn, (googleLoading || submitting) && styles.btnDisabled]}
-            accessibilityRole="button"
-            accessibilityLabel={googleButtonLabel}
-          >
-            {googleLoading ? (
-              <ActivityIndicator color={palette.primary} />
-            ) : (
-              <Animated.Image
-                source={googleButtonSource}
-                style={styles.googleButtonImage}
-                resizeMode="contain"
-                accessibilityIgnoresInvertColors
-              />
-            )}
-          </Pressable>
+              <Pressable
+                onPress={handleGoogle}
+                disabled={googleLoading || submitting}
+                style={[styles.googleBtn, (googleLoading || submitting) && styles.btnDisabled]}
+                accessibilityRole="button"
+                accessibilityLabel={googleButtonLabel}
+              >
+                {googleLoading ? (
+                  <ActivityIndicator color={palette.primary} />
+                ) : (
+                  <Animated.Image
+                    source={googleButtonSource}
+                    style={styles.googleButtonImage}
+                    resizeMode="contain"
+                    accessibilityIgnoresInvertColors
+                  />
+                )}
+              </Pressable>
 
-          {googleErrorMessage ? (
-            <View style={styles.errorBox} accessibilityLiveRegion="polite">
-              <Text style={styles.errorText}>{googleErrorMessage}</Text>
-            </View>
+              {googleErrorMessage ? (
+                <View style={styles.errorBox} accessibilityLiveRegion="polite">
+                  <Text style={styles.errorText}>{googleErrorMessage}</Text>
+                </View>
+              ) : null}
+            </>
           ) : null}
 
           <Text style={styles.terms}>
