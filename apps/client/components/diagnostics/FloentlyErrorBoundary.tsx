@@ -59,7 +59,7 @@ export class FloentlyErrorBoundary extends React.Component<React.PropsWithChildr
 
     return (
       <ScrollView contentContainerStyle={styles.errorRoot}>
-        <Text style={styles.errorTitle}>Floently encountered an app error</Text>
+        <Text style={styles.errorTitle}>KieliValmis encountered an app error</Text>
         <Text style={styles.errorBody}>{error.name}: {error.message}</Text>
         <Text selectable style={styles.errorStack}>
           {error.stack || info?.componentStack || 'No stack available'}

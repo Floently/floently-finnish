@@ -13,6 +13,9 @@ const files = {
   landing: read('features/kielivalmis/KieliValmisLandingScreen.tsx'),
   copy: read('features/kielivalmis/kielivalmisCopy.ts'),
   auth: read('features/auth/screens/AuthScreen.tsx'),
+  pageHeader: read('../../packages/ui/components/PageHeader.tsx'),
+  i18n: read('features/i18n/index.ts'),
+  errorBoundary: read('components/diagnostics/FloentlyErrorBoundary.tsx'),
   metro: read('metro.config.js'),
   packageJson: read('package.json'),
 };
@@ -144,6 +147,75 @@ for (const marker of [
 ]) if (!files.auth.includes(marker)) throw new Error(`Canonical auth/rebrand marker missing: ${marker}`);
 if (files.auth.includes("components/public/logo.png")) throw new Error('Canonical auth screen still references the old Floently logo');
 console.log('KIELIVALMIS_NATIVE_AUTH_BRAND=PASS');
+
+console.log('phase=signed-in-app-brand');
+
+if (
+  !files.pageHeader.includes(
+    'kielivalmis-domain-static/assets/kielivalmis-mark.png'
+  )
+) {
+  throw new Error(
+    'Signed-in header does not use the approved KieliValmis mark'
+  );
+}
+
+if (files.pageHeader.includes('components/public/logo.png')) {
+  throw new Error(
+    'Signed-in header still references the legacy Floently logo'
+  );
+}
+
+if (files.pageHeader.includes('>Floently</Text>')) {
+  throw new Error(
+    'Signed-in header fallback still displays Floently'
+  );
+}
+
+if (
+  !/<Text[^>]*>\s*KieliValmis\s*<\/Text>/.test(
+    files.pageHeader
+  )
+) {
+  throw new Error(
+    'Signed-in header is missing the KieliValmis name'
+  );
+}
+
+const catalogLegacyMentions =
+  files.i18n.match(/floently/gi) ?? [];
+
+if (catalogLegacyMentions.length !== 0) {
+  throw new Error(
+    `Main translation catalog still has ${
+      catalogLegacyMentions.length
+    } Floently references`
+  );
+}
+
+if (
+  files.errorBoundary.includes(
+    'Floently encountered an app error'
+  )
+) {
+  throw new Error(
+    'User-visible error boundary still displays Floently'
+  );
+}
+
+if (
+  !files.errorBoundary.includes(
+    'KieliValmis encountered an app error'
+  )
+) {
+  throw new Error(
+    'KieliValmis error-boundary identity is missing'
+  );
+}
+
+console.log(
+  'KIELIVALMIS_SIGNED_IN_APP_BRAND=PASS'
+);
 
 console.log('phase=native-icon-gate');
 
