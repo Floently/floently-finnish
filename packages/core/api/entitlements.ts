@@ -500,7 +500,7 @@ export function getReadAccessTestEmails() {
   const configured = typeof process !== 'undefined'
     ? parseCsvList(process.env?.EXPO_PUBLIC_READ_ACCESS_TEST_EMAILS)
     : [];
-  return Array.from(new Set(['vitus.idi@floently.com', 'testuser@floently.com', ...configured]));
+  return Array.from(new Set(['vitus.idi@floently.com', ...configured]));
 }
 
 export function isReadAccessTestEmail(email?: string | null) {
