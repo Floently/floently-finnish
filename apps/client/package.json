@@ -12,7 +12,8 @@
     "audit:kielivalmis-visible-brand": "node ./scripts/audit-kielivalmis-visible-brand.mjs",
     "verify:kielivalmis-rebrand": "node ./scripts/verify-kielivalmis-rebrand.mjs",
     "verify:roleplay-audio": "node ./scripts/verify-roleplay-audio-invariants.mjs",
-    "verify:roleplay-scenarios": "node ./scripts/verify-roleplay-scenario-rotation.mjs"
+    "verify:roleplay-scenarios": "node ./scripts/verify-roleplay-scenario-rotation.mjs",
+    "verify:navigation": "node ./scripts/verify-navigation-invariants.mjs"
   },
   "dependencies": {
     "@expo/metro-runtime": "^55.0.11",

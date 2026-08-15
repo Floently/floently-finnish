@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState, useCallback } from 'react';
-import { AppState, Platform, Pressable } from 'react-native';
+import { AppState, Platform } from 'react-native';
 import { useLocalSearchParams, usePathname, useRouter } from "expo-router";
 
 import { setAuthToken } from "@core/api/apiClient";
@@ -24,7 +24,6 @@ import SettingsRoute from "./SettingsRoute";
 import { useNetworkStore } from "./networkStore";
 import type {
   GuardedScreen,
-  NavigationErrorCode,
   NavigationErrorState,
   RequestedScreen,
 } from "./navigationModel";
@@ -48,7 +47,10 @@ import { usePreferencesStore } from "./preferencesStore";
 import { useSubscriptionStore } from "./subscriptionStore";
 import { usePlacementStore } from "./placementStore";
 import { useStreakStore } from "./streakStore";
-import createDrawerSections from "../config/navigation/AppShell_sidebar_sections";
+import {
+  createDrawerSections,
+  type DrawerNavigationOptions,
+} from "../config/navigation/AppShell_sidebar_sections";
 import { UtilityDrawer } from "@ui/components";
 import { audioSession } from "../features/shared/services/audioSession";
 import { goToLearn, isLearnHost } from "./learnRouting";
@@ -187,6 +189,13 @@ export default function AppShell({ requestedScreen = "root" }: Props) {
   const setActiveContext = useSubscriptionStore((state) => state.setActiveContext);
   const { t } = useTranslator();
   const lastLoggedScreenRef = useRef<string | null>(null);
+
+  // Route reconciliation must be driven by the requested route, authentication
+  // and entitlement state — not by the active-screen mutation caused by
+  // navigateTo(). Reading the latest value through a ref prevents a stale
+  // route entry from immediately cancelling a user navigation.
+  const activeScreenRef = useRef(activeScreen);
+  activeScreenRef.current = activeScreen;
   const [examPresetLevel, setExamPresetLevel] = useState<YkiLevelBand>('B1-B2');
   const [speakingPreset, setSpeakingPreset] = useState<SpeakingPreset>(null);
   // ── Roleplay UX restructuring (per-profession isolation) ──────────────────
@@ -297,7 +306,6 @@ export default function AppShell({ requestedScreen = "root" }: Props) {
 
     const path = getPathForScreen(screen);
     if (pathname !== path) {
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       router.replace(path as any);
     }
   }
@@ -687,12 +695,14 @@ export default function AppShell({ requestedScreen = "root" }: Props) {
       return;
     }
 
+    const currentActiveScreen = activeScreenRef.current;
+
     const isStableProtectedScreen =
-      activeScreen !== "landing" &&
-      activeScreen !== "auth" &&
-      activeScreen !== "home" &&
-      activeScreen !== "billing" &&
-      activeScreen !== "error";
+      currentActiveScreen !== "landing" &&
+      currentActiveScreen !== "auth" &&
+      currentActiveScreen !== "home" &&
+      currentActiveScreen !== "billing" &&
+      currentActiveScreen !== "error";
 
     if (
       requestedScreen === "root" &&
@@ -703,15 +713,22 @@ export default function AppShell({ requestedScreen = "root" }: Props) {
       // During subscription refresh, subscriptionStatus can briefly be missing.
       // In that case, keep the current feature screen stable and let backend
       // remain the real security layer.
-      if (!subscriptionStatus || isEntitledForScreen(activeScreen)) {
+      if (!subscriptionStatus || isEntitledForScreen(currentActiveScreen)) {
         return;
       }
     }
 
     void resolveRequestedRoute(requestedScreen);
-  }, [hasHydrated, requestedScreen, user?.id, activeScreen, subscriptionGuardKey]);
+    // The dependency list is intentionally limited to route/auth/entitlement
+    // inputs. activeScreen is an OUTPUT of navigation and must not retrigger
+    // reconciliation before Expo Router commits the destination.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [hasHydrated, requestedScreen, user?.id, subscriptionGuardKey]);
 
-  async function navigateTo(screen: GuardedScreen) {
+  async function navigateTo(
+    screen: GuardedScreen,
+    options?: DrawerNavigationOptions,
+  ) {
     beginNavigationCheck(screen);
 
     if (screen === "auth") {
@@ -758,7 +775,27 @@ export default function AppShell({ requestedScreen = "root" }: Props) {
 
     if (screen === "learning") {
       clearNavigationError();
-      if (subscriptionStatus?.entitlements?.activeContext) setActiveContext(subscriptionStatus.entitlements.activeContext);
+
+      if (subscriptionStatus?.entitlements?.activeContext) {
+        setActiveContext(
+          subscriptionStatus.entitlements.activeContext,
+        );
+      }
+
+      if (options?.learningBranch === 'everyday') {
+        await resolveAndPersist("learning", screen);
+
+        if (Platform.OS === 'web') {
+          goToLearn('/?branch=everyday');
+        } else {
+          router.replace(
+            '/learn?branch=everyday' as never,
+          );
+        }
+
+        return;
+      }
+
       replaceIfNeeded("learning");
       await resolveAndPersist("learning", screen);
       return;
@@ -820,16 +857,21 @@ export default function AppShell({ requestedScreen = "root" }: Props) {
     void navigateTo(previousScreen);
   }
 
-  const drawerSections = createDrawerSections((route) => {
-    void navigateTo(route);
-  }, {
-    ...(subscriptionStatus?.entitlements ?? {}),
-    isPreview: subscriptionStatus?.isPreview,
-    previewPath: subscriptionStatus?.previewPath ?? null,
-    isInternalAllAccess: subscriptionStatus?.isInternalAllAccess,
-    hasAnySubscription: subscriptionStatus?.hasAnySubscription,
-    isActive: subscriptionStatus?.isActive,
-  }, language);
+  const drawerSections = createDrawerSections(
+    (route, options) => {
+      setDrawerOpen(false);
+      void navigateTo(route, options);
+    },
+    {
+      ...(subscriptionStatus?.entitlements ?? {}),
+      isPreview: subscriptionStatus?.isPreview,
+      previewPath: subscriptionStatus?.previewPath ?? null,
+      isInternalAllAccess: subscriptionStatus?.isInternalAllAccess,
+      hasAnySubscription: subscriptionStatus?.hasAnySubscription,
+      isActive: subscriptionStatus?.isActive,
+    },
+    language,
+  );
 
   const drawer = (
     <UtilityDrawer

@@ -8,6 +8,7 @@ export type DrawerRoute =
   | 'professional-finnish'
   | 'read'
   | 'create'
+  | 'progress'
   | 'settings'
   | 'billing';
 
@@ -24,7 +25,14 @@ export type DrawerSection = {
   items: DrawerItem[];
 };
 
-export type NavigateTo = (route: DrawerRoute) => void;
+export type DrawerNavigationOptions = {
+  learningBranch?: 'everyday';
+};
+
+export type NavigateTo = (
+  route: DrawerRoute,
+  options?: DrawerNavigationOptions,
+) => void;
 
 export type DrawerEntitlements = {
   isPreview?: boolean;
@@ -102,7 +110,10 @@ export function createDrawerSections(
                 label: translate(language, 'drawerEverydayFinnish'),
                 accentColor: '#4F7FFF',
                 hint: translate(language, 'drawerEverydayFinnishHint'),
-                onPress: () => void navigateTo('learning'),
+                onPress: () =>
+                  void navigateTo('learning', {
+                    learningBranch: 'everyday',
+                  }),
               },
             ]
           : []),
@@ -159,6 +170,19 @@ export function createDrawerSections(
       ],
     });
   }
+
+  sections.push({
+    label: translate(language, 'drawerMyPathway'),
+    items: [
+      {
+        icon: '📈',
+        label: translate(language, 'progressTitle'),
+        accentColor: '#3EC58A',
+        hint: translate(language, 'progressSubtitle'),
+        onPress: () => void navigateTo('progress'),
+      },
+    ],
+  });
 
   sections.push({
     label: translate(language, 'drawerAccountAndAccess'),
