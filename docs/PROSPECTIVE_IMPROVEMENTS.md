@@ -921,7 +921,15 @@ These items were added during the agents-package + Phase 0 synthesis.
 
 ## KV-ARCH-001 — Regenerate current runtime authority map
 
-Status: TODO
+Status: DONE
+
+Current authority baseline:
+
+`docs/KIELIVALMIS_CURRENT_RUNTIME_AUTHORITY.md`
+
+Evidence checkpoint:
+
+`8cb166170d271b24541603ca9ab509b8b1c0e17b`
 
 Historical April authority maps conflict with the current August runtime tree.
 
@@ -1098,6 +1106,77 @@ Progressively replace deprecated `shadow*` web styling with supported
 Start with known warnings such as Forgot Password.
 
 Defer unless warnings create functional impact.
+
+---
+
+## KV-ARCH-002 — Formalize shared API transport-layer contracts
+
+Status: TODO
+
+The current client has:
+
+- governed `packages/core/api/apiClient.ts`;
+- lightweight `packages/core/api/client.ts`;
+- specialized manual transports for audio and external Read APIs.
+
+`client.ts` shares authentication and base URL with `apiClient.ts`, so it is
+not a separate auth authority, but response/error/fallback semantics differ.
+
+Document the intended boundary and later consolidate consumers where the
+separate semantics are not required.
+
+---
+
+## KV-CARDS-004 — Formalize one card runtime material-source contract
+
+Status: TODO
+
+The active card loader reads `canonical_bank/validated` and also contains a
+secondary `reports/accepted_items.jsonl` source.
+
+The accepted-items file is empty at the Phase 1 authority checkpoint, so the
+effective current content authority is `validated`.
+
+Because secondary rows are processed after validated rows, a future same-ID
+accepted row could silently replace validated runtime content.
+
+Either remove the obsolete secondary input after dependency proof or define its
+validation, precedence, provenance, and publication lifecycle explicitly.
+
+---
+
+## KV-SEC-002 — Bind roleplay sessions to the authenticated learner
+
+Status: TODO - PHASE 1 SECURITY FOUNDATION
+
+The mounted roleplay API authenticates the caller and checks workplace access,
+but the current runtime wrapper stores/accesses sessions through the shared
+`preview` identity rather than the authenticated learner identity.
+
+Required:
+
+- authenticated user ID on session creation;
+- same-user checks on turn and finish;
+- same-user enforcement in internal load/review helpers used by those flows;
+- explicit cross-user denial tests;
+- keep scenario rotation identity separate from authorization identity.
+
+Complete this before learner-event/adaptive roleplay work.
+
+---
+
+## KV-YKI-002 — Define durable YKI Practice session continuity
+
+Status: TODO
+
+The active `/api/v1/yki-practice` route stores sessions in the module-level
+`_PRACTICE_SESSIONS` dictionary.
+
+If persisted learner resume must survive backend restart or deployment, this
+state is insufficient.
+
+During the YKI implementation phase, define the intended resume/durability
+contract and persist practice sessions when required.
 
 ---
 

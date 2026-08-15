@@ -255,6 +255,18 @@ Create regression tests for:
 - combined entitlement;
 - internal/test access.
 
+Also repair the current roleplay object-ownership boundary before later
+learner-event work:
+
+- bind each roleplay session to the authenticated learner;
+- require that same learner for session turns and finish;
+- preserve same-user enforcement in internal load/review helpers used by those
+  flows;
+- keep scenario/persona rotation identity separate from authorization identity;
+- add a cross-user access-denial regression test.
+
+This implements `KV-SEC-002`.
+
 ---
 
 ## Workstream 1D — Multi-product architecture record
@@ -299,6 +311,7 @@ Before Phase 2:
 - route/deep-link model is coherent;
 - Help route contract is fixed;
 - Read/Create direct entitlement behavior is truthful;
+- roleplay sessions are bound to the authenticated learner identity;
 - product architecture docs reflect reality;
 - navigation regression tests pass;
 - no production deployment has been required merely to complete architecture
