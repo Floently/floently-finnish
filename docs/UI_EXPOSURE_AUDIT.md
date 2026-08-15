@@ -34,6 +34,60 @@ These counts are discovery evidence, not automatic defect counts.
 
 ---
 
+# Expose-or-delete policy
+
+KieliValmis must not retain unused learner-facing pages, duplicate route
+implementations, abandoned screens, or dead navigation surfaces merely
+because they may be useful later.
+
+Every page or learner-facing screen must end in exactly one of these states:
+
+1. **EXPOSED**
+   - intentionally reachable from the product UI;
+
+2. **CONTEXTUAL / INTERNAL WITH VERIFIED RETENTION REASON**
+   - not globally exposed, but actively required by a current production
+     workflow;
+
+3. **DELETE**
+   - no justified active role remains.
+
+A decision to retain a non-exposed page requires verifiable evidence.
+
+Acceptable retention evidence includes at least one of:
+
+- imported and invoked by an active production flow;
+- required Expo / platform infrastructure;
+- required authentication, onboarding, callback, reset, or payment flow;
+- required child screen of an active multi-step workflow;
+- unique currently-required functionality that does not exist in the
+  canonical implementation;
+- required compatibility/deep-link surface with an explicit documented
+  consumer.
+
+The following are NOT sufficient reasons to retain a page:
+
+- it might be useful later;
+- it existed in an older design;
+- it is exported from an index/barrel file;
+- it has no errors;
+- it contains code that looks useful;
+- another implementation already replaced it;
+- deleting it feels risky without first checking references.
+
+If useful code exists only in a deprecated screen, move the useful logic
+into the canonical implementation and then delete the deprecated screen.
+
+Separate-product code is not automatically exempt. If Read or Create code
+belongs in another repository and has no verified runtime responsibility in
+this repository, it should be removed here after links/redirects are safely
+redirected to the correct product.
+
+Git history is the archive. Dead source files should not be used as an
+informal backup mechanism.
+
+---
+
 # Classification
 
 ## A. Confirmed normal UI surfaces
@@ -476,26 +530,46 @@ Professional Finnish:
 - Work Finnish Path
 - Incident Lab
 
-## Phase 3 — orphan cleanup
+## Phase 3 — remove non-canonical surfaces
 
-After exposure work is stable:
+For every duplicate, legacy, orphan, or non-exposed candidate:
 
-- inspect duplicate/legacy components
-- preserve unique functionality
-- remove confirmed obsolete implementations
-- simplify GuardedScreen/navigation definitions
-- add automated UI-exposure invariants
+1. prove an active retention reason, or
+2. migrate any unique required functionality into the canonical surface,
+   then delete the obsolete implementation.
+
+Do not retain alternate screens as backups.
+
+After removal:
+
+- simplify GuardedScreen/navigation definitions;
+- remove stale Expo routes;
+- remove stale barrel exports;
+- remove stale imports and route literals;
+- run lint and navigation verification;
+- validate affected runtime flows;
+- add automated expose-or-delete invariants.
 
 ---
 
 # Audit rule
 
-A learner-facing production feature should have at least one intentional
-discoverable entry point unless it is explicitly classified as:
+A learner-facing production feature must have an intentional discoverable
+entry point.
 
-- CONTEXTUAL
-- INTERNAL
-- SEPARATE PRODUCT
-- ENTITLEMENT-HIDDEN
+A non-exposed page may remain only when its verified runtime purpose is
+documented in this audit.
 
-New direct-URL-only product surfaces should fail future exposure review.
+Allowed retained classifications are therefore:
+
+- EXPOSED
+- CONTEXTUAL — with active-flow evidence
+- INTERNAL — with infrastructure/workflow evidence
+- ENTITLEMENT-HIDDEN — but discoverable when entitled
+
+`SEPARATE PRODUCT` alone is not a retention reason inside this repository.
+
+A page that has no verified current responsibility must be deleted.
+
+New direct-URL-only product surfaces and unjustified duplicate screens
+should fail future exposure review.

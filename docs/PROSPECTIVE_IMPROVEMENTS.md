@@ -732,6 +732,40 @@ The check should identify newly orphaned screens before release.
 
 ---
 
+## KV-QA-004 — Expose-or-delete UI surface policy
+
+Status: IN PROGRESS
+
+Every learner-facing page, route implementation, and alternate screen must
+be either:
+
+- intentionally exposed;
+- retained for a documented and verifiable active runtime reason; or
+- deleted.
+
+Do not keep duplicate/legacy screens as informal backups.
+
+Before deleting a candidate:
+
+- inspect all imports and route references;
+- verify current production flow ownership;
+- compare against the canonical implementation;
+- migrate any unique required behavior;
+- delete stale routes, exports, and navigation definitions with the page.
+
+Git history is the backup.
+
+Acceptance:
+
+- no unjustified learner-facing orphan screen remains;
+- no duplicate canonical/legacy UI implementation remains without a written
+  retention reason;
+- every retained contextual/internal screen has evidence recorded in
+  `docs/UI_EXPOSURE_AUDIT.md`;
+- automated exposure checks prevent new unjustified orphan surfaces.
+
+---
+
 ## KV-QA-003 — Cross-platform route regression matrix
 
 Status: TODO
