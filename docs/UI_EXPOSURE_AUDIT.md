@@ -323,7 +323,11 @@ Route:
 
 Classification:
 
-DIRECT-URL-ONLY
+KEEP - BLOCKED FROM EXPOSURE
+
+Phase 0 evidence date:
+
+2026-08-15
 
 Built capabilities include:
 
@@ -331,16 +335,60 @@ Built capabilities include:
 - protected items
 - spaced-review buckets
 - next action
-- start review
-- add more learning material
+- intended start-review action
+- intended add-more workflow
+- revision-priority calculation
 
-Recommended product home:
+Source and runtime audit findings:
+
+- direct route exists and serves successfully;
+- active GET currently builds the queue from `_sample_revision_entries()`;
+- learner-specific mistakes are not the demonstrated source of the queue;
+- client API failure handling can silently show fabricated fallback state;
+- fallback state currently reports 19 due and 42 protected items;
+- no verified learner-error/correction ingestion path was found;
+- the underlying revision-prioritisation service is real and should be kept;
+- `Start today's review` routes to generic `/cards`;
+- no Revision-Vault-specific card-review mode was found;
+- `Add more` routes to generic `/learn`;
+- `Add to your phrase bank` also routes to `/learn`, which does not match
+  the CTA label.
+
+Retention decision:
+
+KEEP.
+
+Justification:
+
+The Revision Vault provides a distinct and valuable learning capability:
+prioritising weak language for spaced repair and reuse. That capability fits
+KieliValmis and should become part of the real learner-progress system.
+
+Exposure decision:
+
+BLOCKED.
+
+Do not expose it in normal navigation until:
+
+- revision entries come from real authenticated learner activity;
+- learner revision state is durable and account-specific;
+- sample and fallback state cannot masquerade as real learner progress;
+- mistake/correction ingestion is implemented and tested;
+- the review CTA reaches a verified vault-specific review experience;
+- CTA labels and destinations are consistent;
+- full runtime gates pass.
+
+Recommended product home after remediation:
 
 Everyday Finnish
 
 Secondary future entry:
 
 Progress / recommendations
+
+Deletion decision:
+
+NO. Unique required revision-prioritisation capability remains.
 
 ---
 

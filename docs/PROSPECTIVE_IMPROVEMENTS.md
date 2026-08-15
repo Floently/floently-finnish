@@ -256,12 +256,64 @@ Progress / adaptive recommendations
 
 ## KV-UX-007 — Expose Revision Vault
 
-Status: AUDIT
+Status: KEEP - BLOCKED FROM EXPOSURE
 
-The feature is built at `/learn/revision-vault` but currently direct-URL-only.
+Phase 0 classification date: 2026-08-15
 
-Runtime-validate it and, if healthy, expose it through Everyday Finnish
-and later connect it to Progress recommendations.
+The feature is built at `/learn/revision-vault` and contains meaningful unique
+revision-prioritisation capability, so it must be kept. It must not yet be
+exposed through normal learner navigation.
+
+Evidence:
+
+- the direct route serves successfully;
+- the client has a dedicated screen, hook, service, and API contract;
+- the active GET `/api/v1/learning/revision-vault` calls
+  `get_learning_revision_vault()`;
+- that backend function prioritises `_sample_revision_entries()` instead of
+  authenticated learner-specific errors or corrections;
+- the client wraps the request in `withFallback()`;
+- the fallback can silently display fabricated learner state including
+  19 due items and 42 protected items;
+- no verified learner-error or correction ingestion path into the Revision
+  Vault was found in the targeted source audit;
+- `revision_vault_service.py` contains useful prioritisation logic that should
+  be retained and connected to real learner events;
+- `Start today's review` routes to generic `/cards`, with no verified
+  Revision-Vault-specific review mode;
+- `Add more` routes to generic `/learn`;
+- the empty-state CTA labelled `Add to your phrase bank` also routes to
+  generic `/learn`, so its destination does not match its promise.
+
+Product decision:
+
+KEEP the Revision Vault because error-focused spaced revision is strongly
+aligned with KieliValmis and the prioritisation logic is reusable.
+
+DO NOT EXPOSE it until the vault represents real learner history.
+
+Exposure exit gates:
+
+1. populate the vault from authenticated learner mistakes, corrections,
+   weak patterns, and scheduled review events;
+2. persist revision entries durably per learner;
+3. remove or explicitly isolate all production sample/fallback learner state;
+4. never present fabricated due counts or protected-item counts as real data;
+5. connect mistakes from relevant learning flows to the vault;
+6. provide a verified Revision-Vault-specific review flow, or explicitly
+   parameterize and test the existing cards flow;
+7. fix CTA destinations so labels and routes match;
+8. ensure empty state reflects actual learner data rather than sample state;
+9. complete authenticated runtime validation for empty, populated, error,
+   refresh, navigation, and deep-link states.
+
+Recommended permanent home after remediation:
+
+Everyday Finnish
+
+Secondary future entry:
+
+Progress / adaptive recommendations
 
 ---
 
