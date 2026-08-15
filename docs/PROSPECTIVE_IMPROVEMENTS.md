@@ -394,11 +394,88 @@ established the final learner-event and progress-data architecture.
 
 ## KV-UX-009 — Expose YKI Planner
 
-Status: AUDIT
+Status: KEEP - BLOCKED FROM EXPOSURE
 
-The feature is built at `/learn/planner` but currently direct-URL-only.
+Phase 0 classification date: 2026-08-15
 
-Runtime-validate it and, if healthy, expose it in the YKI pathway.
+The feature is built at `/learn/planner` and contains a useful YKI study-plan
+engine, but the current learner-facing plan is not based on verified personal
+YKI progress or preferences.
+
+Evidence:
+
+- the direct route serves successfully;
+- the client has a dedicated screen, hook, service, and API contract;
+- the backend study-plan service contains meaningful reusable planning logic
+  using accuracy, confidence, attempt volume, recency, risk ranking, study
+  time, and skill-specific activity templates;
+- the active GET `/api/v1/learning/planner` calls
+  `get_learning_planner()`;
+- that active path currently uses `_sample_study_signals()`;
+- it also hard-codes `StudyPreferences` to 35 minutes per day, five study
+  days per week, target level B1, and work focus Office;
+- no verified authenticated learner-performance ingestion path into the active
+  planner was found;
+- no verified learner preference source supplies study time, study days,
+  target exam date, target level, or work focus to the active planner;
+- `target_level` exists in `StudyPreferences` but is not currently used by
+  the readiness calculation;
+- therefore the readiness algorithm is not currently target-level-sensitive;
+- the client field labelled `Target level` is populated from
+  `payload.readiness.band`, so values such as `DEVELOPING` can be presented
+  as if they were the learner's target CEFR/YKI level;
+- the client wraps the planner request in `withFallback()`;
+- fallback state can silently display a fabricated B1/B2 target, weekly
+  focus, next-best action, and four-week milestone plan;
+- milestone completion state is derived from array position rather than
+  learner completion evidence: index 0 is `active`, index 1 is `next`, and
+  later blocks are labelled `done`;
+- the primary milestone CTA always routes to generic `/yki-practice` rather
+  than the recommended section/task;
+- the empty state promises that the plan will be built around `real progress`,
+  while the current active data source is synthetic.
+
+Product decision:
+
+KEEP the YKI Planner and its planning engine.
+
+DO NOT EXPOSE the current surface until the plan is genuinely personalized
+and its readiness claims are defensible.
+
+Exposure exit gates:
+
+1. derive study signals from authenticated YKI learner activity across
+   reading, listening, writing, and speaking;
+2. persist and use real accuracy, confidence, attempts, and practice-recency
+   evidence;
+3. use learner-configured study time and study days;
+4. use the learner's real target level and target exam date;
+5. make target level materially affect planning/readiness where appropriate;
+6. separate `target level` from `readiness band` in both API semantics and UI;
+7. replace fabricated milestone statuses with persisted completion/progress
+   evidence;
+8. prevent sample/fallback plans from masquerading as personalized plans;
+9. route next-best actions to the recommended YKI section and task rather than
+   generic practice;
+10. connect mock-exam and practice results back into subsequent plan cycles;
+11. calibrate and pedagogically validate readiness weights and thresholds
+    before presenting labels such as `exam_ready`;
+12. verify empty, populated, error, refresh, navigation, deep-link, and
+    preference-change behaviour.
+
+Recommended permanent home after remediation:
+
+YKI pathway
+
+Secondary future entry:
+
+Progress / adaptive recommendations
+
+Remediation timing:
+
+Deferred until the combined agents-package + ChatGPT implementation phase has
+established the final learner-event, YKI-performance, preferences, and
+progress-data architecture.
 
 ---
 

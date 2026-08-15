@@ -485,25 +485,89 @@ Route:
 
 Classification:
 
-DIRECT-URL-ONLY
+KEEP - BLOCKED FROM EXPOSURE
+
+Phase 0 evidence date:
+
+2026-08-15
 
 Built capabilities include:
 
-- target level
-- weekly focus
-- milestones
-- milestone status
-- next-best action
+- readiness calculation
+- risk and strength ranking
+- weekly study-time calculation
+- skill-focused weekly blocks
+- next-best actions
+- intended milestones
 - YKI practice entry
 - mock-exam entry
 
-Recommended product home:
+Source and runtime audit findings:
+
+- direct route exists and serves successfully;
+- the study-plan algorithm is meaningful reusable capability;
+- active GET currently uses `_sample_study_signals()`;
+- active planner preferences are hard-coded to 35 minutes/day, five days/week,
+  B1, and Office;
+- no verified real learner study-signal source feeds the active planner;
+- no verified learner preference source feeds the active planner;
+- `target_level` is present in the preference model but does not currently
+  affect the readiness calculation;
+- the UI's `Target level` value is actually derived from the readiness band;
+- client API failure handling can silently substitute a fabricated B1/B2
+  four-week plan;
+- milestone status is generated from list position rather than learner
+  completion evidence;
+- later generated milestones can therefore be labelled `done` without proof
+  that the learner completed them;
+- next-milestone practice routes to generic `/yki-practice` rather than the
+  actual recommended section/task;
+- the empty-state copy promises planning around `real progress`, which is not
+  yet the demonstrated data source.
+
+Retention decision:
+
+KEEP.
+
+Justification:
+
+A personalized YKI planner is highly aligned with KieliValmis. The existing
+engine contains reusable logic for prioritising weak skills, balancing
+maintenance work, respecting study capacity, and constructing weekly practice.
+
+Exposure decision:
+
+BLOCKED.
+
+Do not expose it in normal navigation until:
+
+- performance signals are real, durable, learner-specific, and YKI-specific;
+- availability and target preferences come from the learner;
+- target level and readiness band have correct separate semantics;
+- readiness scoring is calibrated and defensible for its learner-facing claim;
+- milestone completion reflects actual progress;
+- fallback/sample plans cannot masquerade as learner plans;
+- recommendations open the appropriate skill/task;
+- plan cycles respond to subsequent practice and mock-exam results;
+- full runtime gates pass.
+
+Recommended product home after remediation:
 
 YKI pathway
 
 Secondary future entry:
 
 Progress / recommendations
+
+Deletion decision:
+
+NO. Unique required YKI planning capability remains.
+
+Remediation timing:
+
+After the combined agents-package + ChatGPT implementation phase establishes
+the final learner-event, YKI-performance, preference, and progress-data
+foundation.
 
 ---
 
