@@ -319,12 +319,76 @@ Progress / adaptive recommendations
 
 ## KV-UX-008 — Expose Confidence Tracker
 
-Status: AUDIT
+Status: KEEP - BLOCKED FROM EXPOSURE
 
-The feature is built at `/learn/confidence` but currently direct-URL-only.
+Phase 0 classification date: 2026-08-15
 
-Runtime-validate it and determine whether its best permanent home is
-Everyday Finnish, Progress, or both.
+The feature is built at `/learn/confidence` and contains meaningful reusable
+confidence-calibration capability. Keep it, but do not expose it yet.
+
+Evidence:
+
+- the direct route serves successfully;
+- the client has a dedicated screen, hook, service, and API contract;
+- the backend confidence service contains real reusable logic for separating
+  knowledge, confidence, retry behaviour, hesitation, and calibration bands;
+- the active GET `/api/v1/learning/confidence` calls
+  `get_learning_confidence()`;
+- that function currently builds the result from
+  `_sample_confidence_signals()` rather than authenticated learner history;
+- the client wraps the request in `withFallback()`;
+- that fallback can silently display fabricated learner metrics including
+  calibration 74%, overconfidence 18%, underconfidence 11%, and sample skill
+  entries;
+- no verified real learner-signal ingestion path feeding
+  `build_confidence_tracker()` was found in the targeted audit;
+- the client `calibrationScore` is currently the average absolute difference
+  between accuracy and confidence, so perfect calibration produces 0 while
+  the UI presents the value as a conventional positive score;
+- `overconfidenceRate` and `underconfidenceRate` are currently calculated as
+  matching-entry count multiplied by 10 rather than a true percentage;
+- skill-specific practice CTAs all route to generic `/speaking`, including
+  cases where the weak area may be reading, listening, or writing.
+
+Product decision:
+
+KEEP the Confidence Tracker capability.
+
+DO NOT EXPOSE the current standalone surface until its learner signals and
+summary metrics are truthful.
+
+Long-term product direction:
+
+Integrate confidence-calibration evidence into the richer Progress system
+rather than treating Confidence Tracker as an isolated dashboard.
+
+Exposure / integration exit gates:
+
+1. derive confidence signals from authenticated learner activity;
+2. define and persist the learner events required for confidence, accuracy,
+   retry rate, and hesitation;
+3. aggregate those signals durably per learner and skill area;
+4. remove or explicitly isolate production sample/fallback learner metrics;
+5. correct calibration-score semantics and clearly define whether higher or
+   lower is better;
+6. calculate overconfidence and underconfidence as real percentages;
+7. route recommendations to the actual affected skill and practice mode;
+8. verify empty, populated, error, refresh, navigation, and deep-link states;
+9. integrate the resulting evidence into Progress recommendations where
+   appropriate.
+
+Recommended permanent home after remediation:
+
+Progress
+
+Possible secondary entry:
+
+Contextual links from relevant practice areas
+
+Remediation timing:
+
+Deferred until the combined agents-package + ChatGPT implementation phase has
+established the final learner-event and progress-data architecture.
 
 ---
 

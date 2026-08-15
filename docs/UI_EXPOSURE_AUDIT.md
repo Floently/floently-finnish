@@ -400,25 +400,80 @@ Route:
 
 Classification:
 
-DIRECT-URL-ONLY
+KEEP - BLOCKED FROM EXPOSURE
+
+Phase 0 evidence date:
+
+2026-08-15
 
 Built capabilities include:
 
 - confidence vs accuracy
-- calibration score
-- overconfidence
-- underconfidence
+- calibration analysis
+- overconfidence detection
+- underconfidence detection
 - weakest-calibration detection
-- suggested speaking practice
+- actionable confidence/knowledge interpretation
+- intended targeted practice recommendation
 
-Recommended product home:
+Source and runtime audit findings:
 
-Everyday Finnish or Progress
+- direct route exists and serves successfully;
+- the confidence algorithm/service is meaningful reusable capability;
+- active GET currently builds state from `_sample_confidence_signals()`;
+- no verified authenticated learner-signal ingestion path was found;
+- client API failure handling can silently substitute fabricated confidence
+  state;
+- fallback data currently includes calibration 74%, overconfidence 18%,
+  underconfidence 11%, and sample skill entries;
+- current `calibrationScore` is an average absolute confidence/accuracy gap,
+  meaning perfect calibration evaluates to 0 despite the UI presenting it as
+  a conventional score;
+- current overconfidence and underconfidence rates are counts multiplied by
+  10 instead of true percentages;
+- skill-specific practice CTAs all route to `/speaking`, so weak reading,
+  listening, or writing areas do not currently receive targeted practice.
+
+Retention decision:
+
+KEEP.
+
+Justification:
+
+Separating confidence from actual language control is a distinctive and useful
+capability. It can prevent the system from confusing hesitation with lack of
+knowledge and can improve adaptive recommendations.
+
+Exposure decision:
+
+BLOCKED.
+
+Do not expose it in normal navigation until:
+
+- confidence data comes from real authenticated learner events;
+- aggregation is durable and learner-specific;
+- sample/fallback state cannot masquerade as learner progress;
+- calibration and rate metrics are mathematically and semantically correct;
+- recommendations route to the correct skill-specific practice;
+- full runtime gates pass.
+
+Recommended permanent home after remediation:
+
+Progress
 
 Long-term recommendation:
 
 Integrate this evidence into the richer Progress system instead of leaving
-it as an isolated metric page.
+Confidence Tracker as an isolated metric page.
+
+Deletion decision:
+
+NO. Unique required confidence-calibration capability remains.
+
+Remediation timing:
+
+After the combined agents-package + ChatGPT implementation phase establishes
+the final learner-event/data foundation.
 
 ---
 
