@@ -101,7 +101,11 @@ one-click runtime validation.
 
 ## KV-UX-003 — Full built-page exposure audit
 
-Status: IN PROGRESS
+Status: DONE
+
+Phase 0 classification and full-surface reconciliation were frozen at:
+
+`b0ca66fcdf93ca8add495b027c2dcbe89192f445`
 
 Audit evidence:
 
@@ -911,6 +915,192 @@ UI/state rather than exposing another learner destination.
 
 ---
 
+# P0 — Combined-plan architecture and data foundations
+
+These items were added during the agents-package + Phase 0 synthesis.
+
+## KV-ARCH-001 — Regenerate current runtime authority map
+
+Status: TODO
+
+Historical April authority maps conflict with the current August runtime tree.
+
+Build a new current-tree authority map covering:
+
+- frontend route/state/feature ownership;
+- backend composition/router/service ownership;
+- card runtime authority;
+- YKI authority;
+- roleplay/voice authority;
+- persistence ownership.
+
+Do not execute old quarantine/deletion instructions until this is complete.
+
+---
+
+## KV-DATA-001 — Canonical learner-event architecture
+
+Status: TODO
+
+Define a durable, versioned learner-event model that can support:
+
+- Progress;
+- Revision Vault;
+- Confidence;
+- Planner;
+- recommendations;
+- adaptive Continue;
+- professional progression;
+- review scheduling.
+
+Events must be authenticated, learner-specific, explainable, and connected to
+real learning activity.
+
+---
+
+## KV-DATA-002 — Durable learner-specific state
+
+Status: TODO
+
+Move learner-personalized retained capability away from process-local/sample
+state.
+
+Provide durable per-account persistence for the learner data required by:
+
+- Phrase Bank;
+- revision/error history;
+- YKI study planning;
+- professional progression;
+- study preferences;
+- review scheduling;
+- progress aggregation.
+
+---
+
+## KV-DATA-003 — Truthful personalized-data fallback policy
+
+Status: TODO
+
+Personalized production surfaces must never silently replace failed requests
+with fabricated learner state.
+
+Allowed states are:
+
+- real data;
+- true empty state;
+- explicit unavailable/error state.
+
+A failed write must never be converted into fake success.
+
+---
+
+## KV-PROF-001 — Canonical profession and work-domain taxonomy
+
+Status: TODO
+
+Define the relationship between:
+
+- paid/entitled professions;
+- learner-selected profession;
+- professional content profession;
+- broader work domain.
+
+Use the taxonomy consistently across Professional Finnish, roleplay,
+Work Finnish Path, Incident Lab, cards, and progress.
+
+---
+
+## KV-YKI-001 — Revalidate current YKI runtime authority
+
+Status: TODO
+
+Before structural YKI changes, re-prove the current:
+
+- certified material authority;
+- practice path;
+- exam engine path;
+- fallback path;
+- results path;
+- writing/audio/speaking submission paths.
+
+Historical YKI reports are supporting evidence but do not override current
+code.
+
+---
+
+## KV-QA-005 — Clean-checkout and reproducibility gate
+
+Status: TODO
+
+Verify that the current product can be installed, tested, and built from a
+clean checkout using declared manifests/configuration rather than retained
+machine-local artifacts.
+
+Keep CI aligned with current architecture.
+
+---
+
+## KV-SEC-001 — Product-boundary authorization regression suite
+
+Status: TODO
+
+Add explicit regression coverage for:
+
+- unauthenticated access;
+- authenticated but unentitled access;
+- Learn access;
+- Professional access;
+- Read access;
+- Create access when launched;
+- direct deep links;
+- learner-object ownership.
+
+Navigation hiding must not substitute for authorization.
+
+---
+
+## KV-A11Y-001 — Cross-platform accessibility baseline
+
+Status: TODO
+
+Perform a practical accessibility review covering:
+
+- focus and keyboard operation;
+- touch targets;
+- text scaling;
+- contrast;
+- screen-reader semantics;
+- reduced motion;
+- authentication;
+- forms and errors;
+- meaningful non-audio progress feedback.
+
+---
+
+## KV-WEB-001 — Correct React web document title rendering
+
+Status: TODO
+
+Fix the React web title warning where `<title>` children are rendered as an
+array rather than one string/template-string value.
+
+Treat this as correctness, accessibility, and SEO quality work.
+
+---
+
+## KV-WEB-002 — Replace deprecated React Native Web shadow props
+
+Status: TODO - LOW PRIORITY
+
+Progressively replace deprecated `shadow*` web styling with supported
+`boxShadow`/tokenized styling.
+
+Start with known warnings such as Forgot Password.
+
+Defer unless warnings create functional impact.
+
+---
+
 # P1 — Authentication usability
 
 ## KV-AUTH-001 — Password visibility control
@@ -1474,14 +1664,24 @@ intentional platform-specific difference.
 
 # Next planned work
 
-1. Complete the full built-page UI exposure audit.
-2. Record every hidden/orphaned/direct-URL-only page in this document.
-3. Decide which pages should be exposed.
-4. Implement and validate exposure changes.
-5. Continue with authentication usability.
-6. Audit vocabulary progression.
-7. Upgrade Progress and the motivation system.
-8. Expand the balanced four-skill learning pathways.
+The former page-by-page exposure sequence is superseded by:
+
+`docs/KIELIVALMIS_COMBINED_IMPLEMENTATION_PLAN.md`
+
+Immediate next package:
+
+1. regenerate current runtime authority;
+2. fix navigation/deep-link contract issues;
+3. enforce Read/Create direct-route entitlements;
+4. reconcile multi-product navigation and architecture documentation;
+5. add regression coverage for these boundaries.
+
+Then build the shared learner-event and durable learner-data foundation before
+returning to the retained blocked features.
+
+Do not begin Phrase Bank, Revision Vault, Confidence, YKI Planner, Work Finnish
+Path, or Incident Lab remediation independently before their shared
+dependencies are established.
 
 ---
 
