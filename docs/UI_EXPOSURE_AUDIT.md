@@ -579,18 +579,100 @@ Route:
 
 Classification:
 
-DIRECT-URL-ONLY
+KEEP CAPABILITY - BLOCK SURFACE - MERGE CANDIDATE
 
-Built capabilities include:
+Phase 0 evidence date:
 
-- profession-aware learning track
-- next mission
-- mission list
-- mission status
+2026-08-15
 
-Recommended product home:
+Useful capability identified:
+
+- structured work tracks
+- professional core tasks
+- language targets
+- speaking scenarios
+- writing tasks
+- vocabulary clusters
+- intended mission sequencing
+- intended next-mission concept
+- intended professional progression
+
+Source and runtime audit findings:
+
+- direct route exists and serves successfully;
+- the Work Path client always selects `payload.tracks?.[0]`;
+- it does not consume the learner's selected profession or active professional
+  context;
+- the first backend track is Healthcare Finnish;
+- the backend professional overview separately recommends Office;
+- the overview's current next mission is also Office-specific;
+- displayed track and next mission can therefore contradict one another;
+- client API failure handling can silently show fabricated Healthcare state;
+- fallback mission status can imply progress without learner evidence;
+- normal mission status is generated from array position;
+- no verified durable mission-progress source was found;
+- the screen has no mission CTA and does not open real learning activities;
+- the existing canonical Professional Finnish route already uses the learner's
+  entitled/selected profession;
+- that canonical route already opens profession-specific vocabulary,
+  workplace roleplay, interview practice, and report writing;
+- current entitlement professions and backend work-domain taxonomy do not
+  describe the same set of identifiers;
+- learner-visible text is hard-coded rather than localized;
+- the screen contains hard-coded light-theme colors.
+
+Retention decision:
+
+KEEP THE CAPABILITY.
+
+Exposure decision:
+
+BLOCK THE STANDALONE SURFACE.
+
+Canonicalization recommendation:
+
+Prefer integrating useful Work Path progression and mission concepts into the
+existing canonical Professional Finnish experience.
+
+Do not create two competing Professional Finnish hubs unless a genuinely
+different learner journey is proven.
+
+Required remediation / merge proof:
+
+- reconcile profession and work-domain taxonomy;
+- use the learner's selected and entitled profession;
+- unify recommended track, displayed track, and next mission;
+- introduce real learner mission progress;
+- connect missions to actual learning experiences;
+- support every intended profession consistently;
+- localize the surface;
+- use canonical palette/theme tokens;
+- validate entitlement behaviour;
+- eliminate fabricated fallback progress.
+
+Deletion decision:
+
+NOT AUTHORIZED YET.
+
+The standalone route/screen becomes a deletion candidate only after useful
+capability has been migrated into the canonical Professional Finnish
+architecture and the required reverse-dependency and unique-capability gates
+pass.
+
+Required future deletion markers:
+
+`PRE_DELETE_DEPENDENCY_GATE=PASS`
+
+`UNIQUE_REQUIRED_CAPABILITY_REMAINING=NO`
+
+Intended final product home:
 
 Professional Finnish
+
+Remediation timing:
+
+After the full Phase 0 audit and combined agents-package + ChatGPT
+implementation establish the final professional-learning architecture.
 
 ---
 
