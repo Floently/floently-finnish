@@ -245,25 +245,73 @@ Route:
 
 Classification:
 
-DIRECT-URL-ONLY
+KEEP - BLOCKED FROM EXPOSURE
+
+Phase 0 evidence date:
+
+2026-08-15
 
 Built capabilities include:
 
 - add Finnish phrase
-- translation
+- translation / meaning
 - context
 - phrase strength
 - saved phrase statistics
-- card-style review entry
-- roleplay entry
+- intended card-style review entry
+- intended roleplay entry
 
-Recommended product home:
+Source and runtime audit findings:
+
+- direct route exists and serves successfully;
+- active GET currently builds the learner-facing bank from
+  `_sample_phrase_entries()`;
+- active POST appends to the generated response but does not durably persist
+  the phrase;
+- the separate learning repository is process-memory storage and is not wired
+  into the active `/api/v1/learning/phrase-bank` router path;
+- client API failure handling can silently replace real learner state with
+  fallback sample data;
+- failed saves can be represented locally as successful temporary objects;
+- no verified Roleplay/Speaking -> Phrase Bank write path was found;
+- no phrase-specific review route was found;
+- the current review CTA points to generic `/cards`, whose Phrase Bank
+  behavior is not established.
+
+Retention decision:
+
+KEEP.
+
+Justification:
+
+This surface contains unique and strategically valuable learner capability.
+A personal collection of Finnish phrases tied to real workplace, speaking,
+writing, and everyday situations fits the KieliValmis product direction.
+
+Exposure decision:
+
+BLOCKED.
+
+Do not expose it in normal navigation until:
+
+- storage is authenticated, learner-specific, and durable;
+- read and write paths use the same real source of truth;
+- production fallbacks cannot fabricate learner state or successful saves;
+- Roleplay capture is real and tested;
+- Phrase Bank review has a verified phrase-specific destination;
+- localization and full runtime gates pass.
+
+Recommended product home after remediation:
 
 Everyday Finnish
 
 Secondary future entry:
 
 Progress / recommendations
+
+Deletion decision:
+
+NO. Unique required learner capability remains.
 
 ---
 

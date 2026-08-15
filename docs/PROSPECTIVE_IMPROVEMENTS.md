@@ -189,11 +189,68 @@ Navigation state and URL state must not fight each other.
 
 ## KV-UX-006 — Expose Personal Phrase Bank
 
-Status: AUDIT
+Status: KEEP - BLOCKED FROM EXPOSURE
 
-The feature is built at `/learn/phrase-bank` but currently direct-URL-only.
+Phase 0 classification date: 2026-08-15
 
-Runtime-validate it and, if healthy, expose it through Everyday Finnish.
+The feature is built at `/learn/phrase-bank` and has meaningful unique
+learner-facing capability, so it must be kept. It must not yet be exposed
+through normal navigation.
+
+Evidence:
+
+- the direct route serves successfully;
+- the client has a dedicated screen, hook, service, and learning API contract;
+- the active GET `/api/v1/learning/phrase-bank` calls
+  `get_learning_phrase_bank()`;
+- that active read path builds its result from `_sample_phrase_entries()`
+  instead of authenticated learner-specific persisted data;
+- the active POST `/api/v1/learning/phrase-bank` calls
+  `add_learning_phrase()`, which starts from the sample phrase bank and
+  appends the submitted phrase only to the returned dictionary;
+- that POST path does not durably persist the submitted learner phrase;
+- a separate `LearningRepository` has an in-process phrase-bank dictionary,
+  but it is not the storage path used by the active router;
+- the client `withFallback()` behavior can substitute sample phrase data when
+  the real request fails;
+- the save fallback can return a locally generated success object even when
+  the server save failed;
+- no Roleplay/Speaking -> Personal Phrase Bank write integration was found in
+  the targeted source audit;
+- no phrase-specific review flow was found, while the current learner CTA
+  routes to generic `/cards`.
+
+Product decision:
+
+KEEP the Personal Phrase Bank because collecting, reusing, and reviewing
+personally useful Finnish phrases is strongly aligned with KieliValmis.
+
+DO NOT EXPOSE it until learner data is truthful and durable.
+
+Exposure exit gates:
+
+1. use authenticated, account-specific durable phrase storage;
+2. make GET return the learner's actual saved phrases, not sample entries;
+3. make POST persist successfully across refresh, process restart, and later
+   sessions;
+4. never silently present demo/fallback phrases as real learner data in
+   production;
+5. never show a successful save when persistence failed;
+6. implement and verify real Roleplay -> Phrase Bank capture before the UI
+   promises that workflow;
+7. provide a phrase-specific review flow, or explicitly parameterize and test
+   the existing cards flow for Phrase Bank review;
+8. localize mixed hard-coded learner-facing Finnish/English strings;
+9. complete authenticated runtime validation for empty state, populated state,
+   errors, refresh, navigation, and deep links.
+
+Recommended permanent home after these gates pass:
+
+Everyday Finnish
+
+Secondary future entry:
+
+Progress / adaptive recommendations
 
 ---
 
