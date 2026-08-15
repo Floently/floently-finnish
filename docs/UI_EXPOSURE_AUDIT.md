@@ -686,23 +686,110 @@ Route:
 
 Classification:
 
-CONTEXTUAL
+KEEP - CONTEXTUAL - BLOCKED FROM PROMOTION
 
-Current code contains a contextual route into this surface from the
-speaking flow.
+Phase 0 evidence date:
 
-Built capabilities include:
+2026-08-15
 
-- profession-specific incidents
-- urgency
-- written Finnish response
-- best-action hint
-- live-practice action
+Unique useful capability includes:
 
-Recommendation:
+- workplace incident scenarios
+- difficulty / pressure levels
+- language targets
+- response choices
+- best-response reasoning
+- written and spoken follow-up tasks
+- coaching notes
+- intended written-response drafting
+- intended live-practice continuation
 
-Keep contextual access but also evaluate adding a visible entry from the
-Professional Finnish pathway.
+Current contextual wiring:
+
+- Speaking contains an Incident Lab tile;
+- the tile routes to `/professional/incidents`;
+- the active profession is not propagated into that route;
+- the Incident Lab hook also provides no profession or track;
+- the client service therefore defaults to `office`.
+
+Source and runtime audit findings:
+
+- nurse, doctor, and practical-nurse learners can therefore enter from a
+  profession-specific Speaking area and receive Office incident content;
+- backend work-domain identifiers and paid profession identifiers are not
+  currently reconciled;
+- the healthcare incident is healthcare-domain content rather than separately
+  profession-specific doctor/nurse/practical-nurse content;
+- the backend model contains richer fields including language targets,
+  response choices, best-response index, follow-up task, and coaching notes;
+- most of those fields are discarded by the current client transformation;
+- incident scenarios are static;
+- no verified roleplay-history ingestion feeds this surface;
+- the empty state nevertheless claims incidents appear after workplace
+  roleplay and build on situations already handled by the learner;
+- `Save draft` is visually presented but has no save action;
+- no durable incident-draft persistence path was found;
+- all live-practice actions route to generic `/professional`;
+- incident identity and active profession are not forwarded into live practice;
+- API failure can silently substitute unrelated fallback incidents;
+- the screen uses hard-coded English despite existing localized Incident Lab
+  translation keys;
+- surface-specific professional entitlement enforcement was not proven by the
+  targeted audit;
+- backend track input should be explicitly validated against supported track
+  identifiers.
+
+Retention decision:
+
+KEEP.
+
+Context decision:
+
+KEEP CONTEXTUAL.
+
+The Incident Lab concept fits naturally inside a selected Professional Finnish
+profession and as a contextual tool from profession-specific Speaking.
+
+Promotion decision:
+
+BLOCKED.
+
+Do not make it a global or more prominent learner destination until:
+
+- profession/work-domain mapping is canonical;
+- the active profession is preserved across navigation;
+- incident content is appropriate to the selected profession;
+- false personalization/history claims are removed or made real;
+- draft saving works or the affordance is removed;
+- live practice opens the actual corresponding profession/scenario;
+- richer backend pedagogical fields are deliberately used or deliberately
+  excluded;
+- fallback state cannot masquerade as learner-specific content;
+- localization and entitlement behaviour are correct;
+- supported backend track IDs are validated;
+- full runtime gates pass for each supported profession.
+
+Recommended permanent home:
+
+Professional Finnish -> selected profession -> Incident practice
+
+Secondary contextual entry:
+
+Speaking / roleplay
+
+Drawer exposure:
+
+NO.
+
+Deletion decision:
+
+NO. Unique required workplace-incident capability remains.
+
+Remediation timing:
+
+After the full Phase 0 audit and combined agents-package + ChatGPT
+implementation establish the final Professional Finnish taxonomy, learner-event
+foundation, and navigation architecture.
 
 ---
 

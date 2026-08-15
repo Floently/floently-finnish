@@ -586,15 +586,123 @@ implementation planning establish the final professional-learning architecture.
 
 ---
 
-## KV-UX-011 — Improve Workplace Incident Lab discoverability
+## KV-UX-011 — Repair and contextualize Workplace Incident Lab
 
-Status: AUDIT
+Status: KEEP - CONTEXTUAL - BLOCKED FROM PROMOTION
 
-`/professional/incidents` is already contextually reachable but is not
-prominent in the Professional Finnish pathway.
+Phase 0 classification date: 2026-08-15
 
-Validate the experience and decide whether to add a visible Professional
-Finnish entry while retaining contextual speaking-flow access.
+The route `/professional/incidents` contains useful and distinctive workplace
+incident-learning capability and is already reachable contextually from the
+Speaking profession flow.
+
+Keep the capability and its contextual product role, but do not promote or
+expose the current implementation more widely until its profession routing,
+claims, actions, and persistence are truthful.
+
+Evidence:
+
+- the route exists and serves successfully;
+- Speaking contains a real contextual Incident Lab entry;
+- that entry routes to `/professional/incidents` without passing the active
+  profession or work track;
+- `useWorkplaceIncident()` also supplies no track;
+- `listWorkplaceIncidents()` therefore currently defaults to `office`;
+- a learner entering from nurse, doctor, or practical-nurse Speaking can
+  therefore receive an Office incident rather than content for the active
+  profession;
+- the backend incident engine contains useful structured capability across
+  healthcare, retail, hospitality, cleaning, construction, and office;
+- each backend scenario can include language targets, response choices,
+  best-response index, follow-up task, explanation, and coaching notes;
+- the current client discards most of those richer pedagogical fields;
+- the current Professional entitlement taxonomy uses nurse, doctor, and
+  practical_nurse rather than the six backend work-domain identifiers;
+- no canonical profession-to-work-domain mapping was found;
+- the healthcare backend scenario is healthcare-domain content rather than
+  separately doctor-, nurse-, or practical-nurse-specific content;
+- the empty-state copy says incidents appear after the learner's first
+  workplace roleplay and build on situations the learner has handled;
+- no roleplay-history or learner-event ingestion feeding Incident Lab was found;
+- current incident scenarios are static;
+- the visible `Save draft` control has no save handler;
+- no durable incident-draft persistence path was found;
+- `Practice live`, the empty-state action, and the primary action all route to
+  generic `/professional`;
+- no incident ID, scenario ID, profession, or track is propagated into the
+  live-practice destination;
+- client API failure handling can silently substitute fabricated Healthcare and
+  Service fallback incidents;
+- learner-facing Incident Lab copy is hard-coded in English even though the
+  localization system already contains Incident Lab translation keys;
+- the targeted audit did not prove surface-specific professional entitlement
+  enforcement;
+- backend track input is accepted as a raw route string while the incident
+  service directly indexes the supported scenario dictionary, so explicit
+  supported-track validation should be added.
+
+Product decision:
+
+KEEP the Workplace Incident Lab capability.
+
+KEEP its intended contextual relationship to Professional Finnish and
+profession-specific Speaking practice.
+
+DO NOT PROMOTE the current route into wider learner navigation yet.
+
+Recommended final product model:
+
+- primary home: inside the learner's selected Professional Finnish profession;
+- contextual secondary entry: Speaking / roleplay;
+- not a global drawer destination;
+- each entry must preserve the learner's active profession and chosen incident.
+
+Remediation / exposure gates:
+
+1. define the canonical relationship between paid professions and broader work
+   domains;
+2. pass active profession/context into Incident Lab instead of silently
+   defaulting to Office;
+3. provide genuinely profession-appropriate incident content for every
+   supported paid profession;
+4. label broader work-domain content accurately when it is not a paid
+   profession;
+5. remove or rewrite claims that incidents come from learner history unless
+   real roleplay/event ingestion is implemented;
+6. if adaptive incident generation from prior learner situations is desired,
+   build it on the final learner-event architecture rather than fabricated
+   state;
+7. implement real draft persistence or remove the `Save draft` affordance;
+8. route `Practice live` directly into the matching profession and incident
+   scenario;
+9. decide how the existing response choices, best response, language targets,
+   follow-up task, and coaching notes should participate in the learner
+   experience instead of silently discarding them;
+10. prevent fallback incidents from masquerading as personalized or
+    profession-specific learner state;
+11. localize all learner-facing Incident Lab copy using the existing i18n
+    system;
+12. verify professional entitlement and direct-route access behaviour;
+13. validate supported backend track IDs and return a controlled client error
+    for invalid tracks;
+14. verify empty, populated, error, refresh, profession-switch, back-navigation,
+    and deep-link behaviour;
+15. validate the repaired flow independently for every supported profession.
+
+Deletion decision:
+
+NO.
+
+The incident-scenario engine and associated learning model provide unique
+required workplace-learning capability.
+
+Do not delete the route or engine during Phase 0.
+
+Remediation timing:
+
+Deferred until the full Phase 0 audit and combined agents-package + ChatGPT
+implementation planning establish the final Professional Finnish taxonomy,
+learner-event architecture, and navigation model.
 
 ---
 
