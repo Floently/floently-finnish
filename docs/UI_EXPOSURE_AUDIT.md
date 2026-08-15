@@ -4,7 +4,7 @@ Audit date: 2026-08-15
 
 Source checkpoint:
 
-`d7c2e178bc06f8af6881106c5b58921523a8632d`
+`55a90904948d1dbaa2386afb5690f6063ef28788`
 
 ## Purpose
 
@@ -793,45 +793,483 @@ foundation, and navigation architecture.
 
 ---
 
-# D. Workflow routes — intentionally contextual
+# D. Active public, secondary, and workflow routes
 
-These should not automatically become drawer entries:
+Phase 0 reconciliation date:
 
-- authentication routes
-- password reset routes
-- onboarding steps
-- card-practice runtime
-- YKI exam runtime
-- YKI results
-- YKI review
-- YKI certificate
-- YKI mock cycle
+2026-08-15
 
-Classification:
+The broad workflow classification from the initial audit has now been
+reconciled against the actual Expo routes, AppShell navigation, inbound
+references, auth/onboarding contracts, and YKI workflow transitions.
 
-INTENTIONALLY CONTEXTUAL
+## Root and public routes
 
----
-
-# E. Separate product surfaces
-
-The `/read/*` and `/create/*` route families belong to separate product
-experiences.
+### `/`
 
 Classification:
 
-INTENTIONALLY SEPARATE PRODUCT
+KEEP - ACTIVE PRODUCT ENTRY
 
-They must not be inserted into the KieliValmis Learn learner drawer merely
-to satisfy route-exposure coverage.
+Verified responsibilities include:
 
-Product-level linking may exist elsewhere, but access, UI shell, and
-billing boundaries remain separate unless the product architecture is
-explicitly changed.
+- KieliValmis public landing on the Learn host;
+- authenticated AppShell entry;
+- auth-session hydration;
+- Google OAuth completion;
+- restoration of authenticated product state.
+
+Deletion decision:
+
+NO.
 
 ---
 
-# F. Legacy / orphan candidates — do not expose
+### `/contact`
+
+Classification:
+
+KEEP - ACTIVE PUBLIC ROUTE
+
+The Expo route currently uses the canonical native public-marketing contact
+surface.
+
+Deletion decision:
+
+NO.
+
+---
+
+### `/for-organizations`
+
+Classification:
+
+KEEP - ACTIVE PUBLIC ROUTE
+
+The Expo route currently uses the canonical
+`NativeForOrganizationsScreen`.
+
+Deletion decision:
+
+NO.
+
+The older organization screens are classified separately below as legacy
+content/consolidation candidates.
+
+---
+
+## Active secondary account/product routes
+
+### `/progress`
+
+Classification:
+
+KEEP - ACTIVE SECONDARY ROUTE
+
+The AppShell/drawer actively routes learners to the current Progress
+implementation.
+
+The current Progress model still requires the separate real-progress work
+already recorded in the roadmap.
+
+Deletion decision:
+
+NO.
+
+---
+
+### `/settings`
+
+Classification:
+
+KEEP - ACTIVE SECONDARY ROUTE
+
+The active Settings route owns current profile, appearance, audio, billing,
+support, legal, and account controls.
+
+Deletion decision:
+
+NO.
+
+---
+
+### `/billing/subscription`
+
+Classification:
+
+KEEP - ACTIVE BILLING WORKFLOW
+
+This is the active Learn subscription/access destination and is also used by
+guard logic when Learn access is unavailable.
+
+Deletion decision:
+
+NO.
+
+---
+
+## Authentication workflow
+
+Routes:
+
+- `/auth/login`
+- `/auth/register`
+- `/auth/forgot-password`
+- `/auth/reset-password`
+
+Classification:
+
+KEEP - CONTEXTUAL WORKFLOW
+
+These routes are required account/authentication flows.
+
+They must remain reachable when required, but they are not learner-navigation
+destinations.
+
+Deletion decision:
+
+NO.
+
+---
+
+## Onboarding workflow
+
+Routes:
+
+- `/onboarding`
+- `/onboarding/intent`
+- `/onboarding/profession`
+- `/onboarding/frequency`
+- `/onboarding/plan`
+
+Classification:
+
+KEEP - CONTEXTUAL WORKFLOW
+
+The canonical onboarding contract defines:
+
+- `/onboarding` as the onboarding welcome/start;
+- intent, profession, and frequency as active flow steps;
+- `/onboarding/plan` as a retained deep-link pricing/plan preview rather than
+  the normal post-placement paywall destination.
+
+The active post-placement subscription destination is
+`/billing/subscription`.
+
+Deletion decision:
+
+NO.
+
+The stale `/onboarding/welcome` literal found in an unused marketing screen
+is not a canonical route.
+
+---
+
+## Help route contract
+
+Guarded screen:
+
+`help`
+
+Configured path:
+
+`/help`
+
+Classification:
+
+KEEP CAPABILITY - ROUTE CONTRACT DEFECT
+
+Evidence:
+
+- Help remains an active AppShell secondary screen;
+- Settings links to Help;
+- navigation persistence understands the Help screen;
+- `SCREEN_PATHS` maps Help to `/help`;
+- no Expo `/help` route file exists.
+
+Product decision:
+
+KEEP Help.
+
+Roadmap requirement:
+
+Add or otherwise canonicalize the `/help` deep-link/refresh entry so the
+configured navigation path and actual Expo route topology agree.
+
+Deletion decision:
+
+NO.
+
+---
+
+## Card-practice runtime
+
+Classification:
+
+KEEP - CONTEXTUAL RUNTIME
+
+Card practice is an active learning runtime, not a global navigation item.
+
+Deletion decision:
+
+NO.
+
+---
+
+## YKI exam workflow
+
+### `/yki-exam`
+
+Classification:
+
+KEEP - ACTIVE YKI ENTRY
+
+The active `YkiExamScreen` provides the current exam-selection/start
+experience.
+
+---
+
+### `/yki-exam/runtime`
+
+Classification:
+
+KEEP - ACTIVE CONTEXTUAL RUNTIME
+
+A verified exam-start transition enters this route.
+
+---
+
+### `/yki-exam/results`
+
+Classification:
+
+KEEP - ACTIVE CONTEXTUAL RESULTS
+
+The runtime can produce persisted exam results and the results screen displays
+and exports them.
+
+---
+
+### `/yki-exam/mock-cycle`
+
+Classification:
+
+KEEP - ACTIVE CONTEXTUAL YKI TOOL
+
+The route has verified inbound YKI navigation and a real API-backed mock-cycle
+surface.
+
+---
+
+### `/yki-exam/review`
+
+Classification:
+
+DELETE CANDIDATE - PLACEHOLDER ROUTE
+
+Evidence:
+
+- the route file exists;
+- no active inbound workflow transition was found;
+- `ReviewAnswersScreen` is only a five-line `ExamScreenScaffold`;
+- it contains no answer-review implementation.
+
+Deletion is not executed during this Phase 0 documentation pass.
+
+Before removal, rerun the mandatory dependency gate against the route/screen
+pair.
+
+---
+
+### `/yki-exam/certificate`
+
+Classification:
+
+KEEP CAPABILITY - BLOCK CURRENT FRONTEND
+
+Evidence:
+
+- no current inbound frontend transition was proven;
+- the current Expo certificate screen does not load a session or call the
+  certificate API;
+- the screen can display only optional props and otherwise explains that the
+  route is reachable;
+- however, the authenticated backend has a real
+  `GET /api/v1/yki/sessions/{session_id}/certificate` route.
+
+Product decision:
+
+Do not expose the current certificate screen as if it were complete.
+
+Do not delete the backend certificate capability.
+
+Before learner exposure:
+
+- define the intended product meaning of this certificate;
+- load it from the authenticated learner's verified exam session;
+- use truthful naming and claims;
+- connect it from the real exam-results workflow only when valid;
+- handle missing/not-issued/error states;
+- localize and theme the surface;
+- validate entitlement and deep-link behavior.
+
+The separate `packages/ui/screens/CertificateScreen.tsx` placeholder and its
+re-export chain remain legacy candidates and require their own final
+dependency gate before deletion.
+
+---
+
+# E. Floently Read / Create ownership boundary
+
+The previous label `SEPARATE PRODUCT` was insufficient on its own.
+
+The full ownership audit now proves that these route families have intentional
+current responsibilities inside the shared native Expo application.
+
+## Floently Read
+
+Routes:
+
+- `/read`
+- `/read/auth`
+- `/read/app`
+- `/read/import`
+- `/read/library`
+- `/read/reader`
+- `/read/settings`
+- `/read/analytics`
+- `/read/subscribe`
+
+Classification:
+
+KEEP - SEPARATE PRODUCT - ACTIVE NATIVE SUITE MODULE
+
+Verified responsibilities include:
+
+- public Read landing;
+- Read-specific auth handoff;
+- protected native Read workspace;
+- document import by text, URL, and file;
+- library state;
+- reader/player state;
+- reading progress;
+- settings;
+- analytics;
+- Read subscription/purchase/restore;
+- external Read API and TTS integration.
+
+Backend ownership remains separate:
+
+- Learn backend: Hetzner Learn service;
+- Read backend: Render Read service.
+
+Read must not be inserted into the KieliValmis Learn learning hierarchy merely
+for exposure coverage.
+
+### Read access-control blocker
+
+`AppShell` contains explicit `readAccess` entitlement logic.
+
+However, direct Read child routes use `ReadProtectedRoute`, which currently
+checks authentication/token state but does not independently enforce
+`readAccess`.
+
+Required remediation:
+
+- make direct route/deep-link access enforce the same Read entitlement
+  contract;
+- verify the Render backend independently enforces paid capability where
+  required;
+- do not rely only on client-side navigation hiding.
+
+Deletion decision:
+
+NO.
+
+---
+
+## Floently Create
+
+Routes:
+
+- `/create`
+- `/create/auth`
+- `/create/studio`
+
+Classification:
+
+KEEP - SEPARATE PRODUCT - INTENTIONAL PRE-LAUNCH MODULE
+
+Verified current responsibilities:
+
+- public Create landing;
+- Create auth handoff;
+- protected coming-soon Studio route.
+
+`/create/studio` is not a finished Create Studio implementation.
+
+It must remain clearly pre-launch until the actual Create product is built.
+
+### Create access-control blocker
+
+`AppShell` understands `createAccess`.
+
+Direct Create routing currently uses `CreateProtectedRoute`, which verifies
+authentication but not `createAccess`.
+
+Before Create launch:
+
+- enforce the intended Create entitlement on direct routes;
+- define final Creator/Create product and entitlement semantics;
+- connect only real Studio functionality;
+- keep Read and Create access/payment semantics explicit.
+
+Deletion decision:
+
+NO.
+
+---
+
+## Shared AppShell Read/Create navigation discrepancy
+
+`read` and `create` exist in `GuardedScreen` and entitlement checks.
+
+They are not currently handled by `isFeatureEntryScreen()` or
+`isSecondaryScreen()`.
+
+The generic `resolveRequestedRoute()` fallback therefore does not represent a
+canonical Read/Create transition and can resolve through the YKI-practice
+fallback path.
+
+Direct Expo route navigation currently masks this architectural discrepancy.
+
+Required remediation:
+
+Canonicalize one navigation model for:
+
+- product gateway;
+- AppShell guarded navigation;
+- direct Expo deep links;
+- entitlement enforcement;
+- persisted navigation restoration.
+
+---
+
+## Multi-product documentation drift
+
+Older architecture documentation still describes Read as preview-only and
+warns against integrating Read source into the Learn repository.
+
+Later implementation records prove that the shared native Expo application now
+contains a real native Read module while Read backend/service ownership remains
+separate.
+
+Update the architecture documentation during the combined implementation-plan
+phase so the current mobile-shell decision is unambiguous.
+
+---
+
+# F. Legacy / orphan / consolidation candidates
 
 ## Legacy YKI Practice screen
 
@@ -841,19 +1279,45 @@ File:
 
 Classification:
 
-LEGACY / DUPLICATE CANDIDATE
+MERGE USEFUL CAPABILITY - THEN DELETE CANDIDATE
 
-The active application currently implements YKI practice through
-`apps/client/state/YkiPracticeRoute.tsx`.
+Runtime evidence:
 
-Action:
+- no active runtime consumer was found;
+- canonical YKI practice is implemented by
+  `apps/client/state/YkiPracticeRoute.tsx`.
 
-Audit for any unique functionality before eventual deletion or
-consolidation.
+The old screen must not be exposed.
+
+However, final deletion is blocked because the old implementation still
+contains potentially useful behavior not currently present in the canonical
+route:
+
+- learner-selectable focus:
+  mixed / reading / listening / writing / speaking;
+- persisted practice-session resume.
+
+The canonical route currently starts `mixed` practice directly and does not
+restore the old persisted practice session.
+
+Decision:
+
+During the combined YKI implementation phase, explicitly decide whether these
+behaviors belong in the final YKI practice experience.
+
+If retained, migrate them into `YkiPracticeRoute`.
+
+Only after that comparison may the old screen pass:
+
+`UNIQUE_REQUIRED_CAPABILITY_REMAINING=NO`
+
+Deletion decision:
+
+NOT AUTHORIZED YET.
 
 ---
 
-## Legacy FeatureEntry / daily-practice surface
+## FeatureEntry / daily-practice compatibility surface
 
 Guarded screen:
 
@@ -861,161 +1325,309 @@ Guarded screen:
 
 Classification:
 
-LEGACY / ALIAS CANDIDATE
+KEEP - TRANSITIONAL INTERNAL ALIAS / MERGE CANDIDATE
 
-It maps to `/learn` and largely directs the learner back to Learn.
+Evidence:
 
-Do not create a new drawer destination for it.
+- AppShell still imports and renders `FeatureEntryRoute` for persisted
+  `daily-practice` state;
+- navigation definitions still include the guarded screen;
+- its path maps to `/learn`;
+- Home's current Daily Practice action opens the canonical Learning route
+  instead;
+- the FeatureEntry surface mostly redirects users back to Learn/YKI.
+
+Decision:
+
+Do not expose it as a learner destination.
+
+Keep it temporarily while persisted-navigation/backward-compatibility behavior
+is clarified.
+
+Later simplify/remove the alias only after retained navigation state and old
+deep-link behavior are proven safe.
+
+Deletion decision:
+
+NOT AUTHORIZED YET.
 
 ---
 
-## Unreferenced exam-screen candidates
+## Zero-consumer exam scaffolds
 
-The static audit found no active code reference for:
+Files:
 
-- CEFRLevelScreen
-- DetailedFeedbackScreen
-- ExamHistoryScreen
-- ExamRunnerScreen
-- ExportResultsScreen
-- SubmissionProcessingScreen
-- SubmitExamScreen
+- `CEFRLevelScreen.tsx`
+- `DetailedFeedbackScreen.tsx`
+- `ExamHistoryScreen.tsx`
+- `ExamRunnerScreen.tsx`
+- `ExportResultsScreen.tsx`
+- `SubmissionProcessingScreen.tsx`
+- `SubmitExamScreen.tsx`
 
 Classification:
 
-ORPHAN / LEGACY AUDIT REQUIRED
+STRONG DELETE CANDIDATES
 
-These are not automatically product pages.
+Evidence:
 
-Before removal, compare them against the current YKI exam runtime and
-confirm that they contain no unique required functionality.
+- each file is only a five-line `ExamScreenScaffold`;
+- no active code consumer was found;
+- they contain no functional runtime implementation;
+- active exam runtime/results functionality exists elsewhere.
+
+They are not product surfaces and must not be exposed.
+
+Deletion execution remains deferred.
+
+Immediately before deletion, rerun the mandatory dependency and unique
+capability gates against the then-current tree.
 
 ---
 
-## Old packages/ui screen candidates
+## Legacy ExamIntro scaffold
 
-Candidates include:
+File:
 
-- LearnScreen
-- LearningSessionScreen
-- ProfessionalFinnishScreen
-- ProgressScreen
-- SettingsScreen
-- SpeakingLabScreen
+`apps/client/features/exam/screens/ExamIntroScreen.tsx`
 
 Classification:
 
-LEGACY / DUPLICATE AUDIT REQUIRED
+DELETE CANDIDATE
 
-The current app has active route/state implementations for these product
-areas.
+Evidence:
 
-Do not expose these old components independently.
+- it is a five-line scaffold;
+- the real YKI exam introduction/start experience is implemented by
+  `YkiExamScreen`;
+- its detected source dependency is a stale barrel export rather than a
+  runtime screen consumer.
+
+Removal must include the stale barrel export and pass the final dependency
+gate.
 
 ---
 
-# G. Infrastructure / non-product routes
+## ReviewAnswers route/screen
 
-Examples:
+Files:
 
-- `+html`
-- modal infrastructure
+- `apps/client/app/yki-exam/review.tsx`
+- `apps/client/features/exam/screens/ReviewAnswersScreen.tsx`
 
 Classification:
 
-INTENTIONALLY INTERNAL
+DELETE CANDIDATE
+
+The screen is only a placeholder and no active transition to the route was
+found.
+
+Do not confuse the existence of a route constant with implemented answer
+review.
 
 ---
 
-# Exposure plan
+## Old packages/ui product screens
 
-## Phase 1 — runtime validate the five strongest hidden features
+Legacy/consolidation candidates:
 
-Validate directly in the isolated localhost app:
+- `LearnScreen`
+- `LearningSessionScreen`
+- `ProfessionalFinnishScreen`
+- `ProgressScreen`
+- `SettingsScreen`
+- `SpeakingLabScreen`
 
-- `/learn/phrase-bank`
-- `/learn/revision-vault`
-- `/learn/confidence`
-- `/learn/planner`
-- `/professional/work-path`
+Classification:
 
-Confirm:
+MERGE USEFUL CONCEPTS - THEN DELETE CANDIDATES
 
-- page renders
-- authentication survives
-- API calls work
-- empty state works
-- back navigation works
-- actions lead to valid destinations
-- theme/layout are acceptable
-- no production changes required
+Evidence:
 
-## Phase 2 — expose validated features through their correct hubs
+- active state-route implementations already own the corresponding production
+  product areas;
+- these old screens have no direct active runtime consumer;
+- several are only barrel exports;
+- the old Settings screen's profile-image concept already exists in the active
+  Settings implementation.
 
-Do not overload the global drawer.
+Do not expose these screens independently.
 
-Recommended information architecture:
+Before deletion, preserve any still-useful product concepts in the canonical
+roadmap/implementation.
 
-Everyday Finnish:
-- Flashcards
-- Everyday roleplay
-- Personal Phrase Bank
-- Revision Vault
-- Confidence / learning insight
+One specifically useful idea is the LearningSession sequence:
 
-YKI:
-- Practice
-- Planner
-- Mock/full exam
+- diagnose;
+- retrieve;
+- produce;
+- schedule.
 
-Professional Finnish:
-- Vocabulary
-- Roleplay
-- Interview
-- Report Writing
-- Work Finnish Path
-- Incident Lab
+This concept may be reused by the future learner-event/adaptive learning loop,
+but dead runtime UI must not be retained merely as design storage.
 
-## Phase 3 — remove non-canonical surfaces
+Active `HomeScreen` and `ApplicationErrorScreen` are NOT deletion candidates.
 
-For every duplicate, legacy, orphan, or non-exposed candidate:
+---
 
-1. prove an active retention reason, or
-2. migrate any unique required functionality into the canonical surface,
-   then delete the obsolete implementation.
+## Legacy certificate placeholder chain
 
-Do not retain alternate screens as backups.
+Files include:
 
-After removal:
+- `packages/ui/screens/CertificateScreen.tsx`
+- `apps/client/features/exam/components/CertificateCard.tsx`
 
-- simplify GuardedScreen/navigation definitions;
-- remove stale Expo routes;
-- remove stale barrel exports;
-- remove stale imports and route literals;
-- run lint and navigation verification;
-- validate affected runtime flows;
-- add automated expose-or-delete invariants.
+Classification:
+
+LEGACY PLACEHOLDER / DELETE CANDIDATE
+
+This placeholder chain is separate from the real backend certificate
+capability described above.
+
+Run a final consumer/dependency proof before removing it.
+
+---
+
+## Expo template modal
+
+File:
+
+`apps/client/app/modal.tsx`
+
+Classification:
+
+STRONG DELETE CANDIDATE
+
+Evidence:
+
+- it contains default Expo template copy (`This is a modal`);
+- no inbound modal route consumer was found;
+- it has no KieliValmis product responsibility.
+
+Do not delete during this documentation pass.
+
+Run the mandatory deletion gate immediately before removal.
+
+---
+
+## Legacy public-marketing / web sources
+
+Canonical active public Expo routes currently use:
+
+- `NativeForOrganizationsScreen`
+- `NativeContactScreen`
+- `KieliValmisLandingScreen`
+
+Legacy candidates include:
+
+- `apps/client/features/marketing/screens/ForOrganizationsScreen.tsx`
+- `apps/client/web/ForOrganizationsScreen.tsx`
+- `apps/client/web/ContactScreen.tsx`
+- `apps/client/web/LearnLandingPage.tsx`
+
+Classification:
+
+MERGE / CONTENT-PROVENANCE AUDIT - THEN DELETE CANDIDATES
+
+No active runtime import was found for the old web pages.
+
+Do not delete them blindly because:
+
+- the older organization page contains potentially useful and honest
+  pilot-partner copy;
+- `LearnLandingPage.tsx` is referenced as source provenance by the CG5
+  localization documents.
+
+Before deletion:
+
+1. compare useful copy/content with the canonical public-marketing surfaces;
+2. migrate any product messaging still worth retaining;
+3. prove no translation-generation/build tooling reads the legacy source;
+4. preserve localization provenance where required;
+5. rerun reverse-dependency gates.
+
+No old public screen should remain indefinitely merely as an informal backup.
+
+---
+
+# G. Infrastructure routes
+
+## `+html`
+
+Classification:
+
+KEEP - INTERNAL EXPO/WEB INFRASTRUCTURE
+
+It owns web document metadata/infrastructure behavior and is not a
+learner-facing page.
+
+Deletion decision:
+
+NO.
+
+---
+
+## `modal.tsx`
+
+The generic template modal is classified above as a deletion candidate and is
+not considered required infrastructure merely because Expo created it.
+
+---
+
+# Phase 0 classification status
+
+The initial six high-value feature audits plus the route-coverage,
+active-workflow, Read/Create ownership, and legacy/orphan reconciliation passes
+now provide the evidence needed to close the Phase 0 classification inventory.
+
+Phase 0 does NOT authorize immediate exposure or repair of the blocked useful
+features.
+
+Phase 0 does NOT authorize immediate deletion merely from a candidate label.
+
+Next sequence:
+
+1. freeze this final classification documentation;
+2. combine the agents-package findings with the KieliValmis prospective
+   roadmap and these Phase 0 findings;
+3. produce one dependency-ordered implementation plan;
+4. establish the final navigation, entitlement, learner-event, progress,
+   Professional taxonomy, and YKI foundations;
+5. return to KEEP-BLOCKED useful features and repair/expose them in their
+   intended product homes;
+6. execute obsolete-surface deletions only in explicit deletion batches after
+   the mandatory gates pass on the then-current tree.
+
+The stale previous plan to simply runtime-test and expose the five strongest
+hidden features is superseded by the evidence gathered during Phase 0.
 
 ---
 
 # Audit rule
 
-A learner-facing production feature must have an intentional discoverable
-entry point.
+Every learner-facing implementation must have an explicit evidence-backed
+disposition.
 
-A non-exposed page may remain only when its verified runtime purpose is
-documented in this audit.
+Allowed dispositions include:
 
-Allowed retained classifications are therefore:
+- EXPOSED / ACTIVE;
+- CONTEXTUAL WORKFLOW;
+- INTERNAL INFRASTRUCTURE;
+- ENTITLEMENT-HIDDEN;
+- KEEP - BLOCKED FROM EXPOSURE/PROMOTION;
+- KEEP CAPABILITY - MERGE CANDIDATE;
+- SEPARATE PRODUCT - ACTIVE MODULE, when current repository responsibility is
+  proven;
+- DELETE CANDIDATE, pending mandatory deletion gates.
 
-- EXPOSED
-- CONTEXTUAL — with active-flow evidence
-- INTERNAL — with infrastructure/workflow evidence
-- ENTITLEMENT-HIDDEN — but discoverable when entitled
+`SEPARATE PRODUCT` alone is not a retention reason.
 
-`SEPARATE PRODUCT` alone is not a retention reason inside this repository.
+`DIRECT-URL-ONLY` alone is not a retention reason.
 
-A page that has no verified current responsibility must be deleted.
+A duplicate page must not be retained as a backup.
 
-New direct-URL-only product surfaces and unjustified duplicate screens
-should fail future exposure review.
+A deletion candidate must not be removed until reverse dependencies and unique
+required capability have been re-proven against the current tree.
+
+A useful blocked feature must not be exposed until its documented correctness,
+data, entitlement, navigation, and runtime gates pass.

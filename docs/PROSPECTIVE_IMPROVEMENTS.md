@@ -706,6 +706,211 @@ learner-event architecture, and navigation model.
 
 ---
 
+# P0 — Full-surface reconciliation findings
+
+These items were discovered during the final Phase 0 route, ownership, and
+legacy/orphan reconciliation.
+
+They are registered now so none are lost when the agents-package findings and
+the broader KieliValmis roadmap are merged into the combined implementation
+plan.
+
+## KV-P0-001 — Repair `/help` route contract
+
+Status: TODO
+
+Help is an active AppShell capability and Settings links to it, but navigation
+maps it to `/help` while no Expo `/help` route file exists.
+
+Canonicalize direct deep-link and browser-refresh behavior without creating a
+second Help implementation.
+
+---
+
+## KV-P0-002 — Enforce Read entitlement on direct routes
+
+Status: TODO
+
+`AppShell` knows `readAccess`, but `ReadProtectedRoute` currently gates direct
+Read child routes by authentication token rather than Read entitlement.
+
+Align direct routes, AppShell navigation, and backend authorization with the
+separate paid-product contract.
+
+---
+
+## KV-P0-003 — Enforce Create entitlement on direct routes
+
+Status: TODO
+
+`CreateProtectedRoute` currently checks authentication but not `createAccess`.
+
+Keep Create pre-launch and ensure direct Studio access follows the final Create
+entitlement contract before launch.
+
+---
+
+## KV-P0-004 — Canonicalize Read/Create AppShell navigation
+
+Status: TODO
+
+`read` and `create` are GuardedScreen values with entitlement checks, but they
+are not handled by the current feature-entry/secondary-screen routing branches.
+
+Remove the competing navigation models so gateway navigation, guarded
+navigation, persisted navigation, direct routes, and deep links agree.
+
+---
+
+## KV-P0-005 — Reconcile multi-product architecture documentation
+
+Status: TODO
+
+Older architecture documentation says Read should remain preview-only while
+later implementation records prove a real native Read module now exists inside
+the shared Expo app.
+
+Document the current architecture clearly:
+
+- shared native app shell;
+- separate Learn and Read product modules;
+- separate entitlements/payments;
+- Learn backend on Hetzner;
+- Read backend on Render;
+- Create still pre-launch.
+
+---
+
+## KV-P0-006 — Preserve useful legacy YKI Practice behavior
+
+Status: TODO
+
+Before deleting the unconsumed legacy `YkiPracticeScreen`, explicitly evaluate
+and, if retained, migrate:
+
+- skill-focus selection;
+- persisted practice-session resume.
+
+The canonical YKI Practice route should remain the only final learner surface.
+
+---
+
+## KV-P0-007 — Remove orphan exam scaffold screens
+
+Status: DEFERRED - PRE-DELETE GATES REQUIRED
+
+Candidates:
+
+- CEFRLevelScreen
+- DetailedFeedbackScreen
+- ExamHistoryScreen
+- ExamRunnerScreen
+- ExportResultsScreen
+- SubmissionProcessingScreen
+- SubmitExamScreen
+- legacy ExamIntroScreen
+
+The seven zero-consumer screens are only five-line scaffolds.
+
+ExamIntro is likewise a scaffold and is currently retained by a stale barrel
+export.
+
+Remove them only in a controlled deletion batch after current-tree dependency
+and unique-capability gates pass.
+
+---
+
+## KV-P0-008 — Resolve placeholder YKI review route
+
+Status: TODO
+
+`/yki-exam/review` currently has no verified inbound workflow and renders only
+a placeholder scaffold.
+
+Either build real answer review as part of the canonical YKI result workflow
+or remove the route/screen after deletion gates.
+
+Do not retain a fake review page.
+
+---
+
+## KV-P0-009 — Define and correctly wire YKI certificate capability
+
+Status: TODO
+
+The backend exposes an authenticated YKI session certificate capability, while
+the current frontend certificate route is disconnected from that API.
+
+Before exposure:
+
+- define what the certificate represents;
+- ensure naming cannot imply unsupported official status;
+- bind it to the learner's verified session;
+- connect it only from valid results state;
+- localize/theme it;
+- handle not-issued and error states.
+
+Do not delete the backend capability merely because the current frontend is
+incomplete.
+
+---
+
+## KV-P0-010 — Remove Expo template modal
+
+Status: DEFERRED - PRE-DELETE GATES REQUIRED
+
+`apps/client/app/modal.tsx` is default Expo template UI with no verified product
+consumer.
+
+Delete it only after the final dependency gate.
+
+---
+
+## KV-P0-011 — Consolidate old packages/ui product screens
+
+Status: TODO
+
+Canonical product routes now supersede the old packages/ui Learn,
+LearningSession, ProfessionalFinnish, Progress, Settings, and SpeakingLab
+screens.
+
+Before deletion, preserve useful product concepts rather than preserving dead
+runtime UI.
+
+In particular, evaluate the existing learning-loop concept:
+
+diagnose -> retrieve -> produce -> schedule
+
+for the future learner-event/adaptive learning architecture.
+
+---
+
+## KV-P0-012 — Consolidate legacy public marketing/web sources
+
+Status: TODO
+
+Compare the old organization/contact/Learn landing source files with the
+canonical native public-marketing surfaces.
+
+Preserve useful pilot-partner messaging and CG5/localization provenance, prove
+that no build or generation tool depends on the old files, then remove obsolete
+duplicates through the normal deletion gate.
+
+---
+
+## KV-P0-013 — Simplify the daily-practice compatibility alias
+
+Status: TODO
+
+`daily-practice` remains in AppShell/persisted-navigation compatibility but maps
+to `/learn`, while the current Home action already opens the canonical Learn
+experience.
+
+After navigation-state compatibility is understood, remove unnecessary alias
+UI/state rather than exposing another learner destination.
+
+---
+
 # P1 — Authentication usability
 
 ## KV-AUTH-001 — Password visibility control
