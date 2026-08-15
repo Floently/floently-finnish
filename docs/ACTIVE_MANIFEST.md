@@ -13,6 +13,7 @@
 
 ## Product improvement roadmap
 - `docs/PROSPECTIVE_IMPROVEMENTS.md` -> persistent KieliValmis post-release product backlog, status tracker, acceptance requirements, and UI-exposure audit record
+- `docs/UI_EXPOSURE_AUDIT.md` -> classified inventory of exposed, contextual, direct-URL-only, separate-product, and legacy UI surfaces
 
 ## Deployment and stabilization
 - `apps/backend/requirements.txt`

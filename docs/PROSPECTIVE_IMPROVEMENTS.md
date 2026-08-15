@@ -101,7 +101,13 @@ one-click runtime validation.
 
 ## KV-UX-003 — Full built-page exposure audit
 
-Status: AUDIT
+Status: IN PROGRESS
+
+Audit evidence:
+
+`docs/UI_EXPOSURE_AUDIT.md`
+
+Initial static inventory and human classification completed on 2026-08-15.
 
 Goal:
 
@@ -178,6 +184,71 @@ Validate:
 - subscription route transitions
 
 Navigation state and URL state must not fight each other.
+
+---
+
+## KV-UX-006 — Expose Personal Phrase Bank
+
+Status: AUDIT
+
+The feature is built at `/learn/phrase-bank` but currently direct-URL-only.
+
+Runtime-validate it and, if healthy, expose it through Everyday Finnish.
+
+---
+
+## KV-UX-007 — Expose Revision Vault
+
+Status: AUDIT
+
+The feature is built at `/learn/revision-vault` but currently direct-URL-only.
+
+Runtime-validate it and, if healthy, expose it through Everyday Finnish
+and later connect it to Progress recommendations.
+
+---
+
+## KV-UX-008 — Expose Confidence Tracker
+
+Status: AUDIT
+
+The feature is built at `/learn/confidence` but currently direct-URL-only.
+
+Runtime-validate it and determine whether its best permanent home is
+Everyday Finnish, Progress, or both.
+
+---
+
+## KV-UX-009 — Expose YKI Planner
+
+Status: AUDIT
+
+The feature is built at `/learn/planner` but currently direct-URL-only.
+
+Runtime-validate it and, if healthy, expose it in the YKI pathway.
+
+---
+
+## KV-UX-010 — Expose Work Finnish Path
+
+Status: AUDIT
+
+The feature is built at `/professional/work-path` but currently
+direct-URL-only.
+
+Runtime-validate it and, if healthy, expose it through Professional Finnish.
+
+---
+
+## KV-UX-011 — Improve Workplace Incident Lab discoverability
+
+Status: AUDIT
+
+`/professional/incidents` is already contextually reachable but is not
+prominent in the Professional Finnish pathway.
+
+Validate the experience and decide whether to add a visible Professional
+Finnish entry while retaining contextual speaking-flow access.
 
 ---
 
