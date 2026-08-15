@@ -54,6 +54,68 @@ Every page or learner-facing screen must end in exactly one of these states:
 
 A decision to retain a non-exposed page requires verifiable evidence.
 
+## Mandatory pre-deletion dependency proof gate
+
+No page, component, route, hook, service, helper, type, constant, registry,
+or feature directory may be deleted until reverse-dependency evidence proves
+that retained code does not depend on anything it provides.
+
+This gate applies even when the candidate appears unused in the UI.
+
+Before deletion, prove all of the following:
+
+1. **Direct-import proof**
+   - no retained source imports the candidate;
+
+2. **Export-consumer proof**
+   - no retained source consumes any default, named, type, interface, class,
+     constant, hook, helper, or other export provided by the candidate;
+
+3. **Re-export / barrel proof**
+   - no retained barrel or index file exposes the candidate to another
+     consumer;
+
+4. **Dynamic-loading proof**
+   - no retained `import()`, `require()`, lazy loader, registry, lookup table,
+     plugin map, or string-based loader points to it;
+
+5. **Navigation proof**
+   - no retained route, redirect, deep link, callback, drawer item, home
+     action, workflow transition, or URL contract requires it;
+
+6. **Shared-function proof**
+   - no retained feature relies on hooks, services, helpers, storage keys,
+     events, callbacks, API wrappers, constants, or types supplied only by the
+     code being removed;
+
+7. **Unique-capability proof**
+   - compare the candidate with the canonical implementation and identify any
+     behavior that exists only in the candidate;
+
+8. **Migration-before-deletion proof**
+   - if unique required behavior exists, migrate and validate that behavior
+     first, then repeat the dependency proof;
+
+9. **Platform/external proof**
+   - verify Expo, web, Android, iOS, authentication, payments, callbacks,
+     deep links, store review flows, and external documented consumers where
+     relevant.
+
+A clean build after deletion is a secondary validation step. It is not a
+replacement for this pre-deletion proof.
+
+Deletion is allowed only after the evidence record explicitly states:
+
+`PRE_DELETE_DEPENDENCY_GATE=PASS`
+
+and:
+
+`UNIQUE_REQUIRED_CAPABILITY_REMAINING=NO`
+
+After deletion, run a second validation gate covering stale references,
+lint/type checks, navigation invariants, affected runtime flows, and
+platform implications.
+
 Acceptable retention evidence includes at least one of:
 
 - imported and invoked by an active production flow;

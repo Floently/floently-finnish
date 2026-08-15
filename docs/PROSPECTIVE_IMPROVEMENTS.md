@@ -747,11 +747,25 @@ Do not keep duplicate/legacy screens as informal backups.
 
 Before deleting a candidate:
 
-- inspect all imports and route references;
-- verify current production flow ownership;
-- compare against the canonical implementation;
-- migrate any unique required behavior;
-- delete stale routes, exports, and navigation definitions with the page.
+- prove there are no retained direct importers;
+- enumerate every export the candidate provides and prove there are no
+  retained consumers;
+- inspect re-exports and barrel/index chains;
+- inspect dynamic imports, requires, registries and string-based loaders;
+- verify route/deep-link/callback/workflow dependencies;
+- verify hooks, services, helpers, types, constants, storage/events and API
+  dependencies;
+- compare the candidate against the canonical implementation for unique
+  behavior;
+- migrate and validate any unique required behavior before deletion;
+- repeat the reverse-dependency audit after migration;
+- verify relevant web/Expo/Android/iOS/auth/payment/external dependencies;
+- require `PRE_DELETE_DEPENDENCY_GATE=PASS`;
+- require `UNIQUE_REQUIRED_CAPABILITY_REMAINING=NO`;
+- only then delete stale files, routes, exports and navigation definitions.
+
+A post-deletion build is required but does not replace the pre-deletion
+dependency proof.
 
 Git history is the backup.
 
