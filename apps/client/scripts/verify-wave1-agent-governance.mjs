@@ -110,8 +110,10 @@ for (const marker of [
   'docs/agents/research/AGENT_${letter}_RESEARCH.md',
   'RESEARCH_GATE=PASS',
   'WAVE1_FEATURE_BRANCH_SAFETY=PASS',
-  'WAVE1_PRODUCTION_ACTIONS=NONE',
-  'apps/client/package.json',
+  'WAVE1_PROTECTED_PATH_SCAN=PASS',
+  'WAVE1_DEPENDENCY_AND_DEPLOYMENT_SCAN=PASS',
+  'docker-compose',
+  'requirements',
   'apps/backend/app/routers/v1_roleplay.py',
   'apps/backend/app/routers/v1_yki.py',
 ]) {
