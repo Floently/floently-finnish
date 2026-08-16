@@ -51,7 +51,7 @@ for (const agent of ['Agent A', 'Agent B', 'Agent C', 'Agent D', 'Agent E', 'Age
 
 for (const marker of [
   'SSH to the live server',
-  'new native dependencies',
+  'may not add native dependencies',
   'Do not present learner-specific weakness',
   'YKI',
   'Roleplay',
