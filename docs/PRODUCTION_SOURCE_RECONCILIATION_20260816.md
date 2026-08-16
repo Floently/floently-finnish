@@ -1010,3 +1010,145 @@ Current reconciliation status:
     R3C4_PERMANENT_YKI_CI=READY_TO_FREEZE
     R3C5_CLIENT_FINAL_SUBMIT_RECOVERY=NEXT
     PRODUCTION_DEPLOYMENT=PENDING
+
+## 2026-08-16 YKI R3C5 client recovery freeze
+
+### Final client donor authority
+
+The client dependency-closure audit established the final known historical YKI
+client authority as:
+
+    cc84c0058bc31d3235c875e9985a6908981b0703
+    Save YKI speaking recordings when the timer expires
+
+It descends from the complete July YKI evaluation/recovery chain and no later
+descendant commit touches the reconciled R3C5 path set.
+
+The final closed R3C5 source scope contains fourteen YKI-only client/core
+paths:
+
+    apps/client/features/exam/screens/ExamRuntimeScreen.tsx
+    apps/client/features/exam/screens/ResultsOverviewScreen.tsx
+    apps/client/features/exam/state/examResultsPersistence.ts
+    apps/client/features/yki-exam/screens/YkiExamScreen.tsx
+    apps/client/features/yki-exam/services/ykiExamService.ts
+    apps/client/scripts/verify-yki-evaluation-integration.mjs
+    apps/client/scripts/verify-yki-final-submit-recovery.mjs
+    apps/client/scripts/verify-yki-local-fallback-contract.mjs
+    apps/client/scripts/verify-yki-report-calibration.mjs
+    apps/client/scripts/verify-yki-report-hardening.mjs
+    apps/client/scripts/verify-yki-session-handoff.mjs
+    apps/client/scripts/verify-yki-speaking-timer-autosave.mjs
+    packages/core/api/voice.ts
+    packages/core/api/ykiExam.ts
+
+Roleplay source and the mixed roleplay/YKI detailed-report verifier were
+explicitly excluded from R3C5.
+
+### Controlled forward adaptations
+
+Thirteen recovered paths remain functionally identical to their proven donor
+behavior except for the specifically documented forward-compatible changes.
+
+ResultsOverviewScreen.tsx received exactly six customer-facing/export rebrand
+replacements from Floently to KieliValmis.
+
+The technical AsyncStorage identifiers remain unchanged:
+
+    floently:yki_exam_results
+    floently:yki_exam_session_id
+    floently:yki_exam_level_band
+
+Those identifiers are intentionally preserved for installed-user/session
+compatibility.
+
+ExamRuntimeScreen.tsx received one non-functional lint-only wording repair:
+
+    what you'd say
+        ->
+    what you would say
+
+The repair removes the donor JSX react/no-unescaped-entities error without
+changing YKI behavior.
+
+### Recovered client capability
+
+R3C5 restores and protects:
+
+- authenticated YKI session handoff;
+- fail-closed missing-session behavior;
+- writing/speaking evaluation evidence;
+- secure speaking audio references;
+- persisted submission/evaluation recovery;
+- final-submit deduplication after indeterminate gateway timeouts;
+- no duplicate final-audio upload;
+- finalization state freezing;
+- persisted detailed evaluation reports;
+- calibrated practice prediction;
+- speaking recording autosave when the timer expires;
+- an explicit recording-saving phase;
+- single recorder-stop execution;
+- result/export KieliValmis branding;
+- existing storage-key compatibility.
+
+### Local validation
+
+The frozen candidate passed:
+
+    R3C5_CLIENT_TYPESCRIPT=PASS
+    R3C5_TARGETED_ESLINT=PASS
+    R3C5_RUNTIME_ESLINT=PASS
+    R3C5_SEVEN_YKI_CLIENT_VERIFIERS=PASS
+    R3C5_KIELIVALMIS_REBRAND_REGRESSION=PASS
+    R3C5_KIELIVALMIS_VISIBLE_BRAND_AUDIT=PASS
+    R3C5_SHARED_VOICE_ROLEPLAY_REGRESSION=PASS
+    R3C5_NAVIGATION_REGRESSION=PASS
+    R3C5_FINAL_SUBMIT_AND_TIMER_CONTRACTS=PASS
+    R3C5_LEGACY_STORAGE_KEYS_PRESERVED=PASS
+
+Targeted ESLint completed with zero R3C5 errors. Warnings remain non-blocking.
+A full-client lint probe exposed unrelated pre-existing errors outside the R3C5
+scope; those were not changed during YKI source reconciliation.
+
+### R3C4 remote verification
+
+R3C4 was previously committed as:
+
+    ad5fa3f27ba07109d88568068f18c4e374c03df9
+
+The permanent YKI backend workflow completed successfully on GitHub Actions:
+
+    workflow = YKI evaluation contract
+    run_id = 31941424866
+    job_id = 95151087175
+    conclusion = success
+
+### Permanent R3C5 CI extension
+
+The existing YKI workflow now includes a dedicated client job protecting:
+
+- Node 20;
+- a pinned pnpm 10 toolchain;
+- frozen-lockfile workspace installation;
+- TypeScript compilation;
+- targeted ESLint over the protected R3C5 source;
+- all seven YKI client verifier scripts;
+- KieliValmis native/visible-brand contracts;
+- shared voice/roleplay audio invariants;
+- navigation invariants.
+
+The client job is triggered by YKI client/core source and relevant package,
+TypeScript, ESLint, lockfile, and workflow changes.
+
+No source overlay, backend image change, service restart, OTA publication,
+mobile build, or production deployment occurred during R3C5 source freeze.
+
+Current reconciliation status:
+
+    R3C1_RUNTIME_FOUNDATION=COMPLETE
+    R3C2_SERVICE_API_EVALUATOR=COMPLETE
+    R3C3_LOCAL_FALLBACK=COMPLETE
+    R3C4_PERMANENT_YKI_BACKEND_CI=COMPLETE
+    R3C5_CLIENT_RECOVERY_SOURCE=READY_TO_FREEZE
+    R3C5_PERMANENT_CLIENT_CI=READY_TO_VERIFY_REMOTELY
+    PRODUCTION_DEPLOYMENT=PENDING

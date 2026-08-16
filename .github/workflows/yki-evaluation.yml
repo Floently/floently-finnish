@@ -4,10 +4,34 @@ on:
   push:
     paths:
       - "apps/backend/**"
+      - "apps/client/features/exam/**"
+      - "apps/client/features/yki-exam/**"
+      - "apps/client/scripts/verify-yki-*.mjs"
+      - "apps/client/package.json"
+      - "apps/client/tsconfig.json"
+      - "apps/client/eslint.config.js"
+      - "packages/core/api/ykiExam.ts"
+      - "packages/core/api/voice.ts"
+      - "package.json"
+      - "pnpm-lock.yaml"
+      - "pnpm-workspace.yaml"
+      - "tsconfig.json"
       - ".github/workflows/yki-evaluation.yml"
   pull_request:
     paths:
       - "apps/backend/**"
+      - "apps/client/features/exam/**"
+      - "apps/client/features/yki-exam/**"
+      - "apps/client/scripts/verify-yki-*.mjs"
+      - "apps/client/package.json"
+      - "apps/client/tsconfig.json"
+      - "apps/client/eslint.config.js"
+      - "packages/core/api/ykiExam.ts"
+      - "packages/core/api/voice.ts"
+      - "package.json"
+      - "pnpm-lock.yaml"
+      - "pnpm-workspace.yaml"
+      - "tsconfig.json"
       - ".github/workflows/yki-evaluation.yml"
   workflow_dispatch:
 
@@ -103,3 +127,71 @@ jobs:
             apps/backend/tests/test_yki_local_fallback.py \
             apps/backend/tests/test_yki_orchestrator.py \
             apps/backend/tests/test_yki_state_machine.py
+
+  verify-yki-client:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up pnpm
+        uses: pnpm/action-setup@v6
+        with:
+          version: "10.34.0"
+          run_install: false
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "pnpm"
+          cache-dependency-path: pnpm-lock.yaml
+
+      - name: Install frozen workspace dependencies
+        run: |
+          pnpm install --frozen-lockfile
+
+      - name: TypeScript check
+        run: |
+          pnpm --dir apps/client exec tsc --noEmit
+
+      - name: Lint protected YKI client source
+        run: |
+          cd apps/client
+          pnpm exec eslint \
+            features/exam/screens/ExamRuntimeScreen.tsx \
+            features/exam/screens/ResultsOverviewScreen.tsx \
+            features/exam/state/examResultsPersistence.ts \
+            features/yki-exam/screens/YkiExamScreen.tsx \
+            features/yki-exam/services/ykiExamService.ts \
+            scripts/verify-yki-evaluation-integration.mjs \
+            scripts/verify-yki-final-submit-recovery.mjs \
+            scripts/verify-yki-local-fallback-contract.mjs \
+            scripts/verify-yki-report-calibration.mjs \
+            scripts/verify-yki-report-hardening.mjs \
+            scripts/verify-yki-session-handoff.mjs \
+            scripts/verify-yki-speaking-timer-autosave.mjs \
+            ../../packages/core/api/voice.ts \
+            ../../packages/core/api/ykiExam.ts
+
+      - name: Verify YKI client contracts
+        run: |
+          node apps/client/scripts/verify-yki-evaluation-integration.mjs
+          node apps/client/scripts/verify-yki-final-submit-recovery.mjs
+          node apps/client/scripts/verify-yki-local-fallback-contract.mjs
+          node apps/client/scripts/verify-yki-report-calibration.mjs
+          node apps/client/scripts/verify-yki-report-hardening.mjs
+          node apps/client/scripts/verify-yki-session-handoff.mjs
+          node apps/client/scripts/verify-yki-speaking-timer-autosave.mjs
+
+      - name: Verify KieliValmis native branding
+        run: |
+          cd apps/client
+          node ./scripts/verify-kielivalmis-rebrand.mjs
+          node ./scripts/audit-kielivalmis-visible-brand.mjs
+
+      - name: Verify shared voice and navigation regressions
+        run: |
+          cd apps/client
+          node ./scripts/verify-roleplay-audio-invariants.mjs
+          node ./scripts/verify-navigation-invariants.mjs

@@ -135,7 +135,7 @@ function buildFilePart(uriOrBlob: Blob | string, fileName: string, mimeType: str
     : uriOrBlob;
 }
 
-export async function transcribeVoiceAudio(input: {
+export type VoiceTranscriptionInput = {
   uriOrBlob: Blob | string;
   mimeType: string;
   fileName: string;
@@ -143,78 +143,175 @@ export async function transcribeVoiceAudio(input: {
   mode?: string;
   sessionId?: string;
   speakingSessionId?: string;
+  taskId?: string;
+  turnId?: string;
   durationMs?: number;
   fileSizeBytes?: number;
-}): Promise<string | null> {
+};
+
+export type VoiceTranscriptionResult = {
+  transcript: string | null;
+  voiceRef: string | null;
+  provider: string | null;
+  durationMs: number | null;
+  sttAvailable: boolean;
+};
+
+export async function transcribeVoiceAudioDetailed(
+  input: VoiceTranscriptionInput,
+): Promise<VoiceTranscriptionResult> {
   const form = new FormData();
   form.append('file', buildFilePart(input.uriOrBlob, input.fileName, input.mimeType));
   form.append('mime_type', input.mimeType.split(';')[0]);
   form.append('locale', input.locale ?? 'fi-FI');
   form.append('mode', input.mode ?? 'speaking_practice');
   form.append('session_id', input.sessionId ?? 'voice-session');
-  form.append('speaking_session_id', input.speakingSessionId ?? input.sessionId ?? 'voice-session');
+  form.append(
+    'speaking_session_id',
+    input.speakingSessionId ?? input.sessionId ?? 'voice-session',
+  );
+
+  if (input.taskId) {
+    form.append('task_id', input.taskId);
+  }
+
+  if (input.turnId) {
+    form.append('turn_id', input.turnId);
+  }
+
   if (typeof input.durationMs === 'number' && Number.isFinite(input.durationMs)) {
     form.append('duration_ms', String(Math.max(0, Math.round(input.durationMs))));
   }
+
   if (typeof input.fileSizeBytes === 'number' && Number.isFinite(input.fileSizeBytes)) {
-    form.append('client_file_size_bytes', String(Math.max(0, Math.round(input.fileSizeBytes))));
+    form.append(
+      'client_file_size_bytes',
+      String(Math.max(0, Math.round(input.fileSizeBytes))),
+    );
   }
 
   const headers = new Headers();
   const deviceHeaders = await getClientDeviceHeaders();
+
   for (const [key, value] of Object.entries(deviceHeaders)) {
     headers.set(key, value);
   }
-  const token = getAuthToken();
-  if (token) headers.set('Authorization', `Bearer ${token}`);
 
-  const response = await fetch(`${getApiBaseUrl()}/api/v1/voice/stt/transcriptions`, {
-    method: 'POST',
-    headers,
-    body: form,
-  });
-  const json = await readVoiceJson(response);
-  if (!response.ok) {
-    throw new Error(extractVoiceErrorMessage(json, 'Voice transcription request failed.'));
+  const token = getAuthToken();
+
+  if (token) {
+    headers.set('Authorization', `Bearer ${token}`);
   }
+
+  const response = await fetch(
+    `${getApiBaseUrl()}/api/v1/voice/stt/transcriptions`,
+    {
+      method: 'POST',
+      headers,
+      body: form,
+    },
+  );
+
+  const json = await readVoiceJson(response);
+
+  if (!response.ok) {
+    throw new Error(
+      extractVoiceErrorMessage(
+        json,
+        'Voice transcription request failed.',
+      ),
+    );
+  }
+
   const data = unwrapData(json) as {
     stt_available?: boolean;
     transcript?: string | null;
     text?: string | null;
+    audio_ref?: string | null;
+    voice_ref?: string | null;
+    provider?: string | null;
+    duration_ms?: number | null;
     error_code?: string | null;
     error_message?: string | null;
     failure_reasons?: string[] | null;
   } | null;
+
   if (!data) {
-    throw new Error('Voice transcription returned no payload.');
+    throw new Error(
+      'Voice transcription returned no payload.',
+    );
   }
-  const transcript = String(data.transcript || data.text || '').trim();
+
+  const transcript = String(
+    data.transcript
+    || data.text
+    || '',
+  ).trim();
+
+  const result: VoiceTranscriptionResult = {
+    transcript: transcript || null,
+    voiceRef:
+      String(
+        data.audio_ref
+        || data.voice_ref
+        || '',
+      ).trim()
+      || null,
+    provider: String(data.provider || '').trim() || null,
+    durationMs:
+      typeof data.duration_ms === 'number'
+        ? data.duration_ms
+        : input.durationMs ?? null,
+    sttAvailable: data.stt_available !== false,
+  };
+
   if (transcript) {
-    return transcript;
+    return result;
   }
-  // No transcript. Surface the server's specific reason so the UI can show a useful message
-  // rather than the generic "No speech detected" fallback.
+
   if (data.error_message) {
     throw new Error(data.error_message);
   }
+
   if (data.error_code === 'STT_PROVIDER_AUTH_FAILED') {
-    throw new Error('Transcription provider authentication failed.');
+    throw new Error(
+      'Transcription provider authentication failed.',
+    );
   }
+
   if (data.error_code === 'STT_PROVIDER_PERMISSION_FAILED') {
-    throw new Error('Transcription service is not enabled for the current backend project.');
+    throw new Error(
+      'Transcription service is not enabled for the current backend project.',
+    );
   }
+
   if (data.error_code === 'AUDIO_TOO_SHORT') {
-    throw new Error('Recording was too short. Please hold the microphone for at least one second.');
+    throw new Error(
+      'Recording was too short. Please hold the microphone for at least one second.',
+    );
   }
+
   if (data.error_code === 'SILENCE_DETECTED') {
-    return null;
+    return result;
   }
+
   if (data.stt_available === false) {
-    throw new Error('Voice transcription service is unavailable.');
+    throw new Error(
+      'Voice transcription service is unavailable.',
+    );
   }
-  // Configured providers returned empty → most likely genuine silence. Return null so the caller
-  // can show "No speech detected" honestly.
-  return null;
+
+  return result;
+}
+
+export async function transcribeVoiceAudio(
+  input: VoiceTranscriptionInput,
+): Promise<string | null> {
+  const result = await transcribeVoiceAudioDetailed(
+    input,
+  );
+
+  return result.transcript;
 }
 
 export async function getVoiceHealth(): Promise<Record<string, unknown> | null> {
