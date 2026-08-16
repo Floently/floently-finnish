@@ -25,6 +25,9 @@ GOOGLE_VOICE_CATALOG_URL = (
     "https://cloud.google.com/text-to-speech/docs/list-voices-and-types"
 )
 
+# Provider-published Finnish voice metadata verified 2026-08-16. Keep legacy
+# Standard/Wavenet entries here so regression checks can prove they remain
+# classified correctly even though the normal persona pool uses Chirp 3 HD.
 _GOOGLE_VOICE_GENDER: dict[str, VoiceGender] = {
     "fi-FI-Chirp3-HD-Alnilam": "male",
     "fi-FI-Chirp3-HD-Charon": "male",
@@ -38,11 +41,20 @@ _GOOGLE_VOICE_GENDER: dict[str, VoiceGender] = {
     "fi-FI-Standard-B": "female",
 }
 
-_GOOGLE_MALE_VOICES: tuple[str, ...] = tuple(
-    voice for voice, gender in _GOOGLE_VOICE_GENDER.items() if gender == "male"
+# Use one comparable GA voice family for normal actor selection so male and
+# female personas receive similar synthesis quality. Legacy voices remain
+# explicit fallbacks/metadata, not random members of the main persona pool.
+_GOOGLE_MALE_VOICES: tuple[str, ...] = (
+    "fi-FI-Chirp3-HD-Alnilam",
+    "fi-FI-Chirp3-HD-Charon",
+    "fi-FI-Chirp3-HD-Enceladus",
+    "fi-FI-Chirp3-HD-Fenrir",
 )
-_GOOGLE_FEMALE_VOICES: tuple[str, ...] = tuple(
-    voice for voice, gender in _GOOGLE_VOICE_GENDER.items() if gender == "female"
+_GOOGLE_FEMALE_VOICES: tuple[str, ...] = (
+    "fi-FI-Chirp3-HD-Aoede",
+    "fi-FI-Chirp3-HD-Autonoe",
+    "fi-FI-Chirp3-HD-Callirrhoe",
+    "fi-FI-Chirp3-HD-Despina",
 )
 
 _GOOGLE_PROFILE_VOICES: dict[str, tuple[str, ...]] = {
