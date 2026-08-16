@@ -12,6 +12,8 @@ Important product rules:
   provider voice while a pool can still provide audible variety.
 - An exact provider voice ID, once resolved into a voice identity, must round-trip
   through this registry unchanged when its gender contract is valid.
+- The versioned resolved-profile transport preserves exact voice binding for
+  already-shipped clients that only know the legacy ``voiceProfile`` string.
 - Structured YKI multi-speaker playback remains KV-VOICE-004.
 """
 from __future__ import annotations
@@ -22,6 +24,7 @@ from typing import Any, Literal
 VoiceGender = Literal["male", "female", "neutral"]
 
 VOICE_REGISTRY_VERSION = "2026-08-16.1"
+RESOLVED_VOICE_PROFILE_PREFIX = "resolved_voice_v1"
 GOOGLE_VOICE_CATALOG_URL = (
     "https://cloud.google.com/text-to-speech/docs/list-voices-and-types"
 )
@@ -42,9 +45,6 @@ _GOOGLE_VOICE_GENDER: dict[str, VoiceGender] = {
     "fi-FI-Standard-B": "female",
 }
 
-# Use one comparable GA voice family for normal actor selection so male and
-# female personas receive similar synthesis quality. Legacy voices remain
-# explicit fallbacks/metadata, not random members of the main persona pool.
 _GOOGLE_MALE_VOICES: tuple[str, ...] = (
     "fi-FI-Chirp3-HD-Alnilam",
     "fi-FI-Chirp3-HD-Charon",
@@ -120,6 +120,34 @@ def _google_pool_for_gender(gender: VoiceGender) -> tuple[str, ...]:
     return _GOOGLE_FEMALE_VOICES
 
 
+def encode_resolved_voice_profile(identity: dict[str, Any]) -> str:
+    gender = str(identity.get("gender") or "neutral").strip().lower()
+    provider = str(identity.get("provider") or "google").strip().lower()
+    provider_voice_id = str(identity.get("provider_voice_id") or "").strip()
+    if gender not in {"male", "female", "neutral"} or not provider_voice_id:
+        raise ValueError("Resolved voice identity is incomplete.")
+    if ":" in provider or ":" in provider_voice_id:
+        raise ValueError("Resolved voice identity contains an invalid separator.")
+    return f"{RESOLVED_VOICE_PROFILE_PREFIX}:{gender}:{provider}:{provider_voice_id}"
+
+
+def _parse_resolved_voice_profile(value: str) -> tuple[VoiceGender, str, str] | None:
+    raw = str(value or "").strip()
+    prefix = RESOLVED_VOICE_PROFILE_PREFIX + ":"
+    if not raw.startswith(prefix):
+        return None
+    parts = raw.split(":", 3)
+    if len(parts) != 4:
+        raise ValueError("Malformed resolved voice profile.")
+    _, gender_raw, provider, provider_voice_id = parts
+    gender = str(gender_raw).strip().lower()
+    if gender not in {"male", "female", "neutral"}:
+        raise ValueError("Malformed resolved voice profile gender.")
+    if not provider or not provider_voice_id:
+        raise ValueError("Malformed resolved voice profile provider binding.")
+    return gender, provider.strip().lower(), provider_voice_id.strip()  # type: ignore[return-value]
+
+
 def provider_voice_name(
     provider: str,
     *,
@@ -129,12 +157,29 @@ def provider_voice_name(
 ) -> str | None:
     p = str(provider or "").strip().lower()
     profile_raw = str(voice_profile or "").strip()
-    gender = _resolved_gender(voice_hint, profile_raw)
+    transported = _parse_resolved_voice_profile(profile_raw)
+
+    if transported is not None:
+        transported_gender, transported_provider, transported_voice_id = transported
+        requested_gender = _resolved_gender(voice_hint, transported_gender)
+        if transported_provider != p:
+            raise ValueError(
+                f"Resolved voice provider mismatch: transport={transported_provider} requested={p}"
+            )
+        if (
+            requested_gender in {"male", "female"}
+            and transported_gender in {"male", "female"}
+            and requested_gender != transported_gender
+        ):
+            raise ValueError(
+                f"Resolved voice gender mismatch: transport={transported_gender} requested={requested_gender}"
+            )
+        profile_raw = transported_voice_id
+        gender = transported_gender
+    else:
+        gender = _resolved_gender(voice_hint, profile_raw)
 
     if p == "google":
-        # KV-VOICE-003: once the backend has resolved an exact provider voice,
-        # the client may send that exact ID back as voice_profile. Do not hash it
-        # into another voice. Validate the explicit actor gender before returning.
         exact_gender = google_voice_gender(profile_raw)
         if exact_gender is not None:
             if gender in {"male", "female"} and exact_gender != gender:
@@ -173,7 +218,6 @@ def provider_voice_name(
         return voice_name
 
     if p == "openai":
-        # Preserve a previously resolved OpenAI product assignment exactly.
         expected = _OPENAI_VOICES.get(gender, _OPENAI_VOICES["neutral"])
         if profile_raw in set(_OPENAI_VOICES.values()):
             if profile_raw != expected and gender in {"male", "female"}:
@@ -196,13 +240,7 @@ def resolve_voice_identity(
     provider: str,
     language: str = "fi-FI",
 ) -> dict[str, Any]:
-    """Resolve one immutable preferred voice binding for a product persona.
-
-    The identity is deterministic for the same persona/profile/provider and is
-    safe to send to clients. ``gender_certified`` means the provider publishes
-    matching gender metadata for the selected voice; OpenAI's built-in voice
-    mapping is currently a KieliValmis product assignment, not provider metadata.
-    """
+    """Resolve one immutable preferred voice binding for a product persona."""
     normalized_gender = _resolved_gender(gender, voice_profile)
     normalized_provider = str(provider or "google").strip().lower() or "google"
     resolved_voice = provider_voice_name(
@@ -340,6 +378,7 @@ def validate_voice_registry() -> dict:
         "errors": errors,
         "providers": ["google", "openai"],
         "registry_version": VOICE_REGISTRY_VERSION,
+        "resolved_voice_profile_prefix": RESOLVED_VOICE_PROFILE_PREFIX,
         "google_catalog_url": GOOGLE_VOICE_CATALOG_URL,
         "google_voices": {
             "female": list(_GOOGLE_FEMALE_VOICES),
