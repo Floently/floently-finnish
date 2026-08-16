@@ -6,8 +6,13 @@ from typing import Any
 from fastapi import APIRouter, Header, HTTPException
 from pydantic import BaseModel
 
+from app.core.config import SETTINGS
 from app.services.auth_service import current_user_from_authorization
 from app.services.subscription_service import require_feature
+from app.services.tts.voice_registry import (
+    encode_resolved_voice_profile,
+    resolve_voice_identity,
+)
 from app.runtime.roleplay import (
     list_scenarios as runtime_list_scenarios,
     start_session as runtime_start_session,
@@ -25,6 +30,71 @@ class RoleplaySessionStartRequest(BaseModel):
 
 class RoleplayTurnSubmitRequest(BaseModel):
     transcript: str
+
+
+def _attach_voice_identity(result: dict[str, Any]) -> dict[str, Any]:
+    """Attach one deterministic preferred TTS identity to a roleplay payload.
+
+    ``voiceIdentity`` is the structured forward contract. ``voiceProfile`` is
+    also replaced with a versioned resolved-voice transport token so already-
+    shipped clients, which only forward that legacy string, still request the
+    exact provider voice selected for this persona.
+    """
+    scenario = result.get("scenario") if isinstance(result.get("scenario"), dict) else {}
+    persona_id = str(
+        result.get("personaId")
+        or result.get("persona_id")
+        or scenario.get("personaId")
+        or ""
+    ).strip()
+    display_name = str(
+        result.get("personaName")
+        or result.get("persona_name")
+        or scenario.get("personaName")
+        or "AI"
+    ).strip() or "AI"
+    gender = str(
+        result.get("personaGender")
+        or result.get("persona_gender")
+        or scenario.get("personaGender")
+        or ""
+    ).strip().lower()
+    voice_profile = str(
+        result.get("semanticVoiceProfile")
+        or result.get("voiceProfile")
+        or result.get("voice_profile")
+        or ""
+    ).strip()
+
+    if not persona_id or gender not in {"male", "female"} or not voice_profile:
+        return result
+
+    provider = str(SETTINGS.tts_default_provider or "google").strip().lower() or "google"
+    if provider not in {"google", "openai"}:
+        provider = "google"
+
+    identity = resolve_voice_identity(
+        persona_id=persona_id,
+        display_name=display_name,
+        gender=gender,
+        voice_profile=voice_profile,
+        provider=provider,
+    )
+    result["voiceIdentity"] = {
+        "identityId": identity["identity_id"],
+        "personaId": identity["persona_id"],
+        "displayName": identity["display_name"],
+        "gender": identity["gender"],
+        "language": identity["language"],
+        "voiceProfile": identity["voice_profile"],
+        "provider": identity["provider"],
+        "providerVoiceId": identity["provider_voice_id"],
+        "registryVersion": identity["registry_version"],
+        "genderCertified": identity["gender_certified"],
+    }
+    result["semanticVoiceProfile"] = voice_profile
+    result["voiceProfile"] = encode_resolved_voice_profile(identity)
+    return result
 
 
 def build_roleplay_router() -> APIRouter:
@@ -69,7 +139,7 @@ def build_roleplay_router() -> APIRouter:
             )
         except (ValueError, KeyError) as exc:
             raise HTTPException(status_code=400, detail=str(exc)) from exc
-        return result
+        return _attach_voice_identity(result)
 
     @router.post("/roleplay/session/{session_id}/turn")
     async def submit_roleplay_turn_route(
@@ -84,9 +154,11 @@ def build_roleplay_router() -> APIRouter:
         user, _ = current_user_from_authorization(authorization)
         require_feature(user=user, feature="workplace")
         try:
-            return runtime_submit_turn(
-                session_id=session_id,
-                transcript=payload.transcript,
+            return _attach_voice_identity(
+                runtime_submit_turn(
+                    session_id=session_id,
+                    transcript=payload.transcript,
+                )
             )
         except KeyError as exc:
             raise HTTPException(status_code=404, detail=str(exc)) from exc
@@ -103,7 +175,7 @@ def build_roleplay_router() -> APIRouter:
         user, _ = current_user_from_authorization(authorization)
         require_feature(user=user, feature="workplace")
         try:
-            return runtime_finish_session(session_id=session_id)
+            return _attach_voice_identity(runtime_finish_session(session_id=session_id))
         except KeyError as exc:
             raise HTTPException(status_code=404, detail=str(exc)) from exc
 

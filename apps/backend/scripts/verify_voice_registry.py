@@ -10,8 +10,10 @@ if str(BACKEND_ROOT) not in sys.path:
     sys.path.insert(0, str(BACKEND_ROOT))
 
 from app.services.tts.voice_registry import (  # noqa: E402
+    encode_resolved_voice_profile,
     google_voice_gender,
     provider_voice_name,
+    resolve_voice_identity,
     validate_voice_registry,
     voices_for_dialogue,
 )
@@ -160,6 +162,69 @@ def main() -> None:
     require(dialogue["matti"] != dialogue["pekka"], "two male speakers should be distinguishable")
     require(dialogue["aino"] != dialogue["liisa"], "two female speakers should be distinguishable")
 
+    # KV-VOICE-003: one persona resolves to one stable structured identity.
+    matti_identity = resolve_voice_identity(
+        persona_id="fi-m-matti",
+        display_name="Matti",
+        gender="male",
+        voice_profile="yki_standard_male",
+        provider="google",
+    )
+    matti_again = resolve_voice_identity(
+        persona_id="fi-m-matti",
+        display_name="Matti",
+        gender="male",
+        voice_profile="yki_standard_male",
+        provider="google",
+    )
+    aino_identity = resolve_voice_identity(
+        persona_id="fi-f-aino",
+        display_name="Aino",
+        gender="female",
+        voice_profile="yki_standard_female",
+        provider="google",
+    )
+    require(matti_identity == matti_again, "roleplay voice identity is not deterministic")
+    require(matti_identity["identity_id"].startswith("rvi_"), "voice identity ID is not versioned/stable")
+    require(matti_identity["provider_voice_id"] in male_voices, "Matti identity is not male")
+    require(aino_identity["provider_voice_id"] in female_voices, "Aino identity is not female")
+    require(matti_identity["gender_certified"] is True, "Matti Google gender must be certified")
+    require(aino_identity["gender_certified"] is True, "Aino Google gender must be certified")
+
+    # The legacy transport used by shipped clients must round-trip to the exact
+    # provider voice instead of being re-hashed to a different voice.
+    matti_transport = encode_resolved_voice_profile(matti_identity)
+    aino_transport = encode_resolved_voice_profile(aino_identity)
+    require("male" in matti_transport, "male transport must preserve explicit gender")
+    require("female" in aino_transport, "female transport must preserve explicit gender")
+    require(
+        provider_voice_name(
+            "google",
+            voice_profile=matti_transport,
+            voice_hint="male",
+        ) == matti_identity["provider_voice_id"],
+        "Matti transport did not round-trip to exact provider voice",
+    )
+    require(
+        provider_voice_name(
+            "google",
+            voice_profile=aino_transport,
+            voice_hint="female",
+        ) == aino_identity["provider_voice_id"],
+        "Aino transport did not round-trip to exact provider voice",
+    )
+
+    mismatch_failed = False
+    try:
+        provider_voice_name(
+            "google",
+            voice_profile=matti_transport,
+            voice_hint="female",
+        )
+    except ValueError:
+        mismatch_failed = True
+    require(mismatch_failed, "resolved male transport accepted a contradictory female request")
+
     runtime_text = (BACKEND_ROOT / "app/services/tts/runtime.py").read_text(encoding="utf-8")
     require(
         '"fi-FI-Standard-B" if hint == "male"' not in runtime_text,
@@ -174,10 +239,33 @@ def main() -> None:
         "runtime does not contain a verified male Google fallback",
     )
 
+    # Source-contract guards prove the existing client path actually receives
+    # and forwards the compatibility transport while future clients get the
+    # structured object.
+    roleplay_router_text = (BACKEND_ROOT / "app/routers/v1_roleplay.py").read_text(encoding="utf-8")
+    roleplay_core_text = (REPO_ROOT / "packages/core/api/roleplay.ts").read_text(encoding="utf-8")
+    roleplay_audio_text = (
+        REPO_ROOT / "apps/client/features/speaking/services/roleplayAudio.ts"
+    ).read_text(encoding="utf-8")
+
+    require('result["voiceIdentity"]' in roleplay_router_text, "roleplay API does not attach voiceIdentity")
+    require('result["semanticVoiceProfile"]' in roleplay_router_text, "semantic voice profile is not preserved")
+    require('encode_resolved_voice_profile(identity)' in roleplay_router_text, "shipped-client voice transport is absent")
+    require('export type RoleplayVoiceIdentity' in roleplay_core_text, "core API has no RoleplayVoiceIdentity type")
+    require('voiceIdentity?: RoleplayVoiceIdentity' in roleplay_core_text, "roleplay responses do not expose voiceIdentity")
+    require('voiceProfile: args.voiceProfile' in roleplay_audio_text, "existing roleplay audio path no longer forwards voiceProfile")
+    require('voicePreferenceForProfile(args.voiceProfile)' in roleplay_audio_text, "existing roleplay audio path lost explicit gender forwarding")
+
     print(
         "VOICE_REGISTRY_INVARIANTS=PASS "
         f"male_pool={len(male_voices)} female_pool={len(female_voices)} "
         f"male_sample={len(sampled_male)} female_sample={len(sampled_female)}"
+    )
+    print(
+        "ROLEPLAY_VOICE_IDENTITY_INVARIANTS=PASS "
+        f"registry={report['registry_version']} "
+        f"male_voice={matti_identity['provider_voice_id']} "
+        f"female_voice={aino_identity['provider_voice_id']}"
     )
 
 
