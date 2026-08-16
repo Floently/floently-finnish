@@ -9,7 +9,7 @@ const exists=(f)=>fs.existsSync(path.join(root,f));
 const langs=["en","fi","sv","et","es","tr","ru","uk","ar","zh","ku","vi","bn","sq","tl","th","so","ne","fa","ur"];
 const rtl=new Set(["ar","fa","ur"]);
 
-for(const f of ["index.html","styles.css","app.js","locales.js","assets/kielivalmis-mark.png","assets/kielivalmis-hero-ai.webp","privacy/index.html","terms/index.html","support/index.html","delete-account/index.html","vercel.json","robots.txt","sitemap.xml"]){
+for(const f of ["index.html","styles.css","app.js","locales.js","assets/kielivalmis-mark.png","assets/kielivalmis-hero-ai.webp","privacy/index.html","terms/index.html","support/index.html","delete-account/index.html","vercel.json","robots.txt","sitemap.xml","learn-finnish/index.html","yki-finnish-practice/index.html","how-to-pass-yki/index.html","yki-speaking-practice/index.html","workplace-finnish/index.html","finnish-grammar-practice/index.html"]){
   if(!exists(f)) throw new Error(`Missing public KieliValmis file ${f}`);
 }
 const home=read("index.html");
@@ -29,13 +29,13 @@ for(const code of langs){
   const body=read(route);
   const dir=rtl.has(code)?"rtl":"ltr";
   if(!body.includes(`<html lang="${code}" dir="${dir}">`)) throw new Error(`lang/dir mismatch ${code}`);
-  const canonical=code==="en"?"https://www.kielivalmis.com/":`https://www.kielivalmis.com/${code}/`;
+  const canonical=code==="en"?"https://kielivalmis.com/":`https://kielivalmis.com/${code}`;
   if(!body.includes(`<link rel="canonical" href="${canonical}">`)) throw new Error(`canonical mismatch ${code}`);
   for(const alt of langs){
-    const href=alt==="en"?"https://www.kielivalmis.com/":`https://www.kielivalmis.com/${alt}/`;
+    const href=alt==="en"?"https://kielivalmis.com/":`https://kielivalmis.com/${alt}`;
     if(!body.includes(`hreflang="${alt}" href="${href}"`)) throw new Error(`hreflang ${alt} missing on ${code}`);
   }
-  if(!body.includes('hreflang="x-default" href="https://www.kielivalmis.com/"')) throw new Error(`x-default missing ${code}`);
+  if(!body.includes('hreflang="x-default" href="https://kielivalmis.com/"')) throw new Error(`x-default missing ${code}`);
 }
 console.log("KIELIVALMIS_STATIC_LOCALIZED_SEO_20=PASS");
 
@@ -67,11 +67,91 @@ for(const mod of ["shared/page-locales-1.js","shared/page-locales-2.js","shared/
   if(read(mod).includes("learn.floently.com")) throw new Error(`${mod} contains legacy app host`);
 }
 const sitemap=read("sitemap.xml");
+
+const seoSlugs=[
+  "learn-finnish",
+  "yki-finnish-practice",
+  "how-to-pass-yki",
+  "yki-speaking-practice",
+  "workplace-finnish",
+  "finnish-grammar-practice"
+];
+
+for(const slug of seoSlugs){
+  const route=`${slug}/index.html`;
+  const body=read(route);
+  const canonical=`https://kielivalmis.com/${slug}`;
+
+  if(!body.includes(
+    `<link rel="canonical" href="${canonical}">`
+  )){
+    throw new Error(
+      `SEO canonical mismatch ${slug}`
+    );
+  }
+
+  if(!body.includes("KieliValmis")){
+    throw new Error(
+      `KieliValmis identity missing ${slug}`
+    );
+  }
+
+  if(body.includes("learn.floently.com")){
+    throw new Error(
+      `Legacy Learn host remains ${slug}`
+    );
+  }
+
+  if(
+    body.includes("Floently Finnish") ||
+    body.includes("Floently Learn")
+  ){
+    throw new Error(
+      `Legacy product identity remains ${slug}`
+    );
+  }
+
+  if(!sitemap.includes(
+    `<loc>${canonical}</loc>`
+  )){
+    throw new Error(
+      `SEO sitemap URL missing ${slug}`
+    );
+  }
+}
+
+for(const forbidden of [
+  "/auth/login",
+  "/auth/register"
+]){
+  if(sitemap.includes(forbidden)){
+    throw new Error(
+      `Auth route leaked into sitemap ${forbidden}`
+    );
+  }
+}
+
+const robots=read("robots.txt");
+
+if(!robots.includes(
+  "Sitemap: https://kielivalmis.com/sitemap.xml"
+)){
+  throw new Error(
+    "KieliValmis robots sitemap mismatch"
+  );
+}
+
+if(robots.includes("www.kielivalmis.com")){
+  throw new Error(
+    "KieliValmis robots still advertises www"
+  );
+}
+
 for(const code of langs){
-  const url=code==="en"?"https://www.kielivalmis.com/":`https://www.kielivalmis.com/${code}/`;
+  const url=code==="en"?"https://kielivalmis.com/":`https://kielivalmis.com/${code}`;
   if(!sitemap.includes(`<loc>${url}</loc>`)) throw new Error(`Sitemap missing ${code}`);
 }
-for(const url of ["https://www.kielivalmis.com/privacy","https://www.kielivalmis.com/terms","https://www.kielivalmis.com/support","https://www.kielivalmis.com/delete-account"]){
+for(const url of ["https://kielivalmis.com/privacy","https://kielivalmis.com/terms","https://kielivalmis.com/support","https://kielivalmis.com/delete-account"]){
   if(!sitemap.includes(`<loc>${url}</loc>`)) throw new Error(`Sitemap missing ${url}`);
 }
 const config=JSON.parse(read("vercel.json"));
@@ -89,4 +169,5 @@ console.log("KIELIVALMIS_STATIC_CANONICALS=PASS");
 console.log("KIELIVALMIS_STATIC_SITEMAP=PASS");
 console.log("KIELIVALMIS_STATIC_REDIRECT_LOCKS=PASS");
 console.log("KIELIVALMIS_STATIC_R4M_PREVIEW_LOCK=PASS");
+console.log("KIELIVALMIS_STATIC_SEO_MIGRATION=PASS");
 console.log("RESULT: KIELIVALMIS STATIC SITE REGRESSION CONTRACT PASS");
