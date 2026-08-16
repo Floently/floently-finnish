@@ -4,6 +4,19 @@ export type RoleplayProfession = 'general' | 'nurse' | 'doctor' | 'practical_nur
 export type RoleplayLevelBand = 'A1-A2' | 'B1-B2' | 'C1-C2';
 export type RoleplayTrack = 'general' | 'professional';
 
+export type RoleplayVoiceIdentity = {
+  identityId: string;
+  personaId: string;
+  displayName: string;
+  gender: 'male' | 'female' | 'neutral';
+  language: 'fi-FI' | string;
+  voiceProfile: string;
+  provider: string;
+  providerVoiceId: string;
+  registryVersion: string;
+  genderCertified: boolean;
+};
+
 export type RoleplayScenarioSummary = {
   id: string;
   title: string;
@@ -27,7 +40,15 @@ export type RoleplaySessionStart = {
   scenario: RoleplayScenarioSummary;
   introText: string;
   openingText: string;
+  /**
+   * Legacy transport field. New backends may return a versioned resolved-voice
+   * token here so already-shipped clients request the exact provider voice.
+   */
   voiceProfile: string;
+  /** Original semantic profile such as yki_standard_male when available. */
+  semanticVoiceProfile?: string;
+  /** Structured forward contract for new clients. */
+  voiceIdentity?: RoleplayVoiceIdentity;
   personaName: string;
   personaId?: string;
   personaGender?: 'male' | 'female';
@@ -43,6 +64,8 @@ export type RoleplayTurnResponse = {
   personaId?: string;
   personaGender?: 'male' | 'female';
   voiceProfile: string;
+  semanticVoiceProfile?: string;
+  voiceIdentity?: RoleplayVoiceIdentity;
   feedbackLine?: string;
   missingPhrases?: string[];
   score?: {
@@ -61,6 +84,7 @@ export type RoleplayFinishResponse = {
   personaName: string;
   personaId?: string;
   personaGender?: 'male' | 'female';
+  voiceIdentity?: RoleplayVoiceIdentity;
   track: RoleplayTrack;
   trackLabel: string;
   levelBand: string;
