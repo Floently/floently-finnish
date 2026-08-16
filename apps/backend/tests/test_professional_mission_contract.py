@@ -10,7 +10,34 @@ VERIFIER = REPO_ROOT / "apps" / "client" / "scripts" / "verify-professional-miss
 IMMUTABLE_WAVE1_BASE = "69813b433838130d5afe4b052360dbfd12df3f40"
 
 
+def _ensure_immutable_base_available() -> None:
+    probe = subprocess.run(
+        ["git", "cat-file", "-e", f"{IMMUTABLE_WAVE1_BASE}^{{commit}}"],
+        cwd=REPO_ROOT,
+        capture_output=True,
+        text=True,
+        check=False,
+    )
+    if probe.returncode == 0:
+        return
+
+    fetched = subprocess.run(
+        ["git", "fetch", "--no-tags", "--depth=1", "origin", IMMUTABLE_WAVE1_BASE],
+        cwd=REPO_ROOT,
+        capture_output=True,
+        text=True,
+        check=False,
+    )
+    if fetched.returncode != 0:
+        raise AssertionError(
+            "Unable to fetch the immutable Wave-1 base required for the protected-file diff guard.\n"
+            f"stdout:\n{fetched.stdout}\n"
+            f"stderr:\n{fetched.stderr}"
+        )
+
+
 def _run_verifier() -> subprocess.CompletedProcess[str]:
+    _ensure_immutable_base_available()
     env = os.environ.copy()
     env.setdefault("WAVE1_BASE_REF", IMMUTABLE_WAVE1_BASE)
     return subprocess.run(
