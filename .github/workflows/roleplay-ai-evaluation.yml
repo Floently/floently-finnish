@@ -3,15 +3,31 @@ name: Roleplay AI evaluation contract
 on:
   push:
     paths:
+      - "apps/backend/.env.example"
+      - "apps/backend/requirements.txt"
       - "apps/backend/app/runtime/roleplay.py"
+      - "apps/backend/app/runtime/roleplay_missions.py"
+      - "apps/backend/app/services/roleplay_ai_service.py"
+      - "apps/backend/app/services/roleplay_contract.py"
       - "apps/backend/app/services/roleplay_evaluation_service.py"
       - "apps/backend/scripts/verify_roleplay_ai_evaluation.py"
+      - "apps/backend/scripts/verify_roleplay_role_contract_reliability.py"
+      - "apps/backend/tests/fixtures/roleplay_role_contract_regressions.json"
+      - "apps/backend/tests/test_roleplay_role_contract_regressions.py"
       - ".github/workflows/roleplay-ai-evaluation.yml"
   pull_request:
     paths:
+      - "apps/backend/.env.example"
+      - "apps/backend/requirements.txt"
       - "apps/backend/app/runtime/roleplay.py"
+      - "apps/backend/app/runtime/roleplay_missions.py"
+      - "apps/backend/app/services/roleplay_ai_service.py"
+      - "apps/backend/app/services/roleplay_contract.py"
       - "apps/backend/app/services/roleplay_evaluation_service.py"
       - "apps/backend/scripts/verify_roleplay_ai_evaluation.py"
+      - "apps/backend/scripts/verify_roleplay_role_contract_reliability.py"
+      - "apps/backend/tests/fixtures/roleplay_role_contract_regressions.json"
+      - "apps/backend/tests/test_roleplay_role_contract_regressions.py"
       - ".github/workflows/roleplay-ai-evaluation.yml"
 
 jobs:
@@ -38,3 +54,44 @@ jobs:
           OPENAI_EVALUATION_ENABLED: "false"
         run: |
           python apps/backend/scripts/verify_roleplay_ai_evaluation.py
+
+  verify-roleplay-contract:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: "pip"
+          cache-dependency-path: apps/backend/requirements.txt
+
+      - name: Install backend dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -r apps/backend/requirements.txt
+
+      - name: Compile role-contract source
+        run: |
+          python -m py_compile \
+            apps/backend/app/runtime/roleplay.py \
+            apps/backend/app/services/roleplay_ai_service.py \
+            apps/backend/app/services/roleplay_contract.py \
+            apps/backend/scripts/verify_roleplay_role_contract_reliability.py \
+            apps/backend/tests/test_roleplay_role_contract_regressions.py
+
+      - name: Verify August 16 role-flip regression corpus
+        env:
+          PYTHONPATH: apps/backend
+        run: |
+          python -m pytest -q \
+            apps/backend/tests/test_roleplay_role_contract_regressions.py
+
+      - name: Verify role-contract reliability architecture
+        env:
+          PYTHONPATH: apps/backend
+          OPENAI_ROLEPLAY_SEMANTIC_VALIDATOR_ENABLED: "true"
+        run: |
+          python \
+            apps/backend/scripts/verify_roleplay_role_contract_reliability.py

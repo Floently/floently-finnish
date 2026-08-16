@@ -11,7 +11,15 @@ from app.core.state_store import STORE
 from app.core.utils import iso_now, new_id, parse_iso, utc_now
 from app.runtime.finnish_personas import pick_persona
 from app.runtime.roleplay_missions import select_roleplay_mission
-from app.services.roleplay_ai_service import generate_ai_roleplay_reply, _violates_role_contract
+from app.services.roleplay_ai_service import (
+    generate_ai_roleplay_reply,
+    validate_ai_roleplay_reply,
+    _violates_role_contract,
+)
+from app.services.roleplay_contract import (
+    PROFESSIONAL_LEARNER_ROLES,
+    build_role_contract,
+)
 from app.services.roleplay_evaluation_service import evaluate_roleplay_session
 
 ROLEPLAY_STAGE_BY_TURN = {0: "OPENING", 1: "ACTIVE_1", 2: "ACTIVE_2", 3: "ACTIVE_3", 4: "ACTIVE_4", 5: "COMPLETE"}
@@ -1460,6 +1468,18 @@ def _build_session(*, user_id: str, spec: ScenarioSpec, level_band: str, display
         "expires_at": expires_at,
         "scenario": scenario,
         "mission": mission_payload,
+        "role_contract": build_role_contract(
+            profession=spec.profession,
+            scenario_id=spec.scenario_id,
+            persona_name=persona_display,
+            counterpart_role=str(
+                (mission_payload or {}).get(
+                    "counterpartRole"
+                )
+                or spec.persona_name
+                or ""
+            ),
+        ),
         "level": level_band,
         "profession": spec.profession,
         "persona_name": persona_display,
@@ -1507,39 +1527,364 @@ def _append_turn(session: dict[str, Any], *, speaker: str, text: str, stage: str
     return entry
 
 
-def _safe_professional_counterpart_fallback(*, session: dict[str, Any], spec: ScenarioSpec, user_message: str, terminal_turn: bool) -> str:
-    """Safe in-character fallback when generated/scripted text would flip roles.
+def _safe_professional_counterpart_fallback(
+    *,
+    session: dict[str, Any],
+    spec: ScenarioSpec,
+    user_message: str,
+    terminal_turn: bool,
+) -> str:
+    """Return a deterministic reply that preserves counterpart identity."""
 
-    In professional tracks the learner is the doctor/nurse/practical nurse.
-    The fallback must therefore speak as patient/resident/client/counterpart,
-    never as the professional.
-    """
-    profession = str(session.get("profession") or _scenario_value(spec, "profession", "general")).strip().lower()
-    message = " ".join(str(user_message or "").strip().lower().split())
+    profession = str(
+        session.get("profession")
+        or spec.profession
+    ).strip().lower()
+
+    message = " ".join(
+        str(
+            user_message
+            or ""
+        ).strip().lower().split()
+    )
+
+    mission = (
+        session.get("mission")
+        if isinstance(
+            session.get("mission"),
+            dict,
+        )
+        else {}
+    )
+
+    contract = (
+        session.get("role_contract")
+        if isinstance(
+            session.get("role_contract"),
+            dict,
+        )
+        else {}
+    )
+
+    counterpart_role = str(
+        contract.get("counterpart_role")
+        or mission.get("counterpartRole")
+        or spec.persona_name
+        or ""
+    ).strip()
+
+    counterpart = (
+        counterpart_role.lower()
+    )
+
+    is_recruiter = any(
+        marker in counterpart
+        for marker in (
+            "recruiter",
+            "rekrytoija",
+            "interviewer",
+            "haastattelija",
+        )
+    )
+
+    is_supervisor = any(
+        marker in counterpart
+        for marker in (
+            "supervisor",
+            "esihenkilö",
+            "manager",
+        )
+    )
+
+    is_nurse_peer = any(
+        marker in counterpart
+        for marker in (
+            "senior nurse",
+            "colleague",
+            "kollega",
+            "coworker",
+            "co-worker",
+        )
+    )
 
     if terminal_turn:
+        if is_recruiter:
+            return (
+                "Kiitos haastattelusta. "
+                "Sain hyvän kokonaiskuvan "
+                "kokemuksestasi ja työotteestasi."
+            )
+
+        if is_nurse_peer:
+            return (
+                "Kiitos raportista. "
+                "Tärkeimmät asiat ovat nyt "
+                "selvät seuraavaa vuoroa varten."
+            )
+
+        if is_supervisor:
+            return (
+                "Kiitos raportista. "
+                "Tärkeimmät havainnot ja "
+                "jatkoseuranta ovat nyt selvät."
+            )
+
         if profession == "practical_nurse":
-            return "Kiitos avusta. Minusta tuntuu nyt rauhallisemmalta."
-        if profession in {"doctor", "nurse"}:
-            return "Kiitos. Tämä keskustelu auttoi minua kertomaan tilanteestani paremmin."
-        return "Kiitos keskustelusta. Tämä oli hyvä harjoitus."
+            return (
+                "Kiitos avusta. Minusta tuntuu "
+                "nyt rauhallisemmalta."
+            )
+
+        if profession in {
+            "doctor",
+            "nurse",
+        }:
+            return (
+                "Kiitos. Tämä keskustelu auttoi "
+                "minua kertomaan tilanteestani "
+                "paremmin."
+            )
+
+        return (
+            "Kiitos keskustelusta. "
+            "Tämä oli hyvä harjoitus."
+        )
+
+    if is_recruiter:
+        if profession == "nurse":
+            return (
+                "Kiitos. Kerro vielä yksi "
+                "konkreettinen esimerkki "
+                "tilanteesta, jossa vastasit "
+                "potilasturvallisuudesta."
+            )
+
+        if profession == "practical_nurse":
+            return (
+                "Kiitos. Kerro vielä yksi "
+                "konkreettinen esimerkki "
+                "tilanteesta, jossa autoit "
+                "asiakasta arjessa."
+            )
+
+        return (
+            "Kiitos. Kerro vielä yksi "
+            "konkreettinen esimerkki "
+            "työkokemuksestasi."
+        )
+
+    if is_nurse_peer:
+        return (
+            "Selvä. Kerro vielä tärkein muutos "
+            "potilaan voinnissa ja mitä "
+            "seuraavan vuoron pitää seurata."
+        )
+
+    if is_supervisor:
+        return (
+            "Selvä. Kerro vielä tärkein havainto "
+            "asiakkaan päivästä ja mitä "
+            "seuraavan vuoron pitää seurata."
+        )
 
     if profession == "doctor":
-        if message in {"i don't know", "i dont know", "en tiedä", "mä en tiedä", "mina en tieda", "minä en tiedä"}:
-            return "Ymmärrän. Minua huolestuttaa tämä oire, koska se alkoi eilen illalla."
-        return "Minua huolestuttaa tämä vaiva. Voinko kertoa tarkemmin, miltä se tuntuu?"
+        if message in {
+            "i don't know",
+            "i dont know",
+            "en tiedä",
+            "mä en tiedä",
+            "mina en tieda",
+            "minä en tiedä",
+        }:
+            return (
+                "Ymmärrän. Minua huolestuttaa "
+                "tämä oire, koska se alkoi "
+                "eilen illalla."
+            )
+
+        return (
+            "Minua huolestuttaa tämä vaiva. "
+            "Voinko kertoa tarkemmin, "
+            "miltä se tuntuu?"
+        )
 
     if profession == "nurse":
-        if message in {"i don't know", "i dont know", "en tiedä", "mä en tiedä", "mina en tieda", "minä en tiedä"}:
-            return "Ymmärrän. Vointini on vähän epävarma, ja haluaisin kertoa siitä rauhassa."
-        return "Minulla on vähän huono olo. Voinko kertoa, mitä tunnen juuri nyt?"
+        if message in {
+            "i don't know",
+            "i dont know",
+            "en tiedä",
+            "mä en tiedä",
+            "mina en tieda",
+            "minä en tiedä",
+        }:
+            return (
+                "Ymmärrän. Vointini on vähän "
+                "epävarma, ja haluaisin kertoa "
+                "siitä rauhassa."
+            )
+
+        return (
+            "Minulla on vähän huono olo. "
+            "Voinko kertoa, mitä tunnen juuri nyt?"
+        )
 
     if profession == "practical_nurse":
-        if message in {"i don't know", "i dont know", "en tiedä", "mä en tiedä", "mina en tieda", "minä en tiedä"}:
-            return "Ymmärrän. Tarvitsen hetken aikaa, mutta voin yrittää kertoa, mitä tarvitsen."
-        return "Voisitko auttaa minua hetken? Haluaisin kertoa, mikä minua vaivaa."
+        if message in {
+            "i don't know",
+            "i dont know",
+            "en tiedä",
+            "mä en tiedä",
+            "mina en tieda",
+            "minä en tiedä",
+        }:
+            return (
+                "Ymmärrän. Tarvitsen hetken aikaa, "
+                "mutta voin yrittää kertoa, "
+                "mitä tarvitsen."
+            )
 
-    return "Ymmärrän. Voit jatkaa lyhyesti suomeksi, ja minä vastaan tilanteen mukaan."
+        return (
+            "Voisitko auttaa minua hetken? "
+            "Haluaisin kertoa, mikä minua vaivaa."
+        )
+
+    return (
+        "Ymmärrän. Voit jatkaa lyhyesti "
+        "suomeksi, ja minä vastaan tilanteen mukaan."
+    )
+
+
+def _generate_role_safe_ai_result(
+    *,
+    session: dict[str, Any],
+    spec: ScenarioSpec,
+    user_message: str,
+    missing_phrases: list[str],
+    fallback_text: str,
+    feedback_fallback: str,
+    terminal_turn: bool,
+) -> tuple[dict[str, Any] | None, str]:
+    first_candidate = generate_ai_roleplay_reply(
+        session=session,
+        spec=spec,
+        user_message=user_message,
+        missing_phrases=missing_phrases,
+        fallback_text=fallback_text,
+        feedback_fallback=feedback_fallback,
+        terminal_turn=terminal_turn,
+    )
+
+    if not (
+        first_candidate
+        and str(
+            first_candidate.get("ai_text")
+            or ""
+        ).strip()
+    ):
+        return (
+            None,
+            "generation_unavailable",
+        )
+
+    first_validation = (
+        validate_ai_roleplay_reply(
+            session=session,
+            spec=spec,
+            ai_text=str(
+                first_candidate["ai_text"]
+            ),
+            user_message=user_message,
+        )
+    )
+
+    first_status = str(
+        first_validation.get("status")
+        or "uncertain"
+    )
+
+    if first_status == "valid":
+        return (
+            first_candidate,
+            "validated",
+        )
+
+    if first_status != "invalid":
+        return (
+            None,
+            f"validator_{first_status}",
+        )
+
+    retry_candidate = generate_ai_roleplay_reply(
+        session=session,
+        spec=spec,
+        user_message=user_message,
+        missing_phrases=missing_phrases,
+        fallback_text=fallback_text,
+        feedback_fallback=feedback_fallback,
+        terminal_turn=terminal_turn,
+        role_repair_context={
+            "rejected_reason": str(
+                first_validation.get("reason")
+                or "role_contract_violation"
+            ),
+            "required_action": (
+                "Stay strictly in the "
+                "scenario counterpart role."
+            ),
+        },
+    )
+
+    if not (
+        retry_candidate
+        and str(
+            retry_candidate.get("ai_text")
+            or ""
+        ).strip()
+    ):
+        return (
+            None,
+            "retry_generation_unavailable",
+        )
+
+    retry_validation = (
+        validate_ai_roleplay_reply(
+            session=session,
+            spec=spec,
+            ai_text=str(
+                retry_candidate["ai_text"]
+            ),
+            user_message=user_message,
+        )
+    )
+
+    retry_status = str(
+        retry_validation.get("status")
+        or "uncertain"
+    )
+
+    if retry_status != "valid":
+        return (
+            None,
+            f"retry_{retry_status}",
+        )
+
+    accepted = dict(
+        retry_candidate
+    )
+
+    accepted["engine_mode"] = (
+        str(
+            accepted.get("engine_mode")
+            or "openai_b_lite"
+        )
+        + "_role_retry"
+    )
+
+    return (
+        accepted,
+        "retry_validated",
+    )
+
 
 def _submit_session_turn(*, user_id: str, session_id: str, user_message: str) -> dict[str, Any]:
     message = str(user_message or "").strip()
@@ -1569,36 +1914,149 @@ def _submit_session_turn(*, user_id: str, session_id: str, user_message: str) ->
         scripted_fallback_text = scripted_closing if terminal_turn else scripted_turns[completed - 1]
         engine_mode = "scripted_fallback"
 
-        ai_result = generate_ai_roleplay_reply(
-            session=session,
-            spec=spec,
-            user_message=message,
-            missing_phrases=missing,
-            fallback_text=scripted_fallback_text,
-            feedback_fallback=feedback_line,
-            terminal_turn=terminal_turn,
-        )
-
-        if ai_result and ai_result.get("ai_text"):
-            ai_text = str(ai_result["ai_text"]).strip()
-            feedback_line = str(ai_result.get("feedback_line") or feedback_line).strip()
-            returned_missing = ai_result.get("missing_phrases")
-            if isinstance(returned_missing, list):
-                missing = [str(item).strip() for item in returned_missing if str(item).strip()]
-            engine_mode = str(ai_result.get("engine_mode") or "openai_b_lite")
-        else:
-            ai_text = scripted_fallback_text
-
-        profession = str(session.get("profession") or _scenario_value(spec, "profession", "general")).strip().lower()
-        scenario_id = str((session.get("scenario") or {}).get("scenario_id") or _scenario_value(spec, "scenario_id", ""))
-        if _violates_role_contract(ai_text, profession=profession, scenario_id=scenario_id):
-            ai_text = _safe_professional_counterpart_fallback(
+        ai_result, role_resolution = (
+            _generate_role_safe_ai_result(
                 session=session,
                 spec=spec,
                 user_message=message,
+                missing_phrases=missing,
+                fallback_text=scripted_fallback_text,
+                feedback_fallback=feedback_line,
                 terminal_turn=terminal_turn,
             )
-            engine_mode = f"{engine_mode}_role_guard"
+        )
+
+        profession = str(
+            session.get("profession")
+            or spec.profession
+        ).strip().lower()
+
+        scenario_id = str(
+            (
+                session.get("scenario")
+                or {}
+            ).get("scenario_id")
+            or spec.scenario_id
+        )
+
+        mission = (
+            session.get("mission")
+            if isinstance(
+                session.get("mission"),
+                dict,
+            )
+            else {}
+        )
+
+        counterpart_role = str(
+            mission.get("counterpartRole")
+            or spec.persona_name
+            or ""
+        )
+
+        role_contract = session.get(
+            "role_contract"
+        )
+
+        if not isinstance(
+            role_contract,
+            dict,
+        ):
+            role_contract = build_role_contract(
+                profession=profession,
+                scenario_id=scenario_id,
+                persona_name=str(
+                    session.get("persona_name")
+                    or "AI"
+                ),
+                counterpart_role=counterpart_role,
+            )
+
+        if (
+            ai_result
+            and ai_result.get("ai_text")
+        ):
+            ai_text = str(
+                ai_result["ai_text"]
+            ).strip()
+
+            feedback_line = str(
+                ai_result.get("feedback_line")
+                or feedback_line
+            ).strip()
+
+            returned_missing = (
+                ai_result.get(
+                    "missing_phrases"
+                )
+            )
+
+            if isinstance(
+                returned_missing,
+                list,
+            ):
+                missing = [
+                    str(item).strip()
+                    for item
+                    in returned_missing
+                    if str(item).strip()
+                ]
+
+            engine_mode = str(
+                ai_result.get("engine_mode")
+                or "openai_b_lite"
+            )
+
+        else:
+            generated_reply_was_withheld = (
+                role_resolution
+                != "generation_unavailable"
+            )
+
+            if (
+                profession
+                in PROFESSIONAL_LEARNER_ROLES
+                and generated_reply_was_withheld
+            ):
+                ai_text = (
+                    _safe_professional_counterpart_fallback(
+                        session=session,
+                        spec=spec,
+                        user_message=message,
+                        terminal_turn=terminal_turn,
+                    )
+                )
+
+                engine_mode = (
+                    "deterministic_role_fallback_"
+                    + role_resolution
+                )
+
+            else:
+                ai_text = (
+                    scripted_fallback_text
+                )
+
+        if _violates_role_contract(
+            ai_text,
+            profession=profession,
+            scenario_id=scenario_id,
+            counterpart_role=counterpart_role,
+            role_contract=role_contract,
+        ):
+            ai_text = (
+                _safe_professional_counterpart_fallback(
+                    session=session,
+                    spec=spec,
+                    user_message=message,
+                    terminal_turn=terminal_turn,
+                )
+            )
+
+            engine_mode = (
+                f"{engine_mode}"
+                "_role_guard"
+            )
 
         ai_entry = _append_turn(
             session,

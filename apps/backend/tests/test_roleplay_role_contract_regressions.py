@@ -27,6 +27,7 @@ def test_production_role_contract_regression_corpus() -> None:
             case["text"],
             profession=case["profession"],
             scenario_id=case["scenario_id"],
+            counterpart_role=case["counterpart_role"],
         )
 
         expected = bool(

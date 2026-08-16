@@ -379,3 +379,166 @@ R2B preserves existing live roleplay evaluation only.
 The August 16 semantic role-flip regression remains a separate required repair.
 The role-contract regression corpus must remain red until the semantic/action
 guard is implemented and then must become permanently green.
+
+## R2C role-contract reliability repair
+
+Status: REPAIRED IN CANONICAL SOURCE — production promotion and post-deploy
+validation remain pending.
+
+The August 16 production incident proved that lexical phrase blocking alone was
+not sufficient to protect professional role identity. Semantically equivalent
+AI replies could take over the learner's doctor role and then enter conversation
+history.
+
+### Role authority
+
+The backend now owns an explicit role contract.
+
+For professional scenarios:
+
+- the learner role is immutable for the session;
+- the AI counterpart role is taken first from a selected mission when one
+  exists;
+- when professional scenarios have no selected mission, ScenarioSpec.persona_name
+  is the semantic counterpart role;
+- the resolved Finnish display persona name is presentation identity and is not
+  used as role authority.
+
+This distinction is required because names such as Laura Heikkinen, Jari
+Lahtinen, and Aino Nieminen identify the presented persona, while semantic roles
+include Patient, Senior Nurse, Recruiter, and Supervisor.
+
+### Candidate acceptance architecture
+
+Before an AI candidate can be persisted as an AI turn:
+
+1. deterministic role/action validation runs;
+2. protected professional tracks also receive semantic validation;
+3. an invalid first candidate is discarded;
+4. exactly one corrected regeneration is attempted;
+5. the corrected candidate is validated again;
+6. unavailable, uncertain, or second-invalid validation fails closed to a
+   deterministic counterpart-aware reply;
+7. rejected candidates are never appended to conversation history.
+
+### Deterministic Finnish protection
+
+The deterministic layer includes Finnish professional-action/process detection
+and morphological handling needed for forms such as:
+
+- tutkimus / tutkimuksen;
+- hoito / hoidon;
+- arvio / arvioinnin;
+- toimenpide / toimenpiteen.
+
+The repair is structural and is not implemented as an exact blacklist of only
+the production incident sentences.
+
+### Professional scenario matrix
+
+The permanent verifier exercises all currently registered professional
+scenario/level combinations:
+
+    doctor: 2 scenarios x 3 level bands
+    nurse: 3 scenarios x 3 level bands
+    practical_nurse: 2 scenarios x 3 level bands
+
+Total:
+
+    PROFESSIONAL_COUNTERPART_MATRIX=21
+
+Verified semantic counterparts include:
+
+    Patient
+    Senior Nurse
+    Recruiter
+    Supervisor
+
+Evidence before commit:
+
+    ROLEPLAY_ROLE_CONTRACT_CORPUS=PASS
+    ROLEPLAY_FROZEN_SESSION_CONTRACT=PASS
+    ROLEPLAY_REJECTED_HISTORY_ISOLATION=PASS
+    ROLEPLAY_VALIDATOR_FAIL_CLOSED=PASS
+    ROLEPLAY_SECOND_INVALID_FALLBACK=PASS
+    ROLEPLAY_SEMANTIC_VALIDATOR=PASS
+    ROLEPLAY_PROFESSIONAL_COUNTERPART_MATRIX=21_PASS
+    ROLEPLAY_CONTRACT_RELIABILITY=PASS
+    AUGUST16_ROLE_CONTRACT_CORPUS=7_OF_7_PASS
+    ROLEPLAY_AI_EVALUATION_FALLBACK=PASS
+    INVALID_RUNTIME_SCENARIO_VALUE_REFERENCES=0
+
+### Beginner-path defect
+
+The pre-existing beginner response mutation defect using:
+
+    parsed["ai_text"]
+
+against a parser result stored as:
+
+    data
+
+was corrected to use the actual parser object.
+
+### Permanent protection
+
+The GitHub roleplay workflow now protects both:
+
+- the previously reconciled roleplay evaluation capability; and
+- the role-contract reliability architecture.
+
+The workflow watches the runtime, AI service, role-contract service, mission
+source, regression fixture/test, reliability verifier, relevant configuration,
+and its own workflow definition.
+
+The role-contract verifier is intentionally no-network. Semantic-validator
+success, invalid verdict, and outage behavior are tested with controlled
+provider substitutes.
+
+### Reconciliation classifications
+
+apps/backend/app/services/roleplay_contract.py
+
+    Classification: KEEP / NEW CANONICAL AUTHORITY
+
+apps/backend/app/services/roleplay_ai_service.py
+
+    Classification: MERGE
+
+apps/backend/app/runtime/roleplay.py
+
+    Classification: MERGE
+
+apps/backend/scripts/verify_roleplay_role_contract_reliability.py
+
+    Classification: KEEP / NEW PERMANENT VERIFIER
+
+apps/backend/tests/test_roleplay_role_contract_regressions.py
+
+    Classification: KEEP / STRENGTHEN
+
+.github/workflows/roleplay-ai-evaluation.yml
+
+    Classification: MERGE / STRENGTHEN
+
+apps/backend/.env.example role-validator settings
+
+    Classification: MERGE
+
+### Remaining production status
+
+Source-level roleplay reliability is green.
+
+This does NOT by itself close production reconciliation.
+
+The currently running backend remains the pinned pre-canonical composite image.
+No source overlay, restart, or production promotion occurred during R2C.
+
+Before a clean canonical backend replacement may be promoted, the remaining
+runtime reconciliation and protected release gates must still pass.
+
+Current roleplay markers:
+
+    ROLEPLAY_SOURCE_INVARIANTS=PASS
+    ROLEPLAY_PRODUCTION_DEPLOYMENT=PENDING
+    ROLEPLAY_POST_DEPLOY_CANARY=PENDING
