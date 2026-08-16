@@ -723,3 +723,148 @@ Current status after R3C1 source validation:
     R3C4_PERMANENT_YKI_CI=PENDING
     R3C5_CLIENT_FINAL_SUBMIT_RECOVERY=PENDING
     PRODUCTION_DEPLOYMENT=PENDING
+
+## 2026-08-16 YKI R3C2/R3C3 coherent backend checkpoint
+
+### Dependency-order correction
+
+Current-source inspection proved that the newer YKI service cannot be
+integrated safely against the older canonical local fallback.
+
+The proven live service requires:
+
+- `normalize_local_runtime_for_client()`;
+- evaluation evidence persistence;
+- `local_submit_response()` with `runtime` and `evidence`;
+- objective local scoring.
+
+The older canonical fallback does not provide that complete contract.
+
+The dependency-safe reconciliation order is therefore:
+
+1. R3C1 — runtime persistence/evidence foundation;
+2. R3C3 — local-fallback prerequisite;
+3. R3C2 — service/API/evaluator integration;
+4. R3C4 — permanent YKI CI;
+5. R3C5 — current-client final-submit recovery.
+
+R3C3 was deliberately not committed as an independently releasable
+intermediate state because its richer fallback submission contract requires
+the corresponding service integration.
+
+### Isolated reconciliation worktree
+
+Parallel KieliValmis SEO/domain work advanced the canonical branch without
+touching the YKI source paths.
+
+YKI reconciliation was therefore isolated at:
+
+    branch:
+    reconcile/yki-r3c2-r3c3-20260816
+
+    worktree:
+    /root/floently-yki-reconciliation-20260816
+
+    base:
+    749ffe3669cc1c6184482a735001af769bc71547
+
+This prevents unrelated domain/SEO work from being mixed with the backend YKI
+reconciliation.
+
+### Proven source identities
+
+The coherent candidate preserves the proven live sources:
+
+    apps/backend/app/models/api_models.py
+    c07b6effa280e843574f6151b67bb5548ae6d6b5
+
+    apps/backend/app/routers/v1_yki.py
+    c07b6effa280e843574f6151b67bb5548ae6d6b5
+
+    apps/backend/app/runtime/yki.py
+    7c92b7e65337568944013ad0ff2d73b08c1cfb44
+
+    apps/backend/app/runtime/yki_local_fallback.py
+    0e5dc84fa8dcdb0ea746f404c557d8683ce70b75
+
+    apps/backend/app/services/yki_service.py
+    d6d1061fc2214b7b62988214deebfd52c0f1c971
+
+    apps/backend/app/services/yki_evaluation_service.py
+    0e5dc84fa8dcdb0ea746f404c557d8683ce70b75
+
+`yki_evaluation_service.py` is intentionally added as a new canonical tracked
+source file.
+
+### Preserved behavior
+
+The coherent backend candidate preserves:
+
+- speaking transcript request support;
+- router transcript forwarding;
+- speaking transcript evidence;
+- writing evidence;
+- objective answer evidence;
+- canonical local runtime normalization;
+- exact local reading/listening objective scoring;
+- answer-key protection;
+- persisted final submission;
+- persisted evaluation report;
+- idempotent completed-result recovery;
+- grounded evaluation recovery;
+- calibrated subjective scores;
+- predicted grades;
+- balanced productive task counts;
+- productive-task difficulty spread.
+
+Current evaluation contract:
+
+    reportVersion = 1.2
+    promptVersion = yki-deep-evaluation-v4
+    rubricVersion = floently-yki-practice-v3
+
+The historical verifier requiring report version 1.0 is stale. R3C4 must
+repair or replace that verifier rather than downgrading current behavior.
+
+### Validation
+
+The combined candidate passed:
+
+    R3C2_API_TRANSCRIPT_FIELD=PASS
+    R3C2_ROUTER_TRANSCRIPT_FORWARDING=PASS
+    R3C2_SERVICE_TRANSCRIPT_SUPPORT=PASS
+    R3C2_FINAL_SUBMIT_PERSISTENCE_WIRING=PASS
+    R3C2_LOCAL_SESSION_PAYLOAD=PASS
+    R3C2_WRITING_EVIDENCE=PASS
+    R3C2_SPEAKING_TRANSCRIPT_EVIDENCE=PASS
+    R3C2_EVALUATION_PERSISTENCE=PASS
+    R3C2_COMPLETED_RESULT_RECOVERY=PASS
+    YKI_REGRESSION_SECTION_IMPROVEMENTS=PASS
+    YKI_REGRESSION_GROUNDED_SALVAGE=PASS
+    YKI_REGRESSION_EXACT_CORRECTIONS=PASS
+    YKI_REGRESSION_RETRY_CONTRACT=PASS
+    YKI_FINAL_SUBMIT_IDEMPOTENT_RECOVERY=PASS
+    YKI_LOCAL_FALLBACK_PUBLIC_RUNTIME_ANSWERS_HIDDEN=PASS
+    YKI_LOCAL_FALLBACK_RUNTIME_AND_EVALUATION=PASS
+    YKI_REPORT_EVIDENCE_ISOLATION=PASS
+    YKI_REPORT_SUBJECTIVE_SCORE_CALIBRATION=PASS
+    YKI_REPORT_PREDICTED_GRADES=PASS
+    YKI_BANK_BALANCED_COUNTS=PASS
+    YKI_BANK_DIFFICULTY_SPREAD=PASS
+    YKI_REPORT_CALIBRATION_CONTRACT=PASS
+
+Warnings produced while exercising grounded-section salvage and first-attempt
+structural validation are expected recovery-path diagnostics; their associated
+verification contracts completed with PASS.
+
+No backend overlay, restart, production image change, or deployment occurred.
+
+Current status:
+
+    R3C1_RUNTIME_FOUNDATION=COMPLETE
+    R3C2_SERVICE_API_EVALUATOR=VALIDATED
+    R3C3_LOCAL_FALLBACK=VALIDATED
+    R3C2_R3C3_COHERENT_BACKEND=READY_TO_FREEZE
+    R3C4_PERMANENT_YKI_CI=NEXT
+    R3C5_CLIENT_FINAL_SUBMIT_RECOVERY=PENDING
+    PRODUCTION_DEPLOYMENT=PENDING

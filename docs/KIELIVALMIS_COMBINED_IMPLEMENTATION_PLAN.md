@@ -1388,3 +1388,24 @@ client without replacing the current screen wholesale.
 The normal Phase 5 YKI product architecture remains unchanged. This amendment
 only records the safe dependency order required to eliminate the current
 composite production source lineage.
+
+## 2026-08-16 YKI reconciliation dependency order finalization
+
+Current-source testing refined the temporary YKI production-source
+reconciliation sequence.
+
+The dependency-safe execution order is:
+
+1. R3C1 — runtime persistence/evidence foundation;
+2. R3C3 — local-fallback prerequisite validation;
+3. R3C2 — service/API/evaluator integration on that fallback;
+4. freeze R3C2 + R3C3 as one coherent backend source unit;
+5. R3C4 — permanent YKI verification/CI;
+6. R3C5 — current-client final-submit recovery.
+
+R3C3 is not independently releasable because its richer
+`local_submit_response()` contract requires the corresponding service
+integration.
+
+This ordering correction affects only production-source reconciliation. It
+does not change the broader Phase 5 YKI product architecture or roadmap.
