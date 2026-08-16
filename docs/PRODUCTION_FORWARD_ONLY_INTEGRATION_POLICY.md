@@ -216,3 +216,107 @@ A deployment is forbidden unless:
 
 This policy applies regardless of which developer, AI agent, machine, branch,
 workspace, or executor performs the work.
+
+## Bidirectional artifact-source identity
+
+Production artifact verification is bidirectional.
+
+A candidate must prove both:
+
+1. every expected tracked application source file is represented correctly in
+   the built artifact; and
+2. every application source file present in the artifact is explained by the
+   candidate Git source.
+
+The final required state is:
+
+    TRACKED_SOURCE_MISSING_OR_DIFFERENT=0
+    UNEXPLAINED_RUNTIME_SOURCE=0
+
+Generated caches, bytecode, mounted persistence, and other explicitly
+classified runtime artifacts may be excluded only through documented rules.
+
+A one-directional source comparison is insufficient.
+
+## Composite source overlay prohibition
+
+Targeted Docker source overlays may be used only as explicitly documented
+emergency recovery artifacts.
+
+They are NOT an acceptable normal production release architecture.
+
+The normal production backend must be reproducibly built from one canonical
+Git commit.
+
+A clean production build must carry that exact Git revision in immutable image
+metadata.
+
+A later targeted fix must be integrated back into canonical Git before an
+unrelated release may be promoted.
+
+Production must never depend indefinitely on remembering which historical
+source files were layered into an image.
+
+## Live capability reconciliation rule
+
+When current production contains source from divergent histories, no branch
+may be declared canonical merely because most files match it.
+
+Every divergent or live-only application source capability must be classified
+and reconciled first.
+
+Allowed classifications are:
+
+- KEEP;
+- MERGE;
+- REPLACE;
+- DELETE.
+
+Each decision requires documented evidence.
+
+KEEP and MERGE capabilities require permanent regression protection before
+reconciliation is complete.
+
+DELETE requires evidence that the behavior is obsolete, duplicate, unreachable,
+unsafe, or intentionally superseded.
+
+## Worktree-safe cleanup rule
+
+Repository cleanup must account for Git worktree relationships before deleting
+any repository directory.
+
+Before deleting a Git repository or workspace:
+
+    git worktree list
+
+must be inspected where applicable.
+
+In addition, candidate directories containing a `.git` file must be inspected
+for `gitdir:` pointers into another workspace.
+
+A repository directory must NOT be deleted while another preserved worktree
+depends on its Git metadata.
+
+If a linked worktree is intended to survive independently, convert or migrate
+it safely before deleting the parent Git directory.
+
+Cleanup safety is part of production reliability because lost or broken Git
+metadata can cause valid pending work to be forgotten and later overwritten.
+
+## Runtime reconciliation ledger
+
+When production does not correspond exactly to one Git commit, maintain a
+reconciliation ledger containing:
+
+- deployed image identity;
+- rollback artifact identity;
+- divergent tracked files;
+- live-only source files;
+- known Git origins;
+- user-visible capabilities;
+- KEEP/MERGE/REPLACE/DELETE decisions;
+- regression-test evidence;
+- reconciliation commit identities.
+
+No clean replacement artifact may be promoted while unresolved runtime source
+items remain in that ledger.
