@@ -43,10 +43,6 @@ const exactForbidden = new Set([
   'docs/PRODUCTION_FORWARD_ONLY_INTEGRATION_POLICY.md',
   'docs/PRODUCTION_SOURCE_RECONCILIATION_20260816.md',
   'packages/core/schemas/learning.ts',
-  'apps/client/package.json',
-  'package.json',
-  'pnpm-lock.yaml',
-  'package-lock.json',
   'apps/client/state/AppShell.tsx',
   'apps/client/state/navigationModel.ts',
   'apps/backend/main.py',
@@ -75,30 +71,33 @@ const forbiddenPrefixes = [
   'apps/client/android/',
   'apps/client/ios/',
   'infra/',
+  'ops/',
   'deploy/',
   'deployment/',
   'docker/',
   'scripts/deploy',
   'scripts/production',
+  'scripts/server',
+  'scripts/restart',
 ];
 
-const forbiddenBasenames = new Set([
-  'Dockerfile',
-  'docker-compose.yml',
-  'docker-compose.yaml',
-  'eas.json',
-]);
-
 const forbiddenPatterns = [
-  /(^|\/)\.env($|\.)/,
-  /(^|\/)secrets?\//i,
-  /(^|\/)production\.(ya?ml|json|toml)$/i,
+  /(^|\/)\.env($|\.)/i,
+  /(^|\/)secrets?(\/|$)/i,
+  /(^|\/)Dockerfile(\..*)?$/i,
+  /(^|\/)docker-compose(\..*)?\.ya?ml$/i,
+  /(^|\/)compose(\..*)?\.ya?ml$/i,
+  /(^|\/)(eas\.json|app\.json|app\.config\.(js|ts))$/i,
+  /(^|\/)package\.json$/i,
+  /(^|\/)(package-lock\.json|npm-shrinkwrap\.json|pnpm-lock\.yaml|yarn\.lock)$/i,
+  /(^|\/)(requirements[^/]*\.txt|pyproject\.toml|poetry\.lock|Pipfile|Pipfile\.lock)$/i,
+  /(^|\/)[^/]*(prod|production)[^/]*\.(ya?ml|json|toml)$/i,
+  /(^|\/)(infra|ops|deploy|deployment)(\/|$)/i,
 ];
 
 function isForbidden(file) {
   if (exactForbidden.has(file)) return true;
   if (forbiddenPrefixes.some((prefix) => file.startsWith(prefix))) return true;
-  if (forbiddenBasenames.has(path.basename(file))) return true;
   return forbiddenPatterns.some((pattern) => pattern.test(file));
 }
 
@@ -128,4 +127,6 @@ if (runtimeChanges.length) {
 console.log(`WAVE1_FEATURE_BRANCH_SAFETY=PASS agent=${letter}`);
 console.log(`WAVE1_SHARED_BASE=${expectedBase}`);
 console.log(`WAVE1_CHANGED_FILES=${changed.length}`);
-console.log(`WAVE1_PRODUCTION_ACTIONS=NONE`);
+console.log('WAVE1_PROTECTED_PATH_SCAN=PASS');
+console.log('WAVE1_DEPENDENCY_AND_DEPLOYMENT_SCAN=PASS');
+console.log('WAVE1_PRODUCTION_ACTIONS=NONE');
