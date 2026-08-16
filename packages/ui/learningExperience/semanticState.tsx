@@ -44,22 +44,24 @@ export function SemanticFeedback({
   children,
 }: SemanticFeedbackProps) {
   const color = feedbackColor(tone, palette);
-  const role = tone === 'error' ? 'alert' : 'summary';
+  const role = tone === 'error' ? 'alert' : 'text';
   const content = (
-    <View
-      accessible
-      accessibilityRole={role}
-      accessibilityLabel={[title, message].filter(Boolean).join('. ')}
-      style={[styles.feedback, { backgroundColor: palette.surfaceMuted, borderColor: color }]}
-    >
-      <View style={[styles.symbol, { borderColor: color }]} accessibilityElementsHidden importantForAccessibility="no-hide-descendants">
-        <Text style={[styles.symbolText, { color }]}>{feedbackSymbol(tone)}</Text>
+    <View style={[styles.feedback, { backgroundColor: palette.surfaceMuted, borderColor: color }]}>
+      <View
+        accessible
+        accessibilityRole={role}
+        accessibilityLabel={[title, message].filter(Boolean).join('. ')}
+        style={styles.feedbackSummary}
+      >
+        <View style={[styles.symbol, { borderColor: color }]} accessibilityElementsHidden importantForAccessibility="no-hide-descendants">
+          <Text style={[styles.symbolText, { color }]}>{feedbackSymbol(tone)}</Text>
+        </View>
+        <View style={styles.copy}>
+          <Text style={[styles.title, { color: palette.text }]}>{title}</Text>
+          {message ? <Text style={[styles.message, { color: palette.textMuted }]}>{message}</Text> : null}
+        </View>
       </View>
-      <View style={styles.copy}>
-        <Text style={[styles.title, { color: palette.text }]}>{title}</Text>
-        {message ? <Text style={[styles.message, { color: palette.textMuted }]}>{message}</Text> : null}
-        {children}
-      </View>
+      {children}
     </View>
   );
 
@@ -85,7 +87,7 @@ export function LearningStatePanel({ kind, title, message, palette, illustration
   return (
     <View
       accessible
-      accessibilityRole={isError ? 'alert' : 'summary'}
+      accessibilityRole={isError ? 'alert' : 'text'}
       accessibilityLabel={`${title}. ${message}`}
       style={[styles.state, { backgroundColor: palette.surface, borderColor: isError ? palette.danger : palette.border }]}
     >
@@ -99,12 +101,16 @@ export function LearningStatePanel({ kind, title, message, palette, illustration
 const styles = StyleSheet.create({
   feedback: {
     width: '100%',
-    flexDirection: 'row',
-    alignItems: 'flex-start',
     gap: learningSpacing.sm,
     padding: learningSpacing.md,
     borderRadius: learningRadius.medium,
     borderWidth: 1,
+  },
+  feedbackSummary: {
+    width: '100%',
+    flexDirection: 'row',
+    alignItems: 'flex-start',
+    gap: learningSpacing.sm,
   },
   symbol: {
     width: 28,

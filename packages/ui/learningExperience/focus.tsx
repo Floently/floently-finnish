@@ -40,7 +40,6 @@ export function LearningFocusSurface({
 
   return (
     <View
-      accessibilityLabel={title ? `${title}, ${mode} focus` : `${mode} focus`}
       style={[
         styles.surface,
         density === 'high' && styles.highScaffold,
@@ -49,7 +48,7 @@ export function LearningFocusSurface({
         style,
       ]}
     >
-      {title ? <Text style={[styles.title, { color: palette.text }]}>{title}</Text> : null}
+      {title ? <Text accessibilityRole="header" style={[styles.title, { color: palette.text }]}>{title}</Text> : null}
       {children}
     </View>
   );
