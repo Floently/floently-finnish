@@ -161,12 +161,14 @@ jobs:
           pnpm exec eslint \
             features/exam/screens/ExamRuntimeScreen.tsx \
             features/exam/screens/ResultsOverviewScreen.tsx \
+            features/exam/services/audioPlayer.ts \
             features/exam/state/examResultsPersistence.ts \
             features/yki-exam/screens/YkiExamScreen.tsx \
             features/yki-exam/services/ykiExamService.ts \
             scripts/verify-yki-evaluation-integration.mjs \
             scripts/verify-yki-final-submit-recovery.mjs \
             scripts/verify-yki-local-fallback-contract.mjs \
+            scripts/verify-yki-multivoice-contract.mjs \
             scripts/verify-yki-report-calibration.mjs \
             scripts/verify-yki-report-hardening.mjs \
             scripts/verify-yki-session-handoff.mjs \
@@ -179,6 +181,7 @@ jobs:
           node apps/client/scripts/verify-yki-evaluation-integration.mjs
           node apps/client/scripts/verify-yki-final-submit-recovery.mjs
           node apps/client/scripts/verify-yki-local-fallback-contract.mjs
+          node apps/client/scripts/verify-yki-multivoice-contract.mjs
           node apps/client/scripts/verify-yki-report-calibration.mjs
           node apps/client/scripts/verify-yki-report-hardening.mjs
           node apps/client/scripts/verify-yki-session-handoff.mjs
