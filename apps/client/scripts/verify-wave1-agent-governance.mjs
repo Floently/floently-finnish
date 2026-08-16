@@ -22,6 +22,8 @@ const researchStandard = read('docs/agents/WAVE1_RESEARCH_AND_QUALITY_STANDARD.m
 const sharedContractDoc = read('docs/agents/WAVE1_SHARED_LEARNING_CONTRACT.md');
 const testMatrix = read('docs/agents/WAVE1_TEST_MATRIX.md');
 const learningTypes = read('packages/core/schemas/learning.ts');
+const featureSafety = read('apps/client/scripts/verify-wave1-feature-branch-safety.mjs');
+const featureSafetyWorkflow = read('.github/workflows/wave1-feature-branch-safety.yml');
 
 for (const marker of [
   'PRODUCTION_ANCESTRY_GATE=PASS',
@@ -103,6 +105,33 @@ for (const marker of [
   requireText(testMatrix, marker, 'test matrix');
 }
 
+for (const marker of [
+  'integration/wave1-shared-base-20260816',
+  'docs/agents/research/AGENT_${letter}_RESEARCH.md',
+  'RESEARCH_GATE=PASS',
+  'WAVE1_FEATURE_BRANCH_SAFETY=PASS',
+  'WAVE1_PRODUCTION_ACTIONS=NONE',
+  'apps/client/package.json',
+  'apps/backend/app/routers/v1_roleplay.py',
+  'apps/backend/app/routers/v1_yki.py',
+]) {
+  requireText(featureSafety, marker, 'feature branch safety verifier');
+}
+
+for (const marker of [
+  'agent/b-learning-platform-events-20260816',
+  'agent/c-reading-engine-20260816',
+  'agent/d-writing-revision-engine-20260816',
+  'agent/e-practice-hub-composer-20260816',
+  'agent/f-professional-missions-20260816',
+  'agent/g-experience-motion-20260816',
+  'fetch-depth: 0',
+  'verify-wave1-feature-branch-safety.mjs',
+]) {
+  requireText(featureSafetyWorkflow, marker, 'feature branch safety workflow');
+}
+
 console.log('WAVE1_AGENT_GOVERNANCE=PASS');
 console.log('WAVE1_SHARED_LEARNING_CONTRACT=PASS');
 console.log('WAVE1_PRODUCTION_FIREWALL=PASS');
+console.log('WAVE1_FEATURE_BRANCH_FIREWALL=PASS');
