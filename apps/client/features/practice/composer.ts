@@ -102,6 +102,17 @@ function schedulingBudget(input: PracticeComposerInput): number {
   return Math.min(input.targetMinutes, Math.max(0, available));
 }
 
+function isUsableEvidence(
+  input: PracticeComposerInput,
+  item: DurablePracticeEvidence,
+): boolean {
+  return item.durable === true
+    && item.learnerId === input.learnerId
+    && Boolean(item.sourceEvidenceId?.trim())
+    && Boolean(item.observedAt?.trim())
+    && Number.isFinite(Date.parse(item.observedAt));
+}
+
 function stableHash(value: string): string {
   let hash = 2166136261;
   for (let index = 0; index < value.length; index += 1) {
@@ -113,7 +124,7 @@ function stableHash(value: string): string {
 
 function stableInputFingerprint(input: PracticeComposerInput): string {
   const evidence = (input.evidence ?? [])
-    .filter((item) => item.durable && item.learnerId === input.learnerId)
+    .filter((item) => isUsableEvidence(input, item))
     .map((item) => ({
       sourceEvidenceId: item.sourceEvidenceId,
       observedAt: item.observedAt,
@@ -151,6 +162,7 @@ function validDescriptor(task: TaskDescriptor): boolean {
   if (!task.taskId.trim() || !task.contentVersion.trim() || !task.launch.route.trim()) return false;
   if (!Number.isFinite(task.estimatedMinutes) || task.estimatedMinutes <= 0) return false;
   if (!task.skills.length || !task.levelBand.trim()) return false;
+  if (task.requiredEntitlements.some((key) => !key.trim())) return false;
   if (task.pathway === 'yki' && task.ykiMode === undefined) return false;
   if (task.pathway !== 'yki' && task.ykiMode !== undefined) return false;
   return true;
@@ -158,11 +170,19 @@ function validDescriptor(task: TaskDescriptor): boolean {
 
 function matchingEvidence(input: PracticeComposerInput, task: TaskDescriptor): DurablePracticeEvidence[] {
   return (input.evidence ?? []).filter((item) => {
-    if (!item.durable || item.learnerId !== input.learnerId) return false;
+    if (!isUsableEvidence(input, item)) return false;
     if (item.taskId && item.taskId === task.taskId) return true;
     if (item.skill && task.skills.includes(item.skill)) return true;
     return false;
   });
+}
+
+function hasRecentTaskRepetition(input: PracticeComposerInput, task: TaskDescriptor): boolean {
+  return (input.evidence ?? []).some((item) => (
+    isUsableEvidence(input, item)
+    && item.taskId === task.taskId
+    && item.recentlyPracticed === true
+  ));
 }
 
 function filterTask(
@@ -199,19 +219,14 @@ function filterTask(
   if (task.modality.keyboard && !input.modalities.keyboard) return 'keyboard_unavailable';
 
   if (task.estimatedMinutes > schedulingBudget(input)) return 'time_budget';
-
-  if (matchingEvidence(input, task).some((item) => item.recentlyPracticed)) {
-    return 'recent_repetition';
-  }
-
+  if (hasRecentTaskRepetition(input, task)) return 'recent_repetition';
   if (task.pathway === 'yki' && task.ykiMode !== 'practice') return 'yki_mode_boundary';
 
   return null;
 }
 
 function evidenceScores(input: PracticeComposerInput, task: TaskDescriptor) {
-  const evidence = matchingEvidence(input, task);
-  return evidence.reduce(
+  return matchingEvidence(input, task).reduce(
     (acc, item) => ({
       overdue: Math.max(acc.overdue, clamp01(item.overdueNeed)),
       weakness: Math.max(acc.weakness, clamp01(item.weaknessNeed)),
