@@ -1,17 +1,11 @@
 import React, { useMemo, useState } from 'react';
-import {
-  Pressable,
-  StyleSheet,
-  View,
-  type AccessibilityRole,
-} from 'react-native';
+import { Text as RNText, View } from 'react-native';
 import { router } from 'expo-router';
 
 import type {
   LearningPathway,
   LearningSkill,
   PracticeScope,
-  PracticeSessionTask,
   TaskDescriptor,
 } from '@core/schemas/learning';
 import { AppScaffold, PageHeader, TaskCard } from '@ui/components';
@@ -33,6 +27,12 @@ import {
   getPracticeFixture,
   getPracticeTaskLabel,
 } from './fixtureRegistry';
+import {
+  ActionButton,
+  ChoiceChip,
+  SessionPath,
+  practiceLayoutStyles,
+} from './PracticeControls';
 
 type Props = {
   onBack: () => void;
@@ -40,10 +40,7 @@ type Props = {
 };
 
 type SessionPhase = 'setup' | 'active' | 'summary';
-
-type CompletedTask = {
-  task: TaskDescriptor;
-};
+type CompletedTask = { task: TaskDescriptor };
 
 const TARGETS: readonly PracticeTargetMinutes[] = [5, 10, 20];
 const SCOPES: readonly { value: PracticeScope; label: string }[] = [
@@ -52,64 +49,6 @@ const SCOPES: readonly { value: PracticeScope; label: string }[] = [
   { value: 'professional', label: 'Professional' },
   { value: 'yki', label: 'YKI' },
 ];
-
-function ChoiceChip({
-  label,
-  selected,
-  onPress,
-  accessibilityLabel,
-}: {
-  label: string;
-  selected: boolean;
-  onPress: () => void;
-  accessibilityLabel: string;
-}) {
-  return (
-    <Pressable
-      accessibilityRole="button"
-      accessibilityState={{ selected }}
-      accessibilityLabel={accessibilityLabel}
-      onPress={onPress}
-      style={({ pressed }) => [
-        styles.choice,
-        selected && styles.choiceSelected,
-        pressed && styles.pressed,
-      ]}
-    >
-      <Text variant="body" style={selected ? styles.choiceTextSelected : undefined}>
-        {label}
-      </Text>
-    </Pressable>
-  );
-}
-
-function ActionButton({
-  label,
-  onPress,
-  disabled = false,
-  role = 'button',
-}: {
-  label: string;
-  onPress: () => void;
-  disabled?: boolean;
-  role?: AccessibilityRole;
-}) {
-  return (
-    <Pressable
-      accessibilityRole={role}
-      accessibilityState={{ disabled }}
-      disabled={disabled}
-      onPress={onPress}
-      style={({ pressed }) => [
-        styles.action,
-        disabled && styles.disabled,
-        pressed && !disabled && styles.pressed,
-      ]}
-    >
-      <Text variant="body">{label}</Text>
-    </Pressable>
-  );
-}
 
 function buildEntitlementKeys(
   status: ReturnType<typeof useSubscriptionStore.getState>['status'],
@@ -150,36 +89,6 @@ function formatPathway(pathway: LearningPathway): string {
   return pathway.charAt(0).toUpperCase() + pathway.slice(1);
 }
 
-function SessionPath({
-  completedCount,
-  current,
-  upcoming,
-}: {
-  completedCount: number;
-  current?: PracticeSessionTask;
-  upcoming: readonly PracticeSessionTask[];
-}) {
-  const labels = [
-    ...Array.from({ length: completedCount }, (_, index) => `✓ ${index + 1}`),
-    ...(current ? [`Now · ${formatPracticeSkills(current.task.skills)}`] : []),
-    ...upcoming.map((item) => `Next · ${formatPracticeSkills(item.task.skills)}`),
-  ];
-
-  return (
-    <View
-      accessibilityRole="summary"
-      accessibilityLabel={`Practice path. ${labels.join('. ')}`}
-      style={styles.path}
-    >
-      {labels.map((label, index) => (
-        <View key={`${label}-${index}`} style={styles.pathNode}>
-          <Text variant="caption">{label}</Text>
-        </View>
-      ))}
-    </View>
-  );
-}
-
 export default function PracticeRoute({ onBack, onOpenMenu }: Props) {
   const themeMode = usePreferencesStore((state) => state.themeMode);
   const user = useAuthStore((state) => state.user);
@@ -204,7 +113,6 @@ export default function PracticeRoute({ onBack, onOpenMenu }: Props) {
     () => activeProfession(subscriptionStatus),
     [subscriptionStatus],
   );
-
   const excludedTaskIds = useMemo(
     () => [...new Set([
       ...completed.map(({ task }) => task.taskId),
@@ -213,7 +121,6 @@ export default function PracticeRoute({ onBack, onOpenMenu }: Props) {
     ])].sort(),
     [completed, dismissedTaskIds, skippedTaskIds],
   );
-
   const remainingMinutes = Math.max(0, targetMinutes - elapsedMinutes);
 
   const composerInput = useMemo<PracticeComposerInput>(() => ({
@@ -231,8 +138,8 @@ export default function PracticeRoute({ onBack, onOpenMenu }: Props) {
       keyboard: true,
     },
     excludedTaskIds,
-    // Until Agent B is integrated this surface intentionally supplies no
-    // learner evidence, so all recommendation language stays curriculum-safe.
+    // Agent B owns durable evidence integration. Until that adapter lands,
+    // this route stays explicitly curriculum-only.
     evidence: [],
   }), [
     createdAt,
@@ -247,11 +154,7 @@ export default function PracticeRoute({ onBack, onOpenMenu }: Props) {
     user?.id,
   ]);
 
-  const composition = useMemo(
-    () => composePracticeSession(composerInput),
-    [composerInput],
-  );
-
+  const composition = useMemo(() => composePracticeSession(composerInput), [composerInput]);
   const current = composition.manifest.tasks[0];
   const upcoming = composition.manifest.tasks.slice(1);
   const summary = useMemo(() => practicedSummary(completed), [completed]);
@@ -295,11 +198,6 @@ export default function PracticeRoute({ onBack, onOpenMenu }: Props) {
   const anotherTask = () => {
     if (!current) return;
     setDismissedTaskIds((ids) => [...ids, current.task.taskId]);
-    setWhyOpen(false);
-  };
-
-  const disableMicrophone = () => {
-    setMicrophoneAvailable(false);
     setWhyOpen(false);
   };
 
@@ -374,7 +272,7 @@ export default function PracticeRoute({ onBack, onOpenMenu }: Props) {
           <PageHeader
             eyebrow="Practice"
             title="Today’s practice"
-            subtitle="Choose a time budget and pathway scope. Practice will orchestrate existing learning tools, not create a new pathway."
+            subtitle="Choose a time budget and pathway scope. Practice orchestrates existing learning tools; it is not a new pathway."
             actionLabel="Home"
             onActionPress={onBack}
             onMenuPress={onOpenMenu}
@@ -386,7 +284,7 @@ export default function PracticeRoute({ onBack, onOpenMenu }: Props) {
           <Card>
             <Stack gap="md">
               <Text variant="title">How long?</Text>
-              <View style={styles.choices}>
+              <View style={practiceLayoutStyles.choices}>
                 {TARGETS.map((minutes) => (
                   <ChoiceChip
                     key={minutes}
@@ -406,7 +304,7 @@ export default function PracticeRoute({ onBack, onOpenMenu }: Props) {
           <Card>
             <Stack gap="md">
               <Text variant="title">What should it include?</Text>
-              <View style={styles.choices}>
+              <View style={practiceLayoutStyles.choices}>
                 {SCOPES.map((item) => (
                   <ChoiceChip
                     key={item.value}
@@ -420,28 +318,25 @@ export default function PracticeRoute({ onBack, onOpenMenu }: Props) {
             </Stack>
           </Card>
 
-          {preview.length ? (
-            <Card>
-              <Stack gap="sm">
-                <Text variant="title">Preview</Text>
-                <Text>{preview.map((item) => formatPracticeSkills(item.task.skills)).join(' → ')}</Text>
-                <Text tone="muted">{composition.totalMinutes} minutes planned</Text>
-                <Text variant="caption">Why these tasks?</Text>
+          <Card>
+            <Stack gap="sm">
+              <Text variant="title">Preview</Text>
+              {preview.length ? (
+                <>
+                  <Text>{preview.map((item) => formatPracticeSkills(item.task.skills)).join(' → ')}</Text>
+                  <Text tone="muted">{composition.totalMinutes} minutes planned</Text>
+                  <Text variant="caption">Why these tasks?</Text>
+                  <Text tone="muted">
+                    {firstReason ?? 'The session uses curriculum-safe balance and the time you selected.'}
+                  </Text>
+                </>
+              ) : (
                 <Text tone="muted">
-                  {firstReason ?? 'The session uses curriculum-safe balance and the time you selected.'}
+                  No compatible tasks are available. Practice will not inject an unavailable, unauthorized, wrong-profession, or incompatible task to fill time.
                 </Text>
-              </Stack>
-            </Card>
-          ) : (
-            <Card>
-              <Stack gap="sm">
-                <Text variant="title">No compatible tasks right now</Text>
-                <Text tone="muted">
-                  Practice will not insert an unavailable, unauthorized, wrong-profession, or incompatible task just to fill time.
-                </Text>
-              </Stack>
-            </Card>
-          )}
+              )}
+            </Stack>
+          </Card>
 
           <ActionButton
             label="Start today’s practice"
@@ -471,9 +366,9 @@ export default function PracticeRoute({ onBack, onOpenMenu }: Props) {
         }
       >
         <Stack gap="md">
-          <Text accessibilityLiveRegion="polite">
-            {completed.length} tasks completed · {skippedTaskIds.length} skipped.
-          </Text>
+          <View accessibilityLiveRegion="polite">
+            <Text>{completed.length} tasks completed · {skippedTaskIds.length} skipped.</Text>
+          </View>
           <ActionButton label="See session summary" onPress={() => setPhase('summary')} />
           <ActionButton label="Practice again" onPress={resetSession} />
         </Stack>
@@ -500,11 +395,7 @@ export default function PracticeRoute({ onBack, onOpenMenu }: Props) {
       }
     >
       <Stack gap="lg">
-        <SessionPath
-          completedCount={completed.length}
-          current={current}
-          upcoming={upcoming}
-        />
+        <SessionPath completedCount={completed.length} current={current} upcoming={upcoming} />
 
         <TaskCard
           themeMode={themeMode}
@@ -518,17 +409,9 @@ export default function PracticeRoute({ onBack, onOpenMenu }: Props) {
 
         <Card>
           <Stack gap="sm">
-            <Pressable
-              accessibilityRole="button"
-              accessibilityState={{ expanded: whyOpen }}
-              onPress={() => setWhyOpen((value) => !value)}
-            >
-              <Text variant="title">Why these tasks?</Text>
-            </Pressable>
+            <ActionButton label="Why these tasks?" onPress={() => setWhyOpen((value) => !value)} />
             {whyOpen ? current.reasons.map((reason) => (
-              <Text key={`${reason.code}-${reason.message}`} tone="muted">
-                • {reason.message}
-              </Text>
+              <Text key={`${reason.code}-${reason.message}`} tone="muted">• {reason.message}</Text>
             )) : (
               <Text tone="muted">Open to see the actual selection reasons.</Text>
             )}
@@ -538,13 +421,16 @@ export default function PracticeRoute({ onBack, onOpenMenu }: Props) {
         <Card>
           <Stack gap="sm">
             <Text variant="title">Session controls</Text>
-            <View style={styles.actionGrid}>
+            <View style={practiceLayoutStyles.actionGrid}>
               <ActionButton label="Skip for now" onPress={skipCurrent} />
               <ActionButton label="Give me another task" onPress={anotherTask} />
               <ActionButton
                 label="No microphone right now"
                 disabled={!microphoneAvailable}
-                onPress={disableMicrophone}
+                onPress={() => {
+                  setMicrophoneAvailable(false);
+                  setWhyOpen(false);
+                }}
               />
               <ActionButton
                 label="Make it shorter"
@@ -559,76 +445,19 @@ export default function PracticeRoute({ onBack, onOpenMenu }: Props) {
           <Stack gap="sm">
             <Text variant="title">After you return</Text>
             <Text tone="muted">
-              Marking this task finished only advances this local Practice shell. The canonical runtime remains responsible for its real task result and learning evidence.
+              Marking this task finished only advances this local Practice shell. The canonical runtime remains responsible for its real task result and durable learning evidence.
             </Text>
             <ActionButton label="I finished this task" onPress={finishCurrent} />
           </Stack>
         </Card>
 
-        <Text accessibilityLiveRegion="polite" style={styles.statusText}>
+        <RNText
+          accessibilityLiveRegion="polite"
+          style={practiceLayoutStyles.statusText}
+        >
           Task {completed.length + skippedTaskIds.length + 1}. {getPracticeTaskLabel(current.task.taskId)}.
-        </Text>
+        </RNText>
       </Stack>
     </AppScaffold>
   );
 }
-
-const styles = StyleSheet.create({
-  choices: {
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    gap: 10,
-  },
-  choice: {
-    borderWidth: 1,
-    borderColor: '#8EA3C3',
-    borderRadius: 999,
-    paddingHorizontal: 16,
-    paddingVertical: 10,
-    minHeight: 44,
-    justifyContent: 'center',
-  },
-  choiceSelected: {
-    backgroundColor: '#21365D',
-    borderColor: '#21365D',
-  },
-  choiceTextSelected: {
-    color: '#FFFFFF',
-  },
-  path: {
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    gap: 8,
-  },
-  pathNode: {
-    borderWidth: 1,
-    borderColor: '#B9C6D8',
-    borderRadius: 12,
-    paddingHorizontal: 10,
-    paddingVertical: 8,
-  },
-  actionGrid: {
-    gap: 10,
-  },
-  action: {
-    borderWidth: 1,
-    borderColor: '#8EA3C3',
-    borderRadius: 12,
-    paddingHorizontal: 14,
-    paddingVertical: 12,
-    minHeight: 44,
-    justifyContent: 'center',
-  },
-  disabled: {
-    opacity: 0.45,
-  },
-  pressed: {
-    opacity: 0.7,
-  },
-  statusText: {
-    position: 'absolute',
-    width: 1,
-    height: 1,
-    opacity: 0,
-  },
-});
