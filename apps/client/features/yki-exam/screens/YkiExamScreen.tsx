@@ -88,7 +88,7 @@ export default function YkiExamScreen({
           eyebrow={t('ykiExamEyebrow')}
           title={t('ykiExamHeaderTitle')}
           subtitle={t('ykiExamHeaderSubtitle')}
-          actionLabel={t('commonHome')}
+          actionLabel={t('commonBack')}
           onActionPress={onExit}
           onMenuPress={onOpenMenu}
           themeMode={themeMode}

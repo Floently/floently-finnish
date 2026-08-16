@@ -9,6 +9,7 @@ export type DrawerRoute =
   | 'read'
   | 'create'
   | 'progress'
+  | 'help'
   | 'settings'
   | 'billing';
 
@@ -94,7 +95,22 @@ export function createDrawerSections(
     });
     sections.push({
       label: translate(language, 'drawerAccount'),
-      items: [{ icon: '⚙', label: translate(language, 'drawerSettings'), accentColor: '#8EA3C3', hint: translate(language, 'drawerSettingsHint'), onPress: () => void navigateTo('settings') }],
+      items: [
+        {
+          icon: '⚙',
+          label: translate(language, 'drawerSettings'),
+          accentColor: '#8EA3C3',
+          hint: translate(language, 'drawerSettingsHint'),
+          onPress: () => void navigateTo('settings'),
+        },
+        {
+          icon: '❓',
+          label: translate(language, 'settingsHelpAndSupport'),
+          accentColor: '#8EA3C3',
+          hint: '',
+          onPress: () => void navigateTo('help'),
+        },
+      ],
     });
     return sections;
   }
@@ -156,32 +172,29 @@ export function createDrawerSections(
 
 
 
+  const pathwayItems: DrawerItem[] = [];
+
   if (!sections.length) {
-    sections.push({
-      label: translate(language, 'drawerMyPathway'),
-      items: [
-        {
-          icon: '🔒',
-          label: translate(language, 'drawerChoosePathway'),
-          accentColor: '#4F7FFF',
-          hint: translate(language, 'drawerChoosePathwayHint'),
-          onPress: () => void navigateTo('billing'),
-        },
-      ],
+    pathwayItems.push({
+      icon: '🔒',
+      label: translate(language, 'drawerChoosePathway'),
+      accentColor: '#4F7FFF',
+      hint: translate(language, 'drawerChoosePathwayHint'),
+      onPress: () => void navigateTo('billing'),
     });
   }
 
+  pathwayItems.push({
+    icon: '📈',
+    label: translate(language, 'progressTitle'),
+    accentColor: '#3EC58A',
+    hint: translate(language, 'progressSubtitle'),
+    onPress: () => void navigateTo('progress'),
+  });
+
   sections.push({
     label: translate(language, 'drawerMyPathway'),
-    items: [
-      {
-        icon: '📈',
-        label: translate(language, 'progressTitle'),
-        accentColor: '#3EC58A',
-        hint: translate(language, 'progressSubtitle'),
-        onPress: () => void navigateTo('progress'),
-      },
-    ],
+    items: pathwayItems,
   });
 
   sections.push({
@@ -200,6 +213,13 @@ export function createDrawerSections(
         accentColor: '#8EA3C3',
         hint: translate(language, 'drawerSettingsHint'),
         onPress: () => void navigateTo('settings'),
+      },
+      {
+        icon: '❓',
+        label: translate(language, 'settingsHelpAndSupport'),
+        accentColor: '#8EA3C3',
+        hint: '',
+        onPress: () => void navigateTo('help'),
       },
     ],
   });

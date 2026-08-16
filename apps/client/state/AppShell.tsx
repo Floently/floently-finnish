@@ -136,7 +136,14 @@ async function validateLearningGuard(): Promise<LearningGuardResult> {
 export default function AppShell({ requestedScreen = "root" }: Props) {
   const pathname = usePathname();
   const router = useRouter();
-  const openMenuParam = useLocalSearchParams<{ openMenu?: string }>().openMenu;
+  const routeParams = useLocalSearchParams<{
+    openMenu?: string;
+    branch?: string | string[];
+  }>();
+  const openMenuParam = routeParams.openMenu;
+  const rawLearningBranch = Array.isArray(routeParams.branch)
+    ? routeParams.branch[0]
+    : routeParams.branch;
   const hydrateSession = useAuthStore((state) => state.hydrateSession);
   const hasHydrated = useAuthStore((state) => state.hasHydrated);
   const user = useAuthStore((state) => state.user);
@@ -144,7 +151,6 @@ export default function AppShell({ requestedScreen = "root" }: Props) {
   const activeScreen = useAppFlowStore((state) => state.activeScreen);
   const error = useAppFlowStore((state) => state.error);
   const navigationStatus = useAppFlowStore((state) => state.navigationStatus);
-  const navigationStack = useAppFlowStore((state) => state.navigationStack);
   const beginNavigationCheck = useAppFlowStore((state) => state.beginNavigationCheck);
   const clearNavigationError = useAppFlowStore((state) => state.clearNavigationError);
   const resolveScreen = useAppFlowStore((state) => state.resolveScreen);
@@ -310,6 +316,18 @@ export default function AppShell({ requestedScreen = "root" }: Props) {
     }
   }
 
+  function pushIfNeeded(screen: GuardedScreen) {
+    if (Platform.OS === 'web' && screen === 'learning' && typeof window !== 'undefined' && !isLearnHost()) {
+      goToLearn('/learn');
+      return;
+    }
+
+    const path = getPathForScreen(screen);
+    if (pathname !== path) {
+      router.push(path as any);
+    }
+  }
+
 
   function isEntitledForScreen(screen: GuardedScreen | RequestedScreen) {
     const entitlements = subscriptionStatus?.entitlements;
@@ -321,17 +339,30 @@ export default function AppShell({ requestedScreen = "root" }: Props) {
       subscriptionStatus?.hasAnySubscription ||
       subscriptionStatus?.isActive,
     );
+    const isAuthenticatedUtilityScreen =
+      Boolean(user) && (screen === 'help' || screen === 'settings');
+
     if (!entitlements) {
       // Do not send authenticated users to billing while subscription status is still hydrating.
       // The backend remains the source of truth; this only prevents premature frontend redirects.
       if (user && !subscriptionStatus && screen !== 'landing' && screen !== 'auth') {
         return true;
       }
-      return screen === 'landing' || screen === 'auth' || screen === 'billing';
+      return (
+        isAuthenticatedUtilityScreen ||
+        screen === 'landing' ||
+        screen === 'auth' ||
+        screen === 'billing'
+      );
     }
 
     if (!hasUnlockedAccess) {
-      return screen === 'landing' || screen === 'auth' || screen === 'billing';
+      return (
+        isAuthenticatedUtilityScreen ||
+        screen === 'landing' ||
+        screen === 'auth' ||
+        screen === 'billing'
+      );
     }
 
     if (screen === 'read') {
@@ -616,10 +647,40 @@ export default function AppShell({ requestedScreen = "root" }: Props) {
     }
 
     if (target === "root") {
+      if (
+        Platform.OS === 'web' &&
+        rawLearningBranch === 'everyday'
+      ) {
+        if (!isEntitledForScreen('learning')) {
+          replaceIfNeeded('billing');
+          await resolveAndPersist('billing', 'billing');
+          return;
+        }
+
+        if (isOffline) {
+          await blockNavigation({
+            code: "NAVIGATION_BLOCKED",
+            message: t('appShellLearningNavigationOffline'),
+            requestedScreen: 'learning',
+          });
+          return;
+        }
+
+        // /?branch=everyday is the canonical KieliValmis web URL for
+        // the Everyday Finnish Learning surface. Keep that URL intact.
+        await resolveAndPersist('learning', 'learning');
+        return;
+      }
+
       if (!subscriptionStatus) {
-        // Do not force users home while subscription status is refreshing.
-        // Restore the last known navigation state instead, especially for
-        // already-open protected feature screens such as roleplay/speaking.
+        if (Platform.OS === 'web') {
+          replaceIfNeeded("home");
+          await resolveAndPersist("home", "root");
+          return;
+        }
+
+        // Native keeps durable resume semantics while subscription status is
+        // refreshing. Web uses the URL as navigation authority.
         await restoreFromNavigationState();
         return;
       }
@@ -636,6 +697,13 @@ export default function AppShell({ requestedScreen = "root" }: Props) {
         await resolveAndPersist("billing", "billing");
         return;
       }
+
+      if (Platform.OS === 'web') {
+        replaceIfNeeded("home");
+        await resolveAndPersist("home", "root");
+        return;
+      }
+
       await restoreFromNavigationState();
       return;
     }
@@ -705,6 +773,7 @@ export default function AppShell({ requestedScreen = "root" }: Props) {
       currentActiveScreen !== "error";
 
     if (
+      Platform.OS !== 'web' &&
       requestedScreen === "root" &&
       user &&
       isStableProtectedScreen
@@ -723,7 +792,13 @@ export default function AppShell({ requestedScreen = "root" }: Props) {
     // inputs. activeScreen is an OUTPUT of navigation and must not retrigger
     // reconciliation before Expo Router commits the destination.
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [hasHydrated, requestedScreen, user?.id, subscriptionGuardKey]);
+  }, [
+    hasHydrated,
+    requestedScreen,
+    user?.id,
+    subscriptionGuardKey,
+    rawLearningBranch,
+  ]);
 
   async function navigateTo(
     screen: GuardedScreen,
@@ -732,13 +807,13 @@ export default function AppShell({ requestedScreen = "root" }: Props) {
     beginNavigationCheck(screen);
 
     if (screen === "auth") {
-      replaceIfNeeded("auth");
+      pushIfNeeded("auth");
       await resolveAndPersist("auth", "auth");
       return;
     }
 
     if (screen === "landing") {
-      replaceIfNeeded("landing");
+      pushIfNeeded("landing");
       await resolveAndPersist("landing", "root");
       return;
     }
@@ -760,7 +835,7 @@ export default function AppShell({ requestedScreen = "root" }: Props) {
 
     if (screen === "home") {
       clearNavigationError();
-      replaceIfNeeded("home");
+      pushIfNeeded("home");
       await resolveAndPersist("home", "root");
       return;
     }
@@ -768,7 +843,7 @@ export default function AppShell({ requestedScreen = "root" }: Props) {
     if (screen === "daily-practice") {
       clearNavigationError();
       setActiveContext("none");
-      replaceIfNeeded("daily-practice");
+      pushIfNeeded("daily-practice");
       await resolveAndPersist("daily-practice", "daily-practice");
       return;
     }
@@ -788,7 +863,7 @@ export default function AppShell({ requestedScreen = "root" }: Props) {
         if (Platform.OS === 'web') {
           goToLearn('/?branch=everyday');
         } else {
-          router.replace(
+          router.push(
             '/learn?branch=everyday' as never,
           );
         }
@@ -796,7 +871,7 @@ export default function AppShell({ requestedScreen = "root" }: Props) {
         return;
       }
 
-      replaceIfNeeded("learning");
+      pushIfNeeded("learning");
       await resolveAndPersist("learning", screen);
       return;
     }
@@ -804,7 +879,7 @@ export default function AppShell({ requestedScreen = "root" }: Props) {
     if (screen === "yki-exam") {
       clearNavigationError();
       setActiveContext('yki');
-      replaceIfNeeded("yki-exam");
+      pushIfNeeded("yki-exam");
       await resolveAndPersist("yki-exam", screen);
       return;
     }
@@ -820,20 +895,20 @@ export default function AppShell({ requestedScreen = "root" }: Props) {
       if (screen === 'speaking-practice' && subscriptionStatus?.entitlements?.activeContext) {
         setActiveContext(subscriptionStatus.entitlements.activeContext);
       }
-      replaceIfNeeded(screen);
+      pushIfNeeded(screen);
       await resolveAndPersist(screen, screen);
       return;
     }
 
     if (isSecondaryScreen(screen)) {
       clearNavigationError();
-      replaceIfNeeded(screen);
+      pushIfNeeded(screen);
       await resolveAndPersist(screen, screen);
       return;
     }
 
     clearNavigationError();
-    replaceIfNeeded("yki-practice");
+    pushIfNeeded("yki-practice");
     await resolveAndPersist("yki-practice", screen, null);
   }
 
@@ -846,15 +921,23 @@ export default function AppShell({ requestedScreen = "root" }: Props) {
   }
 
   function navigateBack() {
-    const previousScreen =
-      navigationStack.length > 1 ? navigationStack[navigationStack.length - 2] : null;
-
-    if (!previousScreen) {
-      void navigateTo(user ? "home" : "auth");
+    if (router.canGoBack()) {
+      router.back();
       return;
     }
 
-    void navigateTo(previousScreen);
+    const fallbackScreen: GuardedScreen = !user
+      ? "auth"
+      : isEntitledForScreen("home")
+        ? "home"
+        : "billing";
+
+    beginNavigationCheck(fallbackScreen);
+    replaceIfNeeded(fallbackScreen);
+    void resolveAndPersist(
+      fallbackScreen,
+      fallbackScreen === "home" ? "root" : fallbackScreen,
+    );
   }
 
   const drawerSections = createDrawerSections(
@@ -974,7 +1057,7 @@ export default function AppShell({ requestedScreen = "root" }: Props) {
     return (
       <>
         <ProgressRoute
-          onBack={() => void navigateTo("home")}
+          onBack={() => navigateBack()}
           onOpenLearning={() => void navigateTo("learning")}
           onOpenSpeaking={() => {
             // Roleplay UX restructuring: lock to user's primary profession
@@ -993,7 +1076,7 @@ export default function AppShell({ requestedScreen = "root" }: Props) {
     return (
       <>
         <SettingsRoute
-          onBack={() => void navigateTo("home")}
+          onBack={() => navigateBack()}
           onOpenBilling={() => void navigateTo("billing")}
           onOpenHelp={() => void navigateTo("help")}
           onOpenMenu={openSidebar}
@@ -1007,7 +1090,7 @@ export default function AppShell({ requestedScreen = "root" }: Props) {
     return (
       <>
         <HelpRoute
-          onBack={() => void navigateTo("home")}
+          onBack={() => navigateBack()}
           onOpenBilling={() => void navigateTo("billing")}
           onOpenSettings={() => void navigateTo("settings")}
           onOpenYki={() => void navigateTo("yki-exam")}
@@ -1022,7 +1105,7 @@ export default function AppShell({ requestedScreen = "root" }: Props) {
     return (
       <>
         <BillingRoute
-          onBack={() => void navigateTo("home")}
+          onBack={() => navigateBack()}
           onOpenMenu={openSidebar}
         />
         {drawer}
@@ -1093,7 +1176,7 @@ export default function AppShell({ requestedScreen = "root" }: Props) {
     return (
       <>
         <YkiExamRoute
-          onExit={() => void navigateTo("home")}
+          onExit={() => navigateBack()}
           onOpenMenu={openSidebar}
           initialLevelBand={examPresetLevel}
           onOpenPractice={(levelBand) => { if (levelBand) setExamPresetLevel(levelBand); void navigateTo("yki-practice"); }}

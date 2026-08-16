@@ -286,7 +286,7 @@ export default function SettingsRoute({ onBack, onOpenBilling, onOpenHelp, onOpe
           eyebrow={t('settingsEyebrow')}
           title={t('settingsTitle')}
           subtitle={t('settingsSubtitle')}
-          actionLabel={t('settingsHome')}
+          actionLabel={t('commonBack')}
           onActionPress={onBack}
           onMenuPress={onOpenMenu}
         />

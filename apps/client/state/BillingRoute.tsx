@@ -680,7 +680,7 @@ export default function BillingRoute({ onBack, onOpenMenu }: Props) {
           eyebrow={t('billingAccessEyebrow')}
           title={t('billingManagementPageTitle')}
           subtitle={t('billingManagementPageSubtitle')}
-          actionLabel={t('billingHomeAction')}
+          actionLabel={t('commonBack')}
           onActionPress={onBack}
           onMenuPress={onOpenMenu}
         />

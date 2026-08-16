@@ -182,7 +182,10 @@ export default function UtilityDrawer({
 
             {/* ── Navigation sections ───────────────────────────────────── */}
             {sections.map((section) => (
-              <View key={section.label} style={styles.navSection}>
+              <View
+                key={`${section.label}:${section.items.map((item) => item.label).join('|')}`}
+                style={styles.navSection}
+              >
                 <Text style={[styles.sectionLabel, { color: softCol }]}>{section.label}</Text>
                 {section.items.map((item) => (
                   <Pressable

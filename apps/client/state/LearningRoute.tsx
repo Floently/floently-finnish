@@ -84,7 +84,7 @@ export default function LearningRoute({ onBack, onOpenMenu, onOpenEverydayRolepl
             eyebrow={translate(language, 'learningHubEyebrow')}
             title={translate(language, 'learningHubTitle')}
             subtitle={translate(language, 'learningHubSubtitle')}
-            actionLabel={translate(language, 'commonHome')}
+            actionLabel={translate(language, 'commonBack')}
             onActionPress={onBack}
             onMenuPress={onOpenMenu}
             themeMode={themeMode}

@@ -60,14 +60,14 @@ export default function FeatureEntryRoute({
             title={copy.title}
             subtitle={copy.body}
             themeMode={themeMode}
-            actionLabel="Home"
+            actionLabel="Back"
             onActionPress={onBack}
             onMenuPress={onOpenMenu}
           />
         }
         footer={
           <NextBackDock
-            backLabel="Home"
+            backLabel="Back"
             nextLabel={copy.primary}
             onBack={onBack}
             onNext={onOpenTarget}

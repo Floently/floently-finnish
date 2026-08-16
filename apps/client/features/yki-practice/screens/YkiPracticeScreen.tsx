@@ -147,7 +147,7 @@ export default function YkiPracticeScreen({ onBack, onOpenMenu, onOpenExam, onOp
           eyebrow={t('ykiPracticeEyebrow')}
           title={t('ykiPracticeHeaderTitle')}
           subtitle={t('ykiPracticeHeaderSubtitle')}
-          actionLabel={t('commonHome')}
+          actionLabel={t('commonBack')}
           onActionPress={onBack}
           onMenuPress={onOpenMenu}
           themeMode={themeMode}

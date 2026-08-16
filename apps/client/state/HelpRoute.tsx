@@ -4,6 +4,7 @@ import { StyleSheet, Text, View } from 'react-native';
 import { AppScaffold, PageHeader, TaskCard } from '@ui/components';
 import { getFloentlyPalette } from '@ui/theme/floentlyPalette';
 
+import { useTranslator } from '../features/i18n';
 import { usePreferencesStore } from './preferencesStore';
 
 type Props = {
@@ -15,6 +16,7 @@ type Props = {
 };
 
 export default function HelpRoute({ onBack, onOpenBilling, onOpenSettings, onOpenYki, onOpenMenu }: Props) {
+  const { t } = useTranslator();
   const hydratePreferences = usePreferencesStore((state) => state.hydrate);
   const themeMode = usePreferencesStore((state) => state.themeMode);
   const palette = getFloentlyPalette(themeMode);
@@ -32,7 +34,7 @@ export default function HelpRoute({ onBack, onOpenBilling, onOpenSettings, onOpe
           eyebrow="Utility"
           title="Help"
           subtitle="Help should get people unstuck fast, then send them back to the right path."
-          actionLabel="Home"
+          actionLabel={t('commonBack')}
           onActionPress={onBack}
           onMenuPress={onOpenMenu}
         />

@@ -91,7 +91,7 @@ export default function ProgressRoute({ onBack, onOpenLearning, onOpenSpeaking, 
           eyebrow={t('progressEyebrow')}
           title={t('progressTitle')}
           subtitle={t('progressSubtitle')}
-          actionLabel={t('commonHome')}
+          actionLabel={t('commonBack')}
           onActionPress={onBack}
           onMenuPress={onOpenMenu}
         />
