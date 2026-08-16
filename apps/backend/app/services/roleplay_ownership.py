@@ -4,22 +4,32 @@ KV-SEC-002 closes the mounted-route gap where authenticated HTTP requests used
 runtime sessions owned by the shared literal ``preview`` identity.
 
 Legacy compatibility is deliberately narrow: an old preview-owned session may
-be claimed only when the persisted rotation key exactly equals the authenticated
-caller's stable identity. Missing or mismatched evidence fails closed.
+be claimed only when its persisted rotation key matches an identity alias read
+from the *same authenticated user record* (currently stable user_id or email).
+Missing or mismatched evidence fails closed.
 """
 from __future__ import annotations
 
+from collections.abc import Iterable
 from typing import Any
 
 from app.core.errors import AppError
 from app.core.utils import iso_now
 
 
+def _normalized_identity_keys(values: Iterable[str] | None) -> set[str]:
+    return {
+        str(value or "").strip()
+        for value in (values or ())
+        if str(value or "").strip() and str(value or "").strip() != "preview"
+    }
+
+
 def assert_or_claim_roleplay_owner(
     *,
     session: dict[str, Any] | None,
     user_id: str,
-    legacy_rotation_user_key: str | None,
+    authenticated_legacy_keys: Iterable[str] | None = None,
 ) -> dict[str, Any]:
     if not session:
         raise AppError(
@@ -57,17 +67,18 @@ def assert_or_claim_roleplay_owner(
         (session.get("display_preferences") or {}).get("_rotation_user_key")
         or ""
     ).strip()
-    supplied_rotation_key = str(legacy_rotation_user_key or "").strip()
+    authenticated_keys = _normalized_identity_keys(
+        (caller, *(authenticated_legacy_keys or ()))
+    )
 
     # There is no safe ownership inference from session ID, persona, profession,
-    # email-like display values, or timing. Only the exact identity that the old
-    # authenticated router persisted for scenario rotation is acceptable proof.
+    # timing, or arbitrary caller input. Only identity fields already attached to
+    # the authenticated user record may prove a legacy preview session belongs to
+    # this caller. user_id becomes the canonical owner after a successful claim.
     if (
         not stored_rotation_key
         or stored_rotation_key == "preview"
-        or not supplied_rotation_key
-        or supplied_rotation_key != caller
-        or stored_rotation_key != caller
+        or stored_rotation_key not in authenticated_keys
     ):
         raise AppError(
             403,
@@ -80,6 +91,9 @@ def assert_or_claim_roleplay_owner(
     session["user_id"] = caller
     session["ownership_version"] = "authenticated-v1"
     session["ownership_migrated_from"] = "preview"
+    session["ownership_migrated_key_kind"] = (
+        "user_id" if stored_rotation_key == caller else "authenticated_alias"
+    )
     session["ownership_migrated_at"] = iso_now()
     return session
 
@@ -92,14 +106,22 @@ def mark_new_roleplay_owner(
 ) -> dict[str, Any]:
     """Bind a just-created legacy-runtime session to its authenticated caller.
 
-    The existing runtime start wrapper still creates ``preview`` sessions. The
-    mounted service calls it with the authenticated rotation key and immediately
-    claims the new session before returning its ID to the client. This isolates
-    the security repair from the very large roleplay runtime while preserving
-    its scenario/persona/mission behavior byte-for-byte.
+    New mounted sessions always use the canonical authenticated user_id as their
+    rotation key. The claim therefore requires an exact user_id match; email is
+    accepted only for older sessions that were already persisted before KV-SEC-002.
     """
+    expected = str(expected_rotation_user_key or "").strip()
+    caller = str(user_id or "").strip()
+    if not expected or expected != caller:
+        raise AppError(
+            500,
+            "ROLEPLAY_OWNER_BINDING_INVALID",
+            "New roleplay session ownership could not be established.",
+            False,
+            {"classification": "terminal"},
+        )
     return assert_or_claim_roleplay_owner(
         session=session,
-        user_id=user_id,
-        legacy_rotation_user_key=expected_rotation_user_key,
+        user_id=caller,
+        authenticated_legacy_keys=(expected,),
     )
