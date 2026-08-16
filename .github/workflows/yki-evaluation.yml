@@ -1,0 +1,105 @@
+name: YKI evaluation contract
+
+on:
+  push:
+    paths:
+      - "apps/backend/**"
+      - ".github/workflows/yki-evaluation.yml"
+  pull_request:
+    paths:
+      - "apps/backend/**"
+      - ".github/workflows/yki-evaluation.yml"
+  workflow_dispatch:
+
+jobs:
+  verify-yki-evaluation:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: "pip"
+          cache-dependency-path: apps/backend/requirements.txt
+
+      - name: Install backend dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -r apps/backend/requirements.txt
+
+      - name: Compile YKI protected source and verifiers
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+
+          paths = [
+              Path("apps/backend/app/models/api_models.py"),
+              Path("apps/backend/app/routers/v1_yki.py"),
+              Path("apps/backend/app/runtime/yki.py"),
+              Path("apps/backend/app/runtime/yki_local_fallback.py"),
+              Path("apps/backend/app/services/yki_service.py"),
+              Path("apps/backend/app/services/yki_evaluation_service.py"),
+              Path("apps/backend/scripts/verify_yki_ai_evaluation.py"),
+              Path("apps/backend/scripts/verify_yki_evaluation_regression_recovery.py"),
+              Path("apps/backend/scripts/verify_yki_final_submit_recovery.py"),
+              Path("apps/backend/scripts/verify_yki_local_fallback_evaluation.py"),
+              Path("apps/backend/scripts/verify_yki_report_calibration.py"),
+          ]
+
+          for path in paths:
+              compile(
+                  path.read_text(),
+                  str(path),
+                  "exec",
+              )
+              print(f"COMPILE_PASS={path}")
+          PY
+
+      - name: Verify YKI AI evaluation contract
+        env:
+          PYTHONPATH: apps/backend
+          OPENAI_EVALUATION_ENABLED: "0"
+        run: |
+          python apps/backend/scripts/verify_yki_ai_evaluation.py
+
+      - name: Verify YKI grounded evaluation recovery
+        env:
+          PYTHONPATH: apps/backend
+          OPENAI_EVALUATION_ENABLED: "0"
+        run: |
+          python apps/backend/scripts/verify_yki_evaluation_regression_recovery.py
+
+      - name: Verify YKI final-submit idempotent recovery
+        env:
+          PYTHONPATH: apps/backend
+          OPENAI_EVALUATION_ENABLED: "0"
+        run: |
+          python apps/backend/scripts/verify_yki_final_submit_recovery.py
+
+      - name: Verify YKI local fallback and answer protection
+        env:
+          PYTHONPATH: apps/backend
+          OPENAI_EVALUATION_ENABLED: "0"
+        run: |
+          python apps/backend/scripts/verify_yki_local_fallback_evaluation.py
+
+      - name: Verify YKI report calibration and task balance
+        env:
+          PYTHONPATH: apps/backend
+          OPENAI_EVALUATION_ENABLED: "0"
+        run: |
+          python apps/backend/scripts/verify_yki_report_calibration.py
+
+      - name: Run tracked YKI pytest suite
+        env:
+          PYTHONPATH: apps/backend
+          FLOENTLY_ENV: development
+          SIGNED_SESSION_SECRET: ci-test-secret
+          OPENAI_EVALUATION_ENABLED: "0"
+        run: |
+          python -m pytest -q \
+            apps/backend/tests/test_yki_local_fallback.py \
+            apps/backend/tests/test_yki_orchestrator.py \
+            apps/backend/tests/test_yki_state_machine.py

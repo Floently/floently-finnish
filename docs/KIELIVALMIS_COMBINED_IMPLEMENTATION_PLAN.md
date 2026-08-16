@@ -1409,3 +1409,28 @@ integration.
 
 This ordering correction affects only production-source reconciliation. It
 does not change the broader Phase 5 YKI product architecture or roadmap.
+
+## 2026-08-16 YKI R3C4 permanent CI completion
+
+R3C4 establishes permanent source-controlled verification for the reconciled
+YKI backend.
+
+The CI gate now protects the recovered live evaluation behavior, fallback
+answer-key safety, final-submit idempotency, report calibration, task balance,
+and the existing tracked YKI pytest suite.
+
+A stale pre-evaluation orchestrator assertion was updated to preserve its
+original stored-token routing purpose while also validating the enriched
+evaluation response.
+
+Execution status:
+
+    R3C1 = COMPLETE
+    R3C2 = COMPLETE
+    R3C3 = COMPLETE
+    R3C4 = COMPLETE AFTER COMMIT/PUSH/REMOTE-CI VERIFICATION
+    R3C5 = NEXT
+
+R3C5 remains the current-client final-submit recovery reconciliation. Backend
+deployment remains deferred until the protected reconciliation sequence and
+integration gates are complete.

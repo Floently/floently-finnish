@@ -868,3 +868,145 @@ Current status:
     R3C4_PERMANENT_YKI_CI=NEXT
     R3C5_CLIENT_FINAL_SUBMIT_RECOVERY=PENDING
     PRODUCTION_DEPLOYMENT=PENDING
+
+## 2026-08-16 YKI R3C4 permanent CI checkpoint
+
+### Missing permanent coverage discovered
+
+After R3C2/R3C3 source reconciliation, the canonical branch had:
+
+- no GitHub workflow referencing YKI;
+- three tracked YKI pytest files;
+- zero tracked copies of the five protected YKI verifier scripts that had
+  already been used successfully against the live production image.
+
+The tracked pytest suite also had no direct assertions for the newly
+reconciled contracts including:
+
+- speaking `transcript_text`;
+- persisted `evaluation_report`;
+- persisted `submission_result`;
+- local-runtime normalization;
+- local objective scoring;
+- evaluation report version;
+- final-submit idempotent recovery.
+
+### Verifier provenance
+
+All five protected verifier files were recovered from proven Git history and
+were compared byte-for-byte with the corresponding copies in the live backend
+image.
+
+All five live/donor comparisons were exact.
+
+Proven sources:
+
+    verify_yki_ai_evaluation.py
+    a4563de5fc76bdad287b889e2711d692763124bf
+
+    verify_yki_evaluation_regression_recovery.py
+    a1ee2a99fa2d8a6b8194b0b4d61593e8fa9a4d8a
+
+    verify_yki_final_submit_recovery.py
+    d6d1061fc2214b7b62988214deebfd52c0f1c971
+
+    verify_yki_local_fallback_evaluation.py
+    38ddfe292c3ff940c6eb0b4bd45b09519e92bae9
+
+    verify_yki_report_calibration.py
+    0e5dc84fa8dcdb0ea746f404c557d8683ce70b75
+
+Four recovered verifiers remain byte-identical to their proven donors.
+
+The AI evaluation verifier required exactly one compatibility correction:
+
+    reportVersion == "1.0"
+        ->
+    reportVersion == "1.2"
+
+No production runtime behavior was changed to satisfy the historical test.
+
+### Stale orchestrator pytest
+
+`test_submit_yki_exam_uses_stored_engine_token` originated before the enriched
+evaluation response contract and asserted that the complete return value was:
+
+    {"status": "submitted"}
+
+Its actual purpose is stored engine-session-token routing. That behavior was
+proved independently to remain correct.
+
+The stale exact-result assertion was therefore replaced with assertions that:
+
+- status remains `submitted`;
+- `evaluation` is returned;
+- `evaluationReport` is returned;
+- the two evaluation views agree;
+- a disclaimer is returned;
+- the existing exact POST path/payload assertion, including
+  `session_token == "stored-token"`, remains intact.
+
+This protects the original routing behavior and the newer evaluation contract
+without weakening either one.
+
+### Permanent GitHub Actions gate
+
+A single permanent workflow is now defined at:
+
+    .github/workflows/yki-evaluation.yml
+
+It executes:
+
+1. compile validation for protected YKI source and verifier files;
+2. AI evaluation fallback contract;
+3. grounded evaluation regression/recovery contract;
+4. final-submit idempotent recovery contract;
+5. local-fallback and public-answer-protection contract;
+6. report calibration and task-balance contract;
+7. existing tracked YKI pytest suite.
+
+The workflow disables live OpenAI evaluation for deterministic CI execution.
+
+### Local pre-freeze result
+
+Protected verifier results:
+
+    YKI_AI_EVALUATION_FALLBACK=PASS
+    YKI_REGRESSION_SECTION_IMPROVEMENTS=PASS
+    YKI_REGRESSION_GROUNDED_SALVAGE=PASS
+    YKI_REGRESSION_EXACT_CORRECTIONS=PASS
+    YKI_REGRESSION_RETRY_CONTRACT=PASS
+    YKI_FINAL_SUBMIT_IDEMPOTENT_RECOVERY=PASS
+    YKI_LOCAL_FALLBACK_PUBLIC_RUNTIME_ANSWERS_HIDDEN=PASS
+    YKI_LOCAL_FALLBACK_RUNTIME_AND_EVALUATION=PASS
+    YKI_REPORT_EVIDENCE_ISOLATION=PASS
+    YKI_REPORT_SUBJECTIVE_SCORE_CALIBRATION=PASS
+    YKI_REPORT_PREDICTED_GRADES=PASS
+    YKI_BANK_BALANCED_COUNTS=PASS
+    YKI_BANK_DIFFICULTY_SPREAD=PASS
+    YKI_REPORT_CALIBRATION_CONTRACT=PASS
+
+Tracked YKI pytest result:
+
+    5 passed
+
+The same tracked YKI pytest set also passed under the existing general-CI
+environment shape.
+
+Current evaluation contract remains:
+
+    reportVersion = 1.2
+    promptVersion = yki-deep-evaluation-v4
+    rubricVersion = floently-yki-practice-v3
+
+No production image change, source overlay, service restart, or deployment
+occurred during R3C4.
+
+Current reconciliation status:
+
+    R3C1_RUNTIME_FOUNDATION=COMPLETE
+    R3C2_SERVICE_API_EVALUATOR=COMPLETE
+    R3C3_LOCAL_FALLBACK=COMPLETE
+    R3C4_PERMANENT_YKI_CI=READY_TO_FREEZE
+    R3C5_CLIENT_FINAL_SUBMIT_RECOVERY=NEXT
+    PRODUCTION_DEPLOYMENT=PENDING
