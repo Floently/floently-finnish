@@ -7,6 +7,7 @@ learner identity.
 """
 from __future__ import annotations
 
+from collections.abc import Iterable
 from typing import Any
 
 from app.core.state_store import STORE
@@ -22,7 +23,7 @@ def _claim_session(
     *,
     session_id: str,
     user_id: str,
-    legacy_rotation_user_key: str | None,
+    authenticated_legacy_keys: Iterable[str] | None = None,
     is_new_session: bool = False,
 ) -> dict[str, Any]:
     with STORE.locked(("roleplay_sessions", session_id)):
@@ -31,12 +32,12 @@ def _claim_session(
             return mark_new_roleplay_owner(
                 session=session,
                 user_id=user_id,
-                expected_rotation_user_key=str(legacy_rotation_user_key or ""),
+                expected_rotation_user_key=user_id,
             )
         return assert_or_claim_roleplay_owner(
             session=session,
             user_id=user_id,
-            legacy_rotation_user_key=legacy_rotation_user_key,
+            authenticated_legacy_keys=authenticated_legacy_keys,
         )
 
 
@@ -47,20 +48,18 @@ def start_session(
     level_band: str,
     scenario_id: str | None = None,
     context_label: str | None = None,
-    rotation_user_key: str | None = None,
 ) -> dict[str, Any]:
     owner = str(user_id or "").strip()
-    rotation_key = str(rotation_user_key or owner).strip()
 
     # Reuse the protected runtime start behavior exactly. Its current public
-    # wrapper creates the session as `preview`, but persists rotation_key inside
-    # display_preferences. Claim the new session before its ID is returned.
+    # wrapper creates the session as `preview`, but persists owner inside
+    # display_preferences as the rotation key. Claim it before returning the ID.
     result = roleplay_runtime.start_session(
         profession=profession,
         level_band=level_band,
         scenario_id=scenario_id,
         context_label=context_label,
-        rotation_user_key=rotation_key,
+        rotation_user_key=owner,
     )
     session_id = str(result.get("sessionId") or result.get("session_id") or "").strip()
 
@@ -68,7 +67,6 @@ def start_session(
         _claim_session(
             session_id=session_id,
             user_id=owner,
-            legacy_rotation_user_key=rotation_key,
             is_new_session=True,
         )
     except Exception:
@@ -89,13 +87,13 @@ def submit_turn(
     user_id: str,
     session_id: str,
     transcript: str,
-    legacy_rotation_user_key: str | None = None,
+    authenticated_legacy_keys: Iterable[str] | None = None,
 ) -> dict[str, Any]:
     owner = str(user_id or "").strip()
     _claim_session(
         session_id=session_id,
         user_id=owner,
-        legacy_rotation_user_key=legacy_rotation_user_key,
+        authenticated_legacy_keys=authenticated_legacy_keys,
     )
 
     # These protected runtime primitives already call _assert_session_access.
@@ -135,13 +133,13 @@ def finish_session(
     *,
     user_id: str,
     session_id: str,
-    legacy_rotation_user_key: str | None = None,
+    authenticated_legacy_keys: Iterable[str] | None = None,
 ) -> dict[str, Any]:
     owner = str(user_id or "").strip()
     _claim_session(
         session_id=session_id,
         user_id=owner,
-        legacy_rotation_user_key=legacy_rotation_user_key,
+        authenticated_legacy_keys=authenticated_legacy_keys,
     )
     session = roleplay_runtime._get_session(
         user_id=owner,
