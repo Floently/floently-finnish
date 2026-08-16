@@ -106,10 +106,12 @@ function isUsableEvidence(
   input: PracticeComposerInput,
   item: DurablePracticeEvidence,
 ): boolean {
-  return item.durable === true
+  return item?.durable === true
     && item.learnerId === input.learnerId
-    && Boolean(item.sourceEvidenceId?.trim())
-    && Boolean(item.observedAt?.trim())
+    && typeof item.sourceEvidenceId === 'string'
+    && Boolean(item.sourceEvidenceId.trim())
+    && typeof item.observedAt === 'string'
+    && Boolean(item.observedAt.trim())
     && Number.isFinite(Date.parse(item.observedAt));
 }
 
@@ -144,7 +146,9 @@ function stableInputFingerprint(input: PracticeComposerInput): string {
     scope: input.scope,
     targetMinutes: input.targetMinutes,
     availableMinutes: schedulingBudget(input),
-    candidateIds: input.candidates.map((task) => `${task.taskId}@${task.contentVersion}`).sort(),
+    candidateIds: input.candidates
+      .map((task) => `${typeof task?.taskId === 'string' ? task.taskId : ''}@${typeof task?.contentVersion === 'string' ? task.contentVersion : ''}`)
+      .sort(),
     entitlements: [...input.entitlements].sort(),
     profession: input.profession ?? '',
     allowedLevelBands: [...(input.allowedLevelBands ?? [])].sort(),
@@ -159,11 +163,19 @@ function stableInputFingerprint(input: PracticeComposerInput): string {
 }
 
 function validDescriptor(task: TaskDescriptor): boolean {
-  if (!task.taskId.trim() || !task.contentVersion.trim() || !task.launch.route.trim()) return false;
+  if (!task || typeof task !== 'object') return false;
+  if (typeof task.taskId !== 'string' || !task.taskId.trim()) return false;
+  if (typeof task.contentVersion !== 'string' || !task.contentVersion.trim()) return false;
+  if (!task.launch || typeof task.launch.route !== 'string' || !task.launch.route.trim()) return false;
   if (!Number.isFinite(task.estimatedMinutes) || task.estimatedMinutes <= 0) return false;
-  if (!task.skills.length || !task.levelBand.trim()) return false;
-  if (task.requiredEntitlements.some((key) => !key.trim())) return false;
-  if (task.pathway === 'yki' && task.ykiMode === undefined) return false;
+  if (!Array.isArray(task.skills) || task.skills.length === 0) return false;
+  if (typeof task.levelBand !== 'string' || !task.levelBand.trim()) return false;
+  if (!Array.isArray(task.requiredEntitlements)) return false;
+  if (task.requiredEntitlements.some((key) => typeof key !== 'string' || !key.trim())) return false;
+  if (!task.modality || typeof task.modality !== 'object') return false;
+  if (!['available', 'degraded', 'unavailable'].includes(task.health)) return false;
+  if (!['everyday', 'professional', 'yki'].includes(task.pathway)) return false;
+  if (task.pathway === 'yki' && !['practice', 'mock', 'full_exam'].includes(task.ykiMode ?? '')) return false;
   if (task.pathway !== 'yki' && task.ykiMode !== undefined) return false;
   return true;
 }
@@ -314,7 +326,12 @@ export function composePracticeSession(input: PracticeComposerInput): PracticeCo
   const diagnostics: PracticeFilterDiagnostic[] = [];
   const eligible = input.candidates.filter((task) => {
     const code = filterTask(input, task);
-    if (code) diagnostics.push({ taskId: task.taskId, code });
+    if (code) {
+      diagnostics.push({
+        taskId: typeof task?.taskId === 'string' && task.taskId ? task.taskId : '<invalid-task>',
+        code,
+      });
+    }
     return code === null;
   });
 
