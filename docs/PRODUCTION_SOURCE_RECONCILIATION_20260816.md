@@ -542,3 +542,184 @@ Current roleplay markers:
     ROLEPLAY_SOURCE_INVARIANTS=PASS
     ROLEPLAY_PRODUCTION_DEPLOYMENT=PENDING
     ROLEPLAY_POST_DEPLOY_CANARY=PENDING
+
+## 2026-08-16 YKI R3B2 / R3C1 runtime-foundation checkpoint
+
+### R3B2 live known-good baseline
+
+R3B2 completed as a read-only live-production audit.
+
+Authority remained:
+
+    canonical branch:
+    integration/canonical-production-20260816
+
+    canonical pre-R3C1 HEAD:
+    3ebbfb1c5a0ab732c0b64a72d232fd41065d94a0
+
+    live backend image:
+    sha256:57b3ab1ef0986c9e0c84253b7b35482cb15db990b04f115dc33024cbca608bcf
+
+The live YKI fallback evaluation report proved:
+
+    reportVersion = 1.2
+    evaluationKind = yki_practice
+    officialResult = false
+    pronunciationAssessed = false
+    provider = deterministic_fallback
+
+The historical live verifier:
+
+    apps/backend/scripts/verify_yki_ai_evaluation.py
+
+still asserts:
+
+    reportVersion == 1.0
+
+The mismatch was isolated to that stale version assertion. After substituting
+only the historical expected version in an ephemeral diagnostic copy, every
+remaining assertion in that verifier passed.
+
+Therefore:
+
+    LIVE_YKI_REPORT_VERSION_1_2=PRESERVE
+    LEGACY_VERIFIER_REPORT_VERSION_1_0=STALE
+
+Do not downgrade current behavior to report version 1.0.
+
+The later live report-calibration verifier passed and confirmed the version
+1.2 behavior together with:
+
+- evidence isolation;
+- subjective score calibration;
+- predicted grades;
+- balanced productive-task counts;
+- difficulty spread;
+- report calibration contract.
+
+The remaining live YKI protection scripts also passed:
+
+    YKI_REGRESSION_SECTION_IMPROVEMENTS=PASS
+    YKI_REGRESSION_GROUNDED_SALVAGE=PASS
+    YKI_REGRESSION_EXACT_CORRECTIONS=PASS
+    YKI_REGRESSION_RETRY_CONTRACT=PASS
+    YKI_FINAL_SUBMIT_IDEMPOTENT_RECOVERY=PASS
+    YKI_LOCAL_FALLBACK_PUBLIC_RUNTIME_ANSWERS_HIDDEN=PASS
+    YKI_LOCAL_FALLBACK_RUNTIME_AND_EVALUATION=PASS
+    YKI_REPORT_CALIBRATION_CONTRACT=PASS
+
+The canonical client recovery gap was also reconfirmed:
+
+    CANONICAL_FINAL_SUBMIT_RECOVERY=ABSENT
+    CANONICAL_FINAL_SUBMIT_DEDUP=ABSENT
+    CANONICAL_PERSISTED_RESULT_CONTRACT=ABSENT
+    CANONICAL_EVALUATION_REPORT_CONTRACT=ABSENT
+
+Those client capabilities remain assigned to R3C5.
+
+No source write, staging, commit, restart, image change, or production
+deployment occurred during R3B2.
+
+### R3C1 source evidence
+
+The canonical/live/donor comparison proved:
+
+1. `apps/backend/app/runtime/yki.py` in the live image is source-identical to
+   donor commit:
+
+       7c92b7e65337568944013ad0ff2d73b08c1cfb44
+
+   for the complete file.
+
+2. The proven runtime capability adds/preserves:
+
+   - engine session token across runtime refresh;
+   - runtime schema version across refresh;
+   - learner-scoped evaluation evidence;
+   - persisted submission result;
+   - persisted evaluation report;
+   - submitted timestamp;
+   - deep-copy isolation on stored/read mutable structures;
+   - answer-key/private-field sanitization;
+   - learner ownership enforcement.
+
+3. The following runtime functions are part of that capability:
+
+       record_yki_evaluation_evidence
+       store_yki_evaluation_result
+       read_yki_evaluation_evidence
+
+4. The existing functions materially strengthened by the live capability are:
+
+       store_yki_session
+       sanitize_runtime_for_client
+       get_yki_session_record
+
+The canonical candidate was patched using the exact proven runtime donor delta,
+not by replacing a broad workspace or cherry-picking a historical branch.
+
+The resulting candidate was verified to be byte-for-byte identical to the
+proven live `runtime/yki.py`.
+
+R3C1 contract validation passed:
+
+    R3C1_SESSION_INITIAL_STATE=PASS
+    R3C1_EVIDENCE_WRITE_DEEPCOPY=PASS
+    R3C1_EVIDENCE_READ_DEEPCOPY=PASS
+    R3C1_EVALUATION_RESULT_PERSISTENCE=PASS
+    R3C1_RUNTIME_REFRESH_PRESERVES_STATE=PASS
+    R3C1_SESSION_READ_DEEPCOPY=PASS
+    R3C1_LEARNER_OWNERSHIP=PASS
+    R3C1_ANSWER_KEY_SANITIZATION=PASS
+    R3C1_RUNTIME_PERSISTENCE_FOUNDATION=PASS
+
+### R3C1 / R3C2 dependency-boundary correction
+
+Current-code inspection disproved one assumption in the original package
+boundary.
+
+The canonical:
+
+    apps/backend/app/services/yki_service.py
+
+does not yet accept `transcript_text` in `submit_yki_speaking()`.
+
+The proven live service implementation from both:
+
+    c07b6effa280e843574f6151b67bb5548ae6d6b5
+    d6d1061fc2214b7b62988214deebfd52c0f1c971
+
+has the same speaking implementation and couples `transcript_text` to
+`record_yki_evaluation_evidence()`.
+
+Therefore the safe reconciliation boundary is amended to:
+
+R3C1:
+- runtime persistence/evidence foundation;
+- `apps/backend/app/runtime/yki.py`.
+
+R3C2:
+- YKI service/evaluation integration;
+- speaking transcript evidence integration;
+- `apps/backend/app/services/yki_service.py`;
+- `apps/backend/app/services/yki_evaluation_service.py`;
+- `apps/backend/app/models/api_models.py` transcript request field;
+- `apps/backend/app/routers/v1_yki.py` transcript forwarding.
+
+This preserves one executable contract and avoids temporarily wiring the router
+to a service signature that does not yet accept the argument.
+
+This sequencing amendment does not remove any planned YKI capability.
+
+Production remains the pinned composite backend until the complete
+reconciliation and release gates pass.
+
+Current status after R3C1 source validation:
+
+    R3B2_LIVE_YKI_BASELINE=COMPLETE
+    R3C1_RUNTIME_FOUNDATION=VALIDATED
+    R3C2_SERVICE_API_EVALUATION_INTEGRATION=NEXT
+    R3C3_LOCAL_FALLBACK_CALIBRATION=PENDING
+    R3C4_PERMANENT_YKI_CI=PENDING
+    R3C5_CLIENT_FINAL_SUBMIT_RECOVERY=PENDING
+    PRODUCTION_DEPLOYMENT=PENDING

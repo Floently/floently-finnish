@@ -1309,3 +1309,82 @@ Incident Lab repair in this first package.
 
 That sequencing protects the later learner-event/data architecture from being
 built on top of unstable routing or product-boundary assumptions.
+
+## 2026-08-16 production-reconciliation YKI sequencing amendment
+
+This is a temporary source-reconciliation sequencing amendment. It does not
+replace Phase 5 or create a competing YKI architecture.
+
+Current production evidence proved that the YKI persistence/evaluation
+capability spans several historical commits and must be replayed forward into
+the current canonical lineage in dependency-safe units.
+
+The current reconciliation order is:
+
+### R3C1 — runtime persistence/evidence foundation
+
+Scope:
+
+    apps/backend/app/runtime/yki.py
+
+Preserve and validate:
+
+- engine token/schema preservation;
+- evaluation evidence storage;
+- submission/evaluation result persistence;
+- learner ownership;
+- deep-copy isolation;
+- answer-key/private-field sanitization.
+
+### R3C2 — service/API/evaluation integration
+
+Scope includes:
+
+    apps/backend/app/services/yki_service.py
+    apps/backend/app/services/yki_evaluation_service.py
+    apps/backend/app/models/api_models.py
+    apps/backend/app/routers/v1_yki.py
+
+The request-model/router transcript changes move into this package because the
+current canonical `submit_yki_speaking()` service does not yet accept
+`transcript_text`.
+
+The proven live speaking service couples the transcript to persisted evaluation
+evidence, so request, router, and service integration must move together.
+
+R3C2 must also preserve:
+
+- writing evidence;
+- speaking transcript evidence;
+- objective evidence;
+- evaluation report generation;
+- persisted final submission/evaluation;
+- idempotent completed-result recovery;
+- no duplicate re-evaluation;
+- no duplicate final-audio processing after an indeterminate timeout;
+- entitlement enforcement;
+- engine path;
+- local fallback behavior.
+
+### R3C3 — local fallback and report calibration
+
+Preserve the proven local fallback, answer-leak protection, productive task
+balance, deterministic selection, scoring, report semantics, and current
+report version 1.2 behavior.
+
+### R3C4 — permanent YKI CI
+
+Reconcile the live verification knowledge into permanent no-network CI.
+
+The historical AI-evaluation verifier contains a stale `reportVersion == 1.0`
+assertion. Current live behavior is version 1.2 and must not be downgraded to
+satisfy that obsolete assertion.
+
+### R3C5 — current-client final-submit recovery
+
+Adapt persisted-result recovery and submit deduplication into the current
+client without replacing the current screen wholesale.
+
+The normal Phase 5 YKI product architecture remains unchanged. This amendment
+only records the safe dependency order required to eliminate the current
+composite production source lineage.
