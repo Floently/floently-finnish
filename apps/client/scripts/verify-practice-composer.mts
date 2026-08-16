@@ -10,6 +10,10 @@ import {
   type DurablePracticeEvidence,
   type PracticeComposerInput,
 } from '../features/practice/composer.ts';
+import {
+  getPathwayDailyPracticePreset,
+  getPracticeEntryPreset,
+} from '../features/practice/pathwayAdapters.ts';
 
 const here = path.dirname(fileURLToPath(import.meta.url));
 
@@ -69,6 +73,16 @@ function taskIds(input: PracticeComposerInput) {
   console.log('PRACTICE_HEALTH_FILTERS=PASS');
 }
 
+// Descriptor product truth fails closed on malformed launch/entitlement data.
+{
+  const missingRoute = baseTask({ taskId: 'missing-route', launch: { route: ' ' } });
+  const blankEntitlement = baseTask({ taskId: 'blank-entitlement', requiredEntitlements: [' '] });
+  const result = composePracticeSession(baseInput({ candidates: [missingRoute, blankEntitlement] }));
+  assert.equal(result.manifest.tasks.length, 0);
+  assert.ok(result.diagnostics.every((item) => item.code === 'invalid_descriptor'));
+  console.log('PRACTICE_MALFORMED_DESCRIPTOR=PASS');
+}
+
 // Entitlement declarations are scheduling filters, never substitutes for runtime auth.
 {
   const paid = baseTask({ taskId: 'paid', requiredEntitlements: ['professional'] });
@@ -78,12 +92,16 @@ function taskIds(input: PracticeComposerInput) {
   console.log('PRACTICE_ENTITLEMENT_DECLARATION_FILTER=PASS');
 }
 
-// Profession, level, prerequisites, and feature availability.
+// Scope, profession, level, prerequisites, and feature availability.
 {
+  const scopeMismatch = baseTask({ taskId: 'professional-scope', pathway: 'professional' });
   const wrongProfession = baseTask({ taskId: 'doctor-only', pathway: 'professional', profession: 'doctor' });
   const wrongLevel = baseTask({ taskId: 'c1', levelBand: 'C1-C2' });
   const prerequisite = baseTask({ taskId: 'prereq', prerequisites: ['unit-7'] });
   const flagged = baseTask({ taskId: 'flagged', featureFlag: 'new-runtime' });
+  const scopeResult = composePracticeSession(baseInput({ candidates: [scopeMismatch], scope: 'everyday' }));
+  assert.equal(scopeResult.diagnostics[0]?.code, 'scope_mismatch');
+
   const result = composePracticeSession(baseInput({
     candidates: [wrongProfession, wrongLevel, prerequisite, flagged],
     allowedLevelBands: ['B1-B2'],
@@ -93,7 +111,7 @@ function taskIds(input: PracticeComposerInput) {
   assert.equal(codes.get('c1'), 'level_mismatch');
   assert.equal(codes.get('prereq'), 'missing_prerequisite');
   assert.equal(codes.get('flagged'), 'feature_disabled');
-  console.log('PRACTICE_PROFESSION_LEVEL_PREREQUISITE_FEATURE_FILTERS=PASS');
+  console.log('PRACTICE_SCOPE_PROFESSION_LEVEL_PREREQUISITE_FEATURE_FILTERS=PASS');
 }
 
 // Modality filters: microphone, audio, keyboard.
@@ -154,7 +172,7 @@ function taskIds(input: PracticeComposerInput) {
   console.log('PRACTICE_CURRICULUM_TRUTH=PASS');
 }
 
-// Learner mode uses only matching durable evidence; wrong-learner evidence is neutralized.
+// Learner mode uses only valid, matching durable evidence.
 {
   const durable: DurablePracticeEvidence = {
     durable: true,
@@ -173,10 +191,20 @@ function taskIds(input: PracticeComposerInput) {
     evidence: [{ ...durable, learnerId: 'learner-2', sourceEvidenceId: 'wrong-user' }],
   }));
   assert.ok(wrongLearner.manifest.tasks.flatMap((item) => item.reasons).every((reason) => reason.evidenceMode === 'curriculum'));
+
+  const malformedDate = composePracticeSession(baseInput({
+    evidence: [{ ...durable, observedAt: 'not-a-date', sourceEvidenceId: 'bad-date' }],
+  }));
+  assert.ok(malformedDate.manifest.tasks.flatMap((item) => item.reasons).every((reason) => reason.evidenceMode === 'curriculum'));
+
+  const malformedDurability = composePracticeSession(baseInput({
+    evidence: [{ ...durable, durable: false, sourceEvidenceId: 'not-durable' } as any],
+  }));
+  assert.ok(malformedDurability.manifest.tasks.flatMap((item) => item.reasons).every((reason) => reason.evidenceMode === 'curriculum'));
   console.log('PRACTICE_DURABLE_EVIDENCE_BOUNDARY=PASS');
 }
 
-// Repetition policy activates only from supplied durable matching history.
+// Repetition requires matching durable task history. Skill history must not suppress every same-skill task.
 {
   const recent: DurablePracticeEvidence = {
     durable: true,
@@ -189,6 +217,22 @@ function taskIds(input: PracticeComposerInput) {
   const result = composePracticeSession(baseInput({ evidence: [recent] }));
   assert.equal(result.manifest.tasks.some((item) => item.task.taskId === 'task-a'), false);
   assert.ok(result.diagnostics.some((item) => item.taskId === 'task-a' && item.code === 'recent_repetition'));
+
+  const sharedSkillTasks = [
+    baseTask({ taskId: 'vocab-a', skills: ['vocabulary'] }),
+    baseTask({ taskId: 'vocab-b', skills: ['vocabulary'] }),
+  ];
+  const skillOnlyRecent: DurablePracticeEvidence = {
+    durable: true,
+    learnerId: 'learner-1',
+    sourceEvidenceId: 'skill-recent',
+    observedAt: '2026-08-16T16:00:00.000Z',
+    skill: 'vocabulary',
+    recentlyPracticed: true,
+  };
+  const skillResult = composePracticeSession(baseInput({ candidates: sharedSkillTasks, evidence: [skillOnlyRecent] }));
+  assert.equal(skillResult.manifest.tasks.length, 2);
+  assert.equal(skillResult.diagnostics.some((item) => item.code === 'recent_repetition'), false);
   console.log('PRACTICE_REPETITION_EVIDENCE=PASS');
 }
 
@@ -249,13 +293,31 @@ function taskIds(input: PracticeComposerInput) {
   console.log('PRACTICE_TRUTHFUL_SUMMARY=PASS');
 }
 
-// Composer may know runtime names as descriptor data, but may not import task engines.
+// Pathway Daily Practice adapters remain narrow deterministic presets.
+{
+  assert.deepEqual(getPracticeEntryPreset('practice-hub'), {
+    source: 'practice-hub', scope: 'all', targetMinutes: 10,
+  });
+  assert.equal(getPathwayDailyPracticePreset('everyday').scope, 'everyday');
+  assert.equal(getPathwayDailyPracticePreset('professional').scope, 'professional');
+  assert.equal(getPathwayDailyPracticePreset('yki').scope, 'yki');
+  assert.equal(getPathwayDailyPracticePreset('yki').targetMinutes, 10);
+  console.log('PRACTICE_PATHWAY_ADAPTERS=PASS');
+}
+
+// Composer contains orchestration only; accessibility/state cues are static and explicit.
 {
   const composerSource = fs.readFileSync(path.resolve(here, '../features/practice/composer.ts'), 'utf8');
+  const controlsSource = fs.readFileSync(path.resolve(here, '../features/practice/PracticeControls.tsx'), 'utf8');
+  const routeSource = fs.readFileSync(path.resolve(here, '../features/practice/PracticeRoute.tsx'), 'utf8');
   const runtimeImport = /from\s+['"][^'"]*(cards|roleplay|yki|reading|writing)[^'"]*['"]/i;
   assert.equal(runtimeImport.test(composerSource), false);
   assert.equal(composerSource.includes('Math.random'), false);
-  console.log('PRACTICE_NO_ENGINE_LOGIC_IMPORTS=PASS');
+  assert.ok(controlsSource.includes('accessibilityState={{ selected }}'));
+  assert.ok(controlsSource.includes('minHeight: 44'));
+  assert.ok(routeSource.includes('accessibilityLiveRegion="polite"'));
+  assert.equal(/withRepeat|Animated\.loop|Math\.random/.test(`${controlsSource}\n${routeSource}`), false);
+  console.log('PRACTICE_ACCESSIBILITY_AND_NO_ENGINE_LOGIC=PASS');
 }
 
 console.log('PRACTICE_COMPOSER_VERIFIER=PASS');
