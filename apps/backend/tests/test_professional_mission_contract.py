@@ -10,30 +10,51 @@ VERIFIER = REPO_ROOT / "apps" / "client" / "scripts" / "verify-professional-miss
 IMMUTABLE_WAVE1_BASE = "69813b433838130d5afe4b052360dbfd12df3f40"
 
 
-def _ensure_immutable_base_available() -> None:
-    probe = subprocess.run(
-        ["git", "cat-file", "-e", f"{IMMUTABLE_WAVE1_BASE}^{{commit}}"],
+def _git(*args: str) -> subprocess.CompletedProcess[str]:
+    return subprocess.run(
+        ["git", *args],
         cwd=REPO_ROOT,
         capture_output=True,
         text=True,
         check=False,
     )
-    if probe.returncode == 0:
+
+
+def _ensure_diff_history_available() -> None:
+    if _git("merge-base", IMMUTABLE_WAVE1_BASE, "HEAD").returncode == 0:
         return
 
-    fetched = subprocess.run(
-        ["git", "fetch", "--no-tags", "--depth=1", "origin", IMMUTABLE_WAVE1_BASE],
-        cwd=REPO_ROOT,
-        capture_output=True,
-        text=True,
-        check=False,
-    )
+    current_ref = os.environ.get("GITHUB_REF", "").strip()
+    fetch_args = ["fetch", "--no-tags", "--deepen=16", "origin"]
+    if current_ref:
+        fetch_args.append(current_ref)
+
+    fetched = _git(*fetch_args)
     if fetched.returncode != 0:
         raise AssertionError(
-            "Unable to fetch the immutable Wave-1 base required for the protected-file diff guard.\n"
+            "Unable to deepen the current checkout for the immutable-base diff guard.\n"
             f"stdout:\n{fetched.stdout}\n"
             f"stderr:\n{fetched.stderr}"
         )
+
+    if _git("merge-base", IMMUTABLE_WAVE1_BASE, "HEAD").returncode != 0:
+        raise AssertionError(
+            "The current checkout still has no merge base with the immutable Wave-1 base after a bounded history fetch."
+        )
+
+
+def _ensure_immutable_base_available() -> None:
+    probe = _git("cat-file", "-e", f"{IMMUTABLE_WAVE1_BASE}^{{commit}}")
+    if probe.returncode != 0:
+        fetched = _git("fetch", "--no-tags", "--depth=1", "origin", IMMUTABLE_WAVE1_BASE)
+        if fetched.returncode != 0:
+            raise AssertionError(
+                "Unable to fetch the immutable Wave-1 base required for the protected-file diff guard.\n"
+                f"stdout:\n{fetched.stdout}\n"
+                f"stderr:\n{fetched.stderr}"
+            )
+
+    _ensure_diff_history_available()
 
 
 def _run_verifier() -> subprocess.CompletedProcess[str]:
