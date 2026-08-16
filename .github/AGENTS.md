@@ -32,6 +32,19 @@ Every agent must perform work in this order:
 12. commit coherent units, push only its assigned branch, and keep its PR draft;
 13. hand off exact SHA, changed paths, tests, research sources, known risks, integration requirements and manual-test instructions to Agent A.
 
+## Required handoff markers
+
+Every feature-agent handoff must explicitly report:
+
+- `RESEARCH_GATE=PASS`
+- `FEATURE_TESTS=PASS`
+- `NEGATIVE_PATH_TESTS=PASS`
+- `REGRESSION_GUARDS=PASS`
+- `SELF_DIFF_REVIEW=PASS`
+- `PRODUCTION_ACTIONS=NONE`
+
+A missing or failed marker means Agent A does not accept the source package.
+
 ## Research rule
 
 Research is mandatory, not decorative. Prefer primary/authoritative sources for platform/API facts and high-quality peer-reviewed/systematic evidence for learning design. Record URLs, access date, finding, decision influenced and rejected alternatives. Do not copy proprietary course/book content or licensed assessment material.
