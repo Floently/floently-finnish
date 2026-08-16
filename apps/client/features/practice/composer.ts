@@ -41,6 +41,8 @@ export type PracticeComposerInput = {
   createdAt: string;
   scope: PracticeScope;
   targetMinutes: PracticeTargetMinutes;
+  /** Remaining scheduling budget during a running session. */
+  availableMinutes?: number;
   candidates: readonly TaskDescriptor[];
   entitlements: readonly string[];
   profession?: string;
@@ -94,6 +96,12 @@ const clamp01 = (value: number | undefined): number => {
   return Math.min(1, Math.max(0, value));
 };
 
+function schedulingBudget(input: PracticeComposerInput): number {
+  const available = input.availableMinutes ?? input.targetMinutes;
+  if (!Number.isFinite(available)) return input.targetMinutes;
+  return Math.min(input.targetMinutes, Math.max(0, available));
+}
+
 function stableHash(value: string): string {
   let hash = 2166136261;
   for (let index = 0; index < value.length; index += 1) {
@@ -124,6 +132,7 @@ function stableInputFingerprint(input: PracticeComposerInput): string {
     createdAt: input.createdAt,
     scope: input.scope,
     targetMinutes: input.targetMinutes,
+    availableMinutes: schedulingBudget(input),
     candidateIds: input.candidates.map((task) => `${task.taskId}@${task.contentVersion}`).sort(),
     entitlements: [...input.entitlements].sort(),
     profession: input.profession ?? '',
@@ -189,7 +198,7 @@ function filterTask(
   if (task.modality.audio && !input.modalities.audio) return 'audio_unavailable';
   if (task.modality.keyboard && !input.modalities.keyboard) return 'keyboard_unavailable';
 
-  if (task.estimatedMinutes > input.targetMinutes) return 'time_budget';
+  if (task.estimatedMinutes > schedulingBudget(input)) return 'time_budget';
 
   if (matchingEvidence(input, task).some((item) => item.recentlyPracticed)) {
     return 'recent_repetition';
@@ -297,7 +306,8 @@ export function composePracticeSession(input: PracticeComposerInput): PracticeCo
   const selected: PracticeSessionManifest['tasks'] = [];
   const remaining = new Map(eligible.map((task) => [task.taskId, task] as const));
   const skillCounts = new Map<LearningSkill, number>();
-  let remainingMinutes = input.targetMinutes;
+  const budget = schedulingBudget(input);
+  let remainingMinutes = budget;
   let activeContextId = input.preferredContextId;
 
   while (remainingMinutes > 0 && remaining.size > 0) {
@@ -331,7 +341,7 @@ export function composePracticeSession(input: PracticeComposerInput): PracticeCo
   }
 
   const fingerprint = stableInputFingerprint(input);
-  const totalMinutes = input.targetMinutes - remainingMinutes;
+  const totalMinutes = budget - remainingMinutes;
 
   return {
     manifest: {
@@ -361,10 +371,12 @@ export function recomposePracticeSession(
 ): PracticeComposition {
   const excluded = new Set(input.excludedTaskIds ?? []);
   if ((action === 'skip' || action === 'another') && currentTaskId) excluded.add(currentTaskId);
+  const targetMinutes = action === 'shorter' ? shorterTarget(input.targetMinutes) : input.targetMinutes;
 
   return composePracticeSession({
     ...input,
-    targetMinutes: action === 'shorter' ? shorterTarget(input.targetMinutes) : input.targetMinutes,
+    targetMinutes,
+    availableMinutes: Math.min(input.availableMinutes ?? input.targetMinutes, targetMinutes),
     modalities: action === 'no_microphone'
       ? { ...input.modalities, microphone: false }
       : input.modalities,
