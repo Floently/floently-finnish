@@ -149,7 +149,7 @@ const READING_SCAFFOLDING: Record<ReadingLevel, ReadingScaffolding> = {
     showReadingGoal: true,
     chunkDocument: true,
     showStrategyHints: true,
-    vocabularyLabel: 'Show useful words',
+    vocabularyLabel: 'Näytä tärkeät sanat',
     presentation: 'highly_supported',
   },
   A2: {
@@ -158,7 +158,7 @@ const READING_SCAFFOLDING: Record<ReadingLevel, ReadingScaffolding> = {
     showReadingGoal: true,
     chunkDocument: true,
     showStrategyHints: true,
-    vocabularyLabel: 'Useful words',
+    vocabularyLabel: 'Hyödylliset sanat',
     presentation: 'supported',
   },
   B1: {
@@ -167,7 +167,7 @@ const READING_SCAFFOLDING: Record<ReadingLevel, ReadingScaffolding> = {
     showReadingGoal: true,
     chunkDocument: false,
     showStrategyHints: true,
-    vocabularyLabel: 'Need a word?',
+    vocabularyLabel: 'Tarvitsetko sanan?',
     presentation: 'restrained',
   },
   B2: {
@@ -176,7 +176,7 @@ const READING_SCAFFOLDING: Record<ReadingLevel, ReadingScaffolding> = {
     showReadingGoal: false,
     chunkDocument: false,
     showStrategyHints: false,
-    vocabularyLabel: 'Reference words',
+    vocabularyLabel: 'Sanasto',
     presentation: 'independent',
   },
 };
