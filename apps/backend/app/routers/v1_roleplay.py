@@ -9,7 +9,10 @@ from pydantic import BaseModel
 from app.core.config import SETTINGS
 from app.services.auth_service import current_user_from_authorization
 from app.services.subscription_service import require_feature
-from app.services.tts.voice_registry import resolve_voice_identity
+from app.services.tts.voice_registry import (
+    encode_resolved_voice_profile,
+    resolve_voice_identity,
+)
 from app.runtime.roleplay import (
     list_scenarios as runtime_list_scenarios,
     start_session as runtime_start_session,
@@ -32,9 +35,10 @@ class RoleplayTurnSubmitRequest(BaseModel):
 def _attach_voice_identity(result: dict[str, Any]) -> dict[str, Any]:
     """Attach one deterministic preferred TTS identity to a roleplay payload.
 
-    Existing persona/voiceProfile fields remain untouched for backwards
-    compatibility. New clients can carry ``voiceIdentity`` from session start
-    through every TTS request instead of re-deriving a voice from a profile.
+    ``voiceIdentity`` is the structured forward contract. ``voiceProfile`` is
+    also replaced with a versioned resolved-voice transport token so already-
+    shipped clients, which only forward that legacy string, still request the
+    exact provider voice selected for this persona.
     """
     scenario = result.get("scenario") if isinstance(result.get("scenario"), dict) else {}
     persona_id = str(
@@ -56,7 +60,8 @@ def _attach_voice_identity(result: dict[str, Any]) -> dict[str, Any]:
         or ""
     ).strip().lower()
     voice_profile = str(
-        result.get("voiceProfile")
+        result.get("semanticVoiceProfile")
+        or result.get("voiceProfile")
         or result.get("voice_profile")
         or ""
     ).strip()
@@ -87,6 +92,8 @@ def _attach_voice_identity(result: dict[str, Any]) -> dict[str, Any]:
         "registryVersion": identity["registry_version"],
         "genderCertified": identity["gender_certified"],
     }
+    result["semanticVoiceProfile"] = voice_profile
+    result["voiceProfile"] = encode_resolved_voice_profile(identity)
     return result
 
 
