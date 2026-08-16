@@ -282,3 +282,100 @@ This reconciliation remains OPEN until all of the following are true:
     POST_DEPLOY_CANARY=PASS
 
 No production promotion is allowed before the required gates pass.
+
+## R2B roleplay evaluation reconciliation
+
+Status: RECONCILED IN CANONICAL SOURCE, pending later candidate-artifact and
+production validation.
+
+Evidence from the live production audit proved that the running roleplay
+evaluation capability comes exactly from Git commit:
+
+    386010e6898a31ae4894bcc689768605fea0cc2c
+
+Decisions:
+
+### apps/backend/app/services/roleplay_evaluation_service.py
+
+Classification: KEEP
+
+Reason:
+
+This is a live learner-facing capability. It produces structured evidence-based
+roleplay assessment and includes a deterministic fallback when detailed OpenAI
+evaluation is unavailable. Removing it during a clean rebuild would be a
+regression.
+
+Action:
+
+Preserved byte-for-byte from the proven live Git origin.
+
+### apps/backend/app/runtime/roleplay.py evaluation integration
+
+Classification: MERGE
+
+Reason:
+
+The canonical runtime and live runtime differed only by the evaluation-service
+import and finish_session() evaluation integration.
+
+Action:
+
+Merged only those proven live differences into the current canonical runtime.
+No divergent roleplay runtime was copied wholesale.
+
+### apps/backend/scripts/verify_roleplay_ai_evaluation.py
+
+Classification: KEEP
+
+Reason:
+
+This verifier protects the deterministic fallback contract and the response
+shape of the evaluation feature.
+
+Action:
+
+Preserved from the proven live Git origin.
+
+### .github/workflows/roleplay-ai-evaluation.yml
+
+Classification: KEEP
+
+Reason:
+
+The workflow provides permanent CI protection for compilation and deterministic
+fallback evaluation behavior.
+
+Action:
+
+Preserved from the proven historical capability.
+
+### apps/backend/.env.example evaluation settings
+
+Classification: MERGE
+
+Reason:
+
+The historical capability documented explicit evaluation enablement, model,
+timeout, and token settings. Replacing the current .env.example wholesale would
+risk discarding newer configuration documentation.
+
+Action:
+
+Merged only the evaluation configuration documentation into the current file.
+
+The default remains:
+
+    OPENAI_EVALUATION_ENABLED=false
+
+This reconciliation does not enable production OpenAI evaluation.
+
+### Role-contract reliability
+
+Classification: NOT CLOSED BY R2B
+
+R2B preserves existing live roleplay evaluation only.
+
+The August 16 semantic role-flip regression remains a separate required repair.
+The role-contract regression corpus must remain red until the semantic/action
+guard is implemented and then must become permanently green.

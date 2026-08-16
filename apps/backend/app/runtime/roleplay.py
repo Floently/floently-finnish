@@ -12,6 +12,7 @@ from app.core.utils import iso_now, new_id, parse_iso, utc_now
 from app.runtime.finnish_personas import pick_persona
 from app.runtime.roleplay_missions import select_roleplay_mission
 from app.services.roleplay_ai_service import generate_ai_roleplay_reply, _violates_role_contract
+from app.services.roleplay_evaluation_service import evaluate_roleplay_session
 
 ROLEPLAY_STAGE_BY_TURN = {0: "OPENING", 1: "ACTIVE_1", 2: "ACTIVE_2", 3: "ACTIVE_3", 4: "ACTIVE_4", 5: "COMPLETE"}
 
@@ -1850,8 +1851,33 @@ def submit_turn(*, session_id: str, transcript: str) -> dict[str, Any]:
 
 
 def finish_session(*, session_id: str) -> dict[str, Any]:
-    session = _get_session(user_id="preview", session_id=session_id)
+    session = _get_session(
+        user_id="preview",
+        session_id=session_id,
+    )
+
     if session.get("status") != "completed":
-        return {"session_id": session_id, "status": session.get("status"), "completed": False, "message": "Session is still in progress."}
-    review = _build_review(user_id="preview", session_id=session_id)
-    return {**review, "completed": True}
+        return {
+            "session_id": session_id,
+            "status": session.get("status"),
+            "completed": False,
+            "message": "Session is still in progress.",
+        }
+
+    review = _build_review(
+        user_id="preview",
+        session_id=session_id,
+    )
+
+    evaluation_report = evaluate_roleplay_session(
+        session=session,
+        review=review,
+    )
+
+    return {
+        **review,
+        "completed": True,
+        "evaluation": evaluation_report,
+        "evaluationReport": evaluation_report,
+        "disclaimer": evaluation_report["disclaimer"],
+    }

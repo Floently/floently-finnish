@@ -1,0 +1,40 @@
+name: Roleplay AI evaluation contract
+
+on:
+  push:
+    paths:
+      - "apps/backend/app/runtime/roleplay.py"
+      - "apps/backend/app/services/roleplay_evaluation_service.py"
+      - "apps/backend/scripts/verify_roleplay_ai_evaluation.py"
+      - ".github/workflows/roleplay-ai-evaluation.yml"
+  pull_request:
+    paths:
+      - "apps/backend/app/runtime/roleplay.py"
+      - "apps/backend/app/services/roleplay_evaluation_service.py"
+      - "apps/backend/scripts/verify_roleplay_ai_evaluation.py"
+      - ".github/workflows/roleplay-ai-evaluation.yml"
+
+jobs:
+  verify-roleplay-evaluation:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Compile evaluation source
+        run: |
+          python -m py_compile \
+            apps/backend/app/services/roleplay_evaluation_service.py \
+            apps/backend/app/runtime/roleplay.py \
+            apps/backend/scripts/verify_roleplay_ai_evaluation.py
+
+      - name: Verify safe fallback contract
+        env:
+          PYTHONPATH: apps/backend
+          OPENAI_EVALUATION_ENABLED: "false"
+        run: |
+          python apps/backend/scripts/verify_roleplay_ai_evaluation.py
