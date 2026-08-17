@@ -1,0 +1,34 @@
+name: Agent A Wave 1 client wiring r2 QA
+
+on:
+  push:
+    branches:
+      - agent/a-integration-wiring-client-r2-qa-20260817
+
+jobs:
+  client-wiring-r2:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v6
+        with:
+          version: "10.34.0"
+          run_install: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: pnpm
+          cache-dependency-path: pnpm-lock.yaml
+      - run: pnpm install --frozen-lockfile
+      - name: Whole client TypeScript
+        run: pnpm --dir apps/client exec tsc --noEmit
+      - name: Wave 1 client behavior, seams, graphics and navigation
+        run: |
+          node --disable-warning=ExperimentalWarning apps/client/scripts/verify-reading-engine.mjs
+          node apps/client/scripts/verify-agent-d-writing.mjs
+          node apps/client/scripts/verify-agent-d-writing-profession.mjs
+          node --experimental-strip-types apps/client/scripts/verify-practice-composer.mts
+          node apps/client/scripts/verify-learning-experience-system.mjs
+          node --experimental-strip-types apps/client/scripts/verify-wave1-integration-seams.mts
+          node --experimental-strip-types apps/client/scripts/verify-wave1-product-wiring.mts
+          node apps/client/scripts/verify-navigation-invariants.mjs
