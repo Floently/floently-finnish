@@ -1,0 +1,30 @@
+name: Agent A Wave 1 polish r7 QA
+
+on:
+  push:
+    branches:
+      - agent/a-wave1-polish-r7-qa-20260817
+
+jobs:
+  polish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v6
+        with:
+          version: "10.34.0"
+          run_install: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: pnpm
+          cache-dependency-path: pnpm-lock.yaml
+      - run: pnpm install --frozen-lockfile
+      - name: Whole client TypeScript
+        run: pnpm --dir apps/client exec tsc --noEmit
+      - name: Product wiring verifier
+        run: node --experimental-strip-types apps/client/scripts/verify-wave1-product-wiring.mts
+      - name: Professional hardcoded text audit
+        run: |
+          node apps/client/scripts/audit-i18n-hardcoded.mjs > /tmp/i18n.txt
+          grep -A 10 'apps/client/state/ProfessionalRoute.tsx' /tmp/i18n.txt || true
