@@ -77,10 +77,10 @@ export default function LearningRoute({ onBack, onOpenMenu, onOpenEverydayRolepl
             <TaskCard
               themeMode={themeMode}
               accent="blue"
-              title="Reading"
-              detail="Read authentic-style everyday Finnish, answer for meaning, then use targeted correction and retry."
-              meta="A1–B1 · comprehension + vocabulary in context"
-              actionLabel="Open Reading"
+              title={translate(language, 'ykiRouteSkillReading')}
+              detail={translate(language, 'learningEverydaySubtitle')}
+              meta={translate(language, 'learningEverydayCardMeta')}
+              actionLabel={translate(language, 'commonOpen')}
               onPress={() => router.push('/learn/reading' as never)}
             />
           </ReducedMotionAwareMotion>
@@ -89,10 +89,10 @@ export default function LearningRoute({ onBack, onOpenMenu, onOpenEverydayRolepl
             <TaskCard
               themeMode={themeMode}
               accent="blue"
-              title="Writing"
-              detail="Plan, write, receive focused feedback, revise your own text, and compare the improvement."
-              meta="A1–B1 · revision-first writing"
-              actionLabel="Open Writing"
+              title={translate(language, 'ykiRouteSkillWriting')}
+              detail={translate(language, 'learningEverydaySubtitle')}
+              meta={translate(language, 'learningEverydayCardMeta')}
+              actionLabel={translate(language, 'commonOpen')}
               onPress={() => router.push('/learn/writing' as never)}
             />
           </ReducedMotionAwareMotion>
