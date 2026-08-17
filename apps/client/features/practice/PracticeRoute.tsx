@@ -49,18 +49,24 @@ const SCOPES: readonly { value: PracticeScope; label: string }[] = [
   { value: 'professional', label: 'Professional' },
   { value: 'yki', label: 'YKI' },
 ];
+const PROFESSION_KEYS = ['doctor', 'nurse', 'practical_nurse'] as const;
 
 function buildEntitlementKeys(
   status: ReturnType<typeof useSubscriptionStore.getState>['status'],
 ): string[] {
   if (!status) return [];
-  if (status.isInternalAllAccess) return ['learn', 'professional', 'yki'];
 
   const result: string[] = [];
-  if (status.entitlements.learnAccess) result.push('learn');
-  if (status.entitlements.professionalAccess) result.push('professional');
-  if (status.entitlements.ykiAccess) result.push('yki');
-  return result;
+  if (status.isInternalAllAccess || status.entitlements.learnAccess) result.push('learnAccess');
+  if (status.isInternalAllAccess || status.entitlements.professionalAccess) result.push('professionalAccess');
+  if (status.isInternalAllAccess || status.entitlements.ykiAccess) result.push('ykiAccess');
+
+  const professions = status.isInternalAllAccess
+    ? PROFESSION_KEYS
+    : status.entitlements.professions;
+  professions.forEach((profession) => result.push(`profession:${profession}`));
+
+  return [...new Set(result)].sort();
 }
 
 function activeProfession(
