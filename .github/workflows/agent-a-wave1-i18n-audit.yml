@@ -1,0 +1,29 @@
+name: Agent A Wave 1 i18n audit
+
+on:
+  push:
+    branches:
+      - agent/a-wave1-i18n-audit-20260817
+
+jobs:
+  inspect-i18n:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Report Reading/Writing translation keys and Wave 1 hardcoded copy
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import re
+          source = Path('apps/client/features/i18n/index.ts').read_text()
+          print('=== candidate translation-key lines ===')
+          for idx, line in enumerate(source.splitlines(), 1):
+              if re.search(r'(reading|writing|lukeminen|kirjoittaminen)', line, re.I):
+                  print(f'{idx}: {line[:300]}')
+          print('=== Wave 1 surfaced hardcoded-copy lines ===')
+          for path in ['apps/client/state/LearningRoute.tsx','apps/client/state/ProfessionalRoute.tsx']:
+              print(f'--- {path} ---')
+              for idx, line in enumerate(Path(path).read_text().splitlines(), 1):
+                  if re.search(r'(Reading|Writing|Lukeminen|Kirjoittaminen|Avaa Reading|Avaa Writing)', line):
+                      print(f'{idx}: {line}')
+          PY
