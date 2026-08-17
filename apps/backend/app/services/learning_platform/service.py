@@ -1,11 +1,15 @@
 from __future__ import annotations
 
-from datetime import datetime
-
 from .evidence import derive_skill_evidence
 from .errors import LearnerOwnershipError
 from .identity import LearnerIdentity
-from .models import LearnerEvent, LearningPathway, LearningSkill, SkillEvidence
+from .models import (
+    LearnerEvent,
+    LearningPathway,
+    LearningSkill,
+    SkillEvidence,
+    parse_aware_iso_datetime,
+)
 from .repositories import LearnerEventRepository
 
 
@@ -51,8 +55,12 @@ class LearnerEventService:
         if skill is not None:
             events = [event for event in events if skill in event.skills]
         if since is not None:
-            cutoff = _parse_iso_datetime(since)
-            events = [event for event in events if _parse_iso_datetime(event.occurred_at) >= cutoff]
+            cutoff = parse_aware_iso_datetime(since, "since")
+            events = [
+                event
+                for event in events
+                if parse_aware_iso_datetime(event.occurred_at, "occurredAt") >= cutoff
+            ]
         return events
 
     def list_evidence(
@@ -77,19 +85,15 @@ class LearnerEventService:
         ]
         if skill is not None:
             evidence = [item for item in evidence if item.skill == skill]
-        return sorted(evidence, key=lambda item: (item.observed_at, item.evidence_id))
+        return sorted(
+            evidence,
+            key=lambda item: (
+                parse_aware_iso_datetime(item.observed_at, "observedAt"),
+                item.evidence_id,
+            ),
+        )
 
     @staticmethod
     def _require_owner(identity: LearnerIdentity, learner_id: str) -> None:
         if identity.user_id != str(learner_id or "").strip():
             raise LearnerOwnershipError("Learner data is owned by another authenticated user")
-
-
-def _parse_iso_datetime(value: str) -> datetime:
-    normalized = str(value or "").strip()
-    if not normalized:
-        raise ValueError("timestamp is required")
-    try:
-        return datetime.fromisoformat(normalized.replace("Z", "+00:00"))
-    except ValueError as exc:
-        raise ValueError(f"Invalid ISO timestamp: {value!r}") from exc
