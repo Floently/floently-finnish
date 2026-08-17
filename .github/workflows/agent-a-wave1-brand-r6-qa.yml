@@ -1,0 +1,31 @@
+name: Agent A Wave 1 brand and localization r6 QA
+
+on:
+  push:
+    branches:
+      - agent/a-integration-wiring-r6-brand-qa-20260817
+
+jobs:
+  brand-localization:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v6
+        with:
+          version: "10.34.0"
+          run_install: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Translation completeness
+        run: node apps/client/scripts/check-i18n-completeness.mjs
+      - name: KieliValmis visible brand audit
+        run: node apps/client/scripts/audit-kielivalmis-visible-brand.mjs
+      - name: KieliValmis rebrand verifier
+        run: node apps/client/scripts/verify-kielivalmis-rebrand.mjs
+      - name: Hardcoded UI text report
+        if: always()
+        run: |
+          node apps/client/scripts/audit-i18n-hardcoded.mjs | tee /tmp/wave1-i18n-audit.txt
+          echo '--- Wave 1 touched surfaces ---'
+          grep -E 'AppShell.tsx|ProfessionalRoute.tsx|LearningRoute.tsx|IntegratedPracticeRoute.tsx|ReadingRuntimeScreen.tsx|WritingPracticeScreen.tsx' /tmp/wave1-i18n-audit.txt || true
