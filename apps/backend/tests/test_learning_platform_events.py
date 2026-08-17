@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+import json
+from dataclasses import replace
 from types import SimpleNamespace
 
 import pytest
@@ -88,6 +90,25 @@ def test_duplicate_event_is_idempotent_but_conflicting_reuse_is_rejected():
     assert service.get_event(identity, "evt-1").content_version == "content-7"
 
 
+@pytest.mark.parametrize(
+    ("occurred_at", "message"),
+    [
+        ("not-a-timestamp", "occurredAt must be a valid ISO datetime"),
+        ("2026-08-16T12:00:00", "occurredAt must include a timezone offset"),
+        ("2026-08-16", "occurredAt must include a timezone offset"),
+    ],
+)
+def test_event_rejects_malformed_and_naive_occurred_at(occurred_at, message):
+    with pytest.raises(ValueError, match=message):
+        event(occurredAt=occurred_at)
+
+
+def test_direct_event_creation_rejects_naive_occurred_at():
+    source = event()
+    with pytest.raises(ValueError, match="occurredAt must include a timezone offset"):
+        replace(source, occurred_at="2026-08-16T12:00:00")
+
+
 def test_json_repository_survives_restart_and_retains_versions(tmp_path):
     path = tmp_path / "learner-events.json"
     service = LearnerEventService(JsonFileLearnerEventRepository(path))
@@ -105,6 +126,18 @@ def test_json_repository_rejects_malformed_persistence(tmp_path):
     path = tmp_path / "learner-events.json"
     path.write_text("[]", encoding="utf-8")
     with pytest.raises(PersistenceError):
+        JsonFileLearnerEventRepository(path)
+
+
+def test_json_repository_rejects_naive_timestamp_during_deserialization(tmp_path):
+    path = tmp_path / "learner-events.json"
+    persisted_event = event().to_mapping()
+    persisted_event["occurredAt"] = "2026-08-16T12:00:00"
+    path.write_text(
+        json.dumps({"formatVersion": 1, "events": [persisted_event]}),
+        encoding="utf-8",
+    )
+    with pytest.raises(PersistenceError, match="occurredAt must include a timezone offset"):
         JsonFileLearnerEventRepository(path)
 
 
@@ -164,3 +197,30 @@ def test_future_practice_queries_are_owner_scoped_and_deterministic():
     assert [item.event_id for item in service.list_events(identity, skill="reading")] == ["evt-2"]
     assert [item.skill for item in service.list_evidence(identity, skill="writing")] == ["writing"]
     assert [item.event_id for item in service.list_events(identity, since="2026-08-16T12:05:00Z")] == ["evt-2"]
+
+
+def test_mixed_timezone_offsets_sort_filter_and_derive_by_actual_instant():
+    service = LearnerEventService(InMemoryLearnerEventRepository())
+    identity = LearnerIdentity("user-1")
+    later = event(eventId="evt-later", occurredAt="2026-08-16T09:45:00+00:00")
+    earlier = event(eventId="evt-earlier", occurredAt="2026-08-16T10:30:00+02:00")
+
+    service.record_event(identity, later)
+    service.record_event(identity, earlier)
+
+    assert [item.event_id for item in service.list_events(identity)] == ["evt-earlier", "evt-later"]
+    assert [item.event_id for item in service.list_events(identity, since="2026-08-16T09:00:00Z")] == [
+        "evt-later"
+    ]
+    assert [item.source_event_id for item in service.list_evidence(identity)] == [
+        "evt-earlier",
+        "evt-later",
+    ]
+
+
+def test_since_filter_rejects_naive_cutoff():
+    service = LearnerEventService(InMemoryLearnerEventRepository())
+    identity = LearnerIdentity("user-1")
+    service.record_event(identity, event())
+    with pytest.raises(ValueError, match="since must include a timezone offset"):
+        service.list_events(identity, since="2026-08-16T12:00:00")
