@@ -5,6 +5,7 @@ const FOCUSED_PRIORITY_LIMIT = 2;
 const SESSION_ONLY_DRAFT_MESSAGE = 'Kept only in this open practice. Leaving or reloading can discard your draft.';
 const SUBMITTED_DRAFT_MESSAGE = 'Submitted for focused feedback. Your editable text is still here.';
 const EVALUATION_FAILED_DRAFT_MESSAGE = 'Feedback is unavailable. Your draft is still here and can be submitted again.';
+const WRITING_PROFESSIONS = new Set(['doctor', 'nurse', 'practical_nurse']);
 
 function assertNonEmpty(value, label) {
   if (typeof value !== 'string' || !value.trim()) {
@@ -88,6 +89,24 @@ function validateWritingTask(task) {
     if (promptIds.has(prompt.id)) throw new Error('DUPLICATE_PLAN_PROMPT_ID');
     promptIds.add(prompt.id);
   }
+}
+
+function resolveEvidenceProfession(task, profession) {
+  if (task.pathway === 'everyday') {
+    if (profession !== undefined && profession !== null) {
+      throw new Error('UNEXPECTED_WRITING_PROFESSION');
+    }
+    return undefined;
+  }
+
+  assertNonEmpty(profession, 'profession');
+  if (!WRITING_PROFESSIONS.has(profession)) {
+    throw new Error('INVALID_WRITING_PROFESSION');
+  }
+  if (Array.isArray(task.allowedProfessions) && !task.allowedProfessions.includes(profession)) {
+    throw new Error('WRITING_PROFESSION_NOT_ALLOWED');
+  }
+  return profession;
 }
 
 function emptyPlan(task) {
@@ -353,8 +372,9 @@ function routeForPathway(pathway) {
   return pathway === 'professional' ? '/professional/writing' : '/learn/writing';
 }
 
-function buildWritingTaskDescriptor(task) {
+function buildWritingTaskDescriptor(task, profession) {
   validateWritingTask(task);
+  const evidenceProfession = resolveEvidenceProfession(task, profession);
   return {
     schemaVersion: LEARNING_SCHEMA_VERSION,
     taskId: task.taskId,
@@ -368,7 +388,7 @@ function buildWritingTaskDescriptor(task) {
     requiredEntitlements: [...task.requiredEntitlements],
     launch: { route: routeForPathway(task.pathway), params: { taskId: task.taskId } },
     health: 'available',
-    profession: task.pathway === 'professional' ? 'configured-at-launch' : undefined,
+    profession: evidenceProfession,
     topic: task.topic,
     tags: [task.genre, task.register, 'revision_required'],
   };
@@ -409,6 +429,8 @@ function buildWritingLearnerEvent(session, input) {
   if (!attempt || attempt.status !== 'assessed' || !attempt.feedback) {
     throw new Error('ASSESSED_ATTEMPT_REQUIRED');
   }
+  validateWritingTask(session.task);
+  const evidenceProfession = resolveEvidenceProfession(session.task, input.profession);
 
   return {
     schemaVersion: LEARNING_SCHEMA_VERSION,
@@ -423,7 +445,7 @@ function buildWritingLearnerEvent(session, input) {
     runtime: 'writing',
     skills: ['writing'],
     levelBand: session.task.level,
-    profession: session.task.pathway === 'professional' ? 'configured-at-launch' : undefined,
+    profession: evidenceProfession,
     score: attempt.feedback.score,
     maxScore: attempt.feedback.maxScore,
     metadata: {
@@ -477,4 +499,3 @@ module.exports = {
   validateWritingTask,
   wordCount,
 };
-
