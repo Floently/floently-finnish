@@ -208,3 +208,47 @@ Decision caused:
 12. Permanent tests exercise correct, incorrect, retry, malformed, version preservation, scope, scaffolding, route isolation, accessibility contracts, deterministic adapter output, and fail-closed access decisions.
 
 RESEARCH_GATE=PASS
+
+## 2026-08-17 follow-up — truthful profession metadata
+
+### Question investigated
+
+How should a Professional Reading task that applies across multiple professions populate the optional `TaskDescriptor.profession` field without being rejected by strict profession compatibility filtering?
+
+### Existing repository evidence
+
+- `reading.professional.b2.shift-swap` is deliberately generic: its synthetic workplace procedure applies across sectors and does not identify a single profession.
+- The frozen `learning.v1` source type declares `TaskDescriptor.profession?: string`; omission is already representable and does not require a shared-contract change.
+- The frozen shared-contract document defines profession/work-domain compatibility as a hard Practice filter before ranking.
+- Agent A's 2026-08-17 round-2 independent review confirmed that the pseudo-profession `cross-sector` would be correctly rejected by the strict Practice filter.
+
+### Sources and access date
+
+Accessed 2026-08-17:
+
+- Frozen contract source, `packages/core/schemas/learning.ts` at `69813b433838130d5afe4b052360dbfd12df3f40`: https://github.com/Floently/floently-finnish/blob/69813b433838130d5afe4b052360dbfd12df3f40/packages/core/schemas/learning.ts
+- Frozen contract guidance, `docs/agents/WAVE1_SHARED_LEARNING_CONTRACT.md` at the same SHA: https://github.com/Floently/floently-finnish/blob/69813b433838130d5afe4b052360dbfd12df3f40/docs/agents/WAVE1_SHARED_LEARNING_CONTRACT.md
+- Agent A Wave-1 re-review checkpoint, round 2: https://github.com/Floently/floently-finnish/issues/16#issuecomment-5317142187
+
+### Findings in my own words and decisions caused
+
+- `profession` is evidence about a task's exact work-domain provenance, not a broad label for all Professional-pathway content. Because the field is optional, a generic task should omit it.
+  - **Decision:** remove `cross-sector` from the generic shift-swap task. The existing adapter will then omit `TaskDescriptor.profession` without changing the frozen contract.
+- A pseudo-profession is not harmless display metadata: a strict compatibility filter must treat a populated value as an exact constraint.
+  - **Decision:** add a permanent regression that requires the generic task and its descriptor to have no profession and rejects the `cross-sector` sentinel anywhere in the content bank.
+- Exact canonical profession values remain valid for future content that genuinely targets one profession.
+  - **Decision:** preserve the optional `ReadingTask.profession` field and direct adapter propagation rather than deleting profession support from the engine.
+
+### Alternatives rejected and why
+
+1. **Teach Practice that `cross-sector` is a wildcard.** Rejected because it would weaken a correct hard filter, couple Agent C to another moving branch, and give a fabricated value special hidden meaning.
+2. **Use another placeholder such as `generic` or `all`.** Rejected because changing the spelling does not make the provenance exact.
+3. **Remove profession support from every Reading task and adapter.** Rejected because the frozen contract legitimately supports exact profession-scoped tasks; only this representative task lacks that provenance.
+4. **Modify the frozen shared contract.** Rejected because omission already models the case and Agent C does not own that contract.
+
+### Uncertainties and how they will be tested
+
+- The Wave-1 contract does not publish a canonical profession vocabulary on Agent C's branch. This does not block generic content because omission is unambiguous. Future profession-specific Reading content must use the integration-owned canonical vocabulary and be covered by exact-match fixtures.
+- Runtime serialization could accidentally reintroduce a placeholder later. The verifier will assert both source-model and adapted-descriptor omission and scan the registered task bank for the rejected sentinel.
+
+RESEARCH_GATE=PASS
