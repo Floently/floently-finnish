@@ -56,8 +56,15 @@ requireText(progress, 'flexWrap:', 'Practice progress must wrap on small screens
 requireText(progress, 'minHeight: learningTouchTarget.minimum', 'Interactive progress nodes must meet the touch-target contract.');
 requireText(progress, 'accessibilityRole="progressbar"', 'Practice progress needs progress semantics.');
 requireText(progress, 'accessibilityRole="button"', 'Interactive path nodes need button semantics.');
+requireText(progress, 'accessibilityState={{ selected }}', 'Current/selected semantics must remain separate from keyboard focus.');
+requireText(progress, 'onFocus={() => setFocused(true)}', 'Interactive path nodes need explicit keyboard-focus state.');
+requireText(progress, 'onBlur={() => setFocused(false)}', 'Interactive path nodes must clear keyboard-focus state.');
+requireText(progress, 'borderColor: focused ? palette.primary', 'Keyboard focus must have a strong primary-color perimeter.');
+requireText(progress, 'borderWidth: focused ? 2 : 1', 'Keyboard focus must render a two-point perimeter.');
+requireText(progress, 'backgroundColor: focused ? palette.primarySurface', 'Keyboard focus needs a second visible cue beyond border width alone.');
 requireText(progress, 'flexShrink: 1', 'Progress labels must be able to wrap/shrink without fixed clipping.');
 forbidText(progress, 'numberOfLines=', 'Progress labels must not be forcibly truncated.');
+forbidText(progress, 'onFocus={() => onPress', 'Keyboard focus must not activate a practice step.');
 
 forbidText(focus, 'react-native-reanimated', 'Focus surfaces must remain static and independent from animation runtime.');
 forbidText(focus, 'withRepeat', 'Focus surfaces must never contain looping motion.');
@@ -69,6 +76,9 @@ requireText(focus, "startsWith('A2')", 'A2 must support moderate visual scaffold
 
 requireText(semanticState, "tone: SemanticFeedbackTone", 'Semantic feedback tone contract is required.');
 requireText(semanticState, "tone === 'error' ? 'alert'", 'Errors must expose alert semantics.');
+requireText(semanticState, "tone === 'error' ? 'assertive' : 'polite'", 'Dynamic non-error feedback must use a polite live region while errors remain assertive.');
+requireText(semanticState, 'accessibilityLiveRegion={liveRegion}', 'Semantic feedback must expose the live-region contract.');
+forbidText(semanticState, '.focus()', 'Semantic feedback must not steal focus when status changes.');
 requireText(semanticState, "kind === 'loading'", 'Loading state is required.');
 requireText(semanticState, "LearningStatePanelKind = 'loading' | 'empty' | 'error'", 'Loading/empty/error states must stay explicit.');
 
@@ -96,4 +106,6 @@ console.log('FOCUS_LOOP_GUARD=PASS');
 console.log('HAPTIC_SEMANTICS_GUARD=PASS');
 console.log('SMALL_SCREEN_LABEL_GUARD=PASS');
 console.log('ACCESSIBILITY_CONTRACT_GUARD=PASS');
+console.log('KEYBOARD_FOCUS_APPEARANCE_GUARD=PASS');
+console.log('LIVE_REGION_FEEDBACK_GUARD=PASS');
 console.log('BUSINESS_LOGIC_BOUNDARY_GUARD=PASS');
