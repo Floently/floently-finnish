@@ -109,6 +109,19 @@ test('all representative content validates and is original', () => {
   );
 });
 
+test('generic Professional content omits pseudo-profession metadata', () => {
+  assert.equal(professional.profession, undefined);
+  assert.equal(Object.hasOwn(professional, 'profession'), false);
+  assert.equal(
+    content.READING_TASKS.some((task) => task.profession === 'cross-sector'),
+    false,
+  );
+
+  const descriptor = engine.toReadingTaskDescriptor(professional);
+  assert.equal(descriptor.profession, undefined);
+  assert.equal(Object.hasOwn(descriptor, 'profession'), false);
+});
+
 test('correct answer produces correct feedback state', () => {
   const reading = engine.startReadingQuestions(engine.createReadingSession(everydayA1), everydayA1);
   const next = engine.submitReadingResponse({
