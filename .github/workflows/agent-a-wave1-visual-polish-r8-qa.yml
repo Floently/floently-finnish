@@ -1,0 +1,41 @@
+name: Agent A Wave 1 visual polish r8 QA
+
+on:
+  push:
+    branches:
+      - agent/a-wave1-visual-polish-r8-qa-20260817
+
+jobs:
+  visual-polish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v6
+        with:
+          version: "10.34.0"
+          run_install: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: pnpm
+          cache-dependency-path: pnpm-lock.yaml
+      - run: pnpm install --frozen-lockfile
+      - name: Whole client TypeScript
+        run: pnpm --dir apps/client exec tsc --noEmit
+      - name: Reading, Writing and experience regressions
+        run: |
+          node --disable-warning=ExperimentalWarning apps/client/scripts/verify-reading-engine.mjs
+          node apps/client/scripts/verify-agent-d-writing.mjs
+          node apps/client/scripts/verify-agent-d-writing-profession.mjs
+          node apps/client/scripts/verify-learning-experience-system.mjs
+      - name: Product wiring contract
+        run: node --experimental-strip-types apps/client/scripts/verify-wave1-product-wiring.mts
+      - name: Focus illustration remains static and mode-specific
+        run: |
+          grep -q "mode === 'reading' || mode === 'writing'" packages/ui/learningExperience/focus.tsx
+          grep -q "FocusIllustration" packages/ui/learningExperience/focus.tsx
+          ! grep -Eq "useSharedValue|withRepeat|withTiming|Animated\." packages/ui/learningExperience/focus.tsx
+      - name: Professional localization audit excerpt
+        run: |
+          node apps/client/scripts/audit-i18n-hardcoded.mjs > /tmp/i18n.txt
+          grep -A 8 'apps/client/state/ProfessionalRoute.tsx' /tmp/i18n.txt || true
