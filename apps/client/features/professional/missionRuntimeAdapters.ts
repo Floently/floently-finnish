@@ -1,16 +1,13 @@
-import type { TaskDescriptor } from '@core/schemas/learning';
 import {
   PROFESSIONAL_MISSIONS,
   PROFESSIONAL_PROFESSIONS,
 } from '@core/professional/missions.mjs';
 
 import {
-  toReadingTaskDescriptor,
   validateReadingTask,
   type ReadingQuestion,
   type ReadingTask,
 } from '../reading/readingEngine';
-import { buildWritingTaskDescriptor } from '../writing/engine';
 import type {
   WritingFeedbackCheck,
   WritingProfession,
@@ -22,14 +19,6 @@ type ProfessionalMissionStep = ProfessionalMission['steps'][number];
 type ProfessionalProfession = (typeof PROFESSIONAL_PROFESSIONS)[number];
 
 export type MissionRuntimeProfession = Extract<ProfessionalProfession, WritingProfession>;
-
-export type ProfessionalMissionRuntimeEntry = {
-  descriptor: TaskDescriptor;
-  title: string;
-  summary: string;
-  missionId: string;
-  source: 'professional-mission-roleplay' | 'professional-mission-reading' | 'professional-mission-writing';
-};
 
 type MissionReadingQuestionFactory = (prefix: string) => ReadingQuestion[];
 
@@ -132,8 +121,13 @@ const READING_QUESTIONS: Readonly<Record<string, MissionReadingQuestionFactory>>
   ],
 };
 
-function missionStep(mission: ProfessionalMission, stage: ProfessionalMissionStep['stage']): ProfessionalMissionStep {
-  const step = mission.steps.find((candidate: ProfessionalMissionStep) => candidate.stage === stage);
+function missionStep(
+  mission: ProfessionalMission,
+  stage: ProfessionalMissionStep['stage'],
+): ProfessionalMissionStep {
+  const step = mission.steps.find(
+    (candidate: ProfessionalMissionStep) => candidate.stage === stage,
+  );
   if (!step) throw new Error(`MISSION_STEP_MISSING:${mission.missionId}:${stage}`);
   return step;
 }
@@ -144,14 +138,22 @@ function isMissionProfession(value: ProfessionalProfession): value is MissionRun
 
 function missionForProfession(profession?: string): ProfessionalMission[] {
   if (!profession) return [];
-  return PROFESSIONAL_MISSIONS.filter((mission: ProfessionalMission) => mission.profession === profession);
+  return PROFESSIONAL_MISSIONS.filter(
+    (mission: ProfessionalMission) => mission.profession === profession,
+  );
 }
 
-export function buildProfessionalMissionReadingTask(mission: ProfessionalMission): ReadingTask {
-  if (!isMissionProfession(mission.profession)) throw new Error(`UNSUPPORTED_MISSION_PROFESSION:${mission.profession}`);
+export function buildProfessionalMissionReadingTask(
+  mission: ProfessionalMission,
+): ReadingTask {
+  if (!isMissionProfession(mission.profession)) {
+    throw new Error(`UNSUPPORTED_MISSION_PROFESSION:${mission.profession}`);
+  }
   const step = missionStep(mission, 'interpret');
   const questionFactory = READING_QUESTIONS[mission.missionId];
-  if (!questionFactory) throw new Error(`MISSION_READING_QUESTIONS_MISSING:${mission.missionId}`);
+  if (!questionFactory) {
+    throw new Error(`MISSION_READING_QUESTIONS_MISSING:${mission.missionId}`);
+  }
   const prefix = `mission.${mission.missionId}.reading`;
   const task: ReadingTask = {
     taskId: prefix,
@@ -186,11 +188,17 @@ export function buildProfessionalMissionReadingTask(mission: ProfessionalMission
     },
   };
   const validation = validateReadingTask(task);
-  if (!validation.ok) throw new Error(`INVALID_MISSION_READING_TASK:${mission.missionId}:${validation.errors.join('|')}`);
+  if (!validation.ok) {
+    throw new Error(
+      `INVALID_MISSION_READING_TASK:${mission.missionId}:${validation.errors.join('|')}`,
+    );
+  }
   return task;
 }
 
-function missionWritingChecks(mission: ProfessionalMission): WritingFeedbackCheck[] {
+function missionWritingChecks(
+  mission: ProfessionalMission,
+): WritingFeedbackCheck[] {
   const correction = missionStep(mission, 'correct');
   const missionTerms: Record<string, string[]> = {
     'nurse-shift-handover': ['vahvist', 'tarkist', 'kellonaika', 'ajankohta'],
@@ -202,7 +210,10 @@ function missionWritingChecks(mission: ProfessionalMission): WritingFeedbackChec
       id: `${mission.missionId}.communicative-detail`,
       area: 'communicative_goal',
       priority: 1,
-      condition: { kind: 'includes_any', alternatives: missionTerms[mission.missionId] ?? ['vahvist', 'tieto'] },
+      condition: {
+        kind: 'includes_any',
+        alternatives: missionTerms[mission.missionId] ?? ['vahvist', 'tieto'],
+      },
       successMessage: 'Tehtävän olennainen tieto näkyy tekstissäsi.',
       title: 'Tee tiedon tila näkyväksi',
       explanation: correction.content.learnerTask,
@@ -231,8 +242,12 @@ function missionWritingChecks(mission: ProfessionalMission): WritingFeedbackChec
   ];
 }
 
-export function buildProfessionalMissionWritingTask(mission: ProfessionalMission): WritingTask {
-  if (!isMissionProfession(mission.profession)) throw new Error(`UNSUPPORTED_MISSION_PROFESSION:${mission.profession}`);
+export function buildProfessionalMissionWritingTask(
+  mission: ProfessionalMission,
+): WritingTask {
+  if (!isMissionProfession(mission.profession)) {
+    throw new Error(`UNSUPPORTED_MISSION_PROFESSION:${mission.profession}`);
+  }
   const step = missionStep(mission, 'document');
   return {
     taskId: `mission.${mission.missionId}.writing`,
@@ -248,7 +263,10 @@ export function buildProfessionalMissionWritingTask(mission: ProfessionalMission
     prompt: step.content.finnish,
     estimatedMinutes: 7,
     wordTarget: { min: 24, max: 100 },
-    requiredEntitlements: ['professionalAccess', `profession:${mission.profession}`],
+    requiredEntitlements: [
+      'professionalAccess',
+      `profession:${mission.profession}`,
+    ],
     allowedProfessions: [mission.profession],
     topic: mission.missionId,
     scaffolding: {
@@ -275,78 +293,34 @@ export function buildProfessionalMissionWritingTask(mission: ProfessionalMission
   };
 }
 
-export function buildProfessionalMissionRoleplayDescriptor(mission: ProfessionalMission): TaskDescriptor {
-  if (!isMissionProfession(mission.profession)) throw new Error(`UNSUPPORTED_MISSION_PROFESSION:${mission.profession}`);
-  const original = missionStep(mission, 'produce').task;
-  const { featureFlag: _featureFlag, ...task } = original;
-  return {
-    ...task,
-    health: 'available',
-    launch: {
-      ...task.launch,
-      params: {
-        ...task.launch.params,
-        missionId: mission.missionId,
-        contextId: mission.contextId,
-        profession: mission.profession,
-      },
-    },
-  };
-}
-
-export function getProfessionalMissionReadingTasks(profession?: string): ReadingTask[] {
+export function getProfessionalMissionReadingTasks(
+  profession?: string,
+): ReadingTask[] {
   return missionForProfession(profession).map(buildProfessionalMissionReadingTask);
 }
 
-export function findProfessionalMissionReadingTask(taskId: string | undefined, profession?: string): ReadingTask | undefined {
+export function findProfessionalMissionReadingTask(
+  taskId: string | undefined,
+  profession?: string,
+): ReadingTask | undefined {
   if (!taskId) return undefined;
-  return getProfessionalMissionReadingTasks(profession).find((task) => task.taskId === taskId);
+  return getProfessionalMissionReadingTasks(profession).find(
+    (task) => task.taskId === taskId,
+  );
 }
 
-export function getProfessionalMissionWritingTasks(profession?: string): WritingTask[] {
+export function getProfessionalMissionWritingTasks(
+  profession?: string,
+): WritingTask[] {
   return missionForProfession(profession).map(buildProfessionalMissionWritingTask);
 }
 
-export function findProfessionalMissionWritingTask(taskId: string | null | undefined, profession?: string): WritingTask | undefined {
+export function findProfessionalMissionWritingTask(
+  taskId: string | null | undefined,
+  profession?: string,
+): WritingTask | undefined {
   if (!taskId) return undefined;
-  return getProfessionalMissionWritingTasks(profession).find((task) => task.taskId === taskId);
-}
-
-export function getProfessionalMissionRuntimeEntries(profession?: string): ProfessionalMissionRuntimeEntry[] {
-  return missionForProfession(profession).flatMap((mission) => {
-    const readingTask = buildProfessionalMissionReadingTask(mission);
-    const writingTask = buildProfessionalMissionWritingTask(mission);
-    return [
-      {
-        descriptor: buildProfessionalMissionRoleplayDescriptor(mission),
-        title: missionStep(mission, 'produce').content.title,
-        summary: missionStep(mission, 'produce').content.learnerTask,
-        missionId: mission.missionId,
-        source: 'professional-mission-roleplay' as const,
-      },
-      {
-        descriptor: {
-          ...toReadingTaskDescriptor(readingTask),
-          requiredEntitlements: ['professionalAccess', `profession:${mission.profession}`],
-          contextId: mission.contextId,
-          topic: mission.missionId,
-        },
-        title: readingTask.title,
-        summary: readingTask.readingGoal,
-        missionId: mission.missionId,
-        source: 'professional-mission-reading' as const,
-      },
-      {
-        descriptor: {
-          ...buildWritingTaskDescriptor(writingTask, mission.profession),
-          contextId: mission.contextId,
-          topic: mission.missionId,
-        },
-        title: writingTask.title,
-        summary: writingTask.communicativeGoal,
-        missionId: mission.missionId,
-        source: 'professional-mission-writing' as const,
-      },
-    ];
-  });
+  return getProfessionalMissionWritingTasks(profession).find(
+    (task) => task.taskId === taskId,
+  );
 }
