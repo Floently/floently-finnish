@@ -14,11 +14,13 @@ const clientRoot = path.resolve(scriptDir, '..');
 const read = (relative) => fs.readFileSync(path.join(clientRoot, relative), 'utf8');
 
 const adapter = read('features/professional/missionRuntimeAdapters.ts');
+const practiceAdapter = read('features/professional/missionPracticeEntries.ts');
 const registry = read('features/practice/integratedRegistry.ts');
 const practiceRoute = read('features/practice/IntegratedPracticeRoute.tsx');
 const readingRoute = read('features/reading/ReadingRoute.tsx');
 const writingRoute = read('features/writing/WritingRouteScreen.tsx');
 const writingScreen = read('features/writing/WritingPracticeScreen.tsx');
+const speakingEntry = read('app/speaking/index.tsx');
 
 assert.equal(PROFESSIONAL_MISSIONS.length, PROFESSIONAL_PROFESSIONS.length);
 for (const mission of PROFESSIONAL_MISSIONS) {
@@ -29,21 +31,27 @@ for (const mission of PROFESSIONAL_MISSIONS) {
   assert.ok(mission.steps.some((step) => step.stage === 'document'));
 }
 
-assert.match(adapter, /buildProfessionalMissionRoleplayDescriptor/);
 assert.match(adapter, /buildProfessionalMissionReadingTask/);
 assert.match(adapter, /buildProfessionalMissionWritingTask/);
-assert.match(adapter, /health:\s*'available'/,
-  'integration adapter must make only the resolved protected Roleplay launch available');
-assert.ok(!adapter.includes(PROFESSIONAL_LISTENING_FEATURE_FLAG),
-  'integration adapter must not manufacture a Professional Listening runtime');
-assert.ok(!adapter.includes("runtime: 'listening'"),
-  'integration adapter must not create a listening task');
+assert.ok(!practiceAdapter.includes(PROFESSIONAL_LISTENING_FEATURE_FLAG),
+  'Practice mission adapter must not manufacture a Professional Listening runtime');
+assert.ok(!practiceAdapter.includes("runtime: 'listening'"),
+  'Practice mission adapter must not create a listening task');
+assert.ok(!practiceAdapter.includes('professional-mission-roleplay'),
+  'Mission Roleplay must not be surfaced through Practice until /speaking has a reviewed parameter bridge');
+assert.match(practiceAdapter, /separately reviewed profession\/scenario/,
+  'Roleplay deferral must remain explicit in source');
 
-assert.match(registry, /getProfessionalMissionRuntimeEntries/);
-assert.match(registry, /descriptor\.pathway === 'professional' && descriptor\.runtime === 'roleplay'/,
-  'generic Professional Roleplay fixture must be removed when a mission profession is active');
+assert.match(registry, /getProfessionalMissionPracticeEntries/);
+assert.match(registry, /PROTECTED_LAUNCH_ENTRIES/,
+  'existing protected launch candidates must remain available');
+assert.ok(!registry.includes('getProfessionalMissionRuntimeEntries'));
+assert.ok(!registry.includes('professional-mission-roleplay'));
 assert.ok(!registry.includes('WRITING_TASKS.push'));
 assert.ok(!registry.includes('READING_TASKS.push'));
+
+assert.match(speakingEntry, /<AppShell requestedScreen="speaking-practice" \/>/,
+  'current /speaking entry does not yet consume mission profession/scenario params; keep mission Roleplay deferred');
 
 assert.match(readingRoute, /getProfessionalMissionReadingTasks/);
 assert.match(readingRoute, /findProfessionalMissionReadingTask/);
@@ -62,13 +70,15 @@ assert.match(practiceRoute, /pathname:\s*current\.task\.launch\.route,\s*params:
   'Practice must preserve canonical launch params instead of flattening or dropping them');
 
 for (const profession of PROFESSIONAL_PROFESSIONS) {
-  assert.match(adapter, /requiredEntitlements:\s*\['professionalAccess', `profession:\$\{mission\.profession\}`\]/,
+  assert.match(practiceAdapter, /requiredEntitlements:\s*\['professionalAccess', `profession:\$\{mission\.profession\}`\]/,
     `${profession} mission tasks must preserve profession-specific entitlement declarations`);
 }
 
-console.log('PROFESSIONAL_MISSION_RUNTIME_ADAPTER=PASS');
+console.log('PROFESSIONAL_MISSION_READING_ADAPTER=PASS');
+console.log('PROFESSIONAL_MISSION_WRITING_ADAPTER=PASS');
 console.log('PROFESSIONAL_MISSION_PROFESSION_GATE=PASS');
 console.log('PROFESSIONAL_MISSION_PRACTICE_SEAM=PASS');
+console.log('PROFESSIONAL_MISSION_ROLEPLAY=DEFERRED_PROTECTED_ROUTE_BRIDGE');
 console.log('PROFESSIONAL_MISSION_READING_SEAM=PASS');
 console.log('PROFESSIONAL_MISSION_WRITING_SEAM=PASS');
 console.log('PROFESSIONAL_LISTENING_REMAINS_UNAVAILABLE=PASS');
