@@ -8,7 +8,7 @@ from threading import RLock
 from typing import Protocol
 
 from .errors import IdempotencyConflict, PersistenceError
-from .models import LearnerEvent
+from .models import LearnerEvent, parse_aware_iso_datetime
 
 
 class LearnerEventRepository(Protocol):
@@ -46,7 +46,7 @@ class InMemoryLearnerEventRepository:
     def list_for_learner(self, learner_id: str) -> list[LearnerEvent]:
         with self._lock:
             values = list(self._events.get(learner_id, {}).values())
-        return sorted(values, key=lambda item: (item.occurred_at, item.event_id))
+        return sorted(values, key=_event_sort_key)
 
 
 class JsonFileLearnerEventRepository:
@@ -92,7 +92,7 @@ class JsonFileLearnerEventRepository:
     def list_for_learner(self, learner_id: str) -> list[LearnerEvent]:
         with self._lock:
             values = list(self._events.get(learner_id, {}).values())
-        return sorted(values, key=lambda item: (item.occurred_at, item.event_id))
+        return sorted(values, key=_event_sort_key)
 
     def _load(self) -> dict[str, dict[str, LearnerEvent]]:
         if not self.path.exists():
@@ -131,7 +131,7 @@ class JsonFileLearnerEventRepository:
                 for learner_id in sorted(self._events)
                 for event in sorted(
                     self._events[learner_id].values(),
-                    key=lambda item: (item.occurred_at, item.event_id),
+                    key=_event_sort_key,
                 )
             ],
         }
@@ -153,3 +153,7 @@ class JsonFileLearnerEventRepository:
                 raise
         except OSError as exc:
             raise PersistenceError(f"Unable to write learner-event file: {exc}") from exc
+
+
+def _event_sort_key(event: LearnerEvent) -> tuple:
+    return (parse_aware_iso_datetime(event.occurred_at, "occurredAt"), event.event_id)
