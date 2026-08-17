@@ -99,9 +99,9 @@ export default function ProfessionalRoute({ onBack, onOpenMenu, initialLevelBand
   const professionQuery = `/cards?mode=vocabulary&domain=professional&profession=${selectedProfession}`;
   const pathwayMissions: ProfessionMission[] = [
     {
-      title: 'Reading · Lukeminen',
-      detail: 'Harjoittele työelämän viestien, ohjeiden ja tilanteiden ymmärtämistä omalla tasollasi.',
-      cta: 'Avaa Reading',
+      title: t('ykiRouteSkillReading'),
+      detail: t('professionalSubtitle'),
+      cta: t('commonOpen'),
       onPress: () => {
         setActiveContext(selectedProfession);
         router.push('/professional/reading' as never);
@@ -109,9 +109,9 @@ export default function ProfessionalRoute({ onBack, onOpenMenu, initialLevelBand
       disabled: !isEntitled(selectedProfession),
     },
     {
-      title: 'Writing · Kirjoittaminen',
-      detail: 'Kirjoita itse työelämän viestejä, saa kohdennettua palautetta ja paranna omaa tekstiäsi.',
-      cta: 'Avaa Writing',
+      title: t('ykiRouteSkillWriting'),
+      detail: t('professionalSubtitle'),
+      cta: t('commonOpen'),
       onPress: () => {
         setActiveContext(selectedProfession);
         router.push('/professional/writing' as never);
