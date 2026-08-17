@@ -99,6 +99,8 @@ class JsonFileLearnerEventRepository:
             return {}
         try:
             raw = json.loads(self.path.read_text(encoding="utf-8"))
+            if not isinstance(raw, dict):
+                raise PersistenceError("Learner-event file root must be an object")
             if raw.get("formatVersion") != self.FORMAT_VERSION:
                 raise PersistenceError("Unsupported learner-event file format")
             events = raw.get("events")
