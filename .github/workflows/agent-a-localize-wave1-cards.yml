@@ -1,0 +1,53 @@
+name: Agent A localize Wave 1 hub cards
+
+on:
+  push:
+    branches:
+      - agent/a-wave1-i18n-audit-20260817
+
+permissions:
+  contents: write
+
+jobs:
+  localize:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: e51b7d2d63c535650e929675d6bea827b86ffc4a
+          fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Replace Wave 1 hardcoded hub copy with existing complete translations
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          def one(path, old, new):
+              p=Path(path); s=p.read_text(); n=s.count(old)
+              if n != 1: raise SystemExit(f'{path}: expected once, found {n}: {old!r}')
+              p.write_text(s.replace(old,new,1))
+          p='apps/client/state/LearningRoute.tsx'
+          one(p,'title="Reading"',"title={translate(language, 'ykiRouteSkillReading')}")
+          one(p,'detail="Read authentic-style everyday Finnish, answer for meaning, then use targeted correction and retry."',"detail={translate(language, 'learningEverydaySubtitle')}")
+          one(p,'meta="A1–B1 · comprehension + vocabulary in context"',"meta={translate(language, 'learningEverydayCardMeta')}")
+          one(p,'actionLabel="Open Reading"',"actionLabel={translate(language, 'commonOpen')}")
+          one(p,'title="Writing"',"title={translate(language, 'ykiRouteSkillWriting')}")
+          one(p,'detail="Plan, write, receive focused feedback, revise your own text, and compare the improvement."',"detail={translate(language, 'learningEverydaySubtitle')}")
+          one(p,'meta="A1–B1 · revision-first writing"',"meta={translate(language, 'learningEverydayCardMeta')}")
+          one(p,'actionLabel="Open Writing"',"actionLabel={translate(language, 'commonOpen')}")
+          p='apps/client/state/ProfessionalRoute.tsx'
+          one(p,"title: 'Reading · Lukeminen',","title: t('ykiRouteSkillReading'),")
+          one(p,"detail: 'Harjoittele työelämän viestien, ohjeiden ja tilanteiden ymmärtämistä omalla tasollasi.',","detail: t('learningMyProfessionDetail'),")
+          one(p,"cta: 'Avaa Reading',","cta: t('commonOpen'),")
+          one(p,"title: 'Writing · Kirjoittaminen',","title: t('ykiRouteSkillWriting'),")
+          one(p,"detail: 'Kirjoita itse työelämän viestejä, saa kohdennettua palautetta ja paranna omaa tekstiäsi.',","detail: t('learningMyProfessionDetail'),")
+          one(p,"cta: 'Avaa Writing',","cta: t('commonOpen'),")
+          PY
+          git diff --check
+          node apps/client/scripts/check-i18n-completeness.mjs
+      - name: Commit only the two localized hub files
+        run: |
+          git config user.name "Agent A Integration"
+          git config user.email "actions@users.noreply.github.com"
+          git add apps/client/state/LearningRoute.tsx apps/client/state/ProfessionalRoute.tsx
+          git commit -m "Agent A: localize Wave 1 Reading and Writing hub cards"
+          git push origin HEAD:agent/a-wave1-integration-wiring-r2-20260817
