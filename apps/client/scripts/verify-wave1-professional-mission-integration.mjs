@@ -33,6 +33,10 @@ for (const mission of PROFESSIONAL_MISSIONS) {
 
 assert.match(adapter, /buildProfessionalMissionReadingTask/);
 assert.match(adapter, /buildProfessionalMissionWritingTask/);
+assert.ok(!adapter.includes('buildProfessionalMissionRoleplayDescriptor'),
+  'mission runtime adapter must not expose a Roleplay bridge before /speaking parameters are reviewed');
+assert.ok(!adapter.includes('getProfessionalMissionRuntimeEntries'),
+  'mission runtime adapter must not expose a mixed available-runtime registry while Roleplay is deferred');
 assert.ok(!practiceAdapter.includes(PROFESSIONAL_LISTENING_FEATURE_FLAG),
   'Practice mission adapter must not manufacture a Professional Listening runtime');
 assert.ok(!practiceAdapter.includes("runtime: 'listening'"),
