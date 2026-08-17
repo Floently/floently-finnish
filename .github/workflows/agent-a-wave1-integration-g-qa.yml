@@ -1,0 +1,68 @@
+name: Agent A Wave 1 integration G QA
+
+on:
+  push:
+    branches:
+      - agent/a-wave1-integration-g-qa-20260817
+
+jobs:
+  verify-client-integration:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: pnpm/action-setup@v6
+        with:
+          version: "10.34.0"
+          run_install: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: pnpm
+          cache-dependency-path: pnpm-lock.yaml
+      - name: Install frozen workspace dependencies
+        run: pnpm install --frozen-lockfile
+      - name: TypeScript check
+        run: pnpm --dir apps/client exec tsc --noEmit
+      - name: Run Reading verifier
+        run: node --disable-warning=ExperimentalWarning apps/client/scripts/verify-reading-engine.mjs
+      - name: Run Writing core verifier
+        run: node apps/client/scripts/verify-agent-d-writing.mjs
+      - name: Run Writing profession verifier
+        run: node apps/client/scripts/verify-agent-d-writing-profession.mjs
+      - name: Run Professional Missions verifier
+        env:
+          WAVE1_BASE_REF: 69813b433838130d5afe4b052360dbfd12df3f40
+        run: node apps/client/scripts/verify-professional-missions.mjs
+      - name: Run Practice composer verifier
+        run: node --experimental-strip-types apps/client/scripts/verify-practice-composer.mts
+      - name: Run learning experience verifier
+        run: node apps/client/scripts/verify-learning-experience-system.mjs
+
+  verify-backend-integration:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+          cache-dependency-path: apps/backend/requirements.txt
+      - name: Install backend dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -r apps/backend/requirements.txt
+      - name: Run evidence and Professional Missions targeted tests
+        env:
+          PYTHONPATH: apps/backend
+          FLOENTLY_ENV: development
+          SIGNED_SESSION_SECRET: agent-a-integration-review-secret
+        run: |
+          python -m pytest -q \
+            apps/backend/tests/test_learning_platform_events.py \
+            apps/backend/tests/test_learning_platform_capabilities.py \
+            apps/backend/tests/test_learning_platform_fixtures.py \
+            apps/backend/tests/test_professional_mission_contract.py
