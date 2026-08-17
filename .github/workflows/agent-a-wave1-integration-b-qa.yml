@@ -1,0 +1,31 @@
+name: Agent A Wave 1 integration B QA
+
+on:
+  push:
+    branches:
+      - agent/a-wave1-integration-b-qa-20260817
+
+jobs:
+  verify-agent-b-integration:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+          cache-dependency-path: apps/backend/requirements.txt
+      - name: Install backend dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -r apps/backend/requirements.txt
+      - name: Run Agent B targeted tests on integration head
+        env:
+          PYTHONPATH: apps/backend
+          FLOENTLY_ENV: development
+          SIGNED_SESSION_SECRET: agent-a-integration-review-secret
+        run: |
+          python -m pytest -q \
+            apps/backend/tests/test_learning_platform_events.py \
+            apps/backend/tests/test_learning_platform_capabilities.py \
+            apps/backend/tests/test_learning_platform_fixtures.py
