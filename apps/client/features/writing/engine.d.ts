@@ -8,6 +8,7 @@ import type {
   WritingLearnerEventInput,
   WritingPathway,
   WritingPlan,
+  WritingProfession,
   WritingSession,
   WritingSubmissionIdentity,
   WritingTask,
@@ -32,7 +33,7 @@ export function submitWriting(
   identity: WritingSubmissionIdentity,
 ): Promise<WritingSession>;
 export function createAuthoredWritingEvaluator(): WritingEvaluator;
-export function buildWritingTaskDescriptor(task: WritingTask): WritingTaskDescriptor;
+export function buildWritingTaskDescriptor(task: WritingTask, profession?: WritingProfession | null): WritingTaskDescriptor;
 export function buildWritingTaskResult(session: WritingSession): WritingTaskResult | null;
 export function buildWritingLearnerEvent(
   session: WritingSession,
@@ -45,4 +46,3 @@ export function validateWritingTask(task: WritingTask): void;
 export function validateFeedback(feedback: WritingFeedback): WritingFeedback;
 export function emptyPlan(task: WritingTask): WritingPlan;
 export function routeForPathway(pathway: WritingPathway): '/learn/writing' | '/professional/writing';
-
