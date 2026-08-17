@@ -1,0 +1,27 @@
+name: Agent A independent E review
+
+on:
+  push:
+    branches:
+      - agent/a-review-e-20260817
+
+jobs:
+  verify-agent-e:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v6
+        with:
+          version: "10.34.0"
+          run_install: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: pnpm
+          cache-dependency-path: pnpm-lock.yaml
+      - name: Install frozen workspace dependencies
+        run: pnpm install --frozen-lockfile
+      - name: TypeScript check
+        run: pnpm --dir apps/client exec tsc --noEmit
+      - name: Run Agent E verifier
+        run: node --experimental-strip-types apps/client/scripts/verify-practice-composer.mts
