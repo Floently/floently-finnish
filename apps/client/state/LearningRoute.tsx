@@ -2,6 +2,8 @@ import React, { useEffect, useMemo, useState } from 'react';
 import { StyleSheet, View } from 'react-native';
 import { router, useLocalSearchParams } from 'expo-router';
 import { AppScaffold, PageHeader, TaskCard } from '@ui/components';
+import { PathwayBadge, ReducedMotionAwareMotion, SkillBadge } from '@ui/learningExperience';
+import { getFloentlyPalette } from '@ui/theme/floentlyPalette';
 import { usePreferencesStore } from './preferencesStore';
 import { translate } from '../features/i18n';
 
@@ -18,6 +20,7 @@ export default function LearningRoute({ onBack, onOpenMenu, onOpenEverydayRolepl
   const hydratePreferences = usePreferencesStore((state) => state.hydrate);
   const themeMode = usePreferencesStore((state) => state.themeMode);
   const language = usePreferencesStore((state) => state.language);
+  const palette = useMemo(() => getFloentlyPalette(themeMode), [themeMode]);
   const params = useLocalSearchParams<{ branch?: string | string[] }>();
 
   useEffect(() => {
@@ -43,33 +46,68 @@ export default function LearningRoute({ onBack, onOpenMenu, onOpenEverydayRolepl
             title={translate(language, 'learningEverydayTitle')}
             subtitle={translate(language, 'learningEverydaySubtitle')}
             actionLabel={translate(language, 'learningWorkplaceFinnishAction')}
-            onActionPress={() => {
-              setBranch('hub');
-            }}
+            onActionPress={() => setBranch('hub')}
             onMenuPress={onOpenMenu}
             themeMode={themeMode}
           />
         }
       >
         <View style={styles.stack}>
-          <TaskCard
-            themeMode={themeMode}
-            accent="blue"
-            title={translate(language, 'learningEverydayFlashcardsTitle')}
-            detail={translate(language, 'learningEverydayFlashcardsDetail')}
-            meta={translate(language, 'learningEverydayFlashcardsMeta')}
-            actionLabel={translate(language, 'learningOpenFlashcards')}
-            onPress={() => router.push('/cards?mode=vocabulary&domain=general' as never)}
-          />
-          <TaskCard
-            themeMode={themeMode}
-            accent="yellow"
-            title={translate(language, 'learningDailyRoleplayTitle')}
-            detail={translate(language, 'learningDailyRoleplayDetail')}
-            meta={translate(language, 'learningDailyRoleplayMeta')}
-            actionLabel={translate(language, 'learningOpenRoleplay')}
-            onPress={onOpenEverydayRoleplay}
-          />
+          <View style={styles.badgeRow}>
+            <PathwayBadge pathway="everyday" palette={palette} />
+            <SkillBadge skill="reading" palette={palette} compact />
+            <SkillBadge skill="writing" palette={palette} compact />
+            <SkillBadge skill="speaking" palette={palette} compact />
+            <SkillBadge skill="vocabulary" palette={palette} compact />
+          </View>
+
+          <ReducedMotionAwareMotion kind="task-enter">
+            <TaskCard
+              themeMode={themeMode}
+              accent="blue"
+              title={translate(language, 'learningEverydayFlashcardsTitle')}
+              detail={translate(language, 'learningEverydayFlashcardsDetail')}
+              meta={translate(language, 'learningEverydayFlashcardsMeta')}
+              actionLabel={translate(language, 'learningOpenFlashcards')}
+              onPress={() => router.push('/cards?mode=vocabulary&domain=general' as never)}
+            />
+          </ReducedMotionAwareMotion>
+
+          <ReducedMotionAwareMotion kind="task-enter">
+            <TaskCard
+              themeMode={themeMode}
+              accent="blue"
+              title="Reading"
+              detail="Read authentic-style everyday Finnish, answer for meaning, then use targeted correction and retry."
+              meta="A1–B1 · comprehension + vocabulary in context"
+              actionLabel="Open Reading"
+              onPress={() => router.push('/learn/reading' as never)}
+            />
+          </ReducedMotionAwareMotion>
+
+          <ReducedMotionAwareMotion kind="task-enter">
+            <TaskCard
+              themeMode={themeMode}
+              accent="blue"
+              title="Writing"
+              detail="Plan, write, receive focused feedback, revise your own text, and compare the improvement."
+              meta="A1–B1 · revision-first writing"
+              actionLabel="Open Writing"
+              onPress={() => router.push('/learn/writing' as never)}
+            />
+          </ReducedMotionAwareMotion>
+
+          <ReducedMotionAwareMotion kind="task-enter">
+            <TaskCard
+              themeMode={themeMode}
+              accent="yellow"
+              title={translate(language, 'learningDailyRoleplayTitle')}
+              detail={translate(language, 'learningDailyRoleplayDetail')}
+              meta={translate(language, 'learningDailyRoleplayMeta')}
+              actionLabel={translate(language, 'learningOpenRoleplay')}
+              onPress={onOpenEverydayRoleplay}
+            />
+          </ReducedMotionAwareMotion>
         </View>
       </AppScaffold>
     );
@@ -80,18 +118,22 @@ export default function LearningRoute({ onBack, onOpenMenu, onOpenEverydayRolepl
       themeMode={themeMode}
       allowScroll
       header={
-          <PageHeader
-            eyebrow={translate(language, 'learningHubEyebrow')}
-            title={translate(language, 'learningHubTitle')}
-            subtitle={translate(language, 'learningHubSubtitle')}
-            actionLabel={translate(language, 'commonHome')}
-            onActionPress={onBack}
-            onMenuPress={onOpenMenu}
-            themeMode={themeMode}
+        <PageHeader
+          eyebrow={translate(language, 'learningHubEyebrow')}
+          title={translate(language, 'learningHubTitle')}
+          subtitle={translate(language, 'learningHubSubtitle')}
+          actionLabel={translate(language, 'commonHome')}
+          onActionPress={onBack}
+          onMenuPress={onOpenMenu}
+          themeMode={themeMode}
         />
       }
     >
       <View style={styles.stack}>
+        <View style={styles.badgeRow}>
+          <PathwayBadge pathway="everyday" palette={palette} />
+          <PathwayBadge pathway="professional" palette={palette} />
+        </View>
         <TaskCard
           themeMode={themeMode}
           accent="blue"
@@ -99,19 +141,17 @@ export default function LearningRoute({ onBack, onOpenMenu, onOpenEverydayRolepl
           detail={translate(language, 'learningEverydayCardDetail')}
           meta={translate(language, 'learningEverydayCardMeta')}
           actionLabel={translate(language, 'learningOpenEveryday')}
-          onPress={() => {
-            setBranch('everyday');
-          }}
+          onPress={() => setBranch('everyday')}
         />
-          <TaskCard
-            themeMode={themeMode}
-            accent="blue"
-            title={translate(language, 'learningMyProfessionTitle')}
-            detail={translate(language, 'learningMyProfessionDetail')}
-            meta={translate(language, 'commonProfessionSpecific')}
-            actionLabel={translate(language, 'learningOpenMyProfession')}
-            onPress={onOpenProfessionalHub}
-          />
+        <TaskCard
+          themeMode={themeMode}
+          accent="blue"
+          title={translate(language, 'learningMyProfessionTitle')}
+          detail={translate(language, 'learningMyProfessionDetail')}
+          meta={translate(language, 'commonProfessionSpecific')}
+          actionLabel={translate(language, 'learningOpenMyProfession')}
+          onPress={onOpenProfessionalHub}
+        />
       </View>
     </AppScaffold>
   );
@@ -120,5 +160,11 @@ export default function LearningRoute({ onBack, onOpenMenu, onOpenEverydayRolepl
 const styles = StyleSheet.create({
   stack: {
     gap: 16,
+  },
+  badgeRow: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    gap: 8,
+    alignItems: 'center',
   },
 });
