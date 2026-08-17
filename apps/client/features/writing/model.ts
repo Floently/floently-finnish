@@ -173,9 +173,9 @@ export type WritingLearnerEventInput = {
   learnerId: string;
   eventId: string;
   attemptId: string;
+  profession?: WritingProfession | null;
 };
 
 export type WritingTaskDescriptor = TaskDescriptor;
 export type WritingTaskResult = TaskResult;
 export type WritingLearnerEvent = LearnerEvent;
-
