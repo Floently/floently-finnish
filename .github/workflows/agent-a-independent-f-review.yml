@@ -1,0 +1,31 @@
+name: Agent A independent F review
+
+on:
+  push:
+    branches:
+      - agent/a-review-f-20260817
+
+jobs:
+  verify-agent-f:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: pnpm/action-setup@v6
+        with:
+          version: "10.34.0"
+          run_install: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: pnpm
+          cache-dependency-path: pnpm-lock.yaml
+      - name: Install frozen workspace dependencies
+        run: pnpm install --frozen-lockfile
+      - name: TypeScript check
+        run: pnpm --dir apps/client exec tsc --noEmit
+      - name: Run Agent F verifier
+        env:
+          WAVE1_BASE_REF: 69813b433838130d5afe4b052360dbfd12df3f40
+        run: node apps/client/scripts/verify-professional-missions.mjs
