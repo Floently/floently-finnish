@@ -22,7 +22,8 @@ jobs:
       - name: KieliValmis visible brand audit
         run: node apps/client/scripts/audit-kielivalmis-visible-brand.mjs
       - name: KieliValmis rebrand verifier
-        run: node apps/client/scripts/verify-kielivalmis-rebrand.mjs
+        working-directory: apps/client
+        run: node scripts/verify-kielivalmis-rebrand.mjs
       - name: Hardcoded UI text report
         if: always()
         run: |
