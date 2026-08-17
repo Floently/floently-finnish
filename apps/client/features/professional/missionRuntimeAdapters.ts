@@ -1,9 +1,7 @@
 import type { TaskDescriptor } from '@core/schemas/learning';
 import {
   PROFESSIONAL_MISSIONS,
-  type ProfessionalMission,
-  type ProfessionalMissionStep,
-  type ProfessionalProfession,
+  PROFESSIONAL_PROFESSIONS,
 } from '@core/professional/missions.mjs';
 
 import {
@@ -18,6 +16,10 @@ import type {
   WritingProfession,
   WritingTask,
 } from '../writing/model';
+
+type ProfessionalMission = (typeof PROFESSIONAL_MISSIONS)[number];
+type ProfessionalMissionStep = ProfessionalMission['steps'][number];
+type ProfessionalProfession = (typeof PROFESSIONAL_PROFESSIONS)[number];
 
 export type MissionRuntimeProfession = Extract<ProfessionalProfession, WritingProfession>;
 
@@ -131,7 +133,7 @@ const READING_QUESTIONS: Readonly<Record<string, MissionReadingQuestionFactory>>
 };
 
 function missionStep(mission: ProfessionalMission, stage: ProfessionalMissionStep['stage']): ProfessionalMissionStep {
-  const step = mission.steps.find((candidate) => candidate.stage === stage);
+  const step = mission.steps.find((candidate: ProfessionalMissionStep) => candidate.stage === stage);
   if (!step) throw new Error(`MISSION_STEP_MISSING:${mission.missionId}:${stage}`);
   return step;
 }
@@ -142,7 +144,7 @@ function isMissionProfession(value: ProfessionalProfession): value is MissionRun
 
 function missionForProfession(profession?: string): ProfessionalMission[] {
   if (!profession) return [];
-  return PROFESSIONAL_MISSIONS.filter((mission) => mission.profession === profession);
+  return PROFESSIONAL_MISSIONS.filter((mission: ProfessionalMission) => mission.profession === profession);
 }
 
 export function buildProfessionalMissionReadingTask(mission: ProfessionalMission): ReadingTask {
