@@ -91,7 +91,7 @@ function validateWritingTask(task) {
   }
 }
 
-function resolveEvidenceProfession(task, profession) {
+function resolveEvidenceProfession(task, profession, required) {
   if (task.pathway === 'everyday') {
     if (profession !== undefined && profession !== null) {
       throw new Error('UNEXPECTED_WRITING_PROFESSION');
@@ -99,6 +99,10 @@ function resolveEvidenceProfession(task, profession) {
     return undefined;
   }
 
+  if (profession === undefined || profession === null || profession === '') {
+    if (required) throw new Error('INVALID_PROFESSION');
+    return undefined;
+  }
   assertNonEmpty(profession, 'profession');
   if (!WRITING_PROFESSIONS.has(profession)) {
     throw new Error('INVALID_WRITING_PROFESSION');
@@ -374,7 +378,7 @@ function routeForPathway(pathway) {
 
 function buildWritingTaskDescriptor(task, profession) {
   validateWritingTask(task);
-  const evidenceProfession = resolveEvidenceProfession(task, profession);
+  const evidenceProfession = resolveEvidenceProfession(task, profession, false);
   return {
     schemaVersion: LEARNING_SCHEMA_VERSION,
     taskId: task.taskId,
@@ -430,7 +434,7 @@ function buildWritingLearnerEvent(session, input) {
     throw new Error('ASSESSED_ATTEMPT_REQUIRED');
   }
   validateWritingTask(session.task);
-  const evidenceProfession = resolveEvidenceProfession(session.task, input.profession);
+  const evidenceProfession = resolveEvidenceProfession(session.task, input.profession, true);
 
   return {
     schemaVersion: LEARNING_SCHEMA_VERSION,
