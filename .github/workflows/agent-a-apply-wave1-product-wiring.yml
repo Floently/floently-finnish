@@ -1,0 +1,130 @@
+name: Agent A apply remaining Wave 1 product wiring
+
+on:
+  push:
+    branches:
+      - agent/a-integration-wiring-r2-qa-20260817
+
+permissions:
+  contents: write
+
+jobs:
+  patch-wiring:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: b6cae833c4c68c44d28320f398efb55dccbb4c6f
+          fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Apply exact Agent A product-wiring patches
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+
+          def replace_once(path: str, old: str, new: str):
+              p = Path(path)
+              text = p.read_text()
+              count = text.count(old)
+              if count != 1:
+                  raise SystemExit(f"{path}: expected exact source block once, found {count}")
+              p.write_text(text.replace(old, new, 1))
+
+          replace_once(
+              'apps/client/state/AppShell.tsx',
+              'onOpenDailyPractice={() => void navigateTo("learning")}',
+              'onOpenDailyPractice={() => void navigateTo("daily-practice")}',
+          )
+
+          replace_once(
+              'apps/client/state/ProfessionalRoute.tsx',
+              "import { colors, spacing, typography } from '@ui/theme';\n",
+              "import { colors, spacing, typography } from '@ui/theme';\nimport { getFloentlyPalette } from '@ui/theme/floentlyPalette';\nimport { PathwayBadge, SkillBadge } from '@ui/learningExperience';\n",
+          )
+          replace_once(
+              'apps/client/state/ProfessionalRoute.tsx',
+              "import { useSubscriptionStore } from './subscriptionStore';\n",
+              "import { useSubscriptionStore } from './subscriptionStore';\nimport { usePreferencesStore } from './preferencesStore';\n",
+          )
+          replace_once(
+              'apps/client/state/ProfessionalRoute.tsx',
+              "  const subscriptionStatus = useSubscriptionStore((state) => state.status);\n",
+              "  const subscriptionStatus = useSubscriptionStore((state) => state.status);\n  const themeMode = usePreferencesStore((state) => state.themeMode);\n  const palette = getFloentlyPalette(themeMode);\n",
+          )
+          replace_once(
+              'apps/client/state/ProfessionalRoute.tsx',
+              "  const pathwayMissions: ProfessionMission[] = [\n    {\n      title: t('professionalFlashcardsTitle'),",
+              "  const pathwayMissions: ProfessionMission[] = [\n    {\n      title: 'Reading · Lukeminen',\n      detail: 'Harjoittele työelämän viestien, ohjeiden ja tilanteiden ymmärtämistä omalla tasollasi.',\n      cta: 'Avaa Reading',\n      onPress: () => {\n        setActiveContext(selectedProfession);\n        router.push('/professional/reading' as never);\n      },\n      disabled: !isEntitled(selectedProfession),\n    },\n    {\n      title: 'Writing · Kirjoittaminen',\n      detail: 'Kirjoita itse työelämän viestejä, saa kohdennettua palautetta ja paranna omaa tekstiäsi.',\n      cta: 'Avaa Writing',\n      onPress: () => {\n        setActiveContext(selectedProfession);\n        router.push('/professional/writing' as never);\n      },\n      disabled: !isEntitled(selectedProfession),\n    },\n    {\n      title: t('professionalFlashcardsTitle'),",
+          )
+          replace_once(
+              'apps/client/state/ProfessionalRoute.tsx',
+              "        <View style={styles.overviewCard}>\n          <Text style={styles.overviewLabel}",
+              "        <View style={styles.skillIdentityRow}>\n          <PathwayBadge pathway=\"professional\" palette={palette} compact />\n          <SkillBadge skill=\"reading\" palette={palette} compact />\n          <SkillBadge skill=\"writing\" palette={palette} compact />\n          <SkillBadge skill=\"speaking\" palette={palette} compact />\n          <SkillBadge skill=\"vocabulary\" palette={palette} compact />\n        </View>\n\n        <View style={styles.overviewCard}>\n          <Text style={styles.overviewLabel}",
+          )
+          replace_once(
+              'apps/client/state/ProfessionalRoute.tsx',
+              "  overviewCard: { borderRadius: 24,",
+              "  skillIdentityRow: { flexDirection: 'row', flexWrap: 'wrap', gap: 8 },\n  overviewCard: { borderRadius: 24,",
+          )
+
+          replace_once(
+              'apps/client/features/reading/ReadingRuntimeScreen.tsx',
+              "import type { FloentlyPalette } from '@ui/theme/floentlyPalette';\n",
+              "import type { FloentlyPalette } from '@ui/theme/floentlyPalette';\nimport { LearningFocusSurface, PathwayBadge, SkillBadge } from '@ui/learningExperience';\n",
+          )
+          replace_once(
+              'apps/client/features/reading/ReadingRuntimeScreen.tsx',
+              "            <View style={styles.taskIntroduction}>",
+              "            <LearningFocusSurface mode=\"reading\" palette={palette} levelBand={validTask.level}>\n              <View style={styles.identityRow}>\n                <PathwayBadge pathway={scope === 'professional' ? 'professional' : 'everyday'} palette={palette} compact />\n                <SkillBadge skill=\"reading\" palette={palette} compact />\n              </View>\n\n            <View style={styles.taskIntroduction}>",
+          )
+          replace_once(
+              'apps/client/features/reading/ReadingRuntimeScreen.tsx',
+              "            {session.phase === 'complete' ? (\n              <CompletionPanel\n                palette={palette}\n                session={session}\n                task={validTask}\n                onRestart={resetTask}\n                onBack={onBack}\n              />\n            ) : null}\n          </View>",
+              "            {session.phase === 'complete' ? (\n              <CompletionPanel\n                palette={palette}\n                session={session}\n                task={validTask}\n                onRestart={resetTask}\n                onBack={onBack}\n              />\n            ) : null}\n            </LearningFocusSurface>\n          </View>",
+          )
+          replace_once(
+              'apps/client/features/reading/ReadingRuntimeScreen.tsx',
+              "  taskPicker: {\n",
+              "  identityRow: { flexDirection: 'row', flexWrap: 'wrap', gap: 8 },\n  taskPicker: {\n",
+          )
+
+          replace_once(
+              'apps/client/features/writing/WritingPracticeScreen.tsx',
+              "import { colors, spacing, typography } from '@ui/theme';\n",
+              "import { colors, spacing, typography } from '@ui/theme';\nimport { getFloentlyPalette } from '@ui/theme/floentlyPalette';\nimport { LearningFocusSurface, PathwayBadge, SkillBadge } from '@ui/learningExperience';\n",
+          )
+          replace_once(
+              'apps/client/features/writing/WritingPracticeScreen.tsx',
+              "import { WritingFeedbackPanel } from './components/WritingFeedbackPanel';\n",
+              "import { WritingFeedbackPanel } from './components/WritingFeedbackPanel';\nimport { usePreferencesStore } from '../../state/preferencesStore';\n",
+          )
+          replace_once(
+              'apps/client/features/writing/WritingPracticeScreen.tsx',
+              "export default function WritingPracticeScreen({ pathway, profession, initialTaskId, onExit, onResult }: Props) {\n  const availableTasks",
+              "export default function WritingPracticeScreen({ pathway, profession, initialTaskId, onExit, onResult }: Props) {\n  const themeMode = usePreferencesStore((state) => state.themeMode);\n  const palette = getFloentlyPalette(themeMode);\n  const availableTasks",
+          )
+          replace_once(
+              'apps/client/features/writing/WritingPracticeScreen.tsx',
+              "          <StagePath stage={session.stage} />\n\n          {session.stage === 'understand' ? (",
+              "          <StagePath stage={session.stage} />\n\n          <LearningFocusSurface mode=\"writing\" palette={palette} levelBand={session.task.level}>\n            <View style={styles.identityRow}>\n              <PathwayBadge pathway={pathway === 'professional' ? 'professional' : 'everyday'} palette={palette} compact />\n              <SkillBadge skill=\"writing\" palette={palette} compact />\n            </View>\n\n          {session.stage === 'understand' ? (",
+          )
+          replace_once(
+              'apps/client/features/writing/WritingPracticeScreen.tsx',
+              "          {session.stage === 'feedback' || session.stage === 'compare' ? (\n            <WritingFeedbackPanel session={session} onRevise={() => setSession(beginRevision(session))} />\n          ) : null}\n        </ScrollView>",
+              "          {session.stage === 'feedback' || session.stage === 'compare' ? (\n            <WritingFeedbackPanel session={session} onRevise={() => setSession(beginRevision(session))} />\n          ) : null}\n          </LearningFocusSurface>\n        </ScrollView>",
+          )
+          replace_once(
+              'apps/client/features/writing/WritingPracticeScreen.tsx',
+              "  stagePath: { flexDirection: 'row', flexWrap: 'wrap', gap: 7 },\n",
+              "  identityRow: { flexDirection: 'row', flexWrap: 'wrap', gap: 8 },\n  stagePath: { flexDirection: 'row', flexWrap: 'wrap', gap: 7 },\n",
+          )
+          PY
+          git diff --check
+          git diff -- apps/client/state/AppShell.tsx apps/client/state/ProfessionalRoute.tsx apps/client/features/reading/ReadingRuntimeScreen.tsx apps/client/features/writing/WritingPracticeScreen.tsx
+      - name: Commit and fast-forward only the isolated wiring branch
+        run: |
+          git config user.name "Agent A Integration"
+          git config user.email "actions@users.noreply.github.com"
+          git add apps/client/state/AppShell.tsx apps/client/state/ProfessionalRoute.tsx apps/client/features/reading/ReadingRuntimeScreen.tsx apps/client/features/writing/WritingPracticeScreen.tsx
+          git commit -m "Agent A: complete Wave 1 navigation and visual wiring"
+          git push origin HEAD:agent/a-wave1-integration-wiring-r2-20260817
