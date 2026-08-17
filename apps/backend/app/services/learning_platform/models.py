@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 from dataclasses import asdict, dataclass, field
+from datetime import datetime
 from typing import Any, Literal
 
 LEARNING_CONTRACT_VERSION = "learning.v1"
@@ -75,6 +76,24 @@ def _required(value: Any, field_name: str) -> str:
     if not normalized:
         raise ValueError(f"{field_name} is required")
     return normalized
+
+
+def parse_aware_iso_datetime(value: Any, field_name: str = "timestamp") -> datetime:
+    """Parse an ISO datetime and require an explicit timezone offset.
+
+    The original text remains unchanged on the model; this helper is only the
+    validation/comparison boundary for timestamps that must identify one
+    unambiguous instant.
+    """
+
+    normalized = _required(value, field_name)
+    try:
+        parsed = datetime.fromisoformat(normalized.replace("Z", "+00:00"))
+    except ValueError as exc:
+        raise ValueError(f"{field_name} must be a valid ISO datetime") from exc
+    if parsed.tzinfo is None or parsed.utcoffset() is None:
+        raise ValueError(f"{field_name} must include a timezone offset")
+    return parsed
 
 
 def _string_tuple(values: Any, field_name: str, *, allowed: set[str] | None = None) -> tuple[str, ...]:
@@ -190,6 +209,7 @@ class LearnerEvent:
             (self.level_band, "levelBand"),
         ):
             object.__setattr__(self, name_to_attr(name), _required(attr, name))
+        parse_aware_iso_datetime(self.occurred_at, "occurredAt")
         if self.event_kind not in _ALLOWED_EVENT_KINDS:
             raise ValueError(f"Unsupported eventKind: {self.event_kind}")
         if self.pathway not in _ALLOWED_PATHWAYS:
