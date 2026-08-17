@@ -27,7 +27,7 @@ const baseTask = (overrides: Record<string, unknown> = {}) => ({
   levelBand: 'B1-B2',
   estimatedMinutes: 5,
   modality: { visual: true },
-  requiredEntitlements: ['learn'],
+  requiredEntitlements: ['learnAccess'],
   launch: { route: '/cards' },
   health: 'available',
   ...overrides,
@@ -42,7 +42,7 @@ const baseInput = (overrides: Partial<PracticeComposerInput> = {}): PracticeComp
     baseTask({ taskId: 'task-a', skills: ['reading'], estimatedMinutes: 5 }),
     baseTask({ taskId: 'task-b', skills: ['speaking'], estimatedMinutes: 5 }),
   ],
-  entitlements: ['learn'],
+  entitlements: ['learnAccess'],
   profession: 'nurse',
   modalities: { audio: true, microphone: true, keyboard: true },
   ...overrides,
@@ -83,13 +83,95 @@ function taskIds(input: PracticeComposerInput) {
   console.log('PRACTICE_MALFORMED_DESCRIPTOR=PASS');
 }
 
-// Entitlement declarations are scheduling filters, never substitutes for runtime auth.
+// Entitlement declarations use owner vocabulary and remain scheduling filters, not runtime auth substitutes.
 {
-  const paid = baseTask({ taskId: 'paid', requiredEntitlements: ['professional'] });
-  const result = composePracticeSession(baseInput({ candidates: [paid], entitlements: ['learn'] }));
-  assert.equal(result.manifest.tasks.length, 0);
-  assert.equal(result.diagnostics[0]?.code, 'missing_entitlement');
+  const paid = baseTask({ taskId: 'paid', requiredEntitlements: ['professionalAccess'] });
+  const missingPaid = composePracticeSession(baseInput({ candidates: [paid], entitlements: ['learnAccess'] }));
+  assert.equal(missingPaid.manifest.tasks.length, 0);
+  assert.equal(missingPaid.diagnostics[0]?.code, 'missing_entitlement');
+
+  const everyday = baseTask({ taskId: 'owner-key', requiredEntitlements: ['learnAccess'] });
+  const localAlias = composePracticeSession(baseInput({ candidates: [everyday], entitlements: ['learn'] }));
+  assert.equal(localAlias.manifest.tasks.length, 0);
+  assert.equal(localAlias.diagnostics[0]?.code, 'missing_entitlement');
+  assert.deepEqual(taskIds(baseInput({ candidates: [everyday], entitlements: ['learnAccess'] })), ['owner-key']);
   console.log('PRACTICE_ENTITLEMENT_DECLARATION_FILTER=PASS');
+}
+
+// Profession ownership is isolated from general professional pathway access and from active profession context.
+{
+  const nurse = baseTask({
+    taskId: 'work-nurse',
+    pathway: 'professional',
+    profession: 'nurse',
+    requiredEntitlements: ['professionalAccess', 'profession:nurse'],
+  });
+  const doctor = baseTask({
+    taskId: 'work-doctor',
+    pathway: 'professional',
+    profession: 'doctor',
+    requiredEntitlements: ['professionalAccess', 'profession:doctor'],
+  });
+  const practicalNurse = baseTask({
+    taskId: 'work-practical-nurse',
+    pathway: 'professional',
+    profession: 'practical_nurse',
+    requiredEntitlements: ['professionalAccess', 'profession:practical_nurse'],
+  });
+
+  const nurseOwned = composePracticeSession(baseInput({
+    candidates: [doctor, practicalNurse, nurse],
+    scope: 'professional',
+    profession: 'nurse',
+    entitlements: ['learnAccess', 'professionalAccess', 'profession:nurse'],
+  }));
+  assert.deepEqual(nurseOwned.manifest.tasks.map((item) => item.task.taskId), ['work-nurse']);
+  const ownedCodes = new Map(nurseOwned.diagnostics.map((item) => [item.taskId, item.code]));
+  assert.equal(ownedCodes.get('work-doctor'), 'missing_entitlement');
+  assert.equal(ownedCodes.get('work-practical-nurse'), 'missing_entitlement');
+
+  const allProfessionsOwned = composePracticeSession(baseInput({
+    candidates: [doctor, practicalNurse, nurse],
+    scope: 'professional',
+    profession: 'nurse',
+    entitlements: [
+      'learnAccess',
+      'professionalAccess',
+      'profession:doctor',
+      'profession:nurse',
+      'profession:practical_nurse',
+    ],
+  }));
+  assert.deepEqual(allProfessionsOwned.manifest.tasks.map((item) => item.task.taskId), ['work-nurse']);
+  const contextCodes = new Map(allProfessionsOwned.diagnostics.map((item) => [item.taskId, item.code]));
+  assert.equal(contextCodes.get('work-doctor'), 'profession_mismatch');
+  assert.equal(contextCodes.get('work-practical-nurse'), 'profession_mismatch');
+  console.log('PRACTICE_PROFESSION_ISOLATION=PASS');
+}
+
+// Duplicate task identities are ambiguous product truth and fail closed independent of candidate order/version.
+{
+  const sameVersionA = baseTask({ taskId: 'duplicate-same', contentVersion: 'v1', skills: ['reading'] });
+  const sameVersionB = baseTask({ taskId: 'duplicate-same', contentVersion: 'v1', skills: ['speaking'] });
+  const sameVersion = composePracticeSession(baseInput({ candidates: [sameVersionA, sameVersionB] }));
+  assert.equal(sameVersion.manifest.tasks.length, 0);
+  assert.equal(
+    sameVersion.diagnostics.filter((item) => item.taskId === 'duplicate-same' && item.code === 'duplicate_task_id').length,
+    2,
+  );
+
+  const versionOne = baseTask({ taskId: 'duplicate-versioned', contentVersion: 'v1' });
+  const versionTwo = baseTask({ taskId: 'duplicate-versioned', contentVersion: 'v2' });
+  const forward = composePracticeSession(baseInput({ candidates: [versionOne, versionTwo] }));
+  const reverse = composePracticeSession(baseInput({ candidates: [versionTwo, versionOne] }));
+  assert.equal(forward.manifest.tasks.length, 0);
+  assert.equal(reverse.manifest.tasks.length, 0);
+  assert.deepEqual(reverse, forward);
+  assert.equal(
+    forward.diagnostics.filter((item) => item.taskId === 'duplicate-versioned' && item.code === 'duplicate_task_id').length,
+    2,
+  );
+  console.log('PRACTICE_DUPLICATE_TASK_IDENTITY=PASS');
 }
 
 // Scope, profession, level, prerequisites, and feature availability.
@@ -148,10 +230,10 @@ function taskIds(input: PracticeComposerInput) {
 
 // YKI practice/mock/full-exam boundary.
 {
-  const practice = baseTask({ taskId: 'yki-practice', runtime: 'yki', pathway: 'yki', ykiMode: 'practice', requiredEntitlements: ['yki'] });
-  const mock = baseTask({ taskId: 'yki-mock', runtime: 'yki', pathway: 'yki', ykiMode: 'mock', requiredEntitlements: ['yki'] });
-  const exam = baseTask({ taskId: 'yki-exam', runtime: 'yki', pathway: 'yki', ykiMode: 'full_exam', requiredEntitlements: ['yki'] });
-  const result = composePracticeSession(baseInput({ candidates: [practice, mock, exam], entitlements: ['yki'], scope: 'yki' }));
+  const practice = baseTask({ taskId: 'yki-practice', runtime: 'yki', pathway: 'yki', ykiMode: 'practice', requiredEntitlements: ['ykiAccess'] });
+  const mock = baseTask({ taskId: 'yki-mock', runtime: 'yki', pathway: 'yki', ykiMode: 'mock', requiredEntitlements: ['ykiAccess'] });
+  const exam = baseTask({ taskId: 'yki-exam', runtime: 'yki', pathway: 'yki', ykiMode: 'full_exam', requiredEntitlements: ['ykiAccess'] });
+  const result = composePracticeSession(baseInput({ candidates: [practice, mock, exam], entitlements: ['ykiAccess'], scope: 'yki' }));
   assert.deepEqual(result.manifest.tasks.map((item) => item.task.taskId), ['yki-practice']);
   assert.ok(result.diagnostics.some((item) => item.taskId === 'yki-mock' && item.code === 'yki_mode_boundary'));
   assert.ok(result.diagnostics.some((item) => item.taskId === 'yki-exam' && item.code === 'yki_mode_boundary'));
@@ -305,19 +387,33 @@ function taskIds(input: PracticeComposerInput) {
   console.log('PRACTICE_PATHWAY_ADAPTERS=PASS');
 }
 
-// Composer contains orchestration only; accessibility/state cues are static and explicit.
+// Composer contains orchestration only; entitlement/accessibility/state cues are static and explicit.
 {
   const composerSource = fs.readFileSync(path.resolve(here, '../features/practice/composer.ts'), 'utf8');
   const controlsSource = fs.readFileSync(path.resolve(here, '../features/practice/PracticeControls.tsx'), 'utf8');
   const routeSource = fs.readFileSync(path.resolve(here, '../features/practice/PracticeRoute.tsx'), 'utf8');
+  const fixtureSource = fs.readFileSync(path.resolve(here, '../features/practice/fixtureRegistry.ts'), 'utf8');
   const runtimeImport = /from\s+['"][^'"]*(cards|roleplay|yki|reading|writing)[^'"]*['"]/i;
   assert.equal(runtimeImport.test(composerSource), false);
   assert.equal(composerSource.includes('Math.random'), false);
+  assert.ok(routeSource.includes("result.push('learnAccess')"));
+  assert.ok(routeSource.includes("result.push('professionalAccess')"));
+  assert.ok(routeSource.includes("result.push('ykiAccess')"));
+  assert.ok(routeSource.includes('`profession:${profession}`'));
+  assert.equal(routeSource.includes("result.push('learn');"), false);
+  assert.equal(routeSource.includes("result.push('professional');"), false);
+  assert.equal(routeSource.includes("result.push('yki');"), false);
+  assert.ok(fixtureSource.includes("requiredEntitlements: ['learnAccess']"));
+  assert.ok(fixtureSource.includes("requiredEntitlements: ['professionalAccess', `profession:${profession}`]"));
+  assert.ok(fixtureSource.includes("requiredEntitlements: ['ykiAccess']"));
+  assert.equal(fixtureSource.includes("requiredEntitlements: ['learn']"), false);
+  assert.equal(fixtureSource.includes("requiredEntitlements: ['professional']"), false);
+  assert.equal(fixtureSource.includes("requiredEntitlements: ['yki']"), false);
   assert.ok(controlsSource.includes('accessibilityState={{ selected }}'));
   assert.ok(controlsSource.includes('minHeight: 44'));
   assert.ok(routeSource.includes('accessibilityLiveRegion="polite"'));
   assert.equal(/withRepeat|Animated\.loop|Math\.random/.test(`${controlsSource}\n${routeSource}`), false);
-  console.log('PRACTICE_ACCESSIBILITY_AND_NO_ENGINE_LOGIC=PASS');
+  console.log('PRACTICE_OWNER_ENTITLEMENTS_ACCESSIBILITY_AND_NO_ENGINE_LOGIC=PASS');
 }
 
 console.log('PRACTICE_COMPOSER_VERIFIER=PASS');
