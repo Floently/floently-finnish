@@ -1,0 +1,37 @@
+name: Agent A Wave 1 user acceptance preview
+
+on:
+  push:
+    branches:
+      - agent/a-wave1-user-acceptance-preview-qa-20260818
+
+jobs:
+  static-web-preview:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v6
+        with:
+          version: "10.34.0"
+          run_install: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: pnpm
+          cache-dependency-path: pnpm-lock.yaml
+      - name: Install frozen workspace
+        run: pnpm install --frozen-lockfile
+      - name: Verify acceptance source compiles
+        run: pnpm --dir apps/client exec tsc --noEmit
+      - name: Export static Expo web preview
+        run: pnpm --dir apps/client exec expo export --platform web --output-dir dist-wave1-uat
+      - name: Package preview metadata
+        run: |
+          printf 'KieliValmis Wave 1 non-production user acceptance preview\nSource: e3685e61cd207fa12c16cd9ffa4a85ecb7f95278\nUSER_ACCEPTANCE=PENDING\nPRODUCTION_ACTIONS=NONE\n' > apps/client/dist-wave1-uat/WAVE1_ACCEPTANCE_SOURCE.txt
+      - name: Upload non-production preview artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: kielivalmis-wave1-uat-web-e3685e61
+          path: apps/client/dist-wave1-uat
+          if-no-files-found: error
+          retention-days: 14
