@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { AppScaffold, NextBackDock, PageHeader, SmartHintPopup, TaskCard } from "@ui/components";
+import IntegratedPracticeRoute from "../features/practice/IntegratedPracticeRoute";
 import { usePreferencesStore } from "./preferencesStore";
 
 type FeatureScreen = "daily-practice" | "professional-finnish" | "speaking-practice";
@@ -47,6 +48,10 @@ export default function FeatureEntryRoute({
   useEffect(() => {
     void hydratePreferences();
   }, [hydratePreferences]);
+
+  if (screen === "daily-practice") {
+    return <IntegratedPracticeRoute onBack={onBack} onOpenMenu={onOpenMenu} />;
+  }
 
   const copy = SCREEN_COPY[screen];
 

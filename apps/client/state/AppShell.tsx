@@ -1158,7 +1158,7 @@ export default function AppShell({ requestedScreen = "root" }: Props) {
     <>
       <HomeRoute
         onOpenBilling={() => void navigateTo("billing")}
-        onOpenDailyPractice={() => void navigateTo("learning")}
+        onOpenDailyPractice={() => void navigateTo("daily-practice")}
         onOpenHelp={() => void navigateTo("help")}
         onOpenProfessionalFinnish={() => void navigateTo("professional-finnish")}
         onOpenProgress={() => void navigateTo("progress")}
