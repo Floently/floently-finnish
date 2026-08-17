@@ -1,0 +1,53 @@
+name: Agent A Wave 1 wiring r2 QA
+
+on:
+  push:
+    branches:
+      - agent/a-integration-wiring-r2-qa-20260817
+
+jobs:
+  verify-wiring:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+          cache-dependency-path: apps/backend/requirements.txt
+      - run: |
+          python -m pip install --upgrade pip
+          python -m pip install -r apps/backend/requirements.txt
+      - name: Backend integration suites
+        env:
+          PYTHONPATH: apps/backend
+          FLOENTLY_ENV: development
+          SIGNED_SESSION_SECRET: agent-a-integration-secret
+          WAVE1_BASE_REF: 69813b433838130d5afe4b052360dbfd12df3f40
+        run: |
+          python -m pytest -q apps/backend/tests/test_learning_platform_events.py apps/backend/tests/test_learning_platform_capabilities.py apps/backend/tests/test_learning_platform_fixtures.py apps/backend/tests/test_professional_mission_contract.py
+      - uses: pnpm/action-setup@v6
+        with:
+          version: "10.34.0"
+          run_install: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: pnpm
+          cache-dependency-path: pnpm-lock.yaml
+      - run: pnpm install --frozen-lockfile
+      - name: Whole client TypeScript
+        run: pnpm --dir apps/client exec tsc --noEmit
+      - name: All Wave 1 feature verifiers
+        env:
+          WAVE1_BASE_REF: 69813b433838130d5afe4b052360dbfd12df3f40
+        run: |
+          node --disable-warning=ExperimentalWarning apps/client/scripts/verify-reading-engine.mjs
+          node apps/client/scripts/verify-agent-d-writing.mjs
+          node apps/client/scripts/verify-agent-d-writing-profession.mjs
+          node apps/client/scripts/verify-professional-missions.mjs
+          node --experimental-strip-types apps/client/scripts/verify-practice-composer.mts
+          node apps/client/scripts/verify-learning-experience-system.mjs
+          node --experimental-strip-types apps/client/scripts/verify-wave1-integration-seams.mts
