@@ -585,7 +585,7 @@ export function toReadingTaskDescriptor(task: ReadingTask): TaskDescriptor {
       params: { taskId: task.taskId },
     },
     health: 'available',
-    profession: task.profession,
+    ...(task.profession ? { profession: task.profession } : {}),
     topic: task.tags[0],
     tags: [...task.tags, 'original-content'],
   };
