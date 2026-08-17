@@ -37,7 +37,7 @@ assert.doesNotMatch(practiceRoute, /saved progress|progress is saved|history is 
 
 const featureEntry = text('apps/client/state/FeatureEntryRoute.tsx');
 assert.match(featureEntry, /IntegratedPracticeRoute/);
-assert.match(featureEntry, /route === ['"]daily-practice['"]/);
+assert.match(featureEntry, /screen === ['"]daily-practice['"]/);
 
 const learningRoute = text('apps/client/state/LearningRoute.tsx');
 assert.match(learningRoute, /\/learn\/reading/);
