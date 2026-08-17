@@ -423,7 +423,6 @@ const PROFESSIONAL_B2: ReadingTask = {
   context: 'Tarvitset työvuoron vaihdon ja tarkistat uuden hyväksymismenettelyn.',
   readingGoal: 'Tunnista prosessin vastuut, poikkeus ja hyväksynnän ehdot.',
   estimatedMinutes: 8,
-  profession: 'cross-sector',
   document: {
     type: 'workplace_procedure',
     title: 'Ohje: työvuorojen vaihtopyynnöt 1.9. alkaen',
