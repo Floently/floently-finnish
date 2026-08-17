@@ -6,6 +6,10 @@ import { getFloentlyPalette } from '@ui/theme/floentlyPalette';
 import { useAuthStore } from '../../state/authStore';
 import { usePreferencesStore } from '../../state/preferencesStore';
 import { useSubscriptionStore } from '../../state/subscriptionStore';
+import {
+  findProfessionalMissionReadingTask,
+  getProfessionalMissionReadingTasks,
+} from '../professional/missionRuntimeAdapters';
 import { ReadingRuntimeScreen } from './ReadingRuntimeScreen';
 import {
   resolveReadingAccess,
@@ -18,8 +22,14 @@ type ReadingRouteProps = ReadingRuntimeHooks & {
   scope: ReadingScope;
 };
 
+type MissionProfession = 'doctor' | 'nurse' | 'practical_nurse';
+
 function firstParam(value: string | string[] | undefined) {
   return Array.isArray(value) ? value[0] : value;
+}
+
+function isMissionProfession(value: string | undefined | null): value is MissionProfession {
+  return value === 'doctor' || value === 'nurse' || value === 'practical_nurse';
 }
 
 export function ReadingRoute({ scope, onEvent, onResult }: ReadingRouteProps) {
@@ -38,6 +48,7 @@ export function ReadingRoute({ scope, onEvent, onResult }: ReadingRouteProps) {
   const subscriptionLoaded = useSubscriptionStore((state) => state.hasLoaded);
   const subscriptionLoading = useSubscriptionStore((state) => state.isLoading);
   const subscription = useSubscriptionStore((state) => state.status);
+  const activeContext = useSubscriptionStore((state) => state.activeContext);
   const hydrateSubscription = useSubscriptionStore((state) => state.hydrate);
   const palette = getFloentlyPalette(themeMode);
 
@@ -74,16 +85,32 @@ export function ReadingRoute({ scope, onEvent, onResult }: ReadingRouteProps) {
     professionalAccess: Boolean(subscription?.entitlements.professionalAccess),
   });
 
-  const resolution = useMemo(
-    () =>
-      resolveReadingTask({
-        scope,
-        taskId: selectedTaskId,
-        level: selectedTaskId ? undefined : routeLevel,
-      }),
-    [routeLevel, scope, selectedTaskId],
+  const profession = useMemo<MissionProfession | undefined>(() => {
+    if (isMissionProfession(activeContext)) return activeContext;
+    return subscription?.entitlements.professions.find(isMissionProfession);
+  }, [activeContext, subscription?.entitlements.professions]);
+
+  const missionTasks = useMemo(
+    () => scope === 'professional' ? getProfessionalMissionReadingTasks(profession) : [],
+    [profession, scope],
   );
-  const taskOptions = useMemo(() => getReadingTasks(scope), [scope]);
+
+  const resolution = useMemo(() => {
+    if (scope === 'professional' && selectedTaskId) {
+      const missionTask = findProfessionalMissionReadingTask(selectedTaskId, profession);
+      if (missionTask) return { status: 'ready' as const, task: missionTask };
+    }
+    return resolveReadingTask({
+      scope,
+      taskId: selectedTaskId,
+      level: selectedTaskId ? undefined : routeLevel,
+    });
+  }, [profession, routeLevel, scope, selectedTaskId]);
+
+  const taskOptions = useMemo(
+    () => [...getReadingTasks(scope), ...missionTasks],
+    [missionTasks, scope],
+  );
   const backRoute = scope === 'professional' ? '/professional' : '/learn?branch=everyday';
   const onBack = () => router.replace(backRoute as never);
 
