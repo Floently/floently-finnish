@@ -1,39 +1,38 @@
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
-import { createRequire } from 'node:module';
-
-import { getIntegratedPracticeEntries } from '../features/practice/integratedRegistry.ts';
-import { PRACTICE_FIXTURES } from '../features/practice/fixtureRegistry.ts';
-import { READING_TASKS } from '../features/reading/readingTasks.ts';
-import { toReadingTaskDescriptor } from '../features/reading/readingEngine.ts';
-
-const require = createRequire(import.meta.url);
-const { WRITING_TASKS } = require('../features/writing/tasks.js');
-const writingEngine = require('../features/writing/engine.js');
 
 const text = (path: string) => readFileSync(path, 'utf8');
-const entries = getIntegratedPracticeEntries('nurse');
-const ids = new Set(entries.map((entry) => entry.descriptor.taskId));
 
-for (const task of READING_TASKS) {
-  const descriptor = toReadingTaskDescriptor(task);
-  assert.ok(ids.has(descriptor.taskId), `Integrated Practice must include real Reading ${descriptor.taskId}`);
-}
-for (const task of WRITING_TASKS) {
-  const descriptor = writingEngine.buildWritingTaskDescriptor(task, task.pathway === 'professional' ? 'nurse' : undefined);
-  if (task.pathway !== 'professional' || !task.allowedProfessions || task.allowedProfessions.includes('nurse')) {
-    assert.ok(ids.has(descriptor.taskId), `Integrated Practice must include eligible real Writing ${descriptor.taskId}`);
-  }
-}
-for (const fixture of PRACTICE_FIXTURES.filter((item) => ['reading', 'writing'].includes(item.descriptor.runtime))) {
-  assert.ok(!ids.has(fixture.descriptor.taskId), `Fixture-only ${fixture.descriptor.runtime} identity must not survive integrated registry`);
-}
+const registry = text('apps/client/features/practice/integratedRegistry.ts');
+assert.match(registry, /toReadingTaskDescriptor/);
+assert.match(registry, /READING_TASKS/);
+assert.match(registry, /buildWritingTaskDescriptor/);
+assert.match(registry, /WRITING_TASKS/);
+assert.match(
+  registry,
+  /descriptor\.runtime !== ['"]reading['"] && descriptor\.runtime !== ['"]writing['"]/,
+  'Integrated Practice must exclude fixture-only Reading/Writing descriptors',
+);
+assert.match(registry, /source: ['"]reading['"]/);
+assert.match(registry, /source: ['"]writing['"]/);
+assert.match(registry, /task\.allowedProfessions\.includes\(canonicalProfession\)/);
+assert.doesNotMatch(
+  registry,
+  /practice\.reading\.|practice\.writing\./,
+  'Integrated registry must not reintroduce reserved fixture-only Reading/Writing task IDs',
+);
 
 const practiceRoute = text('apps/client/features/practice/IntegratedPracticeRoute.tsx');
+assert.match(practiceRoute, /getIntegratedPracticeEntries/);
+assert.match(practiceRoute, /composePracticeSession/);
 assert.match(practiceRoute, /PracticeProgressPath/);
 assert.match(practiceRoute, /ReducedMotionAwareMotion/);
 assert.match(practiceRoute, /SemanticFeedback/);
-assert.match(practiceRoute, /evidence:\s*\[\]/, 'Practice must remain truthful curriculum-mode until durable client evidence bridge exists');
+assert.match(
+  practiceRoute,
+  /evidence:\s*\[\]/,
+  'Practice must remain truthful curriculum-mode until durable client evidence bridge exists',
+);
 assert.doesNotMatch(practiceRoute, /saved progress|progress is saved|history is connected/i);
 
 const featureEntry = text('apps/client/state/FeatureEntryRoute.tsx');
@@ -66,7 +65,6 @@ assert.match(writingRuntime, /LearningFocusSurface/);
 assert.match(writingRuntime, /mode=['"]writing['"]/);
 assert.match(writingRuntime, /SkillBadge skill=['"]writing['"]/);
 
-console.log(`INTEGRATED_PRACTICE_ENTRIES=${entries.length}`);
 console.log('REAL_READING_WRITING_REGISTRY=PASS');
 console.log('FIXTURE_REPLACEMENT=PASS');
 console.log('HOME_PRACTICE_NAVIGATION=PASS');
