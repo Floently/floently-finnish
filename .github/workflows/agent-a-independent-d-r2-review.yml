@@ -1,0 +1,29 @@
+name: Agent A independent D r2 review
+
+on:
+  push:
+    branches:
+      - agent/a-review-d-r2-20260817
+
+jobs:
+  verify-agent-d:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v6
+        with:
+          version: "10.34.0"
+          run_install: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: pnpm
+          cache-dependency-path: pnpm-lock.yaml
+      - name: Install frozen workspace dependencies
+        run: pnpm install --frozen-lockfile
+      - name: TypeScript check
+        run: pnpm --dir apps/client exec tsc --noEmit
+      - name: Run Agent D core verifier
+        run: node apps/client/scripts/verify-agent-d-writing.mjs
+      - name: Run Agent D profession verifier
+        run: node apps/client/scripts/verify-agent-d-writing-profession.mjs
