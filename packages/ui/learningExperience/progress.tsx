@@ -1,5 +1,6 @@
+import type { ReactNode } from 'react';
 import type { LearningSkill } from '../../core/schemas/learning';
-import React from 'react';
+import React, { useState } from 'react';
 import { Pressable, StyleSheet, Text, View } from 'react-native';
 import type { FloentlyPalette } from '../theme/floentlyPalette';
 import { SkillMark } from './identity';
@@ -39,6 +40,49 @@ function nodeColor(state: PracticePathNodeState, palette: FloentlyPalette): stri
     case 'skipped': return palette.textMuted;
     case 'pending': return palette.borderStrong;
   }
+}
+
+type InteractivePracticePathNodeProps = {
+  node: PracticePathNode;
+  index: number;
+  palette: FloentlyPalette;
+  accessibilityLabel: string;
+  onPress: (node: PracticePathNode, index: number) => void;
+  children: ReactNode;
+};
+
+function InteractivePracticePathNode({
+  node,
+  index,
+  palette,
+  accessibilityLabel,
+  onPress,
+  children,
+}: InteractivePracticePathNodeProps) {
+  const [focused, setFocused] = useState(false);
+  const selected = node.state === 'current';
+
+  return (
+    <Pressable
+      accessibilityRole="button"
+      accessibilityLabel={accessibilityLabel}
+      accessibilityState={{ selected }}
+      hitSlop={learningTouchTarget.compactHitSlop}
+      onFocus={() => setFocused(true)}
+      onBlur={() => setFocused(false)}
+      onPress={() => onPress(node, index)}
+      style={({ pressed }) => [
+        styles.node,
+        {
+          borderColor: focused ? palette.primary : selected ? palette.primary : palette.border,
+          borderWidth: focused ? 2 : 1,
+          backgroundColor: focused ? palette.primarySurface : pressed ? palette.surfaceRaised : palette.surface,
+        },
+      ]}
+    >
+      {children}
+    </Pressable>
+  );
 }
 
 export function PracticeProgressPath({
@@ -83,20 +127,16 @@ export function PracticeProgressPath({
 
           if (onStepPress) {
             return (
-              <Pressable
+              <InteractivePracticePathNode
                 key={node.id}
-                accessibilityRole="button"
+                node={node}
+                index={index}
+                palette={palette}
                 accessibilityLabel={nodeAccessibilityLabel}
-                accessibilityState={{ selected: node.state === 'current' }}
-                hitSlop={learningTouchTarget.compactHitSlop}
-                onPress={() => onStepPress(node, index)}
-                style={({ pressed }) => [
-                  styles.node,
-                  { borderColor: node.state === 'current' ? palette.primary : palette.border, backgroundColor: pressed ? palette.surfaceRaised : palette.surface },
-                ]}
+                onPress={onStepPress}
               >
                 {content}
-              </Pressable>
+              </InteractivePracticePathNode>
             );
           }
 
