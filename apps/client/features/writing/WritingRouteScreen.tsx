@@ -6,6 +6,7 @@ import { colors, spacing } from '@ui/theme';
 
 import { useAuthStore } from '../../state/authStore';
 import { useSubscriptionStore } from '../../state/subscriptionStore';
+import { getProfessionalMissionWritingTasks } from '../professional/missionRuntimeAdapters';
 import { resolveWritingAccess } from './engine';
 import WritingPracticeScreen from './WritingPracticeScreen';
 import type { WritingPathway, WritingProfession } from './model';
@@ -85,6 +86,11 @@ export default function WritingRouteScreen({ pathway, initialTaskId }: Props) {
     return first ?? null;
   }, [activeContext, entitlements?.professions]);
 
+  const missionTasks = useMemo(
+    () => pathway === 'professional' ? getProfessionalMissionWritingTasks(profession ?? undefined) : [],
+    [pathway, profession],
+  );
+
   if (access.state === 'loading') {
     return (
       <SafeAreaView style={styles.safeArea}>
@@ -124,6 +130,7 @@ export default function WritingRouteScreen({ pathway, initialTaskId }: Props) {
       pathway={pathway}
       profession={profession}
       initialTaskId={initialTaskId}
+      additionalTasks={missionTasks}
       onExit={() => router.replace(pathway === 'professional' ? '/professional' : '/learn')}
     />
   );
