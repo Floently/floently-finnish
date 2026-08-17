@@ -75,9 +75,11 @@ requireText(focus, "startsWith('A1')", 'A1 must support stronger visual scaffold
 requireText(focus, "startsWith('A2')", 'A2 must support moderate visual scaffolding.');
 
 requireText(semanticState, "tone: SemanticFeedbackTone", 'Semantic feedback tone contract is required.');
-requireText(semanticState, "tone === 'error' ? 'alert'", 'Errors must expose alert semantics.');
+requireText(semanticState, "const semanticRole = tone === 'error' ? 'alert' : 'status';", 'Errors must remain alert while dynamic non-error feedback uses the supported status role.');
+requireText(semanticState, 'role={semanticRole}', 'Semantic feedback must expose the React Native 0.83 status/alert role contract.');
 requireText(semanticState, "tone === 'error' ? 'assertive' : 'polite'", 'Dynamic non-error feedback must use a polite live region while errors remain assertive.');
 requireText(semanticState, 'accessibilityLiveRegion={liveRegion}', 'Semantic feedback must expose the live-region contract.');
+forbidText(semanticState, 'accessibilityRole="status"', 'Status semantics must use the supported role prop, not an unsupported accessibilityRole cast.');
 forbidText(semanticState, '.focus()', 'Semantic feedback must not steal focus when status changes.');
 requireText(semanticState, "kind === 'loading'", 'Loading state is required.');
 requireText(semanticState, "LearningStatePanelKind = 'loading' | 'empty' | 'error'", 'Loading/empty/error states must stay explicit.');
@@ -107,5 +109,5 @@ console.log('HAPTIC_SEMANTICS_GUARD=PASS');
 console.log('SMALL_SCREEN_LABEL_GUARD=PASS');
 console.log('ACCESSIBILITY_CONTRACT_GUARD=PASS');
 console.log('KEYBOARD_FOCUS_APPEARANCE_GUARD=PASS');
-console.log('LIVE_REGION_FEEDBACK_GUARD=PASS');
+console.log('LIVE_STATUS_FEEDBACK_GUARD=PASS');
 console.log('BUSINESS_LOGIC_BOUNDARY_GUARD=PASS');
