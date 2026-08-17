@@ -11,6 +11,8 @@ import {
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { colors, spacing, typography } from '@ui/theme';
+import { getFloentlyPalette } from '@ui/theme/floentlyPalette';
+import { LearningFocusSurface, PathwayBadge, SkillBadge } from '@ui/learningExperience';
 
 import {
   beginRevision,
@@ -26,6 +28,7 @@ import {
 } from './engine';
 import { tasksForPathway } from './tasks';
 import { WritingFeedbackPanel } from './components/WritingFeedbackPanel';
+import { usePreferencesStore } from '../../state/preferencesStore';
 import type {
   WritingPathway,
   WritingProfession,
@@ -264,6 +267,8 @@ function DraftStep({
 }
 
 export default function WritingPracticeScreen({ pathway, profession, initialTaskId, onExit, onResult }: Props) {
+  const themeMode = usePreferencesStore((state) => state.themeMode);
+  const palette = getFloentlyPalette(themeMode);
   const availableTasks = useMemo(() => tasksForPathway(pathway, profession), [pathway, profession]);
   const initialTask = useMemo(
     () => requiredInitialTask(availableTasks, initialTaskId),
@@ -321,6 +326,12 @@ export default function WritingPracticeScreen({ pathway, profession, initialTask
 
           <StagePath stage={session.stage} />
 
+          <LearningFocusSurface mode="writing" palette={palette} levelBand={session.task.level}>
+            <View style={styles.identityRow}>
+              <PathwayBadge pathway={pathway === 'professional' ? 'professional' : 'everyday'} palette={palette} compact />
+              <SkillBadge skill="writing" palette={palette} compact />
+            </View>
+
           {session.stage === 'understand' ? (
             <>
               <TaskPicker session={session} pathway={pathway} profession={profession} onSelect={selectTask} />
@@ -348,6 +359,7 @@ export default function WritingPracticeScreen({ pathway, profession, initialTask
           {session.stage === 'feedback' || session.stage === 'compare' ? (
             <WritingFeedbackPanel session={session} onRevise={() => setSession(beginRevision(session))} />
           ) : null}
+          </LearningFocusSurface>
         </ScrollView>
       </KeyboardAvoidingView>
     </SafeAreaView>
@@ -365,6 +377,7 @@ const styles = StyleSheet.create({
   eyebrow: { color: '#2DD4BF', fontSize: 12, fontWeight: '800', letterSpacing: 0.8, textTransform: 'uppercase' },
   title: { color: colors.text, ...typography.h1 },
   subtitle: { color: colors.textMuted, ...typography.bodySm, lineHeight: 22, maxWidth: 680 },
+  identityRow: { flexDirection: 'row', flexWrap: 'wrap', gap: 8 },
   stagePath: { flexDirection: 'row', flexWrap: 'wrap', gap: 7 },
   stageChip: { minHeight: 32, justifyContent: 'center', borderRadius: 999, borderWidth: 1, borderColor: '#263A5A', backgroundColor: '#101A30', paddingHorizontal: 11 },
   stageChipCurrent: { borderColor: '#5EEAD4', backgroundColor: '#113C38' },

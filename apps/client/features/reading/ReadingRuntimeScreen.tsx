@@ -10,6 +10,7 @@ import {
 } from 'react-native';
 
 import type { FloentlyPalette } from '@ui/theme/floentlyPalette';
+import { LearningFocusSurface, PathwayBadge, SkillBadge } from '@ui/learningExperience';
 
 import { ReadingDocumentCard } from './components/ReadingDocumentCard';
 import { ReadingQuestionCard } from './components/ReadingQuestionCard';
@@ -302,6 +303,12 @@ export function ReadingRuntimeScreen({
               </View>
             ) : null}
 
+            <LearningFocusSurface mode="reading" palette={palette} levelBand={validTask.level}>
+              <View style={styles.identityRow}>
+                <PathwayBadge pathway={scope === 'professional' ? 'professional' : 'everyday'} palette={palette} compact />
+                <SkillBadge skill="reading" palette={palette} compact />
+              </View>
+
             <View style={styles.taskIntroduction}>
               <View style={[styles.levelBadge, { backgroundColor: palette.accentSoft }]}>
                 <Text style={[styles.levelBadgeText, { color: palette.accent }]}>
@@ -397,6 +404,7 @@ export function ReadingRuntimeScreen({
                 onBack={onBack}
               />
             ) : null}
+            </LearningFocusSurface>
           </View>
         ) : null}
       </ScrollView>
@@ -515,6 +523,7 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
     gap: 20,
   },
+  identityRow: { flexDirection: 'row', flexWrap: 'wrap', gap: 8 },
   taskPicker: {
     borderRadius: 16,
     borderWidth: 1,

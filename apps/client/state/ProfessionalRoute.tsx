@@ -3,10 +3,13 @@ import { Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { router } from 'expo-router';
 import { colors, spacing, typography } from '@ui/theme';
+import { getFloentlyPalette } from '@ui/theme/floentlyPalette';
+import { PathwayBadge, SkillBadge } from '@ui/learningExperience';
 import type { RoleplayLevelBand, RoleplayProfession } from '@core/api/roleplay';
 import { useTranslator } from '../features/i18n';
 import HealthcareReportWritingScreen from '../features/professional/screens/HealthcareReportWritingScreen';
 import { useSubscriptionStore } from './subscriptionStore';
+import { usePreferencesStore } from './preferencesStore';
 
 type Props = {
   onBack: () => void;
@@ -69,6 +72,8 @@ function interviewScenarioId(profession: Profession): string {
 export default function ProfessionalRoute({ onBack, onOpenMenu, initialLevelBand = 'B1-B2', onOpenRoleplay }: Props) {
   const { t } = useTranslator();
   const subscriptionStatus = useSubscriptionStore((state) => state.status);
+  const themeMode = usePreferencesStore((state) => state.themeMode);
+  const palette = getFloentlyPalette(themeMode);
   const activeContext = useSubscriptionStore((state) => state.activeContext);
   const setActiveContext = useSubscriptionStore((state) => state.setActiveContext);
   const entitledProfessions = useMemo(() => {
@@ -93,6 +98,26 @@ export default function ProfessionalRoute({ onBack, onOpenMenu, initialLevelBand
   const heading = professionalDisplayName(selectedProfession, t);
   const professionQuery = `/cards?mode=vocabulary&domain=professional&profession=${selectedProfession}`;
   const pathwayMissions: ProfessionMission[] = [
+    {
+      title: 'Reading · Lukeminen',
+      detail: 'Harjoittele työelämän viestien, ohjeiden ja tilanteiden ymmärtämistä omalla tasollasi.',
+      cta: 'Avaa Reading',
+      onPress: () => {
+        setActiveContext(selectedProfession);
+        router.push('/professional/reading' as never);
+      },
+      disabled: !isEntitled(selectedProfession),
+    },
+    {
+      title: 'Writing · Kirjoittaminen',
+      detail: 'Kirjoita itse työelämän viestejä, saa kohdennettua palautetta ja paranna omaa tekstiäsi.',
+      cta: 'Avaa Writing',
+      onPress: () => {
+        setActiveContext(selectedProfession);
+        router.push('/professional/writing' as never);
+      },
+      disabled: !isEntitled(selectedProfession),
+    },
     {
       title: t('professionalFlashcardsTitle'),
       detail: t('professionalFlashcardsDetail'),
@@ -170,6 +195,14 @@ export default function ProfessionalRoute({ onBack, onOpenMenu, initialLevelBand
           })}
         </View>
 
+        <View style={styles.skillIdentityRow}>
+          <PathwayBadge pathway="professional" palette={palette} compact />
+          <SkillBadge skill="reading" palette={palette} compact />
+          <SkillBadge skill="writing" palette={palette} compact />
+          <SkillBadge skill="speaking" palette={palette} compact />
+          <SkillBadge skill="vocabulary" palette={palette} compact />
+        </View>
+
         <View style={styles.overviewCard}>
           <Text style={styles.overviewLabel}>{t('professionalAssignedPathway')}</Text>
           <Text style={styles.overviewTitle}>{heading} {t('professionalPathwayLabel')} · {initialLevelBand}</Text>
@@ -220,6 +253,7 @@ const styles = StyleSheet.create({
   selectorTextActive: { color: '#FFFFFF' },
   selectorHint: { color: '#8EA3C3', fontSize: 10, lineHeight: 14 },
   selectorHintActive: { color: '#D6E2FF' },
+  skillIdentityRow: { flexDirection: 'row', flexWrap: 'wrap', gap: 8 },
   overviewCard: { borderRadius: 24, backgroundColor: colors.panel, borderWidth: 1, borderColor: colors.border, padding: 18, gap: 10 },
   overviewLabel: { color: '#2DD4BF', fontSize: 11, fontWeight: '800', textTransform: 'uppercase', letterSpacing: 0.6 },
   overviewTitle: { color: colors.text, fontSize: 18, fontWeight: '800' },
