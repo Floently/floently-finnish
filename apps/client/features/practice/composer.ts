@@ -58,6 +58,7 @@ export type PracticeComposerInput = {
 
 export type PracticeFilterCode =
   | 'invalid_descriptor'
+  | 'duplicate_task_id'
   | 'scope_mismatch'
   | 'missing_entitlement'
   | 'profession_mismatch'
@@ -180,6 +181,22 @@ function validDescriptor(task: TaskDescriptor): boolean {
   return true;
 }
 
+function duplicatedTaskIds(candidates: readonly TaskDescriptor[]): ReadonlySet<string> {
+  const counts = new Map<string, number>();
+  candidates.forEach((task) => {
+    if (typeof task?.taskId !== 'string') return;
+    const taskId = task.taskId.trim();
+    if (!taskId) return;
+    counts.set(taskId, (counts.get(taskId) ?? 0) + 1);
+  });
+
+  return new Set(
+    [...counts.entries()]
+      .filter(([, count]) => count > 1)
+      .map(([taskId]) => taskId),
+  );
+}
+
 function matchingEvidence(input: PracticeComposerInput, task: TaskDescriptor): DurablePracticeEvidence[] {
   return (input.evidence ?? []).filter((item) => {
     if (!isUsableEvidence(input, item)) return false;
@@ -200,8 +217,10 @@ function hasRecentTaskRepetition(input: PracticeComposerInput, task: TaskDescrip
 function filterTask(
   input: PracticeComposerInput,
   task: TaskDescriptor,
+  duplicateTaskIds: ReadonlySet<string>,
 ): PracticeFilterCode | null {
   if (!validDescriptor(task)) return 'invalid_descriptor';
+  if (duplicateTaskIds.has(task.taskId.trim())) return 'duplicate_task_id';
   if (input.excludedTaskIds?.includes(task.taskId)) return 'explicitly_excluded';
   if (input.scope !== 'all' && task.pathway !== input.scope) return 'scope_mismatch';
 
@@ -324,8 +343,9 @@ function buildReasons(
 
 export function composePracticeSession(input: PracticeComposerInput): PracticeComposition {
   const diagnostics: PracticeFilterDiagnostic[] = [];
+  const duplicateTaskIds = duplicatedTaskIds(input.candidates);
   const eligible = input.candidates.filter((task) => {
-    const code = filterTask(input, task);
+    const code = filterTask(input, task, duplicateTaskIds);
     if (code) {
       diagnostics.push({
         taskId: typeof task?.taskId === 'string' && task.taskId ? task.taskId : '<invalid-task>',
