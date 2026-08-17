@@ -1,5 +1,6 @@
 import type { TaskDescriptor } from '@core/schemas/learning';
 
+import { getProfessionalMissionRuntimeEntries } from '../professional/missionRuntimeAdapters';
 import { toReadingTaskDescriptor } from '../reading/readingEngine';
 import { READING_TASKS } from '../reading/readingTasks';
 import { buildWritingTaskDescriptor } from '../writing/engine';
@@ -12,21 +13,34 @@ export type IntegratedPracticeEntry = {
   descriptor: TaskDescriptor;
   title: string;
   summary: string;
-  source: 'protected-launch' | 'reading' | 'writing';
+  source:
+    | 'protected-launch'
+    | 'reading'
+    | 'writing'
+    | 'professional-mission-roleplay'
+    | 'professional-mission-reading'
+    | 'professional-mission-writing';
 };
 
 function isIntegratedProfession(value?: string): value is IntegratedPracticeProfession {
   return value === 'doctor' || value === 'nurse' || value === 'practical_nurse';
 }
 
-const PROTECTED_LAUNCH_ENTRIES: readonly IntegratedPracticeEntry[] = PRACTICE_FIXTURES
-  .filter(({ descriptor }) => descriptor.runtime !== 'reading' && descriptor.runtime !== 'writing')
-  .map((fixture) => ({
-    descriptor: fixture.descriptor,
-    title: fixture.title,
-    summary: fixture.summary,
-    source: 'protected-launch' as const,
-  }));
+function protectedLaunchEntries(profession?: string): IntegratedPracticeEntry[] {
+  const hasMissionProfession = isIntegratedProfession(profession);
+  return PRACTICE_FIXTURES
+    .filter(({ descriptor }) => descriptor.runtime !== 'reading' && descriptor.runtime !== 'writing')
+    .filter(({ descriptor }) => {
+      if (!hasMissionProfession) return true;
+      return !(descriptor.pathway === 'professional' && descriptor.runtime === 'roleplay');
+    })
+    .map((fixture) => ({
+      descriptor: fixture.descriptor,
+      title: fixture.title,
+      summary: fixture.summary,
+      source: 'protected-launch' as const,
+    }));
+}
 
 function readingEntries(): IntegratedPracticeEntry[] {
   return READING_TASKS.map((task) => ({
@@ -57,8 +71,13 @@ function writingEntries(profession?: string): IntegratedPracticeEntry[] {
 }
 
 export function getIntegratedPracticeEntries(profession?: string): IntegratedPracticeEntry[] {
+  const missionEntries = isIntegratedProfession(profession)
+    ? getProfessionalMissionRuntimeEntries(profession)
+    : [];
+
   return [
-    ...PROTECTED_LAUNCH_ENTRIES,
+    ...protectedLaunchEntries(profession),
+    ...missionEntries,
     ...readingEntries(),
     ...writingEntries(profession),
   ];
