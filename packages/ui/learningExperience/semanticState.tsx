@@ -45,11 +45,13 @@ export function SemanticFeedback({
 }: SemanticFeedbackProps) {
   const color = feedbackColor(tone, palette);
   const role = tone === 'error' ? 'alert' : 'text';
+  const liveRegion = tone === 'error' ? 'assertive' : 'polite';
   const content = (
     <View style={[styles.feedback, { backgroundColor: palette.surfaceMuted, borderColor: color }]}>
       <View
         accessible
         accessibilityRole={role}
+        accessibilityLiveRegion={liveRegion}
         accessibilityLabel={[title, message].filter(Boolean).join('. ')}
         style={styles.feedbackSummary}
       >
