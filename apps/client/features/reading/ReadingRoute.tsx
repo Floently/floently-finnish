@@ -106,7 +106,7 @@ export function ReadingRoute({ scope, onEvent, onResult }: ReadingRouteProps) {
         status="error"
         errorEyebrow="Kirjautuminen tarvitaan"
         errorTitle="Kirjaudu sisään jatkaaksesi"
-        errorMessage="Lukutehtävät tallentavat edistymisesi omaan oppimispolkuusi."
+        errorMessage="Kirjaudu sisään, jotta voimme tarkistaa lukupolkusi käyttöoikeuden."
         errorActionLabel="Kirjaudu sisään"
         onRetryLoad={() => router.push('/auth/login' as never)}
         onBack={onBack}

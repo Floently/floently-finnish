@@ -312,6 +312,18 @@ test('access decisions fail closed without auth or loaded entitlement state', ()
   );
 });
 
+test('auth copy does not promise unwired durable progress persistence', () => {
+  const routeSource = readFileSync(
+    path.join(ROOT, 'apps/client/features/reading/ReadingRoute.tsx'),
+    'utf8',
+  );
+  assert.match(routeSource, /tarkistaa lukupolkusi käyttöoikeuden/);
+  assert.doesNotMatch(
+    routeSource,
+    /tallentavat edistymisesi|progress (?:is|will be) saved/i,
+  );
+});
+
 test('accessibility and calm-reading regression guards are present', () => {
   const files = [
     'apps/client/features/reading/ReadingRuntimeScreen.tsx',
