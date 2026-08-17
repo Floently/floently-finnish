@@ -42,6 +42,7 @@ type Props = {
   pathway: WritingPathway;
   profession?: WritingProfession | null;
   initialTaskId?: string | null;
+  additionalTasks?: readonly WritingTask[];
   onExit: () => void;
   onResult?: (result: WritingTaskResult) => void;
 };
@@ -55,7 +56,7 @@ const STAGES: Array<{ id: WritingStage; label: string }> = [
   { id: 'compare', label: 'Compare' },
 ];
 
-function requiredInitialTask(tasks: WritingTask[], initialTaskId?: string | null): WritingTask {
+function requiredInitialTask(tasks: readonly WritingTask[], initialTaskId?: string | null): WritingTask {
   const task = tasks.find((item) => item.taskId === initialTaskId) ?? tasks[0];
   if (!task) throw new Error('NO_WRITING_TASKS_FOR_PATHWAY');
   return task;
@@ -82,16 +83,13 @@ function StagePath({ stage }: { stage: WritingStage }) {
 
 function TaskPicker({
   session,
-  pathway,
-  profession,
+  tasks,
   onSelect,
 }: {
   session: WritingSession;
-  pathway: WritingPathway;
-  profession?: WritingProfession | null;
+  tasks: readonly WritingTask[];
   onSelect: (taskId: string) => void;
 }) {
-  const tasks = tasksForPathway(pathway, profession);
   return (
     <View style={styles.sectionCard}>
       <Text accessibilityRole="header" style={styles.sectionTitle}>Choose a task</Text>
@@ -266,10 +264,21 @@ function DraftStep({
   );
 }
 
-export default function WritingPracticeScreen({ pathway, profession, initialTaskId, onExit, onResult }: Props) {
+export default function WritingPracticeScreen({ pathway, profession, initialTaskId, additionalTasks, onExit, onResult }: Props) {
   const themeMode = usePreferencesStore((state) => state.themeMode);
   const palette = getFloentlyPalette(themeMode);
-  const availableTasks = useMemo(() => tasksForPathway(pathway, profession), [pathway, profession]);
+  const availableTasks = useMemo(() => {
+    const combined = [
+      ...tasksForPathway(pathway, profession),
+      ...(additionalTasks ?? []).filter((task) => task.pathway === pathway),
+    ];
+    const ids = new Set<string>();
+    combined.forEach((task) => {
+      if (ids.has(task.taskId)) throw new Error(`DUPLICATE_WRITING_TASK_ID:${task.taskId}`);
+      ids.add(task.taskId);
+    });
+    return combined;
+  }, [additionalTasks, pathway, profession]);
   const initialTask = useMemo(
     () => requiredInitialTask(availableTasks, initialTaskId),
     [availableTasks, initialTaskId],
@@ -334,7 +343,7 @@ export default function WritingPracticeScreen({ pathway, profession, initialTask
 
           {session.stage === 'understand' ? (
             <>
-              <TaskPicker session={session} pathway={pathway} profession={profession} onSelect={selectTask} />
+              <TaskPicker session={session} tasks={availableTasks} onSelect={selectTask} />
               <UnderstandStep session={session} onContinue={() => setSession(moveToPlanning(session))} />
             </>
           ) : null}
