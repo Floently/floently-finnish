@@ -1,8 +1,10 @@
 import { Platform } from 'react-native';
 
 import {
+  getRevenueCatOfferingSnapshot,
   purchaseRevenueCatPackage,
   restoreRevenueCatPurchases,
+  revenueCatPackageSnapshotMatches,
   type RevenueCatPurchaseResult,
 } from './revenueCatService';
 
@@ -51,6 +53,22 @@ const PACKAGE_MAPPING: Record<string, string> = {
   read_creator_yearly: 'creator_yearly',
 };
 
+export type StorePlanAvailability = {
+  planId: string;
+  packageId: string | null;
+  available: boolean;
+  productIdentifier: string | null;
+  priceString: string | null;
+};
+
+export type StoreBillingCatalog = {
+  platform: BillingPlatform;
+  offeringIdentifier: string | null;
+  ready: boolean;
+  plans: StorePlanAvailability[];
+  missingPlanIds: string[];
+};
+
 function mobilePlatform(): BillingPlatform | null {
   if (Platform.OS === 'ios') return 'ios';
   if (Platform.OS === 'android') return 'android';
@@ -63,6 +81,53 @@ export function supportsStoreBilling(): boolean {
 
 export function revenueCatPackageForPlan(planId: string): string | null {
   return PACKAGE_MAPPING[planId] ?? null;
+}
+
+export async function preflightStoreBillingPlans(
+  planIds: string[],
+  userId?: string | null,
+): Promise<StoreBillingCatalog> {
+  const platform = mobilePlatform();
+  if (!platform) {
+    throw new Error('Store billing is only available on iOS and Android.');
+  }
+
+  const uniquePlanIds = Array.from(new Set(planIds.map((item) => String(item || '').trim()).filter(Boolean)));
+  const snapshot = await getRevenueCatOfferingSnapshot(userId);
+
+  const plans = uniquePlanIds.map<StorePlanAvailability>((planId) => {
+    const packageId = revenueCatPackageForPlan(planId);
+    const matchedPackage = packageId && snapshot
+      ? snapshot.packages.find((item) => revenueCatPackageSnapshotMatches(item, packageId))
+      : null;
+    const productIdentifier = matchedPackage?.productIdentifier?.trim() || null;
+    const priceString = matchedPackage?.priceString?.trim() || null;
+
+    // A plan is considered store-ready only when RevenueCat returned the
+    // expected package, the underlying App Store product identifier, and the
+    // localized store price. This prevents presenting an enabled purchase CTA
+    // when the exact failure Apple saw (store product cannot be fetched) is
+    // already observable before the reviewer taps Buy.
+    const available = Boolean(packageId && matchedPackage && productIdentifier && priceString);
+
+    return {
+      planId,
+      packageId,
+      available,
+      productIdentifier,
+      priceString,
+    };
+  });
+
+  const missingPlanIds = plans.filter((item) => !item.available).map((item) => item.planId);
+
+  return {
+    platform,
+    offeringIdentifier: snapshot?.offeringIdentifier ?? null,
+    ready: plans.length > 0 && missingPlanIds.length === 0,
+    plans,
+    missingPlanIds,
+  };
 }
 
 export async function startStorePurchase(
@@ -105,7 +170,6 @@ export async function restoreStorePurchases(
     platform,
   };
 }
-
 
 export type ReadStorePlanId = 'reader_monthly' | 'reader_yearly' | 'creator_monthly' | 'creator_yearly';
 
