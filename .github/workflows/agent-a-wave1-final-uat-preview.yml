@@ -1,0 +1,68 @@
+name: Agent A Wave 1 final user acceptance preview
+
+on:
+  push:
+    branches:
+      - agent/a-wave1-final-uat-preview-qa-20260819
+  pull_request:
+    branches:
+      - agent/a-wave1-final-uat-20260818
+
+jobs:
+  static-web-preview:
+    runs-on: ubuntu-latest
+    env:
+      WAVE1_RUNTIME_SHA: ddef94695001656b44d51f7469cd1ea4f5029232
+      QA_WORKFLOW_PATH: .github/workflows/agent-a-wave1-final-uat-preview.yml
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+          fetch-depth: 2
+
+      - name: Prove preview instrumentation is the only source difference
+        run: |
+          test "$(git rev-parse HEAD^)" = "$WAVE1_RUNTIME_SHA"
+          git diff --exit-code "$WAVE1_RUNTIME_SHA" HEAD -- . ":(exclude)$QA_WORKFLOW_PATH"
+          test "$(git diff --name-only "$WAVE1_RUNTIME_SHA" HEAD | grep -v "^$QA_WORKFLOW_PATH$" | wc -l)" -eq 0
+          echo "WAVE1_RUNTIME_SHA=$WAVE1_RUNTIME_SHA"
+          echo "QA_PREVIEW_INSTRUMENTATION_ONLY=PASS"
+
+      - uses: pnpm/action-setup@v6
+        with:
+          version: "10.34.0"
+          run_install: false
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: pnpm
+          cache-dependency-path: pnpm-lock.yaml
+
+      - name: Install frozen workspace
+        run: pnpm install --frozen-lockfile
+
+      - name: Verify final acceptance source compiles
+        run: pnpm --dir apps/client exec tsc --noEmit
+
+      - name: Export static Expo web preview
+        run: pnpm --dir apps/client exec expo export --platform web --output-dir dist-wave1-final-uat
+
+      - name: Package final acceptance metadata
+        run: |
+          printf 'KieliValmis Wave 1 FINAL non-production user acceptance preview\nSource: ddef94695001656b44d51f7469cd1ea4f5029232\nProtected QA: 32180589048 SUCCESS\nWAVE1_FINAL_UAT_CANDIDATE=FROZEN\nUSER_ACCEPTANCE=PENDING\nPRODUCTION_ACTIONS=NONE\n' > apps/client/dist-wave1-final-uat/WAVE1_ACCEPTANCE_SOURCE.txt
+
+      - name: Upload final non-production preview artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: kielivalmis-wave1-final-uat-web-ddef9469
+          path: apps/client/dist-wave1-final-uat
+          if-no-files-found: error
+          retention-days: 14
+
+      - name: Re-prove runtime source identity after preview build
+        if: always()
+        run: |
+          git diff --exit-code "$WAVE1_RUNTIME_SHA" HEAD -- . ":(exclude)$QA_WORKFLOW_PATH"
+          test "$(git diff --name-only "$WAVE1_RUNTIME_SHA" HEAD | grep -v "^$QA_WORKFLOW_PATH$" | wc -l)" -eq 0
+          echo "WAVE1_PREVIEW_EXACT_SOURCE_IDENTITY=PASS"
