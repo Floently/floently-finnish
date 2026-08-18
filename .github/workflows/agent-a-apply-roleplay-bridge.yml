@@ -4,13 +4,16 @@ on:
   push:
     branches:
       - agent/a-wave1-roleplay-deeplink-20260818
+  pull_request:
+    branches:
+      - agent/a-wave1-user-acceptance-20260818
 
 permissions:
   contents: write
 
 jobs:
   apply-and-verify:
-    if: ${{ !contains(github.event.head_commit.message, 'feat: wire protected mission roleplay deep links') }}
+    if: ${{ !contains(github.event.head_commit.message || '', 'feat: wire protected mission roleplay deep links') }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
