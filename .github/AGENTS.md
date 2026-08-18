@@ -6,6 +6,22 @@ Frozen pre-governance source base: `107985d4dcb26d0c8ef010580e78cc9c61fce922`.
 
 The Agent-A governance branch is the only place allowed to define shared Wave-1 contracts. Agent B–G branches must be created from the final reviewed Agent-A governance SHA, never from another feature agent.
 
+## Mandatory current handover — READ FIRST
+
+Before **any** continuing Agent-A / Wave-1 integration work, branch mutation, runtime edit, QA construction, UAT replacement, production-planning discussion, or instruction to another engineering agent, the continuing agent must first read:
+
+`docs/agents/CURRENT_WAVE1_HANDOVER.md`
+
+in full.
+
+This handover is the repository-level continuation authority for the current exact SHAs, frozen UAT state, accepted feature-package provenance, deferred work, known CI/provenance debt, protected invariants, current next milestone, and production firewall.
+
+The continuing agent must then re-resolve the current remote PR/branch heads named in that handover before relying on any SHA. Documentation/governance-only commits after a tested runtime SHA must be distinguished from runtime changes; prior exact-SHA QA does not automatically cover a later runtime delta.
+
+If `docs/agents/CURRENT_WAVE1_HANDOVER.md` is missing, materially stale, contradicts current remote ancestry, or cannot be reconciled with PR #33, PR #35 and Issue #16, **STOP** and repair/reconcile the handover before implementation.
+
+When responsibility is handed to another Agent-A/integration owner, update `docs/agents/CURRENT_WAVE1_HANDOVER.md` with the new exact state and leave this read-first rule in place.
+
 ## Production is out of scope
 
 No Wave-1 agent is authorized to deploy, SSH to production, restart services, rebuild or retag production Docker images, run migrations against production, alter live state, publish Expo OTA updates, release mobile binaries, modify production secrets, move `main`, move `integration/canonical-production-20260816`, merge its own PR, or force-push.
@@ -18,19 +34,20 @@ Every agent must obey `docs/PRODUCTION_FORWARD_ONLY_INTEGRATION_POLICY.md` and `
 
 Every agent must perform work in this order:
 
-1. verify exact branch/base/ancestry and clean worktree;
-2. read Wave-1 rules, branch matrix, protected capabilities, shared contract and test matrix;
-3. inspect current implementation before proposing replacements;
-4. perform current research before implementation;
-5. write `docs/agents/research/AGENT_<LETTER>_RESEARCH.md` on its branch;
-6. derive explicit acceptance criteria from the research;
-7. implement the smallest maintainable solution that satisfies the acceptance criteria;
-8. add permanent regression/contract tests;
-9. run focused tests repeatedly during development;
-10. run the agent's full required test matrix before handoff;
-11. inspect its own diff for scope creep, duplication, dead code, secrets and accidental protected-file changes;
-12. commit coherent units, push only its assigned branch, and keep its PR draft;
-13. hand off exact SHA, changed paths, tests, research sources, known risks, integration requirements and manual-test instructions to Agent A.
+1. read `docs/agents/CURRENT_WAVE1_HANDOVER.md` if continuing Agent-A / Wave-1 integration work;
+2. verify exact branch/base/ancestry and clean worktree;
+3. read Wave-1 rules, branch matrix, protected capabilities, shared contract and test matrix;
+4. inspect current implementation before proposing replacements;
+5. perform current research before implementation;
+6. write `docs/agents/research/AGENT_<LETTER>_RESEARCH.md` on its branch;
+7. derive explicit acceptance criteria from the research;
+8. implement the smallest maintainable solution that satisfies the acceptance criteria;
+9. add permanent regression/contract tests;
+10. run focused tests repeatedly during development;
+11. run the agent's full required test matrix before handoff;
+12. inspect its own diff for scope creep, duplication, dead code, secrets and accidental protected-file changes;
+13. commit coherent units, push only its assigned branch, and keep its PR draft;
+14. hand off exact SHA, changed paths, tests, research sources, known risks, integration requirements and manual-test instructions to Agent A.
 
 ## Required handoff markers
 
@@ -59,6 +76,7 @@ User experience must be attractive because it is clear, coherent and responsive�
 
 Stop implementation and report to Agent A if any of these occur:
 
+- `docs/agents/CURRENT_WAVE1_HANDOVER.md` is missing, materially stale, or contradicts current remote source/PR ancestry;
 - branch ancestry differs from the assigned base;
 - required work would touch production/server operations;
 - ownership overlaps another agent's protected area and cannot be solved through the frozen contract;
