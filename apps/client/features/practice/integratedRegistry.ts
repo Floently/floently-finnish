@@ -17,6 +17,7 @@ export type IntegratedPracticeEntry = {
     | 'protected-launch'
     | 'reading'
     | 'writing'
+    | 'professional-mission-roleplay'
     | 'professional-mission-reading'
     | 'professional-mission-writing';
 };
