@@ -15,16 +15,24 @@ jobs:
     runs-on: ubuntu-latest
     env:
       WAVE1_RUNTIME_SHA: ddef94695001656b44d51f7469cd1ea4f5029232
+      AGENT_F_ACCEPTED_SHA: 6e275d1dd04e4f6a0bd2c0a5981f7e63121cf272
       QA_WORKFLOW_PATH: .github/workflows/agent-a-wave1-final-full-protected-qa.yml
     steps:
       - uses: actions/checkout@v4
         with:
-          fetch-depth: 0
+          fetch-depth: 1
+
+      - name: Fetch exact provenance commits without full repository history
+        run: |
+          git fetch --no-tags --depth=2 origin agent/a-wave1-final-full-protected-qa-base-20260818
+          test "$(git rev-parse FETCH_HEAD^)" = "$WAVE1_RUNTIME_SHA"
+          git fetch --no-tags --depth=1 origin agent/f-professional-missions-20260816
+          test "$(git rev-parse FETCH_HEAD)" = "$AGENT_F_ACCEPTED_SHA"
 
       - name: Prove exact runtime source identity before QA
         run: |
-          git diff --exit-code "$WAVE1_RUNTIME_SHA" -- . ":(exclude)$QA_WORKFLOW_PATH"
-          test "$(git diff --name-only "$WAVE1_RUNTIME_SHA"...HEAD | grep -v "^$QA_WORKFLOW_PATH$" | wc -l)" -eq 0
+          git diff --exit-code "$WAVE1_RUNTIME_SHA" HEAD -- . ":(exclude)$QA_WORKFLOW_PATH"
+          test "$(git diff --name-only "$WAVE1_RUNTIME_SHA" HEAD | grep -v "^$QA_WORKFLOW_PATH$" | wc -l)" -eq 0
           echo "WAVE1_RUNTIME_SHA=$WAVE1_RUNTIME_SHA"
           echo "QA_INSTRUMENTATION_ONLY=PASS"
 
@@ -112,13 +120,14 @@ jobs:
 
       - name: Accepted Agent F mission source identity and isolated verifier
         run: |
-          git diff --exit-code 6e275d1dd04e4f6a0bd2c0a5981f7e63121cf272 HEAD -- \
+          test "$(git rev-parse $AGENT_F_ACCEPTED_SHA)" = "$AGENT_F_ACCEPTED_SHA"
+          git diff --exit-code "$AGENT_F_ACCEPTED_SHA" HEAD -- \
             packages/core/professional/missions.mjs \
             packages/core/professional/missions.d.ts \
             apps/client/scripts/verify-professional-missions.mjs \
             apps/backend/tests/test_professional_mission_contract.py \
             docs/agents/research/AGENT_F_RESEARCH.md
-          git worktree add --detach /tmp/agent-f-final-source 6e275d1dd04e4f6a0bd2c0a5981f7e63121cf272
+          git worktree add --detach /tmp/agent-f-final-source "$AGENT_F_ACCEPTED_SHA"
           (cd /tmp/agent-f-final-source && node apps/client/scripts/verify-professional-missions.mjs)
 
       - name: Navigation deep links Roleplay audio STT transport and scenario invariants
@@ -154,6 +163,6 @@ jobs:
       - name: Re-prove runtime identity after all protected gates
         if: always()
         run: |
-          git diff --exit-code "$WAVE1_RUNTIME_SHA" -- . ":(exclude)$QA_WORKFLOW_PATH"
-          test "$(git diff --name-only "$WAVE1_RUNTIME_SHA"...HEAD | grep -v "^$QA_WORKFLOW_PATH$" | wc -l)" -eq 0
+          git diff --exit-code "$WAVE1_RUNTIME_SHA" HEAD -- . ":(exclude)$QA_WORKFLOW_PATH"
+          test "$(git diff --name-only "$WAVE1_RUNTIME_SHA" HEAD | grep -v "^$QA_WORKFLOW_PATH$" | wc -l)" -eq 0
           echo "WAVE1_EXACT_SOURCE_IDENTITY=PASS"
