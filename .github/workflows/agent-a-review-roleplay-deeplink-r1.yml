@@ -1,0 +1,44 @@
+name: Agent A review Professional mission Roleplay deep links R1
+
+on:
+  push:
+    branches:
+      - agent/a-review-roleplay-deeplink-r1-20260818
+
+jobs:
+  independent-client-qa:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: pnpm/action-setup@v6
+        with:
+          version: "10.34.0"
+          run_install: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: pnpm
+          cache-dependency-path: pnpm-lock.yaml
+      - name: Install frozen workspace
+        run: pnpm install --frozen-lockfile
+      - name: Whole client TypeScript
+        run: pnpm --dir apps/client exec tsc --noEmit
+      - name: Execute Professional mission integration and negative URL guards
+        run: node apps/client/scripts/verify-wave1-professional-mission-integration.mjs
+      - name: Practice composer contract and entitlement isolation
+        run: node --experimental-strip-types apps/client/scripts/verify-practice-composer.mts
+      - name: Wave 1 product wiring
+        run: node --experimental-strip-types apps/client/scripts/verify-wave1-product-wiring.mts
+      - name: Protected navigation invariants
+        run: node apps/client/scripts/verify-navigation-invariants.mjs
+      - name: Protected Roleplay audio invariants
+        run: node apps/client/scripts/verify-roleplay-audio-invariants.mjs
+      - name: Protected Roleplay scenario invariants
+        run: node apps/client/scripts/verify-roleplay-scenario-rotation.mjs
+      - name: Prove QA instrumentation is the only difference from reviewed source
+        run: |
+          git diff --exit-code ddef94695001656b44d51f7469cd1ea4f5029232 -- . ':(exclude).github/workflows/agent-a-review-roleplay-deeplink-r1.yml'
+          test "$(git diff --name-only ddef94695001656b44d51f7469cd1ea4f5029232...HEAD | grep -v '^.github/workflows/agent-a-review-roleplay-deeplink-r1.yml$' | wc -l)" -eq 0
+          echo "QA_SOURCE_IDENTITY=PASS"
