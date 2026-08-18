@@ -61,3 +61,5 @@ jobs:
         run: npm --workspace client run verify:navigation
       - name: Verify account deletion access invariants
         run: npm --workspace client run verify:account-deletion-access
+      - name: Verify RevenueCat identity invariants
+        run: npm --workspace client run verify:revenuecat-identity
