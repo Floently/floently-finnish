@@ -18,7 +18,8 @@ PRODUCTION_DEPLOYMENT_AUTHORIZED=NO
 APP_STORE_RESUBMISSION_AUTHORIZED=NO
 BUILD34_PROVENANCE=BLOCKED
 APPLE_REVENUECAT_CATALOG_RECONCILIATION=PENDING
-SOURCE_REPAIR_STARTED=NO
+SOURCE_REPAIR_STARTED=YES
+REPAIR_BRANCH_FORWARD_BASE=PASS
 IOS_PHYSICAL_DEVICE_ACCEPTANCE=PENDING
 APP_STORE_SCREENSHOT_IOS_ONLY=PENDING
 ```
@@ -180,28 +181,42 @@ BUILD34_PROVENANCE=BLOCKED
 
 # Phase 2 — Narrow source repair branch
 
-**Status:** NOT STARTED. Do not create the release repair branch from stale `main` or from the non-production Wave-1 UAT branch.
+**Status:** DONE.
 
-- [ ] Repair base SHA selected from verified production lineage.
-- [ ] Forward ancestry verified.
-- [ ] Narrow iOS review remediation branch created.
+- [x] **Repair base SHA selected from verified production lineage.**  
+  **Definition of done:** the repair branch starts at the verified canonical production head rather than stale `main` or Wave-1 UAT.  
+  **Evidence:** repair base `749ffe3669cc1c6184482a735001af769bc71547`, verified as the exact head of `integration/canonical-production-20260816` when the branch was created.
 
-**Definition of done:** `REPAIR_BRANCH_FORWARD_BASE=PASS`.
+- [x] **Forward ancestry verified.**  
+  **Definition of done:** GitHub comparison proves the new repair branch began identically from the canonical production SHA.  
+  **Evidence:** initial compare of base `749ffe3669cc1c6184482a735001af769bc71547` to `release/ios-app-review-remediation-20260818` returned `status=identical`, `ahead_by=0`, `behind_by=0`, merge base equal to the same SHA.
+
+- [x] **Narrow iOS review remediation branch created.**  
+  **Definition of done:** dedicated repair branch exists and is separate from canonical production and Wave-1 UAT.  
+  **Evidence:** `release/ios-app-review-remediation-20260818`.
+
+**Gate:** `REPAIR_BRANCH_FORWARD_BASE=PASS`.
+
+A draft PR now tracks source repair from this branch to canonical production: **PR #37**. The PR is intentionally draft and carries `PRODUCTION_DEPLOYMENT_AUTHORIZED=NO` and `APP_STORE_RESUBMISSION_AUTHORIZED=NO`.
 
 ---
 
 # Phase 3 — Account deletion accessibility and completion truth
 
-**Status:** NOT STARTED.
+**Status:** IN PROGRESS.
 
-- [ ] Free authenticated user can open Settings without paid entitlement.
+- [ ] Free authenticated user can open Settings without paid entitlement.  
+  **Current evidence:** source repair commit `d36d5ac6392edc6a8415fbbe379fe7c1edb16196` separates authenticated account-management routes (`settings`, `help`, `billing`) from paid learning entitlement checks. This checkbox remains open until the permanent regression/CI gate passes.
 - [ ] Paid learning routes remain protected.
 - [ ] Delete Account remains visible/reachable.
-- [ ] Reviewer-state regression test added.
+- [ ] Reviewer-state regression test added.  
+  **Current evidence:** verifier source added in commit `d47c08f2468f4d5090bcd1b389a950a4296633d4`; checkbox remains open until CI executes it successfully.
 - [ ] Free-user protected-feature regression test added.
 - [ ] Backend deletion result no longer reports completion after partial required cleanup.
 - [ ] Backend success/failure tests added.
 - [ ] Session/deleted-account behavior verified.
+
+**Current PR head:** `3db104dd3778ba59aee23050a31b2980bdfdb2fe`. PR CI is running; no Phase-3 test-dependent checkbox is marked complete until CI reports success.
 
 **Definition of done:** all account-deletion source and automated regression requirements in the master runbook pass.
 
