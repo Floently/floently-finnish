@@ -65,6 +65,31 @@ requireText(
   'preflight must expose missing plans so the paywall can fail closed',
 );
 requireText(
+  storeService,
+  'const catalog = await preflightStoreBillingPlans([planId], userId);',
+  'purchase must re-check the exact requested plan before invoking the store purchase',
+);
+requireText(
+  storeService,
+  "export const STORE_BILLING_UNAVAILABLE_MESSAGE = 'Purchases are temporarily unavailable. Please try again later.';",
+  'store configuration failures must have stable user-safe copy',
+);
+requireText(
+  storeService,
+  "actionType: 'STORE_BILLING_ERROR'",
+  'technical RevenueCat/store failure details must remain in diagnostics rather than user copy',
+);
+requireText(
+  storeService,
+  "throwUserSafeStoreError('purchase', error);",
+  'purchase errors from RevenueCat must be converted to a safe application error',
+);
+requireText(
+  storeService,
+  "throwUserSafeStoreError('restore', error);",
+  'restore errors from RevenueCat must be converted to a safe application error',
+);
+requireText(
   revenueCatService,
   'priceString: string;',
   'RevenueCat package snapshots must carry localized store price text',
@@ -77,5 +102,6 @@ requireText(
 
 console.log('PASS: all nine core KieliValmis plans retain explicit RevenueCat package mappings.');
 console.log('PASS: preflight requires offering package, product identifier, and localized store price.');
-console.log('PASS: missing store plans are surfaced for fail-closed paywall behavior.');
+console.log('PASS: purchase rechecks the selected plan before RevenueCat purchase execution.');
+console.log('PASS: RevenueCat purchase/restore failures are converted to stable user-safe errors.');
 console.log('STORE_BILLING_PREFLIGHT_INVARIANTS=PASS');
