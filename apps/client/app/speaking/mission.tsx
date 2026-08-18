@@ -10,7 +10,7 @@ import {
   canUseProfessionalMissionSpeakingPreset,
   parseProfessionalMissionSpeakingParams,
   type ProfessionalMissionSpeakingSearchParams,
-} from '../../state/professionalMissionSpeakingParams';
+} from '../../state/professionalMissionSpeakingParams.mjs';
 import { useSubscriptionStore } from '../../state/subscriptionStore';
 import { audioSession } from '../../features/shared/services/audioSession';
 import AppShell from '../../state/AppShell';
