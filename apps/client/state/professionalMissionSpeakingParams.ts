@@ -116,9 +116,10 @@ export function parseProfessionalMissionSpeakingParams(
 }
 
 /**
- * `/speaking` is shared by Everyday, YKI and Professional access. A valid
+ * Speaking is shared by Everyday, YKI and Professional access. A valid
  * mission tuple therefore still requires a real Professional entitlement for
- * the exact profession before AppShell may apply the mission preset.
+ * the exact profession before the integration-owned mission route may render
+ * the Professional mission preset.
  */
 export function canUseProfessionalMissionSpeakingPreset(
   preset: ProfessionalMissionSpeakingPreset | null,
