@@ -20,8 +20,9 @@ BUILD34_PROVENANCE=BLOCKED
 APPLE_REVENUECAT_CATALOG_RECONCILIATION=PENDING
 SOURCE_REPAIR_STARTED=YES
 REPAIR_BRANCH_FORWARD_BASE=PASS
+ACCOUNT_DELETION_SOURCE_PHASE=PASS
 ACCOUNT_DELETION_BACKEND_TRUTH_GATE=PASS
-ACCOUNT_DELETION_CLIENT_ACCESS_GATE=PENDING
+ACCOUNT_DELETION_CLIENT_ACCESS_GATE=PASS
 PROTECTED_INVARIANT_GATES=BLOCKED_BY_EXISTING_ENGINE_TEST_COLLECTION
 IOS_PHYSICAL_DEVICE_ACCEPTANCE=PENDING
 APP_STORE_SCREENSHOT_IOS_ONLY=PENDING
@@ -205,31 +206,31 @@ Draft PR: **#37 — iOS review remediation: keep account deletion reachable for 
 
 # Phase 3 — Account deletion accessibility and completion truth
 
-**Status:** IN PROGRESS. Backend truth gate is complete; client access gate is awaiting its CI verifier.
+**Status:** DONE for source + automated regression remediation. Physical-device reviewer proof remains Phase 7/9.
 
-- [ ] **Free authenticated user can open Settings without paid entitlement.**  
-  **Definition of done:** source fix exists and the permanent client invariant/TypeScript gate passes.  
-  **Current evidence:** commit `d36d5ac6392edc6a8415fbbe379fe7c1edb16196` separates authenticated account-management routes (`settings`, `help`, `billing`) from paid learning entitlement checks. Client CI still running.
+- [x] **Free authenticated user can open Settings without paid entitlement.**  
+  **Definition of done:** source fix exists and permanent client invariant/TypeScript gate passes.  
+  **Evidence:** commit `d36d5ac6392edc6a8415fbbe379fe7c1edb16196`; PR CI run `32155927222` client TypeScript, navigation invariants, and account-deletion access invariant all SUCCESS at head `2417270ffb1d2e35b47b411e034ebefce61a1842`.
 
-- [ ] **Paid learning routes remain protected.**  
-  **Definition of done:** client invariant proves paid/protected routes were not reclassified as account management and navigation/TypeScript checks pass.  
-  **Current state:** verifier exists; awaiting CI result.
+- [x] **Paid learning routes remain protected by the account-management exemption.**  
+  **Definition of done:** client invariant proves protected learning/YKI/professional/read/create/progress routes were not reclassified as account management and navigation/TypeScript checks pass.  
+  **Evidence:** `verify-account-deletion-access.mjs`; PR CI run `32155927222` = SUCCESS.
 
-- [ ] **Delete Account remains visible/reachable through signed-in Settings navigation.**  
+- [x] **Delete Account remains visible/reachable through signed-in Settings navigation.**  
   **Definition of done:** permanent verifier proves drawer → Settings discoverability and Settings → Delete Account handler/API wiring; client checks pass.  
-  **Current state:** verifier exists; awaiting CI result.
+  **Evidence:** verifier checks sidebar navigation, `handleDeleteAccount`, authenticated API call, and visible `onPress={handleDeleteAccount}` wiring; PR CI run `32155927222` = SUCCESS.
 
-- [ ] **Reviewer-state regression test added and passing.**  
+- [x] **Reviewer-state regression test added and passing.**  
   **Definition of done:** `verify-account-deletion-access.mjs` runs successfully in PR CI.  
-  **Evidence pending:** verifier created in commit `d47c08f2468f4d5090bcd1b389a950a4296633d4` and wired into CI; current client job not yet complete.
+  **Evidence:** verifier created in commit `d47c08f2468f4d5090bcd1b389a950a4296633d4`; CI account-deletion access step SUCCESS in run `32155927222`.
 
-- [ ] **Free-user protected-feature regression assertion added and passing.**  
-  **Definition of done:** client verifier proves account-management exemption does not include learning/YKI/professional/read/create/progress routes and passes in CI.  
-  **Current state:** assertion exists; awaiting CI.
+- [x] **Free-user protected-feature regression assertion added and passing.**  
+  **Definition of done:** verifier proves the account-management exemption does not include learning/YKI/professional/read/create/progress routes and passes in CI.  
+  **Evidence:** CI account-deletion access step SUCCESS in run `32155927222`.
 
 - [x] **Backend deletion result no longer reports completion after partial required cleanup.**  
-  **Definition of done:** service returns success only after both database and state-store cleanup succeed; database/state failure produces a retryable error; targeted regression passes.  
-  **Evidence:** source commit `720222299cffcb40212002c880bf85d613d8c2e2`; PR CI run `32155927222`, step **Verify account deletion completion truth** = SUCCESS at head `2417270ffb1d2e35b47b411e034ebefce61a1842`.
+  **Definition of done:** service returns success only after database and state-store cleanup succeed; database/state failure produces retryable error; targeted regression passes.  
+  **Evidence:** source commit `720222299cffcb40212002c880bf85d613d8c2e2`; PR CI run `32155927222`, step **Verify account deletion completion truth** = SUCCESS.
 
 - [x] **Backend success/failure regression tests added and passing.**  
   **Definition of done:** tests cover cleanup order, complete success, database cleanup failure, and state-store cleanup failure and pass in CI.  
@@ -237,15 +238,21 @@ Draft PR: **#37 — iOS review remediation: keep account deletion reachable for 
 
 - [x] **Automated session/token invalidation behavior verified for deleted account state.**  
   **Definition of done:** regression verifies deleted user's identity/session/access/refresh state is removed while unrelated user session state is preserved, and test passes in CI.  
-  **Evidence:** commit `393765c9542702d7b63e91b143bff3cba0344765` adds isolated `InMemoryStateStore` regression; included in successful targeted account-deletion test step in run `32155927222`.
+  **Evidence:** commit `393765c9542702d7b63e91b143bff3cba0344765`; included in successful targeted account-deletion test step in run `32155927222`.
 
-**Current repair PR head:** `2417270ffb1d2e35b47b411e034ebefce61a1842`.
+**Phase 3 gate:**
+
+```text
+FREE_AUTHENTICATED_USER_CAN_OPEN_SETTINGS=PASS
+FREE_USER_PAID_FEATURE_GUARDS_STILL_ENFORCED=PASS
+ACCOUNT_DELETION_REACHABLE_SOURCE_GATE=PASS
+ACCOUNT_DELETION_COMPLETION_TRUTH=PASS
+ACCOUNT_DELETION_SOURCE_REGRESSION_GATES=PASS
+```
 
 ### Known unrelated/global regression-suite blocker discovered while validating Phase 3
 
-The targeted account-deletion backend gate passes. The subsequent repository-wide `pytest apps/backend/tests engine/tests -q` step currently fails during collection because the canonical source/test combination references missing modules `engine.learning` and `engine.logging`. This failure was reproduced in PR CI and is not caused by the account-deletion service tests. It remains a blocker for **Phase 5 protected invariant gates**, and it must not be hidden or reclassified as PASS.
-
-**Definition of done for Phase 3:** all five client/account-access checkboxes plus the three completed backend checkboxes are `[x]`. Physical-device proof remains Phase 7.
+The targeted account-deletion backend gate and the complete client account-access gate pass. The subsequent repository-wide `pytest apps/backend/tests engine/tests -q` step still fails during collection because the canonical source/test combination references missing modules `engine.learning` and `engine.logging`. This is **not** marked green and remains a blocker for Phase 5 protected invariant gates. Do not hide the failure or weaken/delete tests to obtain a green check.
 
 ---
 
