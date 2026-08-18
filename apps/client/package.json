@@ -15,7 +15,8 @@
     "verify:roleplay-scenarios": "node ./scripts/verify-roleplay-scenario-rotation.mjs",
     "verify:navigation": "node ./scripts/verify-navigation-invariants.mjs",
     "verify:account-deletion-access": "node ./scripts/verify-account-deletion-access.mjs",
-    "verify:revenuecat-identity": "node ./scripts/verify-revenuecat-identity.mjs"
+    "verify:revenuecat-identity": "node ./scripts/verify-revenuecat-identity.mjs",
+    "verify:store-billing-preflight": "node ./scripts/verify-store-billing-preflight.mjs"
   },
   "dependencies": {
     "@expo/metro-runtime": "^55.0.11",
