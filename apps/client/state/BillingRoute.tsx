@@ -5,7 +5,13 @@ import { AppScaffold, PageHeader } from '@ui/components';
 import { getFloentlyPalette } from '@ui/theme/floentlyPalette';
 
 import { paymentService } from '../features/billing/services/paymentService';
-import { restoreStorePurchases, startStorePurchase, supportsStoreBilling } from '../features/billing/services/storeBillingService';
+import {
+  preflightStoreBillingPlans,
+  restoreStorePurchases,
+  startStorePurchase,
+  supportsStoreBilling,
+  type StoreBillingCatalog,
+} from '../features/billing/services/storeBillingService';
 import { useAuthStore } from './authStore';
 import { usePreferencesStore } from './preferencesStore';
 import { useSubscriptionStore } from './subscriptionStore';
@@ -145,6 +151,8 @@ export default function BillingRoute({ onBack, onOpenMenu }: Props) {
   const [billingActionBusy, setBillingActionBusy] = useState(false);
   const [period, setPeriod] = useState<BillingPeriod>('yearly');
   const [selectedProfessions, setSelectedProfessions] = useState<ProfessionKey[]>(['nurse']);
+  const [storeCatalog, setStoreCatalog] = useState<StoreBillingCatalog | null>(null);
+  const [storeCatalogLoading, setStoreCatalogLoading] = useState(false);
   const user = useAuthStore((state) => state.user);
   const hydratePreferences = usePreferencesStore((state) => state.hydrate);
   const themeMode = usePreferencesStore((state) => state.themeMode);
@@ -154,6 +162,12 @@ export default function BillingRoute({ onBack, onOpenMenu }: Props) {
   const hydrateSubscription = useSubscriptionStore((state) => state.hydrate);
   const refreshSubscription = useSubscriptionStore((state) => state.refresh);
   const subscription = useSubscriptionStore((state) => state.status);
+  const isMobileStoreBilling = supportsStoreBilling();
+  const storeUserId = user?.id ?? user?.email ?? null;
+  const visibleStorePlanIds = useMemo(
+    () => PATHWAYS.map((pathway) => getPlanByPathwayPeriod(pathway.id, period).id),
+    [period],
+  );
   const statusForBillingUi = billingStatusSnapshot ?? (subscription as unknown as BillingStatusSnapshot | null);
   const isTrial = Boolean(statusForBillingUi?.is_trial ?? statusForBillingUi?.isTrial);
   const cancelAtPeriodEnd = Boolean(statusForBillingUi?.cancel_at_period_end ?? statusForBillingUi?.cancelAtPeriodEnd);
@@ -207,7 +221,14 @@ export default function BillingRoute({ onBack, onOpenMenu }: Props) {
       statusForBillingUi?.canStartTrial ??
       !trialAlreadyUsed
   );
-  const trialActionDisabled = Boolean(hasActiveSubscription || trialAlreadyUsed || !canStartTrial || trialBusy);
+  const trialPlanId = getPlanByPathwayPeriod('yki', period).id;
+  const trialStoreAvailability = storeCatalog?.plans.find((item) => item.planId === trialPlanId);
+  const trialStoreUnavailable = Boolean(
+    isMobileStoreBilling && (storeCatalogLoading || !trialStoreAvailability?.available),
+  );
+  const trialActionDisabled = Boolean(
+    hasActiveSubscription || trialAlreadyUsed || !canStartTrial || trialBusy || trialStoreUnavailable,
+  );
   const showTrialStartCard = Boolean(!hasPaymentIssue && !trialAlreadyUsed && canStartTrial && !hasActiveSubscription);
 
   const trialEndRawForManagement =
@@ -257,7 +278,6 @@ export default function BillingRoute({ onBack, onOpenMenu }: Props) {
               ? t('billingManagementSubscriptionActiveBody')
               : t('billingManagementNoActiveBody');
 
-  const isMobileStoreBilling = supportsStoreBilling();
   const billingManagementActionLabel = isMobileStoreBilling
     ? t('billingRestorePurchasesAction')
     : t('billingPaymentMethodStripeAction');
@@ -338,6 +358,38 @@ export default function BillingRoute({ onBack, onOpenMenu }: Props) {
   useEffect(() => {
     void refreshBillingSnapshot();
   }, [user?.email, user?.subscriptionTier]);
+
+  useEffect(() => {
+    if (!isMobileStoreBilling) {
+      setStoreCatalog(null);
+      setStoreCatalogLoading(false);
+      return;
+    }
+
+    let cancelled = false;
+    setStoreCatalogLoading(true);
+
+    void preflightStoreBillingPlans(visibleStorePlanIds, storeUserId)
+      .then((catalog) => {
+        if (!cancelled) {
+          setStoreCatalog(catalog);
+        }
+      })
+      .catch(() => {
+        if (!cancelled) {
+          setStoreCatalog(null);
+        }
+      })
+      .finally(() => {
+        if (!cancelled) {
+          setStoreCatalogLoading(false);
+        }
+      });
+
+    return () => {
+      cancelled = true;
+    };
+  }, [isMobileStoreBilling, storeUserId, visibleStorePlanIds]);
 
 
   useEffect(() => {
@@ -461,6 +513,13 @@ export default function BillingRoute({ onBack, onOpenMenu }: Props) {
     };
     try {
       setBusyPlan(request.plan);
+      if (isMobileStoreBilling) {
+        const availability = storeCatalog?.plans.find((item) => item.planId === request.plan);
+        if (!availability?.available) {
+          Alert.alert(t('billingPurchaseUnavailableTitle'), t('billingPurchaseUnavailableBody'));
+          return;
+        }
+      }
       const latestStatus = await paymentService.getSubscriptionStatus();
       if (isActiveSubscriptionStatus(latestStatus)) {
         Alert.alert(t('billingTrialAlreadyActiveTitle'), t('billingTrialAlreadyActiveBody'));
@@ -569,6 +628,10 @@ export default function BillingRoute({ onBack, onOpenMenu }: Props) {
 
     try {
       setTrialBusy(true);
+      if (isMobileStoreBilling && !trialStoreAvailability?.available) {
+        Alert.alert(t('billingPurchaseUnavailableTitle'), t('billingPurchaseUnavailableBody'));
+        return;
+      }
       const latestStatus = await paymentService.getSubscriptionStatus();
       if (isActiveSubscriptionStatus(latestStatus)) {
         Alert.alert(t('billingTrialAlreadyActiveTitle'), t('billingTrialAlreadyActiveBody'));
@@ -739,7 +802,9 @@ export default function BillingRoute({ onBack, onOpenMenu }: Props) {
       {showTrialStartCard ? (
       <View style={[styles.portalButton, { backgroundColor: palette.surface, borderColor: palette.border }]}>
         <Text style={[styles.portalTitle, { color: palette.text }]}>{trialCardTitle}</Text>
-        {Platform.OS !== 'ios' ? (
+        {isMobileStoreBilling && !storeCatalogLoading && !trialStoreAvailability?.available ? (
+          <Text style={[styles.portalBody, { color: palette.textMuted }]}>{t('billingPurchaseUnavailableBody')}</Text>
+        ) : Platform.OS !== 'ios' ? (
           <Text style={[styles.portalBody, { color: palette.textMuted }]}>{trialCardBody}</Text>
         ) : null}
         <Pressable
@@ -857,6 +922,13 @@ export default function BillingRoute({ onBack, onOpenMenu }: Props) {
         <Text style={[styles.sectionBody, { color: palette.textMuted }]}>{t('billingChoosePlanAfterStatusBody')}</Text>
       </View>
 
+      {isMobileStoreBilling && !storeCatalogLoading && !storeCatalog?.ready ? (
+        <View style={[styles.portalButton, { backgroundColor: palette.surface, borderColor: palette.border }]}>
+          <Text style={[styles.portalTitle, { color: palette.text }]}>{t('billingPurchaseUnavailableTitle')}</Text>
+          <Text style={[styles.portalBody, { color: palette.textMuted }]}>{t('billingPurchaseUnavailableBody')}</Text>
+        </View>
+      ) : null}
+
       <View style={[styles.segmentWrap, { backgroundColor: palette.surface, borderColor: palette.border }]}>
         {BILLING_PERIOD_OPTIONS.map((option) => {
           const active = period === option.key;
@@ -876,17 +948,32 @@ export default function BillingRoute({ onBack, onOpenMenu }: Props) {
           const plan = getPlanByPathwayPeriod(pathway.id, period);
           const isBusy = busyPlan === plan.id;
           const needsProfession = pathway.id !== 'yki';
+          const storeAvailability = storeCatalog?.plans.find((item) => item.planId === plan.id);
+          const storePlanReady = Boolean(storeAvailability?.available);
+          const checkoutDisabled = Boolean(
+            isBusy || (isMobileStoreBilling && (storeCatalogLoading || !storePlanReady)),
+          );
+          const displayedPrice = isMobileStoreBilling
+            ? storeAvailability?.priceString ?? (storeCatalogLoading ? '…' : t('billingUnavailableTitle'))
+            : estimate.totalLabel;
+          const checkoutActionLabel = isBusy
+            ? t('billingOpeningCheckout')
+            : isMobileStoreBilling && storeCatalogLoading
+              ? t('billingOpeningCheckout')
+              : isMobileStoreBilling && !storePlanReady
+                ? t('billingPurchaseUnavailableTitle')
+                : t('billingStartCheckout');
           return (
             <View key={pathway.id} style={[styles.pricingCard, { backgroundColor: palette.surface, borderColor: palette.border, shadowColor: palette.shadow }]}>
               <View style={styles.planTopRow}>
                 <Text style={[styles.planEyebrow, { color: palette.primary }]}>{t(pathway.eyebrowKey)}</Text>
                 <View style={[styles.planChip, { backgroundColor: palette.primarySurface }]}>
-                  <Text style={[styles.planChipText, { color: palette.primary }]}>{estimate.totalLabel}</Text>
+                  <Text style={[styles.planChipText, { color: palette.primary }]}>{displayedPrice}</Text>
                 </View>
               </View>
               <Text style={[styles.pricingTitle, { color: palette.text }]}>{t(pathway.titleKey)}</Text>
               <Text style={[styles.portalBody, { color: palette.textMuted }]}>{t(pathway.detailKey)}</Text>
-              <Text style={[styles.priceText, { color: palette.text }]}>{estimate.totalLabel}</Text>
+              <Text style={[styles.priceText, { color: palette.text }]}>{displayedPrice}</Text>
               {needsProfession ? <Text style={[styles.portalBody, { color: palette.textMuted }]}>{professionListLabel(billingProfessions, billingDisplayLabels.professions, billingDisplayLabels.noProfessionSelected)}</Text> : null}
               {needsProfession ? renderProfessionSelector() : null}
               <View style={styles.stackTight}>
@@ -897,8 +984,17 @@ export default function BillingRoute({ onBack, onOpenMenu }: Props) {
                   </View>
                 ))}
               </View>
-              <Pressable accessibilityRole="button" onPress={() => { void handleCheckout(pathway.id); }} style={({ pressed }) => [styles.organisationCta, { backgroundColor: palette.primary }, pressed && styles.pressed]}>
-                <Text style={[styles.organisationCtaText, { color: textOnPrimary }]}>{isBusy ? t('billingOpeningCheckout') : t('billingStartCheckout')}</Text>
+              <Pressable
+                accessibilityRole="button"
+                disabled={checkoutDisabled}
+                onPress={() => { void handleCheckout(pathway.id); }}
+                style={({ pressed }) => [
+                  styles.organisationCta,
+                  { backgroundColor: palette.primary, opacity: checkoutDisabled ? 0.65 : 1 },
+                  pressed && !checkoutDisabled && styles.pressed,
+                ]}
+              >
+                <Text style={[styles.organisationCtaText, { color: textOnPrimary }]}>{checkoutActionLabel}</Text>
               </Pressable>
             </View>
           );
