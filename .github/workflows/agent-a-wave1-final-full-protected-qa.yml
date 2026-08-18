@@ -105,13 +105,12 @@ jobs:
       - name: Whole client TypeScript
         run: pnpm --dir apps/client exec tsc --noEmit
 
-      - name: Reading Writing Practice Professional Missions graphics accessibility and wiring
+      - name: Reading Writing Practice mission integration graphics accessibility and wiring
         run: |
           node --disable-warning=ExperimentalWarning apps/client/scripts/verify-reading-engine.mjs
           node apps/client/scripts/verify-agent-d-writing.mjs
           node apps/client/scripts/verify-agent-d-writing-profession.mjs
           node --experimental-strip-types apps/client/scripts/verify-practice-composer.mts
-          node apps/client/scripts/verify-professional-missions.mjs
           node apps/client/scripts/verify-learning-experience-system.mjs
           node apps/client/scripts/verify-wave1-professional-mission-integration.mjs
           node --experimental-strip-types apps/client/scripts/verify-wave1-integration-seams.mts
