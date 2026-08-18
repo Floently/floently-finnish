@@ -35,6 +35,11 @@ jobs:
           if len(authority_cards) != len(runtime_cards):
               raise SystemExit("Authority/runtime card count mismatch")
           CHECK
+      - name: Verify account deletion completion truth
+        run: pytest apps/backend/tests/test_account_deletion_service.py -q
+        env:
+          FLOENTLY_ENV: development
+          SIGNED_SESSION_SECRET: ci-test-secret
       - name: Run backend and engine tests
         run: pytest apps/backend/tests engine/tests -q
         env:
