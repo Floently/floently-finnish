@@ -4,13 +4,12 @@ on:
   push:
     branches:
       - agent/a-review-roleplay-deeplink-r1-20260818
-
-permissions:
-  contents: write
+  pull_request:
+    branches:
+      - agent/a-review-roleplay-deeplink-r1-20260818
 
 jobs:
   independent-client-qa:
-    if: ${{ !contains(github.event.head_commit.message, 'qa: record mission roleplay deep-link pass') }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -46,31 +45,3 @@ jobs:
           git diff --exit-code ddef94695001656b44d51f7469cd1ea4f5029232 -- . ':(exclude).github/workflows/agent-a-review-roleplay-deeplink-r1.yml'
           test "$(git diff --name-only ddef94695001656b44d51f7469cd1ea4f5029232...HEAD | grep -v '^.github/workflows/agent-a-review-roleplay-deeplink-r1.yml$' | wc -l)" -eq 0
           echo "QA_SOURCE_IDENTITY=PASS"
-      - name: Record successful independent QA
-        run: |
-          mkdir -p docs/agents/qa
-          cat > docs/agents/qa/AGENT_A_ROLEPLAY_DEEPLINK_R1_PASS.md <<'EOF'
-          # Agent A Professional Mission Roleplay Deep-Link R1 QA — PASS
-
-          Reviewed runtime source: `ddef94695001656b44d51f7469cd1ea4f5029232`
-          Frozen UAT parent: `e3685e61cd207fa12c16cd9ffa4a85ecb7f95278`
-
-          Passed on GitHub Actions:
-          - frozen workspace install
-          - whole-client TypeScript
-          - executable Professional Mission tuple + entitlement negative guards
-          - Practice composer entitlement/profession isolation
-          - Wave-1 product wiring
-          - protected navigation invariants
-          - protected Roleplay audio invariants
-          - protected Roleplay scenario invariants
-          - QA source identity: instrumentation-only difference from reviewed runtime SHA
-
-          `AGENT_A_ROLEPLAY_DEEPLINK_QA=PASS`
-          `PRODUCTION_ACTIONS=NONE`
-          EOF
-          git config user.name "Agent A QA"
-          git config user.email "agent-a-qa@users.noreply.github.com"
-          git add docs/agents/qa/AGENT_A_ROLEPLAY_DEEPLINK_R1_PASS.md
-          git commit -m "qa: record mission roleplay deep-link pass"
-          git push origin HEAD:agent/a-review-roleplay-deeplink-r1-20260818
