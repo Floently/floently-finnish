@@ -26,7 +26,7 @@ jobs:
         run: |
           git fetch --no-tags --depth=2 origin agent/a-wave1-final-full-protected-qa-base-20260818
           test "$(git rev-parse FETCH_HEAD^)" = "$WAVE1_RUNTIME_SHA"
-          git fetch --no-tags --depth=1 origin agent/f-professional-missions-20260816
+          git fetch --no-tags --depth=64 origin agent/f-professional-missions-20260816
           test "$(git rev-parse FETCH_HEAD)" = "$AGENT_F_ACCEPTED_SHA"
 
       - name: Prove exact runtime source identity before QA
@@ -47,7 +47,7 @@ jobs:
           python -m pip install --upgrade pip
           python -m pip install -r apps/backend/requirements.txt
 
-      - name: Learning auth Cards Roleplay voice YKI and mission backend regressions
+      - name: Learning auth Cards Roleplay voice and YKI backend regressions
         env:
           PYTHONPATH: apps/backend
           FLOENTLY_ENV: development
@@ -62,7 +62,6 @@ jobs:
             apps/backend/tests/test_cards_logic_answer_options.py \
             apps/backend/tests/test_roleplay_role_contract_regressions.py \
             apps/backend/tests/test_voice_service_failure_classification.py \
-            apps/backend/tests/test_professional_mission_contract.py \
             apps/backend/tests/test_yki_local_fallback.py \
             apps/backend/tests/test_yki_orchestrator.py \
             apps/backend/tests/test_yki_state_machine.py
@@ -129,6 +128,7 @@ jobs:
             docs/agents/research/AGENT_F_RESEARCH.md
           git worktree add --detach /tmp/agent-f-final-source "$AGENT_F_ACCEPTED_SHA"
           (cd /tmp/agent-f-final-source && node apps/client/scripts/verify-professional-missions.mjs)
+          (cd /tmp/agent-f-final-source && PYTHONPATH=apps/backend python -m pytest -q apps/backend/tests/test_professional_mission_contract.py)
 
       - name: Navigation deep links Roleplay audio STT transport and scenario invariants
         run: |
