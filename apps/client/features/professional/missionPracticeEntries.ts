@@ -36,10 +36,15 @@ function missionRoleplayPracticeEntry(
   return {
     descriptor: {
       ...roleplayStep.task,
-      // Agent F's accepted source intentionally remains degraded until a
-      // reviewed integration bridge exists. This Practice-facing clone is
-      // available only because AppShell now validates the complete mission
-      // URL tuple and the learner's exact Professional entitlement.
+      // Agent F's accepted source remains degraded and still targets the
+      // ordinary protected `/speaking` route. Only this integration-owned
+      // Practice clone becomes available and targets the separately reviewed
+      // mission adapter, which validates tuple + entitlement before rendering
+      // the existing SpeakingRoute.
+      launch: {
+        ...roleplayStep.task.launch,
+        route: '/speaking/mission',
+      },
       health: 'available',
       featureFlag: undefined,
     },
@@ -54,11 +59,11 @@ function missionRoleplayPracticeEntry(
  * Practice-facing mission seam.
  *
  * Reading and Writing use their canonical Wave-1 adapters. Mission Roleplay
- * preserves Agent F's canonical `/speaking` launch tuple and is surfaced only
- * through an Agent-A clone after the protected route boundary validates the
- * exact mission/profession/context/scenario tuple and entitlement. Agent F's
- * source descriptor remains byte-identical and degraded. Professional
- * Listening remains unavailable because no canonical owner exists.
+ * preserves Agent F's canonical launch params but routes the Practice clone
+ * through `/speaking/mission`, where the exact mission/profession/context/
+ * scenario tuple and Professional entitlement are validated. Agent F's source
+ * descriptor remains byte-identical, degraded, and routed to `/speaking`.
+ * Professional Listening remains unavailable because no canonical owner exists.
  */
 export function getProfessionalMissionPracticeEntries(profession?: string): ProfessionalMissionPracticeEntry[] {
   if (!isMissionProfession(profession)) return [];
