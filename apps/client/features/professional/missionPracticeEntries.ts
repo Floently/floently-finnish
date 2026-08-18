@@ -13,22 +13,52 @@ export type ProfessionalMissionPracticeEntry = {
   title: string;
   summary: string;
   missionId: string;
-  source: 'professional-mission-reading' | 'professional-mission-writing';
+  source:
+    | 'professional-mission-roleplay'
+    | 'professional-mission-reading'
+    | 'professional-mission-writing';
 };
 
 function isMissionProfession(value?: string): value is 'doctor' | 'nurse' | 'practical_nurse' {
   return value === 'doctor' || value === 'nurse' || value === 'practical_nurse';
 }
 
+function missionRoleplayPracticeEntry(
+  mission: (typeof PROFESSIONAL_MISSIONS)[number],
+): ProfessionalMissionPracticeEntry {
+  const roleplayStep = mission.steps.find(
+    (step) => step.stage === 'produce' && step.task.runtime === 'roleplay',
+  );
+  if (!roleplayStep) {
+    throw new Error(`MISSION_ROLEPLAY_STEP_MISSING:${mission.missionId}`);
+  }
+
+  return {
+    descriptor: {
+      ...roleplayStep.task,
+      // Agent F's accepted source intentionally remains degraded until a
+      // reviewed integration bridge exists. This Practice-facing clone is
+      // available only because AppShell now validates the complete mission
+      // URL tuple and the learner's exact Professional entitlement.
+      health: 'available',
+      featureFlag: undefined,
+    },
+    title: roleplayStep.content.title,
+    summary: roleplayStep.objective,
+    missionId: mission.missionId,
+    source: 'professional-mission-roleplay',
+  };
+}
+
 /**
  * Practice-facing mission seam.
  *
- * Reading and Writing are resolvable because their canonical Wave-1 owners are
- * integrated. Mission Roleplay intentionally stays out of this adapter until
- * the protected `/speaking` route has a separately reviewed profession/scenario
- * parameter bridge. The existing protected Professional Roleplay fixture remains
- * available in Practice, so this deferral does not remove speaking practice.
- * Professional Listening remains unavailable because no canonical owner exists.
+ * Reading and Writing use their canonical Wave-1 adapters. Mission Roleplay
+ * preserves Agent F's canonical `/speaking` launch tuple and is surfaced only
+ * through an Agent-A clone after the protected route boundary validates the
+ * exact mission/profession/context/scenario tuple and entitlement. Agent F's
+ * source descriptor remains byte-identical and degraded. Professional
+ * Listening remains unavailable because no canonical owner exists.
  */
 export function getProfessionalMissionPracticeEntries(profession?: string): ProfessionalMissionPracticeEntry[] {
   if (!isMissionProfession(profession)) return [];
@@ -39,6 +69,7 @@ export function getProfessionalMissionPracticeEntries(profession?: string): Prof
       const readingTask = buildProfessionalMissionReadingTask(mission);
       const writingTask = buildProfessionalMissionWritingTask(mission);
       return [
+        missionRoleplayPracticeEntry(mission),
         {
           descriptor: {
             ...toReadingTaskDescriptor(readingTask),
