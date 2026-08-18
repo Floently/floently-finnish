@@ -26,6 +26,8 @@ ACCOUNT_DELETION_CLIENT_ACCESS_GATE=PASS
 REVENUECAT_IDENTITY_SOURCE_GATE=PASS
 STORE_BILLING_PREFLIGHT_SERVICE_GATE=PASS
 STORE_BILLING_SAFE_ERROR_GATE=PASS
+PAYWALL_PREFLIGHT_PRESENTATION=PASS
+IOS_LOCALIZED_STORE_PRICE_SOURCE_GATE=PASS
 PROTECTED_INVARIANT_GATES=BLOCKED_BY_EXISTING_ENGINE_TEST_COLLECTION
 IOS_PHYSICAL_DEVICE_ACCEPTANCE=PENDING
 APP_STORE_SCREENSHOT_IOS_ONLY=PENDING
@@ -261,7 +263,7 @@ The targeted account-deletion backend gate and the complete client account-acces
 
 # Phase 4 — iOS identity and RevenueCat client hardening
 
-**Status:** IN PROGRESS. RevenueCat customer identity and user-safe store error gates are verified; paywall-level preflight/localized-price work and external Apple/RevenueCat reconciliation remain open.
+**Status:** IN PROGRESS. All repository-side RevenueCat customer-identity, store-product preflight, fail-closed paywall, user-safe error, and localized-price presentation gates are verified. Bundle identity and Apple/RevenueCat dashboard reconciliation remain external blockers.
 
 - [ ] **iOS bundle identity normalized to Apple-authoritative value.**  
   **Definition of done:** build 34/App Store Connect/RevenueCat authoritative identity is proven first, then source/build configuration is normalized and verified.  
@@ -273,45 +275,45 @@ The targeted account-deletion backend gate and the complete client account-acces
 
 - [ ] **KieliValmis RevenueCat current-offering/placement contract is explicit and tested end to end.**  
   **Definition of done:** source contract plus RevenueCat dashboard offering/placement and every visible package/product mapping are reconciled and tested.  
-  **Current state:** source now supports current-offering snapshot/preflight, but RevenueCat dashboard evidence remains pending.
+  **Current state:** repository-side current-offering snapshot/preflight is verified, but RevenueCat dashboard evidence remains pending.
 
 - [x] **Store billing preflight service and purchase-time package recheck are implemented and passing.**  
   **Definition of done:** all nine core plan/package mappings are explicit; preflight resolves the RevenueCat offering and requires package + underlying store Product ID + localized price; selected plan is rechecked immediately before purchase; TypeScript and invariant gate pass.  
-  **Evidence:** `preflightStoreBillingPlans()` and reusable package snapshot matching added in commits through `1126871b0eb1db0adc16e43d804abb371fac3f55`; PR CI run `32157537832` client TypeScript and **Verify store billing preflight invariants** = SUCCESS.
+  **Evidence:** `preflightStoreBillingPlans()` and reusable package snapshot matching; current PR CI run `32158791952` client TypeScript and **Verify store billing preflight invariants** = SUCCESS at exact head `e44453aec7b0c5d5f35a81681e4eef38f251372a`.
 
-- [ ] **Offering/package preflight is consumed by the paywall before enabling purchase CTAs.**  
-  **Definition of done:** BillingRoute loads the store catalog before enabling store purchase controls and does not present a purchasable CTA for a plan whose App Store product/price was not fetched.  
-  **Current state:** service/purchase-time gate is complete, but paywall presentation integration remains to be implemented.
+- [x] **Offering/package preflight is consumed by the paywall before enabling purchase CTAs.**  
+  **Definition of done:** BillingRoute loads all currently visible store plans before enabling mobile purchase controls, and a plan whose App Store product/price was not fetched is not exposed as a normal enabled Buy action.  
+  **Evidence:** BillingRoute commit `cce20f49febaa3e4a4dbb0d879f1ce8988c3d81e` adds `storeCatalog`, `storeCatalogLoading`, `visibleStorePlanIds`, and `preflightStoreBillingPlans(...)` consumption; verifier commit `e44453aec7b0c5d5f35a81681e4eef38f251372a`; CI run `32158791952` TypeScript + store-billing preflight invariant = SUCCESS.
 
-- [ ] **Missing store products disable/replace the purchase CTA safely.**  
-  **Definition of done:** an unavailable plan cannot be tapped as a normal Buy action and the user receives stable retry/unavailable presentation instead of discovering the problem only after tapping.  
-  **Current state:** purchase-time service fails closed safely, but the existing BillingRoute still needs preflight-driven CTA state.
+- [x] **Missing store products disable/replace the purchase CTA safely.**  
+  **Definition of done:** unavailable or still-loading mobile plans cannot invoke the normal purchase action; trial purchase is also gated; stable unavailable presentation is shown.  
+  **Evidence:** BillingRoute uses `checkoutDisabled = isBusy || (isMobileStoreBilling && (storeCatalogLoading || !storePlanReady))`, `disabled={checkoutDisabled}`, explicit checkout availability guard, and `trialStoreUnavailable`; current exact-head verifier and TypeScript checks pass in CI run `32158791952`.
 
 - [x] **Raw RevenueCat SDK errors are not normal user-facing purchase/restore copy.**  
-  **Definition of done:** RevenueCat purchase/restore/preflight failures are converted to stable application errors before reaching current BillingRoute error alerts; technical cause is retained in diagnostics; TypeScript/invariant gate passes.  
-  **Evidence:** `StoreBillingUnavailableError`, `StorePurchaseCancelledError`, technical diagnostic logging and safe wrappers in `storeBillingService.ts`; PR CI run `32157537832` client TypeScript and store-billing preflight invariant = SUCCESS at head `1126871b0eb1db0adc16e43d804abb371fac3f55`.
+  **Definition of done:** RevenueCat purchase/restore/preflight failures are converted to stable application errors before reaching BillingRoute alerts; technical cause is retained in diagnostics; TypeScript/invariant gate passes.  
+  **Evidence:** `StoreBillingUnavailableError`, `StorePurchaseCancelledError`, technical diagnostic logging and safe wrappers in `storeBillingService.ts`; current CI run `32158791952` keeps TypeScript and store-billing invariant green.
 
-- [ ] **iOS prices come from localized RevenueCat/StoreKit product data in the visible paywall.**  
-  **Definition of done:** BillingRoute displays the matched package `priceString`/localized store price instead of static EUR estimates for iOS store purchases, with regression coverage.  
-  **Current state:** RevenueCat snapshot now carries localized price data, but BillingRoute still renders the static estimate and therefore this remains open.
+- [x] **iOS/mobile prices come from localized RevenueCat/StoreKit product data in the visible paywall.**  
+  **Definition of done:** mobile BillingRoute displays matched store `priceString` and uses the static checkout estimate only for the non-store branch; direct static estimate rendering in the mobile pricing card is prohibited by a permanent invariant.  
+  **Evidence:** BillingRoute `displayedPrice` selects `storeAvailability?.priceString` for mobile and `estimate.totalLabel` only for non-store; verifier commit `e44453aec7b0c5d5f35a81681e4eef38f251372a` explicitly rejects direct static estimate rendering; CI run `32158791952` TypeScript + preflight invariant = SUCCESS.
 
 - [x] **RevenueCat anonymous → authenticated and account-switching identity behavior is corrected/tested.**  
   **Definition of done:** an anonymous-configured SDK logs in when a concrete application user appears; a different authenticated app user is re-identified; application logout attempts RevenueCat logout without trapping the local app session; TypeScript and permanent identity invariant pass.  
-  **Evidence:** identity changes in `revenueCatService.ts` and `authStore.ts`; `verify-revenuecat-identity.mjs`; PR CI run `32157537832` client TypeScript and **Verify RevenueCat identity invariants** = SUCCESS.
+  **Evidence:** identity changes in `revenueCatService.ts` and `authStore.ts`; `verify-revenuecat-identity.mjs`; current CI run `32158791952` **Verify RevenueCat identity invariants** = SUCCESS.
 
-**Verified Phase-4 source sub-gates:**
+**Verified Phase-4 repository-side sub-gates:**
 
 ```text
 REVENUECAT_IDENTITY_SOURCE_GATE=PASS
 STORE_BILLING_PREFLIGHT_SERVICE_GATE=PASS
 STORE_BILLING_SAFE_ERROR_GATE=PASS
-PAYWALL_PREFLIGHT_PRESENTATION=PENDING
-IOS_LOCALIZED_STORE_PRICE=PENDING
+PAYWALL_PREFLIGHT_PRESENTATION=PASS
+IOS_LOCALIZED_STORE_PRICE_SOURCE_GATE=PASS
 IOS_BUNDLE_IDENTITY_SINGLE_SOURCE=PENDING_EXTERNAL_IDENTITY_PROOF
 REVENUECAT_OFFERING_CONTRACT=PENDING_DASHBOARD_RECONCILIATION
 ```
 
-**Phase 4 overall remains IN PROGRESS.**
+**Phase 4 overall remains IN PROGRESS** because the Apple-authoritative bundle identity and RevenueCat/App Store Connect dashboard catalog have not yet been proven.
 
 ---
 
@@ -321,7 +323,7 @@ REVENUECAT_OFFERING_CONTRACT=PENDING_DASHBOARD_RECONCILIATION
 
 - [ ] Authentication/session regression suite passes.
 - [x] **Navigation/deep-link/back source invariant suite passes on the current remediation head.**  
-  **Evidence:** PR CI run `32157537832`, **Verify navigation invariants** = SUCCESS at head `1126871b0eb1db0adc16e43d804abb371fac3f55`.
+  **Evidence:** PR CI run `32158791952`, **Verify navigation invariants** = SUCCESS at exact head `e44453aec7b0c5d5f35a81681e4eef38f251372a`.
 - [ ] Subscription/access regression suite passes.
 - [ ] Cards regression suite passes.
 - [ ] Roleplay regression suite passes.
@@ -329,7 +331,7 @@ REVENUECAT_OFFERING_CONTRACT=PENDING_DASHBOARD_RECONCILIATION
 - [ ] Everyday Finnish regression suite passes.
 - [ ] New iOS rejection regression tests pass as part of the immutable candidate gate.
 
-**Current blockers:** repository-wide backend/engine test collection fails on missing `engine.learning` and `engine.logging`. The latest roleplay-audio invariant workflow passes, but the latest roleplay-scenario workflow did not execute its scenario verifier because its dependency-install step failed; therefore Roleplay remains unchecked. Do not weaken/delete tests to obtain green status; reconcile canonical test/runtime source according to `ANTI-REGRESSION-001`.
+**Current blockers:** repository-wide backend/engine test collection fails because canonical tests import missing modules `engine.learning` and `engine.logging`. The failure is visible in PR CI run `32158791952`; the isolated account-deletion backend gate still passes before that global collection failure. Do not weaken/delete tests to obtain green status; reconcile canonical test/runtime source according to `ANTI-REGRESSION-001`.
 
 **Definition of done:** `PROTECTED_INVARIANT_GATES=PASS` and `IOS_REJECTION_REGRESSION_GATES=PASS`.
 
