@@ -6,7 +6,7 @@
 **Submission ID:** `9ca64a66-a835-4a85-b97d-987bf54044eb`  
 **Master runbook:** `docs/release/IOS_APP_STORE_REJECTION_2026-08-17_RESUBMISSION_RUNBOOK.md`  
 **Frozen runbook commit:** `d17e5894f6628f0a81d7a33ff21f466abf8a9359`  
-**Status ledger rule:** an item is changed to `[x]` **only when its stated definition of done is actually true and supported by evidence**. Unknown, inferred, or merely likely items remain unchecked.  
+**Live ledger rule:** change an item to `[x]` only when its stated definition of done is true and supported by evidence. Unknown, inferred, source-only-without-required-tests, dashboard-only-without-verification, and physical-device-only items remain unchecked.  
 
 ---
 
@@ -20,11 +20,14 @@ BUILD34_PROVENANCE=BLOCKED
 APPLE_REVENUECAT_CATALOG_RECONCILIATION=PENDING
 SOURCE_REPAIR_STARTED=YES
 REPAIR_BRANCH_FORWARD_BASE=PASS
+ACCOUNT_DELETION_BACKEND_TRUTH_GATE=PASS
+ACCOUNT_DELETION_CLIENT_ACCESS_GATE=PENDING
+PROTECTED_INVARIANT_GATES=BLOCKED_BY_EXISTING_ENGINE_TEST_COLLECTION
 IOS_PHYSICAL_DEVICE_ACCEPTANCE=PENDING
 APP_STORE_SCREENSHOT_IOS_ONLY=PENDING
 ```
 
-The master runbook remains the detailed engineering specification. This file is the **live completion ledger** and should be updated after every verified remediation step.
+The frozen master runbook remains the investigation/remediation baseline. This file is the **live evidence and completion ledger** and must be updated after every verified remediation step.
 
 ---
 
@@ -38,35 +41,35 @@ The master runbook remains the detailed engineering specification. This file is 
 
 - [x] **The rejection date and rejected build number are recorded.**  
   **Definition of done:** the ledger identifies the Apple rejection being repaired and the rejected build.  
-  **Evidence:** Apple review information supplied for review dated 2026-08-17; rejected build `34`.
+  **Evidence:** Apple review dated 2026-08-17; rejected build `34`.
 
 - [x] **The App Store submission ID is recorded.**  
   **Definition of done:** the rejected submission can be uniquely correlated to Apple review records.  
   **Evidence:** `9ca64a66-a835-4a85-b97d-987bf54044eb`.
 
 - [ ] **Apple rejection screenshots are archived inside durable project release evidence.**  
-  **Definition of done:** the reviewer screenshots/media are stored in a durable repository/release-evidence location or another formally linked release-evidence store.  
-  **Current state:** screenshots were supplied during investigation but are not yet archived as repository evidence.
+  **Definition of done:** reviewer screenshots/media are stored in a durable repository/release-evidence location or formally linked durable evidence store.  
+  **Current state:** screenshots were supplied during investigation but are not yet archived as durable repository evidence.
 
-## 0.2 Resolve the repository production-line reference
+## 0.2 Resolve repository production-line reference
 
 - [x] **Repository canonical production integration ref is resolved.**  
   **Definition of done:** GitHub proves the exact head of `integration/canonical-production-20260816`.  
-  **Evidence:** GitHub compare reports the branch is identical to `749ffe3669cc1c6184482a735001af769bc71547`.
+  **Evidence:** canonical ref resolved to `749ffe3669cc1c6184482a735001af769bc71547`.
 
 - [x] **Canonical production-line commit is recorded.**  
   **Definition of done:** exact SHA and commit identity are documented.  
   **Evidence:** `749ffe3669cc1c6184482a735001af769bc71547` — `Migrate Floently Learn SEO surface to KieliValmis`.
 
-- [ ] **The exact deployed production artifact/source SHA at the time build 34 was produced is proven.**  
-  **Definition of done:** release evidence proves the Git SHA actually used to build the rejected iOS binary, not merely the current canonical branch head.  
-  **Current state:** GitHub alone has not yet proven which SHA generated build 34.
+- [ ] **The exact source SHA used for rejected build 34 is proven.**  
+  **Definition of done:** EAS/build/archive/App Store release evidence links build 34 to the exact Git SHA that produced it.  
+  **Current state:** GitHub source history alone does not prove this.
 
 ## 0.3 Resolve current configured iOS app identity from source
 
 - [x] **Current client application name is identified.**  
-  **Definition of done:** active Expo client config identifies the release application name.  
-  **Evidence:** `apps/client/app.config.ts` sets `KIELIVALMIS_APP_NAME = 'KieliValmis'`; `apps/client/app.base.json` also names the app `KieliValmis`.
+  **Definition of done:** active Expo client config identifies the release app name.  
+  **Evidence:** `apps/client/app.config.ts` and `apps/client/app.base.json` identify `KieliValmis`.
 
 - [x] **Current source marketing version is identified.**  
   **Definition of done:** active client configuration contains the version.  
@@ -77,62 +80,56 @@ The master runbook remains the detailed engineering specification. This file is 
   **Evidence:** `apps/client/eas.json` → `submit.production.ios.ascAppId = "6767821805"`.
 
 - [x] **Configured Expo/EAS project ID is identified.**  
-  **Definition of done:** active Expo config contains the EAS project identity used for updates/build association.  
-  **Evidence:** `apps/client/app.config.ts` and `apps/client/app.base.json` contain EAS project ID `fa02c141-0a3b-4dbc-9122-7c1cf31ba42c`.
+  **Definition of done:** active Expo config contains the EAS project identity.  
+  **Evidence:** `fa02c141-0a3b-4dbc-9122-7c1cf31ba42c`.
 
 - [x] **Configured client iOS bundle identifier is identified.**  
   **Definition of done:** active client Expo configuration identifies the intended iOS bundle ID.  
-  **Evidence:** `apps/client/app.base.json` contains `ios.bundleIdentifier = "com.vitusidi.floently"`. The repository release checklist independently instructs release builders to confirm `ios.bundleIdentifier com.vitusidi.floently`.
+  **Evidence:** `apps/client/app.base.json` contains `ios.bundleIdentifier = "com.vitusidi.floently"`; the release checklist independently names the same identifier.
 
-- [x] **A conflicting checked-in native iOS bundle identifier is documented.**  
-  **Definition of done:** the mismatch is recorded and is not silently treated as resolved.  
-  **Evidence:** root native Xcode project `ios/floentlyfinnish.xcodeproj/project.pbxproj` contains `PRODUCT_BUNDLE_IDENTIFIER = com.vitusidi.floentlyfinnish`, while the active Expo client config uses `com.vitusidi.floently`.
+- [x] **Conflicting checked-in native iOS bundle identifier is documented.**  
+  **Definition of done:** mismatch is recorded and not treated as resolved.  
+  **Evidence:** root `ios/floentlyfinnish.xcodeproj/project.pbxproj` contains `PRODUCT_BUNDLE_IDENTIFIER = com.vitusidi.floentlyfinnish`, while active client Expo config uses `com.vitusidi.floently`.
 
-- [x] **The active client tree is confirmed not to contain `apps/client/ios`.**  
-  **Definition of done:** GitHub lookup for `apps/client/ios` at canonical production returns no directory.  
-  **Evidence:** canonical branch has `apps/client/eas.json`, `app.config.ts`, and `app.base.json`, but no `apps/client/ios` directory. This is useful evidence for understanding the EAS-prebuild path, but it does not by itself prove how build 34 was executed.
+- [x] **Active client tree is confirmed not to contain `apps/client/ios`.**  
+  **Definition of done:** GitHub inspection proves there is no checked-in native iOS directory under the actual Expo client package on the canonical line.  
+  **Evidence:** `apps/client` has EAS/app config but no `apps/client/ios` directory.
 
 - [ ] **Actual bundle identifier embedded in rejected build 34 is proven.**  
-  **Definition of done:** App Store Connect build metadata, EAS build metadata, an archived `.ipa`, or equivalent artifact inspection proves `CFBundleIdentifier` for build 34.  
-  **Current state:** source strongly indicates the intended EAS client identifier is `com.vitusidi.floently`, but the rejected artifact itself has not yet been inspected; this therefore remains unchecked.
+  **Definition of done:** App Store Connect build metadata, EAS build metadata, archived `.ipa`, or equivalent artifact inspection proves build 34 `CFBundleIdentifier`.  
+  **Current state:** source indicates intended EAS identifier `com.vitusidi.floently`, but artifact identity remains unproven.
 
 ## 0.4 Resolve build-number source and build method
 
-- [x] **The repository explains why build 34 is not expected to appear as a literal source build number.**  
-  **Definition of done:** EAS configuration is inspected for version-source behavior.  
-  **Evidence:** `apps/client/eas.json` sets `cli.appVersionSource = "remote"` and the production profile sets `autoIncrement = true`. Therefore the checked-in `buildNumber: "11"` in `app.base.json` is not evidence that the submitted build was 11; production EAS can assign/increment the remote build number.
+- [x] **Repository explains why build 34 is not expected as a literal checked-in build number.**  
+  **Definition of done:** EAS version-source behavior is inspected.  
+  **Evidence:** `apps/client/eas.json` sets `cli.appVersionSource = "remote"`; production sets `autoIncrement = true`. Checked-in `buildNumber: "11"` is therefore not authoritative for the submitted build number.
 
 - [ ] **Build 34 build method is proven (EAS vs local Xcode vs other CI).**  
-  **Definition of done:** release/EAS metadata identifies the actual build executor and profile for build 34.  
-  **Current state:** repository configuration supports EAS production builds, but the actual build-34 record has not yet been retrieved.
-
-- [ ] **Exact Git SHA used by EAS/local build 34 is proven.**  
-  **Definition of done:** build metadata links build 34 to an exact Git commit.  
-  **Current state:** pending EAS/App Store/release artifact evidence.
+  **Definition of done:** build metadata identifies the actual executor/profile for build 34.  
+  **Current state:** repository supports EAS production builds, but actual build-34 record has not been retrieved.
 
 - [ ] **Exact Git branch/ref used for build 34 is proven.**  
-  **Definition of done:** build metadata or release logs identify the source ref.  
-  **Current state:** pending.
+  **Definition of done:** build metadata/release logs identify the source ref.  
+  **Current state:** pending external build evidence.
 
 ## 0.5 Resolve release environment evidence
 
 - [x] **Production EAS profile contains a configured iOS RevenueCat public SDK key.**  
-  **Definition of done:** source proves the production build profile injects a non-empty iOS RevenueCat SDK key variable.  
-  **Evidence:** `apps/client/eas.json` production environment defines `EXPO_PUBLIC_REVENUECAT_IOS_API_KEY`. The value is deliberately not repeated in this ledger.
+  **Definition of done:** source proves production build profile injects a non-empty iOS RevenueCat SDK key variable.  
+  **Evidence:** `apps/client/eas.json` defines `EXPO_PUBLIC_REVENUECAT_IOS_API_KEY`; value intentionally not repeated here.
 
 - [x] **Production API base URL is identified.**  
-  **Definition of done:** production EAS environment identifies the API endpoint injected into the client.  
-  **Evidence:** `EXPO_PUBLIC_API_BASE_URL = https://learn-api.floently.com`.
+  **Definition of done:** production EAS environment identifies API endpoint.  
+  **Evidence:** `https://learn-api.floently.com`.
 
-- [ ] **The RevenueCat project/app represented by the production iOS SDK key is proven.**  
+- [ ] **RevenueCat project/app represented by production iOS SDK key is proven.**  
   **Definition of done:** RevenueCat dashboard evidence maps the configured public SDK key to the intended KieliValmis iOS app/project.  
   **Current state:** GitHub cannot prove dashboard ownership/mapping.
 
-- [ ] **The App Store Connect bundle identifier for Apple app ID `6767821805` is proven from Apple.**  
-  **Definition of done:** App Store Connect metadata confirms the bundle ID for the actual app record.  
+- [ ] **App Store Connect bundle identifier for Apple app ID `6767821805` is proven from Apple.**  
+  **Definition of done:** App Store Connect metadata confirms the actual app-record bundle ID.  
   **Current state:** source intends `com.vitusidi.floently`; Apple-side confirmation remains required.
-
----
 
 ## Phase 0 gate
 
@@ -152,14 +149,13 @@ REVENUECAT_IOS_APP_IDENTITY=UNKNOWN
 BUILD34_PROVENANCE=BLOCKED
 ```
 
-**Definition of done for Phase 0:** `BUILD34_PROVENANCE=PASS`.  
-**Phase 0 is NOT done yet.** No source-code checkbox from later phases should be marked complete merely because the likely defect has been identified.
+**Definition of done for Phase 0:** `BUILD34_PROVENANCE=PASS`. Phase 0 is **not done**.
 
 ---
 
 # Phase 1 — Apple + RevenueCat catalog reconciliation
 
-**Status:** PENDING. Nothing is marked done until Apple/RevenueCat-side evidence is obtained.
+**Status:** PENDING. These are dashboard/store facts and must not be checked from source inference alone.
 
 - [ ] Paid Apps Agreement active.
 - [ ] Banking accepted.
@@ -172,10 +168,16 @@ BUILD34_PROVENANCE=BLOCKED
 - [ ] RevenueCat iOS app bundle identifier confirmed.
 - [ ] RevenueCat product mappings confirmed.
 - [ ] RevenueCat entitlements confirmed.
-- [ ] Explicit KieliValmis offering ID confirmed/created.
-- [ ] Every KieliValmis package maps to the intended Apple Product ID.
+- [ ] KieliValmis paywall offering/placement contract confirmed in RevenueCat.
+- [ ] Every visible KieliValmis package maps to the intended Apple Product ID.
 
-**Definition of done:** complete plan → offering → package → RevenueCat product → Apple Product ID → entitlement matrix with all rows PASS.
+**Definition of done:** complete plan → offering/placement → package → RevenueCat product → Apple Product ID → entitlement matrix with every visible iOS plan PASS.
+
+### Runbook amendment: Offering strategy
+
+The frozen runbook recommended hardcoding an explicit KieliValmis offering ID. Current official RevenueCat guidance recommends using the customer's `current` Offering for a dynamically managed paywall, and RevenueCat also supports fetching a current Offering for a named Placement. Therefore the remediation must **not** invent/hardcode an offering identifier before the RevenueCat dashboard is reconciled.
+
+For this live remediation, the requirement represented by the older `REVENUECAT_EXPLICIT_OFFERING` gate means: **the KieliValmis paywall has a deterministic, tested offering contract**. That may be implemented using RevenueCat `current` plus required-package preflight, or a dedicated RevenueCat Placement if the dashboard is configured for it. A literal hardcoded Offering identifier is not required unless the reconciled dashboard/product strategy intentionally chooses one.
 
 ---
 
@@ -184,41 +186,66 @@ BUILD34_PROVENANCE=BLOCKED
 **Status:** DONE.
 
 - [x] **Repair base SHA selected from verified production lineage.**  
-  **Definition of done:** the repair branch starts at the verified canonical production head rather than stale `main` or Wave-1 UAT.  
-  **Evidence:** repair base `749ffe3669cc1c6184482a735001af769bc71547`, verified as the exact head of `integration/canonical-production-20260816` when the branch was created.
+  **Definition of done:** repair branch starts from verified canonical production head, not stale `main` or Wave-1 UAT.  
+  **Evidence:** base `749ffe3669cc1c6184482a735001af769bc71547`.
 
-- [x] **Forward ancestry verified.**  
-  **Definition of done:** GitHub comparison proves the new repair branch began identically from the canonical production SHA.  
-  **Evidence:** initial compare of base `749ffe3669cc1c6184482a735001af769bc71547` to `release/ios-app-review-remediation-20260818` returned `status=identical`, `ahead_by=0`, `behind_by=0`, merge base equal to the same SHA.
+- [x] **Forward ancestry verified at branch creation.**  
+  **Definition of done:** GitHub comparison proves the new branch initially matched canonical production exactly.  
+  **Evidence:** initial comparison returned `status=identical`, `ahead_by=0`, `behind_by=0`, merge base `749ffe3669cc1c6184482a735001af769bc71547`.
 
 - [x] **Narrow iOS review remediation branch created.**  
-  **Definition of done:** dedicated repair branch exists and is separate from canonical production and Wave-1 UAT.  
+  **Definition of done:** dedicated repair branch exists separately from canonical production and Wave-1 UAT.  
   **Evidence:** `release/ios-app-review-remediation-20260818`.
 
 **Gate:** `REPAIR_BRANCH_FORWARD_BASE=PASS`.
 
-A draft PR now tracks source repair from this branch to canonical production: **PR #37**. The PR is intentionally draft and carries `PRODUCTION_DEPLOYMENT_AUTHORIZED=NO` and `APP_STORE_RESUBMISSION_AUTHORIZED=NO`.
+Draft PR: **#37 — iOS review remediation: keep account deletion reachable for free users**. The PR remains draft and carries `PRODUCTION_DEPLOYMENT_AUTHORIZED=NO` and `APP_STORE_RESUBMISSION_AUTHORIZED=NO`.
 
 ---
 
 # Phase 3 — Account deletion accessibility and completion truth
 
-**Status:** IN PROGRESS.
+**Status:** IN PROGRESS. Backend truth gate is complete; client access gate is awaiting its CI verifier.
 
-- [ ] Free authenticated user can open Settings without paid entitlement.  
-  **Current evidence:** source repair commit `d36d5ac6392edc6a8415fbbe379fe7c1edb16196` separates authenticated account-management routes (`settings`, `help`, `billing`) from paid learning entitlement checks. This checkbox remains open until the permanent regression/CI gate passes.
-- [ ] Paid learning routes remain protected.
-- [ ] Delete Account remains visible/reachable.
-- [ ] Reviewer-state regression test added.  
-  **Current evidence:** verifier source added in commit `d47c08f2468f4d5090bcd1b389a950a4296633d4`; checkbox remains open until CI executes it successfully.
-- [ ] Free-user protected-feature regression test added.
-- [ ] Backend deletion result no longer reports completion after partial required cleanup.
-- [ ] Backend success/failure tests added.
-- [ ] Session/deleted-account behavior verified.
+- [ ] **Free authenticated user can open Settings without paid entitlement.**  
+  **Definition of done:** source fix exists and the permanent client invariant/TypeScript gate passes.  
+  **Current evidence:** commit `d36d5ac6392edc6a8415fbbe379fe7c1edb16196` separates authenticated account-management routes (`settings`, `help`, `billing`) from paid learning entitlement checks. Client CI still running.
 
-**Current PR head:** `3db104dd3778ba59aee23050a31b2980bdfdb2fe`. PR CI is running; no Phase-3 test-dependent checkbox is marked complete until CI reports success.
+- [ ] **Paid learning routes remain protected.**  
+  **Definition of done:** client invariant proves paid/protected routes were not reclassified as account management and navigation/TypeScript checks pass.  
+  **Current state:** verifier exists; awaiting CI result.
 
-**Definition of done:** all account-deletion source and automated regression requirements in the master runbook pass.
+- [ ] **Delete Account remains visible/reachable through signed-in Settings navigation.**  
+  **Definition of done:** permanent verifier proves drawer → Settings discoverability and Settings → Delete Account handler/API wiring; client checks pass.  
+  **Current state:** verifier exists; awaiting CI result.
+
+- [ ] **Reviewer-state regression test added and passing.**  
+  **Definition of done:** `verify-account-deletion-access.mjs` runs successfully in PR CI.  
+  **Evidence pending:** verifier created in commit `d47c08f2468f4d5090bcd1b389a950a4296633d4` and wired into CI; current client job not yet complete.
+
+- [ ] **Free-user protected-feature regression assertion added and passing.**  
+  **Definition of done:** client verifier proves account-management exemption does not include learning/YKI/professional/read/create/progress routes and passes in CI.  
+  **Current state:** assertion exists; awaiting CI.
+
+- [x] **Backend deletion result no longer reports completion after partial required cleanup.**  
+  **Definition of done:** service returns success only after both database and state-store cleanup succeed; database/state failure produces a retryable error; targeted regression passes.  
+  **Evidence:** source commit `720222299cffcb40212002c880bf85d613d8c2e2`; PR CI run `32155927222`, step **Verify account deletion completion truth** = SUCCESS at head `2417270ffb1d2e35b47b411e034ebefce61a1842`.
+
+- [x] **Backend success/failure regression tests added and passing.**  
+  **Definition of done:** tests cover cleanup order, complete success, database cleanup failure, and state-store cleanup failure and pass in CI.  
+  **Evidence:** `apps/backend/tests/test_account_deletion_service.py`; targeted PR CI step SUCCESS in run `32155927222`.
+
+- [x] **Automated session/token invalidation behavior verified for deleted account state.**  
+  **Definition of done:** regression verifies deleted user's identity/session/access/refresh state is removed while unrelated user session state is preserved, and test passes in CI.  
+  **Evidence:** commit `393765c9542702d7b63e91b143bff3cba0344765` adds isolated `InMemoryStateStore` regression; included in successful targeted account-deletion test step in run `32155927222`.
+
+**Current repair PR head:** `2417270ffb1d2e35b47b411e034ebefce61a1842`.
+
+### Known unrelated/global regression-suite blocker discovered while validating Phase 3
+
+The targeted account-deletion backend gate passes. The subsequent repository-wide `pytest apps/backend/tests engine/tests -q` step currently fails during collection because the canonical source/test combination references missing modules `engine.learning` and `engine.logging`. This failure was reproduced in PR CI and is not caused by the account-deletion service tests. It remains a blocker for **Phase 5 protected invariant gates**, and it must not be hidden or reclassified as PASS.
+
+**Definition of done for Phase 3:** all five client/account-access checkboxes plus the three completed backend checkboxes are `[x]`. Physical-device proof remains Phase 7.
 
 ---
 
@@ -227,21 +254,21 @@ A draft PR now tracks source repair from this branch to canonical production: **
 **Status:** NOT STARTED.
 
 - [ ] iOS bundle identity normalized to Apple-authoritative value.
-- [ ] Release verifier prevents Expo/native bundle-ID drift.
-- [ ] Explicit KieliValmis RevenueCat offering used.
+- [ ] Release verifier prevents source/build bundle-ID drift.
+- [ ] KieliValmis RevenueCat current-offering/placement contract is explicit and tested.
 - [ ] Offering/package preflight implemented.
 - [ ] Missing store products disable purchase safely.
-- [ ] Raw RevenueCat SDK messages are not normal user-facing copy.
-- [ ] iOS prices come from localized StoreProduct data.
-- [ ] RevenueCat identity/account switching behavior tested.
+- [ ] Raw RevenueCat SDK errors are not normal user-facing copy.
+- [ ] iOS prices come from localized RevenueCat/StoreKit product data.
+- [ ] RevenueCat anonymous → authenticated and account-switching identity behavior is corrected/tested.
 
-**Definition of done:** all source tests and identity checks pass and external Apple/RevenueCat catalog remains coherent.
+**Definition of done:** source tests and identity checks pass and the external Apple/RevenueCat catalog remains coherent.
 
 ---
 
 # Phase 5 — Protected regression gates
 
-**Status:** PENDING.
+**Status:** BLOCKED / PENDING.
 
 - [ ] Authentication/session regression suite passes.
 - [ ] Navigation/deep-link/back regression suite passes.
@@ -250,7 +277,9 @@ A draft PR now tracks source repair from this branch to canonical production: **
 - [ ] Roleplay regression suite passes.
 - [ ] Microphone/STT regression suite passes.
 - [ ] Everyday Finnish regression suite passes.
-- [ ] New iOS rejection regression tests pass.
+- [ ] New iOS rejection regression tests pass as part of the candidate gate.
+
+**Current blocker:** repository-wide backend/engine test collection fails on missing `engine.learning` and `engine.logging`. Do not weaken/delete tests to obtain green status; reconcile the canonical test/runtime source according to `ANTI-REGRESSION-001`.
 
 **Definition of done:** `PROTECTED_INVARIANT_GATES=PASS` and `IOS_REJECTION_REGRESSION_GATES=PASS`.
 
@@ -263,7 +292,7 @@ A draft PR now tracks source repair from this branch to canonical production: **
 - [ ] Exact candidate SHA recorded.
 - [ ] Next unused iOS build number recorded.
 - [ ] Bundle ID recorded and artifact-verified.
-- [ ] RevenueCat project/app/offering recorded.
+- [ ] RevenueCat project/app/paywall contract recorded.
 - [ ] Artifact identifier recorded.
 - [ ] Tested SHA exactly equals built SHA.
 
@@ -282,10 +311,10 @@ A draft PR now tracks source repair from this branch to canonical production: **
 - [ ] Native Apple purchase sheet opens.
 - [ ] Purchase succeeds and entitlements sync.
 - [ ] Restore Purchases works.
-- [ ] Cancellation behaves normally.
+- [ ] Purchase cancellation behaves normally.
 - [ ] Regression smoke passes on exact candidate.
 
-**Definition of done:** `IOS_PHYSICAL_DEVICE_ACCEPTANCE=PASS`.
+**Definition of done:** `IOS_PHYSICAL_DEVICE_ACCEPTANCE=PASS` on the exact artifact intended for submission.
 
 ---
 
@@ -294,8 +323,8 @@ A draft PR now tracks source repair from this branch to canonical production: **
 **Status:** PENDING.
 
 - [ ] New iPhone screenshots are genuine iOS captures.
-- [ ] iPad screenshots corrected if required by the listing.
-- [ ] Every App Store Connect size group inspected.
+- [ ] iPad screenshots corrected if required by the listing/review configuration.
+- [ ] Every App Store Connect screenshot size group inspected.
 - [ ] Every localization inspected.
 - [ ] No Android/non-iOS status bar or device chrome remains.
 - [ ] Screenshots accurately match the candidate build.
@@ -310,12 +339,12 @@ A draft PR now tracks source repair from this branch to canonical production: **
 
 - [ ] Physical-device account deletion video recorded.
 - [ ] Video shows free/no-subscription account reaching Settings.
-- [ ] Video shows Delete Account and confirmation flow.
+- [ ] Video shows Delete Account and complete confirmation flow.
 - [ ] Reviewer notes updated with exact navigation steps.
 - [ ] Billing remediation summarized truthfully for reviewer.
 - [ ] Screenshot remediation summarized truthfully for reviewer.
 
-**Definition of done:** reviewer can reproduce the repaired flows without developer-only instructions.
+**Definition of done:** Apple reviewer can reproduce the repaired flows without developer-only instructions.
 
 ---
 
@@ -333,7 +362,7 @@ FREE_AUTHENTICATED_USER_CAN_OPEN_SETTINGS
 ACCOUNT_DELETION_REACHABLE
 ACCOUNT_DELETION_COMPLETION_TRUTH
 IOS_BUNDLE_IDENTITY_SINGLE_SOURCE
-REVENUECAT_EXPLICIT_OFFERING
+REVENUECAT_OFFERING_CONTRACT
 REVENUECAT_PACKAGE_PREFLIGHT
 IOS_LOCALIZED_STORE_PRICE
 PROTECTED_INVARIANT_GATES
