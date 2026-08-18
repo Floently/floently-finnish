@@ -1,10 +1,13 @@
 from __future__ import annotations
 
 import asyncio
+import tempfile
 import unittest
+from pathlib import Path
 from unittest.mock import AsyncMock, Mock, patch
 
 from app.core.errors import AppError
+from app.core.state_store import InMemoryStateStore
 from app.services import account_deletion_service
 
 
@@ -93,6 +96,37 @@ class AccountDeletionServiceTests(unittest.TestCase):
         self.assertEqual(error.details.get("stage"), "state_store")
         db_cleanup.assert_awaited_once()
         state_cleanup.assert_called_once()
+
+    def test_state_cleanup_removes_identity_sessions_and_tokens_for_deleted_user(self) -> None:
+        with tempfile.TemporaryDirectory() as temp_dir:
+            store = InMemoryStateStore(Path(temp_dir) / "state.json")
+            deleted_user_id = _TEST_USER["user_id"]
+            deleted_email = _TEST_USER["email"]
+            other_user_id = "user.account-delete.other"
+
+            store.set("users", deleted_user_id, {"user_id": deleted_user_id, "email": deleted_email})
+            store.set("email_index", deleted_email, {"user_id": deleted_user_id, "email": deleted_email})
+            store.set("auth_sessions", "session-delete", {"user_id": deleted_user_id, "email": deleted_email})
+            store.set("access_tokens", "access-delete", {"user_id": deleted_user_id})
+            store.set("refresh_tokens", "refresh-delete", {"user_id": deleted_user_id})
+            store.set("auth_sessions", "session-keep", {"user_id": other_user_id, "email": "other@example.com"})
+
+            with patch.object(account_deletion_service, "STORE", store):
+                counts = account_deletion_service._delete_state_records(
+                    user_id=deleted_user_id,
+                    email=deleted_email,
+                )
+
+            self.assertEqual(counts.get("users"), 1)
+            self.assertEqual(counts.get("auth_sessions"), 1)
+            self.assertEqual(counts.get("access_tokens"), 1)
+            self.assertEqual(counts.get("refresh_tokens"), 1)
+            self.assertFalse(store.has("users", deleted_user_id))
+            self.assertFalse(store.has("email_index", deleted_email))
+            self.assertFalse(store.has("auth_sessions", "session-delete"))
+            self.assertFalse(store.has("access_tokens", "access-delete"))
+            self.assertFalse(store.has("refresh_tokens", "refresh-delete"))
+            self.assertTrue(store.has("auth_sessions", "session-keep"))
 
 
 if __name__ == "__main__":
