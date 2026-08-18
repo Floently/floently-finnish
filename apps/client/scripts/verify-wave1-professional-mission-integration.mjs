@@ -9,6 +9,10 @@ import {
   PROFESSIONAL_PROFESSIONS,
   PROFESSIONAL_ROLEPLAY_ADAPTER_FLAG,
 } from '../../../packages/core/professional/missions.mjs';
+import {
+  canUseProfessionalMissionSpeakingPreset,
+  parseProfessionalMissionSpeakingParams,
+} from '../state/professionalMissionSpeakingParams.mjs';
 
 const scriptDir = path.dirname(fileURLToPath(import.meta.url));
 const clientRoot = path.resolve(scriptDir, '..');
@@ -22,10 +26,11 @@ const readingRoute = read('features/reading/ReadingRoute.tsx');
 const writingRoute = read('features/writing/WritingRouteScreen.tsx');
 const writingScreen = read('features/writing/WritingPracticeScreen.tsx');
 const speakingEntry = read('app/speaking/index.tsx');
-const speakingParams = read('state/professionalMissionSpeakingParams.ts');
-const appShell = read('state/AppShell.tsx');
+const missionSpeakingEntry = read('app/speaking/mission.tsx');
+const speakingParams = read('state/professionalMissionSpeakingParams.mjs');
 
 assert.equal(PROFESSIONAL_MISSIONS.length, PROFESSIONAL_PROFESSIONS.length);
+
 for (const mission of PROFESSIONAL_MISSIONS) {
   assert.match(adapter, new RegExp(mission.missionId.replaceAll('-', '\\-')),
     `${mission.missionId} must have authored adapter coverage`);
@@ -48,7 +53,91 @@ for (const mission of PROFESSIONAL_MISSIONS) {
   assert.equal(roleplayStep.task.launch.params.entryMode, 'workplace');
   assert.equal(typeof roleplayStep.task.launch.params.scenarioId, 'string');
   assert.ok(roleplayStep.task.launch.params.scenarioId.length > 0);
+
+  const canonicalParams = { ...roleplayStep.task.launch.params };
+  const preset = parseProfessionalMissionSpeakingParams(canonicalParams);
+  assert.ok(preset, `${mission.missionId} canonical Roleplay tuple must parse`);
+  assert.equal(preset.initialProfession, mission.profession);
+  assert.equal(preset.initialScenarioId, roleplayStep.task.launch.params.scenarioId);
+  assert.equal(preset.initialLevelBand, mission.levelBand);
+  assert.equal(preset.initialSurface, 'conversation');
+  assert.equal(preset.lockProfession, true);
+  assert.equal(preset.entryMode, 'workplace');
+  assert.equal(preset.contextLabel, mission.title);
+  assert.equal(Object.isFrozen(preset), true, 'validated launch preset must be immutable');
+
+  const entitledStatus = {
+    isInternalAllAccess: false,
+    isPreview: false,
+    entitlements: {
+      professionalAccess: true,
+      professions: [mission.profession],
+    },
+  };
+  assert.equal(canUseProfessionalMissionSpeakingPreset(preset, entitledStatus), true,
+    `${mission.missionId} exact profession entitlement must authorize`);
+  assert.equal(canUseProfessionalMissionSpeakingPreset(preset, {
+    ...entitledStatus,
+    isPreview: true,
+  }), false, 'preview access must never authorize mission deep launch');
+  assert.equal(canUseProfessionalMissionSpeakingPreset(preset, {
+    ...entitledStatus,
+    entitlements: { professionalAccess: false, professions: [mission.profession] },
+  }), false, 'profession alone must not replace Professional access');
+  assert.equal(canUseProfessionalMissionSpeakingPreset(preset, {
+    ...entitledStatus,
+    entitlements: { professionalAccess: true, professions: [] },
+  }), false, 'Professional access must not replace exact profession entitlement');
+
+  const otherMission = PROFESSIONAL_MISSIONS.find(
+    (candidate) => candidate.profession !== mission.profession,
+  );
+  assert.ok(otherMission);
+  const otherRoleplay = otherMission.steps.find(
+    (step) => step.stage === 'produce' && step.task.runtime === 'roleplay',
+  );
+  assert.ok(otherRoleplay);
+
+  assert.equal(parseProfessionalMissionSpeakingParams({
+    ...canonicalParams,
+    profession: otherMission.profession,
+  }), null, 'cross-profession tuple must fail closed');
+  assert.equal(parseProfessionalMissionSpeakingParams({
+    ...canonicalParams,
+    contextId: otherMission.contextId,
+  }), null, 'cross-context tuple must fail closed');
+  assert.equal(parseProfessionalMissionSpeakingParams({
+    ...canonicalParams,
+    scenarioId: otherRoleplay.task.launch.params.scenarioId,
+  }), null, 'cross-scenario tuple must fail closed');
+  assert.equal(parseProfessionalMissionSpeakingParams({
+    ...canonicalParams,
+    entryMode: 'interview',
+  }), null, 'non-canonical entry mode must fail closed');
+  assert.equal(parseProfessionalMissionSpeakingParams({
+    ...canonicalParams,
+    missionId: 'unknown-mission',
+  }), null, 'unknown mission must fail closed');
+  assert.equal(parseProfessionalMissionSpeakingParams({
+    ...canonicalParams,
+    missionId: [mission.missionId],
+  }), null, 'ambiguous array URL params must fail closed');
+  assert.equal(parseProfessionalMissionSpeakingParams({
+    ...canonicalParams,
+    contextId: `${mission.contextId}/unsafe`,
+  }), null, 'unsafe identifier characters must fail closed');
 }
+
+assert.equal(parseProfessionalMissionSpeakingParams({
+  missionId: 'x'.repeat(161),
+  contextId: 'x',
+  profession: 'doctor',
+  scenarioId: 'x',
+  entryMode: 'workplace',
+}), null, 'overlong URL identifiers must fail closed');
+assert.equal(canUseProfessionalMissionSpeakingPreset(null, {
+  isInternalAllAccess: true,
+}), false, 'internal access cannot authorize an invalid or missing mission tuple');
 
 assert.match(adapter, /buildProfessionalMissionReadingTask/);
 assert.match(adapter, /buildProfessionalMissionWritingTask/);
@@ -62,6 +151,8 @@ assert.ok(!practiceAdapter.includes("runtime: 'listening'"),
   'Practice mission adapter must not create a listening task');
 assert.match(practiceAdapter, /professional-mission-roleplay/,
   'Mission Roleplay must now be represented in the Practice-facing adapter');
+assert.match(practiceAdapter, /route:\s*'\/speaking\/mission'/,
+  'Practice-facing mission Roleplay clone must use the guarded adapter route');
 assert.match(practiceAdapter, /health:\s*'available'/,
   'Practice-facing Roleplay clone must become available only after the bridge');
 assert.match(practiceAdapter, /featureFlag:\s*undefined/,
@@ -85,34 +176,40 @@ assert.match(speakingParams, /contextId !== mission\.contextId/,
   'route parser must reject cross-context tuples');
 assert.match(speakingParams, /canonicalScenarioId !== scenarioId/,
   'route parser must reject non-canonical scenarios');
-assert.match(speakingParams, /canonicalEntryMode !== entryMode/,
-  'route parser must reject non-canonical entry modes');
-assert.match(speakingParams, /canonicalMissionId !== missionId/,
-  'route parser must validate mission identity end-to-end');
 assert.match(speakingParams, /status\.isPreview/,
   'mission deep launch must fail closed for preview access');
-assert.match(speakingParams, /professionalAccess/,
-  'mission deep launch must require Professional access');
-assert.match(speakingParams, /professions\?\.includes\(preset\.initialProfession\)/,
-  'mission deep launch must require the exact profession entitlement');
-assert.match(speakingParams, /initialSurface:\s*'conversation'/,
-  'valid mission launch must enter the conversation surface');
-assert.match(speakingParams, /lockProfession:\s*true/,
-  'valid mission launch must lock profession isolation');
-
-assert.match(appShell, /parseProfessionalMissionSpeakingParams/,
-  'AppShell must consume the validated mission URL adapter');
-assert.match(appShell, /canUseProfessionalMissionSpeakingPreset/,
-  'AppShell must apply entitlement gating after parsing');
-assert.match(appShell, /speakingSearchParams\.missionId === undefined/,
-  'ordinary /speaking entry must remain untouched when no mission launch is present');
-assert.match(appShell, /requestedScreen !== 'speaking-practice'/,
-  'mission URL preset must only apply on the speaking route boundary');
-assert.match(appShell, /setSpeakingPreset\(missionPreset\)/,
-  'authorized canonical mission tuple must seed the existing protected SpeakingRoute preset');
 
 assert.match(speakingEntry, /<AppShell requestedScreen="speaking-practice" \/>/,
-  '/speaking must remain behind AppShell rather than bypassing protected auth/navigation');
+  'ordinary /speaking must remain exactly behind AppShell');
+assert.ok(!speakingEntry.includes('professionalMissionSpeakingParams'),
+  'ordinary /speaking must not gain mission parsing behavior');
+
+assert.match(missionSpeakingEntry, /parseProfessionalMissionSpeakingParams/,
+  'mission adapter route must parse the canonical tuple');
+assert.match(missionSpeakingEntry, /canUseProfessionalMissionSpeakingPreset/,
+  'mission adapter route must independently gate entitlement');
+assert.match(missionSpeakingEntry, /hasHydrated/,
+  'mission adapter must wait for auth hydration');
+assert.match(missionSpeakingEntry, /hasLoadedSubscription/,
+  'mission adapter must wait for subscription hydration');
+assert.match(missionSpeakingEntry, /isLoadingSubscription/,
+  'mission adapter must not render mission content while subscription refresh is in flight');
+assert.match(missionSpeakingEntry, /setActiveContext\(missionPreset\.initialProfession\)/,
+  'authorized mission launch must align only an already-entitled profession context');
+assert.match(missionSpeakingEntry, /audioSession\.releaseAll\('background'\)/,
+  'mission adapter must preserve protected background audio cleanup');
+assert.match(missionSpeakingEntry, /return <AppShell requestedScreen="speaking-practice" \/>/,
+  'invalid or unauthorized tuples must fall back to ordinary protected Speaking');
+assert.match(missionSpeakingEntry, /<SpeakingRoute/,
+  'authorized mission launch must reuse the existing protected SpeakingRoute');
+assert.match(missionSpeakingEntry, /initialProfession=\{missionPreset\.initialProfession\}/,
+  'mission route must pass the validated profession');
+assert.match(missionSpeakingEntry, /initialScenarioId=\{missionPreset\.initialScenarioId\}/,
+  'mission route must pass the validated scenario');
+assert.match(missionSpeakingEntry, /lockProfession=\{missionPreset\.lockProfession\}/,
+  'mission route must preserve profession isolation');
+assert.ok(!missionSpeakingEntry.includes('RoleplayConversationScreen'),
+  'mission adapter must not bypass SpeakingRoute into Roleplay internals');
 
 assert.match(readingRoute, /getProfessionalMissionReadingTasks/);
 assert.match(readingRoute, /findProfessionalMissionReadingTask/);
