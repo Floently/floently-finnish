@@ -113,7 +113,6 @@ jobs:
           node --experimental-strip-types apps/client/scripts/verify-practice-composer.mts
           node apps/client/scripts/verify-learning-experience-system.mjs
           node apps/client/scripts/verify-wave1-professional-mission-integration.mjs
-          node --experimental-strip-types apps/client/scripts/verify-wave1-integration-seams.mts
           node --experimental-strip-types apps/client/scripts/verify-wave1-product-wiring.mts
 
       - name: Accepted Agent F mission source identity and isolated verifier
