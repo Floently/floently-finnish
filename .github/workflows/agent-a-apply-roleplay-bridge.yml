@@ -1,0 +1,113 @@
+name: Agent A apply protected mission speaking bridge
+
+on:
+  push:
+    branches:
+      - agent/a-wave1-roleplay-deeplink-20260818
+
+permissions:
+  contents: write
+
+jobs:
+  apply-and-verify:
+    if: ${{ !contains(github.event.head_commit.message, 'feat: wire protected mission roleplay deep links') }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: agent/a-wave1-roleplay-deeplink-20260818
+          fetch-depth: 0
+      - uses: pnpm/action-setup@v6
+        with:
+          version: "10.34.0"
+          run_install: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: pnpm
+          cache-dependency-path: pnpm-lock.yaml
+      - name: Apply exact AppShell bridge edits
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+
+          path = Path('apps/client/state/AppShell.tsx')
+          source = path.read_text()
+
+          replacements = [
+              (
+                  'import LanguageSelector from "../features/i18n/LanguageSelector";\n',
+                  'import LanguageSelector from "../features/i18n/LanguageSelector";\n'
+                  'import {\n'
+                  '  canUseProfessionalMissionSpeakingPreset,\n'
+                  '  parseProfessionalMissionSpeakingParams,\n'
+                  '} from "./professionalMissionSpeakingParams";\n',
+              ),
+              (
+                  '  const openMenuParam = useLocalSearchParams<{ openMenu?: string }>().openMenu;\n',
+                  '  const speakingSearchParams = useLocalSearchParams<{\n'
+                  '    openMenu?: string;\n'
+                  '    missionId?: string;\n'
+                  '    contextId?: string;\n'
+                  '    profession?: string;\n'
+                  '    scenarioId?: string;\n'
+                  '    entryMode?: string;\n'
+                  '  }>();\n'
+                  '  const openMenuParam = speakingSearchParams.openMenu;\n',
+              ),
+              (
+                  "  const [speakingPreset, setSpeakingPreset] = useState<SpeakingPreset>(null);\n",
+                  "  const [speakingPreset, setSpeakingPreset] = useState<SpeakingPreset>(null);\n"
+                  "\n"
+                  "  useEffect(() => {\n"
+                  "    if (requestedScreen !== 'speaking-practice' || speakingSearchParams.missionId === undefined) {\n"
+                  "      return;\n"
+                  "    }\n"
+                  "\n"
+                  "    const missionPreset = parseProfessionalMissionSpeakingParams(speakingSearchParams);\n"
+                  "    if (!canUseProfessionalMissionSpeakingPreset(missionPreset, subscriptionStatus)) {\n"
+                  "      setSpeakingPreset(null);\n"
+                  "      return;\n"
+                  "    }\n"
+                  "\n"
+                  "    setSpeakingPreset(missionPreset);\n"
+                  "  }, [\n"
+                  "    requestedScreen,\n"
+                  "    speakingSearchParams.missionId,\n"
+                  "    speakingSearchParams.contextId,\n"
+                  "    speakingSearchParams.profession,\n"
+                  "    speakingSearchParams.scenarioId,\n"
+                  "    speakingSearchParams.entryMode,\n"
+                  "    subscriptionStatus,\n"
+                  "  ]);\n",
+              ),
+          ]
+
+          for old, new in replacements:
+              count = source.count(old)
+              if count != 1:
+                  raise SystemExit(f'Expected exactly one AppShell anchor, found {count}: {old[:80]!r}')
+              source = source.replace(old, new, 1)
+
+          path.write_text(source)
+          Path('.github/workflows/agent-a-apply-roleplay-bridge.yml').unlink()
+          PY
+      - name: Install frozen workspace
+        run: pnpm install --frozen-lockfile
+      - name: Whole client TypeScript
+        run: pnpm --dir apps/client exec tsc --noEmit
+      - name: Professional mission integration regression
+        run: node apps/client/scripts/verify-wave1-professional-mission-integration.mjs
+      - name: Protected navigation invariants
+        run: node apps/client/scripts/verify-navigation-invariants.mjs
+      - name: Protected Roleplay audio invariants
+        run: node apps/client/scripts/verify-roleplay-audio-invariants.mjs
+      - name: Protected Roleplay scenario invariants
+        run: node apps/client/scripts/verify-roleplay-scenario-rotation.mjs
+      - name: Commit verified source patch
+        run: |
+          git config user.name "Agent A"
+          git config user.email "agent-a@users.noreply.github.com"
+          git add apps/client/state/AppShell.tsx .github/workflows/agent-a-apply-roleplay-bridge.yml
+          git commit -m "feat: wire protected mission roleplay deep links"
+          git push origin HEAD:agent/a-wave1-roleplay-deeplink-20260818
