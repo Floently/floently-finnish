@@ -63,3 +63,5 @@ jobs:
         run: npm --workspace client run verify:account-deletion-access
       - name: Verify RevenueCat identity invariants
         run: npm --workspace client run verify:revenuecat-identity
+      - name: Verify store billing preflight invariants
+        run: npm --workspace client run verify:store-billing-preflight
