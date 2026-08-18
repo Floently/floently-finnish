@@ -153,7 +153,7 @@ function offeringByIdentifier(offerings: Awaited<ReturnType<typeof Purchases.get
   );
 }
 
-function packageIdentifierAliases(packageIdentifier: string): string[] {
+export function revenueCatIdentifierAliases(packageIdentifier: string): string[] {
   const raw = String(packageIdentifier || '').trim();
   const aliases = new Set<string>();
 
@@ -234,6 +234,14 @@ function packageSnapshot(item: unknown): RevenueCatPackageSnapshot | null {
   };
 }
 
+export function revenueCatPackageSnapshotMatches(
+  snapshot: RevenueCatPackageSnapshot,
+  expectedIdentifier: string,
+): boolean {
+  const aliases = revenueCatIdentifierAliases(expectedIdentifier);
+  return aliases.includes(snapshot.packageIdentifier) || aliases.includes(snapshot.productIdentifier);
+}
+
 export async function getRevenueCatOfferingSnapshot(
   userId?: string | null,
   offeringIdentifier?: string | null,
@@ -276,7 +284,7 @@ export async function purchaseRevenueCatPackage(
     ? currentOffering.availablePackages
     : [];
 
-  const wantedAliases = packageIdentifierAliases(packageIdentifier);
+  const wantedAliases = revenueCatIdentifierAliases(packageIdentifier);
 
   const packageToPurchase = availablePackages.find((item: unknown) => {
     const candidates = packageCandidateIdentifiers(item);
