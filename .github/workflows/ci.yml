@@ -52,3 +52,7 @@ jobs:
         run: cd apps/client && npm ci
       - name: TypeScript check
         run: cd apps/client && npx tsc --noEmit
+      - name: Verify navigation invariants
+        run: cd apps/client && npm run verify:navigation
+      - name: Verify account deletion access invariants
+        run: cd apps/client && npm run verify:account-deletion-access
