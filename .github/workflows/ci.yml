@@ -48,11 +48,11 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '20'
-      - name: Install client dependencies
-        run: cd apps/client && npm ci
+      - name: Install workspace dependencies
+        run: npm install --package-lock=false --ignore-scripts --no-audit --no-fund
       - name: TypeScript check
-        run: cd apps/client && npx tsc --noEmit
+        run: npm --workspace client exec tsc -- --noEmit
       - name: Verify navigation invariants
-        run: cd apps/client && npm run verify:navigation
+        run: npm --workspace client run verify:navigation
       - name: Verify account deletion access invariants
-        run: cd apps/client && npm run verify:account-deletion-access
+        run: npm --workspace client run verify:account-deletion-access
