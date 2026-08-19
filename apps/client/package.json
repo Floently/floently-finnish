@@ -16,7 +16,8 @@
     "verify:navigation": "node ./scripts/verify-navigation-invariants.mjs",
     "verify:account-deletion-access": "node ./scripts/verify-account-deletion-access.mjs",
     "verify:revenuecat-identity": "node ./scripts/verify-revenuecat-identity.mjs",
-    "verify:store-billing-preflight": "node ./scripts/verify-store-billing-preflight.mjs"
+    "verify:store-billing-preflight": "node ./scripts/verify-store-billing-preflight.mjs",
+    "verify:ios-release-identity": "node ./scripts/verify-ios-release-identity.mjs"
   },
   "dependencies": {
     "@expo/metro-runtime": "^55.0.11",
@@ -41,7 +42,7 @@
     "expo-image-picker": "~55.0.20",
     "expo-keep-awake": "~55.0.8",
     "expo-linking": "~55.0.15",
-    "expo-print": "~55.0.15",
+    "expo-print": "~55.0.17",
     "expo-router": "~55.0.16",
     "expo-secure-store": "~55.0.14",
     "expo-splash-screen": "~55.0.21",
