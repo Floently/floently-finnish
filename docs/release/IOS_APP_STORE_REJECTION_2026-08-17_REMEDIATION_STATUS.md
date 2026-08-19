@@ -29,6 +29,7 @@ STORE_BILLING_SAFE_ERROR_GATE=PASS
 PAYWALL_PREFLIGHT_PRESENTATION=PASS
 IOS_LOCALIZED_STORE_PRICE_SOURCE_GATE=PASS
 IOS_AUTHORITATIVE_BUNDLE_IDENTITY=PASS
+IOS_BUNDLE_IDENTITY_SINGLE_SOURCE=PASS
 REVENUECAT_IOS_APP_IDENTITY=PASS
 PAID_APPS_AGREEMENT=PASS
 BANKING_CONFIGURATION=PASS
@@ -99,8 +100,8 @@ The frozen master runbook remains the investigation/remediation baseline. This f
   **Evidence:** `apps/client/app.base.json` contains `ios.bundleIdentifier = "com.vitusidi.floently"`; rejected-build EAS app configuration resolved the same value.
 
 - [x] **Conflicting checked-in native iOS bundle identifier is documented.**  
-  **Definition of done:** mismatch is recorded and not treated as resolved.  
-  **Evidence:** root `ios/floentlyfinnish.xcodeproj/project.pbxproj` contains `PRODUCT_BUNDLE_IDENTIFIER = com.vitusidi.floentlyfinnish`, while the actual Expo/EAS client uses `com.vitusidi.floently`. Build-34 logs prove EAS generated a fresh `apps/client/ios` directory, so the root project was not the native project used for rejected build 34. The stale root identifier still requires normalization or an explicit release-path guard in Phase 4.
+  **Definition of done:** mismatch is recorded and not treated as release authority.  
+  **Evidence:** root `ios/floentlyfinnish.xcodeproj/project.pbxproj` contains `PRODUCT_BUNDLE_IDENTIFIER = com.vitusidi.floentlyfinnish`, while the actual Expo/EAS client uses `com.vitusidi.floently`. Build-34 logs prove EAS generated a fresh `apps/client/ios` directory, so the root project was not the native project used for rejected build 34. Phase 4 now records and enforces that the legacy root project is non-authoritative for App Store releases.
 
 - [x] **Active client tree is confirmed not to contain `apps/client/ios`.**  
   **Definition of done:** GitHub inspection proves there is no checked-in native iOS directory under the actual Expo client package on the canonical line.  
@@ -132,7 +133,7 @@ A mutable branch name is weaker release evidence than an immutable Git SHA and c
 
 - [x] **Production EAS profile contains a configured iOS RevenueCat public SDK key.**  
   **Definition of done:** source proves production build profile injects a non-empty iOS RevenueCat SDK key variable.  
-  **Evidence:** `apps/client/eas.json` defines `EXPO_PUBLIC_REVENUECAT_IOS_API_KEY`; build 34 logs confirm it was injected into the production build. Key value is intentionally not repeated in this ledger.
+  **Evidence:** `apps/client/eas.json` defines `EXPO_PUBLIC_REVENUECAT_IOS_API_KEY`; build 34 logs confirm it was injected into the production build. Key value is intentionally not repeated here.
 
 - [x] **Production API base URL is identified.**  
   **Definition of done:** production EAS environment identifies API endpoint.  
@@ -316,15 +317,15 @@ The targeted account-deletion backend gate and the complete client account-acces
 
 # Phase 4 — iOS identity and RevenueCat client hardening
 
-**Status:** IN PROGRESS. All repository-side RevenueCat customer-identity, store-product preflight, fail-closed paywall, user-safe error, and localized-price presentation gates are verified. Apple-authoritative identity is now proven; source normalization/release drift guard and exact dashboard package mapping remain open.
+**Status:** IN PROGRESS. Repository-side identity, RevenueCat customer identity, store-product preflight, fail-closed paywall, user-safe error, and localized-price presentation gates are verified. Exact Apple/RevenueCat subscription/package reconciliation remains the open Phase-4 billing blocker.
 
-- [ ] **iOS bundle identity normalized to Apple-authoritative value.**  
-  **Definition of done:** build 34/App Store Connect/RevenueCat authoritative identity is proven first, then source/build configuration is normalized and verified.  
-  **Current state:** authoritative identity is now proven as `com.vitusidi.floently` across rejected build 34, App Store Connect, RevenueCat, and active Expo client config. The stale root native Xcode project still carries `com.vitusidi.floentlyfinnish`; normalization/guard work is now unblocked and is the next source step.
+- [x] **iOS App Store release identity is normalized to the Apple-authoritative value.**  
+  **Definition of done:** build 34/App Store Connect/RevenueCat authoritative identity is proven; the actual release project records that identity as release authority; legacy native source cannot silently redefine App Store release identity.  
+  **Evidence:** authoritative bundle ID `com.vitusidi.floently` is proven across build 34, App Store Connect, RevenueCat, and `apps/client/app.base.json`. Commit `f01c9ef57857422b2bc312db6735488ae965e9ee` adds `apps/client/release/ios-release-identity.json`, recording `apps/client` + Expo prebuild as the release authority and marking the root native project non-authoritative.
 
-- [ ] **Release verifier prevents source/build bundle-ID drift.**  
-  **Definition of done:** release-time verification fails if the actual iOS build identity diverges from the Apple-authoritative identity.  
-  **Current state:** now unblocked; verifier must be added and pass CI before this can be checked.
+- [x] **Release verifier prevents source/build bundle-ID drift.**  
+  **Definition of done:** release-time verification fails if active Expo iOS bundle ID, EAS project ID, App Store Connect app ID, production build profile/channel, or release authority diverges from the Apple-authoritative contract.  
+  **Evidence:** `verify-ios-release-identity.mjs` added in commit `3b78f9ba9a42ef4d8135cde5c96e8c4b62124f11`; package/CI wiring completed at repair head `356de3b9281d079c1271884e87b05a4d851ea2a5`; PR CI run `32235793433` client job **Verify iOS release identity invariants** = SUCCESS together with TypeScript, navigation, account-deletion, RevenueCat-identity, and store-billing checks.
 
 - [ ] **KieliValmis RevenueCat current-offering/placement contract is explicit and tested end to end.**  
   **Definition of done:** source contract plus RevenueCat dashboard offering/placement and every visible package/product mapping are reconciled and tested.  
@@ -332,27 +333,27 @@ The targeted account-deletion backend gate and the complete client account-acces
 
 - [x] **Store billing preflight service and purchase-time package recheck are implemented and passing.**  
   **Definition of done:** all nine core plan/package mappings are explicit; preflight resolves the RevenueCat offering and requires package + underlying store Product ID + localized price; selected plan is rechecked immediately before purchase; TypeScript and invariant gate pass.  
-  **Evidence:** `preflightStoreBillingPlans()` and reusable package snapshot matching; current PR CI run `32158791952` client TypeScript and **Verify store billing preflight invariants** = SUCCESS at exact head `e44453aec7b0c5d5f35a81681e4eef38f251372a`.
+  **Evidence:** `preflightStoreBillingPlans()` and reusable package snapshot matching; PR CI run `32235793433` client TypeScript and **Verify store billing preflight invariants** = SUCCESS at exact head `356de3b9281d079c1271884e87b05a4d851ea2a5`.
 
 - [x] **Offering/package preflight is consumed by the paywall before enabling purchase CTAs.**  
   **Definition of done:** BillingRoute loads all currently visible store plans before enabling mobile purchase controls, and a plan whose App Store product/price was not fetched is not exposed as a normal enabled Buy action.  
-  **Evidence:** BillingRoute commit `cce20f49febaa3e4a4dbb0d879f1ce8988c3d81e` adds `storeCatalog`, `storeCatalogLoading`, `visibleStorePlanIds`, and `preflightStoreBillingPlans(...)` consumption; verifier commit `e44453aec7b0c5d5f35a81681e4eef38f251372a`; CI run `32158791952` TypeScript + store-billing preflight invariant = SUCCESS.
+  **Evidence:** BillingRoute commit `cce20f49febaa3e4a4dbb0d879f1ce8988c3d81e` adds `storeCatalog`, `storeCatalogLoading`, `visibleStorePlanIds`, and `preflightStoreBillingPlans(...)` consumption; current verifier/TypeScript checks pass in CI run `32235793433`.
 
 - [x] **Missing store products disable/replace the purchase CTA safely.**  
   **Definition of done:** unavailable or still-loading mobile plans cannot invoke the normal purchase action; trial purchase is also gated; stable unavailable presentation is shown.  
-  **Evidence:** BillingRoute uses `checkoutDisabled = isBusy || (isMobileStoreBilling && (storeCatalogLoading || !storePlanReady))`, `disabled={checkoutDisabled}`, explicit checkout availability guard, and `trialStoreUnavailable`; current exact-head verifier and TypeScript checks pass in CI run `32158791952`.
+  **Evidence:** BillingRoute uses `checkoutDisabled = isBusy || (isMobileStoreBilling && (storeCatalogLoading || !storePlanReady))`, `disabled={checkoutDisabled}`, explicit checkout availability guard, and `trialStoreUnavailable`; current exact-head verifier and TypeScript checks pass in CI run `32235793433`.
 
 - [x] **Raw RevenueCat SDK errors are not normal user-facing purchase/restore copy.**  
   **Definition of done:** RevenueCat purchase/restore/preflight failures are converted to stable application errors before reaching BillingRoute alerts; technical cause is retained in diagnostics; TypeScript/invariant gate passes.  
-  **Evidence:** `StoreBillingUnavailableError`, `StorePurchaseCancelledError`, technical diagnostic logging and safe wrappers in `storeBillingService.ts`; current CI run `32158791952` keeps TypeScript and store-billing invariant green.
+  **Evidence:** `StoreBillingUnavailableError`, `StorePurchaseCancelledError`, technical diagnostic logging and safe wrappers in `storeBillingService.ts`; current CI run `32235793433` keeps TypeScript and store-billing invariant green.
 
 - [x] **iOS/mobile prices come from localized RevenueCat/StoreKit product data in the visible paywall.**  
   **Definition of done:** mobile BillingRoute displays matched store `priceString` and uses the static checkout estimate only for the non-store branch; direct static estimate rendering in the mobile pricing card is prohibited by a permanent invariant.  
-  **Evidence:** BillingRoute `displayedPrice` selects `storeAvailability?.priceString` for mobile and `estimate.totalLabel` only for non-store; verifier commit `e44453aec7b0c5d5f35a81681e4eef38f251372a` explicitly rejects direct static estimate rendering; CI run `32158791952` TypeScript + preflight invariant = SUCCESS.
+  **Evidence:** BillingRoute `displayedPrice` selects `storeAvailability?.priceString` for mobile and `estimate.totalLabel` only for non-store; current CI run `32235793433` TypeScript + preflight invariant = SUCCESS.
 
 - [x] **RevenueCat anonymous → authenticated and account-switching identity behavior is corrected/tested.**  
   **Definition of done:** an anonymous-configured SDK logs in when a concrete application user appears; a different authenticated app user is re-identified; application logout attempts RevenueCat logout without trapping the local app session; TypeScript and permanent identity invariant pass.  
-  **Evidence:** identity changes in `revenueCatService.ts` and `authStore.ts`; `verify-revenuecat-identity.mjs`; current CI run `32158791952` **Verify RevenueCat identity invariants** = SUCCESS.
+  **Evidence:** identity changes in `revenueCatService.ts` and `authStore.ts`; `verify-revenuecat-identity.mjs`; current CI run `32235793433` **Verify RevenueCat identity invariants** = SUCCESS.
 
 **Verified Phase-4 repository-side sub-gates:**
 
@@ -363,11 +364,11 @@ STORE_BILLING_SAFE_ERROR_GATE=PASS
 PAYWALL_PREFLIGHT_PRESENTATION=PASS
 IOS_LOCALIZED_STORE_PRICE_SOURCE_GATE=PASS
 IOS_AUTHORITATIVE_BUNDLE_IDENTITY=PASS
-IOS_BUNDLE_IDENTITY_SINGLE_SOURCE=PENDING_SOURCE_NORMALIZATION
+IOS_BUNDLE_IDENTITY_SINGLE_SOURCE=PASS
 REVENUECAT_OFFERING_CONTRACT=PENDING_DASHBOARD_RECONCILIATION
 ```
 
-**Phase 4 overall remains IN PROGRESS** because source bundle-ID normalization/release verification and the exact RevenueCat/App Store Connect subscription catalog matrix remain unfinished.
+**Phase 4 overall remains IN PROGRESS** only because the exact RevenueCat package/Product-ID/entitlement matrix and Apple subscription details have not yet been reconciled and physically tested.
 
 ---
 
@@ -377,7 +378,7 @@ REVENUECAT_OFFERING_CONTRACT=PENDING_DASHBOARD_RECONCILIATION
 
 - [ ] Authentication/session regression suite passes.
 - [x] **Navigation/deep-link/back source invariant suite passes on the current remediation head.**  
-  **Evidence:** PR CI run `32158791952`, **Verify navigation invariants** = SUCCESS at exact head `e44453aec7b0c5d5f35a81681e4eef38f251372a`.
+  **Evidence:** PR CI run `32235793433`, **Verify navigation invariants** = SUCCESS at exact head `356de3b9281d079c1271884e87b05a4d851ea2a5`.
 - [ ] Subscription/access regression suite passes.
 - [ ] Cards regression suite passes.
 - [ ] Roleplay regression suite passes.
@@ -385,7 +386,7 @@ REVENUECAT_OFFERING_CONTRACT=PENDING_DASHBOARD_RECONCILIATION
 - [ ] Everyday Finnish regression suite passes.
 - [ ] New iOS rejection regression tests pass as part of the immutable candidate gate.
 
-**Current blockers:** repository-wide backend/engine test collection fails because canonical tests import missing modules `engine.learning` and `engine.logging`. The failure is visible in PR CI run `32158791952`; the isolated account-deletion backend gate still passes before that global collection failure. Do not weaken/delete tests to obtain green status; reconcile canonical test/runtime source according to `ANTI-REGRESSION-001`.
+**Current blockers:** repository-wide backend/engine test collection fails because canonical tests import missing modules `engine.learning` and `engine.logging`. The failure remains visible in PR CI run `32235793433`; the isolated account-deletion backend gate still passes before that global collection failure. Do not weaken/delete tests to obtain green status; reconcile canonical test/runtime source according to `ANTI-REGRESSION-001`.
 
 **Definition of done:** `PROTECTED_INVARIANT_GATES=PASS` and `IOS_REJECTION_REGRESSION_GATES=PASS`.
 
