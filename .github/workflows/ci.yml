@@ -65,3 +65,5 @@ jobs:
         run: npm --workspace client run verify:revenuecat-identity
       - name: Verify store billing preflight invariants
         run: npm --workspace client run verify:store-billing-preflight
+      - name: Verify iOS release identity invariants
+        run: npm --workspace client run verify:ios-release-identity
