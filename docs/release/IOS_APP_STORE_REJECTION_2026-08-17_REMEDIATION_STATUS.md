@@ -16,8 +16,8 @@
 REMEDIATION_STARTED=YES
 PRODUCTION_DEPLOYMENT_AUTHORIZED=NO
 APP_STORE_RESUBMISSION_AUTHORIZED=NO
-BUILD34_PROVENANCE=BLOCKED
-APPLE_REVENUECAT_CATALOG_RECONCILIATION=PENDING
+BUILD34_PROVENANCE=PASS
+APPLE_REVENUECAT_CATALOG_RECONCILIATION=PARTIAL
 SOURCE_REPAIR_STARTED=YES
 REPAIR_BRANCH_FORWARD_BASE=PASS
 ACCOUNT_DELETION_SOURCE_PHASE=PASS
@@ -28,6 +28,11 @@ STORE_BILLING_PREFLIGHT_SERVICE_GATE=PASS
 STORE_BILLING_SAFE_ERROR_GATE=PASS
 PAYWALL_PREFLIGHT_PRESENTATION=PASS
 IOS_LOCALIZED_STORE_PRICE_SOURCE_GATE=PASS
+IOS_AUTHORITATIVE_BUNDLE_IDENTITY=PASS
+REVENUECAT_IOS_APP_IDENTITY=PASS
+PAID_APPS_AGREEMENT=PASS
+BANKING_CONFIGURATION=PASS
+TAX_CONFIGURATION=PASS
 PROTECTED_INVARIANT_GATES=BLOCKED_BY_EXISTING_ENGINE_TEST_COLLECTION
 IOS_PHYSICAL_DEVICE_ACCEPTANCE=PENDING
 APP_STORE_SCREENSHOT_IOS_ONLY=PENDING
@@ -67,9 +72,9 @@ The frozen master runbook remains the investigation/remediation baseline. This f
   **Definition of done:** exact SHA and commit identity are documented.  
   **Evidence:** `749ffe3669cc1c6184482a735001af769bc71547` — `Migrate Floently Learn SEO surface to KieliValmis`.
 
-- [ ] **The exact source SHA used for rejected build 34 is proven.**  
+- [x] **The exact source SHA used for rejected build 34 is proven.**  
   **Definition of done:** EAS/build/archive/App Store release evidence links build 34 to the exact Git SHA that produced it.  
-  **Current state:** GitHub source history alone does not prove this.
+  **Evidence:** EAS production build `b192f8f3-74ec-42c6-9dda-f3e569f13a3c` records `EAS_BUILD_IOS_BUILD_NUMBER=34` and `EAS_BUILD_GIT_COMMIT_HASH=4ce381deefa79b1b202d1483498f52a11d0c006c`. GitHub independently resolves that exact SHA to `Remove App Review account from shared test entitlements`. GitHub comparison proves canonical production SHA `749ffe3669cc1c6184482a735001af769bc71547` is 20 commits forward from the rejected-build SHA with the rejected-build SHA as merge base.
 
 ## 0.3 Resolve current configured iOS app identity from source
 
@@ -91,19 +96,19 @@ The frozen master runbook remains the investigation/remediation baseline. This f
 
 - [x] **Configured client iOS bundle identifier is identified.**  
   **Definition of done:** active client Expo configuration identifies the intended iOS bundle ID.  
-  **Evidence:** `apps/client/app.base.json` contains `ios.bundleIdentifier = "com.vitusidi.floently"`; the release checklist independently names the same identifier.
+  **Evidence:** `apps/client/app.base.json` contains `ios.bundleIdentifier = "com.vitusidi.floently"`; rejected-build EAS app configuration resolved the same value.
 
 - [x] **Conflicting checked-in native iOS bundle identifier is documented.**  
   **Definition of done:** mismatch is recorded and not treated as resolved.  
-  **Evidence:** root `ios/floentlyfinnish.xcodeproj/project.pbxproj` contains `PRODUCT_BUNDLE_IDENTIFIER = com.vitusidi.floentlyfinnish`, while active client Expo config uses `com.vitusidi.floently`.
+  **Evidence:** root `ios/floentlyfinnish.xcodeproj/project.pbxproj` contains `PRODUCT_BUNDLE_IDENTIFIER = com.vitusidi.floentlyfinnish`, while the actual Expo/EAS client uses `com.vitusidi.floently`. Build-34 logs prove EAS generated a fresh `apps/client/ios` directory, so the root project was not the native project used for rejected build 34. The stale root identifier still requires normalization or an explicit release-path guard in Phase 4.
 
 - [x] **Active client tree is confirmed not to contain `apps/client/ios`.**  
   **Definition of done:** GitHub inspection proves there is no checked-in native iOS directory under the actual Expo client package on the canonical line.  
-  **Evidence:** `apps/client` has EAS/app config but no `apps/client/ios` directory.
+  **Evidence:** `apps/client` has EAS/app config but no checked-in `apps/client/ios`; build 34 logs show EAS prebuild creating `./ios` inside `apps/client` at build time.
 
-- [ ] **Actual bundle identifier embedded in rejected build 34 is proven.**  
-  **Definition of done:** App Store Connect build metadata, EAS build metadata, archived `.ipa`, or equivalent artifact inspection proves build 34 `CFBundleIdentifier`.  
-  **Current state:** source indicates intended EAS identifier `com.vitusidi.floently`, but artifact identity remains unproven.
+- [x] **Actual bundle identifier used by rejected build 34 is proven from EAS build metadata.**  
+  **Definition of done:** App Store Connect build metadata, EAS build metadata, archived `.ipa`, or equivalent artifact inspection proves build 34 iOS application identity.  
+  **Evidence:** build 34 EAS metadata resolves `ios.bundleIdentifier = com.vitusidi.floently`; EAS assigns provisioning profile `*[expo] com.vitusidi.floently AppStore ...` to target `KieliValmis`; fastlane export maps `provisioningProfiles.com.vitusidi.floently`; archive and IPA export succeed from that target.
 
 ## 0.4 Resolve build-number source and build method
 
@@ -111,31 +116,35 @@ The frozen master runbook remains the investigation/remediation baseline. This f
   **Definition of done:** EAS version-source behavior is inspected.  
   **Evidence:** `apps/client/eas.json` sets `cli.appVersionSource = "remote"`; production sets `autoIncrement = true`. Checked-in `buildNumber: "11"` is therefore not authoritative for the submitted build number.
 
-- [ ] **Build 34 build method is proven (EAS vs local Xcode vs other CI).**  
+- [x] **Build 34 build method is proven (EAS vs local Xcode vs other CI).**  
   **Definition of done:** build metadata identifies the actual executor/profile for build 34.  
-  **Current state:** repository supports EAS production builds, but actual build-34 record has not been retrieved.
+  **Evidence:** EAS build ID `b192f8f3-74ec-42c6-9dda-f3e569f13a3c`, profile `production`, environment `production`, iOS build number `34`, Xcode `26.2 (17C52)`, with EAS prebuild followed by fastlane archive/export.
 
-- [ ] **Exact Git branch/ref used for build 34 is proven.**  
-  **Definition of done:** build metadata/release logs identify the source ref.  
-  **Current state:** pending external build evidence.
+- [ ] **Exact mutable Git branch/ref name used for build 34 is proven.**  
+  **Definition of done:** historical build metadata explicitly records the source branch/ref name.  
+  **Current state:** the supplied EAS build record preserves the immutable Git SHA but does not expose a historical branch/ref name. This is retained as an informational unknown and is no longer a provenance blocker because the immutable SHA, EAS build ID, build number, executor/profile, and bundle identity are all proven.
+
+### Phase-0 provenance amendment
+
+A mutable branch name is weaker release evidence than an immutable Git SHA and can change or disappear after a build. The live ledger therefore treats exact `EAS_BUILD_GIT_COMMIT_HASH` + EAS build ID + iOS build number + production profile + bundle identity as the authoritative rejected-build provenance. The historical branch/ref remains recorded as unknown rather than inferred.
 
 ## 0.5 Resolve release environment evidence
 
 - [x] **Production EAS profile contains a configured iOS RevenueCat public SDK key.**  
   **Definition of done:** source proves production build profile injects a non-empty iOS RevenueCat SDK key variable.  
-  **Evidence:** `apps/client/eas.json` defines `EXPO_PUBLIC_REVENUECAT_IOS_API_KEY`; value intentionally not repeated here.
+  **Evidence:** `apps/client/eas.json` defines `EXPO_PUBLIC_REVENUECAT_IOS_API_KEY`; build 34 logs confirm it was injected into the production build. Key value is intentionally not repeated in this ledger.
 
 - [x] **Production API base URL is identified.**  
   **Definition of done:** production EAS environment identifies API endpoint.  
   **Evidence:** `https://learn-api.floently.com`.
 
-- [ ] **RevenueCat project/app represented by production iOS SDK key is proven.**  
-  **Definition of done:** RevenueCat dashboard evidence maps the configured public SDK key to the intended KieliValmis iOS app/project.  
-  **Current state:** GitHub cannot prove dashboard ownership/mapping.
+- [x] **RevenueCat project/app represented by the production iOS SDK key is proven.**  
+  **Definition of done:** RevenueCat dashboard evidence maps the configured public SDK key to the intended iOS app/project.  
+  **Evidence:** RevenueCat project `Floently` → app `Floently iOS` shows bundle ID `com.vitusidi.floently`; its Public API Key matches the iOS public SDK key injected into rejected build 34. Full key intentionally omitted from this ledger.
 
-- [ ] **App Store Connect bundle identifier for Apple app ID `6767821805` is proven from Apple.**  
+- [x] **App Store Connect bundle identifier for Apple app ID `6767821805` is proven from Apple.**  
   **Definition of done:** App Store Connect metadata confirms the actual app-record bundle ID.  
-  **Current state:** source intends `com.vitusidi.floently`; Apple-side confirmation remains required.
+  **Evidence:** App Store Connect → KieliValmis → App Information shows Bundle ID `com.vitusidi.floently` and Apple ID `6767821805`.
 
 ## Phase 0 gate
 
@@ -146,38 +155,82 @@ CONFIGURED_ASC_APP_ID=PASS
 CONFIGURED_EAS_PROJECT_ID=PASS
 CONFIGURED_IOS_BUNDLE_ID=PASS
 BUILD_NUMBER_REMOTE_SOURCE_EXPLAINED=PASS
-BUILD34_SOURCE_SHA=UNKNOWN
-BUILD34_SOURCE_REF=UNKNOWN
-BUILD34_BUILD_METHOD=UNKNOWN
-BUILD34_EMBEDDED_BUNDLE_ID=UNKNOWN
-APP_STORE_CONNECT_BUNDLE_ID=UNKNOWN
-REVENUECAT_IOS_APP_IDENTITY=UNKNOWN
-BUILD34_PROVENANCE=BLOCKED
+BUILD34_SOURCE_SHA=PASS
+BUILD34_SOURCE_REF=UNKNOWN_NON_BLOCKING
+BUILD34_BUILD_METHOD=PASS
+BUILD34_EMBEDDED_BUNDLE_ID=PASS
+APP_STORE_CONNECT_BUNDLE_ID=PASS
+REVENUECAT_IOS_APP_IDENTITY=PASS
+BUILD34_PROVENANCE=PASS
 ```
 
-**Definition of done for Phase 0:** `BUILD34_PROVENANCE=PASS`. Phase 0 is **not done**.
+**Definition of done for Phase 0:** immutable rejected-build provenance is reproducibly identified. **Phase 0 is DONE.**
 
 ---
 
 # Phase 1 — Apple + RevenueCat catalog reconciliation
 
-**Status:** PENDING. These are dashboard/store facts and must not be checked from source inference alone.
+**Status:** PARTIAL. Apple commercial agreements and cross-system app identity are now proven. Subscription groups, Apple subscription metadata/statuses, and the exact RevenueCat package→product→entitlement matrix remain open.
 
-- [ ] Paid Apps Agreement active.
-- [ ] Banking accepted.
-- [ ] Tax information accepted.
-- [ ] Apple app ID `6767821805` bundle identifier confirmed.
-- [ ] All visible subscription Product IDs confirmed in App Store Connect.
-- [ ] Subscription groups confirmed.
-- [ ] Product prices/localizations/statuses confirmed.
-- [ ] RevenueCat project confirmed.
-- [ ] RevenueCat iOS app bundle identifier confirmed.
-- [ ] RevenueCat product mappings confirmed.
-- [ ] RevenueCat entitlements confirmed.
-- [ ] KieliValmis paywall offering/placement contract confirmed in RevenueCat.
-- [ ] Every visible KieliValmis package maps to the intended Apple Product ID.
+- [x] **Paid Apps Agreement active.**  
+  **Definition of done:** App Store Connect Business shows Paid Apps Agreement status Active.  
+  **Evidence:** Komplyint Oy Paid Apps Agreement is Active for Aug 19, 2026 – Jan 19, 2027.
 
-**Definition of done:** complete plan → offering/placement → package → RevenueCat product → Apple Product ID → entitlement matrix with every visible iOS plan PASS.
+- [x] **Banking accepted.**  
+  **Definition of done:** the active legal entity has an active bank account in App Store Connect.  
+  **Evidence:** Komplyint Oy bank account row shows status Active.
+
+- [x] **Tax information accepted.**  
+  **Definition of done:** required tax forms shown for the active legal entity are accepted/active.  
+  **Evidence:** displayed U.S. tax forms both show status Active.
+
+- [x] **Apple app ID `6767821805` bundle identifier confirmed.**  
+  **Definition of done:** Apple App Information identifies the app record and bundle ID.  
+  **Evidence:** Apple ID `6767821805`; bundle ID `com.vitusidi.floently`.
+
+- [ ] **All visible subscription Product IDs confirmed in App Store Connect.**  
+  **Current state:** the supplied App Store Connect screenshot shows the separate **In-App Purchases** page with no non-subscription IAP items. Auto-renewable subscriptions are managed under the separate **Subscriptions** sidebar entry, which has not yet been captured. Do not infer subscription absence from the empty In-App Purchases page.
+
+- [ ] **Subscription groups confirmed.**  
+  **Current state:** App Store Connect → Subscriptions group/detail evidence still required.
+
+- [ ] **Product prices/localizations/statuses confirmed in App Store Connect.**  
+  **Current state:** RevenueCat currently reports the nine core KieliValmis Apple products as `In Review` and four Read/Creator Apple products as `Missing Metadata`, but Apple-side subscription detail pages are still required before this checkbox can pass.
+
+- [x] **RevenueCat project confirmed.**  
+  **Definition of done:** dashboard evidence identifies the project used by the iOS app.  
+  **Evidence:** RevenueCat project selector shows `Floently`; app settings show `Floently iOS`.
+
+- [x] **RevenueCat iOS app bundle identifier confirmed.**  
+  **Definition of done:** RevenueCat iOS app settings identify the same Apple bundle ID.  
+  **Evidence:** `Floently iOS` → App Bundle ID `com.vitusidi.floently`, matching build 34 and App Store Connect.
+
+- [ ] **RevenueCat product mappings confirmed.**  
+  **Current state:** RevenueCat Products shows the Apple products and statuses, but the supplied list view does not prove every package→product mapping or every Apple Product ID against the App Store Connect Subscriptions page.
+
+- [ ] **RevenueCat entitlements confirmed end to end.**  
+  **Current state:** entitlement identifiers are visible (`yki_access`, `professional_access`, `combined_access`, `read_access`, `creator_access`) with product counts, but individual entitlement product membership has not yet been expanded and reconciled.
+
+- [ ] **KieliValmis paywall offering/placement contract confirmed in RevenueCat.**  
+  **Current state:** RevenueCat Offerings shows `default` as the current offering with `9 packages` and `read_default` with `4 packages`. Exact package identifiers and attached product IDs still require the offering detail view.
+
+- [ ] **Every visible KieliValmis package maps to the intended Apple Product ID.**  
+  **Current state:** source expects nine core packages; the RevenueCat current offering has nine packages, but package-detail/product mapping evidence is still required before this can pass.
+
+### Dashboard evidence received 2026-08-19
+
+- RevenueCat project: `Floently`.
+- RevenueCat iOS app: `Floently iOS`.
+- Cross-system bundle identity: `com.vitusidi.floently` in build 34, App Store Connect, and RevenueCat.
+- RevenueCat current offering: `default`, 9 packages.
+- RevenueCat additional offering: `read_default`, 4 packages.
+- RevenueCat entitlements visible: `yki_access`, `professional_access`, `combined_access`, `read_access`, `creator_access`.
+- RevenueCat iOS product list currently shows the nine core KieliValmis products in `In Review`; four Read/Creator iOS products show `Missing Metadata`.
+- App Store Connect commercial prerequisites shown: Paid Apps Agreement Active, bank account Active, displayed tax forms Active.
+
+**Next required external evidence:** App Store Connect → **Subscriptions** (not In-App Purchases), showing every subscription group and each subscription's Product ID, status, price/localizations, availability, and review inclusion; then RevenueCat → `default` offering detail showing each of the nine package identifiers and attached Apple product.
+
+**Definition of done for Phase 1:** complete plan → offering/placement → package → RevenueCat product → Apple Product ID → entitlement matrix with every visible iOS plan PASS.
 
 ### Runbook amendment: Offering strategy
 
@@ -263,19 +316,19 @@ The targeted account-deletion backend gate and the complete client account-acces
 
 # Phase 4 — iOS identity and RevenueCat client hardening
 
-**Status:** IN PROGRESS. All repository-side RevenueCat customer-identity, store-product preflight, fail-closed paywall, user-safe error, and localized-price presentation gates are verified. Bundle identity and Apple/RevenueCat dashboard reconciliation remain external blockers.
+**Status:** IN PROGRESS. All repository-side RevenueCat customer-identity, store-product preflight, fail-closed paywall, user-safe error, and localized-price presentation gates are verified. Apple-authoritative identity is now proven; source normalization/release drift guard and exact dashboard package mapping remain open.
 
 - [ ] **iOS bundle identity normalized to Apple-authoritative value.**  
   **Definition of done:** build 34/App Store Connect/RevenueCat authoritative identity is proven first, then source/build configuration is normalized and verified.  
-  **Current state:** external authoritative identity remains unproven; do not guess.
+  **Current state:** authoritative identity is now proven as `com.vitusidi.floently` across rejected build 34, App Store Connect, RevenueCat, and active Expo client config. The stale root native Xcode project still carries `com.vitusidi.floentlyfinnish`; normalization/guard work is now unblocked and is the next source step.
 
 - [ ] **Release verifier prevents source/build bundle-ID drift.**  
   **Definition of done:** release-time verification fails if the actual iOS build identity diverges from the Apple-authoritative identity.  
-  **Current state:** blocked on the authoritative identity decision above.
+  **Current state:** now unblocked; verifier must be added and pass CI before this can be checked.
 
 - [ ] **KieliValmis RevenueCat current-offering/placement contract is explicit and tested end to end.**  
   **Definition of done:** source contract plus RevenueCat dashboard offering/placement and every visible package/product mapping are reconciled and tested.  
-  **Current state:** repository-side current-offering snapshot/preflight is verified, but RevenueCat dashboard evidence remains pending.
+  **Current state:** repository-side current-offering snapshot/preflight is verified and RevenueCat confirms `default` is current with 9 packages, but package detail mappings and App Store Connect subscription details remain pending.
 
 - [x] **Store billing preflight service and purchase-time package recheck are implemented and passing.**  
   **Definition of done:** all nine core plan/package mappings are explicit; preflight resolves the RevenueCat offering and requires package + underlying store Product ID + localized price; selected plan is rechecked immediately before purchase; TypeScript and invariant gate pass.  
@@ -309,11 +362,12 @@ STORE_BILLING_PREFLIGHT_SERVICE_GATE=PASS
 STORE_BILLING_SAFE_ERROR_GATE=PASS
 PAYWALL_PREFLIGHT_PRESENTATION=PASS
 IOS_LOCALIZED_STORE_PRICE_SOURCE_GATE=PASS
-IOS_BUNDLE_IDENTITY_SINGLE_SOURCE=PENDING_EXTERNAL_IDENTITY_PROOF
+IOS_AUTHORITATIVE_BUNDLE_IDENTITY=PASS
+IOS_BUNDLE_IDENTITY_SINGLE_SOURCE=PENDING_SOURCE_NORMALIZATION
 REVENUECAT_OFFERING_CONTRACT=PENDING_DASHBOARD_RECONCILIATION
 ```
 
-**Phase 4 overall remains IN PROGRESS** because the Apple-authoritative bundle identity and RevenueCat/App Store Connect dashboard catalog have not yet been proven.
+**Phase 4 overall remains IN PROGRESS** because source bundle-ID normalization/release verification and the exact RevenueCat/App Store Connect subscription catalog matrix remain unfinished.
 
 ---
 
