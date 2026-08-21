@@ -7,17 +7,16 @@
 
 ## Evidence received
 
-A RevenueCat dashboard screenshot of:
+RevenueCat dashboard path:
 
 `Floently` → Product catalog → Offerings → `default`
 
-The screenshot shows:
+The screenshot proves:
 
 - Offering identifier: `default`
 - Display name: `Default`
-- The offering is the active/current offering used for the KieliValmis core paywall
-- Nine package cards are present
-- Every package contains an Apple/iOS product and the corresponding Android product
+- Nine core package cards are present
+- Every package contains one Apple/iOS product and the corresponding Android product
 
 ## RevenueCat package → Apple Product ID matrix
 
@@ -35,27 +34,13 @@ The screenshot shows:
 
 ## Comparison with App Store Connect evidence
 
-Prior App Store Connect evidence from the `Kielivalmis Premium` subscription group proved these exact nine Apple Product IDs:
+Prior App Store Connect evidence from the `Kielivalmis Premium` subscription group proved these exact nine Apple Product IDs exist and are currently `In Review`.
 
-- `floently_combo_3months`
-- `floently_combo_monthly`
-- `floently_combo_yearly`
-- `floently_prof_3months`
-- `floently_prof_monthly`
-- `floently_prof_yearly`
-- `floently_yki_3months`
-- `floently_yki_monthly`
-- `floently_yki_yearly`
-
-The RevenueCat offering screenshot therefore proves that all nine KieliValmis core packages point to the corresponding Apple products that actually exist in the Apple subscription group.
+The RevenueCat offering screenshot therefore proves that all nine KieliValmis core packages point to the corresponding Apple products that exist in the Apple subscription group.
 
 ## Comparison with current remediation source
 
-Current repair source in:
-
-`apps/client/features/billing/services/storeBillingService.ts`
-
-maps application plan IDs to the same RevenueCat package identifiers:
+Current repair source in `apps/client/features/billing/services/storeBillingService.ts` maps application plan IDs to the same RevenueCat package identifiers:
 
 ```text
 yki_monthly                 -> yki_monthly
@@ -71,20 +56,16 @@ combined_3_months           -> combo_3months
 combined_yearly             -> combo_yearly
 ```
 
-Therefore the complete source → RevenueCat package → Apple Product ID path for all nine core KieliValmis subscription plans is now reconciled.
+Therefore the complete source → RevenueCat package → Apple Product ID path for all nine core KieliValmis subscription plans is reconciled.
 
 ## Definition-of-done decisions supported by this evidence
 
-The following items can now be marked complete in the live remediation ledger:
-
 - [x] RevenueCat core product mappings confirmed.
 - [x] KieliValmis `default` offering/package contract confirmed for the nine core plans.
-- [x] Every visible KieliValmis package maps to the intended Apple Product ID.
+- [x] Every visible core KieliValmis package maps to the intended Apple Product ID.
 - [x] Source package aliases for the nine core KieliValmis plans match the RevenueCat dashboard package identifiers.
 
 ## Items this screenshot does NOT prove
-
-The following remain open and must not be marked complete from this evidence alone:
 
 - [ ] RevenueCat entitlement membership for each product (`yki_access`, `professional_access`, `combined_access`).
 - [ ] Individual App Store Connect subscription pricing/localization/territory availability metadata.
