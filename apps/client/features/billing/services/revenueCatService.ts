@@ -8,6 +8,17 @@ export type RevenueCatPurchaseResult = {
   activeEntitlements: string[];
 };
 
+export type RevenueCatPackageSnapshot = {
+  packageIdentifier: string;
+  productIdentifier: string;
+  priceString: string;
+};
+
+export type RevenueCatOfferingSnapshot = {
+  offeringIdentifier: string;
+  packages: RevenueCatPackageSnapshot[];
+};
+
 let configured = false;
 let configuredUserId: string | null = null;
 
@@ -82,12 +93,33 @@ async function ensureRevenueCatConfigured(userId?: string | null): Promise<boole
     return false;
   }
 
-  if (appUserID && configuredUserId && appUserID !== configuredUserId) {
+  // RevenueCat supports configuring anonymously and identifying later with
+  // logIn(). The previous guard required configuredUserId to already be non-null,
+  // which left an anonymously configured SDK attached to the anonymous customer
+  // after the application user signed in. Always identify whenever a concrete
+  // app user differs from the SDK identity we last established.
+  if (appUserID && appUserID !== configuredUserId) {
     await Purchases.logIn(appUserID);
     configuredUserId = appUserID;
   }
 
   return true;
+}
+
+export async function logOutRevenueCatUser(): Promise<void> {
+  if (!configured) {
+    configuredUserId = null;
+    return;
+  }
+
+  // Only call RevenueCat logOut when this process has identified a concrete
+  // application user. RevenueCat will create a fresh anonymous customer after
+  // logout; the next authenticated store call will logIn the new application
+  // user before querying/purchasing.
+  if (configuredUserId) {
+    await Purchases.logOut();
+  }
+  configuredUserId = null;
 }
 
 export async function getRevenueCatCustomerInfo(userId?: string | null) {
@@ -121,8 +153,7 @@ function offeringByIdentifier(offerings: Awaited<ReturnType<typeof Purchases.get
   );
 }
 
-
-function packageIdentifierAliases(packageIdentifier: string): string[] {
+export function revenueCatIdentifierAliases(packageIdentifier: string): string[] {
   const raw = String(packageIdentifier || '').trim();
   const aliases = new Set<string>();
 
@@ -179,6 +210,64 @@ function packageCandidateIdentifiers(item: unknown): string[] {
   return Array.from(new Set(values));
 }
 
+function packageSnapshot(item: unknown): RevenueCatPackageSnapshot | null {
+  const pkg = item && typeof item === 'object' ? item as Record<string, unknown> : {};
+  const packageIdentifier = String(pkg.identifier ?? pkg.packageIdentifier ?? '').trim();
+
+  const productValue = pkg.product ?? pkg.storeProduct;
+  const product = productValue && typeof productValue === 'object'
+    ? productValue as Record<string, unknown>
+    : {};
+  const productIdentifier = String(
+    product.identifier ?? product.productIdentifier ?? product.productId ?? product.id ?? '',
+  ).trim();
+  const priceString = String(product.priceString ?? product.localizedPriceString ?? '').trim();
+
+  if (!packageIdentifier && !productIdentifier) {
+    return null;
+  }
+
+  return {
+    packageIdentifier,
+    productIdentifier,
+    priceString,
+  };
+}
+
+export function revenueCatPackageSnapshotMatches(
+  snapshot: RevenueCatPackageSnapshot,
+  expectedIdentifier: string,
+): boolean {
+  const aliases = revenueCatIdentifierAliases(expectedIdentifier);
+  return aliases.includes(snapshot.packageIdentifier) || aliases.includes(snapshot.productIdentifier);
+}
+
+export async function getRevenueCatOfferingSnapshot(
+  userId?: string | null,
+  offeringIdentifier?: string | null,
+): Promise<RevenueCatOfferingSnapshot | null> {
+  if (!(await ensureRevenueCatConfigured(userId))) {
+    return null;
+  }
+
+  const offerings = await Purchases.getOfferings();
+  const offering = offeringByIdentifier(offerings, offeringIdentifier);
+  if (!offering) {
+    return null;
+  }
+
+  const availablePackages = Array.isArray(offering.availablePackages)
+    ? offering.availablePackages
+    : [];
+
+  return {
+    offeringIdentifier: String(offering.identifier || offeringIdentifier || 'current'),
+    packages: availablePackages
+      .map((item: unknown) => packageSnapshot(item))
+      .filter((item): item is RevenueCatPackageSnapshot => Boolean(item)),
+  };
+}
+
 export async function purchaseRevenueCatPackage(
   packageIdentifier: string,
   userId?: string | null,
@@ -195,7 +284,7 @@ export async function purchaseRevenueCatPackage(
     ? currentOffering.availablePackages
     : [];
 
-  const wantedAliases = packageIdentifierAliases(packageIdentifier);
+  const wantedAliases = revenueCatIdentifierAliases(packageIdentifier);
 
   const packageToPurchase = availablePackages.find((item: unknown) => {
     const candidates = packageCandidateIdentifiers(item);
@@ -209,7 +298,7 @@ export async function purchaseRevenueCatPackage(
       .join(', ');
 
     throw new Error(
-      `RevenueCat package not found: ${packageIdentifier} in offering ${offeringIdentifier || 'default'}. Tried: ${wantedAliases.join(', ')}. Available: ${available || 'none'}`,
+      `RevenueCat package not found: ${packageIdentifier} in offering ${offeringIdentifier || 'current'}. Tried: ${wantedAliases.join(', ')}. Available: ${available || 'none'}`,
     );
   }
 
