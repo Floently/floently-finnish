@@ -10,6 +10,7 @@ on:
       - "apps/client/features/speaking/services/roleplayScenarioRotation.ts"
       - "apps/client/scripts/verify-roleplay-scenario-rotation.mjs"
       - "apps/client/package.json"
+      - "pnpm-lock.yaml"
       - ".github/workflows/roleplay-scenario-rotation.yml"
   push:
     paths:
@@ -20,6 +21,7 @@ on:
       - "apps/client/features/speaking/services/roleplayScenarioRotation.ts"
       - "apps/client/scripts/verify-roleplay-scenario-rotation.mjs"
       - "apps/client/package.json"
+      - "pnpm-lock.yaml"
       - ".github/workflows/roleplay-scenario-rotation.yml"
 
 jobs:
@@ -30,19 +32,24 @@ jobs:
       - name: Check out repository
         uses: actions/checkout@v4
 
+      - name: Pin pnpm
+        uses: pnpm/action-setup@v6
+        with:
+          version: "10.34.0"
+          run_install: false
+
       - name: Set up Node
         uses: actions/setup-node@v4
         with:
-          node-version: "20"
-
-      - name: Enable Corepack
-        run: corepack enable
+          node-version: "22"
+          cache: pnpm
+          cache-dependency-path: pnpm-lock.yaml
 
       - name: Install frozen dependencies
-        run: corepack pnpm install --frozen-lockfile
+        run: pnpm install --frozen-lockfile
 
       - name: Verify scenario rotation
-        run: corepack pnpm --dir apps/client run verify:roleplay-scenarios
+        run: pnpm --dir apps/client run verify:roleplay-scenarios
 
       - name: Verify recorder invariants remain intact
-        run: corepack pnpm --dir apps/client run verify:roleplay-audio
+        run: pnpm --dir apps/client run verify:roleplay-audio
