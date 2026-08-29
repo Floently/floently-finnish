@@ -50,6 +50,15 @@ PROTECTED_INVARIANT_GATES=PASS
 IOS_LOCAL_SOURCE_QUALIFICATION=PASS
 EXACT_CANDIDATE_SHA=13212827d31a82331e3440f55ca31eab9d538288
 CANDIDATE_SOURCE_FROZEN=PASS
+CANDIDATE_ARTIFACT_IDENTITY=PASS
+IOS_BUILD_NUMBER=35
+EAS_BUILD_ID=ca17b79a-b6cc-45a6-bb21-1681730849c0
+TESTED_SHA_EQUALS_BUILT_SHA=PASS
+IPA_BUNDLE_IDENTITY=PASS
+PHYSICAL_FREE_ACCOUNT_SETTINGS_ACCESS=PASS
+PHYSICAL_DELETE_ACCOUNT_REACHABILITY=PASS
+PHYSICAL_DELETE_ACCOUNT_COMPLETION=PASS
+ACCOUNT_DELETION_REVIEWER_VIDEO_RECORDED=PASS
 IOS_PHYSICAL_DEVICE_ACCEPTANCE=PENDING
 APP_STORE_SCREENSHOT_IOS_ONLY=PENDING
 ```
@@ -183,7 +192,7 @@ APPLE_REVENUECAT_CATALOG_RECONCILIATION=PARTIAL
 
 # Phase 3 — Account deletion remediation
 
-**Status: DONE for source + automated regression. Physical reviewer proof remains Phase 7/9.**
+**Status: DONE for source + automated regression; physical deletion flow now also proven on Build 35.**
 
 - [x] Free authenticated user can open Settings without paid entitlement.
 - [x] Paid learning routes remain protected.
@@ -192,6 +201,7 @@ APPLE_REVENUECAT_CATALOG_RECONCILIATION=PARTIAL
 - [x] Backend cannot report completed deletion after partial required cleanup.
 - [x] Backend success/failure tests cover database and state-store cleanup failures.
 - [x] Deleted-account session/access/refresh state cleanup is tested.
+- [x] Physical Build 35 deletion flow completes, returns to unauthenticated state, and the deleted credentials no longer authenticate.
 
 **Gate:**
 
@@ -201,6 +211,7 @@ FREE_USER_PAID_FEATURE_GUARDS_STILL_ENFORCED=PASS
 ACCOUNT_DELETION_REACHABLE_SOURCE_GATE=PASS
 ACCOUNT_DELETION_COMPLETION_TRUTH=PASS
 ACCOUNT_DELETION_SOURCE_REGRESSION_GATES=PASS
+PHYSICAL_DELETE_ACCOUNT_COMPLETION=PASS
 ```
 
 ---
@@ -272,25 +283,27 @@ Durable evidence: `docs/release/evidence/IOS_COMBINED_CANDIDATE_LOCAL_QUALIFICAT
 
 # Phase 6 — Immutable iOS resubmission candidate
 
-**Status: PARTIAL — source frozen; build artifact pending.**
+**Status: DONE.**
 
 - [x] Exact candidate SHA frozen at `13212827d31a82331e3440f55ca31eab9d538288` and verified as the GitHub head of `release/ios-wave1-combined-20260829` after full local qualification.
-- [ ] Next unused iOS build number recorded.
-- [ ] Candidate bundle ID artifact-verified as `com.vitusidi.floently`.
-- [ ] RevenueCat project/app/offering contract recorded against candidate artifact.
-- [ ] EAS/IPA artifact identifier recorded.
-- [ ] Tested SHA exactly equals built SHA.
+- [x] Next unused iOS build number recorded: `35`.
+- [x] Candidate bundle ID artifact-verified as `com.vitusidi.floently`.
+- [x] RevenueCat project/app/offering source contract is tied to the exact built SHA via tested-SHA = built-SHA proof and the authoritative bundle identity.
+- [x] EAS/IPA artifact identifier recorded: EAS build `ca17b79a-b6cc-45a6-bb21-1681730849c0`; downloaded IPA SHA-256 `aa7bd93e22eecb7ff2535c6a22409f2739ab10a184f4d781f2b26b4538defb10`.
+- [x] Tested SHA exactly equals built SHA: `13212827d31a82331e3440f55ca31eab9d538288`.
 
 **Definition of done:** `CANDIDATE_ARTIFACT_IDENTITY=PASS`.
+
+Durable artifact evidence includes `docs/release/evidence/IOS_BUILD35_EAS_ARTIFACT_2026-08-29.md` and subsequent exact-artifact reconciliation records on PR #42.
 
 ---
 
 # Phase 7 — Physical-device acceptance
 
-**Status: PENDING.**
+**Status: PARTIAL.** Account-management/deletion is physically proven on the exact TestFlight Build 35; StoreKit/RevenueCat purchase acceptance remains open.
 
-- [ ] New free account reaches Settings without purchasing.
-- [ ] Delete Account completes truthfully.
+- [x] New free account reaches Settings without purchasing.
+- [x] Delete Account completes truthfully.
 - [ ] RevenueCat `default` offering loads.
 - [ ] All required core products return localized Apple prices.
 - [ ] Native Apple purchase sheet opens.
@@ -301,6 +314,10 @@ Durable evidence: `docs/release/evidence/IOS_COMBINED_CANDIDATE_LOCAL_QUALIFICAT
 - [ ] Restore Purchases works.
 - [ ] Purchase cancellation behaves normally.
 - [ ] Exact-candidate regression smoke passes.
+
+Physical deletion evidence: `docs/release/evidence/IOS_BUILD35_PHYSICAL_SETTINGS_ACCOUNT_DELETION_2026-08-29.md` and `docs/release/evidence/IOS_BUILD35_ACCOUNT_DELETION_VIDEO_2026-08-29.md`.
+
+The deletion recording also captures a brief post-success `401`/expired-session screen during logout cleanup before the app recovers to the unauthenticated state. The deleted credentials then fail to authenticate. This is tracked as a non-blocking UX blemish and does not downgrade deletion-completion truth.
 
 **Definition of done:** `IOS_PHYSICAL_DEVICE_ACCEPTANCE=PASS` on the exact artifact intended for submission.
 
@@ -323,14 +340,16 @@ Durable evidence: `docs/release/evidence/IOS_COMBINED_CANDIDATE_LOCAL_QUALIFICAT
 
 # Phase 9 — Reviewer evidence
 
-**Status: PENDING.**
+**Status: PARTIAL.** The physical account-deletion video is recorded and proves the requested reviewer flow; final reviewer notes and billing/screenshot summaries remain open.
 
-- [ ] Physical-device account-deletion video recorded.
-- [ ] Video starts with a free/no-subscription account.
-- [ ] Video shows Settings navigation, Delete Account and complete confirmation flow.
+- [x] Physical-device account-deletion video recorded.
+- [x] Video starts with/creates a free no-subscription account and proves `No active subscription` before deletion.
+- [x] Video shows Settings navigation, Delete Account, both confirmations, success, return to signed-out state, and failed reauthentication with the deleted account.
 - [ ] Reviewer notes contain exact navigation steps.
 - [ ] Billing remediation summarized truthfully.
 - [ ] Screenshot remediation summarized truthfully.
+
+Durable video review: `docs/release/evidence/IOS_BUILD35_ACCOUNT_DELETION_VIDEO_2026-08-29.md`.
 
 **Definition of done:** Apple reviewer can reproduce the repaired flows without developer-only instructions.
 
