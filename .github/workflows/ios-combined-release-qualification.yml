@@ -15,10 +15,12 @@ jobs:
       SIGNED_SESSION_SECRET: ios-release-qualification-secret
       OPENAI_EVALUATION_ENABLED: "0"
     steps:
-      - name: Check out candidate
+      - name: Check out candidate with release ancestry
         uses: actions/checkout@v4
         with:
-          fetch-depth: 1
+          # The combined candidate is more than 120 commits ahead of canonical.
+          # A one-commit shallow checkout cannot prove ancestry reliably.
+          fetch-depth: 256
 
       - name: Prove canonical release ancestry
         run: |
