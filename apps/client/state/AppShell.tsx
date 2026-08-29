@@ -114,6 +114,12 @@ function isSecondaryScreen(
   );
 }
 
+function isAccountManagementScreen(
+  screen: GuardedScreen | RequestedScreen,
+): screen is "help" | "settings" | "billing" {
+  return screen === "help" || screen === "settings" || screen === "billing";
+}
+
 async function validateLearningGuard(): Promise<LearningGuardResult> {
   const learningResponse = await getLearningSystem();
 
@@ -321,6 +327,15 @@ export default function AppShell({ requestedScreen = "root" }: Props) {
       subscriptionStatus?.hasAnySubscription ||
       subscriptionStatus?.isActive,
     );
+
+    // Account management is a property of authentication, not a paid learning
+    // entitlement. A signed-in user must always be able to reach Settings/Help
+    // (and Billing) so they can manage or delete the account even when they have
+    // never subscribed, their trial expired, or payment failed.
+    if (user && isAccountManagementScreen(screen)) {
+      return true;
+    }
+
     if (!entitlements) {
       // Do not send authenticated users to billing while subscription status is still hydrating.
       // The backend remains the source of truth; this only prevents premature frontend redirects.
