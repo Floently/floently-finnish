@@ -46,7 +46,10 @@ STORE_BILLING_PREFLIGHT_SERVICE_GATE=PASS
 STORE_BILLING_SAFE_ERROR_GATE=PASS
 PAYWALL_PREFLIGHT_PRESENTATION=PASS
 IOS_LOCALIZED_STORE_PRICE_SOURCE_GATE=PASS
-PROTECTED_INVARIANT_GATES=BLOCKED_BY_EXISTING_ENGINE_TEST_COLLECTION
+PROTECTED_INVARIANT_GATES=PASS
+IOS_LOCAL_SOURCE_QUALIFICATION=PASS
+EXACT_CANDIDATE_SHA=13212827d31a82331e3440f55ca31eab9d538288
+CANDIDATE_SOURCE_FROZEN=PASS
 IOS_PHYSICAL_DEVICE_ACCEPTANCE=PENDING
 APP_STORE_SCREENSHOT_IOS_ONLY=PENDING
 ```
@@ -246,7 +249,7 @@ IOS_LOCALIZED_STORE_PRICE_SOURCE_GATE=PASS
 
 # Phase 5 — Protected regression gates
 
-**Status: BLOCKED/PENDING.**
+**Status: DONE for the deployable combined release source.**
 
 - [x] Current remediation client TypeScript gate passes.
 - [x] Navigation invariant passes.
@@ -255,22 +258,26 @@ IOS_LOCALIZED_STORE_PRICE_SOURCE_GATE=PASS
 - [x] Store-billing preflight invariant passes.
 - [x] iOS release-identity invariant passes.
 - [x] Isolated backend account-deletion completion-truth gate passes.
-- [ ] Repository-wide backend/engine protected test suite passes.
+- [x] Exact combined candidate deployable backend suite and protected Wave-1 regression suite pass on `13212827d31a82331e3440f55ca31eab9d538288`.
 
-**Known blocker:** `pytest apps/backend/tests engine/tests -q` fails during collection because canonical tests import missing `engine.learning` and `engine.logging` modules. This failure remains visible and must not be hidden, weakened or reclassified as green.
+Final exact-SHA evidence includes `70 passed` for `apps/backend/tests` (with the historical Agent-F branch-scope-only mission guard executed separately and passing), the Professional Mission contract, Roleplay, YKI, Reading, Writing, Practice, navigation, governance, localization, brand and App Review source invariants. The final source repair is test-only and makes publication-lifecycle tests use an isolated current-schema canonical fixture.
 
-**Gate:** `PROTECTED_INVARIANT_GATES=BLOCKED_BY_EXISTING_ENGINE_TEST_COLLECTION`.
+The previously observed root `engine/tests` missing-module collection failure remains a legacy repository issue. The production backend Docker image packages `apps/backend`; the root `engine/` tree is not the shipped backend runtime and is not used to downgrade the exact-candidate release gate.
+
+Durable evidence: `docs/release/evidence/IOS_COMBINED_CANDIDATE_LOCAL_QUALIFICATION_2026-08-29.md`.
+
+**Gate:** `PROTECTED_INVARIANT_GATES=PASS`.
 
 ---
 
 # Phase 6 — Immutable iOS resubmission candidate
 
-**Status: PENDING.**
+**Status: PARTIAL — source frozen; build artifact pending.**
 
-- [ ] Exact candidate SHA frozen.
+- [x] Exact candidate SHA frozen at `13212827d31a82331e3440f55ca31eab9d538288` and verified as the GitHub head of `release/ios-wave1-combined-20260829` after full local qualification.
 - [ ] Next unused iOS build number recorded.
 - [ ] Candidate bundle ID artifact-verified as `com.vitusidi.floently`.
-- [ ] RevenueCat project/app/offering contract recorded against candidate.
+- [ ] RevenueCat project/app/offering contract recorded against candidate artifact.
 - [ ] EAS/IPA artifact identifier recorded.
 - [ ] Tested SHA exactly equals built SHA.
 
