@@ -1,0 +1,8 @@
+{
+  "name": "floently-main-domain-static",
+  "private": true,
+  "scripts": {
+    "verify": "node verify-main-domain-static.mjs",
+    "vercel-build": "node verify-main-domain-static.mjs"
+  }
+}
