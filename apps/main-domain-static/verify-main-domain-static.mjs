@@ -33,34 +33,53 @@ const deletion = read("learn/delete-account/index.html");
 const config = JSON.parse(read("vercel.json"));
 
 for (const marker of [
+  "Floently product gateway",
+  "Choose your Floently product",
   "Floently Learn",
   "Floently Read",
   "Floently Create",
-  "Available now",
-  "Coming soon",
-  "YKI preparation",
-  "Grammar in context",
-  "Speaking and role-play",
-  "Finnish for work",
+  "Go to Learn",
+  "Go to Read",
+  "Go to Create",
+  "Prepare for YKI and workplace Finnish",
+  "Listen to text in natural AI voices",
+  "Repurpose one source into posts, captions, scripts, and newsletters",
 ]) {
-  if (!home.includes(marker)) throw new Error(`Missing suite marker: ${marker}`);
+  if (!home.includes(marker)) throw new Error(`Restored Floently gateway marker missing: ${marker}`);
+}
+if (/coming soon/i.test(home)) throw new Error("Floently home regressed to Coming Soon product messaging");
+if (home.includes("Learn Finnish for YKI, work and everyday life")) {
+  throw new Error("Floently home regressed to the Learn-only master landing");
 }
 
-for (const [name, page] of [["read", readPage], ["create", createPage]]) {
-  if (!page.includes("Coming soon")) throw new Error(`${name} page lost Coming soon`);
-  if (!page.includes("Explore Floently Learn")) throw new Error(`${name} page lost Learn link`);
+for (const marker of [
+  "AI-Powered Text to Speech",
+  "Listen to any text",
+  "anytime, anywhere",
+  "Join thousands already listening",
+  "Lifelike Voices",
+  "Easy Import",
+  "Customizable",
+  "People are listening",
+  "Start listening today",
+]) {
+  if (!readPage.includes(marker)) throw new Error(`Restored Read marker missing: ${marker}`);
 }
+if (/coming soon/i.test(readPage)) throw new Error("Floently Read regressed to the Coming Soon placeholder");
+for (let index = 1; index <= 8; index += 1) {
+  const asset = `landing_page_picture_${index}.png`;
+  if (!readPage.includes(asset)) throw new Error(`Floently Read carousel lost ${asset}`);
+}
+
+// Create remains a separate product surface; this restoration intentionally
+// changes only the master home and Read landing.
+if (!createPage.includes("Floently Create")) throw new Error("Create page identity was lost");
 
 for (const marker of ["Practice YKI Finnish", "Improve Finnish speaking", "Build Finnish for work"]) {
   if (!learn.includes(marker)) throw new Error(`Learn content regressed: ${marker}`);
 }
-
-if (!privacy.includes("Floently Finnish Privacy Policy")) {
-  throw new Error("Privacy page identity marker is missing");
-}
-if (!deletion.includes("Delete Your Floently Finnish Account")) {
-  throw new Error("Deletion page identity marker is missing");
-}
+if (!privacy.includes("Floently Finnish Privacy Policy")) throw new Error("Privacy page identity marker is missing");
+if (!deletion.includes("Delete Your Floently Finnish Account")) throw new Error("Deletion page identity marker is missing");
 
 const expected = new Map([
   ["/privacy", "/learn/privacy"],
@@ -76,15 +95,13 @@ const expected = new Map([
 ]);
 const actual = new Map((config.redirects ?? []).map((item) => [item.source, item.destination]));
 for (const [source, destination] of expected) {
-  if (actual.get(source) !== destination) {
-    throw new Error(`Missing redirect lock: ${source} -> ${destination}`);
-  }
+  if (actual.get(source) !== destination) throw new Error(`Missing redirect lock: ${source} -> ${destination}`);
 }
 
-console.log("FLOENTLY_MASTER_ROOT_SUITE=PASS");
+console.log("FLOENTLY_MASTER_ORIGINAL_GATEWAY=PASS");
+console.log("FLOENTLY_MASTER_READ_FULL_LANDING=PASS");
+console.log("FLOENTLY_MASTER_READ_EIGHT_PHOTOS=PASS");
 console.log("FLOENTLY_MASTER_LEARN_CONTENT=PASS");
-console.log("FLOENTLY_MASTER_READ_COMING_SOON=PASS");
-console.log("FLOENTLY_MASTER_CREATE_COMING_SOON=PASS");
 console.log("FLOENTLY_MASTER_LEGAL_FILES=PASS");
 console.log("FLOENTLY_MASTER_LEGAL_ALIASES=PASS");
 console.log("FLOENTLY_MASTER_DOMAIN_REGRESSION_LOCK=PASS");
