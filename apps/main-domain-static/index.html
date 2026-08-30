@@ -3,73 +3,38 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Floently | Learn, Read and Create in Finnish</title>
-  <meta name="description" content="Floently brings Finnish learning, supported reading and guided writing into one product family. Start with Floently Learn; Read and Create are coming soon.">
+  <title>Floently | Learn · Read · Create</title>
+  <meta name="description" content="Choose the Floently product for learning Finnish, reading and listening, or creating digital content.">
   <meta name="robots" content="index,follow">
   <link rel="canonical" href="https://www.floently.com/">
-  <meta property="og:title" content="Floently | Learn, Read and Create in Finnish">
-  <meta property="og:description" content="Learn Finnish today. Floently Read and Create are coming soon.">
-  <meta property="og:url" content="https://www.floently.com/">
-  <meta property="og:image" content="https://www.floently.com/floently-finnish-icon.png">
-  <meta name="theme-color" content="#071738">
+  <meta name="theme-color" content="#020613">
   <style>
-    :root{color-scheme:dark;--bg:#050d23;--navy:#071738;--surface:rgba(255,255,255,.065);--border:rgba(255,255,255,.15);--text:#f7f9ff;--muted:#c7d4ed;--blue:#527eff;--teal:#68dfd3;--gold:#efc86c}
-    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:radial-gradient(circle at 16% 0%,rgba(82,126,255,.3),transparent 35%),radial-gradient(circle at 90% 16%,rgba(104,223,211,.14),transparent 30%),linear-gradient(180deg,var(--navy),var(--bg));color:var(--text);line-height:1.6}
-    a{color:inherit}.shell{width:min(1160px,calc(100% - 34px));margin:auto}nav{min-height:88px;display:flex;align-items:center;justify-content:space-between;gap:22px}.brand{display:flex;align-items:center;gap:12px;text-decoration:none;font-size:22px;font-weight:900}.brand img{width:48px;height:48px;border-radius:14px}.navlinks{display:flex;align-items:center;gap:20px;flex-wrap:wrap}.navlinks>a{text-decoration:none;color:var(--muted);font-weight:800}
-    .button{display:inline-flex;align-items:center;justify-content:center;padding:13px 20px;border-radius:999px;background:var(--blue);color:#fff;text-decoration:none;font-weight:900;border:1px solid transparent}.button.secondary{background:rgba(255,255,255,.07);border-color:var(--border)}
-    .hero{padding:72px 0 58px;display:grid;grid-template-columns:1.15fr .85fr;gap:42px;align-items:center}.eyebrow{color:var(--teal);font-size:12px;font-weight:900;letter-spacing:1.5px;text-transform:uppercase}.eyebrow:before{content:"";display:inline-block;width:8px;height:8px;margin-right:9px;border-radius:50%;background:var(--teal);box-shadow:0 0 16px var(--teal)}
-    h1{font-size:clamp(46px,7vw,82px);line-height:.98;letter-spacing:-3px;margin:20px 0 24px}.accent{color:var(--teal)}.lede{max-width:720px;color:var(--muted);font-size:clamp(18px,2vw,22px);margin:0}.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}
-    .preview{border:1px solid var(--border);border-radius:30px;padding:20px;background:rgba(3,10,28,.58);box-shadow:0 30px 80px rgba(0,0,0,.3)}.mini{border:1px solid var(--border);border-radius:20px;padding:18px;margin:10px 0;background:var(--surface)}.mini strong{display:block;font-size:20px}.mini span{color:var(--muted)}.status{display:inline-flex;margin-top:9px;border-radius:999px;padding:5px 9px;font-size:11px;font-weight:900;text-transform:uppercase;letter-spacing:.8px;background:rgba(104,223,211,.13);color:var(--teal)}.status.soon{background:rgba(239,200,108,.12);color:var(--gold)}
-    section{padding:60px 0}.section-head{max-width:780px;margin-bottom:26px}h2{font-size:clamp(32px,5vw,54px);line-height:1.05;letter-spacing:-1.5px;margin:0 0 14px}.section-head p{color:var(--muted);font-size:18px;margin:0}
-    .products{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.product{display:flex;flex-direction:column;min-height:350px;border:1px solid var(--border);border-radius:26px;padding:25px;background:var(--surface);text-decoration:none}.product:hover{transform:translateY(-3px);border-color:rgba(104,223,211,.5)}.product h3{font-size:30px;margin:14px 0 10px}.product p{color:var(--muted);font-size:17px;margin:0}.product .bottom{margin-top:auto;padding-top:26px;font-weight:900;color:var(--teal)}.product.soon .bottom{color:var(--gold)}.icon{width:48px;height:48px;display:grid;place-items:center;border-radius:15px;background:rgba(82,126,255,.18);font-size:23px}
-    .learn-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:15px}.learn-card{border:1px solid var(--border);border-radius:22px;padding:21px;background:rgba(255,255,255,.045)}.learn-card h3{margin:0 0 8px;color:var(--teal)}.learn-card p{color:var(--muted)}.learn-card a{font-weight:900}
-    .promise{border:1px solid rgba(82,126,255,.4);background:linear-gradient(135deg,rgba(82,126,255,.17),rgba(104,223,211,.08));border-radius:28px;padding:32px}footer{padding:42px 0 56px;color:#91a6c9;border-top:1px solid var(--border)}.footer-row{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}.legal{display:flex;gap:15px;flex-wrap:wrap}.legal a{color:var(--muted)}
-    @media(max-width:900px){.hero{grid-template-columns:1fr;padding-top:46px}.products{grid-template-columns:1fr}.product{min-height:270px}.learn-grid{grid-template-columns:1fr 1fr}}@media(max-width:620px){.navlinks>a:not(.button){display:none}.learn-grid{grid-template-columns:1fr}h1{letter-spacing:-2px}}
+    :root{color-scheme:dark;--white:#fff;--muted:rgba(255,255,255,.72);--faint:rgba(255,255,255,.52)}
+    *{box-sizing:border-box}html,body{margin:0;min-height:100%;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Arial,sans-serif}body{background:radial-gradient(circle at 50% 22%,rgba(25,37,83,.72) 0%,transparent 36%),linear-gradient(160deg,#020613 0%,#04101f 52%,#02050f 100%);color:#fff;min-height:100vh}
+    button,a{font:inherit}.nav{display:flex;align-items:center;justify-content:space-between;padding:30px clamp(22px,5vw,70px);position:relative;z-index:2}.brand{display:inline-flex;align-items:center;gap:14px;color:#fff;text-decoration:none;line-height:1}.brand img{display:block;width:56px;height:56px;object-fit:contain;border:0;box-shadow:none}.brand span{font-size:52px;font-weight:800;letter-spacing:-.04em}.nav-actions{display:flex;flex-wrap:wrap;gap:10px;justify-content:flex-end}.pill{display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:10px 16px;text-decoration:none;font-size:14px;font-weight:760;cursor:pointer}.pill-signin{background:rgba(255,255,255,.10);border:1px solid rgba(255,255,255,.14);color:rgba(255,255,255,.84)}.pill-create{background:#c17a35;border:1px solid rgba(255,216,168,.32);color:#120905;font-weight:900;padding-inline:18px}
+    main{margin:0 auto;max-width:1340px;padding:18px clamp(20px,5vw,70px) 90px}.hero{margin:0 auto 42px;max-width:870px;text-align:center}.eyebrow{color:rgba(255,255,255,.52);font-size:11px;font-weight:900;letter-spacing:.16em;margin-bottom:14px;text-transform:uppercase}.hero h1{color:#fff;font-size:clamp(40px,5.8vw,74px);font-weight:900;letter-spacing:-.065em;line-height:.95;margin:0 0 18px}.hero p{color:rgba(255,255,255,.56);font-size:18px;line-height:1.65;margin:0}
+    .products{display:grid;gap:22px;grid-template-columns:repeat(3,minmax(0,1fr))}.card{position:relative;min-height:390px;overflow:hidden;border-radius:30px;padding:34px;text-decoration:none;color:#fff;cursor:pointer;transition:transform 180ms ease,border-color 180ms ease,background 180ms ease}.card:hover,.card:focus-visible{transform:translateY(-3px);outline:none}.card.learn{background:linear-gradient(150deg,#06143a 0%,#0b1f5a 100%);border:1px solid rgba(255,255,255,.12)}.card.read{background:linear-gradient(150deg,#042033 0%,#073b5c 100%);border:1px solid rgba(255,255,255,.12)}.card.create{background:linear-gradient(150deg,#030202 0%,#0a0704 58%,#180e07 100%);border:1px solid rgba(181,116,50,.45)}.glow{position:absolute;right:-96px;top:-110px;width:280px;height:280px;border-radius:50%;pointer-events:none}.learn .glow{background:radial-gradient(circle,rgba(88,125,255,.26) 0%,transparent 70%)}.read .glow{background:radial-gradient(circle,rgba(62,198,255,.20) 0%,transparent 70%)}.create .glow{background:radial-gradient(circle,rgba(151,91,37,.20) 0%,rgba(151,91,37,.05) 36%,transparent 70%)}.label{position:relative;z-index:1;display:inline-flex;border-radius:999px;padding:7px 11px;font-size:11px;font-weight:850;letter-spacing:.08em;text-transform:uppercase;background:rgba(255,255,255,.10);border:1px solid rgba(255,255,255,.16);color:rgba(255,255,255,.82)}.create .label{background:rgba(167,98,39,.16);border-color:rgba(201,144,72,.34);color:#e0b47b}.card h2{position:relative;z-index:1;color:#fff;font-size:42px;font-weight:850;letter-spacing:-.045em;line-height:1;margin:20px 0 14px}.summary{position:relative;z-index:1;color:rgba(255,255,255,.72);font-size:16px;line-height:1.65;margin:0 0 22px}.create .summary{color:rgba(239,222,201,.74)}.bullets{position:relative;z-index:1;display:grid;gap:9px;margin-bottom:24px;color:rgba(255,255,255,.82);font-size:14px;line-height:1.45}.create .bullets{color:rgba(239,222,201,.82)}.cta{position:relative;z-index:1;display:inline-flex;border-radius:999px;padding:12px 18px;font-size:14px;font-weight:900;background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.22);color:#fff}.create .cta{background:#c17a35;border-color:rgba(255,216,168,.38);color:#120905}
+    footer{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;color:rgba(255,255,255,.36);font-size:12px;padding:0 24px 34px}footer a{color:rgba(255,255,255,.42)}
+    @media(max-width:960px){.products{grid-template-columns:1fr}.card{min-height:0}.brand span{font-size:38px}.brand img{width:46px;height:46px}}@media(max-width:620px){.nav{align-items:flex-start}.brand span{font-size:30px}.brand img{width:38px;height:38px}.pill-create{display:none}.hero h1{letter-spacing:-.045em}.hero p{font-size:16px}.card{padding:27px}.card h2{font-size:36px}}
   </style>
 </head>
 <body>
-  <div class="shell">
-    <nav>
-      <a class="brand" href="/"><img src="/floently-finnish-icon.png" alt="Floently logo"><span>Floently</span></a>
-      <div class="navlinks">
-        <a href="/learn">Learn</a><a href="/read">Read</a><a href="/create">Create</a>
-        <a class="button" href="https://learn.floently.com/">Open Learn</a>
-      </div>
-    </nav>
-    <main>
-      <section class="hero">
-        <div>
-          <div class="eyebrow">One Floently product family</div>
-          <h1>Learn, understand and <span class="accent">create</span> with confidence.</h1>
-          <p class="lede">Floently connects language learning, supported reading and guided creation—starting with practical Finnish for YKI, work and everyday life.</p>
-          <div class="actions"><a class="button" href="https://learn.floently.com/">Start Floently Learn →</a><a class="button secondary" href="#products">Explore the suite</a></div>
-        </div>
-        <div class="preview">
-          <div class="mini"><strong>Floently Learn</strong><span>Finnish for YKI, work and daily life.</span><div class="status">Available now</div></div>
-          <div class="mini"><strong>Floently Read</strong><span>Understand documents and reading material with guided support.</span><div class="status soon">Coming soon</div></div>
-          <div class="mini"><strong>Floently Create</strong><span>Plan, draft and improve writing with language-aware guidance.</span><div class="status soon">Coming soon</div></div>
-        </div>
-      </section>
-      <section id="products">
-        <div class="section-head"><h2>Three products. One clear journey.</h2><p>Start with Learn today. Read and Create expand the Floently experience without replacing what already works.</p></div>
-        <div class="products">
-          <a class="product" href="/learn"><div class="icon">🎓</div><div class="status">Available now</div><h3>Floently Learn</h3><p>Sentence, vocabulary and grammar cards, speaking practice, professional role-play and complete YKI preparation.</p><div class="bottom">Explore Learn →</div></a>
-          <a class="product soon" href="/read"><div class="icon">📖</div><div class="status soon">Coming soon</div><h3>Floently Read</h3><p>Open texts, understand difficult Finnish and build vocabulary directly from what you read.</p><div class="bottom">See what is coming →</div></a>
-          <a class="product soon" href="/create"><div class="icon">✍️</div><div class="status soon">Coming soon</div><h3>Floently Create</h3><p>Create messages and documents with structured language support and clear revision guidance.</p><div class="bottom">See what is coming →</div></a>
-        </div>
-      </section>
-      <section>
-        <div class="section-head"><h2>Everything useful about Learn remains.</h2><p>The suite landing keeps the YKI, grammar, speaking, vocabulary and workplace content in a clear Learn pathway.</p></div>
-        <div class="learn-grid">
-          <article class="learn-card"><h3>YKI preparation</h3><p>Reading, listening, writing and speaking with detailed feedback.</p><a href="https://learn.floently.com/yki-finnish-practice/">YKI practice →</a></article>
-          <article class="learn-card"><h3>Grammar in context</h3><p>Real sentences, correction loops and practical examples.</p><a href="https://learn.floently.com/finnish-grammar-practice/">Grammar practice →</a></article>
-          <article class="learn-card"><h3>Speaking and role-play</h3><p>Everyday, professional and YKI-style speaking situations.</p><a href="https://learn.floently.com/yki-speaking-practice/">Speaking practice →</a></article>
-          <article class="learn-card"><h3>Finnish for work</h3><p>Instructions, reporting and realistic workplace communication.</p><a href="https://learn.floently.com/workplace-finnish/">Workplace Finnish →</a></article>
-        </div>
-      </section>
-      <section><div class="promise"><div class="eyebrow">Floently Learn</div><h2>Practical Finnish—not disconnected exercises.</h2><p class="lede">Prepare for YKI, communicate at work and handle everyday life in Finland with connected practice.</p><div class="actions"><a class="button" href="https://learn.floently.com/">Open Floently Learn →</a><a class="button secondary" href="/learn">Learn more</a></div></div></section>
-    </main>
-    <footer><div class="footer-row"><span>© 2026 Komplyint Oy. Floently is a learning and practice platform.</span><div class="legal"><a href="/learn/privacy">Privacy</a><a href="/learn/terms">Terms</a><a href="/learn/support">Support</a><a href="/learn/delete-account">Delete account</a></div></div></footer>
-  </div>
+  <nav class="nav">
+    <a class="brand" href="/" aria-label="Floently home"><img src="/floently-finnish-icon.png" alt=""><span>Floently</span></a>
+    <div class="nav-actions"><a class="pill pill-signin" href="https://learn.floently.com/auth/login">Sign In</a><a class="pill pill-create" href="https://create.floently.com/">Open Create</a></div>
+  </nav>
+  <main>
+    <header class="hero">
+      <div class="eyebrow">Floently product gateway</div>
+      <h1>Choose your Floently product</h1>
+      <p>Learn for Finnish progress. Read for understanding. Create for turning ideas, audio, video, and text into finished digital content.</p>
+    </header>
+    <section class="products" aria-label="Floently products">
+      <a class="card learn" href="https://learn.floently.com/"><span class="glow"></span><span class="label">Floently Learn</span><h2>Learn</h2><p class="summary">A Finnish progression system for adults building YKI readiness and workplace communication confidence.</p><div class="bullets"><span>• Prepare for YKI and workplace Finnish</span><span>• Practice roleplay, flashcards, and placement</span><span>• Build language confidence for Finland</span></div><span class="cta">Go to Learn</span></a>
+      <a class="card read" href="/read"><span class="glow"></span><span class="label">Floently Read</span><h2>Read</h2><p class="summary">A reading and comprehension workspace for turning long-form text into clear audio, notes, and saved study material.</p><div class="bullets"><span>• Listen to text in natural AI voices</span><span>• Import from web pages, PDFs, and direct text</span><span>• Control voice, speed, and reading mode</span></div><span class="cta">Go to Read</span></a>
+      <a class="card create" href="https://create.floently.com/"><span class="glow"></span><span class="label">Floently Create</span><h2>Create</h2><p class="summary">A creator operations workspace for turning documents, ideas, audio, and video into finished digital content.</p><div class="bullets"><span>• Repurpose one source into posts, captions, scripts, and newsletters</span><span>• Build creator, VA, client, and business-ready output packs</span><span>• Save reusable project assets for delivery and publishing</span></div><span class="cta">Go to Create</span></a>
+    </section>
+  </main>
+  <footer><span>© 2026 Floently</span><a href="/learn/privacy">Privacy</a><a href="/learn/terms">Terms</a><a href="/learn/support">Support</a></footer>
 </body>
 </html>
