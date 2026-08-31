@@ -2,6 +2,7 @@ import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 
+// Deployment trigger after reconnecting the Vercel Git integration on 2026-08-31.
 const root = path.dirname(fileURLToPath(import.meta.url));
 const required = [
   "index.html",
