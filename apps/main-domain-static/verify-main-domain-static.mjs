@@ -2,56 +2,106 @@ import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 
-const root=path.dirname(fileURLToPath(import.meta.url));
-const read=(f)=>fs.readFileSync(path.join(root,f),"utf8");
-for(const f of ["index.html","read/index.html","create/index.html","vercel.json","sitemap.xml","robots.txt"]){
-  if(!fs.existsSync(path.join(root,f))) throw new Error(`Missing ${f}`);
-}
-const home=read("index.html");
-const readPage=read("read/index.html");
-const createPage=read("create/index.html");
-const config=JSON.parse(read("vercel.json"));
-const sitemap=read("sitemap.xml");
-const robots=read("robots.txt");
-if(robots.includes("learn.floently.com/sitemap.xml")) throw new Error("Floently robots still advertises legacy Learn sitemap");
+const root = path.dirname(fileURLToPath(import.meta.url));
+const required = [
+  "index.html",
+  "learn/index.html",
+  "read/index.html",
+  "create/index.html",
+  "learn/privacy/index.html",
+  "learn/terms/index.html",
+  "learn/support/index.html",
+  "learn/delete-account/index.html",
+  "vercel.json",
+  "sitemap.xml",
+  "floently-finnish-icon.png",
+];
 
-for(const marker of ["KieliValmis","Floently Read","Floently Create","Available now","Coming soon"]){
-  if(!home.includes(marker)) throw new Error(`Missing parent marker ${marker}`);
+for (const file of required) {
+  if (!fs.existsSync(path.join(root, file))) {
+    throw new Error(`Missing required main-domain file: ${file}`);
+  }
 }
-if(home.includes("Floently Learn")) throw new Error("Floently root still presents Floently Learn");
-if(home.includes("learn.floently.com")) throw new Error("Floently root still links the legacy Learn host");
-if(!home.includes("https://kielivalmis.com/")) throw new Error("Floently root lost KieliValmis gateway");
-for(const [name,page] of [["read",readPage],["create",createPage]]){
-  if(!page.includes("Coming soon")) throw new Error(`${name} lost Coming soon`);
-  if(!page.includes("Explore KieliValmis")) throw new Error(`${name} lost KieliValmis link`);
+
+const read = (file) => fs.readFileSync(path.join(root, file), "utf8");
+const home = read("index.html");
+const learn = read("learn/index.html");
+const readPage = read("read/index.html");
+const createPage = read("create/index.html");
+const privacy = read("learn/privacy/index.html");
+const deletion = read("learn/delete-account/index.html");
+const config = JSON.parse(read("vercel.json"));
+
+for (const marker of [
+  "Floently product gateway",
+  "Choose your Floently product",
+  "Floently Learn",
+  "Floently Read",
+  "Floently Create",
+  "Go to Learn",
+  "Go to Read",
+  "Go to Create",
+  "Prepare for YKI and workplace Finnish",
+  "Listen to text in natural AI voices",
+  "Repurpose one source into posts, captions, scripts, and newsletters",
+]) {
+  if (!home.includes(marker)) throw new Error(`Restored Floently gateway marker missing: ${marker}`);
 }
-const expected=new Map([
- ["/learn","https://kielivalmis.com/"],
- ["/privacy","https://kielivalmis.com/privacy"],
- ["/privacy-policy","https://kielivalmis.com/privacy"],
- ["/learn/privacy","https://kielivalmis.com/privacy"],
- ["/learn/privacy-policy","https://kielivalmis.com/privacy"],
- ["/legal/privacy-policy","https://kielivalmis.com/privacy"],
- ["/terms","https://kielivalmis.com/terms"],
- ["/learn/terms","https://kielivalmis.com/terms"],
- ["/support","https://kielivalmis.com/support"],
- ["/learn/support","https://kielivalmis.com/support"],
- ["/delete-account","https://kielivalmis.com/delete-account"],
- ["/account-deletion","https://kielivalmis.com/delete-account"],
- ["/learn/delete-account","https://kielivalmis.com/delete-account"],
- ["/learn/account-deletion","https://kielivalmis.com/delete-account"],
- ["/legal/account-deletion","https://kielivalmis.com/delete-account"]
+if (/coming soon/i.test(home)) throw new Error("Floently home regressed to Coming Soon product messaging");
+if (home.includes("Learn Finnish for YKI, work and everyday life")) {
+  throw new Error("Floently home regressed to the Learn-only master landing");
+}
+
+for (const marker of [
+  "AI-Powered Text to Speech",
+  "Listen to any text",
+  "anytime, anywhere",
+  "Join thousands already listening",
+  "Lifelike Voices",
+  "Easy Import",
+  "Customizable",
+  "People are listening",
+  "Start listening today",
+]) {
+  if (!readPage.includes(marker)) throw new Error(`Restored Read marker missing: ${marker}`);
+}
+if (/coming soon/i.test(readPage)) throw new Error("Floently Read regressed to the Coming Soon placeholder");
+for (let index = 1; index <= 8; index += 1) {
+  const asset = `landing_page_picture_${index}.png`;
+  if (!readPage.includes(asset)) throw new Error(`Floently Read carousel lost ${asset}`);
+}
+
+// Create remains a separate product surface; this restoration intentionally
+// changes only the master home and Read landing.
+if (!createPage.includes("Floently Create")) throw new Error("Create page identity was lost");
+
+for (const marker of ["Practice YKI Finnish", "Improve Finnish speaking", "Build Finnish for work"]) {
+  if (!learn.includes(marker)) throw new Error(`Learn content regressed: ${marker}`);
+}
+if (!privacy.includes("Floently Finnish Privacy Policy")) throw new Error("Privacy page identity marker is missing");
+if (!deletion.includes("Delete Your Floently Finnish Account")) throw new Error("Deletion page identity marker is missing");
+
+const expected = new Map([
+  ["/privacy", "/learn/privacy"],
+  ["/privacy-policy", "/learn/privacy"],
+  ["/learn/privacy-policy", "/learn/privacy"],
+  ["/legal/privacy-policy", "/learn/privacy"],
+  ["/delete-account", "/learn/delete-account"],
+  ["/account-deletion", "/learn/delete-account"],
+  ["/learn/account-deletion", "/learn/delete-account"],
+  ["/legal/account-deletion", "/learn/delete-account"],
+  ["/terms", "/learn/terms"],
+  ["/support", "/learn/support"],
 ]);
-const actual=new Map((config.redirects??[]).map((x)=>[x.source,x.destination]));
-for(const [source,dest] of expected){
-  if(actual.get(source)!==dest) throw new Error(`Redirect mismatch ${source}`);
+const actual = new Map((config.redirects ?? []).map((item) => [item.source, item.destination]));
+for (const [source, destination] of expected) {
+  if (actual.get(source) !== destination) throw new Error(`Missing redirect lock: ${source} -> ${destination}`);
 }
-if(!sitemap.includes("<loc>https://www.floently.com/</loc>")) throw new Error("Floently root missing from sitemap");
-if(sitemap.includes("/learn")) throw new Error("Redirected Learn URLs remain in sitemap");
 
-console.log("FLOENTLY_PARENT_BRAND=PASS");
-console.log("FLOENTLY_KIELIVALMIS_GATEWAY=PASS");
-console.log("FLOENTLY_READ_CREATE_PRESERVED=PASS");
-console.log("FLOENTLY_LEARN_REDIRECTS=PASS");
-console.log("FLOENTLY_SITEMAP=PASS");
-console.log("RESULT: FLOENTLY MASTER DOMAIN KIELIVALMIS GATEWAY PASS");
+console.log("FLOENTLY_MASTER_ORIGINAL_GATEWAY=PASS");
+console.log("FLOENTLY_MASTER_READ_FULL_LANDING=PASS");
+console.log("FLOENTLY_MASTER_READ_EIGHT_PHOTOS=PASS");
+console.log("FLOENTLY_MASTER_LEARN_CONTENT=PASS");
+console.log("FLOENTLY_MASTER_LEGAL_FILES=PASS");
+console.log("FLOENTLY_MASTER_LEGAL_ALIASES=PASS");
+console.log("FLOENTLY_MASTER_DOMAIN_REGRESSION_LOCK=PASS");
