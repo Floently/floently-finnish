@@ -10,6 +10,11 @@ on:
       - "apps/client/components/public/sounds/ui/**"
       - "apps/client/scripts/verify-roleplay-audio-invariants.mjs"
       - "apps/client/package.json"
+      - "apps/backend/app/routers/v1_roleplay.py"
+      - "apps/backend/app/services/tts/voice_registry.py"
+      - "apps/backend/app/services/tts/runtime.py"
+      - "apps/backend/scripts/verify_voice_registry.py"
+      - "packages/core/api/roleplay.ts"
       - ".github/workflows/roleplay-audio-invariants.yml"
   push:
     paths:
@@ -20,6 +25,11 @@ on:
       - "apps/client/components/public/sounds/ui/**"
       - "apps/client/scripts/verify-roleplay-audio-invariants.mjs"
       - "apps/client/package.json"
+      - "apps/backend/app/routers/v1_roleplay.py"
+      - "apps/backend/app/services/tts/voice_registry.py"
+      - "apps/backend/app/services/tts/runtime.py"
+      - "apps/backend/scripts/verify_voice_registry.py"
+      - "packages/core/api/roleplay.ts"
       - ".github/workflows/roleplay-audio-invariants.yml"
 
 jobs:
@@ -35,5 +45,13 @@ jobs:
         with:
           node-version: "20"
 
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
       - name: Verify roleplay audio invariants
         run: node apps/client/scripts/verify-roleplay-audio-invariants.mjs
+
+      - name: Verify Finnish voice registry and identity invariants
+        run: python apps/backend/scripts/verify_voice_registry.py

@@ -115,14 +115,46 @@ async def delete_account_for_user(*, user: dict[str, Any], deletion_reason: str 
         raise AppError(500, "AUTH_DATA_CORRUPTION", "Account payload is incomplete.", False, {"classification": "terminal"})
 
     subject = _safe_subject(user_id=user_id, email=email)
-    state_counts = _delete_state_records(user_id=user_id, email=email)
+
+    # Database cleanup is attempted before the state-store identity/session is
+    # removed. If SQL cleanup fails, keep the authenticated state intact so the
+    # user can retry the deletion request instead of receiving a false success
+    # after their session has already been destroyed.
     db_counts, db_cleanup_succeeded = await _delete_db_records(user_id=user_id, email=email)
+    if not db_cleanup_succeeded:
+        logger.warning(
+            "account deletion incomplete subject=%s stage=database reason_present=%s",
+            subject,
+            bool((deletion_reason or "").strip()),
+        )
+        raise AppError(
+            503,
+            "ACCOUNT_DELETION_INCOMPLETE",
+            "Account deletion could not be completed. Please try again.",
+            True,
+            {"classification": "retryable", "stage": "database"},
+        )
+
+    try:
+        state_counts = _delete_state_records(user_id=user_id, email=email)
+    except Exception as exc:
+        logger.warning(
+            "account deletion incomplete subject=%s stage=state_store reason_present=%s",
+            subject,
+            bool((deletion_reason or "").strip()),
+        )
+        raise AppError(
+            503,
+            "ACCOUNT_DELETION_INCOMPLETE",
+            "Account deletion could not be completed. Please contact support if retrying does not resolve the issue.",
+            True,
+            {"classification": "retryable", "stage": "state_store"},
+        ) from exc
 
     logger.info(
-        "account deletion completed subject=%s state_keys=%s db_cleanup=%s reason=%s",
+        "account deletion completed subject=%s state_keys=%s db_cleanup=ok reason_present=%s",
         subject,
         sum(state_counts.values()),
-        "ok" if db_cleanup_succeeded else "partial",
         bool((deletion_reason or "").strip()),
     )
 
@@ -133,6 +165,6 @@ async def delete_account_for_user(*, user: dict[str, Any], deletion_reason: str 
         "details": {
             "state_records_removed": state_counts,
             "db_records_removed": db_counts,
-            "db_cleanup_status": "completed" if db_cleanup_succeeded else "partial",
+            "db_cleanup_status": "completed",
         },
     }

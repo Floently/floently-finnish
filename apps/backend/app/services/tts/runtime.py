@@ -14,9 +14,9 @@ from app.services.tts.voice_registry import provider_voice_name
 _CACHE_DIR = RUNTIME_DIR / 'tts_cache'
 _CACHE_DIR.mkdir(parents=True, exist_ok=True)
 
-# OpenAI voices kept here as a small lookup since the OpenAI TTS provider
-# doesn't need persona-aware variety. For Google, we ALWAYS use the registry
-# via provider_voice_name() to ensure consistent behavior across the app.
+# OpenAI built-in voice IDs are kept here for backwards compatibility. The
+# provider does not expose a gender metadata field for these built-ins, so the
+# verified male/female contract currently comes from the Google registry.
 _OPENAI_VOICES: dict[str, str] = {"female": "nova", "male": "onyx", "neutral": "nova"}
 _DEV_VOICE = "dev"
 
@@ -168,7 +168,7 @@ def _ordered_providers(requested_provider: str | None, voice_hint: str, voice_pr
     google_voice = (
         provider_voice_name("google", voice_profile=resolved_profile, voice_hint=hint)
         or SETTINGS.google_tts_default_voice
-        or ("fi-FI-Standard-B" if hint == "male" else "fi-FI-Standard-A")
+        or ("fi-FI-Chirp3-HD-Charon" if hint == "male" else "fi-FI-Standard-B")
     )
     registry = {
         "google": (GoogleTTSProvider(SETTINGS), google_voice),

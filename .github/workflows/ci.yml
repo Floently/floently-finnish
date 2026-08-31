@@ -15,8 +15,10 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
+          cache: pip
+          cache-dependency-path: apps/backend/requirements.txt
       - name: Install backend dependencies
-        run: pip install -r apps/backend/requirements.txt
+        run: python -m pip install -r apps/backend/requirements.txt
       - name: Verify material convergence
         run: |
           cd apps/backend
@@ -35,9 +37,28 @@ jobs:
           if len(authority_cards) != len(runtime_cards):
               raise SystemExit("Authority/runtime card count mismatch")
           CHECK
-      - name: Run backend and engine tests
-        run: pytest apps/backend/tests engine/tests -q
+      - name: Verify release backend boundary
+        run: |
+          grep -F 'COPY apps/backend/ .' apps/backend/Dockerfile
+          if grep -Eq 'COPY[[:space:]]+engine(/|[[:space:]])' apps/backend/Dockerfile; then
+            echo 'Root engine unexpectedly entered the deployable backend image.' >&2
+            exit 1
+          fi
+          echo 'DEPLOYABLE_BACKEND_SCOPE=apps/backend'
+      - name: Verify account deletion completion truth
+        run: python -m pytest apps/backend/tests/test_account_deletion_service.py -q
         env:
+          PYTHONPATH: apps/backend
+          FLOENTLY_ENV: development
+          SIGNED_SESSION_SECRET: ci-test-secret
+      # The shipped backend image copies apps/backend only. Root engine/tests is a
+      # separate legacy/provenance tree with imports for untracked engine.learning,
+      # engine.logging and engine.blueprints modules, so it is not a release-runtime
+      # gate. This job tests the complete deployable backend test suite instead.
+      - name: Run deployable backend tests
+        run: python -m pytest apps/backend/tests -q
+        env:
+          PYTHONPATH: apps/backend
           FLOENTLY_ENV: development
           SIGNED_SESSION_SECRET: ci-test-secret
 
@@ -45,10 +66,27 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - name: Pin pnpm
+        uses: pnpm/action-setup@v6
+        with:
+          version: '10.34.0'
+          run_install: false
       - uses: actions/setup-node@v4
         with:
-          node-version: '20'
-      - name: Install client dependencies
-        run: cd apps/client && npm ci
+          node-version: '22'
+          cache: pnpm
+          cache-dependency-path: pnpm-lock.yaml
+      - name: Install frozen workspace dependencies
+        run: pnpm install --frozen-lockfile
       - name: TypeScript check
-        run: cd apps/client && npx tsc --noEmit
+        run: pnpm --dir apps/client exec tsc --noEmit
+      - name: Verify navigation invariants
+        run: pnpm --dir apps/client run verify:navigation
+      - name: Verify account deletion access invariants
+        run: pnpm --dir apps/client run verify:account-deletion-access
+      - name: Verify RevenueCat identity invariants
+        run: pnpm --dir apps/client run verify:revenuecat-identity
+      - name: Verify store billing preflight invariants
+        run: pnpm --dir apps/client run verify:store-billing-preflight
+      - name: Verify iOS release identity invariants
+        run: pnpm --dir apps/client run verify:ios-release-identity

@@ -1388,3 +1388,96 @@ client without replacing the current screen wholesale.
 The normal Phase 5 YKI product architecture remains unchanged. This amendment
 only records the safe dependency order required to eliminate the current
 composite production source lineage.
+
+## 2026-08-16 YKI reconciliation dependency order finalization
+
+Current-source testing refined the temporary YKI production-source
+reconciliation sequence.
+
+The dependency-safe execution order is:
+
+1. R3C1 — runtime persistence/evidence foundation;
+2. R3C3 — local-fallback prerequisite validation;
+3. R3C2 — service/API/evaluator integration on that fallback;
+4. freeze R3C2 + R3C3 as one coherent backend source unit;
+5. R3C4 — permanent YKI verification/CI;
+6. R3C5 — current-client final-submit recovery.
+
+R3C3 is not independently releasable because its richer
+`local_submit_response()` contract requires the corresponding service
+integration.
+
+This ordering correction affects only production-source reconciliation. It
+does not change the broader Phase 5 YKI product architecture or roadmap.
+
+## 2026-08-16 YKI R3C4 permanent CI completion
+
+R3C4 establishes permanent source-controlled verification for the reconciled
+YKI backend.
+
+The CI gate now protects the recovered live evaluation behavior, fallback
+answer-key safety, final-submit idempotency, report calibration, task balance,
+and the existing tracked YKI pytest suite.
+
+A stale pre-evaluation orchestrator assertion was updated to preserve its
+original stored-token routing purpose while also validating the enriched
+evaluation response.
+
+Execution status:
+
+    R3C1 = COMPLETE
+    R3C2 = COMPLETE
+    R3C3 = COMPLETE
+    R3C4 = COMPLETE AFTER COMMIT/PUSH/REMOTE-CI VERIFICATION
+    R3C5 = NEXT
+
+R3C5 remains the current-client final-submit recovery reconciliation. Backend
+deployment remains deferred until the protected reconciliation sequence and
+integration gates are complete.
+
+## 2026-08-16 YKI R3C5 client recovery completion checkpoint
+
+The production-source reconciliation has now recovered the complete proven
+current-client YKI submission/evaluation chain into the canonical lineage.
+
+R3C5 preserves:
+
+- secure YKI session handoff;
+- detailed persisted evaluation;
+- timeout-safe final-submit recovery;
+- submit deduplication;
+- no duplicate final speaking upload;
+- speaking timer autosave;
+- secure voice-reference forwarding;
+- calibrated practice prediction/reporting;
+- KieliValmis result/export identity;
+- legacy YKI storage-key compatibility.
+
+The recovered source is intentionally limited to fourteen YKI client/core
+paths. Roleplay implementation paths remain outside R3C5 and were not reopened.
+
+Local gates completed successfully:
+
+    TypeScript = PASS
+    targeted R3C5 ESLint = PASS
+    YKI client verifier set = 7/7 PASS
+    KieliValmis rebrand = PASS
+    visible-brand audit = PASS
+    shared roleplay-audio regression = PASS
+    navigation regression = PASS
+
+The permanent YKI workflow is extended with a dedicated client job using a
+pinned Node-20-compatible pnpm toolchain, frozen lockfile installation,
+TypeScript, targeted lint, all seven YKI client verifiers, and the relevant
+cross-feature regression contracts.
+
+Execution status:
+
+    R3C1 = COMPLETE
+    R3C2 = COMPLETE
+    R3C3 = COMPLETE
+    R3C4 = COMPLETE
+    R3C5 = READY FOR COMMIT/PUSH/REMOTE-CI VERIFICATION
+
+Production deployment remains deferred until the complete protected source is
+integrated and independently verified.

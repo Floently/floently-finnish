@@ -1,7 +1,9 @@
 import fs from 'node:fs';
 import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 
-const root = process.cwd();
+const scriptDir = path.dirname(fileURLToPath(import.meta.url));
+const root = path.resolve(scriptDir, '..');
 const read = (relative) =>
   fs.readFileSync(path.join(root, relative), 'utf8');
 const extensions = new Set(['.ts','.tsx','.js','.mjs','.json']);

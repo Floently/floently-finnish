@@ -1,105 +1,151 @@
-"""Voice registry — deterministic Finnish voice resolution for TTS providers.
+"""Deterministic Finnish TTS voice resolution.
 
-Fixes the bug where personas (e.g. "Matti Virtanen", male) rendered with the
-wrong gender voice. Root cause was twofold:
+KV-VOICE-002 repairs the provider-gender registry used by roleplay and future
+multi-speaker practice. KV-VOICE-003 adds a stable product-level voice identity
+that binds one persona to one preferred provider voice for the session/client.
 
-1. The previous registry only mapped on `voice_hint` (gender) and ignored
-   `voice_profile` entirely, so all male personas got the same single voice
-   and all female personas got the same single voice. Worse, when the
-   tts_service couldn't determine gender from the persona name, it fell
-   through to a hash-based guess that misclassified ~half of male personas
-   as female.
-
-2. The registry only knew about two voices total per language (Standard-A,
-   Standard-B). Multi-voice listening dialogues (#7.3) needed more variety
-   for distinguishable speakers.
-
-This module:
-  - Maps `voice_profile` (yki_standard_male, yki_standard_female,
-    yki_warm_male, etc.) to a specific Google Wavenet voice with stable
-    deterministic selection from the available pool.
-  - Falls back gracefully if Wavenet voices are unavailable in the project.
-  - Exposes `provider_voice_name` with the same signature as before to keep
-    the call site in tts_service.py stable.
-  - Adds `voices_for_dialogue` for multi-talker SSML scenes (#7.3).
+Important product rules:
+- Explicit ``voice_hint`` wins over a contradictory legacy ``voice_profile``.
+- A certified male profile may never resolve to a provider voice curated female,
+  and vice versa.
+- Persona IDs are stable selection seeds so the same persona keeps the same
+  provider voice while a pool can still provide audible variety.
+- An exact provider voice ID, once resolved into a voice identity, must round-trip
+  through this registry unchanged when its gender contract is valid.
+- The versioned resolved-profile transport preserves exact voice binding for
+  already-shipped clients that only know the legacy ``voiceProfile`` string.
+- Structured YKI multi-speaker playback remains KV-VOICE-004.
 """
 from __future__ import annotations
 
 import hashlib
+from typing import Any, Literal
 
-# ── Google Cloud TTS — Finnish voice pool ─────────────────────────────────
-# As of 2026, Google Cloud TTS has the following stable Finnish voices.
-# Wavenet voices are higher quality and cost ~4x as much as Standard, but
-# the difference is audible enough that for a Finnish-language product this
-# is worth it.
-#
-# If Wavenet is not enabled in your Google Cloud project, the system will
-# fall back to Standard automatically via _GOOGLE_FALLBACK below.
-_GOOGLE_FEMALE_VOICES: tuple[str, ...] = (
-    "fi-FI-Wavenet-A",   # primary female Wavenet
-    "fi-FI-Standard-A",  # standard female
+VoiceGender = Literal["male", "female", "neutral"]
+
+VOICE_REGISTRY_VERSION = "2026-08-16.1"
+RESOLVED_VOICE_PROFILE_PREFIX = "resolved_voice_v1"
+GOOGLE_VOICE_CATALOG_URL = (
+    "https://cloud.google.com/text-to-speech/docs/list-voices-and-types"
 )
+
+# Provider-published Finnish voice metadata verified 2026-08-16. Keep legacy
+# Standard/Wavenet entries here so regression checks can prove they remain
+# classified correctly even though the normal persona pool uses Chirp 3 HD.
+_GOOGLE_VOICE_GENDER: dict[str, VoiceGender] = {
+    "fi-FI-Chirp3-HD-Alnilam": "male",
+    "fi-FI-Chirp3-HD-Charon": "male",
+    "fi-FI-Chirp3-HD-Enceladus": "male",
+    "fi-FI-Chirp3-HD-Fenrir": "male",
+    "fi-FI-Chirp3-HD-Aoede": "female",
+    "fi-FI-Chirp3-HD-Autonoe": "female",
+    "fi-FI-Chirp3-HD-Callirrhoe": "female",
+    "fi-FI-Chirp3-HD-Despina": "female",
+    "fi-FI-Wavenet-B": "female",
+    "fi-FI-Standard-B": "female",
+}
 
 _GOOGLE_MALE_VOICES: tuple[str, ...] = (
-    "fi-FI-Wavenet-B",   # primary male Wavenet
-    "fi-FI-Standard-B",  # standard male
+    "fi-FI-Chirp3-HD-Alnilam",
+    "fi-FI-Chirp3-HD-Charon",
+    "fi-FI-Chirp3-HD-Enceladus",
+    "fi-FI-Chirp3-HD-Fenrir",
+)
+_GOOGLE_FEMALE_VOICES: tuple[str, ...] = (
+    "fi-FI-Chirp3-HD-Aoede",
+    "fi-FI-Chirp3-HD-Autonoe",
+    "fi-FI-Chirp3-HD-Callirrhoe",
+    "fi-FI-Chirp3-HD-Despina",
 )
 
-# Profile-specific overrides. The voice_profile carries semantic intent
-# beyond just gender (warm/standard/young/senior); we encode that here so
-# the registry can pick a voice with a tone closer to what the persona is
-# meant to sound like. As Google adds more Finnish Wavenet voices, expand
-# this map.
 _GOOGLE_PROFILE_VOICES: dict[str, tuple[str, ...]] = {
     "yki_standard_female": _GOOGLE_FEMALE_VOICES,
-    "yki_standard_male":   _GOOGLE_MALE_VOICES,
-    "yki_warm_female":     _GOOGLE_FEMALE_VOICES,
-    "yki_warm_male":       _GOOGLE_MALE_VOICES,
-    "yki_senior_female":   _GOOGLE_FEMALE_VOICES,
-    "yki_senior_male":     _GOOGLE_MALE_VOICES,
-    "yki_young_female":    _GOOGLE_FEMALE_VOICES,
-    "yki_young_male":      _GOOGLE_MALE_VOICES,
-    # Card pipeline variants
-    "narrator_female":     _GOOGLE_FEMALE_VOICES,
-    "narrator_male":       _GOOGLE_MALE_VOICES,
+    "yki_standard_male": _GOOGLE_MALE_VOICES,
+    "yki_warm_female": _GOOGLE_FEMALE_VOICES,
+    "yki_warm_male": _GOOGLE_MALE_VOICES,
+    "yki_senior_female": _GOOGLE_FEMALE_VOICES,
+    "yki_senior_male": _GOOGLE_MALE_VOICES,
+    "yki_young_female": _GOOGLE_FEMALE_VOICES,
+    "yki_young_male": _GOOGLE_MALE_VOICES,
+    "narrator_female": _GOOGLE_FEMALE_VOICES,
+    "narrator_male": _GOOGLE_MALE_VOICES,
 }
 
-_GOOGLE_FALLBACK: dict[str, str] = {
-    "female": "fi-FI-Standard-A",
-    "male":   "fi-FI-Standard-B",
-    "neutral": "fi-FI-Standard-A",
+_GOOGLE_FALLBACK: dict[VoiceGender, str] = {
+    "female": "fi-FI-Standard-B",
+    "male": "fi-FI-Chirp3-HD-Charon",
+    "neutral": "fi-FI-Standard-B",
 }
 
-# OpenAI voices kept for backwards compat with the existing fallback path.
-# OpenAI doesn't have Finnish-specific voices but does multi-language synthesis,
-# so 'nova' (female) and 'onyx' (male) get assigned by gender only.
-_OPENAI_VOICES: dict[str, str] = {
+# Backwards-compatible built-in OpenAI voice selection. The current OpenAI
+# API docs list these voice IDs but do not publish provider gender metadata,
+# so these are product assignments rather than provider-certified genders.
+_OPENAI_VOICES: dict[VoiceGender, str] = {
     "female": "nova",
-    "male":   "onyx",
+    "male": "onyx",
     "neutral": "nova",
 }
 
 
-def _gender_from_profile(voice_profile: str) -> str:
-    """Map a voice_profile string to 'male' or 'female'. Falls through to
-    'female' for unrecognized profiles (matches prior behavior — neutral
-    Finnish voices in the Google catalog are all female-pitched).
-    """
+def _gender_from_profile(voice_profile: str) -> VoiceGender:
     profile = str(voice_profile or "").strip().lower()
-    if "male" in profile and "female" not in profile:
+    if "female" in profile:
+        return "female"
+    if "male" in profile:
         return "male"
-    return "female"
+    return "neutral"
+
+
+def _resolved_gender(voice_hint: str, voice_profile: str) -> VoiceGender:
+    hint = str(voice_hint or "").strip().lower()
+    if hint in {"male", "female", "neutral"}:
+        return hint  # type: ignore[return-value]
+    return _gender_from_profile(voice_profile)
 
 
 def _stable_index(seed: str, length: int) -> int:
-    """Pick an index deterministically from a seed string. Used so the same
-    persona always gets the same voice across sessions (consistency for the
-    user) while different personas spread across the pool (variety).
-    """
     if length <= 0:
         return 0
     digest = hashlib.sha256(str(seed or "").encode("utf-8")).hexdigest()
     return int(digest[:8], 16) % length
+
+
+def google_voice_gender(voice_name: str) -> VoiceGender | None:
+    return _GOOGLE_VOICE_GENDER.get(str(voice_name or "").strip())
+
+
+def _google_pool_for_gender(gender: VoiceGender) -> tuple[str, ...]:
+    if gender == "male":
+        return _GOOGLE_MALE_VOICES
+    return _GOOGLE_FEMALE_VOICES
+
+
+def encode_resolved_voice_profile(identity: dict[str, Any]) -> str:
+    gender = str(identity.get("gender") or "neutral").strip().lower()
+    provider = str(identity.get("provider") or "google").strip().lower()
+    provider_voice_id = str(identity.get("provider_voice_id") or "").strip()
+    if gender not in {"male", "female", "neutral"} or not provider_voice_id:
+        raise ValueError("Resolved voice identity is incomplete.")
+    if ":" in provider or ":" in provider_voice_id:
+        raise ValueError("Resolved voice identity contains an invalid separator.")
+    return f"{RESOLVED_VOICE_PROFILE_PREFIX}:{gender}:{provider}:{provider_voice_id}"
+
+
+def _parse_resolved_voice_profile(value: str) -> tuple[VoiceGender, str, str] | None:
+    raw = str(value or "").strip()
+    prefix = RESOLVED_VOICE_PROFILE_PREFIX + ":"
+    if not raw.startswith(prefix):
+        return None
+    parts = raw.split(":", 3)
+    if len(parts) != 4:
+        raise ValueError("Malformed resolved voice profile.")
+    _, gender_raw, provider, provider_voice_id = parts
+    gender = str(gender_raw).strip().lower()
+    if gender not in {"male", "female", "neutral"}:
+        raise ValueError("Malformed resolved voice profile gender.")
+    if not provider or not provider_voice_id:
+        raise ValueError("Malformed resolved voice profile provider binding.")
+    return gender, provider.strip().lower(), provider_voice_id.strip()  # type: ignore[return-value]
 
 
 def provider_voice_name(
@@ -109,60 +155,148 @@ def provider_voice_name(
     voice_hint: str,
     persona_id: str | None = None,
 ) -> str | None:
-    """Resolve the provider-specific voice name for a given profile + hint.
-
-    The `persona_id` is a new optional parameter used as a stable seed for
-    multi-voice variety. Pre-existing callers that don't pass it will get
-    the first voice in the pool, preserving prior behavior for sites that
-    haven't been updated.
-
-    Returns None if the provider has no voice for this profile, in which
-    case the caller should fall back to a default (current code path:
-    `voice_id = provider_voice_name(...) or voice_profile`).
-    """
     p = str(provider or "").strip().lower()
-    h = str(voice_hint or "").strip().lower()
+    profile_raw = str(voice_profile or "").strip()
+    transported = _parse_resolved_voice_profile(profile_raw)
+
+    if transported is not None:
+        transported_gender, transported_provider, transported_voice_id = transported
+        requested_gender = _resolved_gender(voice_hint, transported_gender)
+        if transported_provider != p:
+            raise ValueError(
+                f"Resolved voice provider mismatch: transport={transported_provider} requested={p}"
+            )
+        if (
+            requested_gender in {"male", "female"}
+            and transported_gender in {"male", "female"}
+            and requested_gender != transported_gender
+        ):
+            raise ValueError(
+                f"Resolved voice gender mismatch: transport={transported_gender} requested={requested_gender}"
+            )
+        profile_raw = transported_voice_id
+        gender = transported_gender
+    else:
+        gender = _resolved_gender(voice_hint, profile_raw)
 
     if p == "google":
-        # Prefer profile-specific pool, fall back to gender pool, fall back
-        # to single voice. Stable deterministic pick within the pool.
-        gender = h if h in {"male", "female"} else _gender_from_profile(voice_profile)
-        pool = _GOOGLE_PROFILE_VOICES.get(str(voice_profile or "").strip().lower())
+        exact_gender = google_voice_gender(profile_raw)
+        if exact_gender is not None:
+            if gender in {"male", "female"} and exact_gender != gender:
+                raise ValueError(
+                    f"Google exact voice gender mismatch: requested={gender} "
+                    f"voice={profile_raw} provider_gender={exact_gender}"
+                )
+            return profile_raw
+
+        profile_key = profile_raw.lower()
+        profile_gender = _gender_from_profile(profile_key)
+        pool = _GOOGLE_PROFILE_VOICES.get(profile_key)
+
+        if not pool or (
+            profile_gender in {"male", "female"}
+            and gender in {"male", "female"}
+            and profile_gender != gender
+        ):
+            pool = _google_pool_for_gender(gender)
+
         if not pool:
-            pool = _GOOGLE_MALE_VOICES if gender == "male" else _GOOGLE_FEMALE_VOICES
-        if not pool:
-            return _GOOGLE_FALLBACK.get(gender, _GOOGLE_FALLBACK["female"])
-        idx = _stable_index(persona_id or voice_profile or h, len(pool))
-        return pool[idx]
+            return _GOOGLE_FALLBACK[gender]
+
+        voice_name = pool[_stable_index(persona_id or profile_raw or gender, len(pool))]
+        curated_gender = google_voice_gender(voice_name)
+
+        if (
+            gender in {"male", "female"}
+            and curated_gender is not None
+            and curated_gender != gender
+        ):
+            raise ValueError(
+                f"Google voice registry gender mismatch: requested={gender} "
+                f"voice={voice_name} provider_gender={curated_gender}"
+            )
+        return voice_name
 
     if p == "openai":
-        gender = h if h in {"male", "female"} else _gender_from_profile(voice_profile)
-        return _OPENAI_VOICES.get(gender, _OPENAI_VOICES["female"])
+        expected = _OPENAI_VOICES.get(gender, _OPENAI_VOICES["neutral"])
+        if profile_raw in set(_OPENAI_VOICES.values()):
+            if profile_raw != expected and gender in {"male", "female"}:
+                raise ValueError(
+                    f"OpenAI product voice assignment mismatch: requested={gender} "
+                    f"voice={profile_raw}"
+                )
+            return profile_raw
+        return expected
 
     return None
+
+
+def resolve_voice_identity(
+    *,
+    persona_id: str,
+    display_name: str,
+    gender: str,
+    voice_profile: str,
+    provider: str,
+    language: str = "fi-FI",
+) -> dict[str, Any]:
+    """Resolve one immutable preferred voice binding for a product persona."""
+    normalized_gender = _resolved_gender(gender, voice_profile)
+    normalized_provider = str(provider or "google").strip().lower() or "google"
+    resolved_voice = provider_voice_name(
+        normalized_provider,
+        voice_profile=voice_profile,
+        voice_hint=normalized_gender,
+        persona_id=persona_id,
+    )
+    if not resolved_voice:
+        raise ValueError(
+            f"No provider voice resolved for provider={normalized_provider} "
+            f"persona={persona_id}"
+        )
+
+    gender_certified = False
+    if normalized_provider == "google":
+        provider_gender = google_voice_gender(resolved_voice)
+        gender_certified = bool(
+            provider_gender is not None
+            and normalized_gender in {"male", "female"}
+            and provider_gender == normalized_gender
+        )
+
+    identity_seed = "|".join(
+        (
+            VOICE_REGISTRY_VERSION,
+            str(persona_id or ""),
+            normalized_provider,
+            resolved_voice,
+            normalized_gender,
+        )
+    )
+    identity_id = "rvi_" + hashlib.sha256(identity_seed.encode("utf-8")).hexdigest()[:20]
+
+    return {
+        "identity_id": identity_id,
+        "persona_id": str(persona_id or ""),
+        "display_name": str(display_name or "AI"),
+        "gender": normalized_gender,
+        "language": language,
+        "voice_profile": str(voice_profile or ""),
+        "provider": normalized_provider,
+        "provider_voice_id": resolved_voice,
+        "registry_version": VOICE_REGISTRY_VERSION,
+        "gender_certified": gender_certified,
+    }
 
 
 def voices_for_dialogue(
     provider: str,
     speaker_specs: list[dict],
 ) -> dict[str, str]:
-    """Resolve a distinct voice per speaker for a multi-talker dialogue.
-
-    `speaker_specs` is a list of dicts like:
-        [{"speaker_id": "matti", "gender": "male", "persona_id": "fi-m-001"},
-         {"speaker_id": "anna",  "gender": "female", "persona_id": "fi-f-002"}]
-
-    Returns a mapping speaker_id -> voice_name. For Google with the standard
-    2-female/2-male Wavenet pool, you can have at most 2 distinct female
-    voices and 2 distinct male voices in a single dialogue before duplication
-    becomes unavoidable. The function rotates through the pool by stable
-    index so distinct personas get distinct voices when the pool allows.
-    """
     p = str(provider or "").strip().lower()
     out: dict[str, str] = {}
+
     if p != "google":
-        # Non-Google providers don't support multi-voice yet; everyone gets
-        # the same gender voice from `provider_voice_name`.
         for spec in speaker_specs:
             sid = str(spec.get("speaker_id") or "").strip()
             if not sid:
@@ -170,46 +304,87 @@ def voices_for_dialogue(
             voice = provider_voice_name(
                 provider,
                 voice_profile=str(spec.get("voice_profile") or ""),
-                voice_hint=str(spec.get("gender") or "female"),
+                voice_hint=str(spec.get("gender") or "neutral"),
                 persona_id=str(spec.get("persona_id") or sid),
             )
             if voice:
                 out[sid] = voice
         return out
 
-    # Google: assign distinct voices per gender by spreading across the pool.
-    # Group speakers by gender first.
-    by_gender: dict[str, list[dict]] = {"male": [], "female": []}
+    by_gender: dict[VoiceGender, list[dict]] = {
+        "male": [],
+        "female": [],
+        "neutral": [],
+    }
     for spec in speaker_specs:
-        gender = str(spec.get("gender") or "").strip().lower()
-        if gender not in {"male", "female"}:
-            gender = _gender_from_profile(str(spec.get("voice_profile") or ""))
+        gender = _resolved_gender(
+            str(spec.get("gender") or ""),
+            str(spec.get("voice_profile") or ""),
+        )
         by_gender[gender].append(spec)
 
     for gender, speakers in by_gender.items():
-        pool = _GOOGLE_MALE_VOICES if gender == "male" else _GOOGLE_FEMALE_VOICES
+        pool = _google_pool_for_gender(gender)
         if not pool:
             continue
-        # Sort speakers by speaker_id so assignment is stable across calls
-        speakers_sorted = sorted(speakers, key=lambda s: str(s.get("speaker_id") or ""))
-        for i, spec in enumerate(speakers_sorted):
+
+        speakers_sorted = sorted(
+            speakers,
+            key=lambda spec: str(spec.get("speaker_id") or ""),
+        )
+        for index, spec in enumerate(speakers_sorted):
             sid = str(spec.get("speaker_id") or "").strip()
             if not sid:
                 continue
-            # Cycle through the pool. If more speakers than voices,
-            # duplication starts on the (len(pool)+1)th speaker.
-            voice = pool[i % len(pool)]
-            out[sid] = voice
+            voice_name = pool[index % len(pool)]
+            curated_gender = google_voice_gender(voice_name)
+            if (
+                gender in {"male", "female"}
+                and curated_gender is not None
+                and curated_gender != gender
+            ):
+                raise ValueError(
+                    f"Dialogue voice registry gender mismatch: "
+                    f"speaker={sid} requested={gender} voice={voice_name} "
+                    f"provider_gender={curated_gender}"
+                )
+            out[sid] = voice_name
+
     return out
 
 
 def validate_voice_registry() -> dict:
+    errors: list[str] = []
+
+    if not _GOOGLE_MALE_VOICES:
+        errors.append("google_male_pool_empty")
+    if not _GOOGLE_FEMALE_VOICES:
+        errors.append("google_female_pool_empty")
+
+    for voice_name in _GOOGLE_MALE_VOICES:
+        if google_voice_gender(voice_name) != "male":
+            errors.append(f"male_pool_mismatch:{voice_name}")
+    for voice_name in _GOOGLE_FEMALE_VOICES:
+        if google_voice_gender(voice_name) != "female":
+            errors.append(f"female_pool_mismatch:{voice_name}")
+
+    if google_voice_gender("fi-FI-Standard-B") != "female":
+        errors.append("standard_b_must_be_female")
+    if google_voice_gender("fi-FI-Wavenet-B") != "female":
+        errors.append("wavenet_b_must_be_female")
+
     return {
-        "ok": True,
+        "ok": not errors,
+        "errors": errors,
         "providers": ["google", "openai"],
+        "registry_version": VOICE_REGISTRY_VERSION,
+        "resolved_voice_profile_prefix": RESOLVED_VOICE_PROFILE_PREFIX,
+        "google_catalog_url": GOOGLE_VOICE_CATALOG_URL,
         "google_voices": {
             "female": list(_GOOGLE_FEMALE_VOICES),
-            "male":   list(_GOOGLE_MALE_VOICES),
+            "male": list(_GOOGLE_MALE_VOICES),
         },
+        "google_voice_gender": dict(_GOOGLE_VOICE_GENDER),
         "supported_profiles": sorted(_GOOGLE_PROFILE_VOICES.keys()),
+        "openai_gender_certified": False,
     }

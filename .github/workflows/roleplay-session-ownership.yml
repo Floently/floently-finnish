@@ -1,0 +1,49 @@
+name: Roleplay session ownership
+
+on:
+  push:
+    paths:
+      - "apps/backend/app/routers/v1_roleplay.py"
+      - "apps/backend/app/runtime/roleplay.py"
+      - "apps/backend/app/services/auth_service.py"
+      - "apps/backend/app/services/roleplay_ownership.py"
+      - "apps/backend/app/services/roleplay_session_service.py"
+      - "apps/backend/scripts/verify_roleplay_session_ownership.py"
+      - ".github/workflows/roleplay-session-ownership.yml"
+  pull_request:
+    paths:
+      - "apps/backend/app/routers/v1_roleplay.py"
+      - "apps/backend/app/runtime/roleplay.py"
+      - "apps/backend/app/services/auth_service.py"
+      - "apps/backend/app/services/roleplay_ownership.py"
+      - "apps/backend/app/services/roleplay_session_service.py"
+      - "apps/backend/scripts/verify_roleplay_session_ownership.py"
+      - ".github/workflows/roleplay-session-ownership.yml"
+  workflow_dispatch:
+
+jobs:
+  verify-roleplay-session-ownership:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Compile ownership source
+        run: |
+          python -m py_compile \
+            apps/backend/app/routers/v1_roleplay.py \
+            apps/backend/app/services/roleplay_ownership.py \
+            apps/backend/app/services/roleplay_session_service.py \
+            apps/backend/scripts/verify_roleplay_session_ownership.py
+
+      - name: Verify authenticated roleplay ownership
+        env:
+          PYTHONPATH: apps/backend
+        run: |
+          python apps/backend/scripts/verify_roleplay_session_ownership.py
