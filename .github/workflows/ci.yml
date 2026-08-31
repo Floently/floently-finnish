@@ -35,6 +35,11 @@ jobs:
           if len(authority_cards) != len(runtime_cards):
               raise SystemExit("Authority/runtime card count mismatch")
           CHECK
+      - name: Verify account deletion completion truth
+        run: pytest apps/backend/tests/test_account_deletion_service.py -q
+        env:
+          FLOENTLY_ENV: development
+          SIGNED_SESSION_SECRET: ci-test-secret
       - name: Run backend and engine tests
         run: pytest apps/backend/tests engine/tests -q
         env:
@@ -48,7 +53,17 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '20'
-      - name: Install client dependencies
-        run: cd apps/client && npm ci
+      - name: Install workspace dependencies
+        run: npm install --package-lock=false --ignore-scripts --no-audit --no-fund
       - name: TypeScript check
-        run: cd apps/client && npx tsc --noEmit
+        run: npm --workspace client exec tsc -- --noEmit
+      - name: Verify navigation invariants
+        run: npm --workspace client run verify:navigation
+      - name: Verify account deletion access invariants
+        run: npm --workspace client run verify:account-deletion-access
+      - name: Verify RevenueCat identity invariants
+        run: npm --workspace client run verify:revenuecat-identity
+      - name: Verify store billing preflight invariants
+        run: npm --workspace client run verify:store-billing-preflight
+      - name: Verify iOS release identity invariants
+        run: npm --workspace client run verify:ios-release-identity
