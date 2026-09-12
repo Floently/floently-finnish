@@ -6,18 +6,18 @@ import {
   Modal,
   Pressable,
   SafeAreaView,
+  ScrollView,
   StyleSheet,
   Text,
   TextInput,
   View,
-  ScrollView,
 } from 'react-native';
 import { WebView, type WebViewMessageEvent } from 'react-native-webview';
+import { fetchReadVoices, type ReadVoice } from '@core/api/read';
+import { useAuthStore } from '../state/authStore';
+import { formatReadTime, useReadNarrator } from '../features/read/useReadNarrator';
 
 const NativeWebView: any = WebView;
-
-type DeviceVoice = { identifier: string; name: string; quality: string; language: string };
-
 const DEFAULT_URL = 'https://www.udacity.com/';
 
 function normalizeUrl(value: string) {
@@ -66,118 +66,68 @@ const EXTRACT_SCRIPT = `
 })(); true;
 `;
 
-function splitForSpeech(text: string) {
-  const clean = text.replace(/\s+/g, ' ').trim();
-  if (!clean) return [];
-  const sentences = clean.match(/[^.!?]+[.!?]+|[^.!?]+$/g) ?? [clean];
-  const chunks: string[] = [];
-  let current = '';
-  for (const sentence of sentences) {
-    const next = current ? `${current} ${sentence.trim()}` : sentence.trim();
-    if (next.length > 420 && current) {
-      chunks.push(current);
-      current = sentence.trim();
-    } else {
-      current = next;
-    }
-  }
-  if (current) chunks.push(current);
-  return chunks;
-}
-
 export default function ReadBrowserScreen() {
   const params = useLocalSearchParams<{ url?: string | string[] }>();
   const initialUrl = useMemo(() => normalizeUrl(Array.isArray(params.url) ? params.url[0] ?? DEFAULT_URL : params.url ?? DEFAULT_URL), [params.url]);
   const webRef = useRef<any>(null);
-  const chunksRef = useRef<string[]>([]);
-  const speechIndexRef = useRef(0);
+  const token = useAuthStore((state) => state.token);
+  const hydrateSession = useAuthStore((state) => state.hydrateSession);
   const [currentUrl, setCurrentUrl] = useState(initialUrl);
   const [address, setAddress] = useState(initialUrl);
   const [canGoBack, setCanGoBack] = useState(false);
   const [canGoForward, setCanGoForward] = useState(false);
-  const [reading, setReading] = useState(false);
-  const [paused, setPaused] = useState(false);
-  const [status, setStatus] = useState('Open your course, sign in, then tap Read page.');
-  const [rate, setRate] = useState(0.95);
-  const [voices, setVoices] = useState<DeviceVoice[]>([]);
+  const [manualStatus, setManualStatus] = useState('Open your course, sign in, then tap Read page.');
+  const [rate, setRate] = useState(1);
+  const [voices, setVoices] = useState<ReadVoice[]>([]);
   const [selectedVoiceId, setSelectedVoiceId] = useState<string | null>(null);
   const [voicePickerOpen, setVoicePickerOpen] = useState(false);
   const [pageLanguage, setPageLanguage] = useState('en-US');
+  const selectedVoice = voices.find((voice) => voice.id === selectedVoiceId) ?? voices[0] ?? null;
+  const narrator = useReadNarrator({ token, voice: selectedVoice, rate });
+
+  useEffect(() => { void hydrateSession(); }, [hydrateSession]);
 
   useEffect(() => {
-    let active = true;
+    let cancelled = false;
     void (async () => {
       try {
-        const Speech = await import('expo-speech');
-        const available = (await Speech.getAvailableVoicesAsync()) as DeviceVoice[];
-        if (!active) return;
-        const sorted = [...available].sort((a, b) => {
-          const aEnglish = /^en[-_]/i.test(a.language) ? 0 : 1;
-          const bEnglish = /^en[-_]/i.test(b.language) ? 0 : 1;
-          if (aEnglish !== bEnglish) return aEnglish - bEnglish;
-          const aEnhanced = /enhanced/i.test(a.quality) ? 0 : 1;
-          const bEnhanced = /enhanced/i.test(b.quality) ? 0 : 1;
-          if (aEnhanced !== bEnhanced) return aEnhanced - bEnhanced;
-          return `${a.language} ${a.name}`.localeCompare(`${b.language} ${b.name}`);
+        const catalog = await fetchReadVoices();
+        if (cancelled) return;
+        const sorted = [...catalog.voices].sort((a, b) => {
+          const pa = a.provider.toLowerCase() === 'google' ? 0 : a.provider.toLowerCase() === 'azure' ? 1 : 2;
+          const pb = b.provider.toLowerCase() === 'google' ? 0 : b.provider.toLowerCase() === 'azure' ? 1 : 2;
+          if (pa !== pb) return pa - pb;
+          const ae = /^en/i.test(a.language) ? 0 : 1;
+          const be = /^en/i.test(b.language) ? 0 : 1;
+          if (ae !== be) return ae - be;
+          return `${a.name} ${a.locale}`.localeCompare(`${b.name} ${b.locale}`);
         });
         setVoices(sorted);
-        const english = sorted.find((voice) => /^en-US/i.test(voice.language) && /enhanced/i.test(voice.quality))
-          ?? sorted.find((voice) => /^en-US/i.test(voice.language))
-          ?? sorted.find((voice) => /^en-GB/i.test(voice.language))
-          ?? sorted.find((voice) => /^en[-_]/i.test(voice.language));
-        if (english) setSelectedVoiceId(english.identifier);
-      } catch {
-        // Speech remains usable with an explicit English language even if voice enumeration fails.
+        const preferred = sorted.find((voice) => voice.id === catalog.defaultVoiceId)
+          ?? sorted.find((voice) => voice.provider.toLowerCase() === 'google' && /^en/i.test(voice.language))
+          ?? sorted[0];
+        if (preferred) setSelectedVoiceId(preferred.id);
+      } catch (error) {
+        if (!cancelled) setManualStatus(error instanceof Error ? error.message : 'Could not load Read voices.');
       }
     })();
-    return () => { active = false; };
+    return () => { cancelled = true; };
   }, []);
 
-  const selectedVoice = voices.find((voice) => voice.identifier === selectedVoiceId) ?? null;
-  const voiceLabel = selectedVoice ? selectedVoice.name : 'System English';
+  const voiceLabel = selectedVoice ? selectedVoice.name : 'Loading voices…';
+  const status = narrator.error
+    ? narrator.error
+    : narrator.buffering
+      ? `Preparing audio ${Math.min(narrator.currentSegment + 1, Math.max(narrator.totalSegments, 1))} of ${Math.max(narrator.totalSegments, 1)}…`
+      : narrator.active
+        ? `${narrator.paused ? 'Paused' : 'Reading'} ${narrator.currentSegment + 1} of ${narrator.totalSegments} · ${formatReadTime(narrator.currentTime)} / ${formatReadTime(narrator.duration)}${narrator.currentWord ? ` · ${narrator.currentWord}` : ''}`
+        : narrator.totalSegments > 0 && narrator.progress >= 0.999
+          ? 'Finished reading this page.'
+          : manualStatus;
 
-  const stopSpeaking = async () => {
-    try {
-      const Speech = await import('expo-speech');
-      await Speech.stop();
-    } finally {
-      setReading(false);
-      setPaused(false);
-    }
-  };
-
-  const speakChunk = async (index: number) => {
-    const chunk = chunksRef.current[index];
-    if (!chunk) {
-      setReading(false);
-      setStatus('Finished reading this page.');
-      return;
-    }
-    speechIndexRef.current = index;
-    setReading(true);
-    setStatus(`Reading ${index + 1} of ${chunksRef.current.length}`);
-    const Speech = await import('expo-speech');
-    Speech.speak(chunk, {
-      rate,
-      language: selectedVoice?.language || (/^en/i.test(pageLanguage) ? 'en-US' : pageLanguage || 'en-US'),
-      voice: selectedVoice?.identifier,
-      onStart: () => { setPaused(false); setReading(true); },
-      onDone: () => { void speakChunk(index + 1); },
-      onStopped: () => { setReading(false); setPaused(false); },
-      onError: () => {
-        setReading(false);
-        setStatus('Speech stopped. Tap Read page to retry.');
-      },
-    });
-  };
-
-  const readPage = async () => {
-    const Speech = await import('expo-speech');
-    await Speech.stop();
-    chunksRef.current = [];
-    speechIndexRef.current = 0;
-    setReading(false);
-    setStatus('Finding the main lesson text…');
+  const readPage = () => {
+    narrator.stop();
+    setManualStatus('Finding the main lesson text…');
     webRef.current?.injectJavaScript(EXTRACT_SCRIPT);
   };
 
@@ -185,22 +135,20 @@ export default function ReadBrowserScreen() {
     try {
       const payload = JSON.parse(event.nativeEvent.data);
       if (payload?.type === 'READ_ERROR') {
-        setStatus(payload.message || 'Could not read this page.');
+        setManualStatus(payload.message || 'Could not read this page.');
         return;
       }
       if (payload?.type !== 'READ_TEXT') return;
       if (payload.lang) setPageLanguage(String(payload.lang));
       const text = String(payload.text || '').trim();
-      const chunks = splitForSpeech(text);
-      if (!chunks.length) {
-        setStatus('No readable lesson text was found on this view.');
+      if (!text) {
+        setManualStatus('No readable lesson text was found on this view.');
         return;
       }
-      chunksRef.current = chunks;
-      speechIndexRef.current = 0;
-      void speakChunk(0);
+      setManualStatus(`Ready · ${String(payload.title || 'web page')}`);
+      void narrator.start(text);
     } catch {
-      // Ignore messages that are not part of the Read bridge.
+      // Ignore messages outside the Read bridge.
     }
   };
 
@@ -209,32 +157,19 @@ export default function ReadBrowserScreen() {
     const next = normalizeUrl(address);
     setCurrentUrl(next);
     setAddress(next);
-    void stopSpeaking();
+    narrator.stop();
+    setManualStatus('Page changed. Tap Read page when you are ready.');
   };
 
   const changeRate = (delta: number) => {
     const next = Math.min(2, Math.max(0.5, Math.round((rate + delta) * 10) / 10));
     setRate(next);
-    setStatus(`Speed ${next.toFixed(1)}×. It applies to the next spoken segment.`);
+    setManualStatus(`Speed ${next.toFixed(1)}×.`);
   };
 
-  const togglePause = async () => {
-    const Speech = await import('expo-speech');
-    if (paused) {
-      await Speech.resume();
-      setPaused(false);
-      setReading(true);
-      setStatus('Reading resumed.');
-    } else {
-      await Speech.pause();
-      setPaused(true);
-      setStatus('Reading paused.');
-    }
-  };
-
-  const readSelection = async () => {
-    await stopSpeaking();
-    setStatus('Reading selected text…');
+  const readSelection = () => {
+    narrator.stop();
+    setManualStatus('Finding selected text…');
     webRef.current?.injectJavaScript(`(() => {
       const text = (window.getSelection && window.getSelection().toString() || '').trim();
       window.ReactNativeWebView.postMessage(JSON.stringify({
@@ -246,25 +181,12 @@ export default function ReadBrowserScreen() {
   return (
     <SafeAreaView style={styles.safe}>
       <View style={styles.topBar}>
-        <Pressable onPress={() => router.replace('/read-home' as never)} style={styles.homeButton} accessibilityLabel="Back to Floently Read">
+        <Pressable onPress={() => { narrator.stop(); router.replace('/read-home' as never); }} style={styles.homeButton} accessibilityLabel="Back to Floently Read">
           <Text style={styles.homeText}>F</Text>
         </Pressable>
-        <Pressable disabled={!canGoBack} onPress={() => webRef.current?.goBack()} style={[styles.iconButton, !canGoBack && styles.disabled]}>
-          <Text style={styles.iconText}>‹</Text>
-        </Pressable>
-        <Pressable disabled={!canGoForward} onPress={() => webRef.current?.goForward()} style={[styles.iconButton, !canGoForward && styles.disabled]}>
-          <Text style={styles.iconText}>›</Text>
-        </Pressable>
-        <TextInput
-          autoCapitalize="none"
-          autoCorrect={false}
-          keyboardType="url"
-          onChangeText={setAddress}
-          onSubmitEditing={go}
-          selectTextOnFocus
-          style={styles.address}
-          value={address}
-        />
+        <Pressable disabled={!canGoBack} onPress={() => webRef.current?.goBack()} style={[styles.iconButton, !canGoBack && styles.disabled]}><Text style={styles.iconText}>‹</Text></Pressable>
+        <Pressable disabled={!canGoForward} onPress={() => webRef.current?.goForward()} style={[styles.iconButton, !canGoForward && styles.disabled]}><Text style={styles.iconText}>›</Text></Pressable>
+        <TextInput autoCapitalize="none" autoCorrect={false} keyboardType="url" onChangeText={setAddress} onSubmitEditing={go} selectTextOnFocus style={styles.address} value={address} />
         <Pressable onPress={go} style={styles.goButton}><Text style={styles.goText}>Go</Text></Pressable>
       </View>
 
@@ -289,13 +211,12 @@ export default function ReadBrowserScreen() {
           onShouldStartLoadWithRequest={(request: any) => {
             const url = request.url || '';
             if (/^https?:\/\//i.test(url) || url === 'about:blank') return true;
-            Alert.alert('Open external app?', url, [
-              { text: 'Cancel', style: 'cancel' },
-            ]);
+            Alert.alert('Open external app?', url, [{ text: 'Cancel', style: 'cancel' }]);
             return false;
           }}
           onContentProcessDidTerminate={() => {
-            setStatus('Website process restarted. Reloading…');
+            narrator.stop();
+            setManualStatus('Website process restarted. Reloading…');
             webRef.current?.reload();
           }}
           style={styles.web}
@@ -303,7 +224,13 @@ export default function ReadBrowserScreen() {
       </View>
 
       <View style={styles.readerBar}>
-        <Text numberOfLines={2} style={styles.status}>{status}</Text>
+        <View style={styles.progressLine}>
+          <View style={[styles.progressFill, { width: `${Math.round(narrator.progress * 100)}%` }]} />
+        </View>
+        <View style={styles.statusRow}>
+          <Text numberOfLines={2} style={styles.status}>{status}</Text>
+          {narrator.totalSegments > 0 ? <Text style={styles.percent}>{Math.round(narrator.progress * 100)}%</Text> : null}
+        </View>
         <View style={styles.controlRow}>
           <Pressable onPress={() => setVoicePickerOpen(true)} style={styles.voiceButton}>
             <Text style={styles.controlKicker}>VOICE</Text>
@@ -318,10 +245,10 @@ export default function ReadBrowserScreen() {
         <View style={styles.actionRow}>
           <Pressable onPress={readPage} style={styles.secondaryAction}><Text style={styles.secondaryActionText}>Read page</Text></Pressable>
           <Pressable onPress={readSelection} style={styles.secondaryAction}><Text style={styles.secondaryActionText}>Selection</Text></Pressable>
-          {reading || paused ? (
+          {narrator.active ? (
             <>
-              <Pressable onPress={togglePause} style={styles.primaryAction}><Text style={styles.primaryActionText}>{paused ? 'Resume' : 'Pause'}</Text></Pressable>
-              <Pressable onPress={stopSpeaking} style={styles.stopAction}><Text style={styles.stopActionText}>Stop</Text></Pressable>
+              <Pressable disabled={narrator.buffering} onPress={narrator.togglePause} style={[styles.primaryAction, narrator.buffering && styles.disabled]}><Text style={styles.primaryActionText}>{narrator.paused ? 'Resume' : 'Pause'}</Text></Pressable>
+              <Pressable onPress={narrator.stop} style={styles.stopAction}><Text style={styles.stopActionText}>Stop</Text></Pressable>
             </>
           ) : null}
         </View>
@@ -331,34 +258,31 @@ export default function ReadBrowserScreen() {
         <View style={styles.modalBackdrop}>
           <View style={styles.voiceSheet}>
             <View style={styles.sheetHeader}>
-              <View>
-                <Text style={styles.sheetKicker}>READ VOICE</Text>
-                <Text style={styles.sheetTitle}>Choose a voice</Text>
-              </View>
+              <View><Text style={styles.sheetKicker}>FLOENTLY READ VOICE</Text><Text style={styles.sheetTitle}>Choose a voice</Text></View>
               <Pressable onPress={() => setVoicePickerOpen(false)} style={styles.closeButton}><Text style={styles.closeText}>Done</Text></Pressable>
             </View>
-            <Pressable
-              onPress={() => { setSelectedVoiceId(null); setPageLanguage('en-US'); setVoicePickerOpen(false); setStatus('Voice set to System English.'); }}
-              style={[styles.voiceOption, !selectedVoiceId && styles.voiceOptionSelected]}
-            >
-              <View><Text style={styles.voiceOptionName}>System English</Text><Text style={styles.voiceOptionMeta}>English · automatic iPhone voice</Text></View>
-              {!selectedVoiceId ? <Text style={styles.check}>✓</Text> : null}
-            </Pressable>
+            <Text style={styles.sheetHint}>Natural server voices. Changing voice stops the current narration so the next audio starts cleanly.</Text>
             <ScrollView style={styles.voiceList} contentContainerStyle={styles.voiceListContent}>
               {voices.map((voice) => (
                 <Pressable
-                  key={voice.identifier}
-                  onPress={() => { setSelectedVoiceId(voice.identifier); setVoicePickerOpen(false); setStatus(`Voice: ${voice.name} (${voice.language})`); }}
-                  style={[styles.voiceOption, selectedVoiceId === voice.identifier && styles.voiceOptionSelected]}
+                  key={voice.id}
+                  onPress={() => {
+                    narrator.stop();
+                    setSelectedVoiceId(voice.id);
+                    setVoicePickerOpen(false);
+                    setManualStatus(`Voice: ${voice.name} · ${voice.locale}`);
+                  }}
+                  style={[styles.voiceOption, selectedVoiceId === voice.id && styles.voiceOptionSelected]}
                 >
                   <View style={styles.voiceInfo}>
                     <Text style={styles.voiceOptionName}>{voice.name}</Text>
-                    <Text style={styles.voiceOptionMeta}>{voice.language} · {voice.quality}</Text>
+                    <Text style={styles.voiceOptionMeta}>{voice.provider.toUpperCase()} · {voice.locale}{voice.accent ? ` · ${voice.accent}` : ''}</Text>
                   </View>
-                  {selectedVoiceId === voice.identifier ? <Text style={styles.check}>✓</Text> : null}
+                  {selectedVoiceId === voice.id ? <Text style={styles.check}>✓</Text> : null}
                 </Pressable>
               ))}
             </ScrollView>
+            <Text style={styles.langNote}>Page language detected: {pageLanguage}</Text>
           </View>
         </View>
       </Modal>
@@ -380,7 +304,11 @@ const styles = StyleSheet.create({
   webWrap: { flex: 1, backgroundColor: '#fff' },
   web: { flex: 1 },
   readerBar: { paddingHorizontal: 10, paddingTop: 8, paddingBottom: 10, gap: 8, backgroundColor: '#101827', borderTopWidth: StyleSheet.hairlineWidth, borderTopColor: '#273247' },
-  status: { color: '#c7d0df', fontSize: 11, lineHeight: 15, minHeight: 15 },
+  progressLine: { height: 3, borderRadius: 999, backgroundColor: '#243047', overflow: 'hidden' },
+  progressFill: { height: '100%', borderRadius: 999, backgroundColor: '#6f83ff' },
+  statusRow: { flexDirection: 'row', alignItems: 'center', gap: 8 },
+  status: { flex: 1, color: '#c7d0df', fontSize: 11, lineHeight: 15, minHeight: 15 },
+  percent: { color: '#7ea0ff', fontSize: 11, fontWeight: '900', minWidth: 34, textAlign: 'right' },
   controlRow: { flexDirection: 'row', alignItems: 'center', gap: 8 },
   voiceButton: { flex: 1, minHeight: 46, borderRadius: 15, backgroundColor: '#18243a', paddingHorizontal: 12, justifyContent: 'center' },
   controlKicker: { color: '#7ea0ff', fontSize: 8, fontWeight: '900', letterSpacing: 1 },
@@ -397,13 +325,14 @@ const styles = StyleSheet.create({
   stopAction: { minWidth: 58, minHeight: 42, borderRadius: 14, alignItems: 'center', justifyContent: 'center', backgroundColor: '#2a3548', paddingHorizontal: 8 },
   stopActionText: { color: '#fff', fontSize: 12, fontWeight: '800' },
   modalBackdrop: { flex: 1, justifyContent: 'flex-end', backgroundColor: 'rgba(0,0,0,0.52)' },
-  voiceSheet: { maxHeight: '72%', backgroundColor: '#101827', borderTopLeftRadius: 28, borderTopRightRadius: 28, paddingHorizontal: 16, paddingTop: 18, paddingBottom: 20, borderTopWidth: 1, borderColor: '#273247' },
-  sheetHeader: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', marginBottom: 12 },
+  voiceSheet: { maxHeight: '76%', backgroundColor: '#101827', borderTopLeftRadius: 28, borderTopRightRadius: 28, paddingHorizontal: 16, paddingTop: 18, paddingBottom: 20, borderTopWidth: 1, borderColor: '#273247' },
+  sheetHeader: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', marginBottom: 7 },
   sheetKicker: { color: '#7ea0ff', fontSize: 9, fontWeight: '900', letterSpacing: 1.2 },
   sheetTitle: { color: '#fff', fontSize: 22, fontWeight: '900', marginTop: 2 },
+  sheetHint: { color: '#8f9db4', fontSize: 11, lineHeight: 16, marginBottom: 8 },
   closeButton: { minHeight: 40, paddingHorizontal: 14, borderRadius: 14, backgroundColor: '#1a2435', alignItems: 'center', justifyContent: 'center' },
   closeText: { color: '#fff', fontWeight: '800' },
-  voiceList: { marginTop: 8 },
+  voiceList: { marginTop: 4 },
   voiceListContent: { paddingBottom: 18, gap: 7 },
   voiceOption: { minHeight: 58, borderRadius: 16, backgroundColor: '#162033', paddingHorizontal: 14, paddingVertical: 10, flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', borderWidth: 1, borderColor: 'transparent' },
   voiceOptionSelected: { borderColor: '#5364ff', backgroundColor: '#19294f' },
@@ -411,4 +340,5 @@ const styles = StyleSheet.create({
   voiceOptionName: { color: '#fff', fontSize: 14, fontWeight: '800' },
   voiceOptionMeta: { color: '#99a6ba', fontSize: 11, marginTop: 3 },
   check: { color: '#7ea0ff', fontSize: 18, fontWeight: '900' },
+  langNote: { color: '#69778c', fontSize: 10, paddingTop: 2 },
 });

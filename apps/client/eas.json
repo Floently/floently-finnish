@@ -33,6 +33,19 @@
         "EXPO_PUBLIC_ACCOUNT_DELETION_URL": "https://floently.com/learn/delete-account",
         "NPM_CONFIG_LEGACY_PEER_DEPS": "true"
       }
+    },
+    "read-testflight": {
+      "extends": "production",
+      "channel": "read-testflight",
+      "autoIncrement": true,
+      "env": {
+        "EXPO_PUBLIC_APP_ENV": "read-testflight",
+        "EXPO_PUBLIC_PRIVACY_POLICY_URL": "https://floently.com/learn/privacy",
+        "EXPO_PUBLIC_TERMS_URL": "https://floently.com/learn/terms",
+        "EXPO_PUBLIC_SUPPORT_URL": "https://floently.com/learn/support",
+        "EXPO_PUBLIC_ACCOUNT_DELETION_URL": "https://floently.com/learn/delete-account",
+        "NPM_CONFIG_LEGACY_PEER_DEPS": "true"
+      }
     }
   },
   "submit": {
@@ -45,6 +58,11 @@
       "android": {
         "track": "beta"
       },
+      "ios": {
+        "ascAppId": "6767821805"
+      }
+    },
+    "read-testflight": {
       "ios": {
         "ascAppId": "6767821805"
       }
