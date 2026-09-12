@@ -146,6 +146,7 @@ export default function ReadDocumentScreen() {
       <View style={styles.topBar}>
         <Pressable onPress={() => { narrator.stop(); router.back(); }} style={styles.backButton}><Text style={styles.backText}>‹</Text></Pressable>
         <View style={styles.titleWrap}><Text numberOfLines={1} style={styles.title}>{project.title}</Text><Text style={styles.meta}>{project.wordCount ? `${project.wordCount.toLocaleString()} words` : `${project.characterCount.toLocaleString()} characters`} · {project.sourceType.toUpperCase()}</Text></View>
+        <Pressable onPress={() => router.push({ pathname: '/read-study', params: { id: project.id } } as never)} style={styles.studyButton}><Text style={styles.studyText}>Study</Text></Pressable>
         <Pressable onPress={() => { narrator.stop(); router.replace('/read-home' as never); }} style={styles.homeButton}><Text style={styles.homeText}>F</Text></Pressable>
       </View>
 
@@ -229,6 +230,8 @@ const styles = StyleSheet.create({
   titleWrap: { flex: 1 },
   title: { color: '#FFFFFF', fontSize: 14, fontWeight: '900' },
   meta: { color: '#69778C', fontSize: 9.5, marginTop: 3, fontWeight: '700' },
+  studyButton: { minHeight: 38, borderRadius: 13, backgroundColor: '#17243A', paddingHorizontal: 10, alignItems: 'center', justifyContent: 'center' },
+  studyText: { color: '#8EA0FF', fontSize: 10.5, fontWeight: '900' },
   homeButton: { width: 40, height: 40, borderRadius: 14, backgroundColor: '#5364FF', alignItems: 'center', justifyContent: 'center' },
   homeText: { color: '#FFFFFF', fontSize: 15, fontWeight: '900' },
   documentContent: { paddingHorizontal: 15, paddingTop: 18 },

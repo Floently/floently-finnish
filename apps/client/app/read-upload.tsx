@@ -3,7 +3,7 @@ import { router } from 'expo-router';
 import React, { useEffect, useState } from 'react';
 import { ActivityIndicator, Pressable, ScrollView, StyleSheet, Text, TextInput, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { createReadProjectFromText, uploadReadProject } from '@core/api/read';
+import { createReadProjectFromText, createReadProjectFromUrl, uploadReadProject } from '@core/api/read';
 import { useAuthStore } from '../state/authStore';
 
 export default function ReadUploadScreen() {
@@ -15,6 +15,7 @@ export default function ReadUploadScreen() {
   const [error, setError] = useState<string | null>(null);
   const [pasteTitle, setPasteTitle] = useState('');
   const [pasteText, setPasteText] = useState('');
+  const [websiteUrl, setWebsiteUrl] = useState('');
 
   useEffect(() => { void hydrateSession(); }, [hydrateSession]);
 
@@ -62,6 +63,22 @@ export default function ReadUploadScreen() {
     }
   };
 
+  const importWebsite = async () => {
+    if (!token || busy || !websiteUrl.trim()) return;
+    setBusy(true);
+    setError(null);
+    setStatus('Importing website into your Read library…');
+    try {
+      const project = await createReadProjectFromUrl(token, { url: websiteUrl.trim() });
+      setStatus(`${project.title} is ready.`);
+      openProject(project.id);
+    } catch (cause) {
+      setError(cause instanceof Error ? cause.message : 'Could not import this website. For signed-in pages, use the live Website reader instead.');
+    } finally {
+      setBusy(false);
+    }
+  };
+
   const savePastedText = async () => {
     if (!token || busy || !pasteText.trim()) return;
     setBusy(true);
@@ -104,6 +121,28 @@ export default function ReadUploadScreen() {
         <View style={styles.statusCard}>
           <View style={[styles.statusDot, error ? styles.statusDotError : null]} />
           <Text style={[styles.statusText, error ? styles.statusTextError : null]}>{error || status}</Text>
+        </View>
+
+        <View style={styles.dividerRow}><View style={styles.divider} /><Text style={styles.dividerText}>OR IMPORT A PUBLIC WEB PAGE</Text><View style={styles.divider} /></View>
+
+        <View style={styles.urlCard}>
+          <Text style={styles.fieldLabel}>WEBSITE URL</Text>
+          <TextInput
+            value={websiteUrl}
+            onChangeText={setWebsiteUrl}
+            autoCapitalize="none"
+            autoCorrect={false}
+            keyboardType="url"
+            placeholder="https://example.com/article"
+            placeholderTextColor="#5F6D82"
+            style={styles.titleInput}
+          />
+          <View style={styles.urlFooter}>
+            <Text style={styles.urlHint}>For Udacity and other signed-in sites, use Website on the Read home screen.</Text>
+            <Pressable disabled={busy || !websiteUrl.trim()} onPress={() => void importWebsite()} style={[styles.saveButton, (busy || !websiteUrl.trim()) && styles.disabled]}>
+              <Text style={styles.saveButtonText}>Import URL</Text>
+            </Pressable>
+          </View>
         </View>
 
         <View style={styles.dividerRow}><View style={styles.divider} /><Text style={styles.dividerText}>OR PASTE TEXT</Text><View style={styles.divider} /></View>
@@ -166,6 +205,9 @@ const styles = StyleSheet.create({
   dividerRow: { flexDirection: 'row', alignItems: 'center', gap: 10, marginVertical: 3 },
   divider: { flex: 1, height: StyleSheet.hairlineWidth, backgroundColor: '#223049' },
   dividerText: { color: '#69778E', fontSize: 9, fontWeight: '900', letterSpacing: 1.2 },
+  urlCard: { borderRadius: 22, backgroundColor: '#0D1625', borderWidth: 1, borderColor: '#1A293E', padding: 16 },
+  urlFooter: { flexDirection: 'row', alignItems: 'center', gap: 10, marginTop: 11 },
+  urlHint: { flex: 1, color: '#64738A', fontSize: 9.5, lineHeight: 14 },
   pasteCard: { borderRadius: 24, backgroundColor: '#0D1625', borderWidth: 1, borderColor: '#1A293E', padding: 18 },
   fieldLabel: { color: '#8292AA', fontSize: 9, fontWeight: '900', letterSpacing: 1.1, marginBottom: 7 },
   optional: { color: '#536176' },

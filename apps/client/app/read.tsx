@@ -70,6 +70,7 @@ export default function ReadBrowserScreen() {
   const params = useLocalSearchParams<{ url?: string | string[] }>();
   const initialUrl = useMemo(() => normalizeUrl(Array.isArray(params.url) ? params.url[0] ?? DEFAULT_URL : params.url ?? DEFAULT_URL), [params.url]);
   const webRef = useRef<any>(null);
+  const lastNavigationUrlRef = useRef(initialUrl);
   const token = useAuthStore((state) => state.token);
   const hydrateSession = useAuthStore((state) => state.hydrateSession);
   const [currentUrl, setCurrentUrl] = useState(initialUrl);
@@ -228,7 +229,15 @@ export default function ReadBrowserScreen() {
           onNavigationStateChange={(nav: any) => {
             setCanGoBack(nav.canGoBack);
             setCanGoForward(nav.canGoForward);
-            if (nav.url) setAddress(nav.url);
+            if (nav.url) {
+              setAddress(nav.url);
+              if (nav.url !== lastNavigationUrlRef.current) {
+                lastNavigationUrlRef.current = nav.url;
+                narrator.stop();
+                setLastExtracted(null);
+                setManualStatus('Page changed. Tap Read page when the lesson is ready.');
+              }
+            }
           }}
           onShouldStartLoadWithRequest={(request: any) => {
             const url = request.url || '';

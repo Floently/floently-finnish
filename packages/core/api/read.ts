@@ -79,7 +79,12 @@ async function request(token: string, path: string, init: RequestInit = {}, fall
   if (token.trim()) headers.set('Authorization', `Bearer ${token.trim()}`);
   const response = await fetch(`${readApiBaseUrl()}${path}`, { ...init, headers });
   const payload = await readJson(response);
-  if (!response.ok) throw new Error(errorMessage(payload, fallback));
+  if (!response.ok) {
+    const detail = errorMessage(payload, fallback);
+    const error = new Error(`${detail}${detail.includes(String(response.status)) ? '' : ` (HTTP ${response.status})`}`) as Error & { status?: number };
+    error.status = response.status;
+    throw error;
+  }
   return payload;
 }
 
@@ -147,18 +152,32 @@ export async function prerenderReadAudio(token: string, input: {
   voiceName?: string;
 }): Promise<ReadAudioSegment> {
   const provider = input.voiceId.includes(':') ? input.voiceId.split(':', 1)[0] : undefined;
-  const payload = await request(token, '/api/tts/prerender', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({
-      text: input.text,
-      voiceId: input.voiceId,
-      provider,
-      voiceName: input.voiceName,
-      locale: input.locale,
-      language: input.language,
-    }),
-  }, 'Could not generate Read audio.');
+  let payload: any = null;
+  let lastError: unknown = null;
+  for (let attempt = 0; attempt < 3; attempt += 1) {
+    try {
+      payload = await request(token, '/api/tts/prerender', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          text: input.text,
+          voiceId: input.voiceId,
+          provider,
+          voiceName: input.voiceName,
+          locale: input.locale,
+          language: input.language,
+        }),
+      }, 'Could not generate Read audio.');
+      break;
+    } catch (cause) {
+      lastError = cause;
+      const status = (cause as { status?: number } | null)?.status;
+      const retryable = status === 429 || status === 502 || status === 503 || status === 504;
+      if (!retryable || attempt === 2) throw cause;
+      await new Promise((resolve) => setTimeout(resolve, 350 * (attempt + 1)));
+    }
+  }
+  if (!payload) throw (lastError instanceof Error ? lastError : new Error('Could not generate Read audio.'));
   const audioValue = typeof payload?.audioUrl === 'string' && payload.audioUrl.trim()
     ? payload.audioUrl
     : typeof payload?.audioPath === 'string' ? payload.audioPath : '';
@@ -198,6 +217,17 @@ export async function createReadProjectFromText(token: string, input: { text: st
   return project;
 }
 
+export async function createReadProjectFromUrl(token: string, input: { url: string; title?: string }): Promise<ReadProject> {
+  const payload = await request(token, '/api/v1/projects/from-url', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ url: input.url, title: input.title }),
+  }, 'Could not import this website.');
+  const project = normalizeProject(payload?.project);
+  if (!project) throw new Error('The imported website response was invalid.');
+  return project;
+}
+
 export async function uploadReadProject(token: string, input: { uri: string; name: string; mimeType?: string; title?: string }): Promise<ReadProject> {
   const form = new FormData();
   form.append('file', { uri: input.uri, name: input.name, type: input.mimeType || 'application/octet-stream' } as any);
@@ -225,4 +255,27 @@ export async function updateReadProjectProgress(token: string, projectId: string
       playbackRate: input.playbackRate ?? null,
     }),
   }, 'Could not save reading progress.');
+}
+
+export async function generateReadInsight(token: string, input: {
+  action: 'summarize' | 'key_points' | 'assistant';
+  text: string;
+  title?: string;
+  question?: string;
+  language?: string;
+}): Promise<string> {
+  const payload = await request(token, '/api/ai/generate', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      action: input.action,
+      text: input.text.slice(0, 12000),
+      title: input.title,
+      question: input.question,
+      language: input.language,
+    }),
+  }, 'Could not generate this study aid.');
+  const text = typeof payload?.text === 'string' ? payload.text.trim() : '';
+  if (!text) throw new Error('Floently returned an empty study response.');
+  return text;
 }
