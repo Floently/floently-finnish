@@ -1,5 +1,4 @@
 import { router, useLocalSearchParams } from 'expo-router';
-import * as Speech from 'expo-speech';
 import React, { useMemo, useRef, useState } from 'react';
 import {
   Alert,
@@ -97,11 +96,15 @@ export default function ReadBrowserScreen() {
   const [rate, setRate] = useState(0.95);
 
   const stopSpeaking = async () => {
-    await Speech.stop();
-    setReading(false);
+    try {
+      const Speech = await import('expo-speech');
+      await Speech.stop();
+    } finally {
+      setReading(false);
+    }
   };
 
-  const speakChunk = (index: number) => {
+  const speakChunk = async (index: number) => {
     const chunk = chunksRef.current[index];
     if (!chunk) {
       setReading(false);
@@ -111,9 +114,10 @@ export default function ReadBrowserScreen() {
     speechIndexRef.current = index;
     setReading(true);
     setStatus(`Reading ${index + 1} of ${chunksRef.current.length}`);
+    const Speech = await import('expo-speech');
     Speech.speak(chunk, {
       rate,
-      onDone: () => speakChunk(index + 1),
+      onDone: () => { void speakChunk(index + 1); },
       onStopped: () => setReading(false),
       onError: () => {
         setReading(false);
@@ -123,6 +127,7 @@ export default function ReadBrowserScreen() {
   };
 
   const readPage = async () => {
+    const Speech = await import('expo-speech');
     await Speech.stop();
     chunksRef.current = [];
     speechIndexRef.current = 0;
@@ -147,7 +152,7 @@ export default function ReadBrowserScreen() {
       }
       chunksRef.current = chunks;
       speechIndexRef.current = 0;
-      speakChunk(0);
+      void speakChunk(0);
     } catch {
       // Ignore messages that are not part of the Read bridge.
     }

@@ -2,13 +2,10 @@ import { router } from 'expo-router';
 import React from 'react';
 import { Image, Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { useAuthStore } from '../state/authStore';
 
 const LOGO = require('../components/public/logo.png');
 
 export default function ReadHomeScreen() {
-  const user = useAuthStore((state) => state.user);
-
   return (
     <SafeAreaView style={styles.safe} edges={['top', 'bottom']}>
       <ScrollView contentContainerStyle={styles.content} showsVerticalScrollIndicator={false}>
@@ -34,7 +31,7 @@ export default function ReadHomeScreen() {
           </Pressable>
 
           <Pressable onPress={() => router.push('/read-login' as never)} style={styles.secondaryButton}>
-            <Text style={styles.secondaryText}>{user ? `Signed in as ${user.email}` : 'Sign in to Floently Read'}</Text>
+            <Text style={styles.secondaryText}>Sign in to Floently Read</Text>
           </Pressable>
         </View>
 
