@@ -35,6 +35,8 @@ type AuthTab = 'signin' | 'create';
 
 type Props = {
   initialTab?: AuthTab;
+  afterAuthPath?: string;
+  productLabel?: string;
 };
 
 const GOOGLE_BUTTONS = {
@@ -62,7 +64,7 @@ function getGoogleButtonSource(tab: AuthTab) {
   return GOOGLE_BUTTONS.android[tab === 'create' ? 'signup' : tab];
 }
 
-export default function AuthScreen({ initialTab = 'signin' }: Props) {
+export default function AuthScreen({ initialTab = 'signin', afterAuthPath = '/', productLabel }: Props) {
   const themeMode = usePreferencesStore((s) => s.themeMode);
   const palette = getFloentlyPalette(themeMode);
   const isDark = themeMode === 'dark';
@@ -162,7 +164,7 @@ export default function AuthScreen({ initialTab = 'signin' }: Props) {
       }
       await setAuth(session.user, session.token);
       void saveLoginEmail(email.trim());
-      router.replace('/');
+      router.replace(afterAuthPath as never);
     } catch (err) {
       if (tab === 'signin' && isLocalApi) {
         try {
@@ -173,7 +175,7 @@ export default function AuthScreen({ initialTab = 'signin' }: Props) {
           });
           await setAuth(fallbackSession.user, fallbackSession.token);
           void saveLoginEmail(email.trim());
-          router.replace('/');
+          router.replace(afterAuthPath as never);
           return;
         } catch {
           // Fall through to the original error below.
@@ -184,7 +186,7 @@ export default function AuthScreen({ initialTab = 'signin' }: Props) {
     } finally {
       setSubmitting(false);
     }
-  }, [email, password, name, tab, setAuth]);
+  }, [afterAuthPath, email, password, name, tab, setAuth]);
 
   const handleGoogle = useCallback(async () => {
     setFormError(null);
@@ -192,12 +194,12 @@ export default function AuthScreen({ initialTab = 'signin' }: Props) {
     if (session) {
       await setAuth(session.user, session.token);
       void saveLoginEmail(session.user.email);
-      router.replace('/');
+      router.replace(afterAuthPath as never);
     }
     // If signIn returns null, useGoogleSignIn has already populated its state
     // with the appropriate cancelled/failed/unavailable status. We surface
     // failure messages via googleErrorMessage above, not as form errors.
-  }, [google, setAuth]);
+  }, [afterAuthPath, google, setAuth]);
 
   const styles = useMemo(() => buildStyles(palette, isDark), [palette, isDark]);
   const googleButtonSource = getGoogleButtonSource(tab);
@@ -234,7 +236,7 @@ export default function AuthScreen({ initialTab = 'signin' }: Props) {
                 accessibilityLabel={t('authLogoAccessibilityLabel')}
               />
             </View>
-            <Text style={styles.eyebrow}>{t('authEyebrow')}</Text>
+            <Text style={styles.eyebrow}>{productLabel ? productLabel.toUpperCase() : t('authEyebrow')}</Text>
             <Text style={styles.title}>{tab === 'signin' ? t('authSignInTitle') : t('authCreateTitle')}</Text>
             <Text style={styles.subtitle}>
               {tab === 'signin'

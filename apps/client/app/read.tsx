@@ -1,4 +1,4 @@
-import { useLocalSearchParams } from 'expo-router';
+import { router, useLocalSearchParams } from 'expo-router';
 import * as Speech from 'expo-speech';
 import React, { useMemo, useRef, useState } from 'react';
 import {
@@ -171,6 +171,9 @@ export default function ReadBrowserScreen() {
   return (
     <SafeAreaView style={styles.safe}>
       <View style={styles.topBar}>
+        <Pressable onPress={() => router.replace('/read-home' as never)} style={styles.homeButton} accessibilityLabel="Back to Floently Read">
+          <Text style={styles.homeText}>F</Text>
+        </Pressable>
         <Pressable disabled={!canGoBack} onPress={() => webRef.current?.goBack()} style={[styles.iconButton, !canGoBack && styles.disabled]}>
           <Text style={styles.iconText}>‹</Text>
         </Pressable>
@@ -240,6 +243,8 @@ export default function ReadBrowserScreen() {
 const styles = StyleSheet.create({
   safe: { flex: 1, backgroundColor: '#0b111c' },
   topBar: { minHeight: 58, flexDirection: 'row', alignItems: 'center', gap: 8, paddingHorizontal: 10, paddingVertical: 8, backgroundColor: '#101827', borderBottomWidth: StyleSheet.hairlineWidth, borderBottomColor: '#273247' },
+  homeButton: { width: 40, height: 40, borderRadius: 14, alignItems: 'center', justifyContent: 'center', backgroundColor: '#5364ff' },
+  homeText: { color: '#fff', fontSize: 17, fontWeight: '900' },
   iconButton: { width: 40, height: 40, borderRadius: 20, alignItems: 'center', justifyContent: 'center', backgroundColor: '#1a2435' },
   disabled: { opacity: 0.35 },
   iconText: { color: '#fff', fontSize: 31, lineHeight: 34 },

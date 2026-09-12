@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import { Platform } from 'react-native';
+import SuiteLandingScreen from '../features/suite/SuiteLandingScreen';
 import AppShell from '../state/AppShell';
 import LearnLandingPage from '../web/LearnLandingPage';
 import { useAuthStore } from '../state/authStore';
@@ -43,6 +44,10 @@ export default function IndexRoute() {
   }, [setAuth]);
 
   const isLearnHost = Platform.OS === 'web' && typeof window !== 'undefined' && window.location.hostname === 'learn.floently.com';
+
+  if (Platform.OS !== 'web') {
+    return <SuiteLandingScreen />;
+  }
 
   if (isLearnHost) {
     if (hasHydrated && user) {
