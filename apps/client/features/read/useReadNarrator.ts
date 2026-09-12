@@ -2,9 +2,15 @@ import { useAudioPlayer, useAudioPlayerStatus, setAudioModeAsync, setIsAudioActi
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { prerenderReadAudio, type ReadAudioSegment, type ReadVoice } from '@core/api/read';
 
+export type ReadNarrationSourceSegment = string | {
+  text: string;
+  pauseAfterMs?: number;
+};
+
 export type ReadNarrationSnapshot = {
   active: boolean;
   buffering: boolean;
+  interSegmentPause: boolean;
   currentSegment: number;
   currentTime: number;
   currentWord: string | null;
@@ -56,15 +62,18 @@ export function useReadNarrator(input: {
   });
   const playerStatus = useAudioPlayerStatus(player);
   const segmentsRef = useRef<string[]>([]);
+  const pauseAfterRef = useRef<number[]>([]);
   const cacheRef = useRef(new Map<string, ReadAudioSegment>());
   const revisionRef = useRef(0);
   const finishHandledRef = useRef(false);
+  const pauseTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const tokenRef = useRef(input.token);
   const voiceRef = useRef(input.voice);
   const rateRef = useRef(input.rate);
   const currentAudioRef = useRef<ReadAudioSegment | null>(null);
   const [active, setActive] = useState(false);
   const [buffering, setBuffering] = useState(false);
+  const [interSegmentPause, setInterSegmentPause] = useState(false);
   const [currentSegment, setCurrentSegment] = useState(0);
   const [error, setError] = useState<string | null>(null);
 
@@ -74,6 +83,14 @@ export function useReadNarrator(input: {
     rateRef.current = input.rate;
     try { player.setPlaybackRate(input.rate, 'high'); } catch { /* source may not be loaded yet */ }
   }, [input.rate, player]);
+
+  const clearInterSegmentPause = useCallback(() => {
+    if (pauseTimerRef.current) {
+      clearTimeout(pauseTimerRef.current);
+      pauseTimerRef.current = null;
+    }
+    setInterSegmentPause(false);
+  }, []);
 
   useEffect(() => {
     void setIsAudioActiveAsync(true);
@@ -86,6 +103,10 @@ export function useReadNarrator(input: {
     });
     player.volume = 1;
     return () => {
+      if (pauseTimerRef.current) {
+        clearTimeout(pauseTimerRef.current);
+        pauseTimerRef.current = null;
+      }
       try { player.pause(); } catch { /* no-op */ }
     };
   }, [player]);
@@ -153,13 +174,20 @@ export function useReadNarrator(input: {
     }
   }, [getAudio, player, prefetch]);
 
-  const start = useCallback(async (text: string, startIndex = 0) => {
-    const segments = splitReadText(text);
+  const startSegments = useCallback(async (sourceSegments: ReadNarrationSourceSegment[], startIndex = 0) => {
+    const normalized = sourceSegments
+      .map((segment) => typeof segment === 'string'
+        ? { text: segment.replace(/\s+/g, ' ').trim(), pauseAfterMs: 0 }
+        : { text: String(segment.text || '').replace(/\s+/g, ' ').trim(), pauseAfterMs: Math.max(0, Number(segment.pauseAfterMs || 0)) })
+      .filter((segment) => Boolean(segment.text));
+    const segments = normalized.map((segment) => segment.text);
     const revision = revisionRef.current + 1;
     revisionRef.current = revision;
+    clearInterSegmentPause();
     try { player.pause(); } catch { /* no-op */ }
     void player.seekTo(0).catch(() => undefined);
     segmentsRef.current = segments;
+    pauseAfterRef.current = normalized.map((segment) => segment.pauseAfterMs);
     cacheRef.current.clear();
     currentAudioRef.current = null;
     const normalizedStartIndex = segments.length > 0 ? Math.min(Math.max(0, Math.floor(startIndex)), segments.length - 1) : 0;
@@ -172,38 +200,44 @@ export function useReadNarrator(input: {
       return;
     }
     await playSegment(normalizedStartIndex, revision);
-  }, [playSegment, player]);
+  }, [clearInterSegmentPause, playSegment, player]);
+
+  const start = useCallback(async (text: string, startIndex = 0) => {
+    await startSegments(splitReadText(text), startIndex);
+  }, [startSegments]);
 
   const stop = useCallback(() => {
     revisionRef.current += 1;
     finishHandledRef.current = true;
+    clearInterSegmentPause();
     try { player.pause(); } catch { /* no-op */ }
     void player.seekTo(0).catch(() => undefined);
     currentAudioRef.current = null;
     setActive(false);
     setBuffering(false);
     setError(null);
-  }, [player]);
+  }, [clearInterSegmentPause, player]);
 
   const togglePause = useCallback(() => {
-    if (!active || buffering) return;
+    if (!active || buffering || interSegmentPause) return;
     if (playerStatus.playing) {
       player.pause();
     } else {
       player.play();
     }
-  }, [active, buffering, player, playerStatus.playing]);
+  }, [active, buffering, interSegmentPause, player, playerStatus.playing]);
 
-  const skipToSegment = useCallback((index: number) => {
+  const jumpToSegment = useCallback((index: number) => {
     if (!segmentsRef.current.length) return;
     const next = Math.min(segmentsRef.current.length - 1, Math.max(0, index));
     const revision = revisionRef.current + 1;
     revisionRef.current = revision;
+    clearInterSegmentPause();
     try { player.pause(); } catch { /* no-op */ }
     void player.seekTo(0).catch(() => undefined);
     setActive(true);
     void playSegment(next, revision);
-  }, [playSegment, player]);
+  }, [clearInterSegmentPause, playSegment, player]);
 
   const skipBackward = useCallback(() => {
     if (!segmentsRef.current.length) return;
@@ -211,13 +245,13 @@ export function useReadNarrator(input: {
       void player.seekTo(0).catch(() => undefined);
       return;
     }
-    skipToSegment(currentSegment - 1);
-  }, [currentSegment, player, playerStatus.currentTime, skipToSegment]);
+    jumpToSegment(currentSegment - 1);
+  }, [currentSegment, jumpToSegment, player, playerStatus.currentTime]);
 
   const skipForward = useCallback(() => {
     if (!segmentsRef.current.length) return;
-    skipToSegment(currentSegment + 1);
-  }, [currentSegment, skipToSegment]);
+    jumpToSegment(currentSegment + 1);
+  }, [currentSegment, jumpToSegment]);
 
   const seekCurrent = useCallback((seconds: number) => {
     const duration = playerStatus.duration || currentAudioRef.current?.duration || 0;
@@ -238,6 +272,19 @@ export function useReadNarrator(input: {
     if (next >= segmentsRef.current.length) {
       setActive(false);
       setBuffering(false);
+      setInterSegmentPause(false);
+      return;
+    }
+    const pauseAfterMs = Math.max(0, pauseAfterRef.current[currentSegment] || 0);
+    if (pauseAfterMs > 0) {
+      const revision = revisionRef.current;
+      setInterSegmentPause(true);
+      pauseTimerRef.current = setTimeout(() => {
+        pauseTimerRef.current = null;
+        if (revision !== revisionRef.current) return;
+        setInterSegmentPause(false);
+        void playSegment(next, revision);
+      }, pauseAfterMs);
       return;
     }
     void playSegment(next, revisionRef.current);
@@ -259,12 +306,13 @@ export function useReadNarrator(input: {
   const snapshot: ReadNarrationSnapshot = {
     active,
     buffering: buffering || (active && playerStatus.isBuffering),
+    interSegmentPause,
     currentSegment,
     currentTime,
     currentWord,
     duration,
     error,
-    paused: active && !buffering && !playerStatus.playing,
+    paused: active && !buffering && !interSegmentPause && !playerStatus.playing,
     playing: active && playerStatus.playing,
     progress,
     totalSegments,
@@ -273,6 +321,8 @@ export function useReadNarrator(input: {
   return {
     ...snapshot,
     start,
+    startSegments,
+    jumpToSegment,
     stop,
     togglePause,
     skipBackward,
