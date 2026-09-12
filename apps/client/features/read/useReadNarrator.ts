@@ -16,7 +16,7 @@ export type ReadNarrationSnapshot = {
   totalSegments: number;
 };
 
-export function splitReadText(text: string, maxChars = 720): string[] {
+export function splitReadText(text: string, maxChars = 520): string[] {
   const clean = text.replace(/\s+/g, ' ').trim();
   if (!clean) return [];
   const sentences = clean.match(/[^.!?]+(?:[.!?]+|$)/g) ?? [clean];
@@ -194,6 +194,37 @@ export function useReadNarrator(input: {
     }
   }, [active, buffering, player, playerStatus.playing]);
 
+  const skipToSegment = useCallback((index: number) => {
+    if (!segmentsRef.current.length) return;
+    const next = Math.min(segmentsRef.current.length - 1, Math.max(0, index));
+    const revision = revisionRef.current + 1;
+    revisionRef.current = revision;
+    try { player.pause(); } catch { /* no-op */ }
+    void player.seekTo(0).catch(() => undefined);
+    setActive(true);
+    void playSegment(next, revision);
+  }, [playSegment, player]);
+
+  const skipBackward = useCallback(() => {
+    if (!segmentsRef.current.length) return;
+    if (playerStatus.currentTime > 4) {
+      void player.seekTo(0).catch(() => undefined);
+      return;
+    }
+    skipToSegment(currentSegment - 1);
+  }, [currentSegment, player, playerStatus.currentTime, skipToSegment]);
+
+  const skipForward = useCallback(() => {
+    if (!segmentsRef.current.length) return;
+    skipToSegment(currentSegment + 1);
+  }, [currentSegment, skipToSegment]);
+
+  const seekCurrent = useCallback((seconds: number) => {
+    const duration = playerStatus.duration || currentAudioRef.current?.duration || 0;
+    if (!duration) return;
+    void player.seekTo(Math.min(duration, Math.max(0, seconds))).catch(() => undefined);
+  }, [player, playerStatus.duration]);
+
   useEffect(() => {
     if (playerStatus.playing) {
       finishHandledRef.current = false;
@@ -244,6 +275,9 @@ export function useReadNarrator(input: {
     start,
     stop,
     togglePause,
+    skipBackward,
+    skipForward,
+    seekCurrent,
     currentText: segmentsRef.current[currentSegment] ?? '',
   };
 }

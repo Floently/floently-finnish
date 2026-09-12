@@ -13,7 +13,7 @@ import {
   View,
 } from 'react-native';
 import { WebView, type WebViewMessageEvent } from 'react-native-webview';
-import { fetchReadVoices, type ReadVoice } from '@core/api/read';
+import { createReadProjectFromText, fetchReadVoices, type ReadVoice } from '@core/api/read';
 import { useAuthStore } from '../state/authStore';
 import { formatReadTime, useReadNarrator } from '../features/read/useReadNarrator';
 
@@ -82,6 +82,8 @@ export default function ReadBrowserScreen() {
   const [selectedVoiceId, setSelectedVoiceId] = useState<string | null>(null);
   const [voicePickerOpen, setVoicePickerOpen] = useState(false);
   const [pageLanguage, setPageLanguage] = useState('en-US');
+  const [lastExtracted, setLastExtracted] = useState<{ text: string; title: string; url: string } | null>(null);
+  const [savingPage, setSavingPage] = useState(false);
   const selectedVoice = voices.find((voice) => voice.id === selectedVoiceId) ?? voices[0] ?? null;
   const narrator = useReadNarrator({ token, voice: selectedVoice, rate });
 
@@ -145,7 +147,13 @@ export default function ReadBrowserScreen() {
         setManualStatus('No readable lesson text was found on this view.');
         return;
       }
-      setManualStatus(`Ready · ${String(payload.title || 'web page')}`);
+      const extracted = {
+        text,
+        title: String(payload.title || 'Web reading').trim() || 'Web reading',
+        url: String(payload.url || address).trim(),
+      };
+      setLastExtracted(extracted);
+      setManualStatus(`Ready · ${extracted.title}`);
       void narrator.start(text);
     } catch {
       // Ignore messages outside the Read bridge.
@@ -176,6 +184,20 @@ export default function ReadBrowserScreen() {
         type:'READ_TEXT', text, title:document.title, url:location.href, lang:document.documentElement.lang || 'en-US'
       }));
     })(); true;`);
+  };
+
+  const saveCurrentReading = async () => {
+    if (!token || !lastExtracted || savingPage) return;
+    setSavingPage(true);
+    setManualStatus('Saving this reading to your Library…');
+    try {
+      const project = await createReadProjectFromText(token, { text: lastExtracted.text, title: lastExtracted.title });
+      setManualStatus(`Saved to Library · ${project.title}`);
+    } catch (cause) {
+      setManualStatus(cause instanceof Error ? cause.message : 'Could not save this reading.');
+    } finally {
+      setSavingPage(false);
+    }
   };
 
   return (
@@ -231,6 +253,12 @@ export default function ReadBrowserScreen() {
           <Text numberOfLines={2} style={styles.status}>{status}</Text>
           {narrator.totalSegments > 0 ? <Text style={styles.percent}>{Math.round(narrator.progress * 100)}%</Text> : null}
         </View>
+        {narrator.active && narrator.currentText ? (
+          <View style={styles.nowReading}>
+            <Text style={styles.nowReadingLabel}>NOW READING · {narrator.currentSegment + 1} / {narrator.totalSegments}</Text>
+            <Text numberOfLines={2} style={styles.nowReadingText}>{narrator.currentText}</Text>
+          </View>
+        ) : null}
         <View style={styles.controlRow}>
           <Pressable onPress={() => setVoicePickerOpen(true)} style={styles.voiceButton}>
             <Text style={styles.controlKicker}>VOICE</Text>
@@ -245,13 +273,16 @@ export default function ReadBrowserScreen() {
         <View style={styles.actionRow}>
           <Pressable onPress={readPage} style={styles.secondaryAction}><Text style={styles.secondaryActionText}>Read page</Text></Pressable>
           <Pressable onPress={readSelection} style={styles.secondaryAction}><Text style={styles.secondaryActionText}>Selection</Text></Pressable>
-          {narrator.active ? (
-            <>
-              <Pressable disabled={narrator.buffering} onPress={narrator.togglePause} style={[styles.primaryAction, narrator.buffering && styles.disabled]}><Text style={styles.primaryActionText}>{narrator.paused ? 'Resume' : 'Pause'}</Text></Pressable>
-              <Pressable onPress={narrator.stop} style={styles.stopAction}><Text style={styles.stopActionText}>Stop</Text></Pressable>
-            </>
-          ) : null}
+          <Pressable disabled={!lastExtracted || savingPage} onPress={() => void saveCurrentReading()} style={[styles.secondaryAction, (!lastExtracted || savingPage) && styles.disabled]}><Text style={styles.secondaryActionText}>{savingPage ? 'Saving…' : 'Save'}</Text></Pressable>
         </View>
+        {narrator.active ? (
+          <View style={styles.transportRow}>
+            <Pressable disabled={narrator.buffering} onPress={narrator.skipBackward} style={[styles.transportButton, narrator.buffering && styles.disabled]}><Text style={styles.transportGlyph}>↶</Text><Text style={styles.transportLabel}>Back</Text></Pressable>
+            <Pressable disabled={narrator.buffering} onPress={narrator.togglePause} style={[styles.primaryAction, narrator.buffering && styles.disabled]}><Text style={styles.primaryActionText}>{narrator.paused ? '▶  Resume' : 'Ⅱ  Pause'}</Text></Pressable>
+            <Pressable disabled={narrator.buffering} onPress={narrator.skipForward} style={[styles.transportButton, narrator.buffering && styles.disabled]}><Text style={styles.transportLabel}>Next</Text><Text style={styles.transportGlyph}>↷</Text></Pressable>
+            <Pressable onPress={narrator.stop} style={styles.stopAction}><Text style={styles.stopActionText}>■ Stop</Text></Pressable>
+          </View>
+        ) : null}
       </View>
 
       <Modal visible={voicePickerOpen} transparent animationType="slide" onRequestClose={() => setVoicePickerOpen(false)}>
@@ -309,6 +340,9 @@ const styles = StyleSheet.create({
   statusRow: { flexDirection: 'row', alignItems: 'center', gap: 8 },
   status: { flex: 1, color: '#c7d0df', fontSize: 11, lineHeight: 15, minHeight: 15 },
   percent: { color: '#7ea0ff', fontSize: 11, fontWeight: '900', minWidth: 34, textAlign: 'right' },
+  nowReading: { borderRadius: 12, backgroundColor: '#141f31', paddingHorizontal: 10, paddingVertical: 7, borderLeftWidth: 2, borderLeftColor: '#6f83ff' },
+  nowReadingLabel: { color: '#7ea0ff', fontSize: 7.5, fontWeight: '900', letterSpacing: 0.9, marginBottom: 3 },
+  nowReadingText: { color: '#e8edf7', fontSize: 11, lineHeight: 15 },
   controlRow: { flexDirection: 'row', alignItems: 'center', gap: 8 },
   voiceButton: { flex: 1, minHeight: 46, borderRadius: 15, backgroundColor: '#18243a', paddingHorizontal: 12, justifyContent: 'center' },
   controlKicker: { color: '#7ea0ff', fontSize: 8, fontWeight: '900', letterSpacing: 1 },
@@ -318,6 +352,10 @@ const styles = StyleSheet.create({
   speedGlyph: { color: '#fff', fontSize: 24, lineHeight: 26, fontWeight: '700' },
   speedValue: { color: '#fff', width: 48, textAlign: 'center', fontSize: 13, fontWeight: '900' },
   actionRow: { flexDirection: 'row', alignItems: 'center', gap: 7 },
+  transportRow: { flexDirection: 'row', alignItems: 'center', gap: 7 },
+  transportButton: { minWidth: 55, minHeight: 42, borderRadius: 14, alignItems: 'center', justifyContent: 'center', backgroundColor: '#1a2435', paddingHorizontal: 7, flexDirection: 'row', gap: 3 },
+  transportGlyph: { color: '#9cabbe', fontSize: 16, fontWeight: '900' },
+  transportLabel: { color: '#d9e0eb', fontSize: 9.5, fontWeight: '800' },
   secondaryAction: { flex: 1, minHeight: 42, borderRadius: 14, alignItems: 'center', justifyContent: 'center', backgroundColor: '#1a2435', paddingHorizontal: 8 },
   secondaryActionText: { color: '#e7ecf8', fontSize: 12, fontWeight: '800' },
   primaryAction: { flex: 1, minHeight: 42, borderRadius: 14, alignItems: 'center', justifyContent: 'center', backgroundColor: '#5364ff', paddingHorizontal: 8 },
