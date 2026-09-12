@@ -28,8 +28,11 @@ export default function config(_: ConfigContext): ExpoConfig {
     (entry) => entry?.CFBundleURLName !== 'GoogleSignIn',
   );
 
+  const existingSchemes = Array.isArray(baseExpo.scheme) ? baseExpo.scheme : [baseExpo.scheme].filter(Boolean);
+
   return {
     ...baseExpo,
+    scheme: Array.from(new Set([...existingSchemes, 'floently', 'floentlyread'])) as string[],
     extra: {
       ...(baseExpo.extra ?? {}),
       googleOAuth,
@@ -38,6 +41,7 @@ export default function config(_: ConfigContext): ExpoConfig {
       ...(baseExpo.ios ?? {}),
       infoPlist: {
         ...(baseExpo.ios?.infoPlist ?? {}),
+        ITSAppUsesNonExemptEncryption: false,
         CFBundleURLTypes: [
           ...existingUrlTypes,
           {
