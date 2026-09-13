@@ -531,7 +531,16 @@ export default function ReadBrowserScreen() {
   const [playerSettingsOpen, setPlayerSettingsOpen] = useState(false);
   const playerCollapseTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const selectedVoice = voices.find((voice) => voice.id === selectedVoiceId) ?? voices[0] ?? null;
-  const narrator = useReadNarrator({ token, voice: selectedVoice, rate });
+  const narrator = useReadNarrator({
+    token,
+    voice: selectedVoice,
+    rate,
+    nowPlaying: {
+      title: lastExtracted?.title || 'Floently Read',
+      artist: selectedVoice ? `${selectedVoice.name} · ${selectedVoice.provider}` : 'Floently Read',
+      albumTitle: 'Web Reading',
+    },
+  });
 
   useEffect(() => { void hydrateSession(); }, [hydrateSession]);
 

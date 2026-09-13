@@ -1,4 +1,4 @@
-import { useAudioPlayer, useAudioPlayerStatus, setAudioModeAsync, setIsAudioActiveAsync } from 'expo-audio';
+import { clearPreloadedSource, preload, setAudioModeAsync, setIsAudioActiveAsync, useAudioPlayer, useAudioPlayerStatus } from 'expo-audio';
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { prerenderReadAudio, type ReadAudioSegment, type ReadVoice } from '@core/api/read';
 
@@ -55,6 +55,11 @@ export function useReadNarrator(input: {
   token: string | null;
   voice: ReadVoice | null;
   rate: number;
+  nowPlaying?: {
+    title?: string;
+    artist?: string;
+    albumTitle?: string;
+  };
 }) {
   const player = useAudioPlayer(null, {
     updateInterval: 180,
@@ -71,11 +76,25 @@ export function useReadNarrator(input: {
   const voiceRef = useRef(input.voice);
   const rateRef = useRef(input.rate);
   const currentAudioRef = useRef<ReadAudioSegment | null>(null);
+  const preloadedRef = useRef(new Map<number, string>());
+  const transitionRetryRef = useRef<{ revision: number; deadline: number; lastAttempt: number } | null>(null);
+  const lockScreenActiveRef = useRef(false);
   const [active, setActive] = useState(false);
   const [buffering, setBuffering] = useState(false);
   const [interSegmentPause, setInterSegmentPause] = useState(false);
   const [currentSegment, setCurrentSegment] = useState(0);
   const [error, setError] = useState<string | null>(null);
+  const [desiredPlaying, setDesiredPlaying] = useState(false);
+  const lockScreenMetadata = useMemo(() => ({
+    title: input.nowPlaying?.title?.trim() || 'Floently Read',
+    artist: input.nowPlaying?.artist?.trim() || input.voice?.name || 'Floently Read',
+    albumTitle: input.nowPlaying?.albumTitle?.trim() || 'Floently Read',
+  }), [input.nowPlaying?.albumTitle, input.nowPlaying?.artist, input.nowPlaying?.title, input.voice?.name]);
+
+  const setPlaybackIntent = useCallback((value: boolean) => {
+    desiredPlayingRef.current = value;
+    setDesiredPlaying(value);
+  }, []);
 
   useEffect(() => { tokenRef.current = input.token; }, [input.token]);
   useEffect(() => { voiceRef.current = input.voice; }, [input.voice]);
@@ -90,15 +109,40 @@ export function useReadNarrator(input: {
       playsInSilentMode: true,
       interruptionMode: 'doNotMix',
       allowsRecording: false,
-      shouldPlayInBackground: false,
+      shouldPlayInBackground: true,
       shouldRouteThroughEarpiece: false,
     });
     player.volume = 1;
     return () => {
       desiredPlayingRef.current = false;
+      transitionRetryRef.current = null;
+      try { player.clearLockScreenControls(); } catch { /* unsupported platform */ }
+      lockScreenActiveRef.current = false;
+      for (const audioUrl of preloadedRef.current.values()) {
+        void clearPreloadedSource(audioUrl).catch(() => undefined);
+      }
+      preloadedRef.current.clear();
       try { player.pause(); } catch { /* no-op */ }
     };
   }, [player]);
+
+  useEffect(() => {
+    if (!active) {
+      if (lockScreenActiveRef.current) {
+        try { player.clearLockScreenControls(); } catch { /* unsupported platform */ }
+        lockScreenActiveRef.current = false;
+      }
+      return;
+    }
+    try {
+      if (!lockScreenActiveRef.current) {
+        player.setActiveForLockScreen(true, lockScreenMetadata, { showSeekBackward: true, showSeekForward: true });
+        lockScreenActiveRef.current = true;
+      } else {
+        player.updateLockScreenMetadata(lockScreenMetadata);
+      }
+    } catch { /* lock-screen controls are best-effort */ }
+  }, [active, lockScreenMetadata, player]);
 
   const audioKey = useCallback((index: number) => {
     const voiceId = voiceRef.current?.id ?? '';
@@ -126,9 +170,31 @@ export function useReadNarrator(input: {
     return result;
   }, [audioKey]);
 
+  const clearTrackedPreloads = useCallback((beforeIndex = Number.POSITIVE_INFINITY) => {
+    for (const [index, audioUrl] of preloadedRef.current.entries()) {
+      if (index >= beforeIndex) continue;
+      preloadedRef.current.delete(index);
+      void clearPreloadedSource(audioUrl).catch(() => undefined);
+    }
+  }, []);
+
   const prefetch = useCallback((index: number, revision: number) => {
     if (index < 0 || index >= segmentsRef.current.length) return;
-    void getAudio(index, revision).catch(() => undefined);
+    void (async () => {
+      const audio = await getAudio(index, revision);
+      if (revision !== revisionRef.current) return;
+      if (preloadedRef.current.get(index) === audio.audioUrl) return;
+      const previous = preloadedRef.current.get(index);
+      if (previous && previous !== audio.audioUrl) {
+        void clearPreloadedSource(previous).catch(() => undefined);
+      }
+      await preload(audio.audioUrl, { preferredForwardBufferDuration: 10 });
+      if (revision !== revisionRef.current) {
+        void clearPreloadedSource(audio.audioUrl).catch(() => undefined);
+        return;
+      }
+      preloadedRef.current.set(index, audio.audioUrl);
+    })().catch(() => undefined);
   }, [getAudio]);
 
   const playSegment = useCallback(async (index: number, revision: number) => {
@@ -143,7 +209,7 @@ export function useReadNarrator(input: {
     setBuffering(true);
     setCurrentSegment(index);
     finishHandledRef.current = true;
-    desiredPlayingRef.current = true;
+    setPlaybackIntent(true);
     try {
       const audio = await getAudio(index, revision);
       if (revision !== revisionRef.current) return;
@@ -154,16 +220,19 @@ export function useReadNarrator(input: {
       player.setPlaybackRate(rateRef.current, 'high');
       setBuffering(false);
       setActive(true);
-      desiredPlayingRef.current = true;
+      setPlaybackIntent(true);
+      const now = Date.now();
+      transitionRetryRef.current = { revision, deadline: now + 4500, lastAttempt: now };
       player.play();
       prefetch(index + 1, revision);
+      clearTrackedPreloads(Math.max(0, index - 1));
     } catch (cause) {
       if (revision !== revisionRef.current) return;
       setBuffering(false);
       setActive(false);
       setError(cause instanceof Error ? cause.message : 'Could not start Read audio.');
     }
-  }, [getAudio, player, prefetch]);
+  }, [clearTrackedPreloads, getAudio, player, prefetch, setPlaybackIntent]);
 
   const startSegments = useCallback(async (sourceSegments: ReadNarrationSourceSegment[], startIndex = 0) => {
     const normalized = sourceSegments
@@ -174,7 +243,9 @@ export function useReadNarrator(input: {
     const segments = normalized.map((segment) => segment.text);
     const revision = revisionRef.current + 1;
     revisionRef.current = revision;
-    desiredPlayingRef.current = true;
+    setPlaybackIntent(true);
+    transitionRetryRef.current = null;
+    clearTrackedPreloads();
     try { player.pause(); } catch { /* no-op */ }
     void player.seekTo(0).catch(() => undefined);
     segmentsRef.current = segments;
@@ -190,7 +261,7 @@ export function useReadNarrator(input: {
       return;
     }
     await playSegment(normalizedStartIndex, revision);
-  }, [playSegment, player]);
+  }, [clearTrackedPreloads, playSegment, player, setPlaybackIntent]);
 
   const start = useCallback(async (text: string, startIndex = 0) => {
     await startSegments(splitReadText(text), startIndex);
@@ -199,37 +270,44 @@ export function useReadNarrator(input: {
   const stop = useCallback(() => {
     revisionRef.current += 1;
     finishHandledRef.current = true;
-    desiredPlayingRef.current = false;
+    setPlaybackIntent(false);
+    transitionRetryRef.current = null;
+    clearTrackedPreloads();
+    try { player.clearLockScreenControls(); } catch { /* unsupported platform */ }
+    lockScreenActiveRef.current = false;
     try { player.pause(); } catch { /* no-op */ }
     void player.seekTo(0).catch(() => undefined);
     currentAudioRef.current = null;
     setActive(false);
     setBuffering(false);
     setError(null);
-  }, [player]);
+  }, [clearTrackedPreloads, player, setPlaybackIntent]);
 
   const togglePause = useCallback(() => {
     if (!active || buffering) return;
     if (playerStatus.playing) {
-      desiredPlayingRef.current = false;
+      setPlaybackIntent(false);
+      transitionRetryRef.current = null;
       player.pause();
     } else {
-      desiredPlayingRef.current = true;
+      setPlaybackIntent(true);
+      transitionRetryRef.current = null;
       player.play();
     }
-  }, [active, buffering, player, playerStatus.playing]);
+  }, [active, buffering, player, playerStatus.playing, setPlaybackIntent]);
 
   const jumpToSegment = useCallback((index: number) => {
     if (!segmentsRef.current.length) return;
     const next = Math.min(segmentsRef.current.length - 1, Math.max(0, index));
     const revision = revisionRef.current + 1;
     revisionRef.current = revision;
-    desiredPlayingRef.current = true;
+    setPlaybackIntent(true);
+    transitionRetryRef.current = null;
     try { player.pause(); } catch { /* no-op */ }
     void player.seekTo(0).catch(() => undefined);
     setActive(true);
     void playSegment(next, revision);
-  }, [playSegment, player]);
+  }, [playSegment, player, setPlaybackIntent]);
 
   const skipBackward = useCallback(() => {
     if (!segmentsRef.current.length) return;
@@ -262,25 +340,56 @@ export function useReadNarrator(input: {
     finishHandledRef.current = true;
     const next = currentSegment + 1;
     if (next >= segmentsRef.current.length) {
-      desiredPlayingRef.current = false;
+      setPlaybackIntent(false);
+      transitionRetryRef.current = null;
       setActive(false);
       setBuffering(false);
       setInterSegmentPause(false);
+      try { player.clearLockScreenControls(); } catch { /* unsupported platform */ }
+      lockScreenActiveRef.current = false;
       return;
     }
     void playSegment(next, revisionRef.current);
-  }, [active, buffering, currentSegment, playSegment, playerStatus.didJustFinish]);
+  }, [active, buffering, currentSegment, playSegment, player, playerStatus.didJustFinish, setPlaybackIntent]);
 
   useEffect(() => {
-    if (!active || buffering || !desiredPlayingRef.current || playerStatus.playing || playerStatus.didJustFinish) return;
-    if ('isLoaded' in playerStatus && playerStatus.isLoaded === false) return;
-    const retry = setTimeout(() => {
-      if (active && desiredPlayingRef.current) {
-        try { player.play(); } catch { /* retry on the next status update */ }
+    if (playerStatus.playing) {
+      finishHandledRef.current = false;
+      transitionRetryRef.current = null;
+      if (!desiredPlayingRef.current) setPlaybackIntent(true);
+      return;
+    }
+    if (!active || buffering || playerStatus.didJustFinish) return;
+
+    const transition = transitionRetryRef.current;
+    if (transition && transition.revision === revisionRef.current && desiredPlayingRef.current) {
+      if (playerStatus.isLoaded === false) return;
+      const now = Date.now();
+      if (now >= transition.deadline) {
+        transitionRetryRef.current = null;
+        setPlaybackIntent(false);
+        setError('Audio could not continue automatically. Tap Resume to retry.');
+        return;
       }
-    }, 80);
-    return () => clearTimeout(retry);
-  }, [active, buffering, player, playerStatus.didJustFinish, playerStatus.isLoaded, playerStatus.playing]);
+      if (now - transition.lastAttempt < 450) return;
+      const retry = setTimeout(() => {
+        const pending = transitionRetryRef.current;
+        if (!pending || pending.revision !== revisionRef.current || !desiredPlayingRef.current) return;
+        pending.lastAttempt = Date.now();
+        try { player.play(); } catch { /* next status update can retry */ }
+      }, 120);
+      return () => clearTimeout(retry);
+    }
+
+    if (!desiredPlayingRef.current || !playerStatus.isLoaded || playerStatus.isBuffering) return;
+    const settle = setTimeout(() => {
+      const status = player.currentStatus;
+      if (!active || transitionRetryRef.current || status.playing || status.didJustFinish || status.isBuffering || !status.isLoaded) return;
+      // A pause after a source has already played is a real user/system pause, not a failed source transition.
+      setPlaybackIntent(false);
+    }, 260);
+    return () => clearTimeout(settle);
+  }, [active, buffering, player, playerStatus.didJustFinish, playerStatus.isBuffering, playerStatus.isLoaded, playerStatus.playing, setPlaybackIntent]);
 
   const duration = playerStatus.duration || currentAudioRef.current?.duration || 0;
   const currentTime = playerStatus.currentTime || 0;
@@ -314,7 +423,7 @@ export function useReadNarrator(input: {
     currentWordIndex: currentWordState.index,
     duration,
     error,
-    paused: active && !buffering && !playerStatus.playing && !desiredPlayingRef.current,
+    paused: active && !buffering && !playerStatus.playing && !desiredPlaying,
     playing: active && playerStatus.playing,
     progress,
     totalSegments,

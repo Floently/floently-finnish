@@ -22,7 +22,16 @@ export default function ReadDocumentScreen() {
   const [error, setError] = useState<string | null>(null);
   const [voicePickerOpen, setVoicePickerOpen] = useState(false);
   const selectedVoice = voices.find((voice) => voice.id === selectedVoiceId) ?? voices[0] ?? null;
-  const narrator = useReadNarrator({ token, voice: selectedVoice, rate });
+  const narrator = useReadNarrator({
+    token,
+    voice: selectedVoice,
+    rate,
+    nowPlaying: {
+      title: project?.title || 'Floently Read',
+      artist: selectedVoice ? `${selectedVoice.name} · ${selectedVoice.provider}` : 'Floently Read',
+      albumTitle: 'Document Reading',
+    },
+  });
   const segments = useMemo(() => splitReadText(project?.rawText ?? ''), [project?.rawText]);
 
   useEffect(() => { void hydrateSession(); }, [hydrateSession]);
