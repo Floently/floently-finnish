@@ -106,7 +106,7 @@ export default function ReadDocumentScreen() {
       }).catch(() => undefined);
     }, 350);
     return () => clearTimeout(timer);
-  }, [narrator.active, narrator.currentSegment, narrator.totalSegments, project?.id, rate, selectedVoice?.id, token]);
+  }, [narrator.active, narrator.currentSegment, narrator.progress, narrator.totalSegments, project?.id, rate, selectedVoice?.id, token]);
 
   const startReading = () => {
     if (!project?.rawText) return;

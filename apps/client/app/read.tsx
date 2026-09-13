@@ -48,6 +48,69 @@ type BrowserReadModel = {
   segments: BrowserReadSegment[];
 };
 
+type ReadFocusMode = 'chunk' | 'sentence' | 'word';
+type VoiceFilter = 'all' | 'American' | 'British' | 'Finnish';
+
+type BrowserPlaybackChunkEntry = {
+  segmentIndex: number;
+  startWord: number;
+  endWord: number;
+  sourceWordStart: number;
+};
+
+type BrowserPlaybackChunk = {
+  text: string;
+  entries: BrowserPlaybackChunkEntry[];
+};
+
+function buildPlaybackChunks(segments: BrowserReadSegment[], startSegmentIndex = 0, maxChars = 1800): BrowserPlaybackChunk[] {
+  const chunks: BrowserPlaybackChunk[] = [];
+  let textParts: string[] = [];
+  let entries: BrowserPlaybackChunkEntry[] = [];
+  let charCount = 0;
+  let wordCount = 0;
+
+  const flush = () => {
+    if (!textParts.length) return;
+    chunks.push({ text: textParts.join(' ').trim(), entries });
+    textParts = [];
+    entries = [];
+    charCount = 0;
+    wordCount = 0;
+  };
+
+  segments.forEach((segment, localIndex) => {
+    const segmentIndex = startSegmentIndex + localIndex;
+    const sourceWords = segment.text.match(/\S+/g) ?? [];
+    if (!sourceWords.length) return;
+    let cursor = 0;
+    while (cursor < sourceWords.length) {
+      let take = 0;
+      let pieceChars = 0;
+      while (cursor + take < sourceWords.length) {
+        const word = sourceWords[cursor + take];
+        const added = word.length + (take > 0 ? 1 : 0);
+        if (take > 0 && pieceChars + added > maxChars) break;
+        pieceChars += added;
+        take += 1;
+      }
+      const piece = sourceWords.slice(cursor, cursor + Math.max(1, take)).join(' ');
+      const separator = textParts.length ? 1 : 0;
+      if (textParts.length && charCount + separator + piece.length > maxChars) flush();
+      const startWord = wordCount;
+      const pieceWordCount = piece.match(/\S+/g)?.length ?? 0;
+      textParts.push(piece);
+      entries.push({ segmentIndex, startWord, endWord: startWord + pieceWordCount, sourceWordStart: cursor });
+      charCount += (textParts.length > 1 ? 1 : 0) + piece.length;
+      wordCount += pieceWordCount;
+      cursor += Math.max(1, take);
+      if (charCount >= maxChars) flush();
+    }
+  });
+  flush();
+  return chunks;
+}
+
 const INSTALL_READ_BRIDGE_SCRIPT = `
 (() => {
   if (window.__floentlyReadBridge && window.__floentlyReadBridge.version === '2') return true;
@@ -69,7 +132,7 @@ const INSTALL_READ_BRIDGE_SCRIPT = `
   if (!document.getElementById(styleId)) {
     const style = document.createElement('style');
     style.id = styleId;
-    style.textContent = '.floently-read-active-block{outline:2px solid rgba(83,100,255,.88)!important;outline-offset:3px!important;background:rgba(83,100,255,.10)!important;border-radius:4px!important;transition:background .16s ease,outline-color .16s ease!important}.floently-read-pick-block{outline:2px dashed rgba(83,100,255,.9)!important;outline-offset:3px!important}';
+    style.textContent = '.floently-read-active-block{outline:2px solid rgba(83,100,255,.88)!important;outline-offset:3px!important;background:rgba(83,100,255,.08)!important;border-radius:4px!important;transition:background .16s ease,outline-color .16s ease!important}.floently-read-pick-block{outline:2px dashed rgba(83,100,255,.9)!important;outline-offset:3px!important}::highlight(floently-read-focus){background:rgba(113,135,255,.38);color:inherit}';
     (document.head || document.documentElement).appendChild(style);
   }
   let model = null;
@@ -85,7 +148,62 @@ const INSTALL_READ_BRIDGE_SCRIPT = `
     } catch (_) {}
   };
   document.addEventListener('selectionchange', rememberSelection, true);
-  const clearActive = () => document.querySelectorAll('.floently-read-active-block,.floently-read-pick-block').forEach((el) => el.classList.remove('floently-read-active-block','floently-read-pick-block'));
+  const clearFocus = () => { try { if (CSS.highlights) CSS.highlights.delete('floently-read-focus'); } catch (_) {} };
+  const clearActive = () => { clearFocus(); document.querySelectorAll('.floently-read-active-block,.floently-read-pick-block').forEach((el) => el.classList.remove('floently-read-active-block','floently-read-pick-block')); };
+  const normalizedRange = (el, targetText, relativeStart, relativeEnd) => {
+    if (!el || !targetText || !document.createTreeWalker) return null;
+    const walker = document.createTreeWalker(el, NodeFilter.SHOW_TEXT);
+    const positions = [];
+    let normalizedText = '';
+    let node = walker.nextNode();
+    while (node) {
+      const value = String(node.nodeValue || '');
+      for (let i = 0; i < value.length; i += 1) {
+        const char = value[i];
+        if (/\s/.test(char)) {
+          if (normalizedText && normalizedText[normalizedText.length - 1] !== ' ') { normalizedText += ' '; positions.push({ node, offset: i }); }
+        } else { normalizedText += char; positions.push({ node, offset: i }); }
+      }
+      node = walker.nextNode();
+    }
+    const target = normalize(targetText);
+    const base = normalizedText.toLowerCase().indexOf(target.toLowerCase());
+    if (base < 0) return null;
+    const startIndex = Math.max(base, Math.min(base + target.length - 1, base + Math.max(0, relativeStart || 0)));
+    const requestedEnd = relativeEnd == null ? target.length : Math.max(relativeStart + 1, relativeEnd);
+    const endIndex = Math.max(startIndex, Math.min(base + target.length - 1, base + requestedEnd - 1));
+    const start = positions[startIndex];
+    const end = positions[endIndex];
+    if (!start || !end) return null;
+    const range = document.createRange();
+    range.setStart(start.node, start.offset);
+    range.setEnd(end.node, Math.min(String(end.node.nodeValue || '').length, end.offset + 1));
+    return range;
+  };
+  const highlightFocus = (index, mode, wordIndex, shouldScroll) => {
+    if (!model || !model.segments || !model.segments[index]) return false;
+    clearActive();
+    const segment = model.segments[index];
+    const blockId = segment.blockId;
+    if (!blockId) return false;
+    const el = document.querySelector('[data-floently-read-block="' + CSS.escape(blockId) + '"]');
+    if (!el) return false;
+    el.classList.add('floently-read-active-block');
+    if (mode !== 'chunk' && CSS.highlights && window.Highlight) {
+      const target = normalize(segment.text);
+      let relativeStart = 0;
+      let relativeEnd = target.length;
+      if (mode === 'word') {
+        const matches = Array.from(target.matchAll(/\S+/g));
+        const match = matches[Math.max(0, Math.min(matches.length - 1, Number(wordIndex) || 0))];
+        if (match) { relativeStart = match.index || 0; relativeEnd = relativeStart + match[0].length; }
+      }
+      const range = normalizedRange(el, target, relativeStart, relativeEnd);
+      if (range) { try { CSS.highlights.set('floently-read-focus', new Highlight(range)); } catch (_) {} }
+    }
+    if (shouldScroll !== false) el.scrollIntoView({ behavior: 'smooth', block: 'center', inline: 'nearest' });
+    return true;
+  };
   const getCandidateRoot = () => {
     const selectors = ['main','article','[role="main"]','[class*="lesson" i]','[class*="lecture" i]','[class*="concept" i]','[class*="transcript" i]','[class*="content" i]','[class*="prose" i]'];
     const candidates = Array.from(new Set(selectors.flatMap((selector) => Array.from(document.querySelectorAll(selector))))).filter(visible);
@@ -265,6 +383,7 @@ const INSTALL_READ_BRIDGE_SCRIPT = `
     version: '2',
     extract,
     highlightSegment,
+    highlightFocus,
     setInteractionMode: (mode) => { interactionMode = ['jump','sentence','word'].includes(mode) ? mode : 'none'; clearActive(); return interactionMode; },
     getSelection: () => { rememberSelection(); post({ type:'READ_PICK', mode:'selection', text: cachedSelection, title:document.title, url:location.href, lang:document.documentElement.lang || 'en-US' }); return cachedSelection; },
     clearHighlight: clearActive,
@@ -291,9 +410,12 @@ export default function ReadBrowserScreen() {
   const [voices, setVoices] = useState<ReadVoice[]>([]);
   const [selectedVoiceId, setSelectedVoiceId] = useState<string | null>(null);
   const [voicePickerOpen, setVoicePickerOpen] = useState(false);
+  const [voiceFilter, setVoiceFilter] = useState<VoiceFilter>('all');
   const [sectionsOpen, setSectionsOpen] = useState(false);
-  const [selectorMode, setSelectorMode] = useState<'none' | 'jump' | 'sentence' | 'word'>('none');
+  const [focusMode, setFocusMode] = useState<ReadFocusMode>('sentence');
   const [playbackScope, setPlaybackScope] = useState<'none' | 'page' | 'picked'>('none');
+  const [playbackChunks, setPlaybackChunks] = useState<BrowserPlaybackChunk[]>([]);
+  const lastFocusKeyRef = useRef('');
   const [pageLanguage, setPageLanguage] = useState('en-US');
   const [lastExtracted, setLastExtracted] = useState<BrowserReadModel | null>(null);
   const [savingPage, setSavingPage] = useState(false);
@@ -351,7 +473,7 @@ export default function ReadBrowserScreen() {
     let cancelled = false;
     void (async () => {
       try {
-        const catalog = await fetchReadVoices();
+        const catalog = await fetchReadVoices(token);
         if (cancelled) return;
         const sorted = [...catalog.voices].sort((a, b) => {
           const pa = a.provider.toLowerCase() === 'google' ? 0 : a.provider.toLowerCase() === 'azure' ? 1 : 2;
@@ -372,15 +494,30 @@ export default function ReadBrowserScreen() {
       }
     })();
     return () => { cancelled = true; };
-  }, []);
+  }, [token]);
+
+  const activePlaybackChunk = playbackChunks[narrator.currentSegment] ?? null;
+  const activePlaybackEntry = activePlaybackChunk?.entries.find((entry) => narrator.currentWordIndex >= entry.startWord && narrator.currentWordIndex < entry.endWord)
+    ?? activePlaybackChunk?.entries[0]
+    ?? null;
+  const activeSourceSegmentIndex = activePlaybackEntry?.segmentIndex ?? -1;
+  const activeSourceWordIndex = activePlaybackEntry
+    ? activePlaybackEntry.sourceWordStart + Math.max(0, narrator.currentWordIndex - activePlaybackEntry.startWord)
+    : 0;
+  const activeSourceSegment = activeSourceSegmentIndex >= 0 ? lastExtracted?.segments[activeSourceSegmentIndex] ?? null : null;
 
   useEffect(() => {
-    if (playbackScope !== 'page' || !lastExtracted?.segments.length || narrator.totalSegments <= 0) return;
-    const index = Math.min(narrator.currentSegment, lastExtracted.segments.length - 1);
-    webRef.current?.injectJavaScript(`window.__floentlyReadBridge && window.__floentlyReadBridge.highlightSegment(${index}, true); true;`);
-  }, [lastExtracted?.segments.length, narrator.currentSegment, narrator.totalSegments, playbackScope]);
+    if (playbackScope !== 'page' || !activePlaybackEntry || !lastExtracted?.segments.length) return;
+    const focusKey = focusMode === 'word'
+      ? `${focusMode}:${activeSourceSegmentIndex}:${activeSourceWordIndex}`
+      : `${focusMode}:${activeSourceSegmentIndex}`;
+    if (focusKey === lastFocusKeyRef.current) return;
+    lastFocusKeyRef.current = focusKey;
+    webRef.current?.injectJavaScript(`window.__floentlyReadBridge && window.__floentlyReadBridge.highlightFocus(${activeSourceSegmentIndex}, '${focusMode}', ${activeSourceWordIndex}, true); true;`);
+  }, [activePlaybackEntry, activeSourceSegmentIndex, activeSourceWordIndex, focusMode, lastExtracted?.segments.length, playbackScope]);
 
   const voiceLabel = selectedVoice ? selectedVoice.name : 'Loading voices…';
+  const visibleVoices = voices.filter((voice) => voiceFilter === 'all' || voice.accent === voiceFilter);
   const status = narrator.error
     ? narrator.error
     : narrator.buffering
@@ -388,20 +525,14 @@ export default function ReadBrowserScreen() {
       : narrator.interSegmentPause
         ? `Natural pause · next section ${Math.min(narrator.currentSegment + 2, narrator.totalSegments)} of ${narrator.totalSegments}`
         : narrator.active
-          ? `${narrator.paused ? 'Paused' : 'Reading'} ${narrator.currentSegment + 1} of ${narrator.totalSegments} · ${formatReadTime(narrator.currentTime)} / ${formatReadTime(narrator.duration)}${narrator.currentWord ? ` · ${narrator.currentWord}` : ''}`
+          ? `${narrator.paused ? 'Paused' : 'Reading'}${activeSourceSegmentIndex >= 0 && lastExtracted?.segments.length ? ` ${activeSourceSegmentIndex + 1} of ${lastExtracted.segments.length}` : ''} · ${formatReadTime(narrator.currentTime)} / ${formatReadTime(narrator.duration)}${focusMode === 'word' && narrator.currentWord ? ` · ${narrator.currentWord}` : ''}`
         : narrator.totalSegments > 0 && narrator.progress >= 0.999
           ? 'Finished reading this page.'
           : manualStatus;
 
-  const setPageInteractionMode = (mode: 'none' | 'jump' | 'sentence' | 'word') => {
-    setSelectorMode(mode);
-    webRef.current?.injectJavaScript(`${INSTALL_READ_BRIDGE_SCRIPT}\nwindow.__floentlyReadBridge && window.__floentlyReadBridge.setInteractionMode('${mode}'); true;`);
-  };
-
   const readPage = () => {
     narrator.stop();
     setPlaybackScope('none');
-    setSelectorMode('none');
     setManualStatus('Finding the main lesson text…');
     webRef.current?.injectJavaScript(EXTRACT_SCRIPT);
   };
@@ -430,7 +561,7 @@ export default function ReadBrowserScreen() {
           return;
         }
         setPlaybackScope('picked');
-        setSelectorMode('jump');
+        setPlaybackChunks([]);
         webRef.current?.injectJavaScript("window.__floentlyReadBridge && window.__floentlyReadBridge.setInteractionMode('jump'); window.__floentlyReadBridge && window.__floentlyReadBridge.clearHighlight(); true;");
         setManualStatus(`Reading ${String(payload.mode || 'selection')}.`);
         void narrator.startSegments([{ text, pauseAfterMs: 0 }]);
@@ -460,12 +591,15 @@ export default function ReadBrowserScreen() {
         title: String(payload.title || 'Web reading').trim() || 'Web reading',
         url: String(payload.url || address).trim(),
       };
+      const chunks = buildPlaybackChunks(segments);
       setLastExtracted(extracted);
-      setManualStatus(`Ready · ${extracted.title} · ${segments.length} sections`);
+      setPlaybackChunks(chunks);
+      setFocusMode('sentence');
+      lastFocusKeyRef.current = '';
+      setManualStatus(`Ready · ${extracted.title} · ${segments.length} sentences · ${chunks.length} audio blocks`);
       setPlaybackScope('page');
-      setSelectorMode('jump');
       webRef.current?.injectJavaScript("window.__floentlyReadBridge && window.__floentlyReadBridge.setInteractionMode('jump'); true;");
-      void narrator.startSegments(segments.map((segment) => ({ text: segment.text, pauseAfterMs: segment.pauseAfterMs })));
+      void narrator.startSegments(chunks.map((chunk) => ({ text: chunk.text, pauseAfterMs: 0 })));
     } catch {
       // Ignore messages outside the Read bridge.
     }
@@ -478,7 +612,6 @@ export default function ReadBrowserScreen() {
     setAddress(next);
     narrator.stop();
     setPlaybackScope('none');
-    setSelectorMode('none');
     setManualStatus('Page changed. Tap Read page when you are ready.');
   };
 
@@ -518,19 +651,20 @@ export default function ReadBrowserScreen() {
     webRef.current?.injectJavaScript(`${INSTALL_READ_BRIDGE_SCRIPT}\nwindow.__floentlyReadBridge && window.__floentlyReadBridge.getSelection(); true;`);
   };
 
-  const activatePicker = (mode: 'sentence' | 'word') => {
-    narrator.stop();
-    setPageInteractionMode(mode);
-    setManualStatus(`Tap a ${mode} on the web page to read it.`);
+  const chooseFocusMode = (mode: ReadFocusMode) => {
+    setFocusMode(mode);
+    lastFocusKeyRef.current = '';
+    setManualStatus(`${mode === 'word' ? 'Word-by-word' : mode === 'sentence' ? 'Sentence-by-sentence' : 'Chunk'} tracking enabled.`);
   };
 
   const jumpToSection = (index: number) => {
     if (!lastExtracted?.segments[index]) return;
     setSectionsOpen(false);
+    const chunks = buildPlaybackChunks(lastExtracted.segments.slice(index), index);
+    setPlaybackChunks(chunks);
     setPlaybackScope('page');
-    setSelectorMode('jump');
-    narrator.jumpToSegment(index);
-    webRef.current?.injectJavaScript(`window.__floentlyReadBridge && window.__floentlyReadBridge.setInteractionMode('jump'); window.__floentlyReadBridge && window.__floentlyReadBridge.highlightSegment(${index}, true); true;`);
+    lastFocusKeyRef.current = '';
+    void narrator.startSegments(chunks.map((chunk) => ({ text: chunk.text, pauseAfterMs: 0 })));
   };
 
   const saveCurrentReading = async () => {
@@ -596,8 +730,7 @@ export default function ReadBrowserScreen() {
               if (nav.url !== lastNavigationUrlRef.current) {
                 lastNavigationUrlRef.current = nav.url;
                 narrator.stop();
-                setSelectorMode('none');
-                setLastExtracted(null);
+                            setLastExtracted(null);
                 setManualStatus('Page changed. Tap Read page when the lesson is ready.');
               }
             }
@@ -624,7 +757,7 @@ export default function ReadBrowserScreen() {
             <View style={styles.playerHeadline}>
               <Text style={styles.playerEyebrow}>FLOENTLY READ · MOBILE PLAYER</Text>
               <Text numberOfLines={1} style={styles.playerTitle}>
-                {narrator.active && narrator.currentText ? narrator.currentText : 'Ready to read this page'}
+                {narrator.active && activeSourceSegment?.text ? activeSourceSegment.text : 'Ready to read this page'}
               </Text>
             </View>
             <Pressable onPress={() => setPlayerSettingsOpen(true)} style={styles.playerHeaderButton} accessibilityLabel="Player behavior">
@@ -674,14 +807,14 @@ export default function ReadBrowserScreen() {
           </View>
 
           <View style={styles.selectorRow}>
-            <Pressable disabled={!lastExtracted?.segments.length} onPress={() => setSectionsOpen(true)} style={[styles.selectorButton, !lastExtracted?.segments.length && styles.disabled]}>
-              <Text style={styles.selectorLabel}>Sections</Text>
+            <Pressable onPress={() => chooseFocusMode('chunk')} style={[styles.selectorButton, focusMode === 'chunk' && styles.selectorButtonActive]}>
+              <Text style={[styles.selectorLabel, focusMode === 'chunk' && styles.selectorLabelActive]}>Chunk</Text>
             </Pressable>
-            <Pressable onPress={() => activatePicker('sentence')} style={[styles.selectorButton, selectorMode === 'sentence' && styles.selectorButtonActive]}>
-              <Text style={[styles.selectorLabel, selectorMode === 'sentence' && styles.selectorLabelActive]}>Sentence</Text>
+            <Pressable onPress={() => chooseFocusMode('sentence')} style={[styles.selectorButton, focusMode === 'sentence' && styles.selectorButtonActive]}>
+              <Text style={[styles.selectorLabel, focusMode === 'sentence' && styles.selectorLabelActive]}>Sentence</Text>
             </Pressable>
-            <Pressable onPress={() => activatePicker('word')} style={[styles.selectorButton, selectorMode === 'word' && styles.selectorButtonActive]}>
-              <Text style={[styles.selectorLabel, selectorMode === 'word' && styles.selectorLabelActive]}>Word</Text>
+            <Pressable onPress={() => chooseFocusMode('word')} style={[styles.selectorButton, focusMode === 'word' && styles.selectorButtonActive]}>
+              <Text style={[styles.selectorLabel, focusMode === 'word' && styles.selectorLabelActive]}>Word</Text>
             </Pressable>
             <Pressable onPress={readSelection} style={styles.selectorButton}>
               <Text style={styles.selectorLabel}>Selection</Text>
@@ -689,6 +822,9 @@ export default function ReadBrowserScreen() {
           </View>
 
           <View style={styles.utilityRow}>
+            <Pressable disabled={!lastExtracted?.segments.length} onPress={() => setSectionsOpen(true)} style={[styles.utilityButton, !lastExtracted?.segments.length && styles.disabled]}>
+              <Text style={styles.utilityButtonText}>Sections</Text>
+            </Pressable>
             <Pressable disabled={!lastExtracted || renderingPage || savingPage} onPress={() => void renderCurrentReading()} style={[styles.utilityButton, (!lastExtracted || renderingPage || savingPage) && styles.disabled]}>
               <Text style={styles.utilityButtonText}>{renderingPage ? 'Rendering…' : 'Render'}</Text>
             </Pressable>
@@ -752,7 +888,7 @@ export default function ReadBrowserScreen() {
             <Text style={styles.sheetHint}>Tap any sentence to move both the webpage and narration to that point.</Text>
             <ScrollView contentContainerStyle={styles.sectionList}>
               {(lastExtracted?.segments ?? []).map((segment, index) => (
-                <Pressable key={`${segment.blockId ?? 'section'}-${index}`} onPress={() => jumpToSection(index)} style={[styles.sectionOption, index === narrator.currentSegment && styles.sectionOptionActive]}>
+                <Pressable key={`${segment.blockId ?? 'section'}-${index}`} onPress={() => jumpToSection(index)} style={[styles.sectionOption, index === activeSourceSegmentIndex && styles.sectionOptionActive]}>
                   <View style={styles.sectionNumber}><Text style={styles.sectionNumberText}>{index + 1}</Text></View>
                   <Text numberOfLines={3} style={styles.sectionText}>{segment.text}</Text>
                 </Pressable>
@@ -769,9 +905,21 @@ export default function ReadBrowserScreen() {
               <View><Text style={styles.sheetKicker}>FLOENTLY READ VOICE</Text><Text style={styles.sheetTitle}>Choose a voice</Text></View>
               <Pressable onPress={() => setVoicePickerOpen(false)} style={styles.closeButton}><Text style={styles.closeText}>Done</Text></Pressable>
             </View>
-            <Text style={styles.sheetHint}>Natural server voices. Changing voice stops the current narration so the next audio starts cleanly.</Text>
+            <Text style={styles.sheetHint}>Choose by accent. Provider names are shown so Google, Azure, and ElevenLabs voices are never silently mixed.</Text>
+            <View style={styles.voiceFilterRow}>
+              {([
+                { id: 'all' as const, label: `All ${voices.length}` },
+                { id: 'American' as const, label: `US ${voices.filter((voice) => voice.accent === 'American').length}` },
+                { id: 'British' as const, label: `UK ${voices.filter((voice) => voice.accent === 'British').length}` },
+                { id: 'Finnish' as const, label: `FI ${voices.filter((voice) => voice.accent === 'Finnish').length}` },
+              ]).map((filter) => (
+                <Pressable key={filter.id} onPress={() => setVoiceFilter(filter.id)} style={[styles.voiceFilterChip, voiceFilter === filter.id && styles.voiceFilterChipActive]}>
+                  <Text style={[styles.voiceFilterText, voiceFilter === filter.id && styles.voiceFilterTextActive]}>{filter.label}</Text>
+                </Pressable>
+              ))}
+            </View>
             <ScrollView style={styles.voiceList} contentContainerStyle={styles.voiceListContent}>
-              {voices.map((voice) => (
+              {visibleVoices.map((voice) => (
                 <Pressable
                   key={voice.id}
                   onPress={() => {
@@ -877,6 +1025,11 @@ const styles = StyleSheet.create({
   sectionNumberText: { color: '#8fa0ff', fontSize: 10, fontWeight: '900' },
   sectionText: { flex: 1, color: '#e7ebf3', fontSize: 11.5, lineHeight: 17 },
   voiceSheet: { maxHeight: '76%', backgroundColor: '#101827', borderTopLeftRadius: 28, borderTopRightRadius: 28, paddingHorizontal: 16, paddingTop: 18, paddingBottom: 20, borderTopWidth: 1, borderColor: '#273247' },
+  voiceFilterRow: { flexDirection: 'row', gap: 6, marginBottom: 8 },
+  voiceFilterChip: { flex: 1, minHeight: 34, borderRadius: 11, alignItems: 'center', justifyContent: 'center', backgroundColor: '#151F31', borderWidth: 1, borderColor: '#26344C', paddingHorizontal: 5 },
+  voiceFilterChipActive: { backgroundColor: '#263A72', borderColor: '#7187FF' },
+  voiceFilterText: { color: '#A7B2C3', fontSize: 9.5, fontWeight: '800' },
+  voiceFilterTextActive: { color: '#FFFFFF' },
   sheetHeader: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', marginBottom: 7 },
   sheetKicker: { color: '#7ea0ff', fontSize: 9, fontWeight: '900', letterSpacing: 1.2 },
   sheetTitle: { color: '#fff', fontSize: 22, fontWeight: '900', marginTop: 2 },

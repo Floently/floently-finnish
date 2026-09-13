@@ -118,7 +118,7 @@ function normalizeProject(value: any): ReadProject | null {
   };
 }
 
-export async function fetchReadVoices(): Promise<{ defaultVoiceId: string; voices: ReadVoice[] }> {
+export async function fetchReadVoices(token?: string | null): Promise<{ defaultVoiceId: string; voices: ReadVoice[] }> {
   const response = await fetch(`${readApiBaseUrl()}/api/voices/unified`);
   const payload = await readJson(response);
   if (!response.ok) throw new Error(errorMessage(payload, 'Could not load Read voices.'));
@@ -138,6 +138,37 @@ export async function fetchReadVoices(): Promise<{ defaultVoiceId: string; voice
       description: typeof item.description === 'string' ? item.description : undefined,
     }));
   const requestedDefault = typeof payload?.default === 'string' ? payload.default : '';
+
+  if (token?.trim()) {
+    try {
+      const premiumResponse = await fetch(`${readApiBaseUrl()}/api/tts/premium/voices`, {
+        headers: { Authorization: `Bearer ${token.trim()}`, Accept: 'application/json' },
+      });
+      if (premiumResponse.ok) {
+        const premiumPayload = await readJson(premiumResponse);
+        const premiumRaw = Array.isArray(premiumPayload?.voices) ? premiumPayload.voices : [];
+        for (const item of premiumRaw) {
+          if (!item || typeof item.id !== 'string' || typeof item.name !== 'string' || item.available === false) continue;
+          if (voices.some((voice) => voice.id === item.id)) continue;
+          voices.push({
+            id: item.id,
+            name: item.name,
+            provider: typeof item.provider === 'string' ? item.provider : 'elevenlabs',
+            voiceName: typeof item.voiceName === 'string' ? item.voiceName : undefined,
+            locale: typeof item.locale === 'string' ? item.locale : 'en-US',
+            language: typeof item.language === 'string' ? item.language : 'en',
+            gender: typeof item.gender === 'string' ? item.gender : undefined,
+            accent: typeof item.accent === 'string' ? item.accent : undefined,
+            category: typeof item.category === 'string' ? item.category : 'Premium Studio',
+            description: typeof item.description === 'string' ? item.description : undefined,
+          });
+        }
+      }
+    } catch {
+      // Premium voices are optional; standard voices must remain usable.
+    }
+  }
+
   const defaultVoiceId = voices.some((voice) => voice.id === requestedDefault)
     ? requestedDefault
     : voices.find((voice) => voice.provider.toLowerCase() === 'google')?.id ?? voices[0]?.id ?? 'google:en-US-Neural2-C';
@@ -152,11 +183,12 @@ export async function prerenderReadAudio(token: string, input: {
   voiceName?: string;
 }): Promise<ReadAudioSegment> {
   const provider = input.voiceId.includes(':') ? input.voiceId.split(':', 1)[0] : undefined;
+  const endpoint = provider === 'elevenlabs' ? '/api/tts/premium/prerender' : '/api/tts/prerender';
   let payload: any = null;
   let lastError: unknown = null;
   for (let attempt = 0; attempt < 3; attempt += 1) {
     try {
-      payload = await request(token, '/api/tts/prerender', {
+      payload = await request(token, endpoint, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
