@@ -1,6 +1,6 @@
 import { clearPreloadedSource, preload, setAudioModeAsync, setIsAudioActiveAsync, useAudioPlayer, useAudioPlayerStatus } from 'expo-audio';
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
-import { prerenderReadAudio, type ReadAudioSegment, type ReadVoice } from '@core/api/read';
+import { prerenderReadAudio, type ReadAudioSegment, type ReadVoice, type ReadWordTiming } from '@core/api/read';
 
 export type ReadNarrationSourceSegment = string | {
   text: string;
@@ -22,6 +22,48 @@ export type ReadNarrationSnapshot = {
   progress: number;
   totalSegments: number;
 };
+
+const PREFETCH_AHEAD = 3;
+
+function normalizeNarrationSegments(sourceSegments: ReadNarrationSourceSegment[]): string[] {
+  return sourceSegments
+    .map((segment) => typeof segment === 'string' ? segment : String(segment.text || ''))
+    .map((text) => text.replace(/\s+/g, ' ').trim())
+    .filter(Boolean);
+}
+
+function normalizeAlignmentToken(value: string): string {
+  return value
+    .normalize('NFKC')
+    .toLocaleLowerCase()
+    .replace(/[\u2018\u2019\u201A\u201B]/g, "'")
+    .replace(/[^a-z0-9\u00c0-\u024f\u0370-\u052f\u1e00-\u1eff'-]+/gi, '');
+}
+
+function alignTimingWordsToSource(sourceWords: string[], timings: ReadWordTiming[]): number[] {
+  if (!sourceWords.length || !timings.length) return [];
+  const source = sourceWords.map(normalizeAlignmentToken);
+  const mapped: number[] = [];
+  let cursor = 0;
+  for (const timing of timings) {
+    const token = normalizeAlignmentToken(timing.word);
+    let match = -1;
+    if (token) {
+      for (let index = cursor; index < Math.min(source.length, cursor + 7); index += 1) {
+        const candidate = source[index];
+        if (!candidate) continue;
+        if (candidate === token || candidate.includes(token) || token.includes(candidate)) {
+          match = index;
+          break;
+        }
+      }
+    }
+    if (match < 0) match = Math.min(cursor, source.length - 1);
+    mapped.push(match);
+    cursor = Math.min(source.length - 1, Math.max(cursor, match + 1));
+  }
+  return mapped;
+}
 
 export function splitReadText(text: string, maxChars = 520): string[] {
   const clean = text.replace(/\s+/g, ' ').trim();
@@ -69,6 +111,7 @@ export function useReadNarrator(input: {
   const playerStatus = useAudioPlayerStatus(player);
   const segmentsRef = useRef<string[]>([]);
   const cacheRef = useRef(new Map<string, ReadAudioSegment>());
+  const inFlightRef = useRef(new Map<string, Promise<ReadAudioSegment>>());
   const revisionRef = useRef(0);
   const finishHandledRef = useRef(false);
   const desiredPlayingRef = useRef(false);
@@ -85,6 +128,7 @@ export function useReadNarrator(input: {
   const [currentSegment, setCurrentSegment] = useState(0);
   const [error, setError] = useState<string | null>(null);
   const [desiredPlaying, setDesiredPlaying] = useState(false);
+  const [queueSize, setQueueSize] = useState(0);
   const lockScreenMetadata = useMemo(() => ({
     title: input.nowPlaying?.title?.trim() || 'Floently Read',
     artist: input.nowPlaying?.artist?.trim() || input.voice?.name || 'Floently Read',
@@ -153,21 +197,31 @@ export function useReadNarrator(input: {
     const key = audioKey(index);
     const cached = cacheRef.current.get(key);
     if (cached) return cached;
-    const token = tokenRef.current?.trim() ?? '';
-    const voice = voiceRef.current;
-    if (!token) throw new Error('Sign in to Floently Read before starting audio.');
-    if (!voice) throw new Error('Choose a Read voice before starting audio.');
-    const text = segmentsRef.current[index];
-    if (!text) throw new Error('This reading segment is empty.');
-    const result = await prerenderReadAudio(token, {
-      text,
-      voiceId: voice.id,
-      locale: voice.locale,
-      language: voice.language,
-      voiceName: voice.voiceName,
-    });
-    if (revision === revisionRef.current) cacheRef.current.set(key, result);
-    return result;
+    const existing = inFlightRef.current.get(key);
+    if (existing) return existing;
+    const requestPromise = (async () => {
+      const token = tokenRef.current?.trim() ?? '';
+      const voice = voiceRef.current;
+      if (!token) throw new Error('Sign in to Floently Read before starting audio.');
+      if (!voice) throw new Error('Choose a Read voice before starting audio.');
+      const text = segmentsRef.current[index];
+      if (!text) throw new Error('This reading segment is empty.');
+      const result = await prerenderReadAudio(token, {
+        text,
+        voiceId: voice.id,
+        locale: voice.locale,
+        language: voice.language,
+        voiceName: voice.voiceName,
+      });
+      if (revision === revisionRef.current) cacheRef.current.set(key, result);
+      return result;
+    })();
+    inFlightRef.current.set(key, requestPromise);
+    try {
+      return await requestPromise;
+    } finally {
+      if (inFlightRef.current.get(key) === requestPromise) inFlightRef.current.delete(key);
+    }
   }, [audioKey]);
 
   const clearTrackedPreloads = useCallback((beforeIndex = Number.POSITIVE_INFINITY) => {
@@ -197,6 +251,13 @@ export function useReadNarrator(input: {
     })().catch(() => undefined);
   }, [getAudio]);
 
+
+  const prefetchWindow = useCallback((currentIndex: number, revision: number) => {
+    for (let offset = 1; offset <= PREFETCH_AHEAD; offset += 1) {
+      prefetch(currentIndex + offset, revision);
+    }
+  }, [prefetch]);
+
   const playSegment = useCallback(async (index: number, revision: number) => {
     if (revision !== revisionRef.current) return;
     if (index >= segmentsRef.current.length) {
@@ -206,7 +267,8 @@ export function useReadNarrator(input: {
       return;
     }
     setError(null);
-    setBuffering(true);
+    const alreadyPrepared = cacheRef.current.has(audioKey(index));
+    setBuffering(!alreadyPrepared);
     setCurrentSegment(index);
     finishHandledRef.current = true;
     setPlaybackIntent(true);
@@ -224,7 +286,7 @@ export function useReadNarrator(input: {
       const now = Date.now();
       transitionRetryRef.current = { revision, deadline: now + 4500, lastAttempt: now };
       player.play();
-      prefetch(index + 1, revision);
+      prefetchWindow(index, revision);
       clearTrackedPreloads(Math.max(0, index - 1));
     } catch (cause) {
       if (revision !== revisionRef.current) return;
@@ -232,15 +294,10 @@ export function useReadNarrator(input: {
       setActive(false);
       setError(cause instanceof Error ? cause.message : 'Could not start Read audio.');
     }
-  }, [clearTrackedPreloads, getAudio, player, prefetch, setPlaybackIntent]);
+  }, [audioKey, clearTrackedPreloads, getAudio, player, prefetchWindow, setPlaybackIntent]);
 
   const startSegments = useCallback(async (sourceSegments: ReadNarrationSourceSegment[], startIndex = 0) => {
-    const normalized = sourceSegments
-      .map((segment) => typeof segment === 'string'
-        ? { text: segment.replace(/\s+/g, ' ').trim(), pauseAfterMs: 0 }
-        : { text: String(segment.text || '').replace(/\s+/g, ' ').trim(), pauseAfterMs: Math.max(0, Number(segment.pauseAfterMs || 0)) })
-      .filter((segment) => Boolean(segment.text));
-    const segments = normalized.map((segment) => segment.text);
+    const segments = normalizeNarrationSegments(sourceSegments);
     const revision = revisionRef.current + 1;
     revisionRef.current = revision;
     setPlaybackIntent(true);
@@ -249,6 +306,7 @@ export function useReadNarrator(input: {
     try { player.pause(); } catch { /* no-op */ }
     void player.seekTo(0).catch(() => undefined);
     segmentsRef.current = segments;
+    setQueueSize(segments.length);
     cacheRef.current.clear();
     currentAudioRef.current = null;
     const normalizedStartIndex = segments.length > 0 ? Math.min(Math.max(0, Math.floor(startIndex)), segments.length - 1) : 0;
@@ -260,8 +318,34 @@ export function useReadNarrator(input: {
       setError('No readable text was found.');
       return;
     }
+    prefetchWindow(normalizedStartIndex, revision);
     await playSegment(normalizedStartIndex, revision);
-  }, [clearTrackedPreloads, playSegment, player, setPlaybackIntent]);
+  }, [clearTrackedPreloads, playSegment, player, prefetchWindow, setPlaybackIntent]);
+
+  const appendSegments = useCallback((sourceSegments: ReadNarrationSourceSegment[]) => {
+    const appended = normalizeNarrationSegments(sourceSegments);
+    if (!appended.length) return;
+    const firstNewIndex = segmentsRef.current.length;
+    segmentsRef.current = [...segmentsRef.current, ...appended];
+    setQueueSize(segmentsRef.current.length);
+    if (active && desiredPlayingRef.current) {
+      prefetchWindow(Math.min(currentSegment, Math.max(0, firstNewIndex - 1)), revisionRef.current);
+    }
+  }, [active, currentSegment, prefetchWindow]);
+
+  const replaceUpcomingSegments = useCallback((afterIndex: number, sourceSegments: ReadNarrationSourceSegment[]) => {
+    const tail = normalizeNarrationSegments(sourceSegments);
+    const keepThrough = Math.max(-1, Math.min(Math.floor(afterIndex), segmentsRef.current.length - 1));
+    const prefix = keepThrough >= 0 ? segmentsRef.current.slice(0, keepThrough + 1) : [];
+    revisionRef.current += 1;
+    const revision = revisionRef.current;
+    transitionRetryRef.current = null;
+    clearTrackedPreloads();
+    cacheRef.current.clear();
+    segmentsRef.current = [...prefix, ...tail];
+    setQueueSize(segmentsRef.current.length);
+    if (active && desiredPlayingRef.current) prefetchWindow(keepThrough, revision);
+  }, [active, clearTrackedPreloads, prefetchWindow]);
 
   const start = useCallback(async (text: string, startIndex = 0) => {
     await startSegments(splitReadText(text), startIndex);
@@ -394,7 +478,7 @@ export function useReadNarrator(input: {
   const duration = playerStatus.duration || currentAudioRef.current?.duration || 0;
   const currentTime = playerStatus.currentTime || 0;
   const segmentProgress = duration > 0 ? Math.min(1, Math.max(0, currentTime / duration)) : 0;
-  const totalSegments = segmentsRef.current.length;
+  const totalSegments = queueSize;
   const progress = totalSegments > 0 ? Math.min(1, (currentSegment + segmentProgress) / totalSegments) : 0;
   const currentWordState = useMemo(() => {
     const text = segmentsRef.current[currentSegment] ?? '';
@@ -402,10 +486,12 @@ export function useReadNarrator(input: {
     if (!words.length) return { word: null as string | null, index: -1 };
     const timings = currentAudioRef.current?.wordTimings ?? [];
     if (timings.length) {
-      let index = timings.findIndex((item) => currentTime >= item.start && currentTime < item.end);
-      if (index < 0) index = timings.findIndex((item) => item.start > currentTime);
-      if (index < 0) index = timings.length - 1;
-      return { word: timings[index]?.word ?? words[Math.min(index, words.length - 1)] ?? null, index: Math.min(index, words.length - 1) };
+      let timingIndex = timings.findIndex((item) => currentTime >= item.start && currentTime < item.end);
+      if (timingIndex < 0) timingIndex = timings.findIndex((item) => item.start > currentTime);
+      if (timingIndex < 0) timingIndex = timings.length - 1;
+      const timingMap = alignTimingWordsToSource(words, timings);
+      const sourceIndex = Math.max(0, Math.min(words.length - 1, timingMap[timingIndex] ?? timingIndex));
+      return { word: words[sourceIndex] ?? timings[timingIndex]?.word ?? null, index: sourceIndex };
     }
     const safeDuration = Math.max(duration, 0.001);
     const ratio = Math.min(0.999999, Math.max(0, currentTime / safeDuration));
@@ -433,6 +519,8 @@ export function useReadNarrator(input: {
     ...snapshot,
     start,
     startSegments,
+    appendSegments,
+    replaceUpcomingSegments,
     jumpToSegment,
     stop,
     togglePause,

@@ -1,4 +1,5 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import Ionicons from '@expo/vector-icons/Ionicons';
 import { router, useLocalSearchParams } from 'expo-router';
 import React, { useEffect, useMemo, useRef, useState } from 'react';
 import {
@@ -48,6 +49,8 @@ type BrowserReadSegment = {
   blockIndex: number;
   kind: 'heading' | 'bullet' | 'text';
   pauseAfterMs: number;
+  startChar: number;
+  endChar: number;
 };
 
 type BrowserReadModel = {
@@ -72,7 +75,36 @@ type BrowserPlaybackChunk = {
   entries: BrowserPlaybackChunkEntry[];
 };
 
-function buildPlaybackChunks(segments: BrowserReadSegment[], startSegmentIndex = 0, maxChars = 1800, firstSegmentWordOffset = 0): BrowserPlaybackChunk[] {
+const PLAYBACK_CHUNK_CHARS = 1100;
+
+function segmentIdentity(segment: BrowserReadSegment | undefined): string {
+  if (!segment) return '';
+  return `${segment.kind}:${segment.text.replace(/\s+/g, ' ').trim().toLocaleLowerCase()}`;
+}
+
+function commonPrefixLength(left: BrowserReadSegment[], right: BrowserReadSegment[]): number {
+  const limit = Math.min(left.length, right.length);
+  let index = 0;
+  while (index < limit && segmentIdentity(left[index]) === segmentIdentity(right[index])) index += 1;
+  return index;
+}
+
+function suffixPrefixOverlap(left: BrowserReadSegment[], right: BrowserReadSegment[]): number {
+  const limit = Math.min(left.length, right.length);
+  for (let size = limit; size >= 1; size -= 1) {
+    let matches = true;
+    for (let index = 0; index < size; index += 1) {
+      if (segmentIdentity(left[left.length - size + index]) !== segmentIdentity(right[index])) {
+        matches = false;
+        break;
+      }
+    }
+    if (matches) return size;
+  }
+  return 0;
+}
+
+function buildPlaybackChunks(segments: BrowserReadSegment[], startSegmentIndex = 0, maxChars = PLAYBACK_CHUNK_CHARS, firstSegmentWordOffset = 0): BrowserPlaybackChunk[] {
   const chunks: BrowserPlaybackChunk[] = [];
   let textParts: string[] = [];
   let entries: BrowserPlaybackChunkEntry[] = [];
@@ -122,19 +154,38 @@ function buildPlaybackChunks(segments: BrowserReadSegment[], startSegmentIndex =
 
 const INSTALL_READ_BRIDGE_SCRIPT = `
 (() => {
-  if (window.__floentlyReadBridge && window.__floentlyReadBridge.version === '3') return true;
+  if (window.__floentlyReadBridge && window.__floentlyReadBridge.version === '4') return true;
   const normalize = (value) => String(value || '').replace(/\\r/g, '\\n').replace(/[^\\S\\n]+/g, ' ').replace(/\\n{3,}/g, '\\n\\n').trim();
-  const sentenceParts = (value) => {
-    const text = normalize(value);
+  const flatNormalize = (value) => normalize(value).replace(/\\s+/g, ' ').trim();
+  const sentenceRanges = (value) => {
+    const text = flatNormalize(value);
     if (!text) return [];
-    const rough = (text.match(/[^.!?…！？。\\n]+(?:[.!?…！？。]+|$)/g) || [text]).map(normalize).filter((part) => part.length > 1);
-    const bounded = [];
-    for (const part of rough) {
-      const words = part.match(/\\S+/g) || [];
-      if (words.length <= 36) { bounded.push(part); continue; }
-      for (let index = 0; index < words.length; index += 32) bounded.push(words.slice(index, index + 32).join(' '));
+    const rough = Array.from(text.matchAll(/[^.!?…！？。]+(?:[.!?…！？。]+|$)/g));
+    const ranges = [];
+    const source = rough.length ? rough : [{ 0: text, index: 0 }];
+    for (const match of source) {
+      const raw = String(match[0] || '');
+      const rawStart = Number(match.index || 0);
+      const leading = raw.length - raw.trimStart().length;
+      const trimmed = raw.trim();
+      if (trimmed.length <= 1) continue;
+      const partStart = rawStart + leading;
+      const wordMatches = Array.from(trimmed.matchAll(/\\S+/g));
+      if (wordMatches.length <= 36) {
+        ranges.push({ text: trimmed, startChar: partStart, endChar: partStart + trimmed.length });
+        continue;
+      }
+      for (let index = 0; index < wordMatches.length; index += 32) {
+        const slice = wordMatches.slice(index, index + 32);
+        const first = slice[0];
+        const last = slice[slice.length - 1];
+        if (!first || !last) continue;
+        const start = partStart + Number(first.index || 0);
+        const end = partStart + Number(last.index || 0) + String(last[0] || '').length;
+        ranges.push({ text: text.slice(start, end).trim(), startChar: start, endChar: end });
+      }
     }
-    return bounded;
+    return ranges;
   };
   const interactive = 'a,button,input,textarea,select,label,summary,[role="button"],[contenteditable="true"]';
   const noise = 'script,style,noscript,nav,aside,footer,form,[role="navigation"],[role="dialog"],[aria-hidden="true"],[class*="sidebar" i],[class*="drawer" i],[class*="menu" i],[class*="cookie" i]';
@@ -156,6 +207,15 @@ const INSTALL_READ_BRIDGE_SCRIPT = `
   let cachedSelection = '';
   let activeRoot = null;
   let rootObserver = null;
+  const blockSession = Date.now().toString(36);
+  let nextBlockId = 0;
+  const ensureBlockId = (el) => {
+    const existing = el.getAttribute('data-floently-read-block');
+    if (existing) return existing;
+    const value = 'floently-read-' + blockSession + '-' + String(nextBlockId++);
+    el.setAttribute('data-floently-read-block', value);
+    return value;
+  };
   let contentTimer = null;
   let routeTimer = null;
   let lastContentSignature = '';
@@ -185,8 +245,8 @@ const INSTALL_READ_BRIDGE_SCRIPT = `
   document.addEventListener('selectionchange', rememberSelection, true);
   const clearFocus = () => { try { if (CSS.highlights) CSS.highlights.delete('floently-read-focus'); } catch (_) {} };
   const clearActive = () => { clearFocus(); document.querySelectorAll('.floently-read-active-block,.floently-read-pick-block').forEach((el) => el.classList.remove('floently-read-active-block','floently-read-pick-block')); };
-  const normalizedRange = (el, targetText, relativeStart, relativeEnd) => {
-    if (!el || !targetText || !document.createTreeWalker) return null;
+  const normalizedRangeByOffsets = (el, startOffset, endOffset) => {
+    if (!el || !document.createTreeWalker) return null;
     const walker = document.createTreeWalker(el, NodeFilter.SHOW_TEXT);
     const positions = [];
     let normalizedText = '';
@@ -195,18 +255,22 @@ const INSTALL_READ_BRIDGE_SCRIPT = `
       const value = String(node.nodeValue || '');
       for (let i = 0; i < value.length; i += 1) {
         const char = value[i];
-        if (/\s/.test(char)) {
-          if (normalizedText && normalizedText[normalizedText.length - 1] !== ' ') { normalizedText += ' '; positions.push({ node, offset: i }); }
-        } else { normalizedText += char; positions.push({ node, offset: i }); }
+        if (/\\s/.test(char)) {
+          if (normalizedText && normalizedText[normalizedText.length - 1] !== ' ') {
+            normalizedText += ' ';
+            positions.push({ node, offset: i });
+          }
+        } else {
+          normalizedText += char;
+          positions.push({ node, offset: i });
+        }
       }
       node = walker.nextNode();
     }
-    const target = normalize(targetText);
-    const base = normalizedText.toLowerCase().indexOf(target.toLowerCase());
-    if (base < 0) return null;
-    const startIndex = Math.max(base, Math.min(base + target.length - 1, base + Math.max(0, relativeStart || 0)));
-    const requestedEnd = relativeEnd == null ? target.length : Math.max(relativeStart + 1, relativeEnd);
-    const endIndex = Math.max(startIndex, Math.min(base + target.length - 1, base + requestedEnd - 1));
+    if (!positions.length) return null;
+    const startIndex = Math.max(0, Math.min(positions.length - 1, Number(startOffset) || 0));
+    const requestedEnd = Math.max(startIndex + 1, Number(endOffset) || startIndex + 1);
+    const endIndex = Math.max(startIndex, Math.min(positions.length - 1, requestedEnd - 1));
     const start = positions[startIndex];
     const end = positions[endIndex];
     if (!start || !end) return null;
@@ -225,18 +289,52 @@ const INSTALL_READ_BRIDGE_SCRIPT = `
     if (!el) return false;
     el.classList.add('floently-read-active-block');
     if (mode !== 'chunk' && CSS.highlights && window.Highlight) {
-      const target = normalize(segment.text);
-      let relativeStart = 0;
-      let relativeEnd = target.length;
+      let start = Math.max(0, Number(segment.startChar) || 0);
+      let end = Math.max(start + 1, Number(segment.endChar) || start + flatNormalize(segment.text).length);
       if (mode === 'word') {
-        const matches = Array.from(target.matchAll(/\S+/g));
+        const target = flatNormalize(segment.text);
+        const matches = Array.from(target.matchAll(/\\S+/g));
         const match = matches[Math.max(0, Math.min(matches.length - 1, Number(wordIndex) || 0))];
-        if (match) { relativeStart = match.index || 0; relativeEnd = relativeStart + match[0].length; }
+        if (match) {
+          start += Number(match.index || 0);
+          end = start + String(match[0] || '').length;
+        }
       }
-      const range = normalizedRange(el, target, relativeStart, relativeEnd);
+      const range = normalizedRangeByOffsets(el, start, end);
       if (range) { try { CSS.highlights.set('floently-read-focus', new Highlight(range)); } catch (_) {} }
     }
-    if (shouldScroll !== false) el.scrollIntoView({ behavior: 'smooth', block: 'center', inline: 'nearest' });
+    if (shouldScroll !== false) {
+      const rect = el.getBoundingClientRect();
+      if (rect.top < 78 || rect.bottom > innerHeight - 96) el.scrollIntoView({ behavior: 'smooth', block: 'center', inline: 'nearest' });
+    }
+    return true;
+  };
+  const highlightExact = (blockId, startChar, endChar, mode, wordIndex, shouldScroll) => {
+    if (!blockId) return false;
+    clearActive();
+    const el = document.querySelector('[data-floently-read-block="' + CSS.escape(String(blockId)) + '"]');
+    if (!el) return false;
+    el.classList.add('floently-read-active-block');
+    if (mode !== 'chunk' && CSS.highlights && window.Highlight) {
+      let start = Math.max(0, Number(startChar) || 0);
+      let end = Math.max(start + 1, Number(endChar) || start + 1);
+      if (mode === 'word') {
+        const blockText = flatNormalize(String(el.innerText || el.textContent || ''));
+        const segmentText = blockText.slice(start, end);
+        const matches = Array.from(segmentText.matchAll(/\\S+/g));
+        const match = matches[Math.max(0, Math.min(matches.length - 1, Number(wordIndex) || 0))];
+        if (match) {
+          start += Number(match.index || 0);
+          end = start + String(match[0] || '').length;
+        }
+      }
+      const range = normalizedRangeByOffsets(el, start, end);
+      if (range) { try { CSS.highlights.set('floently-read-focus', new Highlight(range)); } catch (_) {} }
+    }
+    if (shouldScroll !== false) {
+      const rect = el.getBoundingClientRect();
+      if (rect.top < 78 || rect.bottom > innerHeight - 96) el.scrollIntoView({ behavior: 'smooth', block: 'center', inline: 'nearest' });
+    }
     return true;
   };
   const getCandidateRoot = () => {
@@ -321,20 +419,41 @@ const INSTALL_READ_BRIDGE_SCRIPT = `
         return null;
       }
       clearActive();
-      document.querySelectorAll('[data-floently-read-block]').forEach((el) => el.removeAttribute('data-floently-read-block'));
       const root = getCandidateRoot();
       if (!root) throw new Error('No readable page root was found.');
-      const rawBlocks = Array.from(root.querySelectorAll('h1,h2,h3,h4,h5,h6,p,li,blockquote,pre,[role="heading"]')).filter((el) => visible(el) && !el.closest(noise));
-      const blocks = rawBlocks.length ? rawBlocks : [root];
+      const blockSelector = 'h1,h2,h3,h4,h5,h6,p,li,blockquote,pre,[role="heading"]';
+      const rawBlocks = Array.from(root.querySelectorAll(blockSelector)).filter((el) => visible(el) && !el.closest(noise));
+      const atomicBlocks = rawBlocks.filter((el) => {
+        const text = flatNormalize(el.innerText || el.textContent || '');
+        if (text.length < 2) return false;
+        const equivalentChild = Array.from(el.querySelectorAll(blockSelector)).some((child) => child !== el && visible(child) && flatNormalize(child.innerText || child.textContent || '') === text);
+        return !equivalentChild;
+      });
+      const blocks = atomicBlocks.length ? atomicBlocks : [root];
       const segments = [];
       const textParts = [];
+      const seenBlocks = new Map();
       let blockIndex = 0;
       for (const el of blocks) {
-        const blockText = normalize(el.innerText || el.textContent || '');
+        const blockText = flatNormalize(el.innerText || el.textContent || '');
         if (blockText.length < 2) continue;
-        if (blocks.length > 1 && el.querySelector('p,li,h1,h2,h3,h4,h5,h6,blockquote') && blockText.length > 1500) continue;
-        const blockId = 'floently-read-' + blockIndex;
-        el.setAttribute('data-floently-read-block', blockId);
+        if (blocks.length > 1 && el.querySelector(blockSelector) && blockText.length > 1500) continue;
+        const dedupeKey = blockText.toLocaleLowerCase();
+        const previous = seenBlocks.get(dedupeKey);
+        if (previous) {
+          const related = previous.contains(el) || el.contains(previous);
+          const a = previous.getBoundingClientRect();
+          const b = el.getBoundingClientRect();
+          const overlapX = Math.max(0, Math.min(a.right, b.right) - Math.max(a.left, b.left));
+          const overlapY = Math.max(0, Math.min(a.bottom, b.bottom) - Math.max(a.top, b.top));
+          const overlap = overlapX * overlapY;
+          const smaller = Math.max(1, Math.min(a.width * a.height, b.width * b.height));
+          const centersNear = Math.abs((a.top + a.bottom) / 2 - (b.top + b.bottom) / 2) < 28
+            && Math.abs((a.left + a.right) / 2 - (b.left + b.right) / 2) < 36;
+          if (related || overlap / smaller > 0.55 || centersNear) continue;
+        }
+        seenBlocks.set(dedupeKey, el);
+        const blockId = ensureBlockId(el);
         const tag = String(el.tagName || '').toUpperCase();
         const headingMatch = tag.match(/^H([1-6])$/);
         const isHeading = Boolean(headingMatch) || el.getAttribute('role') === 'heading';
@@ -342,18 +461,18 @@ const INSTALL_READ_BRIDGE_SCRIPT = `
         const level = headingMatch ? Number(headingMatch[1]) : Number(el.getAttribute('aria-level') || 3);
         const pauseAfterMs = isHeading
           ? ({ 1: 760, 2: 660, 3: 570, 4: 500, 5: 440, 6: 400 }[Math.max(1, Math.min(6, level))] || 520)
-          : isBullet
-            ? 340
-            : 0;
+          : isBullet ? 340 : 0;
         const kind = isHeading ? 'heading' : isBullet ? 'bullet' : 'text';
-        const parts = isHeading || isBullet ? [blockText] : sentenceParts(blockText);
-        for (const part of parts) segments.push({ text: part, blockId, blockIndex, kind, pauseAfterMs });
+        const parts = isHeading || isBullet
+          ? [{ text: blockText, startChar: 0, endChar: blockText.length }]
+          : sentenceRanges(blockText);
+        for (const part of parts) segments.push({ text: part.text, blockId, blockIndex, kind, pauseAfterMs, startChar: part.startChar, endChar: part.endChar });
         textParts.push(blockText);
         blockIndex += 1;
       }
       if (!segments.length) {
         const fallbackText = normalize(root.innerText || root.textContent || '');
-        sentenceParts(fallbackText).forEach((part) => segments.push({ text: part, blockId: null, blockIndex: 0, kind: 'text', pauseAfterMs: 0 }));
+        sentenceRanges(fallbackText).forEach((part) => segments.push({ text: part.text, blockId: null, blockIndex: 0, kind: 'text', pauseAfterMs: 0, startChar: part.startChar, endChar: part.endChar }));
         textParts.push(fallbackText);
       }
       model = { text: textParts.join('\\n\\n'), title: document.title || 'Web reading', url: location.href, lang: document.documentElement.lang || 'en-US', segments };
@@ -479,10 +598,11 @@ const INSTALL_READ_BRIDGE_SCRIPT = `
   document.addEventListener('touchend', handleTouchEnd, true);
   document.addEventListener('click', handleClick, true);
   window.__floentlyReadBridge = {
-    version: '3',
+    version: '4',
     extract,
     highlightSegment,
     highlightFocus,
+    highlightExact,
     setInteractionMode: (mode) => { interactionMode = ['jump','sentence','word'].includes(mode) ? mode : 'none'; clearActive(); return interactionMode; },
     getSelection: () => { rememberSelection(); post({ type:'READ_PICK', mode:'selection', text: cachedSelection, title:document.title, url:location.href, lang:document.documentElement.lang || 'en-US' }); return cachedSelection; },
     clearHighlight: clearActive,
@@ -676,8 +796,12 @@ export default function ReadBrowserScreen() {
       : `${focusMode}:${activeSourceSegmentIndex}`;
     if (focusKey === lastFocusKeyRef.current) return;
     lastFocusKeyRef.current = focusKey;
-    webRef.current?.injectJavaScript(`window.__floentlyReadBridge && window.__floentlyReadBridge.highlightFocus(${activeSourceSegmentIndex}, '${focusMode}', ${activeSourceWordIndex}, true); true;`);
-  }, [activePlaybackEntry, activeSourceSegmentIndex, activeSourceWordIndex, focusMode, lastExtracted?.segments.length, playbackScope]);
+    const segment = lastExtracted.segments[activeSourceSegmentIndex];
+    const blockId = JSON.stringify(segment?.blockId ?? '');
+    const startChar = Math.max(0, segment?.startChar ?? 0);
+    const endChar = Math.max(startChar + 1, segment?.endChar ?? (startChar + (segment?.text.length ?? 1)));
+    webRef.current?.injectJavaScript(`window.__floentlyReadBridge && window.__floentlyReadBridge.highlightExact(${blockId}, ${startChar}, ${endChar}, '${focusMode}', ${activeSourceWordIndex}, true); true;`);
+  }, [activePlaybackEntry, activeSourceSegmentIndex, activeSourceWordIndex, focusMode, lastExtracted?.segments, playbackScope]);
 
   const voiceLabel = selectedVoice ? selectedVoice.name : 'Loading voices…';
   const visibleVoices = voices.filter((voice) => voiceFilter === 'all' || voice.accent === voiceFilter);
@@ -735,37 +859,95 @@ export default function ReadBrowserScreen() {
     if (reason === 'content' && fingerprint === currentContentFingerprint) return;
     if (reason === 'content' && !narrator.active) return;
 
+    if (reason === 'content' && lastExtracted && playbackScope === 'page'
+      && canonicalizeReadUrl(lastExtracted.url) === canonicalizeReadUrl(extracted.url)) {
+      const previous = lastExtracted.segments;
+      const prefixLength = commonPrefixLength(previous, segments);
+
+      // Long and lazy pages usually grow at the tail. Add only new text and keep the
+      // current audio item untouched so nothing is repeated.
+      if (prefixLength === previous.length && segments.length >= previous.length) {
+        const appended = segments.slice(previous.length);
+        setLastExtracted(extracted);
+        lastContinuityFingerprintRef.current = fingerprint;
+        if (appended.length) {
+          const appendedChunks = buildPlaybackChunks(appended, previous.length);
+          setPlaybackChunks((existing) => [...existing, ...appendedChunks]);
+          narrator.appendSegments(appendedChunks.map((chunk) => ({ text: chunk.text, pauseAfterMs: 0 })));
+          setManualStatus(`Page extended · ${appended.length} new sentence${appended.length === 1 ? '' : 's'} queued without interrupting audio.`);
+        }
+        return;
+      }
+
+      // Virtualized readers often discard the previous screenful while adding the next one.
+      // Merge the overlapping boundary and append only unseen text to our monotonic timeline.
+      const overlap = suffixPrefixOverlap(previous, segments);
+      const overlapIsStrong = overlap >= 2 || (overlap === 1 && (segments[0]?.text.length ?? 0) >= 80);
+      if (overlapIsStrong) {
+        const merged = [...previous];
+        const oldOverlapStart = previous.length - overlap;
+        for (let index = 0; index < overlap; index += 1) merged[oldOverlapStart + index] = segments[index];
+        const appended = segments.slice(overlap);
+        merged.push(...appended);
+        const mergedModel: BrowserReadModel = {
+          ...extracted,
+          segments: merged,
+          text: merged.map((segment) => segment.text).join('\n\n'),
+        };
+        setLastExtracted(mergedModel);
+        lastContinuityFingerprintRef.current = contentFingerprint(mergedModel.text);
+        if (appended.length) {
+          const appendedChunks = buildPlaybackChunks(appended, previous.length);
+          setPlaybackChunks((existing) => [...existing, ...appendedChunks]);
+          narrator.appendSegments(appendedChunks.map((chunk) => ({ text: chunk.text, pauseAfterMs: 0 })));
+          setManualStatus(`More of this page loaded · ${appended.length} new sentence${appended.length === 1 ? '' : 's'} added to the queue.`);
+        }
+        lastFocusKeyRef.current = '';
+        return;
+      }
+
+      // If a mutation is strictly after the transport block already loaded in the player,
+      // refresh only the unread queue. Never tear down the block the listener is hearing.
+      const protectedEnd = activePlaybackChunk?.entries.reduce((maximum, entry) => Math.max(maximum, entry.segmentIndex), -1) ?? -1;
+      if (protectedEnd >= 0 && prefixLength > protectedEnd) {
+        const futureSegments = segments.slice(protectedEnd + 1);
+        const futureChunks = buildPlaybackChunks(futureSegments, protectedEnd + 1);
+        const stableChunks = playbackChunks.slice(0, narrator.currentSegment + 1);
+        setPlaybackChunks([...stableChunks, ...futureChunks]);
+        setLastExtracted(extracted);
+        lastContinuityFingerprintRef.current = fingerprint;
+        narrator.replaceUpcomingSegments(narrator.currentSegment, futureChunks.map((chunk) => ({ text: chunk.text, pauseAfterMs: 0 })));
+        setManualStatus('Page updated · unread audio queue refreshed without replaying the current section.');
+        lastFocusKeyRef.current = '';
+        return;
+      }
+
+      // Live widgets can mutate text at/before what is already speaking. Restarting here was
+      // the source of repeated sentences, so keep the current reading stable instead.
+      setManualStatus('Page updated · current reading kept stable to avoid repeating text.');
+      return;
+    }
+
     let startSegmentIndex = 0;
     let startWordIndex = 0;
     let resumeFocusMode: ReadFocusMode = focusMode;
     let resumeLabel = '';
-
-    if (reason === 'content' && lastExtracted && canonicalizeReadUrl(lastExtracted.url) === canonicalizeReadUrl(extracted.url) && activeSourceSegment) {
-      const anchor = activeSourceSegment.text.replace(/\s+/g, ' ').trim().toLowerCase();
-      const mapped = segments.findIndex((segment) => segment.text.replace(/\s+/g, ' ').trim().toLowerCase() === anchor);
-      if (mapped >= 0) {
-        startSegmentIndex = mapped;
-        startWordIndex = activeSourceWordIndex;
-        resumeLabel = 'Updated page · continuing from the current sentence';
-      }
-    } else {
-      const saved = await loadReadWebContinuity(extracted.url);
-      if (saved && saved.contentFingerprint === fingerprint && saved.segmentIndex < segments.length) {
-        startSegmentIndex = Math.max(0, saved.segmentIndex);
-        startWordIndex = Math.max(0, saved.wordIndex);
-        resumeFocusMode = saved.focusMode;
-        resumeLabel = `Resuming sentence ${startSegmentIndex + 1} · word ${startWordIndex + 1}`;
-        if (Number.isFinite(saved.rate)) setRate(Math.min(2, Math.max(0.5, saved.rate)));
-      }
+    const saved = await loadReadWebContinuity(extracted.url);
+    if (saved && saved.contentFingerprint === fingerprint && saved.segmentIndex < segments.length) {
+      startSegmentIndex = Math.max(0, saved.segmentIndex);
+      startWordIndex = Math.max(0, saved.wordIndex);
+      resumeFocusMode = saved.focusMode;
+      resumeLabel = `Resuming sentence ${startSegmentIndex + 1} · word ${startWordIndex + 1}`;
+      if (Number.isFinite(saved.rate)) setRate(Math.min(2, Math.max(0.5, saved.rate)));
     }
 
-    const chunks = buildPlaybackChunks(segments.slice(startSegmentIndex), startSegmentIndex, 1800, startWordIndex);
+    const chunks = buildPlaybackChunks(segments.slice(startSegmentIndex), startSegmentIndex, PLAYBACK_CHUNK_CHARS, startWordIndex);
     setLastExtracted(extracted);
     setPlaybackChunks(chunks);
     setFocusMode(resumeFocusMode);
     lastFocusKeyRef.current = '';
     lastContinuityFingerprintRef.current = fingerprint;
-    const shouldStart = reason === 'manual' || routeAutoContinueRef.current || (reason === 'content' && narrator.active);
+    const shouldStart = reason === 'manual' || routeAutoContinueRef.current;
     routeAutoContinueRef.current = false;
     if (!shouldStart) {
       setManualStatus(`Ready · ${extracted.title} · ${segments.length} sentences`);
@@ -830,6 +1012,8 @@ export default function ReadBrowserScreen() {
               blockIndex: Number(segment?.blockIndex ?? 0) || 0,
               kind: segment?.kind === 'heading' || segment?.kind === 'bullet' ? segment.kind : 'text',
               pauseAfterMs: Math.max(0, Number(segment?.pauseAfterMs ?? 0) || 0),
+              startChar: Math.max(0, Number(segment?.startChar ?? 0) || 0),
+              endChar: Math.max(0, Number(segment?.endChar ?? String(segment?.text || '').length) || String(segment?.text || '').length),
             }))
             .filter((segment: BrowserReadSegment) => Boolean(segment.text))
         : [];
@@ -951,10 +1135,16 @@ export default function ReadBrowserScreen() {
         <Pressable onPress={() => { narrator.stop(); router.replace('/read-home' as never); }} style={styles.homeButton} accessibilityLabel="Back to Floently Read">
           <Text style={styles.homeText}>F</Text>
         </Pressable>
-        <Pressable disabled={!canGoBack} onPress={() => webRef.current?.goBack()} style={[styles.iconButton, !canGoBack && styles.disabled]}><Text style={styles.iconText}>‹</Text></Pressable>
-        <Pressable disabled={!canGoForward} onPress={() => webRef.current?.goForward()} style={[styles.iconButton, !canGoForward && styles.disabled]}><Text style={styles.iconText}>›</Text></Pressable>
+        <Pressable accessibilityLabel="Back" disabled={!canGoBack} onPress={() => webRef.current?.goBack()} style={[styles.iconButton, !canGoBack && styles.disabled]}>
+          <Ionicons name="chevron-back" size={20} color="#E8EEFA" />
+        </Pressable>
+        <Pressable accessibilityLabel="Forward" disabled={!canGoForward} onPress={() => webRef.current?.goForward()} style={[styles.iconButton, !canGoForward && styles.disabled]}>
+          <Ionicons name="chevron-forward" size={20} color="#E8EEFA" />
+        </Pressable>
         <TextInput autoCapitalize="none" autoCorrect={false} keyboardType="url" onChangeText={setAddress} onSubmitEditing={go} selectTextOnFocus style={styles.address} value={address} />
-        <Pressable onPress={go} style={styles.goButton}><Text style={styles.goText}>Go</Text></Pressable>
+        <Pressable accessibilityLabel="Open address" onPress={go} style={styles.goButton}>
+          <Ionicons name="arrow-forward" size={18} color="#FFFFFF" />
+        </Pressable>
       </View>
 
       <View style={styles.webWrap}>
@@ -1015,10 +1205,10 @@ export default function ReadBrowserScreen() {
               </Text>
             </View>
             <Pressable onPress={() => setPlayerSettingsOpen(true)} style={styles.playerHeaderButton} accessibilityLabel="Player behavior">
-              <Text style={styles.playerHeaderButtonText}>⚙</Text>
+              <Ionicons name="options-outline" size={18} color="#D8E1F0" />
             </Pressable>
             <Pressable onPress={() => setPlayerExpanded(false)} style={styles.playerHeaderButton} accessibilityLabel="Minimize player">
-              <Text style={styles.playerHeaderButtonText}>⌄</Text>
+              <Ionicons name="chevron-down" size={20} color="#D8E1F0" />
             </Pressable>
           </View>
 
@@ -1032,25 +1222,44 @@ export default function ReadBrowserScreen() {
           </View>
 
           <View style={styles.transportHeroRow}>
-            <Pressable disabled={!narrator.active || narrator.buffering} onPress={narrator.skipBackward} style={[styles.transportRoundButton, (!narrator.active || narrator.buffering) && styles.disabled]}>
-              <Text style={styles.transportRoundGlyph}>↶</Text>
+            <Pressable
+              accessibilityLabel="Rewind 15 seconds"
+              disabled={!narrator.active || narrator.buffering}
+              onPress={() => narrator.seekCurrent(narrator.currentTime - 15)}
+              style={[styles.transportRoundButton, (!narrator.active || narrator.buffering) && styles.disabled]}
+            >
+              <Ionicons name="play-back" size={20} color="#E8EEFA" />
+              <Text style={styles.transportSeconds}>15</Text>
             </Pressable>
             <Pressable
+              accessibilityLabel={narrator.buffering ? 'Preparing audio' : narrator.active ? (narrator.paused ? 'Resume reading' : 'Pause reading') : 'Read page'}
               disabled={narrator.buffering}
               onPress={narrator.active ? narrator.togglePause : readPage}
               style={[styles.playHeroButton, narrator.buffering && styles.disabled]}
             >
-              <Text style={styles.playHeroIcon}>{narrator.buffering ? '…' : narrator.active && !narrator.paused ? 'Ⅱ' : '▶'}</Text>
+              <View style={styles.playHeroIconDisc}>
+                <Ionicons
+                  name={narrator.buffering ? 'ellipsis-horizontal' : narrator.active && !narrator.paused ? 'pause' : 'play'}
+                  size={20}
+                  color="#FFFFFF"
+                />
+              </View>
               <Text style={styles.playHeroText}>{narrator.buffering ? 'Preparing' : narrator.active ? (narrator.paused ? 'Resume' : 'Pause') : 'Read page'}</Text>
             </Pressable>
-            <Pressable disabled={!narrator.active || narrator.buffering} onPress={narrator.skipForward} style={[styles.transportRoundButton, (!narrator.active || narrator.buffering) && styles.disabled]}>
-              <Text style={styles.transportRoundGlyph}>↷</Text>
+            <Pressable
+              accessibilityLabel="Forward 15 seconds"
+              disabled={!narrator.active || narrator.buffering}
+              onPress={() => narrator.seekCurrent(narrator.currentTime + 15)}
+              style={[styles.transportRoundButton, (!narrator.active || narrator.buffering) && styles.disabled]}
+            >
+              <Ionicons name="play-forward" size={20} color="#E8EEFA" />
+              <Text style={styles.transportSeconds}>15</Text>
             </Pressable>
           </View>
 
           <View style={styles.playerQuickRow}>
-            <Pressable onPress={() => setVoicePickerOpen(true)} style={styles.quickControl}>
-              <Text style={styles.quickControlLabel}>VOICE</Text>
+            <Pressable accessibilityLabel="Choose voice" onPress={() => setVoicePickerOpen(true)} style={styles.quickControl}>
+              <View style={styles.quickControlTopLine}><Ionicons name="mic-outline" size={13} color="#8799FF" /><Text style={styles.quickControlLabel}>VOICE</Text></View>
               <Text numberOfLines={1} style={styles.quickControlValue}>{voiceLabel}</Text>
             </Pressable>
             <View style={styles.speedGroup}>
@@ -1085,7 +1294,7 @@ export default function ReadBrowserScreen() {
             <Pressable disabled={!lastExtracted || savingPage || renderingPage} onPress={() => void saveCurrentReading()} style={[styles.utilityButton, (!lastExtracted || savingPage || renderingPage) && styles.disabled]}>
               <Text style={styles.utilityButtonText}>{savingPage ? 'Saving…' : 'Save'}</Text>
             </Pressable>
-            {narrator.active ? <Pressable onPress={narrator.stop} style={styles.stopCompact}><Text style={styles.stopCompactText}>■ Stop</Text></Pressable> : null}
+            {narrator.active ? <Pressable accessibilityLabel="Stop reading" onPress={narrator.stop} style={styles.stopCompact}><Ionicons name="stop" size={12} color="#F2DDE6" /><Text style={styles.stopCompactText}>Stop</Text></Pressable> : null}
           </View>
         </View>
       ) : (
@@ -1098,7 +1307,7 @@ export default function ReadBrowserScreen() {
             <Text numberOfLines={1} style={styles.collapsedDockText}>
               {narrator.playing ? 'Playing' : narrator.paused ? 'Paused' : 'Floently Read'} · {Math.round(narrator.progress * 100)}%
             </Text>
-            <Text style={styles.collapsedDockChevron}>⌃</Text>
+            <Ionicons name="chevron-up" size={17} color="#9AA8FF" />
           </View>
         </Pressable>
       )}
@@ -1207,10 +1416,8 @@ const styles = StyleSheet.create({
   homeText: { color: '#fff', fontSize: 17, fontWeight: '900' },
   iconButton: { width: 40, height: 40, borderRadius: 20, alignItems: 'center', justifyContent: 'center', backgroundColor: '#1a2435' },
   disabled: { opacity: 0.35 },
-  iconText: { color: '#fff', fontSize: 31, lineHeight: 34 },
   address: { flex: 1, minHeight: 40, borderRadius: 14, paddingHorizontal: 12, color: '#f7f9ff', backgroundColor: '#182233', fontSize: 14 },
-  goButton: { height: 40, minWidth: 44, borderRadius: 14, alignItems: 'center', justifyContent: 'center', backgroundColor: '#5364ff' },
-  goText: { color: '#fff', fontWeight: '700' },
+  goButton: { width: 40, height: 40, borderRadius: 14, alignItems: 'center', justifyContent: 'center', backgroundColor: '#5364ff', shadowColor: '#5364ff', shadowOpacity: 0.25, shadowRadius: 8, shadowOffset: { width: 0, height: 3 }, elevation: 5 },
   webWrap: { flex: 1, backgroundColor: '#fff' },
   web: { flex: 1 },
   readerBar: { paddingHorizontal: 12, paddingTop: 12, paddingBottom: 12, gap: 10, backgroundColor: '#0C1422', borderTopWidth: 1, borderTopColor: '#25324A', shadowColor: '#000000', shadowOpacity: 0.34, shadowRadius: 20, shadowOffset: { width: 0, height: -6 }, elevation: 18 },
@@ -1220,7 +1427,6 @@ const styles = StyleSheet.create({
   collapsedDockContent: { minHeight: 31, flexDirection: 'row', alignItems: 'center', justifyContent: 'center', paddingHorizontal: 14, gap: 9 },
   collapsedGrip: { width: 34, height: 4, borderRadius: 999, backgroundColor: '#3A4961' },
   collapsedDockText: { color: '#AEB9CA', fontSize: 9.5, fontWeight: '800', maxWidth: 150 },
-  collapsedDockChevron: { color: '#9AA8FF', fontSize: 16, lineHeight: 18, fontWeight: '900' },
   playerTopRow: { flexDirection: 'row', alignItems: 'center', gap: 8 },
   playerBrandMark: { width: 38, height: 38, borderRadius: 13, alignItems: 'center', justifyContent: 'center', backgroundColor: '#5364FF' },
   playerBrandMarkText: { color: '#FFFFFF', fontSize: 15, fontWeight: '900' },
@@ -1228,7 +1434,6 @@ const styles = StyleSheet.create({
   playerEyebrow: { color: '#7F92FF', fontSize: 8, lineHeight: 10, fontWeight: '900', letterSpacing: 1.2 },
   playerTitle: { color: '#F7F9FF', fontSize: 13.5, lineHeight: 18, fontWeight: '800', marginTop: 2 },
   playerHeaderButton: { width: 36, height: 36, borderRadius: 12, alignItems: 'center', justifyContent: 'center', backgroundColor: '#162237', borderWidth: 1, borderColor: '#283A58' },
-  playerHeaderButtonText: { color: '#C9D3E4', fontSize: 16, fontWeight: '900' },
   progressLine: { height: 4, borderRadius: 999, backgroundColor: '#202C40', overflow: 'hidden' },
   progressFill: { height: '100%', borderRadius: 999, backgroundColor: '#7187FF' },
   playerMetaRow: { flexDirection: 'row', alignItems: 'center', gap: 7 },
@@ -1236,14 +1441,15 @@ const styles = StyleSheet.create({
   playerStatusCompact: { flex: 1, color: '#AAB6C9', fontSize: 9.5, textAlign: 'center' },
   percent: { color: '#91A3FF', fontSize: 9.5, fontWeight: '900', minWidth: 31, textAlign: 'right' },
   transportHeroRow: { flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 12 },
-  transportRoundButton: { width: 48, height: 48, borderRadius: 24, alignItems: 'center', justifyContent: 'center', backgroundColor: '#172235', borderWidth: 1, borderColor: '#27364F' },
-  transportRoundGlyph: { color: '#DCE5F4', fontSize: 22, fontWeight: '900' },
-  playHeroButton: { minWidth: 146, height: 52, borderRadius: 18, flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 9, backgroundColor: '#5364FF', paddingHorizontal: 18, shadowColor: '#5364FF', shadowOpacity: 0.28, shadowRadius: 12, shadowOffset: { width: 0, height: 5 }, elevation: 8 },
-  playHeroIcon: { color: '#FFFFFF', fontSize: 15, fontWeight: '900' },
+  transportRoundButton: { width: 52, height: 52, borderRadius: 18, alignItems: 'center', justifyContent: 'center', backgroundColor: '#172235', borderWidth: 1, borderColor: '#30405C', shadowColor: '#000', shadowOpacity: 0.2, shadowRadius: 8, shadowOffset: { width: 0, height: 3 }, elevation: 4 },
+  transportSeconds: { position: 'absolute', bottom: 5, color: '#91A1B8', fontSize: 7, lineHeight: 8, fontWeight: '900' },
+  playHeroButton: { minWidth: 154, height: 56, borderRadius: 20, flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 9, backgroundColor: '#5364FF', paddingHorizontal: 16, shadowColor: '#5364FF', shadowOpacity: 0.34, shadowRadius: 15, shadowOffset: { width: 0, height: 6 }, elevation: 9 },
+  playHeroIconDisc: { width: 34, height: 34, borderRadius: 17, backgroundColor: 'rgba(255,255,255,0.14)', alignItems: 'center', justifyContent: 'center' },
   playHeroText: { color: '#FFFFFF', fontSize: 13, fontWeight: '900' },
   playerQuickRow: { flexDirection: 'row', alignItems: 'stretch', gap: 8 },
   quickControl: { flex: 1, minHeight: 48, borderRadius: 15, backgroundColor: '#151F31', borderWidth: 1, borderColor: '#26344C', paddingHorizontal: 12, justifyContent: 'center' },
-  quickControlLabel: { color: '#7387F6', fontSize: 7.5, fontWeight: '900', letterSpacing: 0.9 },
+  quickControlTopLine: { flexDirection: 'row', alignItems: 'center', gap: 5 },
+  quickControlLabel: { color: '#8799FF', fontSize: 7.5, fontWeight: '900', letterSpacing: 0.9 },
   quickControlValue: { color: '#F5F7FD', fontSize: 12, fontWeight: '800', marginTop: 3 },
   speedGroup: { minHeight: 48, borderRadius: 15, backgroundColor: '#151F31', borderWidth: 1, borderColor: '#26344C', flexDirection: 'row', alignItems: 'center', overflow: 'hidden' },
   speedButton: { width: 38, height: 48, alignItems: 'center', justifyContent: 'center' },
@@ -1258,7 +1464,7 @@ const styles = StyleSheet.create({
   utilityRow: { flexDirection: 'row', alignItems: 'center', gap: 7 },
   utilityButton: { flex: 1, minHeight: 36, borderRadius: 12, alignItems: 'center', justifyContent: 'center', backgroundColor: '#151F31', borderWidth: 1, borderColor: '#25334A' },
   utilityButtonText: { color: '#DCE3EF', fontSize: 10.5, fontWeight: '800' },
-  stopCompact: { flex: 1, minHeight: 36, borderRadius: 12, alignItems: 'center', justifyContent: 'center', backgroundColor: '#2A2632', borderWidth: 1, borderColor: '#493647' },
+  stopCompact: { flex: 1, minHeight: 36, borderRadius: 12, flexDirection: 'row', gap: 5, alignItems: 'center', justifyContent: 'center', backgroundColor: '#2A2632', borderWidth: 1, borderColor: '#493647' },
   stopCompactText: { color: '#F2DDE6', fontSize: 10.5, fontWeight: '800' },
   modalBackdrop: { flex: 1, justifyContent: 'flex-end', backgroundColor: 'rgba(0,0,0,0.52)' },
   playerSettingsSheet: { backgroundColor: '#101827', borderTopLeftRadius: 28, borderTopRightRadius: 28, paddingHorizontal: 16, paddingTop: 18, paddingBottom: 24, borderTopWidth: 1, borderColor: '#273247' },

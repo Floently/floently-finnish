@@ -1,10 +1,81 @@
+import Ionicons from '@expo/vector-icons/Ionicons';
 import { router, useLocalSearchParams } from 'expo-router';
 import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { ActivityIndicator, Modal, Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { fetchReadVoices, getReadProject, updateReadProjectProgress, type ReadProject, type ReadVoice } from '@core/api/read';
-import { formatReadTime, splitReadText, useReadNarrator } from '../features/read/useReadNarrator';
+import { formatReadTime, useReadNarrator } from '../features/read/useReadNarrator';
 import { useAuthStore } from '../state/authStore';
+
+
+type DocumentFocusMode = 'chunk' | 'sentence' | 'word';
+type DocumentPlaybackEntry = { segmentIndex: number; startWord: number; endWord: number; sourceWordStart: number };
+type DocumentPlaybackChunk = { text: string; entries: DocumentPlaybackEntry[] };
+const DOCUMENT_CHUNK_CHARS = 1100;
+
+function splitDocumentSentences(text: string): string[] {
+  const clean = text.replace(/\s+/g, ' ').trim();
+  if (!clean) return [];
+  const rough = clean.match(/[^.!?…！？。]+(?:[.!?…！？。]+|$)/g) ?? [clean];
+  const result: string[] = [];
+  for (const raw of rough) {
+    const sentence = raw.trim();
+    if (!sentence) continue;
+    const words = sentence.match(/\S+/g) ?? [];
+    if (words.length <= 40) {
+      result.push(sentence);
+      continue;
+    }
+    for (let index = 0; index < words.length; index += 34) result.push(words.slice(index, index + 34).join(' '));
+  }
+  return result;
+}
+
+function buildDocumentChunks(segments: string[], startSegmentIndex = 0, firstWordOffset = 0): DocumentPlaybackChunk[] {
+  const chunks: DocumentPlaybackChunk[] = [];
+  let textParts: string[] = [];
+  let entries: DocumentPlaybackEntry[] = [];
+  let charCount = 0;
+  let wordCount = 0;
+  const flush = () => {
+    if (!textParts.length) return;
+    chunks.push({ text: textParts.join(' ').trim(), entries });
+    textParts = [];
+    entries = [];
+    charCount = 0;
+    wordCount = 0;
+  };
+  segments.forEach((segment, localIndex) => {
+    const sourceWords = segment.match(/\S+/g) ?? [];
+    if (!sourceWords.length) return;
+    let cursor = localIndex === 0 ? Math.min(Math.max(0, firstWordOffset), Math.max(0, sourceWords.length - 1)) : 0;
+    while (cursor < sourceWords.length) {
+      const availableChars = Math.max(120, DOCUMENT_CHUNK_CHARS - charCount - (textParts.length ? 1 : 0));
+      let take = 0;
+      let pieceChars = 0;
+      while (cursor + take < sourceWords.length) {
+        const word = sourceWords[cursor + take];
+        const added = word.length + (take ? 1 : 0);
+        if (take > 0 && pieceChars + added > availableChars) break;
+        pieceChars += added;
+        take += 1;
+      }
+      if (!take && textParts.length) { flush(); continue; }
+      const count = Math.max(1, take);
+      const piece = sourceWords.slice(cursor, cursor + count).join(' ');
+      if (textParts.length && charCount + 1 + piece.length > DOCUMENT_CHUNK_CHARS) { flush(); continue; }
+      const startWord = wordCount;
+      textParts.push(piece);
+      entries.push({ segmentIndex: startSegmentIndex + localIndex, startWord, endWord: startWord + count, sourceWordStart: cursor });
+      charCount += (textParts.length > 1 ? 1 : 0) + piece.length;
+      wordCount += count;
+      cursor += count;
+      if (charCount >= DOCUMENT_CHUNK_CHARS) flush();
+    }
+  });
+  flush();
+  return chunks;
+}
 
 export default function ReadDocumentScreen() {
   const params = useLocalSearchParams<{ id?: string | string[] }>();
@@ -21,6 +92,8 @@ export default function ReadDocumentScreen() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [voicePickerOpen, setVoicePickerOpen] = useState(false);
+  const [focusMode, setFocusMode] = useState<DocumentFocusMode>('sentence');
+  const [playbackChunks, setPlaybackChunks] = useState<DocumentPlaybackChunk[]>([]);
   const selectedVoice = voices.find((voice) => voice.id === selectedVoiceId) ?? voices[0] ?? null;
   const narrator = useReadNarrator({
     token,
@@ -32,7 +105,19 @@ export default function ReadDocumentScreen() {
       albumTitle: 'Document Reading',
     },
   });
-  const segments = useMemo(() => splitReadText(project?.rawText ?? ''), [project?.rawText]);
+  const segments = useMemo(() => splitDocumentSentences(project?.rawText ?? ''), [project?.rawText]);
+  const activePlaybackChunk = playbackChunks[narrator.currentSegment] ?? null;
+  const activePlaybackEntry = activePlaybackChunk?.entries.find((entry) => narrator.currentWordIndex >= entry.startWord && narrator.currentWordIndex < entry.endWord)
+    ?? activePlaybackChunk?.entries[0]
+    ?? null;
+  const activeSourceSegmentIndex = activePlaybackEntry?.segmentIndex ?? -1;
+  const activeSourceWordIndex = activePlaybackEntry
+    ? activePlaybackEntry.sourceWordStart + Math.max(0, narrator.currentWordIndex - activePlaybackEntry.startWord)
+    : 0;
+  const activeSourceWords = activeSourceSegmentIndex >= 0 ? segments[activeSourceSegmentIndex]?.match(/\S+/g) ?? [] : [];
+  const absoluteProgressPercent = segments.length > 0 && activeSourceSegmentIndex >= 0
+    ? Math.min(100, Math.max(0, ((activeSourceSegmentIndex + Math.min(1, activeSourceWordIndex / Math.max(1, activeSourceWords.length))) / segments.length) * 100))
+    : narrator.totalSegments > 0 && narrator.progress >= 0.999 ? 100 : 0;
 
   useEffect(() => { void hydrateSession(); }, [hydrateSession]);
   useEffect(() => {
@@ -44,7 +129,7 @@ export default function ReadDocumentScreen() {
     let cancelled = false;
     setLoading(true);
     setError(null);
-    void Promise.all([getReadProject(token, projectId), fetchReadVoices()])
+    void Promise.all([getReadProject(token, projectId), fetchReadVoices(token)])
       .then(([loadedProject, catalog]) => {
         if (cancelled) return;
         setProject(loadedProject);
@@ -73,20 +158,20 @@ export default function ReadDocumentScreen() {
   }, [projectId, token]);
 
   useEffect(() => {
-    if (!narrator.active || narrator.currentSegment < 0) return;
-    const y = segmentYRef.current[narrator.currentSegment];
+    if (!narrator.active || activeSourceSegmentIndex < 0) return;
+    const y = segmentYRef.current[activeSourceSegmentIndex];
     if (typeof y === 'number') scrollRef.current?.scrollTo({ y: Math.max(0, y - 84), animated: true });
-  }, [narrator.active, narrator.currentSegment]);
+  }, [activeSourceSegmentIndex, narrator.active]);
 
   const latestProgressRef = useRef({
-    currentSegment: narrator.currentSegment,
-    progress: narrator.progress,
-    totalSegments: narrator.totalSegments,
+    currentSegment: activeSourceSegmentIndex,
+    progressPercent: absoluteProgressPercent,
+    totalSegments: segments.length,
   });
   latestProgressRef.current = {
-    currentSegment: narrator.currentSegment,
-    progress: narrator.progress,
-    totalSegments: narrator.totalSegments,
+    currentSegment: activeSourceSegmentIndex,
+    progressPercent: absoluteProgressPercent,
+    totalSegments: segments.length,
   };
 
   useEffect(() => {
@@ -96,7 +181,7 @@ export default function ReadDocumentScreen() {
       if (latest.totalSegments <= 0) return;
       void updateReadProjectProgress(token, project.id, {
         currentSegmentIndex: latest.currentSegment,
-        progressPercent: Math.round(latest.progress * 1000) / 10,
+        progressPercent: Math.round(latest.progressPercent * 10) / 10,
         voiceId: selectedVoice?.id ?? null,
         playbackRate: rate,
       }).catch(() => undefined);
@@ -108,20 +193,28 @@ export default function ReadDocumentScreen() {
     if (!token || !project?.id || narrator.totalSegments <= 0) return;
     const timer = setTimeout(() => {
       void updateReadProjectProgress(token, project.id, {
-        currentSegmentIndex: narrator.currentSegment,
-        progressPercent: Math.round(narrator.progress * 1000) / 10,
+        currentSegmentIndex: Math.max(0, activeSourceSegmentIndex),
+        progressPercent: Math.round(absoluteProgressPercent * 10) / 10,
         voiceId: selectedVoice?.id ?? null,
         playbackRate: rate,
       }).catch(() => undefined);
     }, 350);
     return () => clearTimeout(timer);
-  }, [narrator.active, narrator.currentSegment, narrator.progress, narrator.totalSegments, project?.id, rate, selectedVoice?.id, token]);
+  }, [absoluteProgressPercent, activeSourceSegmentIndex, narrator.active, narrator.totalSegments, project?.id, rate, selectedVoice?.id, token]);
+
+  const startFromSentence = (sourceIndex: number) => {
+    if (!segments.length) return;
+    const startIndex = Math.min(segments.length - 1, Math.max(0, Math.floor(sourceIndex)));
+    const chunks = buildDocumentChunks(segments.slice(startIndex), startIndex);
+    setPlaybackChunks(chunks);
+    void narrator.startSegments(chunks.map((chunk) => ({ text: chunk.text, pauseAfterMs: 0 })));
+  };
 
   const startReading = () => {
-    if (!project?.rawText) return;
+    if (!segments.length || !project) return;
     const resumeIndex = project.progress?.currentSegmentIndex ?? 0;
     const shouldResume = !narrator.totalSegments && (project.progress?.progressPercent ?? 0) > 0 && (project.progress?.progressPercent ?? 0) < 99.9;
-    void narrator.start(project.rawText, shouldResume ? resumeIndex : 0);
+    startFromSentence(shouldResume ? resumeIndex : 0);
   };
 
   const changeRate = (delta: number) => {
@@ -131,9 +224,9 @@ export default function ReadDocumentScreen() {
   const status = narrator.error
     ? narrator.error
     : narrator.buffering
-      ? `Preparing ${Math.min(narrator.currentSegment + 1, Math.max(narrator.totalSegments, 1))} of ${Math.max(narrator.totalSegments, 1)}…`
+      ? `Preparing audio · sentence ${Math.max(1, activeSourceSegmentIndex + 1)} of ${Math.max(segments.length, 1)}…`
       : narrator.active
-        ? `${narrator.paused ? 'Paused' : 'Reading'} ${narrator.currentSegment + 1} of ${narrator.totalSegments}${narrator.currentWord ? ` · ${narrator.currentWord}` : ''}`
+        ? `${narrator.paused ? 'Paused' : 'Reading'} ${Math.max(1, activeSourceSegmentIndex + 1)} of ${segments.length}${focusMode === 'word' && narrator.currentWord ? ` · ${narrator.currentWord}` : ''}`
         : narrator.totalSegments > 0 && narrator.progress >= 0.999
           ? 'Finished'
           : 'Ready to read';
@@ -166,43 +259,80 @@ export default function ReadDocumentScreen() {
         </View>
         <View style={styles.textCard}>
           {segments.map((segment, index) => {
-            const activeSegment = narrator.totalSegments > 0 && index === narrator.currentSegment;
+            const inActiveChunk = Boolean(activePlaybackChunk?.entries.some((entry) => entry.segmentIndex === index));
+            const activeSentence = narrator.totalSegments > 0 && index === activeSourceSegmentIndex;
+            const visuallyActive = focusMode === 'chunk' ? inActiveChunk : activeSentence;
+            const words = segment.match(/\S+/g) ?? [];
             return (
-              <View
+              <Pressable
                 key={`${index}-${segment.slice(0, 24)}`}
+                accessibilityLabel={`Read from sentence ${index + 1}`}
                 onLayout={(event) => { segmentYRef.current[index] = event.nativeEvent.layout.y; }}
-                style={[styles.segment, activeSegment && styles.segmentActive]}
+                onPress={() => startFromSentence(index)}
+                style={({ pressed }) => [styles.segment, visuallyActive && styles.segmentActive, pressed && styles.segmentPressed]}
               >
-                <Text style={[styles.segmentText, activeSegment && styles.segmentTextActive]}>{segment}</Text>
-              </View>
+                <Text style={[styles.segmentText, visuallyActive && styles.segmentTextActive]}>
+                  {words.map((word, wordIndex) => {
+                    const activeWord = focusMode === 'word' && activeSentence && wordIndex === activeSourceWordIndex;
+                    return (
+                      <Text key={`${index}-${wordIndex}`} style={activeWord ? styles.wordActive : undefined}>
+                        {word}{wordIndex < words.length - 1 ? ' ' : ''}
+                      </Text>
+                    );
+                  })}
+                </Text>
+              </Pressable>
             );
           })}
         </View>
-        <View style={{ height: 210 }} />
+        <View style={{ height: 268 }} />
       </ScrollView>
 
       <View style={styles.player}>
-        <View style={styles.progressTrack}><View style={[styles.progressFill, { width: `${Math.round(narrator.progress * 100)}%` }]} /></View>
+        <View style={styles.progressTrack}><View style={[styles.progressFill, { width: `${Math.round(absoluteProgressPercent)}%` }]} /></View>
         <View style={styles.playerStatusRow}>
           <Text numberOfLines={1} style={[styles.playerStatus, narrator.error && styles.playerError]}>{status}</Text>
           <Text style={styles.time}>{formatReadTime(narrator.currentTime)} / {formatReadTime(narrator.duration)}</Text>
         </View>
         <View style={styles.playerMainRow}>
-          <Pressable onPress={() => setVoicePickerOpen(true)} style={styles.voiceButton}><Text style={styles.controlLabel}>VOICE</Text><Text numberOfLines={1} style={styles.voiceText}>{selectedVoice?.name ?? 'Loading…'}</Text></Pressable>
+          <Pressable onPress={() => setVoicePickerOpen(true)} style={styles.voiceButton} accessibilityLabel="Choose voice">
+            <View style={styles.voiceLabelRow}><Ionicons name="mic-outline" size={13} color="#8597FF" /><Text style={styles.controlLabel}>VOICE</Text></View>
+            <Text numberOfLines={1} style={styles.voiceText}>{selectedVoice?.name ?? 'Loading…'}</Text>
+          </Pressable>
           <View style={styles.speedBox}>
             <Pressable onPress={() => changeRate(-0.1)} style={styles.speedTap}><Text style={styles.speedGlyph}>−</Text></Pressable>
             <Text style={styles.speedText}>{rate.toFixed(1)}×</Text>
             <Pressable onPress={() => changeRate(0.1)} style={styles.speedTap}><Text style={styles.speedGlyph}>+</Text></Pressable>
           </View>
         </View>
+        <View style={styles.focusRow}>
+          {(['chunk', 'sentence', 'word'] as DocumentFocusMode[]).map((mode) => (
+            <Pressable key={mode} onPress={() => setFocusMode(mode)} style={[styles.focusButton, focusMode === mode && styles.focusButtonActive]}>
+              <Text style={[styles.focusText, focusMode === mode && styles.focusTextActive]}>{mode[0].toUpperCase() + mode.slice(1)}</Text>
+            </Pressable>
+          ))}
+        </View>
         <View style={styles.transportRow}>
+          <Pressable disabled={!narrator.active || narrator.buffering} onPress={() => narrator.seekCurrent(narrator.currentTime - 15)} style={[styles.seekButton, (!narrator.active || narrator.buffering) && styles.disabled]} accessibilityLabel="Rewind 15 seconds">
+            <Ionicons name="play-back" size={18} color="#E6ECF7" /><Text style={styles.seekText}>15</Text>
+          </Pressable>
           {!narrator.active ? (
-            <Pressable disabled={!selectedVoice} onPress={startReading} style={[styles.playButton, !selectedVoice && styles.disabled]}><Text style={styles.playIcon}>▶</Text><Text style={styles.playText}>{narrator.progress >= 0.999 ? 'Read again' : 'Play'}</Text></Pressable>
+            <Pressable disabled={!selectedVoice} onPress={startReading} style={[styles.playButton, !selectedVoice && styles.disabled]}>
+              <Ionicons name="play" size={17} color="#FFFFFF" /><Text style={styles.playText}>{absoluteProgressPercent >= 99.9 ? 'Read again' : 'Play'}</Text>
+            </Pressable>
           ) : (
-            <Pressable disabled={narrator.buffering} onPress={narrator.togglePause} style={[styles.playButton, narrator.buffering && styles.disabled]}><Text style={styles.playIcon}>{narrator.paused ? '▶' : 'Ⅱ'}</Text><Text style={styles.playText}>{narrator.paused ? 'Resume' : 'Pause'}</Text></Pressable>
+            <Pressable disabled={narrator.buffering} onPress={narrator.togglePause} style={[styles.playButton, narrator.buffering && styles.disabled]}>
+              <Ionicons name={narrator.paused ? 'play' : 'pause'} size={17} color="#FFFFFF" /><Text style={styles.playText}>{narrator.paused ? 'Resume' : 'Pause'}</Text>
+            </Pressable>
           )}
-          <Pressable disabled={!narrator.active} onPress={narrator.stop} style={[styles.stopButton, !narrator.active && styles.disabled]}><Text style={styles.stopIcon}>■</Text><Text style={styles.stopText}>Stop</Text></Pressable>
-          <View style={styles.counterBox}><Text style={styles.counterTop}>POSITION</Text><Text style={styles.counterText}>{narrator.totalSegments ? `${narrator.currentSegment + 1} / ${narrator.totalSegments}` : `1 / ${Math.max(segments.length, 1)}`}</Text></View>
+          <Pressable disabled={!narrator.active || narrator.buffering} onPress={() => narrator.seekCurrent(narrator.currentTime + 15)} style={[styles.seekButton, (!narrator.active || narrator.buffering) && styles.disabled]} accessibilityLabel="Forward 15 seconds">
+            <Ionicons name="play-forward" size={18} color="#E6ECF7" /><Text style={styles.seekText}>15</Text>
+          </Pressable>
+          <Pressable disabled={!narrator.active} onPress={narrator.stop} style={[styles.stopIconButton, !narrator.active && styles.disabled]} accessibilityLabel="Stop reading"><Ionicons name="stop" size={16} color="#E9DCE4" /></Pressable>
+        </View>
+        <View style={styles.positionRow}>
+          <Text style={styles.positionText}>Sentence {activeSourceSegmentIndex >= 0 ? activeSourceSegmentIndex + 1 : 1} of {Math.max(segments.length, 1)}</Text>
+          <Text style={styles.positionText}>{Math.round(absoluteProgressPercent)}%</Text>
         </View>
       </View>
 
@@ -250,8 +380,10 @@ const styles = StyleSheet.create({
   textCard: { borderRadius: 24, backgroundColor: '#101722', borderWidth: 1, borderColor: '#1B2839', paddingVertical: 12, paddingHorizontal: 9 },
   segment: { borderRadius: 14, paddingHorizontal: 12, paddingVertical: 9, marginVertical: 1 },
   segmentActive: { backgroundColor: '#1B2A50', borderLeftWidth: 3, borderLeftColor: '#7187FF' },
+  segmentPressed: { opacity: 0.78 },
   segmentText: { color: '#D6DCE6', fontSize: 17, lineHeight: 28, letterSpacing: 0.05 },
   segmentTextActive: { color: '#FFFFFF' },
+  wordActive: { color: '#FFFFFF', backgroundColor: '#5364FF', fontWeight: '900' },
   player: { position: 'absolute', left: 10, right: 10, bottom: 8, borderRadius: 24, backgroundColor: '#111A29', borderWidth: 1, borderColor: '#25334B', padding: 12, gap: 9, shadowColor: '#000000', shadowOpacity: 0.38, shadowRadius: 18, shadowOffset: { width: 0, height: 7 }, elevation: 12 },
   progressTrack: { height: 4, borderRadius: 999, backgroundColor: '#253149', overflow: 'hidden' },
   progressFill: { height: '100%', backgroundColor: '#7187FF', borderRadius: 999 },
@@ -261,16 +393,27 @@ const styles = StyleSheet.create({
   time: { color: '#7187FF', fontSize: 10, fontWeight: '900' },
   playerMainRow: { flexDirection: 'row', alignItems: 'center', gap: 8 },
   voiceButton: { flex: 1, minHeight: 46, borderRadius: 15, backgroundColor: '#18243A', paddingHorizontal: 12, justifyContent: 'center' },
+  voiceLabelRow: { flexDirection: 'row', alignItems: 'center', gap: 5 },
   controlLabel: { color: '#7187FF', fontSize: 7.5, fontWeight: '900', letterSpacing: 1.1 },
   voiceText: { color: '#FFFFFF', fontSize: 12.5, fontWeight: '900', marginTop: 2 },
   speedBox: { minHeight: 46, borderRadius: 15, backgroundColor: '#18243A', flexDirection: 'row', alignItems: 'center', overflow: 'hidden' },
   speedTap: { width: 39, height: 46, alignItems: 'center', justifyContent: 'center' },
   speedGlyph: { color: '#FFFFFF', fontSize: 21, fontWeight: '800' },
   speedText: { width: 45, color: '#FFFFFF', fontSize: 12, fontWeight: '900', textAlign: 'center' },
+  focusRow: { flexDirection: 'row', alignItems: 'center', gap: 6 },
+  focusButton: { flex: 1, minHeight: 32, borderRadius: 11, alignItems: 'center', justifyContent: 'center', backgroundColor: '#151F30', borderWidth: 1, borderColor: '#24334B' },
+  focusButtonActive: { backgroundColor: '#263A72', borderColor: '#7187FF' },
+  focusText: { color: '#9EABBD', fontSize: 9.5, fontWeight: '800' },
+  focusTextActive: { color: '#FFFFFF' },
   transportRow: { flexDirection: 'row', alignItems: 'center', gap: 7 },
-  playButton: { flex: 1.2, minHeight: 43, borderRadius: 14, backgroundColor: '#5364FF', flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 7 },
+  seekButton: { width: 48, minHeight: 43, borderRadius: 14, backgroundColor: '#202C40', alignItems: 'center', justifyContent: 'center', flexDirection: 'row', gap: 2 },
+  seekText: { color: '#AEB8C8', fontSize: 8, fontWeight: '900' },
+  playButton: { flex: 1, minHeight: 43, borderRadius: 14, backgroundColor: '#5364FF', flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 7 },
   playIcon: { color: '#FFFFFF', fontSize: 12, fontWeight: '900' },
   playText: { color: '#FFFFFF', fontSize: 12, fontWeight: '900' },
+  stopIconButton: { width: 43, minHeight: 43, borderRadius: 14, backgroundColor: '#2A2632', alignItems: 'center', justifyContent: 'center', borderWidth: 1, borderColor: '#493647' },
+  positionRow: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', paddingHorizontal: 2 },
+  positionText: { color: '#75849A', fontSize: 9.5, fontWeight: '800' },
   stopButton: { minWidth: 78, minHeight: 43, borderRadius: 14, backgroundColor: '#273247', flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 6 },
   stopIcon: { color: '#D8DFEA', fontSize: 8 },
   stopText: { color: '#FFFFFF', fontSize: 11, fontWeight: '900' },
