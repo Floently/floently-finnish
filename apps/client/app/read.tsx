@@ -3,6 +3,7 @@ import { router, useLocalSearchParams } from 'expo-router';
 import React, { useEffect, useMemo, useRef, useState } from 'react';
 import {
   Alert,
+  AppState,
   Keyboard,
   Modal,
   Pressable,
@@ -17,9 +18,17 @@ import { WebView, type WebViewMessageEvent } from 'react-native-webview';
 import { createReadProjectFromText, fetchReadVoices, type ReadVoice } from '@core/api/read';
 import { useAuthStore } from '../state/authStore';
 import { formatReadTime, useReadNarrator } from '../features/read/useReadNarrator';
+import {
+  canonicalizeReadUrl,
+  contentFingerprint,
+  isSensitiveAuthUrl,
+  loadReadWebContinuity,
+  saveReadWebContinuity,
+  type ReadWebContinuitySnapshot,
+} from '../features/read/webContinuity';
 
 const NativeWebView: any = WebView;
-const DEFAULT_URL = 'https://www.udacity.com/';
+const DEFAULT_URL = 'https://www.google.com/';
 type PlayerDockMode = 'auto' | 'pinned' | 'minimized';
 const PLAYER_DOCK_MODE_KEY = 'floently.read.playerDockMode.v1';
 const PLAYER_AUTO_COLLAPSE_MS = 1400;
@@ -63,7 +72,7 @@ type BrowserPlaybackChunk = {
   entries: BrowserPlaybackChunkEntry[];
 };
 
-function buildPlaybackChunks(segments: BrowserReadSegment[], startSegmentIndex = 0, maxChars = 1800): BrowserPlaybackChunk[] {
+function buildPlaybackChunks(segments: BrowserReadSegment[], startSegmentIndex = 0, maxChars = 1800, firstSegmentWordOffset = 0): BrowserPlaybackChunk[] {
   const chunks: BrowserPlaybackChunk[] = [];
   let textParts: string[] = [];
   let entries: BrowserPlaybackChunkEntry[] = [];
@@ -83,7 +92,7 @@ function buildPlaybackChunks(segments: BrowserReadSegment[], startSegmentIndex =
     const segmentIndex = startSegmentIndex + localIndex;
     const sourceWords = segment.text.match(/\S+/g) ?? [];
     if (!sourceWords.length) return;
-    let cursor = 0;
+    let cursor = localIndex === 0 ? Math.min(Math.max(0, firstSegmentWordOffset), Math.max(0, sourceWords.length - 1)) : 0;
     while (cursor < sourceWords.length) {
       let take = 0;
       let pieceChars = 0;
@@ -113,12 +122,19 @@ function buildPlaybackChunks(segments: BrowserReadSegment[], startSegmentIndex =
 
 const INSTALL_READ_BRIDGE_SCRIPT = `
 (() => {
-  if (window.__floentlyReadBridge && window.__floentlyReadBridge.version === '2') return true;
+  if (window.__floentlyReadBridge && window.__floentlyReadBridge.version === '3') return true;
   const normalize = (value) => String(value || '').replace(/\\r/g, '\\n').replace(/[^\\S\\n]+/g, ' ').replace(/\\n{3,}/g, '\\n\\n').trim();
   const sentenceParts = (value) => {
     const text = normalize(value);
     if (!text) return [];
-    return (text.match(/[^.!?\\n]+(?:[.!?]+|$)/g) || [text]).map(normalize).filter((part) => part.length > 1);
+    const rough = (text.match(/[^.!?…！？。\\n]+(?:[.!?…！？。]+|$)/g) || [text]).map(normalize).filter((part) => part.length > 1);
+    const bounded = [];
+    for (const part of rough) {
+      const words = part.match(/\\S+/g) || [];
+      if (words.length <= 36) { bounded.push(part); continue; }
+      for (let index = 0; index < words.length; index += 32) bounded.push(words.slice(index, index + 32).join(' '));
+    }
+    return bounded;
   };
   const interactive = 'a,button,input,textarea,select,label,summary,[role="button"],[contenteditable="true"]';
   const noise = 'script,style,noscript,nav,aside,footer,form,[role="navigation"],[role="dialog"],[aria-hidden="true"],[class*="sidebar" i],[class*="drawer" i],[class*="menu" i],[class*="cookie" i]';
@@ -138,6 +154,13 @@ const INSTALL_READ_BRIDGE_SCRIPT = `
   let model = null;
   let interactionMode = 'none';
   let cachedSelection = '';
+  let activeRoot = null;
+  let rootObserver = null;
+  let contentTimer = null;
+  let routeTimer = null;
+  let lastContentSignature = '';
+  let lastContentText = '';
+  let lastRoute = location.href;
   const post = (payload) => {
     try { window.ReactNativeWebView.postMessage(JSON.stringify(payload)); } catch (_) {}
   };
@@ -146,6 +169,18 @@ const INSTALL_READ_BRIDGE_SCRIPT = `
       const selected = normalize(window.getSelection && window.getSelection().toString());
       if (selected.length > 1) cachedSelection = selected;
     } catch (_) {}
+  };
+  const signature = (value) => {
+    const text = normalize(value);
+    let hash = 2166136261;
+    const sample = text.length > 2600 ? text.slice(0, 1300) + text.slice(-1300) : text;
+    for (let i = 0; i < sample.length; i += 1) { hash ^= sample.charCodeAt(i); hash = Math.imul(hash, 16777619); }
+    return text.length + ':' + (hash >>> 0).toString(36);
+  };
+  const isAuthLikePage = () => {
+    const target = (location.pathname + ' ' + location.search).toLowerCase();
+    return /(?:^|[\/_-])(login|log-in|signin|sign-in|signup|sign-up|oauth|authorize|authorization|sso|saml|auth|account)(?:[\/_-]|$)/i.test(target)
+      || Boolean(document.querySelector('input[type=\"password\"]'));
   };
   document.addEventListener('selectionchange', rememberSelection, true);
   const clearFocus = () => { try { if (CSS.highlights) CSS.highlights.delete('floently-read-focus'); } catch (_) {} };
@@ -205,7 +240,7 @@ const INSTALL_READ_BRIDGE_SCRIPT = `
     return true;
   };
   const getCandidateRoot = () => {
-    const selectors = ['main','article','[role="main"]','[class*="lesson" i]','[class*="lecture" i]','[class*="concept" i]','[class*="transcript" i]','[class*="content" i]','[class*="prose" i]'];
+    const selectors = ['main','article','[role="main"]','[itemprop="articleBody"]','[class*="lesson" i]','[class*="lecture" i]','[class*="course-content" i]','[id*="region-main" i]','[class*="book" i]','[class*="chapter" i]','[class*="article" i]','[class*="story" i]','[class*="entry-content" i]','[class*="transcript" i]','[class*="documentation" i]','[class*="docs-content" i]','[class*="content" i]','[class*="prose" i]'];
     const candidates = Array.from(new Set(selectors.flatMap((selector) => Array.from(document.querySelectorAll(selector))))).filter(visible);
     const score = (el) => {
       const text = normalize(el.innerText || '');
@@ -220,8 +255,71 @@ const INSTALL_READ_BRIDGE_SCRIPT = `
     };
     return candidates.sort((a,b) => score(b) - score(a))[0] || document.querySelector('main') || document.querySelector('article') || document.body;
   };
-  const extract = () => {
+  const observeReadableRoot = (root) => {
+    if (!root || typeof MutationObserver === 'undefined') return;
+    if (rootObserver) rootObserver.disconnect();
+    activeRoot = root;
+    lastContentText = normalize(root.innerText || root.textContent || '');
+    lastContentSignature = signature(lastContentText);
+    rootObserver = new MutationObserver(() => {
+      if (!model || isAuthLikePage()) return;
+      if (contentTimer) clearTimeout(contentTimer);
+      contentTimer = setTimeout(() => {
+        contentTimer = null;
+        if (!activeRoot || !document.contains(activeRoot)) {
+          post({ type: 'READ_CONTENT_CHANGED', url: location.href, title: document.title || '', signature: 'root-replaced' });
+          extract('content');
+          return;
+        }
+        const nextText = normalize(activeRoot.innerText || activeRoot.textContent || '');
+        const nextSignature = signature(nextText);
+        if (!nextSignature || nextSignature === lastContentSignature) return;
+        const lengthDelta = Math.abs(nextText.length - lastContentText.length);
+        const threshold = Math.max(100, Math.round(Math.max(lastContentText.length, 1) * 0.05));
+        const headChanged = nextText.slice(0, 500) !== lastContentText.slice(0, 500);
+        const tailChanged = nextText.slice(-500) !== lastContentText.slice(-500);
+        lastContentText = nextText;
+        lastContentSignature = nextSignature;
+        if (lengthDelta < threshold && !(headChanged && tailChanged)) return;
+        post({ type: 'READ_CONTENT_CHANGED', url: location.href, title: document.title || '', signature: nextSignature });
+        extract('content');
+      }, 520);
+    });
+    rootObserver.observe(root.parentElement || root, { childList: true, subtree: true, characterData: true });
+  };
+  const scheduleRouteExtract = () => {
+    if (!model || isAuthLikePage()) return;
+    if (routeTimer) clearTimeout(routeTimer);
+    routeTimer = setTimeout(() => { routeTimer = null; extract('route'); }, 720);
+  };
+  const emitRoute = (reason) => {
+    const url = location.href;
+    const changed = url !== lastRoute;
+    lastRoute = url;
+    const authLike = isAuthLikePage();
+    post({ type: 'READ_ROUTE', url, title: document.title || '', reason, changed, authLike });
+    if (changed && !authLike) scheduleRouteExtract();
+  };
+  const installRouteContinuity = () => {
+    if (window.__floentlyReadRoutePatched) return;
+    window.__floentlyReadRoutePatched = true;
+    const wrap = (name) => {
+      const original = history[name];
+      if (typeof original !== 'function') return;
+      history[name] = function(...args) { const result = original.apply(this, args); queueMicrotask(() => emitRoute(name)); return result; };
+    };
+    wrap('pushState');
+    wrap('replaceState');
+    addEventListener('popstate', () => emitRoute('popstate'), true);
+    addEventListener('hashchange', () => emitRoute('hashchange'), true);
+    addEventListener('pageshow', () => emitRoute('pageshow'), true);
+  };
+  const extract = (reason = 'manual') => {
     try {
+      if (isAuthLikePage()) {
+        post({ type: 'READ_SENSITIVE_ROUTE', url: location.href, title: document.title || '', reason });
+        return null;
+      }
       clearActive();
       document.querySelectorAll('[data-floently-read-block]').forEach((el) => el.removeAttribute('data-floently-read-block'));
       const root = getCandidateRoot();
@@ -259,7 +357,8 @@ const INSTALL_READ_BRIDGE_SCRIPT = `
         textParts.push(fallbackText);
       }
       model = { text: textParts.join('\\n\\n'), title: document.title || 'Web reading', url: location.href, lang: document.documentElement.lang || 'en-US', segments };
-      post({ type: 'READ_MODEL', ...model });
+      observeReadableRoot(root);
+      post({ type: 'READ_MODEL', reason, contentSignature: lastContentSignature, ...model });
       return model;
     } catch (error) {
       post({ type: 'READ_ERROR', message: String(error && error.message || error) });
@@ -380,19 +479,23 @@ const INSTALL_READ_BRIDGE_SCRIPT = `
   document.addEventListener('touchend', handleTouchEnd, true);
   document.addEventListener('click', handleClick, true);
   window.__floentlyReadBridge = {
-    version: '2',
+    version: '3',
     extract,
     highlightSegment,
     highlightFocus,
     setInteractionMode: (mode) => { interactionMode = ['jump','sentence','word'].includes(mode) ? mode : 'none'; clearActive(); return interactionMode; },
     getSelection: () => { rememberSelection(); post({ type:'READ_PICK', mode:'selection', text: cachedSelection, title:document.title, url:location.href, lang:document.documentElement.lang || 'en-US' }); return cachedSelection; },
     clearHighlight: clearActive,
+    routeState: () => ({ url: location.href, title: document.title || '', authLike: isAuthLikePage() }),
   };
+  installRouteContinuity();
+  queueMicrotask(() => emitRoute('bridge-ready'));
   return true;
 })(); true;
 `;
 
-const EXTRACT_SCRIPT = `${INSTALL_READ_BRIDGE_SCRIPT}\nwindow.__floentlyReadBridge && window.__floentlyReadBridge.extract(); true;`;
+const EXTRACT_SCRIPT = `${INSTALL_READ_BRIDGE_SCRIPT}\nwindow.__floentlyReadBridge && window.__floentlyReadBridge.extract('manual'); true;`;
+const ROUTE_EXTRACT_SCRIPT = `${INSTALL_READ_BRIDGE_SCRIPT}\nwindow.__floentlyReadBridge && window.__floentlyReadBridge.extract('route'); true;`;
 
 export default function ReadBrowserScreen() {
   const params = useLocalSearchParams<{ url?: string | string[] }>();
@@ -405,7 +508,7 @@ export default function ReadBrowserScreen() {
   const [address, setAddress] = useState(initialUrl);
   const [canGoBack, setCanGoBack] = useState(false);
   const [canGoForward, setCanGoForward] = useState(false);
-  const [manualStatus, setManualStatus] = useState('Open your course, sign in, then tap Read page.');
+  const [manualStatus, setManualStatus] = useState('Open a course, article, book, document, or other webpage, then tap Read page.');
   const [rate, setRate] = useState(1);
   const [voices, setVoices] = useState<ReadVoice[]>([]);
   const [selectedVoiceId, setSelectedVoiceId] = useState<string | null>(null);
@@ -416,6 +519,9 @@ export default function ReadBrowserScreen() {
   const [playbackScope, setPlaybackScope] = useState<'none' | 'page' | 'picked'>('none');
   const [playbackChunks, setPlaybackChunks] = useState<BrowserPlaybackChunk[]>([]);
   const lastFocusKeyRef = useRef('');
+  const routeAutoContinueRef = useRef(false);
+  const continuitySaveTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const lastContinuityFingerprintRef = useRef('');
   const [pageLanguage, setPageLanguage] = useState('en-US');
   const [lastExtracted, setLastExtracted] = useState<BrowserReadModel | null>(null);
   const [savingPage, setSavingPage] = useState(false);
@@ -505,6 +611,54 @@ export default function ReadBrowserScreen() {
     ? activePlaybackEntry.sourceWordStart + Math.max(0, narrator.currentWordIndex - activePlaybackEntry.startWord)
     : 0;
   const activeSourceSegment = activeSourceSegmentIndex >= 0 ? lastExtracted?.segments[activeSourceSegmentIndex] ?? null : null;
+  const currentContentFingerprint = useMemo(() => contentFingerprint(lastExtracted?.text ?? ''), [lastExtracted?.text]);
+
+  const persistCurrentContinuityNow = () => {
+    if (playbackScope !== 'page' || !lastExtracted?.url || !currentContentFingerprint) return;
+    const snapshot: ReadWebContinuitySnapshot = {
+      version: 2,
+      canonicalUrl: canonicalizeReadUrl(lastExtracted.url),
+      title: lastExtracted.title,
+      contentFingerprint: currentContentFingerprint,
+      segmentIndex: Math.max(0, activeSourceSegmentIndex),
+      wordIndex: Math.max(0, activeSourceWordIndex),
+      focusMode,
+      voiceId: selectedVoiceId,
+      rate,
+      savedAt: Date.now(),
+    };
+    lastContinuityFingerprintRef.current = currentContentFingerprint;
+    void saveReadWebContinuity(snapshot);
+  };
+
+  useEffect(() => {
+    if (playbackScope !== 'page' || !lastExtracted?.url || activeSourceSegmentIndex < 0) return;
+    if (continuitySaveTimerRef.current) clearTimeout(continuitySaveTimerRef.current);
+    continuitySaveTimerRef.current = setTimeout(() => {
+      const snapshot: ReadWebContinuitySnapshot = {
+        version: 2, canonicalUrl: canonicalizeReadUrl(lastExtracted.url), title: lastExtracted.title,
+        contentFingerprint: currentContentFingerprint, segmentIndex: activeSourceSegmentIndex,
+        wordIndex: Math.max(0, activeSourceWordIndex), focusMode, voiceId: selectedVoiceId, rate, savedAt: Date.now(),
+      };
+      lastContinuityFingerprintRef.current = currentContentFingerprint;
+      void saveReadWebContinuity(snapshot);
+      continuitySaveTimerRef.current = null;
+    }, 900);
+    return () => { if (continuitySaveTimerRef.current) { clearTimeout(continuitySaveTimerRef.current); continuitySaveTimerRef.current = null; } };
+  }, [activeSourceSegmentIndex, activeSourceWordIndex, currentContentFingerprint, focusMode, lastExtracted?.title, lastExtracted?.url, playbackScope, rate, selectedVoiceId]);
+
+  useEffect(() => {
+    const subscription = AppState.addEventListener('change', (state) => {
+      if (state === 'active' || playbackScope !== 'page' || !lastExtracted?.url || activeSourceSegmentIndex < 0) return;
+      const snapshot: ReadWebContinuitySnapshot = {
+        version: 2, canonicalUrl: canonicalizeReadUrl(lastExtracted.url), title: lastExtracted.title,
+        contentFingerprint: currentContentFingerprint, segmentIndex: activeSourceSegmentIndex,
+        wordIndex: Math.max(0, activeSourceWordIndex), focusMode, voiceId: selectedVoiceId, rate, savedAt: Date.now(),
+      };
+      void saveReadWebContinuity(snapshot);
+    });
+    return () => subscription.remove();
+  }, [activeSourceSegmentIndex, activeSourceWordIndex, currentContentFingerprint, focusMode, lastExtracted?.title, lastExtracted?.url, playbackScope, rate, selectedVoiceId]);
 
   useEffect(() => {
     if (playbackScope !== 'page' || !activePlaybackEntry || !lastExtracted?.segments.length) return;
@@ -533,13 +687,103 @@ export default function ReadBrowserScreen() {
   const readPage = () => {
     narrator.stop();
     setPlaybackScope('none');
-    setManualStatus('Finding the main lesson text…');
+    setManualStatus('Finding the main readable content…');
     webRef.current?.injectJavaScript(EXTRACT_SCRIPT);
+  };
+
+  const handleDetectedRoute = (url: string, authLike: boolean) => {
+    const nextCanonical = canonicalizeReadUrl(url);
+    const previousCanonical = canonicalizeReadUrl(lastNavigationUrlRef.current);
+    lastNavigationUrlRef.current = url;
+    setAddress(url);
+    if (authLike || isSensitiveAuthUrl(url)) {
+      persistCurrentContinuityNow();
+      routeAutoContinueRef.current = false;
+      narrator.stop();
+      setPlaybackScope('none');
+      setPlaybackChunks([]);
+      setLastExtracted(null);
+      setManualStatus('Sign-in page detected. Floently reading is suspended until you return to content.');
+      return;
+    }
+    if (nextCanonical === previousCanonical) return;
+    let sameOrigin = false;
+    try { sameOrigin = new URL(nextCanonical).origin === new URL(previousCanonical).origin; } catch { sameOrigin = false; }
+    const shouldContinue = sameOrigin && narrator.active && playbackScope === 'page' && Boolean(lastExtracted);
+    if (lastExtracted) persistCurrentContinuityNow();
+    routeAutoContinueRef.current = sameOrigin && (routeAutoContinueRef.current || shouldContinue);
+    narrator.stop();
+    setPlaybackScope('none');
+    setPlaybackChunks([]);
+    setLastExtracted(null);
+    lastFocusKeyRef.current = '';
+    setManualStatus(shouldContinue ? 'Page changed · finding the next readable content…' : 'Page changed. Tap Read page when you are ready.');
+  };
+
+  const applyReadModel = async (payload: any, extracted: BrowserReadModel, segments: BrowserReadSegment[]) => {
+    const reason = String(payload?.reason || 'manual');
+    const fingerprint = contentFingerprint(extracted.text);
+    if (reason === 'content' && fingerprint === currentContentFingerprint) return;
+    if (reason === 'content' && !narrator.active) return;
+
+    let startSegmentIndex = 0;
+    let startWordIndex = 0;
+    let resumeFocusMode: ReadFocusMode = focusMode;
+    let resumeLabel = '';
+
+    if (reason === 'content' && lastExtracted && canonicalizeReadUrl(lastExtracted.url) === canonicalizeReadUrl(extracted.url) && activeSourceSegment) {
+      const anchor = activeSourceSegment.text.replace(/\s+/g, ' ').trim().toLowerCase();
+      const mapped = segments.findIndex((segment) => segment.text.replace(/\s+/g, ' ').trim().toLowerCase() === anchor);
+      if (mapped >= 0) {
+        startSegmentIndex = mapped;
+        startWordIndex = activeSourceWordIndex;
+        resumeLabel = 'Updated page · continuing from the current sentence';
+      }
+    } else {
+      const saved = await loadReadWebContinuity(extracted.url);
+      if (saved && saved.contentFingerprint === fingerprint && saved.segmentIndex < segments.length) {
+        startSegmentIndex = Math.max(0, saved.segmentIndex);
+        startWordIndex = Math.max(0, saved.wordIndex);
+        resumeFocusMode = saved.focusMode;
+        resumeLabel = `Resuming sentence ${startSegmentIndex + 1} · word ${startWordIndex + 1}`;
+        if (Number.isFinite(saved.rate)) setRate(Math.min(2, Math.max(0.5, saved.rate)));
+      }
+    }
+
+    const chunks = buildPlaybackChunks(segments.slice(startSegmentIndex), startSegmentIndex, 1800, startWordIndex);
+    setLastExtracted(extracted);
+    setPlaybackChunks(chunks);
+    setFocusMode(resumeFocusMode);
+    lastFocusKeyRef.current = '';
+    lastContinuityFingerprintRef.current = fingerprint;
+    const shouldStart = reason === 'manual' || routeAutoContinueRef.current || (reason === 'content' && narrator.active);
+    routeAutoContinueRef.current = false;
+    if (!shouldStart) {
+      setManualStatus(`Ready · ${extracted.title} · ${segments.length} sentences`);
+      return;
+    }
+    setPlaybackScope('page');
+    webRef.current?.injectJavaScript("window.__floentlyReadBridge && window.__floentlyReadBridge.setInteractionMode('jump'); true;");
+    setManualStatus(resumeLabel || `Reading · ${extracted.title} · ${segments.length} sentences`);
+    void narrator.startSegments(chunks.map((chunk) => ({ text: chunk.text, pauseAfterMs: 0 })));
   };
 
   const handleMessage = (event: WebViewMessageEvent) => {
     try {
       const payload = JSON.parse(event.nativeEvent.data);
+      if (payload?.type === 'READ_ROUTE') {
+        const url = String(payload.url || address).trim();
+        handleDetectedRoute(url, Boolean(payload.authLike));
+        return;
+      }
+      if (payload?.type === 'READ_SENSITIVE_ROUTE') {
+        handleDetectedRoute(String(payload.url || address).trim(), true);
+        return;
+      }
+      if (payload?.type === 'READ_CONTENT_CHANGED') {
+        if (narrator.active) setManualStatus('Readable content changed · remapping your current position…');
+        return;
+      }
       if (payload?.type === 'READ_ERROR') {
         setManualStatus(payload.message || 'Could not read this page.');
         return;
@@ -547,9 +791,8 @@ export default function ReadBrowserScreen() {
       if (payload?.type === 'READ_JUMP') {
         const index = Number(payload.index);
         if (Number.isFinite(index) && index >= 0 && index < (lastExtracted?.segments.length ?? 0)) {
-          setPlaybackScope('page');
-          narrator.jumpToSegment(index);
-          setManualStatus(`Jumped to section ${index + 1}.`);
+          jumpToSection(index);
+          setManualStatus(`Jumped to sentence ${index + 1}.`);
         }
         return;
       }
@@ -582,7 +825,7 @@ export default function ReadBrowserScreen() {
             .filter((segment: BrowserReadSegment) => Boolean(segment.text))
         : [];
       if (!text || !segments.length) {
-        setManualStatus('No readable lesson text was found on this view.');
+        setManualStatus('No readable main content was found on this view.');
         return;
       }
       const extracted: BrowserReadModel = {
@@ -591,15 +834,7 @@ export default function ReadBrowserScreen() {
         title: String(payload.title || 'Web reading').trim() || 'Web reading',
         url: String(payload.url || address).trim(),
       };
-      const chunks = buildPlaybackChunks(segments);
-      setLastExtracted(extracted);
-      setPlaybackChunks(chunks);
-      setFocusMode('sentence');
-      lastFocusKeyRef.current = '';
-      setManualStatus(`Ready · ${extracted.title} · ${segments.length} sentences · ${chunks.length} audio blocks`);
-      setPlaybackScope('page');
-      webRef.current?.injectJavaScript("window.__floentlyReadBridge && window.__floentlyReadBridge.setInteractionMode('jump'); true;");
-      void narrator.startSegments(chunks.map((chunk) => ({ text: chunk.text, pauseAfterMs: 0 })));
+      void applyReadModel(payload, extracted, segments);
     } catch {
       // Ignore messages outside the Read bridge.
     }
@@ -608,11 +843,16 @@ export default function ReadBrowserScreen() {
   const go = () => {
     Keyboard.dismiss();
     const next = normalizeUrl(address);
-    setCurrentUrl(next);
-    setAddress(next);
+    if (lastExtracted) persistCurrentContinuityNow();
+    routeAutoContinueRef.current = false;
     narrator.stop();
     setPlaybackScope('none');
-    setManualStatus('Page changed. Tap Read page when you are ready.');
+    setPlaybackChunks([]);
+    setLastExtracted(null);
+    lastNavigationUrlRef.current = next;
+    setCurrentUrl(next);
+    setAddress(next);
+    setManualStatus('Opening page. Tap Read page when the content is ready.');
   };
 
   const changeRate = (delta: number) => {
@@ -725,15 +965,20 @@ export default function ReadBrowserScreen() {
           onNavigationStateChange={(nav: any) => {
             setCanGoBack(nav.canGoBack);
             setCanGoForward(nav.canGoForward);
-            if (nav.url) {
-              setAddress(nav.url);
-              if (nav.url !== lastNavigationUrlRef.current) {
-                lastNavigationUrlRef.current = nav.url;
-                narrator.stop();
-                            setLastExtracted(null);
-                setManualStatus('Page changed. Tap Read page when the lesson is ready.');
-              }
+            if (!nav.url) return;
+            setAddress(nav.url);
+            if (canonicalizeReadUrl(nav.url) !== canonicalizeReadUrl(lastNavigationUrlRef.current)) {
+              handleDetectedRoute(nav.url, isSensitiveAuthUrl(nav.url));
+            } else {
+              lastNavigationUrlRef.current = nav.url;
             }
+          }}
+          onLoadEnd={() => {
+            const url = lastNavigationUrlRef.current;
+            if (!routeAutoContinueRef.current || isSensitiveAuthUrl(url)) return;
+            setTimeout(() => {
+              if (routeAutoContinueRef.current) webRef.current?.injectJavaScript(ROUTE_EXTRACT_SCRIPT);
+            }, 420);
           }}
           onShouldStartLoadWithRequest={(request: any) => {
             const url = request.url || '';
