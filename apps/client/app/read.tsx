@@ -545,19 +545,57 @@ export default function ReadBrowserScreen() {
       </View>
 
       <View style={styles.readerBar}>
+        <View style={styles.playerTopRow}>
+          <View style={styles.playerBrandMark}><Text style={styles.playerBrandMarkText}>F</Text></View>
+          <View style={styles.playerHeadline}>
+            <Text style={styles.playerEyebrow}>FLOENTLY READ</Text>
+            <Text numberOfLines={1} style={styles.playerTitle}>
+              {narrator.active && narrator.currentText ? narrator.currentText : 'Ready to read this page'}
+            </Text>
+          </View>
+          <Pressable onPress={() => setVoicePickerOpen(true)} style={styles.voiceAvatar}>
+            <Text style={styles.voiceAvatarText}>{voiceLabel.trim().slice(0, 1).toUpperCase() || 'V'}</Text>
+          </Pressable>
+        </View>
+
         <View style={styles.progressLine}>
           <View style={[styles.progressFill, { width: `${Math.round(narrator.progress * 100)}%` }]} />
         </View>
-        <View style={styles.statusRow}>
-          <Text numberOfLines={2} style={styles.status}>{status}</Text>
-          {narrator.totalSegments > 0 ? <Text style={styles.percent}>{Math.round(narrator.progress * 100)}%</Text> : null}
+        <View style={styles.playerMetaRow}>
+          <Text style={styles.playerTime}>{formatReadTime(narrator.currentTime)} / {formatReadTime(narrator.duration)}</Text>
+          <Text numberOfLines={1} style={styles.playerStatusCompact}>{status}</Text>
+          <Text style={styles.percent}>{Math.round(narrator.progress * 100)}%</Text>
         </View>
-        {narrator.active && narrator.currentText ? (
-          <Pressable onPress={() => setSectionsOpen(true)} style={styles.nowReading}>
-            <Text style={styles.nowReadingLabel}>NOW READING · {narrator.currentSegment + 1} / {narrator.totalSegments} · TAP TO JUMP</Text>
-            <Text numberOfLines={2} style={styles.nowReadingText}>{narrator.currentText}</Text>
+
+        <View style={styles.transportHeroRow}>
+          <Pressable disabled={!narrator.active || narrator.buffering} onPress={narrator.skipBackward} style={[styles.transportRoundButton, (!narrator.active || narrator.buffering) && styles.disabled]}>
+            <Text style={styles.transportRoundGlyph}>↶</Text>
           </Pressable>
-        ) : null}
+          <Pressable
+            disabled={narrator.buffering}
+            onPress={narrator.active ? narrator.togglePause : readPage}
+            style={[styles.playHeroButton, narrator.buffering && styles.disabled]}
+          >
+            <Text style={styles.playHeroIcon}>{narrator.buffering ? '…' : narrator.active && !narrator.paused ? 'Ⅱ' : '▶'}</Text>
+            <Text style={styles.playHeroText}>{narrator.buffering ? 'Preparing' : narrator.active ? (narrator.paused ? 'Resume' : 'Pause') : 'Read page'}</Text>
+          </Pressable>
+          <Pressable disabled={!narrator.active || narrator.buffering} onPress={narrator.skipForward} style={[styles.transportRoundButton, (!narrator.active || narrator.buffering) && styles.disabled]}>
+            <Text style={styles.transportRoundGlyph}>↷</Text>
+          </Pressable>
+        </View>
+
+        <View style={styles.playerQuickRow}>
+          <Pressable onPress={() => setVoicePickerOpen(true)} style={styles.quickControl}>
+            <Text style={styles.quickControlLabel}>VOICE</Text>
+            <Text numberOfLines={1} style={styles.quickControlValue}>{voiceLabel}</Text>
+          </Pressable>
+          <View style={styles.speedGroup}>
+            <Pressable onPress={() => changeRate(-0.1)} style={styles.speedButton}><Text style={styles.speedGlyph}>−</Text></Pressable>
+            <View style={styles.speedCenter}><Text style={styles.quickControlLabel}>SPEED</Text><Text style={styles.speedValue}>{rate.toFixed(1)}×</Text></View>
+            <Pressable onPress={() => changeRate(0.1)} style={styles.speedButton}><Text style={styles.speedGlyph}>+</Text></Pressable>
+          </View>
+        </View>
+
         <View style={styles.selectorRow}>
           <Pressable disabled={!lastExtracted?.segments.length} onPress={() => setSectionsOpen(true)} style={[styles.selectorButton, !lastExtracted?.segments.length && styles.disabled]}>
             <Text style={styles.selectorLabel}>Sections</Text>
@@ -572,30 +610,16 @@ export default function ReadBrowserScreen() {
             <Text style={styles.selectorLabel}>Selection</Text>
           </Pressable>
         </View>
-        <View style={styles.controlRow}>
-          <Pressable onPress={() => setVoicePickerOpen(true)} style={styles.voiceButton}>
-            <Text style={styles.controlKicker}>VOICE</Text>
-            <Text numberOfLines={1} style={styles.voiceText}>{voiceLabel}</Text>
+
+        <View style={styles.utilityRow}>
+          <Pressable disabled={!lastExtracted || renderingPage || savingPage} onPress={() => void renderCurrentReading()} style={[styles.utilityButton, (!lastExtracted || renderingPage || savingPage) && styles.disabled]}>
+            <Text style={styles.utilityButtonText}>{renderingPage ? 'Rendering…' : 'Render'}</Text>
           </Pressable>
-          <View style={styles.speedGroup}>
-            <Pressable onPress={() => changeRate(-0.1)} style={styles.speedButton}><Text style={styles.speedGlyph}>−</Text></Pressable>
-            <Text style={styles.speedValue}>{rate.toFixed(1)}×</Text>
-            <Pressable onPress={() => changeRate(0.1)} style={styles.speedButton}><Text style={styles.speedGlyph}>+</Text></Pressable>
-          </View>
+          <Pressable disabled={!lastExtracted || savingPage || renderingPage} onPress={() => void saveCurrentReading()} style={[styles.utilityButton, (!lastExtracted || savingPage || renderingPage) && styles.disabled]}>
+            <Text style={styles.utilityButtonText}>{savingPage ? 'Saving…' : 'Save'}</Text>
+          </Pressable>
+          {narrator.active ? <Pressable onPress={narrator.stop} style={styles.stopCompact}><Text style={styles.stopCompactText}>■ Stop</Text></Pressable> : null}
         </View>
-        <View style={styles.actionRow}>
-          <Pressable onPress={readPage} style={styles.primaryWideAction}><Text style={styles.primaryActionText}>Read page</Text></Pressable>
-          <Pressable disabled={!lastExtracted || renderingPage || savingPage} onPress={() => void renderCurrentReading()} style={[styles.secondaryAction, (!lastExtracted || renderingPage || savingPage) && styles.disabled]}><Text style={styles.secondaryActionText}>{renderingPage ? 'Rendering…' : 'Render'}</Text></Pressable>
-          <Pressable disabled={!lastExtracted || savingPage || renderingPage} onPress={() => void saveCurrentReading()} style={[styles.secondaryAction, (!lastExtracted || savingPage || renderingPage) && styles.disabled]}><Text style={styles.secondaryActionText}>{savingPage ? 'Saving…' : 'Save'}</Text></Pressable>
-        </View>
-        {narrator.active ? (
-          <View style={styles.transportRow}>
-            <Pressable disabled={narrator.buffering} onPress={narrator.skipBackward} style={[styles.transportButton, narrator.buffering && styles.disabled]}><Text style={styles.transportGlyph}>↶</Text><Text style={styles.transportLabel}>Back</Text></Pressable>
-            <Pressable disabled={narrator.buffering} onPress={narrator.togglePause} style={[styles.primaryAction, narrator.buffering && styles.disabled]}><Text style={styles.primaryActionText}>{narrator.paused ? '▶  Resume' : 'Ⅱ  Pause'}</Text></Pressable>
-            <Pressable disabled={narrator.buffering} onPress={narrator.skipForward} style={[styles.transportButton, narrator.buffering && styles.disabled]}><Text style={styles.transportLabel}>Next</Text><Text style={styles.transportGlyph}>↷</Text></Pressable>
-            <Pressable onPress={narrator.stop} style={styles.stopAction}><Text style={styles.stopActionText}>■ Stop</Text></Pressable>
-          </View>
-        ) : null}
       </View>
 
       <Modal visible={sectionsOpen} transparent animationType="slide" onRequestClose={() => setSectionsOpen(false)}>
@@ -667,40 +691,46 @@ const styles = StyleSheet.create({
   goText: { color: '#fff', fontWeight: '700' },
   webWrap: { flex: 1, backgroundColor: '#fff' },
   web: { flex: 1 },
-  readerBar: { paddingHorizontal: 10, paddingTop: 8, paddingBottom: 10, gap: 8, backgroundColor: '#101827', borderTopWidth: StyleSheet.hairlineWidth, borderTopColor: '#273247' },
-  progressLine: { height: 3, borderRadius: 999, backgroundColor: '#243047', overflow: 'hidden' },
-  progressFill: { height: '100%', borderRadius: 999, backgroundColor: '#6f83ff' },
-  statusRow: { flexDirection: 'row', alignItems: 'center', gap: 8 },
-  status: { flex: 1, color: '#c7d0df', fontSize: 11, lineHeight: 15, minHeight: 15 },
-  percent: { color: '#7ea0ff', fontSize: 11, fontWeight: '900', minWidth: 34, textAlign: 'right' },
-  nowReading: { borderRadius: 12, backgroundColor: '#141f31', paddingHorizontal: 10, paddingVertical: 7, borderLeftWidth: 2, borderLeftColor: '#6f83ff' },
-  nowReadingLabel: { color: '#7ea0ff', fontSize: 7.5, fontWeight: '900', letterSpacing: 0.9, marginBottom: 3 },
-  nowReadingText: { color: '#e8edf7', fontSize: 11, lineHeight: 15 },
+  readerBar: { paddingHorizontal: 12, paddingTop: 12, paddingBottom: 12, gap: 10, backgroundColor: '#0C1422', borderTopWidth: 1, borderTopColor: '#25324A', shadowColor: '#000000', shadowOpacity: 0.34, shadowRadius: 20, shadowOffset: { width: 0, height: -6 }, elevation: 18 },
+  playerTopRow: { flexDirection: 'row', alignItems: 'center', gap: 10 },
+  playerBrandMark: { width: 38, height: 38, borderRadius: 13, alignItems: 'center', justifyContent: 'center', backgroundColor: '#5364FF' },
+  playerBrandMarkText: { color: '#FFFFFF', fontSize: 15, fontWeight: '900' },
+  playerHeadline: { flex: 1, minWidth: 0 },
+  playerEyebrow: { color: '#7F92FF', fontSize: 8, lineHeight: 10, fontWeight: '900', letterSpacing: 1.2 },
+  playerTitle: { color: '#F7F9FF', fontSize: 13.5, lineHeight: 18, fontWeight: '800', marginTop: 2 },
+  voiceAvatar: { width: 38, height: 38, borderRadius: 19, alignItems: 'center', justifyContent: 'center', backgroundColor: '#182844', borderWidth: 1, borderColor: '#2C4168' },
+  voiceAvatarText: { color: '#A8B5FF', fontSize: 14, fontWeight: '900' },
+  progressLine: { height: 4, borderRadius: 999, backgroundColor: '#202C40', overflow: 'hidden' },
+  progressFill: { height: '100%', borderRadius: 999, backgroundColor: '#7187FF' },
+  playerMetaRow: { flexDirection: 'row', alignItems: 'center', gap: 7 },
+  playerTime: { color: '#91A0B6', fontSize: 9.5, fontWeight: '700' },
+  playerStatusCompact: { flex: 1, color: '#AAB6C9', fontSize: 9.5, textAlign: 'center' },
+  percent: { color: '#91A3FF', fontSize: 9.5, fontWeight: '900', minWidth: 31, textAlign: 'right' },
+  transportHeroRow: { flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 12 },
+  transportRoundButton: { width: 48, height: 48, borderRadius: 24, alignItems: 'center', justifyContent: 'center', backgroundColor: '#172235', borderWidth: 1, borderColor: '#27364F' },
+  transportRoundGlyph: { color: '#DCE5F4', fontSize: 22, fontWeight: '900' },
+  playHeroButton: { minWidth: 146, height: 52, borderRadius: 18, flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 9, backgroundColor: '#5364FF', paddingHorizontal: 18, shadowColor: '#5364FF', shadowOpacity: 0.28, shadowRadius: 12, shadowOffset: { width: 0, height: 5 }, elevation: 8 },
+  playHeroIcon: { color: '#FFFFFF', fontSize: 15, fontWeight: '900' },
+  playHeroText: { color: '#FFFFFF', fontSize: 13, fontWeight: '900' },
+  playerQuickRow: { flexDirection: 'row', alignItems: 'stretch', gap: 8 },
+  quickControl: { flex: 1, minHeight: 48, borderRadius: 15, backgroundColor: '#151F31', borderWidth: 1, borderColor: '#26344C', paddingHorizontal: 12, justifyContent: 'center' },
+  quickControlLabel: { color: '#7387F6', fontSize: 7.5, fontWeight: '900', letterSpacing: 0.9 },
+  quickControlValue: { color: '#F5F7FD', fontSize: 12, fontWeight: '800', marginTop: 3 },
+  speedGroup: { minHeight: 48, borderRadius: 15, backgroundColor: '#151F31', borderWidth: 1, borderColor: '#26344C', flexDirection: 'row', alignItems: 'center', overflow: 'hidden' },
+  speedButton: { width: 38, height: 48, alignItems: 'center', justifyContent: 'center' },
+  speedGlyph: { color: '#FFFFFF', fontSize: 21, lineHeight: 23, fontWeight: '800' },
+  speedCenter: { width: 48, alignItems: 'center', justifyContent: 'center' },
+  speedValue: { color: '#FFFFFF', fontSize: 11.5, fontWeight: '900', marginTop: 2 },
   selectorRow: { flexDirection: 'row', gap: 6 },
-  selectorButton: { flex: 1, minHeight: 34, borderRadius: 11, backgroundColor: '#151f31', borderWidth: 1, borderColor: '#253149', alignItems: 'center', justifyContent: 'center', paddingHorizontal: 5 },
-  selectorButtonActive: { backgroundColor: '#25386f', borderColor: '#7187ff' },
-  selectorLabel: { color: '#aab5c7', fontSize: 9.5, fontWeight: '800' },
-  selectorLabelActive: { color: '#ffffff' },
-  controlRow: { flexDirection: 'row', alignItems: 'center', gap: 8 },
-  voiceButton: { flex: 1, minHeight: 46, borderRadius: 15, backgroundColor: '#18243a', paddingHorizontal: 12, justifyContent: 'center' },
-  controlKicker: { color: '#7ea0ff', fontSize: 8, fontWeight: '900', letterSpacing: 1 },
-  voiceText: { color: '#fff', fontSize: 13, fontWeight: '800', marginTop: 2 },
-  speedGroup: { flexDirection: 'row', alignItems: 'center', borderRadius: 15, backgroundColor: '#18243a', overflow: 'hidden' },
-  speedButton: { width: 42, height: 46, alignItems: 'center', justifyContent: 'center' },
-  speedGlyph: { color: '#fff', fontSize: 24, lineHeight: 26, fontWeight: '700' },
-  speedValue: { color: '#fff', width: 48, textAlign: 'center', fontSize: 13, fontWeight: '900' },
-  actionRow: { flexDirection: 'row', alignItems: 'center', gap: 7 },
-  transportRow: { flexDirection: 'row', alignItems: 'center', gap: 7 },
-  transportButton: { minWidth: 55, minHeight: 42, borderRadius: 14, alignItems: 'center', justifyContent: 'center', backgroundColor: '#1a2435', paddingHorizontal: 7, flexDirection: 'row', gap: 3 },
-  transportGlyph: { color: '#9cabbe', fontSize: 16, fontWeight: '900' },
-  transportLabel: { color: '#d9e0eb', fontSize: 9.5, fontWeight: '800' },
-  primaryWideAction: { flex: 1.25, minHeight: 42, borderRadius: 14, alignItems: 'center', justifyContent: 'center', backgroundColor: '#5364ff', paddingHorizontal: 8 },
-  secondaryAction: { flex: 1, minHeight: 42, borderRadius: 14, alignItems: 'center', justifyContent: 'center', backgroundColor: '#1a2435', paddingHorizontal: 8 },
-  secondaryActionText: { color: '#e7ecf8', fontSize: 12, fontWeight: '800' },
-  primaryAction: { flex: 1, minHeight: 42, borderRadius: 14, alignItems: 'center', justifyContent: 'center', backgroundColor: '#5364ff', paddingHorizontal: 8 },
-  primaryActionText: { color: '#fff', fontSize: 12, fontWeight: '900' },
-  stopAction: { minWidth: 58, minHeight: 42, borderRadius: 14, alignItems: 'center', justifyContent: 'center', backgroundColor: '#2a3548', paddingHorizontal: 8 },
-  stopActionText: { color: '#fff', fontSize: 12, fontWeight: '800' },
+  selectorButton: { flex: 1, minHeight: 34, borderRadius: 11, backgroundColor: '#121C2C', borderWidth: 1, borderColor: '#24324A', alignItems: 'center', justifyContent: 'center', paddingHorizontal: 4 },
+  selectorButtonActive: { backgroundColor: '#263A72', borderColor: '#7187FF' },
+  selectorLabel: { color: '#A7B2C3', fontSize: 9, fontWeight: '800' },
+  selectorLabelActive: { color: '#FFFFFF' },
+  utilityRow: { flexDirection: 'row', alignItems: 'center', gap: 7 },
+  utilityButton: { flex: 1, minHeight: 36, borderRadius: 12, alignItems: 'center', justifyContent: 'center', backgroundColor: '#151F31', borderWidth: 1, borderColor: '#25334A' },
+  utilityButtonText: { color: '#DCE3EF', fontSize: 10.5, fontWeight: '800' },
+  stopCompact: { flex: 1, minHeight: 36, borderRadius: 12, alignItems: 'center', justifyContent: 'center', backgroundColor: '#2A2632', borderWidth: 1, borderColor: '#493647' },
+  stopCompactText: { color: '#F2DDE6', fontSize: 10.5, fontWeight: '800' },
   modalBackdrop: { flex: 1, justifyContent: 'flex-end', backgroundColor: 'rgba(0,0,0,0.52)' },
   sectionSheet: { maxHeight: '78%', backgroundColor: '#101827', borderTopLeftRadius: 28, borderTopRightRadius: 28, paddingHorizontal: 16, paddingTop: 18, paddingBottom: 18, borderTopWidth: 1, borderColor: '#273247' },
   sectionList: { gap: 7, paddingBottom: 18 },
