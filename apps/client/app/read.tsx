@@ -1,3 +1,4 @@
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import { router, useLocalSearchParams } from 'expo-router';
 import React, { useEffect, useMemo, useRef, useState } from 'react';
 import {
@@ -19,6 +20,10 @@ import { formatReadTime, useReadNarrator } from '../features/read/useReadNarrato
 
 const NativeWebView: any = WebView;
 const DEFAULT_URL = 'https://www.udacity.com/';
+type PlayerDockMode = 'auto' | 'pinned' | 'minimized';
+const PLAYER_DOCK_MODE_KEY = 'floently.read.playerDockMode.v1';
+const PLAYER_AUTO_COLLAPSE_MS = 1400;
+const PLAYER_TEMP_REVEAL_MS = 6000;
 
 function normalizeUrl(value: string) {
   const trimmed = value.trim();
@@ -293,10 +298,54 @@ export default function ReadBrowserScreen() {
   const [lastExtracted, setLastExtracted] = useState<BrowserReadModel | null>(null);
   const [savingPage, setSavingPage] = useState(false);
   const [renderingPage, setRenderingPage] = useState(false);
+  const [playerDockMode, setPlayerDockMode] = useState<PlayerDockMode>('auto');
+  const [playerExpanded, setPlayerExpanded] = useState(true);
+  const [playerSettingsOpen, setPlayerSettingsOpen] = useState(false);
+  const playerCollapseTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const selectedVoice = voices.find((voice) => voice.id === selectedVoiceId) ?? voices[0] ?? null;
   const narrator = useReadNarrator({ token, voice: selectedVoice, rate });
 
   useEffect(() => { void hydrateSession(); }, [hydrateSession]);
+
+  useEffect(() => {
+    let mounted = true;
+    void AsyncStorage.getItem(PLAYER_DOCK_MODE_KEY)
+      .then((value) => {
+        if (!mounted) return;
+        if (value === 'auto' || value === 'pinned' || value === 'minimized') setPlayerDockMode(value);
+      })
+      .catch(() => undefined);
+    return () => { mounted = false; };
+  }, []);
+
+  useEffect(() => {
+    if (playerCollapseTimerRef.current) {
+      clearTimeout(playerCollapseTimerRef.current);
+      playerCollapseTimerRef.current = null;
+    }
+    if (playerDockMode === 'pinned') {
+      setPlayerExpanded(true);
+      return;
+    }
+    if (playerDockMode === 'minimized') {
+      setPlayerExpanded(false);
+      return;
+    }
+    if (!narrator.playing) {
+      setPlayerExpanded(true);
+      return;
+    }
+    playerCollapseTimerRef.current = setTimeout(() => {
+      setPlayerExpanded(false);
+      playerCollapseTimerRef.current = null;
+    }, PLAYER_AUTO_COLLAPSE_MS);
+    return () => {
+      if (playerCollapseTimerRef.current) {
+        clearTimeout(playerCollapseTimerRef.current);
+        playerCollapseTimerRef.current = null;
+      }
+    };
+  }, [narrator.playing, playerDockMode]);
 
   useEffect(() => {
     let cancelled = false;
@@ -439,6 +488,30 @@ export default function ReadBrowserScreen() {
     setManualStatus(`Speed ${next.toFixed(1)}×.`);
   };
 
+  const revealPlayer = () => {
+    if (playerCollapseTimerRef.current) {
+      clearTimeout(playerCollapseTimerRef.current);
+      playerCollapseTimerRef.current = null;
+    }
+    setPlayerExpanded(true);
+    const shouldRecollapse = playerDockMode === 'minimized' || (playerDockMode === 'auto' && narrator.playing);
+    if (shouldRecollapse) {
+      playerCollapseTimerRef.current = setTimeout(() => {
+        setPlayerExpanded(false);
+        playerCollapseTimerRef.current = null;
+      }, PLAYER_TEMP_REVEAL_MS);
+    }
+  };
+
+  const updatePlayerDockMode = (mode: PlayerDockMode) => {
+    setPlayerDockMode(mode);
+    setPlayerSettingsOpen(false);
+    void AsyncStorage.setItem(PLAYER_DOCK_MODE_KEY, mode).catch(() => undefined);
+    if (mode === 'pinned') setPlayerExpanded(true);
+    if (mode === 'minimized') setPlayerExpanded(false);
+    if (mode === 'auto') setPlayerExpanded(true);
+  };
+
   const readSelection = () => {
     narrator.stop();
     setManualStatus('Reading your selected text…');
@@ -544,83 +617,130 @@ export default function ReadBrowserScreen() {
         />
       </View>
 
-      <View style={styles.readerBar}>
-        <View style={styles.playerTopRow}>
-          <View style={styles.playerBrandMark}><Text style={styles.playerBrandMarkText}>F</Text></View>
-          <View style={styles.playerHeadline}>
-            <Text style={styles.playerEyebrow}>FLOENTLY READ</Text>
-            <Text numberOfLines={1} style={styles.playerTitle}>
-              {narrator.active && narrator.currentText ? narrator.currentText : 'Ready to read this page'}
+      {playerExpanded ? (
+        <View style={styles.readerBar}>
+          <View style={styles.playerTopRow}>
+            <View style={styles.playerBrandMark}><Text style={styles.playerBrandMarkText}>F</Text></View>
+            <View style={styles.playerHeadline}>
+              <Text style={styles.playerEyebrow}>FLOENTLY READ · MOBILE PLAYER</Text>
+              <Text numberOfLines={1} style={styles.playerTitle}>
+                {narrator.active && narrator.currentText ? narrator.currentText : 'Ready to read this page'}
+              </Text>
+            </View>
+            <Pressable onPress={() => setPlayerSettingsOpen(true)} style={styles.playerHeaderButton} accessibilityLabel="Player behavior">
+              <Text style={styles.playerHeaderButtonText}>⚙</Text>
+            </Pressable>
+            <Pressable onPress={() => setPlayerExpanded(false)} style={styles.playerHeaderButton} accessibilityLabel="Minimize player">
+              <Text style={styles.playerHeaderButtonText}>⌄</Text>
+            </Pressable>
+          </View>
+
+          <View style={styles.progressLine}>
+            <View style={[styles.progressFill, { width: `${Math.round(narrator.progress * 100)}%` }]} />
+          </View>
+          <View style={styles.playerMetaRow}>
+            <Text style={styles.playerTime}>{formatReadTime(narrator.currentTime)} / {formatReadTime(narrator.duration)}</Text>
+            <Text numberOfLines={1} style={styles.playerStatusCompact}>{status}</Text>
+            <Text style={styles.percent}>{Math.round(narrator.progress * 100)}%</Text>
+          </View>
+
+          <View style={styles.transportHeroRow}>
+            <Pressable disabled={!narrator.active || narrator.buffering} onPress={narrator.skipBackward} style={[styles.transportRoundButton, (!narrator.active || narrator.buffering) && styles.disabled]}>
+              <Text style={styles.transportRoundGlyph}>↶</Text>
+            </Pressable>
+            <Pressable
+              disabled={narrator.buffering}
+              onPress={narrator.active ? narrator.togglePause : readPage}
+              style={[styles.playHeroButton, narrator.buffering && styles.disabled]}
+            >
+              <Text style={styles.playHeroIcon}>{narrator.buffering ? '…' : narrator.active && !narrator.paused ? 'Ⅱ' : '▶'}</Text>
+              <Text style={styles.playHeroText}>{narrator.buffering ? 'Preparing' : narrator.active ? (narrator.paused ? 'Resume' : 'Pause') : 'Read page'}</Text>
+            </Pressable>
+            <Pressable disabled={!narrator.active || narrator.buffering} onPress={narrator.skipForward} style={[styles.transportRoundButton, (!narrator.active || narrator.buffering) && styles.disabled]}>
+              <Text style={styles.transportRoundGlyph}>↷</Text>
+            </Pressable>
+          </View>
+
+          <View style={styles.playerQuickRow}>
+            <Pressable onPress={() => setVoicePickerOpen(true)} style={styles.quickControl}>
+              <Text style={styles.quickControlLabel}>VOICE</Text>
+              <Text numberOfLines={1} style={styles.quickControlValue}>{voiceLabel}</Text>
+            </Pressable>
+            <View style={styles.speedGroup}>
+              <Pressable onPress={() => changeRate(-0.1)} style={styles.speedButton}><Text style={styles.speedGlyph}>−</Text></Pressable>
+              <View style={styles.speedCenter}><Text style={styles.quickControlLabel}>SPEED</Text><Text style={styles.speedValue}>{rate.toFixed(1)}×</Text></View>
+              <Pressable onPress={() => changeRate(0.1)} style={styles.speedButton}><Text style={styles.speedGlyph}>+</Text></Pressable>
+            </View>
+          </View>
+
+          <View style={styles.selectorRow}>
+            <Pressable disabled={!lastExtracted?.segments.length} onPress={() => setSectionsOpen(true)} style={[styles.selectorButton, !lastExtracted?.segments.length && styles.disabled]}>
+              <Text style={styles.selectorLabel}>Sections</Text>
+            </Pressable>
+            <Pressable onPress={() => activatePicker('sentence')} style={[styles.selectorButton, selectorMode === 'sentence' && styles.selectorButtonActive]}>
+              <Text style={[styles.selectorLabel, selectorMode === 'sentence' && styles.selectorLabelActive]}>Sentence</Text>
+            </Pressable>
+            <Pressable onPress={() => activatePicker('word')} style={[styles.selectorButton, selectorMode === 'word' && styles.selectorButtonActive]}>
+              <Text style={[styles.selectorLabel, selectorMode === 'word' && styles.selectorLabelActive]}>Word</Text>
+            </Pressable>
+            <Pressable onPress={readSelection} style={styles.selectorButton}>
+              <Text style={styles.selectorLabel}>Selection</Text>
+            </Pressable>
+          </View>
+
+          <View style={styles.utilityRow}>
+            <Pressable disabled={!lastExtracted || renderingPage || savingPage} onPress={() => void renderCurrentReading()} style={[styles.utilityButton, (!lastExtracted || renderingPage || savingPage) && styles.disabled]}>
+              <Text style={styles.utilityButtonText}>{renderingPage ? 'Rendering…' : 'Render'}</Text>
+            </Pressable>
+            <Pressable disabled={!lastExtracted || savingPage || renderingPage} onPress={() => void saveCurrentReading()} style={[styles.utilityButton, (!lastExtracted || savingPage || renderingPage) && styles.disabled]}>
+              <Text style={styles.utilityButtonText}>{savingPage ? 'Saving…' : 'Save'}</Text>
+            </Pressable>
+            {narrator.active ? <Pressable onPress={narrator.stop} style={styles.stopCompact}><Text style={styles.stopCompactText}>■ Stop</Text></Pressable> : null}
+          </View>
+        </View>
+      ) : (
+        <Pressable onPress={revealPlayer} onLongPress={() => setPlayerSettingsOpen(true)} style={styles.playerCollapsedDock} accessibilityLabel="Show Floently Read player">
+          <View style={styles.collapsedProgressTrack}>
+            <View style={[styles.collapsedProgressFill, { width: `${Math.round(narrator.progress * 100)}%` }]} />
+          </View>
+          <View style={styles.collapsedDockContent}>
+            <View style={styles.collapsedGrip} />
+            <Text numberOfLines={1} style={styles.collapsedDockText}>
+              {narrator.playing ? 'Playing' : narrator.paused ? 'Paused' : 'Floently Read'} · {Math.round(narrator.progress * 100)}%
             </Text>
+            <Text style={styles.collapsedDockChevron}>⌃</Text>
           </View>
-          <Pressable onPress={() => setVoicePickerOpen(true)} style={styles.voiceAvatar}>
-            <Text style={styles.voiceAvatarText}>{voiceLabel.trim().slice(0, 1).toUpperCase() || 'V'}</Text>
-          </Pressable>
-        </View>
+        </Pressable>
+      )}
 
-        <View style={styles.progressLine}>
-          <View style={[styles.progressFill, { width: `${Math.round(narrator.progress * 100)}%` }]} />
-        </View>
-        <View style={styles.playerMetaRow}>
-          <Text style={styles.playerTime}>{formatReadTime(narrator.currentTime)} / {formatReadTime(narrator.duration)}</Text>
-          <Text numberOfLines={1} style={styles.playerStatusCompact}>{status}</Text>
-          <Text style={styles.percent}>{Math.round(narrator.progress * 100)}%</Text>
-        </View>
 
-        <View style={styles.transportHeroRow}>
-          <Pressable disabled={!narrator.active || narrator.buffering} onPress={narrator.skipBackward} style={[styles.transportRoundButton, (!narrator.active || narrator.buffering) && styles.disabled]}>
-            <Text style={styles.transportRoundGlyph}>↶</Text>
-          </Pressable>
-          <Pressable
-            disabled={narrator.buffering}
-            onPress={narrator.active ? narrator.togglePause : readPage}
-            style={[styles.playHeroButton, narrator.buffering && styles.disabled]}
-          >
-            <Text style={styles.playHeroIcon}>{narrator.buffering ? '…' : narrator.active && !narrator.paused ? 'Ⅱ' : '▶'}</Text>
-            <Text style={styles.playHeroText}>{narrator.buffering ? 'Preparing' : narrator.active ? (narrator.paused ? 'Resume' : 'Pause') : 'Read page'}</Text>
-          </Pressable>
-          <Pressable disabled={!narrator.active || narrator.buffering} onPress={narrator.skipForward} style={[styles.transportRoundButton, (!narrator.active || narrator.buffering) && styles.disabled]}>
-            <Text style={styles.transportRoundGlyph}>↷</Text>
-          </Pressable>
-        </View>
-
-        <View style={styles.playerQuickRow}>
-          <Pressable onPress={() => setVoicePickerOpen(true)} style={styles.quickControl}>
-            <Text style={styles.quickControlLabel}>VOICE</Text>
-            <Text numberOfLines={1} style={styles.quickControlValue}>{voiceLabel}</Text>
-          </Pressable>
-          <View style={styles.speedGroup}>
-            <Pressable onPress={() => changeRate(-0.1)} style={styles.speedButton}><Text style={styles.speedGlyph}>−</Text></Pressable>
-            <View style={styles.speedCenter}><Text style={styles.quickControlLabel}>SPEED</Text><Text style={styles.speedValue}>{rate.toFixed(1)}×</Text></View>
-            <Pressable onPress={() => changeRate(0.1)} style={styles.speedButton}><Text style={styles.speedGlyph}>+</Text></Pressable>
+      <Modal visible={playerSettingsOpen} transparent animationType="slide" onRequestClose={() => setPlayerSettingsOpen(false)}>
+        <View style={styles.modalBackdrop}>
+          <View style={styles.playerSettingsSheet}>
+            <View style={styles.sheetHeader}>
+              <View><Text style={styles.sheetKicker}>PLAYER BEHAVIOR</Text><Text style={styles.sheetTitle}>How should the player behave?</Text></View>
+              <Pressable onPress={() => setPlayerSettingsOpen(false)} style={styles.closeButton}><Text style={styles.closeText}>Done</Text></Pressable>
+            </View>
+            <Text style={styles.sheetHint}>Choose how much of the website Floently should keep visible while you listen.</Text>
+            {[
+              { id: 'auto' as const, title: 'Auto-hide while playing', body: 'Recommended. The full player collapses after playback starts. Tap the bottom handle to bring it back temporarily.' },
+              { id: 'pinned' as const, title: 'Always open', body: 'Keep all playback, voice, speed, and reading controls visible.' },
+              { id: 'minimized' as const, title: 'Keep minimized', body: 'Keep the website as large as possible. Tap the bottom handle whenever you need the controls.' },
+            ].map((option) => (
+              <Pressable key={option.id} onPress={() => updatePlayerDockMode(option.id)} style={[styles.playerBehaviorOption, playerDockMode === option.id && styles.playerBehaviorOptionActive]}>
+                <View style={styles.playerBehaviorCopy}>
+                  <Text style={styles.playerBehaviorTitle}>{option.title}</Text>
+                  <Text style={styles.playerBehaviorBody}>{option.body}</Text>
+                </View>
+                <View style={[styles.playerBehaviorRadio, playerDockMode === option.id && styles.playerBehaviorRadioActive]}>
+                  {playerDockMode === option.id ? <View style={styles.playerBehaviorRadioDot} /> : null}
+                </View>
+              </Pressable>
+            ))}
+            <Text style={styles.playerSettingsFootnote}>Tip: long-press the minimized bottom handle to open these settings directly.</Text>
           </View>
         </View>
-
-        <View style={styles.selectorRow}>
-          <Pressable disabled={!lastExtracted?.segments.length} onPress={() => setSectionsOpen(true)} style={[styles.selectorButton, !lastExtracted?.segments.length && styles.disabled]}>
-            <Text style={styles.selectorLabel}>Sections</Text>
-          </Pressable>
-          <Pressable onPress={() => activatePicker('sentence')} style={[styles.selectorButton, selectorMode === 'sentence' && styles.selectorButtonActive]}>
-            <Text style={[styles.selectorLabel, selectorMode === 'sentence' && styles.selectorLabelActive]}>Sentence</Text>
-          </Pressable>
-          <Pressable onPress={() => activatePicker('word')} style={[styles.selectorButton, selectorMode === 'word' && styles.selectorButtonActive]}>
-            <Text style={[styles.selectorLabel, selectorMode === 'word' && styles.selectorLabelActive]}>Word</Text>
-          </Pressable>
-          <Pressable onPress={readSelection} style={styles.selectorButton}>
-            <Text style={styles.selectorLabel}>Selection</Text>
-          </Pressable>
-        </View>
-
-        <View style={styles.utilityRow}>
-          <Pressable disabled={!lastExtracted || renderingPage || savingPage} onPress={() => void renderCurrentReading()} style={[styles.utilityButton, (!lastExtracted || renderingPage || savingPage) && styles.disabled]}>
-            <Text style={styles.utilityButtonText}>{renderingPage ? 'Rendering…' : 'Render'}</Text>
-          </Pressable>
-          <Pressable disabled={!lastExtracted || savingPage || renderingPage} onPress={() => void saveCurrentReading()} style={[styles.utilityButton, (!lastExtracted || savingPage || renderingPage) && styles.disabled]}>
-            <Text style={styles.utilityButtonText}>{savingPage ? 'Saving…' : 'Save'}</Text>
-          </Pressable>
-          {narrator.active ? <Pressable onPress={narrator.stop} style={styles.stopCompact}><Text style={styles.stopCompactText}>■ Stop</Text></Pressable> : null}
-        </View>
-      </View>
+      </Modal>
 
       <Modal visible={sectionsOpen} transparent animationType="slide" onRequestClose={() => setSectionsOpen(false)}>
         <View style={styles.modalBackdrop}>
@@ -692,14 +812,21 @@ const styles = StyleSheet.create({
   webWrap: { flex: 1, backgroundColor: '#fff' },
   web: { flex: 1 },
   readerBar: { paddingHorizontal: 12, paddingTop: 12, paddingBottom: 12, gap: 10, backgroundColor: '#0C1422', borderTopWidth: 1, borderTopColor: '#25324A', shadowColor: '#000000', shadowOpacity: 0.34, shadowRadius: 20, shadowOffset: { width: 0, height: -6 }, elevation: 18 },
-  playerTopRow: { flexDirection: 'row', alignItems: 'center', gap: 10 },
+  playerCollapsedDock: { minHeight: 34, backgroundColor: '#0B1320', borderTopWidth: 1, borderTopColor: '#27344A', justifyContent: 'flex-end' },
+  collapsedProgressTrack: { height: 3, backgroundColor: '#202C40', overflow: 'hidden' },
+  collapsedProgressFill: { height: '100%', backgroundColor: '#7187FF' },
+  collapsedDockContent: { minHeight: 31, flexDirection: 'row', alignItems: 'center', justifyContent: 'center', paddingHorizontal: 14, gap: 9 },
+  collapsedGrip: { width: 34, height: 4, borderRadius: 999, backgroundColor: '#3A4961' },
+  collapsedDockText: { color: '#AEB9CA', fontSize: 9.5, fontWeight: '800', maxWidth: 150 },
+  collapsedDockChevron: { color: '#9AA8FF', fontSize: 16, lineHeight: 18, fontWeight: '900' },
+  playerTopRow: { flexDirection: 'row', alignItems: 'center', gap: 8 },
   playerBrandMark: { width: 38, height: 38, borderRadius: 13, alignItems: 'center', justifyContent: 'center', backgroundColor: '#5364FF' },
   playerBrandMarkText: { color: '#FFFFFF', fontSize: 15, fontWeight: '900' },
   playerHeadline: { flex: 1, minWidth: 0 },
   playerEyebrow: { color: '#7F92FF', fontSize: 8, lineHeight: 10, fontWeight: '900', letterSpacing: 1.2 },
   playerTitle: { color: '#F7F9FF', fontSize: 13.5, lineHeight: 18, fontWeight: '800', marginTop: 2 },
-  voiceAvatar: { width: 38, height: 38, borderRadius: 19, alignItems: 'center', justifyContent: 'center', backgroundColor: '#182844', borderWidth: 1, borderColor: '#2C4168' },
-  voiceAvatarText: { color: '#A8B5FF', fontSize: 14, fontWeight: '900' },
+  playerHeaderButton: { width: 36, height: 36, borderRadius: 12, alignItems: 'center', justifyContent: 'center', backgroundColor: '#162237', borderWidth: 1, borderColor: '#283A58' },
+  playerHeaderButtonText: { color: '#C9D3E4', fontSize: 16, fontWeight: '900' },
   progressLine: { height: 4, borderRadius: 999, backgroundColor: '#202C40', overflow: 'hidden' },
   progressFill: { height: '100%', borderRadius: 999, backgroundColor: '#7187FF' },
   playerMetaRow: { flexDirection: 'row', alignItems: 'center', gap: 7 },
@@ -732,6 +859,16 @@ const styles = StyleSheet.create({
   stopCompact: { flex: 1, minHeight: 36, borderRadius: 12, alignItems: 'center', justifyContent: 'center', backgroundColor: '#2A2632', borderWidth: 1, borderColor: '#493647' },
   stopCompactText: { color: '#F2DDE6', fontSize: 10.5, fontWeight: '800' },
   modalBackdrop: { flex: 1, justifyContent: 'flex-end', backgroundColor: 'rgba(0,0,0,0.52)' },
+  playerSettingsSheet: { backgroundColor: '#101827', borderTopLeftRadius: 28, borderTopRightRadius: 28, paddingHorizontal: 16, paddingTop: 18, paddingBottom: 24, borderTopWidth: 1, borderColor: '#273247' },
+  playerBehaviorOption: { minHeight: 82, borderRadius: 18, backgroundColor: '#151F31', borderWidth: 1, borderColor: '#26344C', paddingHorizontal: 14, paddingVertical: 13, marginTop: 9, flexDirection: 'row', alignItems: 'center', gap: 12 },
+  playerBehaviorOptionActive: { backgroundColor: '#19294F', borderColor: '#7187FF' },
+  playerBehaviorCopy: { flex: 1 },
+  playerBehaviorTitle: { color: '#F5F7FD', fontSize: 14, fontWeight: '900' },
+  playerBehaviorBody: { color: '#909EB3', fontSize: 11, lineHeight: 16, marginTop: 4 },
+  playerBehaviorRadio: { width: 22, height: 22, borderRadius: 11, borderWidth: 2, borderColor: '#4C5B73', alignItems: 'center', justifyContent: 'center' },
+  playerBehaviorRadioActive: { borderColor: '#7187FF' },
+  playerBehaviorRadioDot: { width: 10, height: 10, borderRadius: 5, backgroundColor: '#7187FF' },
+  playerSettingsFootnote: { color: '#69778C', fontSize: 10, lineHeight: 15, marginTop: 12 },
   sectionSheet: { maxHeight: '78%', backgroundColor: '#101827', borderTopLeftRadius: 28, borderTopRightRadius: 28, paddingHorizontal: 16, paddingTop: 18, paddingBottom: 18, borderTopWidth: 1, borderColor: '#273247' },
   sectionList: { gap: 7, paddingBottom: 18 },
   sectionOption: { minHeight: 62, borderRadius: 16, backgroundColor: '#162033', borderWidth: 1, borderColor: 'transparent', padding: 10, flexDirection: 'row', alignItems: 'flex-start', gap: 10 },
