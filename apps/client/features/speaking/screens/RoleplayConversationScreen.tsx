@@ -18,6 +18,7 @@ import {
   startRoleplaySession,
   submitRoleplayTurn,
   type RoleplayLevelBand,
+  type RoleplayFinishResponse,
   type RoleplayProfession,
   type RoleplayScenarioSummary,
 } from '@core/api/roleplay';
