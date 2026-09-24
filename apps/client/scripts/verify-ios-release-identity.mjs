@@ -67,6 +67,25 @@ if (legacyProjectSource.includes('PRODUCT_BUNDLE_IDENTIFIER = "com.vitusidi.floe
   console.log('INFO: legacy root iOS project still carries its historical bundle ID and is explicitly non-authoritative for App Store releases.');
 }
 
+// Build 36 ships KieliValmis ONLY. The Read and Create source modules remain
+// in the monorepo for separate applications, but must not become Expo routes.
+for (const excludedProduct of ['read', 'create']) {
+  assertTrue(
+    !fs.existsSync(path.join(clientRoot, 'app', excludedProduct)),
+    `KieliValmis iOS release must exclude /${excludedProduct} routes`,
+  );
+}
+for (const [profileName, profile] of Object.entries(eas.build ?? {})) {
+  assertTrue(
+    !Object.hasOwn(profile?.env ?? {}, 'EXPO_PUBLIC_READ_API_BASE_URL'),
+    `KieliValmis EAS ${profileName} must not expose Read backend configuration`,
+  );
+}
+const nativeRootSource = readText(path.join(clientRoot, 'app', 'index.tsx'));
+assertTrue(nativeRootSource.includes('KieliValmisLandingScreen'), 'mobile app must retain KieliValmis entry');
+assertTrue(!/NativeFloentlyProductGatewayScreen|NativeReadPreviewScreen/.test(nativeRootSource), 'mobile app must not enter Read/Floently gateway');
+console.log('PASS: KieliValmis-only release excludes Read/Create Expo routes and Read API configuration.');
+
 console.log(`PASS: App Store release identity is ${identity.bundleIdentifier} / ASC ${identity.appStoreConnectAppId}.`);
 console.log('PASS: apps/client + Expo prebuild is the only recorded iOS App Store release authority.');
 console.log('IOS_RELEASE_IDENTITY_INVARIANTS=PASS');
