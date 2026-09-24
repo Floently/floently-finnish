@@ -227,9 +227,13 @@ export default function BillingRoute({ onBack, onOpenMenu }: Props) {
     isMobileStoreBilling && (storeCatalogLoading || !trialStoreAvailability?.available),
   );
   const trialActionDisabled = Boolean(
-    hasActiveSubscription || trialAlreadyUsed || !canStartTrial || trialBusy || trialStoreUnavailable,
+    hasActiveSubscription || trialAlreadyUsed || !canStartTrial || trialBusy || trialStoreUnavailable ||
+    (Platform.OS === 'ios' && !trialStoreAvailability?.trialEligible),
   );
-  const showTrialStartCard = Boolean(!hasPaymentIssue && !trialAlreadyUsed && canStartTrial && !hasActiveSubscription);
+  const showTrialStartCard = Boolean(
+    !hasPaymentIssue && !trialAlreadyUsed && canStartTrial && !hasActiveSubscription &&
+    (Platform.OS !== 'ios' || trialStoreAvailability?.trialEligible),
+  );
 
   const trialEndRawForManagement =
     statusForBillingUi?.trial_ends_at ??
@@ -509,7 +513,7 @@ export default function BillingRoute({ onBack, onOpenMenu }: Props) {
     const checkoutProfessions = isMobileStoreBilling ? selectedProfessions.slice(0, 1) : selectedProfessions;
     const request = {
       ...buildCheckoutRequest(pathway, period, checkoutProfessions),
-      trial_days: 3,
+      ...(isMobileStoreBilling ? {} : { trial_days: 3 }),
     };
     try {
       setBusyPlan(request.plan);
@@ -632,6 +636,10 @@ export default function BillingRoute({ onBack, onOpenMenu }: Props) {
         Alert.alert(t('billingPurchaseUnavailableTitle'), t('billingPurchaseUnavailableBody'));
         return;
       }
+      if (Platform.OS === 'ios' && !trialStoreAvailability?.trialEligible) {
+        Alert.alert(t('billingPurchaseUnavailableTitle'), t('billingPurchaseUnavailableBody'));
+        return;
+      }
       const latestStatus = await paymentService.getSubscriptionStatus();
       if (isActiveSubscriptionStatus(latestStatus)) {
         Alert.alert(t('billingTrialAlreadyActiveTitle'), t('billingTrialAlreadyActiveBody'));
@@ -644,7 +652,7 @@ export default function BillingRoute({ onBack, onOpenMenu }: Props) {
       const trialPathway: CheckoutPathway = 'yki';
       const request = {
         ...buildCheckoutRequest(trialPathway, period, []),
-        trial_days: 3,
+        ...(isMobileStoreBilling ? {} : { trial_days: 3 }),
       };
 
       if (supportsStoreBilling()) {
@@ -962,7 +970,9 @@ export default function BillingRoute({ onBack, onOpenMenu }: Props) {
               ? t('billingOpeningCheckout')
               : isMobileStoreBilling && !storePlanReady
                 ? t('billingPurchaseUnavailableTitle')
-                : t('billingStartCheckout');
+                : isMobileStoreBilling && storeAvailability?.trialEligible
+                  ? t('billingActivateTrial')
+                  : t('billingStartCheckout');
           return (
             <View key={pathway.id} style={[styles.pricingCard, { backgroundColor: palette.surface, borderColor: palette.border, shadowColor: palette.shadow }]}>
               <View style={styles.planTopRow}>
