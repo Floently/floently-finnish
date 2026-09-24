@@ -31,6 +31,21 @@ IOS_PRODUCT_CONTRACT: dict[str, tuple[str, str]] = {
 }
 
 
+# Exact Android identifiers from the same three RevenueCat entitlement tables.
+ANDROID_PRODUCT_CONTRACT: dict[str, tuple[str, str]] = {
+    "floently_yki:monthly": ("yki_monthly", "yki_access"),
+    "floently_yki:three-months": ("yki_3_months", "yki_access"),
+    "floently_yki:yearly": ("yki_yearly", "yki_access"),
+    "floently_prof:monthly": ("professional_monthly", "professional_access"),
+    "floently_prof:three-months": ("professional_3_months", "professional_access"),
+    "floently_prof:annual": ("professional_yearly", "professional_access"),
+    "floently_combo:monthly": ("combined_monthly", "combined_access"),
+    "floently_combo:three-months": ("combined_3_months", "combined_access"),
+    "floently_combo:yearly": ("combined_yearly", "combined_access"),
+}
+
+
+
 class RevenueCatVerificationError(RuntimeError):
     """A store subscription cannot be confirmed from authoritative evidence."""
 
@@ -106,10 +121,11 @@ def fetch_revenuecat_v1_subscriber(
     return payload
 
 
-def verify_apple_subscriber(
+def verify_store_subscriber(
     *,
     app_user_id: str,
     payload: Mapping[str, Any],
+    platform: str,
     expected_plan_id: str | None = None,
     now: datetime | None = None,
 ) -> VerifiedAppleSubscription | None:
@@ -122,6 +138,10 @@ def verify_apple_subscriber(
     user_id = str(app_user_id or "").strip()
     if not user_id:
         raise RevenueCatVerificationError("Authenticated subscriber identity is missing.")
+    if platform not in {"ios", "android"}:
+        raise RevenueCatVerificationError("Unsupported purchase platform.")
+    contract = IOS_PRODUCT_CONTRACT if platform == "ios" else ANDROID_PRODUCT_CONTRACT
+    expected_store = "app_store" if platform == "ios" else "play_store"
     subscriber = payload.get("subscriber")
     if not isinstance(subscriber, Mapping):
         raise RevenueCatVerificationError("RevenueCat subscriber is missing.")
@@ -138,14 +158,14 @@ def verify_apple_subscriber(
     known: list[tuple[datetime, VerifiedAppleSubscription]] = []
     for raw_product, raw_subscription in subscriptions.items():
         product = str(raw_product)
-        if product not in IOS_PRODUCT_CONTRACT:
+        if product not in contract:
             continue
         if not isinstance(raw_subscription, Mapping):
             raise RevenueCatVerificationError("Known Apple subscription has invalid data.")
-        plan_id, entitlement_id = IOS_PRODUCT_CONTRACT[product]
+        plan_id, entitlement_id = contract[product]
         if expected_plan_id and plan_id != expected_plan_id:
             continue
-        if str(raw_subscription.get("store") or "").lower() != "app_store":
+        if str(raw_subscription.get("store") or "").lower() != expected_store:
             raise RevenueCatVerificationError("Known Apple product has an unexpected store.")
         period = str(raw_subscription.get("period_type") or "").lower().strip()
         if period not in {"trial", "normal", "intro", "promotional", "prepaid"}:
@@ -217,3 +237,20 @@ def verify_apple_subscriber(
         if record.grants_access:
             return record
     return known[0][1]
+
+
+def verify_apple_subscriber(
+    *,
+    app_user_id: str,
+    payload: Mapping[str, Any],
+    expected_plan_id: str | None = None,
+    now: datetime | None = None,
+) -> VerifiedAppleSubscription | None:
+    """Backward-compatible, Apple-only verification entry point."""
+    return verify_store_subscriber(
+        app_user_id=app_user_id,
+        payload=payload,
+        platform="ios",
+        expected_plan_id=expected_plan_id,
+        now=now,
+    )
