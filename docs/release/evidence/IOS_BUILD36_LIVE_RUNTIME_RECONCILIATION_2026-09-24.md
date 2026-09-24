@@ -1,6 +1,6 @@
 # Build 36 — running-backend source reconciliation (2026-09-24)
 
-Status: **SOURCE-LINEAGE COMPARISON COMPLETE; LIVE CONTAINER FILE AUDIT PENDING; PRODUCTION PROMOTION BLOCKED.**
+Status: **LIVE CONTAINER PYTHON-SOURCE RECONCILIATION PASSED AT PINNED MANIFEST; ARTIFACT/ANCESTRY, BILLING AND PRODUCTION PROMOTION BLOCKED.**
 
 ## Independently observed source identities
 
@@ -83,3 +83,19 @@ The exact historical and candidate Git blob IDs for all ten are pinned in `apps/
 **Important qualification:** This classifies source preservation; it does **not** by itself prove behavioral equivalence, correct billing identity, all bidirectional Docker artifact content, future migrations, canaries, runtime health or production ancestry. The full backend 149-test suite and TypeScript passed on earlier Build36 source; rerun the new audit locally against the existing manifest before recording its PASS.
 
 **Deployment remains blocked** by exact running-artifact provenance/reconciliation, forward-only ancestry resolution, secure provisioning, real webhook delivery, physical StoreKit introductory trial, and explicit approval.
+
+## 2026-09-24 — verified live Python manifest; immutable candidate-image next gate
+
+The user independently reran the actual **read-only** running-container `/app` Python SHA-256 manifest on Build36 source `311d8144b4aec6117f98a0d8b7bec108c0a46f57` and recorded:
+
+- `LABELLED_SOURCE_BLOB_COMPARISON=PASS`;
+- `LIVE_PYTHON_FILES_CHECKED=205` / `LIVE_PYTHON_EXACT_SOURCE_MATCHES=193`;
+- `LIVE_PYTHON_REVIEWED_LEGACY_DIFFERENCES=12`;
+- `UNEXPLAINED_LIVE_PYTHON_COUNT=0` / `UNRECONCILED_LIVE_PYTHON_COUNT=0`;
+- `LIVE_PYTHON_CAPABILITY_PRESERVATION=PASS`.
+
+This supersedes the earlier incomplete-manifest counts above. It classifies existing Python file bytes and intentional source changes; it **does not** prove a clean composite artifact, binary/data/config preservation, production-source ancestry, behavior parity, or permission to deploy.
+
+Build36 subsequent **source-only** commits `82116574`, `74e58339`, `df3248c` exclude backend secrets and mutable persistence from fresh Docker contexts, add an OCI source-revision label, and guard those declarations. Commits `7c4496a`, `2ac2752`, `46d21b1` thread an explicit candidate SHA through Compose and add 11 offline fail-closed tests. Latest Build36 head at this ledger update: `46d21b166704a3fac2d660dcf6641b0d04cbc88f`; source guard and new tests are **NOT yet independently run at this exact head**. No backend image built/deployed, no secret installed, no Hetzner restart, and no Apple resubmission performed by these steps.
+
+Next gates in order: exact-head offline source guard/unit tests; old-image sensitive-path presence check without showing file contents; isolated immutable candidate image; bidirectional candidate application-source manifest with image revision/secret exclusion proof; historic lineage reconciliation before production promotion; secure staging, real RevenueCat/StoreKit device tests, rollback-backed promotion, and App Review assets. The old server checkout `749ffe...` is not proof of deployed-image ancestry; preserve the pinned rollback artifact and live state.
