@@ -46,6 +46,54 @@ REVIEWED_DIFFERENT_BLOBS: dict[str, tuple[str, str]] = {
         "2e81b342e7b8d611b250b86b97dc641ab1043bca",
     ),
 }
+# Independently classified from the user's read-only manifest on 2026-09-24.
+# ALL ten current live container bytes match the historic OCI-labelled Git
+# commit, and each new candidate file is pinned to the reviewed Build36 blob.
+# KEEP live semantics and MERGE the candidate's intentional strengthening.
+# These are NOT exceptions for unknown source overlays or changed file bytes.
+RECONCILED_LEGACY_PYTHON_BLOBS: dict[str, tuple[str, str]] = {
+    "apps/backend/app/core/config.py": (
+        "9ec85d66c6081fdad45dab7ba580f15328d0498d",
+        "a5e1961516e0fe603ff74d830108ff2c1503289b",
+    ),
+    "apps/backend/app/core/state_store.py": (
+        "266d765d5051f45fa9fb147a50d1694f95c37ab6",
+        "23aafc71bf2a51abe9d7fc693de0f90bb72bdeee",
+    ),
+    "apps/backend/app/routers/v1_roleplay.py": (
+        "29d42d49d0d516dedd9df691394a97992bedc2cf",
+        "e2dfaa2f58f9c658a51cc549fac5b3f0054fd7f2",
+    ),
+    "apps/backend/app/routers/v1_subscription.py": (
+        "7db95d789b52c13ac137f58025caa5da0621602a",
+        "d2a2053a66cb953983799a5160af43304072ecd5",
+    ),
+    "apps/backend/app/services/account_deletion_service.py": (
+        "c4d83bf2723419a49743e6964edd3562c5a3f13c",
+        "9029b5304814ba58827ed5451795b61e091be99f",
+    ),
+    "apps/backend/app/services/password_reset_email_service.py": (
+        "61294302bd6088a57a052ec1cae1ff40268fdbbe",
+        "620e661f089f957e70912f9d6a19cbae7acaf1ab",
+    ),
+    "apps/backend/app/services/roleplay_ai_service.py": (
+        "51402376ce93d8e78cd0b55cebcdfb4295988df3",
+        "5ddf9d1ea8c889c3d48d4886cdc53d1195de6940",
+    ),
+    "apps/backend/app/services/subscription_service.py": (
+        "6dfab1c1dd7a7fa9aa16f80b7d6bc383b9526ec1",
+        "57be701b201f2cb07a12d26f9d04e6f05498f576",
+    ),
+    "apps/backend/app/services/tts/runtime.py": (
+        "c657607785d870f2d1e5a8f2b8d32e92132e3f69",
+        "bb95e5de06250f2a7e173395e3638b1ac76b1a83",
+    ),
+    "apps/backend/app/services/tts/voice_registry.py": (
+        "7d8d8c16d22eb4996b3047b893b34f7d70f5822d",
+        "52d5f9ecd819206e66894e82e635e39edb79f564",
+    ),
+}
+
 HEX_256 = re.compile(r"^[a-f0-9]{64}$")
 
 
@@ -68,7 +116,10 @@ def validate_git_preservation() -> None:
         current = git("rev-parse", f"HEAD:{path}")
         if old != expected or current != expected:
             bad.append(path)
-    for path, (expected_old, expected_candidate) in REVIEWED_DIFFERENT_BLOBS.items():
+    for path, (expected_old, expected_candidate) in {
+        **REVIEWED_DIFFERENT_BLOBS,
+        **RECONCILED_LEGACY_PYTHON_BLOBS,
+    }.items():
         old = git("rev-parse", f"{HISTORIC_LABEL}:{path}")
         current = git("rev-parse", f"HEAD:{path}")
         if old != expected_old or current != expected_candidate:
@@ -81,6 +132,7 @@ def validate_git_preservation() -> None:
     print("LABELLED_SOURCE_BLOB_COMPARISON=PASS")
     print("EXACTLY_MATCHING_PRESERVED_FILES=12")
     print("REVIEWED_INTENTIONAL_DIVERGENCES=3")
+    print(f"RECONCILED_LIVE_PYTHON_SOURCE_DIFFERENCES={len(RECONCILED_LEGACY_PYTHON_BLOBS)}")
     print("GIT_ONLY_IS_NOT_LIVE_CONTAINER_PROOF=TRUE")
 
 
@@ -133,15 +185,18 @@ def validate_container_inventory(inventory: Path) -> None:
 
         # This is an explicit labelled-legacy source comparison exception, not
         # a blanket allowance for unknown overlays or other source regressions.
-        reviewed_paths = {
-            "apps/backend/app/runtime/roleplay.py",
-            "apps/backend/scripts/verify_yki_ai_evaluation.py",
+        reviewed_python = {
+            **RECONCILED_LEGACY_PYTHON_BLOBS,
+            **{
+                path: pair
+                for path, pair in REVIEWED_DIFFERENT_BLOBS.items()
+                if path.endswith(".py")
+            },
         }
         if (
-            path in reviewed_paths
-            and path in REVIEWED_DIFFERENT_BLOBS
+            path in reviewed_python
             and live_sha == hash_git_file(HISTORIC_LABEL, path)
-            and git("rev-parse", f"HEAD:{path}") == REVIEWED_DIFFERENT_BLOBS[path][1]
+            and git("rev-parse", f"HEAD:{path}") == reviewed_python[path][1]
         ):
             reviewed.append(path)
             continue
@@ -159,6 +214,7 @@ def validate_container_inventory(inventory: Path) -> None:
     if extras or problems:
         raise AssertionError("Running Python source still has unclassified differences")
     print("LIVE_PYTHON_CAPABILITY_PRESERVATION=PASS")
+    print("CLASSIFIED_SOURCE_CHANGES_ARE_NOT_RUNTIME_REGRESSION_PROOF=TRUE")
     print("BIDIRECTIONAL_CANDIDATE_IMAGE_IDENTITY=NOT_TESTED")
     print("DEPLOYMENT_AUTHORIZATION=NOT_GRANTED")
 
