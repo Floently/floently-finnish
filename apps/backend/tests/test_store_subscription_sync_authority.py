@@ -125,7 +125,7 @@ def test_real_apple_trial_is_store_trial_with_authoritative_dates(harness):
     assert result["period_type"] == "trial"
     assert args["subscription_status"] == "trialing"
     assert args["access_choice"] == "trial"
-    actual_expiry = state["subscriber"]["subscriptions"]["floently_yki_monthly"]["expires_date"]
+    actual_expiry = state["subscriber"]["subscriber"]["subscriptions"]["floently_yki_monthly"]["expires_date"]
     assert args["subscription_expires_at"] == actual_expiry
     assert args["trial_ends_at"] == actual_expiry
     assert details["plan_id"] == "yki_monthly"
