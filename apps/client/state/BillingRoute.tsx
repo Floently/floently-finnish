@@ -163,7 +163,7 @@ export default function BillingRoute({ onBack, onOpenMenu }: Props) {
   const refreshSubscription = useSubscriptionStore((state) => state.refresh);
   const subscription = useSubscriptionStore((state) => state.status);
   const isMobileStoreBilling = supportsStoreBilling();
-  const storeUserId = user?.id ?? user?.email ?? null;
+  const storeUserId = user?.id ?? null;
   const visibleStorePlanIds = useMemo(
     () => PATHWAYS.map((pathway) => getPlanByPathwayPeriod(pathway.id, period).id),
     [period],
@@ -530,7 +530,7 @@ export default function BillingRoute({ onBack, onOpenMenu }: Props) {
         return;
       }
       if (supportsStoreBilling()) {
-        const result = await startStorePurchase(request.plan, user?.id ?? user?.email ?? null);
+        const result = await startStorePurchase(request.plan, storeUserId);
         try {
           await paymentService.syncStoreSubscription({
             platform: result.platform,
@@ -577,7 +577,7 @@ export default function BillingRoute({ onBack, onOpenMenu }: Props) {
     if (supportsStoreBilling()) {
       try {
         setPortalBusy(true);
-        const result = await restoreStorePurchases(user?.id ?? user?.email ?? null);
+        const result = await restoreStorePurchases(storeUserId);
         try {
           await paymentService.syncStoreSubscription({
             platform: result.platform,
@@ -648,7 +648,7 @@ export default function BillingRoute({ onBack, onOpenMenu }: Props) {
       };
 
       if (supportsStoreBilling()) {
-        const result = await startStorePurchase(request.plan, user?.id ?? user?.email ?? null);
+        const result = await startStorePurchase(request.plan, storeUserId);
         try {
           await paymentService.syncStoreSubscription({
             platform: result.platform,
