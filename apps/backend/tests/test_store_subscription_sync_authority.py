@@ -208,3 +208,61 @@ def test_store_api_failure_must_not_replace_existing_entitlements(harness, monke
         billing.apply_store_subscription_sync(user=user, payload={"platform": "ios"})
     assert exc.value.code == "STORE_VERIFICATION_UNAVAILABLE"
     assert seen["updates"] == []
+
+
+@pytest.mark.parametrize(
+    "tier,expected_yki,expected_professional",
+    [
+        ("yki_monthly", True, False),
+        ("professional_yearly", False, True),
+        ("combined_3_months", True, True),
+    ],
+)
+def test_real_store_trial_grants_only_its_purchased_pathway(
+    monkeypatch, tier, expected_yki, expected_professional,
+):
+    monkeypatch.setattr(billing, "_fresh_user_record", lambda user: user)
+    monkeypatch.setattr(billing, "_active_access_grant_for_user", lambda user: None)
+    user = {
+        "user_id": "trial-pathway-user",
+        "email": "trial-pathway@example.com",
+        "subscription_tier": tier,
+        "subscription_provider": "apple",
+        "subscription_status": "trialing",
+        "access_choice": "trial",
+        "trial_started_at": when(-1),
+        "trial_ends_at": when(2),
+        "subscription_expires_at": when(2),
+        "current_period_end": when(2),
+        "selected_professions": ["doctor"],
+    }
+    status = billing.subscription_status(user=user)
+    assert status["tier"] == tier
+    assert status["billing_tier"] == tier
+    assert status["is_trial"] is True
+    assert status["is_active"] is True
+    assert status["yki_access"] is expected_yki
+    assert status["professional_access"] is expected_professional
+
+
+def test_store_paid_conversion_is_not_shown_as_trial_after_period_type_changes(monkeypatch):
+    monkeypatch.setattr(billing, "_fresh_user_record", lambda user: user)
+    monkeypatch.setattr(billing, "_active_access_grant_for_user", lambda user: None)
+    monkeypatch.setattr(billing.SETTINGS, "allow_dev_entitlement_override", False)
+    user = {
+        "user_id": "converted-user",
+        "email": "converted@example.com",
+        "subscription_tier": "yki_monthly",
+        "subscription_provider": "apple",
+        "subscription_status": "active",
+        "access_choice": "paid",
+        "trial_started_at": when(-2),
+        "trial_ends_at": when(2),  # historical date must not force trial UI
+        "subscription_expires_at": when(30),
+        "current_period_end": when(30),
+        "selected_professions": [],
+    }
+    status = billing.subscription_status(user=user)
+    assert status["tier"] == "yki_monthly"
+    assert status["is_trial"] is False
+    assert status["is_active"] is True
