@@ -108,30 +108,464 @@ function isScenarioIdValidForProfession(scenarioId: string | undefined, professi
 // Types
 // --------------------------------------------------------------------------
 
-type FeedbackReport = {
-  sessionId: string;
-  personaName: string;
-  track: string;
-  trackLabel: string;
-  levelBand: string;
-  scenario: RoleplayScenarioSummary;
-  summary: string;
-  scores: {
-    avgPhrasesCoverage: number;
-    avgWordCount: number;
-    repairLanguageUsed: boolean;
-    totalTurns: number;
-  };
-  transcriptAnnotated: Array<{
-    speaker: string;
-    text: string;
-    comment: string | null;
-  }>;
-  strongPhrases: string[];
-  difficultPhrases: string[];
-  grammarObservations: string[];
-  nextSteps: string[];
-};
+type FeedbackReport = RoleplayFinishResponse;
+
+function roleplayEvaluation(
+  report: FeedbackReport,
+) {
+  return (
+    report.evaluationReport
+    ?? report.evaluation
+    ?? null
+  );
+}
+
+function displayRoleplayLevel(
+  value: string | null | undefined,
+) {
+  if (
+    !value
+    || value === 'insufficient_evidence'
+  ) {
+    return 'Ei riittävästi näyttöä';
+  }
+
+  return value;
+}
+
+function displayRoleplayScore(
+  value: number | null | undefined,
+) {
+  if (typeof value !== 'number') {
+    return 'Ei pisteytetty';
+  }
+
+  const formatted = Number.isInteger(value)
+    ? String(value)
+    : value.toFixed(1);
+
+  return `${formatted}/100`;
+}
+
+function buildRoleplayEvaluationMarkdown(
+  report: FeedbackReport,
+): string[] {
+  const evaluation =
+    roleplayEvaluation(report);
+
+  if (!evaluation) {
+    return [];
+  }
+
+  const lines: string[] = [
+    `## AI-arvioitu harjoittelutaso`,
+    ``,
+    `**Arvioitu taso:** ${displayRoleplayLevel(evaluation.estimatedLevel)}  `,
+    `**Luottamus:** ${Math.round(evaluation.confidence * 100)} %  `,
+    `**Raportin tila:** ${evaluation.status === 'ready' ? 'AI-arvio valmis' : 'Rajoitettu vararaportti'}  `,
+    ``,
+    evaluation.overallSummary,
+    ``,
+    `> ${evaluation.disclaimer}`,
+    ``,
+    `> Ääntämistä, aksenttia tai äänen laatua ei arvioitu.`,
+    ``,
+    `### Arviointikriteerit`,
+    ``,
+  ];
+
+  for (const criterion of evaluation.criteria) {
+    lines.push(
+      `#### ${criterion.name}`,
+      ``,
+      `**Pisteet:** ${displayRoleplayScore(criterion.score)} · **Taso:** ${displayRoleplayLevel(criterion.level)}`,
+      ``,
+      criterion.rationale,
+      ``,
+    );
+
+    if (criterion.evidence.length) {
+      lines.push(
+        `**Näyttö:**`,
+        ...criterion.evidence.map(
+          (item) => `- “${item}”`,
+        ),
+        ``,
+      );
+    }
+  }
+
+  if (evaluation.strengths.length) {
+    lines.push(
+      `### Vahvuudet`,
+      ``,
+      ...evaluation.strengths.map(
+        (item) => `- ${item}`,
+      ),
+      ``,
+    );
+  }
+
+  if (evaluation.improvements.length) {
+    lines.push(
+      `### Tärkeimmät kehityskohteet`,
+      ``,
+      ...evaluation.improvements.map(
+        (item) => `- ${item}`,
+      ),
+      ``,
+    );
+  }
+
+  if (evaluation.corrections.length) {
+    lines.push(
+      `### Korjaukset`,
+      ``,
+    );
+
+    for (
+      const correction
+      of evaluation.corrections
+    ) {
+      lines.push(
+        `- **Alkuperäinen:** ${correction.original}`,
+        `  **Korjattu:** ${correction.corrected}`,
+        `  **Miksi:** ${correction.explanation}`,
+      );
+    }
+
+    lines.push(``);
+  }
+
+  lines.push(
+    `### Kolmen vaiheen harjoitussuunnitelma`,
+    ``,
+    ...evaluation.actionPlan.map(
+      (item, index) =>
+        `${index + 1}. ${item}`,
+    ),
+    ``,
+  );
+
+  return lines;
+}
+
+function buildRoleplayEvaluationPlainText(
+  report: FeedbackReport,
+): string[] {
+  const evaluation =
+    roleplayEvaluation(report);
+
+  if (!evaluation) {
+    return [];
+  }
+
+  const lines: string[] = [
+    `AI-ARVIOITU HARJOITTELUTASO`,
+    ``,
+    `Arvioitu taso: ${displayRoleplayLevel(evaluation.estimatedLevel)}`,
+    `Luottamus: ${Math.round(evaluation.confidence * 100)} %`,
+    `Raportin tila: ${evaluation.status}`,
+    ``,
+    evaluation.overallSummary,
+    ``,
+    evaluation.disclaimer,
+    `Ääntämistä, aksenttia tai äänen laatua ei arvioitu.`,
+    ``,
+    `Arviointikriteerit`,
+    ``,
+  ];
+
+  for (const criterion of evaluation.criteria) {
+    lines.push(
+      `${criterion.name}`,
+      `  Pisteet: ${displayRoleplayScore(criterion.score)}`,
+      `  Taso: ${displayRoleplayLevel(criterion.level)}`,
+      `  Arvio: ${criterion.rationale}`,
+    );
+
+    for (
+      const evidence
+      of criterion.evidence
+    ) {
+      lines.push(
+        `  Näyttö: "${evidence}"`,
+      );
+    }
+
+    lines.push(``);
+  }
+
+  if (evaluation.strengths.length) {
+    lines.push(
+      `Vahvuudet`,
+      ...evaluation.strengths.map(
+        (item) => `  - ${item}`,
+      ),
+      ``,
+    );
+  }
+
+  if (evaluation.improvements.length) {
+    lines.push(
+      `Tärkeimmät kehityskohteet`,
+      ...evaluation.improvements.map(
+        (item) => `  - ${item}`,
+      ),
+      ``,
+    );
+  }
+
+  if (evaluation.corrections.length) {
+    lines.push(
+      `Korjaukset`,
+    );
+
+    for (
+      const correction
+      of evaluation.corrections
+    ) {
+      lines.push(
+        `  Alkuperäinen: ${correction.original}`,
+        `  Korjattu: ${correction.corrected}`,
+        `  Miksi: ${correction.explanation}`,
+        ``,
+      );
+    }
+  }
+
+  lines.push(
+    `Kolmen vaiheen harjoitussuunnitelma`,
+    ...evaluation.actionPlan.map(
+      (item, index) =>
+        `  ${index + 1}. ${item}`,
+    ),
+    ``,
+  );
+
+  return lines;
+}
+
+function buildRoleplayEvaluationHtml(
+  report: FeedbackReport,
+) {
+  const evaluation =
+    roleplayEvaluation(report);
+
+  if (!evaluation) {
+    return `
+      <div style="
+        padding: 12pt;
+        border: 1px solid #E1E8F5;
+        border-radius: 8pt;
+        margin-bottom: 14pt;
+      ">
+        <strong>
+          Yksityiskohtainen AI-arvio ei ollut
+          saatavilla tälle vanhemmalle raportille.
+        </strong>
+      </div>
+    `;
+  }
+
+  const criteriaHtml =
+    evaluation.criteria.map(
+      (criterion) => `
+        <div style="
+          margin: 0 0 10pt;
+          padding: 9pt 10pt;
+          background: #F2F5FB;
+          border-left: 3pt solid #1F47E8;
+          page-break-inside: avoid;
+        ">
+          <div style="
+            font-weight: 800;
+            margin-bottom: 4pt;
+          ">
+            ${escapeHtml(criterion.name)}
+            ·
+            ${escapeHtml(
+              displayRoleplayScore(
+                criterion.score,
+              ),
+            )}
+            ·
+            ${escapeHtml(
+              displayRoleplayLevel(
+                criterion.level,
+              ),
+            )}
+          </div>
+
+          <div>
+            ${escapeHtml(
+              criterion.rationale,
+            )}
+          </div>
+
+          ${
+            criterion.evidence.length
+              ? `
+                <ul>
+                  ${criterion.evidence.map(
+                    (item) =>
+                      `<li>“${escapeHtml(item)}”</li>`,
+                  ).join('')}
+                </ul>
+              `
+              : ''
+          }
+        </div>
+      `,
+    ).join('');
+
+  const correctionsHtml =
+    evaluation.corrections.length
+      ? `
+        <h2>Korjaukset</h2>
+
+        ${evaluation.corrections.map(
+          (correction) => `
+            <div style="
+              margin-bottom: 9pt;
+              padding: 9pt;
+              background: #FFF8E5;
+              border-radius: 7pt;
+              page-break-inside: avoid;
+            ">
+              <div>
+                <strong>Alkuperäinen:</strong>
+                ${escapeHtml(correction.original)}
+              </div>
+              <div>
+                <strong>Korjattu:</strong>
+                ${escapeHtml(correction.corrected)}
+              </div>
+              <div>
+                <strong>Miksi:</strong>
+                ${escapeHtml(correction.explanation)}
+              </div>
+            </div>
+          `,
+        ).join('')}
+      `
+      : '';
+
+  return `
+    <section style="
+      margin-bottom: 16pt;
+      padding: 13pt;
+      border-radius: 9pt;
+      border: 1px solid #C9D9FF;
+      background: #EEF4FF;
+    ">
+      <div style="
+        color: #1F47E8;
+        font-size: 9pt;
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: 0.5pt;
+      ">
+        AI-arvioitu harjoittelutaso
+      </div>
+
+      <div style="
+        font-size: 24pt;
+        font-weight: 900;
+        margin-top: 3pt;
+      ">
+        ${escapeHtml(
+          displayRoleplayLevel(
+            evaluation.estimatedLevel,
+          ),
+        )}
+      </div>
+
+      <div style="
+        color: #5C7299;
+        font-weight: 700;
+      ">
+        Luottamus:
+        ${Math.round(
+          evaluation.confidence * 100,
+        )} %
+      </div>
+
+      <p>
+        ${escapeHtml(
+          evaluation.overallSummary,
+        )}
+      </p>
+    </section>
+
+    <section style="
+      margin-bottom: 16pt;
+      padding: 11pt;
+      border-radius: 8pt;
+      border: 1px solid #E8CB76;
+      background: #FFF8E5;
+    ">
+      <strong>
+        Ei virallinen YKI-tulos
+      </strong>
+
+      <p>
+        ${escapeHtml(
+          evaluation.disclaimer,
+        )}
+      </p>
+
+      <p>
+        Ääntämistä, aksenttia tai
+        äänen laatua ei arvioitu.
+      </p>
+    </section>
+
+    <h2>Arviointikriteerit</h2>
+    ${criteriaHtml}
+
+    ${
+      evaluation.strengths.length
+        ? `
+          <h2>Vahvuudet</h2>
+          <ul>
+            ${evaluation.strengths.map(
+              (item) =>
+                `<li>${escapeHtml(item)}</li>`,
+            ).join('')}
+          </ul>
+        `
+        : ''
+    }
+
+    ${
+      evaluation.improvements.length
+        ? `
+          <h2>Tärkeimmät kehityskohteet</h2>
+          <ul>
+            ${evaluation.improvements.map(
+              (item) =>
+                `<li>${escapeHtml(item)}</li>`,
+            ).join('')}
+          </ul>
+        `
+        : ''
+    }
+
+    ${correctionsHtml}
+
+    <h2>
+      Kolmen vaiheen harjoitussuunnitelma
+    </h2>
+
+    <ol>
+      ${evaluation.actionPlan.map(
+        (item) =>
+          `<li>${escapeHtml(item)}</li>`,
+      ).join('')}
+    </ol>
+  `;
+}
 
 // --------------------------------------------------------------------------
 // Download helper (web only — React Native would use Share API)
@@ -152,6 +586,7 @@ function buildMarkdownReport(report: FeedbackReport): string {
     ``,
     report.summary,
     ``,
+    ...buildRoleplayEvaluationMarkdown(report),
     `---`,
     ``,
     `## Pisteet`,
@@ -240,6 +675,7 @@ function buildPlainTextReport(report: FeedbackReport): string {
     `Taso:                ${report.levelBand}`,
     `Keskustelukumppani:  ${report.personaName}`,
     ``,
+    ...buildRoleplayEvaluationPlainText(report),
     `------------------------------------------------------------`,
     ``,
     `Pisteet`,
@@ -369,6 +805,7 @@ function buildHtmlReport(report: FeedbackReport): string {
     <strong>Keskustelukumppani:</strong> ${escapeHtml(report.personaName)}
   </div>
   <hr/>
+  ${buildRoleplayEvaluationHtml(report)}
   <h2>Pisteet</h2>
   <table class="scores">
     <tr><td>Avainsanojen käyttö (keskimäärin)</td><td>${report.scores.avgPhrasesCoverage} / 3</td></tr>
@@ -524,6 +961,7 @@ export default function RoleplayConversationScreen({
   const [maxTurns, setMaxTurns] = useState(5);
   const [manualText, setManualText] = useState('');
   const [feedbackReport, setFeedbackReport] = useState<FeedbackReport | null>(null);
+  const detailedEvaluation = feedbackReport ? roleplayEvaluation(feedbackReport) : null;
   const [feedbackLine, setFeedbackLine] = useState<string | null>(null);
   const [missingPhrases, setMissingPhrases] = useState<string[]>([]);
   const [remoteAudioAvailable, setRemoteAudioAvailable] = useState(true);
@@ -1085,6 +1523,96 @@ export default function RoleplayConversationScreen({
                 <Text style={[styles.reportSummary, { color: mutedColor }]}>
                   {feedbackReport.summary}
                 </Text>
+
+
+                {/* Preserve the detailed backend evaluation in the iOS experience.
+                    Do not infer a spoken-pronunciation score from text evidence. */}
+                {detailedEvaluation ? (
+                  <View style={[styles.phraseSection, { borderColor: cardBorder }]}>
+                    <Text style={[styles.phraseSectionTitle, { color: primaryColor }]}>
+                      AI-arvioitu harjoittelutaso
+                    </Text>
+                    <Text style={[styles.reportSummary, { color: textColor }]}>
+                      {displayRoleplayLevel(detailedEvaluation.estimatedLevel)}
+                    </Text>
+                    <Text style={[styles.obsLine, { color: mutedColor }]}>
+                      {detailedEvaluation.status === 'ready'
+                        ? 'AI-arvio valmis'
+                        : 'Rajoitettu vararaportti'}
+                      {' · '}Luottamus: {Math.round(detailedEvaluation.confidence * 100)} %
+                    </Text>
+                    <Text style={[styles.obsLine, { color: textColor }]}>
+                      {detailedEvaluation.overallSummary}
+                    </Text>
+                    <Text style={[styles.phraseSectionTitle, { color: textColor }]}>
+                      Ei virallinen YKI-tulos
+                    </Text>
+                    <Text style={[styles.obsLine, { color: mutedColor }]}>
+                      {detailedEvaluation.disclaimer}
+                    </Text>
+                    <Text style={[styles.obsLine, { color: mutedColor }]}>
+                      Ääntämistä ei arvioitu.
+                    </Text>
+                    <Text style={[styles.phraseSectionTitle, { color: textColor }]}>
+                      Arviointikriteerit
+                    </Text>
+                    {detailedEvaluation.criteria.map((criterion, index) => (
+                      <View key={`${criterion.id}-${index}`} style={styles.phraseSection}>
+                        <Text style={[styles.obsLine, { color: textColor }]}>
+                          {criterion.name}: {displayRoleplayScore(criterion.score)}
+                          {' · '}{displayRoleplayLevel(criterion.level)}
+                        </Text>
+                        <Text style={[styles.obsLine, { color: mutedColor }]}>
+                          {criterion.rationale}
+                        </Text>
+                        {criterion.evidence.map((evidence, evidenceIndex) => (
+                          <Text key={evidenceIndex} style={[styles.obsLine, { color: mutedColor }]}>
+                            • {evidence}
+                          </Text>
+                        ))}
+                      </View>
+                    ))}
+                    {detailedEvaluation.strengths.length ? (
+                      <View style={styles.phraseSection}>
+                        <Text style={[styles.phraseSectionTitle, { color: textColor }]}>Vahvuudet</Text>
+                        {detailedEvaluation.strengths.map((item, index) => (
+                          <Text key={index} style={[styles.obsLine, { color: mutedColor }]}>• {item}</Text>
+                        ))}
+                      </View>
+                    ) : null}
+                    {detailedEvaluation.improvements.length ? (
+                      <View style={styles.phraseSection}>
+                        <Text style={[styles.phraseSectionTitle, { color: textColor }]}>Kehityskohteet</Text>
+                        {detailedEvaluation.improvements.map((item, index) => (
+                          <Text key={index} style={[styles.obsLine, { color: mutedColor }]}>• {item}</Text>
+                        ))}
+                      </View>
+                    ) : null}
+                    {detailedEvaluation.corrections.length ? (
+                      <View style={styles.phraseSection}>
+                        <Text style={[styles.phraseSectionTitle, { color: textColor }]}>Korjaukset</Text>
+                        {detailedEvaluation.corrections.map((correction, index) => (
+                          <View key={index} style={styles.phraseSection}>
+                            <Text style={[styles.obsLine, { color: mutedColor }]}>
+                              {correction.original} → {correction.corrected}
+                            </Text>
+                            <Text style={[styles.obsLine, { color: mutedColor }]}>
+                              {correction.explanation}
+                            </Text>
+                          </View>
+                        ))}
+                      </View>
+                    ) : null}
+                    <Text style={[styles.phraseSectionTitle, { color: textColor }]}>
+                      Kolmen vaiheen harjoitussuunnitelma
+                    </Text>
+                    {detailedEvaluation.actionPlan.map((step, index) => (
+                      <Text key={index} style={[styles.obsLine, { color: mutedColor }]}>
+                        {index + 1}. {step}
+                      </Text>
+                    ))}
+                  </View>
+                ) : null}
 
                 {/* Score chips */}
                 <View style={styles.scoreRow}>
