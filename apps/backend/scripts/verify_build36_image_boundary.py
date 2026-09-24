@@ -60,14 +60,16 @@ def main() -> None:
         "./apps/backend/persistent/puhis.db:/app/puhis.db",
         "./apps/backend/persistent/runtime:/app/runtime",
         "${GOOGLE_KEYS_DIR:-./ops/keys}:/keys:ro",
+        "RELEASE_SOURCE_SHA: ${RELEASE_SOURCE_SHA:-UNVERIFIED_LOCAL_BUILD}",
     )
     for required in required_compose:
         if required not in compose:
-            raise AssertionError(f"Runtime data/secret mount contract changed: {required}")
+            raise AssertionError(f"Runtime mount/build contract changed: {required}")
 
     print("BACKEND_DOCKER_SECRET_EXCLUSION_SOURCE=PASS")
     print("BACKEND_DOCKER_PERSISTENCE_EXCLUSION_SOURCE=PASS")
     print("BACKEND_DOCKER_REVISION_LABEL_SOURCE=PASS")
+    print("BACKEND_COMPOSE_SOURCE_SHA_PLUMBING=PASS")
     print("CANDIDATE_IMAGE_BUILT=NO")
     print("BIDIRECTIONAL_CANDIDATE_IMAGE_IDENTITY=NOT_TESTED")
     print("PRODUCTION_DEPLOYMENT_AUTHORIZED=NO")
