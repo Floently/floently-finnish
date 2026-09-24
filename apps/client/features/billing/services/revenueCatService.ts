@@ -1,5 +1,5 @@
 import { Platform } from 'react-native';
-import Purchases, { LOG_LEVEL } from 'react-native-purchases';
+import Purchases, { LOG_LEVEL, INTRO_ELIGIBILITY_STATUS } from 'react-native-purchases';
 
 type RevenueCatPlatform = 'android' | 'ios';
 
@@ -12,6 +12,8 @@ export type RevenueCatPackageSnapshot = {
   packageIdentifier: string;
   productIdentifier: string;
   priceString: string;
+  /** StoreKit's actual three-day zero-price introductory offer AND iOS eligibility. */
+  trialEligible: boolean;
 };
 
 export type RevenueCatOfferingSnapshot = {
@@ -210,6 +212,22 @@ function packageCandidateIdentifiers(item: unknown): string[] {
   return Array.from(new Set(values));
 }
 
+export function isThreeDayFreeIntroPrice(introPrice: unknown): boolean {
+  if (!introPrice || typeof introPrice !== 'object') return false;
+  const discount = introPrice as Record<string, unknown>;
+  const price = Number(discount.price);
+  const cycles = Number(discount.cycles);
+  const unit = String(discount.periodUnit ?? '').toUpperCase();
+  const units = Number(discount.periodNumberOfUnits);
+  const isoPeriod = String(discount.period ?? '').toUpperCase();
+  return (
+    Number.isFinite(price) &&
+    price === 0 &&
+    cycles === 1 &&
+    ((unit === 'DAY' && units === 3) || isoPeriod === 'P3D')
+  );
+}
+
 function packageSnapshot(item: unknown): RevenueCatPackageSnapshot | null {
   const pkg = item && typeof item === 'object' ? item as Record<string, unknown> : {};
   const packageIdentifier = String(pkg.identifier ?? pkg.packageIdentifier ?? '').trim();
@@ -222,6 +240,7 @@ function packageSnapshot(item: unknown): RevenueCatPackageSnapshot | null {
     product.identifier ?? product.productIdentifier ?? product.productId ?? product.id ?? '',
   ).trim();
   const priceString = String(product.priceString ?? product.localizedPriceString ?? '').trim();
+  const hasThreeDayFreeIntro = isThreeDayFreeIntroPrice(product.introPrice);
 
   if (!packageIdentifier && !productIdentifier) {
     return null;
@@ -231,6 +250,9 @@ function packageSnapshot(item: unknown): RevenueCatPackageSnapshot | null {
     packageIdentifier,
     productIdentifier,
     priceString,
+    // Eligibility is checked separately for the exact Apple product below.
+    trialEligible: false,
+    ...({ hasThreeDayFreeIntro } as { hasThreeDayFreeIntro: boolean }),
   };
 }
 
@@ -260,11 +282,37 @@ export async function getRevenueCatOfferingSnapshot(
     ? offering.availablePackages
     : [];
 
+  const packages = availablePackages
+    .map((item: unknown) => packageSnapshot(item))
+    .filter((item): item is RevenueCatPackageSnapshot => Boolean(item));
+
+  if (Platform.OS === 'ios') {
+    const relevantProducts = packages
+      .filter((item) => 'hasThreeDayFreeIntro' in item && item.hasThreeDayFreeIntro)
+      .map((item) => item.productIdentifier)
+      .filter(Boolean);
+    if (relevantProducts.length) {
+      try {
+        const statuses = await Purchases.checkTrialOrIntroductoryPriceEligibility(
+          Array.from(new Set(relevantProducts)),
+        );
+        for (const item of packages) {
+          const status = statuses[item.productIdentifier]?.status;
+          item.trialEligible = Boolean(
+            'hasThreeDayFreeIntro' in item &&
+            item.hasThreeDayFreeIntro &&
+            status === INTRO_ELIGIBILITY_STATUS.INTRO_ELIGIBILITY_STATUS_ELIGIBLE,
+          );
+        }
+      } catch {
+        // Never claim a free trial when Apple eligibility is not confirmable.
+      }
+    }
+  }
+
   return {
     offeringIdentifier: String(offering.identifier || offeringIdentifier || 'current'),
-    packages: availablePackages
-      .map((item: unknown) => packageSnapshot(item))
-      .filter((item): item is RevenueCatPackageSnapshot => Boolean(item)),
+    packages,
   };
 }
 
