@@ -92,6 +92,21 @@ def validate_container_inventory(inventory: Path) -> None:
     if not isinstance(live_files, dict) or not live_files:
         raise ValueError("No running-container source paths were collected")
 
+    # An incomplete or wrong-root inventory must never masquerade as PASS.
+    required_live = {
+        path for path in (
+            *UNCHANGED_LABEL_BLOBS,
+            *REVIEWED_DIFFERENT_BLOBS,
+            "apps/backend/main.py",
+        ) if path.endswith(".py")
+    }
+    missing_required = sorted(required_live - live_files.keys())
+    if missing_required:
+        raise AssertionError(
+            "Running container inventory is incomplete: "
+            + ", ".join(missing_required)
+        )
+
     candidate_paths = {
         p for p in git("ls-files", "--", "apps/backend").splitlines()
         if p.endswith(".py")
