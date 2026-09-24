@@ -6,8 +6,6 @@ export type DrawerRoute =
   | 'yki-practice'
   | 'yki-exam'
   | 'professional-finnish'
-  | 'read'
-  | 'create'
   | 'progress'
   | 'settings'
   | 'billing';
