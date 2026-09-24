@@ -1184,6 +1184,7 @@ export default function RoleplayConversationScreen({
           // Graceful degradation for old backend
           setFeedbackReport({
             sessionId: sessionId,
+            completed: true,
             personaName,
             track: 'general',
             trackLabel: 'Suomen kielen harjoittelu',
@@ -1196,6 +1197,7 @@ export default function RoleplayConversationScreen({
             difficultPhrases: (finished as any).difficultPhrases ?? [],
             grammarObservations: [],
             nextSteps: [(finished as any).nextAction ?? ''],
+            nextAction: (finished as any).nextAction ?? 'Jatka harjoittelua',
           });
         }
         await uiSounds.success();
