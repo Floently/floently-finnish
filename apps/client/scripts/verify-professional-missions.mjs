@@ -25,7 +25,10 @@ import {
 
 const __filename = fileURLToPath(import.meta.url);
 const repoRoot = path.resolve(path.dirname(__filename), '../../..');
-const baseRef = process.env.WAVE1_BASE_REF || '69813b433838130d5afe4b052360dbfd12df3f40';
+// This verifier was introduced with the accepted Agent F feature snapshot.
+// Audit the exact feature integration commit, not all unrelated changes made
+// after immutable Wave-1 (including independently approved navigation fixes).
+const acceptedMissionCommit = '023804ac0b64b2d36fa97f0512c00c659e60e928';
 
 function clone(value) {
   return JSON.parse(JSON.stringify(value));
@@ -200,13 +203,32 @@ expectRejected('non-sequential mission rejected', (mission) => {
 for (const mission of PROFESSIONAL_MISSIONS) assert.equal(getMissionById(mission.missionId), mission);
 assert.throws(() => getMissionById('missing-mission'), /Unknown mission/);
 
-// Regression guard: Agent F must not touch protected Roleplay/navigation/runtime files.
+// Provenance guard: prove the accepted Agent F commit is in this checkout and
+// contains ONLY its intended mission feature. An integrated release necessarily
+// contains other independently reviewed navigation and Roleplay updates since
+// Wave-1; those have their own current-release regression gates.
+try {
+  git(['merge-base', '--is-ancestor', acceptedMissionCommit, 'HEAD']);
+} catch {
+  assert.fail(`Accepted Agent F mission commit ${acceptedMissionCommit} is not an ancestor of HEAD`);
+}
 let changedFiles = [];
 try {
-  changedFiles = git(['diff', '--name-only', `${baseRef}...HEAD`]).split('\n').map((value) => value.trim()).filter(Boolean);
+  changedFiles = git(['diff-tree', '--no-commit-id', '--name-only', '-r', acceptedMissionCommit])
+    .split('\n').map((value) => value.trim()).filter(Boolean);
 } catch (error) {
-  throw new Error(`Unable to verify Agent F protected-file diff against ${baseRef}: ${error instanceof Error ? error.message : String(error)}`);
+  throw new Error(`Unable to verify accepted Agent F integration commit ${acceptedMissionCommit}: ${error instanceof Error ? error.message : String(error)}`);
 }
+const acceptedMissionFiles = [
+  'apps/backend/tests/test_professional_mission_contract.py',
+  'apps/client/scripts/verify-professional-missions.mjs',
+  'docs/agents/research/AGENT_F_RESEARCH.md',
+  'packages/core/professional/missions.d.ts',
+  'packages/core/professional/missions.mjs',
+];
+assert.deepEqual(changedFiles.sort(), acceptedMissionFiles.sort(),
+  'accepted Agent F integration commit must contain only reviewed mission feature files');
+
 const protectedRoleplayOrNavigation = changedFiles.filter((file) =>
   file === 'apps/client/state/AppShell.tsx' ||
   file === 'apps/client/state/navigationModel.ts' ||
@@ -216,7 +238,18 @@ const protectedRoleplayOrNavigation = changedFiles.filter((file) =>
   file.startsWith('apps/client/features/roleplay/') ||
   file.startsWith('.github/workflows/roleplay-'),
 );
-assert.deepEqual(protectedRoleplayOrNavigation, [], `protected Roleplay/navigation files changed: ${protectedRoleplayOrNavigation.join(', ')}`);
+assert.deepEqual(protectedRoleplayOrNavigation, [],
+  `accepted Agent F commit changed protected Roleplay/navigation files: ${protectedRoleplayOrNavigation.join(', ')}`);
+
+// A later release must not silently replace the accepted feature's mission
+// catalog or declarations without updating the explicitly reviewed snapshot.
+const missionChanges = git([
+  'diff', '--name-only', `${acceptedMissionCommit}..HEAD`, '--',
+  'packages/core/professional/missions.mjs',
+  'packages/core/professional/missions.d.ts',
+]).split('\n').map((value) => value.trim()).filter(Boolean);
+assert.deepEqual(missionChanges, [],
+  `accepted Professional Missions source modified after integration: ${missionChanges.join(', ')}`);
 
 // Static guard: professional mission implementation imports no canonical runtime engine internals.
 const missionSource = fs.readFileSync(path.join(repoRoot, 'packages/core/professional/missions.mjs'), 'utf8');
