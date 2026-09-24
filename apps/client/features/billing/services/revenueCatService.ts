@@ -246,7 +246,7 @@ export async function getRevenueCatOfferingSnapshot(
   userId?: string | null,
   offeringIdentifier?: string | null,
 ): Promise<RevenueCatOfferingSnapshot | null> {
-  if (!(await ensureRevenueCatConfigured(userId))) {
+  if (!normalizeUserId(userId) || !(await ensureRevenueCatConfigured(userId))) {
     return null;
   }
 
@@ -273,6 +273,9 @@ export async function purchaseRevenueCatPackage(
   userId?: string | null,
   offeringIdentifier?: string | null,
 ): Promise<RevenueCatPurchaseResult> {
+  if (!normalizeUserId(userId)) {
+    throw new Error('Sign in before purchasing a subscription.');
+  }
   if (!(await ensureRevenueCatConfigured(userId))) {
     throw new Error('Store billing is not configured for this platform.');
   }
@@ -315,6 +318,9 @@ export async function purchaseRevenueCatPackage(
 }
 
 export async function restoreRevenueCatPurchases(userId?: string | null): Promise<RevenueCatPurchaseResult> {
+  if (!normalizeUserId(userId)) {
+    throw new Error('Sign in before restoring a subscription.');
+  }
   if (!(await ensureRevenueCatConfigured(userId))) {
     throw new Error('Store billing is not configured for this platform.');
   }
