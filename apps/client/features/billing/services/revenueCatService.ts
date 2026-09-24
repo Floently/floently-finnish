@@ -14,6 +14,7 @@ export type RevenueCatPackageSnapshot = {
   priceString: string;
   /** StoreKit's actual three-day zero-price introductory offer AND iOS eligibility. */
   trialEligible: boolean;
+  hasThreeDayFreeIntro: boolean;
 };
 
 export type RevenueCatOfferingSnapshot = {
@@ -252,7 +253,7 @@ function packageSnapshot(item: unknown): RevenueCatPackageSnapshot | null {
     priceString,
     // Eligibility is checked separately for the exact Apple product below.
     trialEligible: false,
-    ...({ hasThreeDayFreeIntro } as { hasThreeDayFreeIntro: boolean }),
+    hasThreeDayFreeIntro,
   };
 }
 
@@ -288,7 +289,7 @@ export async function getRevenueCatOfferingSnapshot(
 
   if (Platform.OS === 'ios') {
     const relevantProducts = packages
-      .filter((item) => 'hasThreeDayFreeIntro' in item && item.hasThreeDayFreeIntro)
+      .filter((item) => item.hasThreeDayFreeIntro)
       .map((item) => item.productIdentifier)
       .filter(Boolean);
     if (relevantProducts.length) {
@@ -299,7 +300,6 @@ export async function getRevenueCatOfferingSnapshot(
         for (const item of packages) {
           const status = statuses[item.productIdentifier]?.status;
           item.trialEligible = Boolean(
-            'hasThreeDayFreeIntro' in item &&
             item.hasThreeDayFreeIntro &&
             status === INTRO_ELIGIBILITY_STATUS.INTRO_ELIGIBILITY_STATUS_ELIGIBLE,
           );
