@@ -3,6 +3,7 @@ from __future__ import annotations
 from typing import Any
 
 from fastapi import APIRouter, Header, Request
+from starlette.concurrency import run_in_threadpool
 
 from app.middleware.request_id import get_request_id
 from app.core.responses import success_payload
@@ -111,7 +112,7 @@ def build_subscription_router() -> APIRouter:
     ) -> dict[str, Any]:
         user, _ = current_user_from_authorization(authorization)
         return success_payload(
-            data=apply_store_subscription_sync(user=user, payload=payload),
+            data=await run_in_threadpool(apply_store_subscription_sync, user=user, payload=payload),
             request_id=get_request_id(request),
         )
 
