@@ -3,6 +3,10 @@ services:
     build:
       context: .
       dockerfile: apps/backend/Dockerfile
+      args:
+        # Release pipeline supplies an exact, tested commit. An ordinary local
+        # Compose build stays visibly unverified; never promote that image.
+        RELEASE_SOURCE_SHA: ${RELEASE_SOURCE_SHA:-UNVERIFIED_LOCAL_BUILD}
     env_file:
       - apps/backend/.env
     environment:
