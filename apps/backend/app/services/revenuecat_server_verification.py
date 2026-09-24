@@ -156,19 +156,31 @@ def verify_apple_subscriber(
             raise RevenueCatVerificationError("Subscription purchase or expiration is missing.")
         if purchased > current:
             raise RevenueCatVerificationError("Subscription purchase date is in the future.")
-        entitlement = entitlements.get(entitlement_id)
-        if not isinstance(entitlement, Mapping):
-            raise RevenueCatVerificationError("Known Apple subscription is missing its mapped entitlement.")
-        if str(entitlement.get("product_identifier") or "") != product:
-            raise RevenueCatVerificationError("Apple subscription entitlement/product mismatch.")
-        entitlement_expiry = _timestamp(entitlement.get("expires_date"))
-        if entitlement_expiry is None:
-            raise RevenueCatVerificationError("Subscription entitlement expiration is missing.")
-
         refunded = _timestamp(raw_subscription.get("refunded_at")) is not None
         grace = _timestamp(raw_subscription.get("grace_period_expires_date"))
-        effective_expiry = min(expires, entitlement_expiry)
-        in_grace = grace is not None and grace > current and entitlement_expiry > current
+        # RevenueCat retains historical subscriptions after an upgrade. The
+        # entitlement points at the CURRENT product only; old expired/refunded
+        # products must not block validation of a newly purchased plan.
+        entitlement = entitlements.get(entitlement_id)
+        if expires > current and not refunded:
+            if not isinstance(entitlement, Mapping):
+                raise RevenueCatVerificationError("Known Apple subscription is missing its mapped entitlement.")
+            if str(entitlement.get("product_identifier") or "") != product:
+                raise RevenueCatVerificationError("Apple subscription entitlement/product mismatch.")
+            entitlement_expiry = _timestamp(entitlement.get("expires_date"))
+            if entitlement_expiry is None:
+                raise RevenueCatVerificationError("Subscription entitlement expiration is missing.")
+        else:
+            entitlement_expiry = expires
+            if isinstance(entitlement, Mapping) and str(entitlement.get("product_identifier") or "") == product:
+                entitlement_expiry = _timestamp(entitlement.get("expires_date")) or expires
+
+        in_grace = bool(grace and grace > current and entitlement_expiry > current and not refunded)
+        effective_expiry = (
+            min(grace, entitlement_expiry)
+            if in_grace and grace is not None and expires <= current
+            else min(expires, entitlement_expiry)
+        )
         if refunded:
             status = "refunded"
         elif in_grace and expires <= current:
