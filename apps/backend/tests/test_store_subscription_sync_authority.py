@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 from datetime import timedelta
+from dataclasses import replace
 
 import pytest
 
@@ -57,7 +58,7 @@ def harness(monkeypatch):
     captured = {"calls": 0, "secret": None, "user": None, "updates": [], "logs": []}
     state = {"subscriber": customer()}
 
-    monkeypatch.setattr(billing.SETTINGS, "revenuecat_secret_api_key", "server-only-key")
+    monkeypatch.setattr(billing, "SETTINGS", replace(billing.SETTINGS, revenuecat_secret_api_key="server-only-key"))
     monkeypatch.setattr(billing, "_fresh_user_record", lambda user: user)
 
     def fetch(*, app_user_id, secret_api_key):
@@ -179,7 +180,7 @@ def test_expired_store_purchase_reconciles_to_free(harness):
 
 def test_no_server_secret_fails_closed_without_external_fetch(harness, monkeypatch):
     user, _, seen = harness
-    monkeypatch.setattr(billing.SETTINGS, "revenuecat_secret_api_key", None)
+    monkeypatch.setattr(billing, "SETTINGS", replace(billing.SETTINGS, revenuecat_secret_api_key=None))
     with pytest.raises(AppError) as exc:
         billing.apply_store_subscription_sync(user=user, payload={
             "platform": "ios", "active_entitlements": ["combined_access"],
@@ -248,7 +249,7 @@ def test_real_store_trial_grants_only_its_purchased_pathway(
 def test_store_paid_conversion_is_not_shown_as_trial_after_period_type_changes(monkeypatch):
     monkeypatch.setattr(billing, "_fresh_user_record", lambda user: user)
     monkeypatch.setattr(billing, "_active_access_grant_for_user", lambda user: None)
-    monkeypatch.setattr(billing.SETTINGS, "allow_dev_entitlement_override", False)
+    monkeypatch.setattr(billing, "SETTINGS", replace(billing.SETTINGS, allow_dev_entitlement_override=False))
     user = {
         "user_id": "converted-user",
         "email": "converted@example.com",
