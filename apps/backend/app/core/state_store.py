@@ -61,6 +61,7 @@ class InMemoryStateStore:
             "roleplay_sessions": {},
             "voice_refs": {},
             "yki_sessions": {},
+            "revenuecat_webhook_events": {},
         }
 
     def _load_initial_state(self) -> dict[str, dict[str, Any]]:
