@@ -125,6 +125,43 @@ def test_all_access_paths_are_mapped_to_verified_apple_products(product, entitle
     assert value.entitlement_id == entitlement
 
 
+def test_old_expired_product_without_entitlement_cannot_block_new_plan():
+    old = subscriber(product="floently_yki_monthly", expiry_days=-10)
+    new = subscriber(product="floently_yki_yearly", expiry_days=40, period="normal")
+    old["subscriber"]["subscriptions"].update(new["subscriber"]["subscriptions"])
+    old["subscriber"]["entitlements"] = new["subscriber"]["entitlements"]
+    current = verify(old, expected=None)
+    assert current is not None
+    assert current.plan_id == "yki_yearly"
+    assert current.status == "active"
+    assert current.grants_access
+
+
+def test_expired_product_without_current_entitlement_is_not_active():
+    old = subscriber(expiry_days=-10)
+    old["subscriber"]["entitlements"] = {}
+    value = verify(old)
+    assert value is not None
+    assert value.status == "expired"
+    assert not value.grants_access
+
+
+def test_grace_ends_at_verified_grace_expiration_not_old_invoice_date():
+    value = verify(subscriber(expiry_days=-1))
+    assert value is not None
+    assert not value.grants_access
+    payload = subscriber(expiry_days=-1)
+    row = payload["subscriber"]["subscriptions"]["floently_yki_monthly"]
+    row["grace_period_expires_date"] = when(2)
+    payload["subscriber"]["entitlements"]["yki_access"]["expires_date"] = when(3)
+    grace = verify(payload)
+    assert grace is not None
+    assert grace.grants_access
+    assert grace.status == "grace_period"
+    assert grace.expires_at == when(2)
+
+
+
 def test_wrong_entitlement_never_authorizes_access():
     with pytest.raises(RevenueCatVerificationError, match="missing its mapped entitlement"):
         verify(subscriber(entitlement="professional_access"))
