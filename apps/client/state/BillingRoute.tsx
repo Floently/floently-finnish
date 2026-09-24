@@ -47,8 +47,8 @@ function isActiveSubscriptionStatus(status: unknown): boolean {
     billingTier?: string;
     billing_tier?: string;
   };
-  const tier = String(record.billingTier ?? record.billing_tier ?? record.tier ?? 'free');
-  return Boolean(record.isActive || record.hasAnySubscription || (tier && tier !== 'free'));
+  // Historical billing_tier remains after expiry; it is NOT active access.
+  return Boolean(record.isActive || record.hasAnySubscription);
 }
 
 const PATHWAYS: Array<{ id: CheckoutPathway; titleKey: TranslationKey; eyebrowKey: TranslationKey; detailKey: TranslationKey; highlightKeys: TranslationKey[] }> = [
