@@ -186,6 +186,16 @@ def verify_store_subscriber(
             if not isinstance(entitlement, Mapping):
                 raise RevenueCatVerificationError("Known Apple subscription is missing its mapped entitlement.")
             if str(entitlement.get("product_identifier") or "") != product:
+                current_product = str(entitlement.get("product_identifier") or "")
+                if (
+                    current_product in subscriptions
+                    and current_product in contract
+                    and contract[current_product][1] == entitlement_id
+                ):
+                    # RevenueCat may retain an overlapping former plan during
+                    # an upgrade. Only the entitlement's current product is
+                    # eligible for access; do not accidentally reject it.
+                    continue
                 raise RevenueCatVerificationError("Apple subscription entitlement/product mismatch.")
             entitlement_expiry = _timestamp(entitlement.get("expires_date"))
             if entitlement_expiry is None:
