@@ -24,6 +24,10 @@ def main() -> None:
         "apps/backend/.env.*",
         "apps/backend/persistent/",
         "apps/backend/runtime/",
+        "apps/backend/*.db*",
+        "apps/backend/*.sqlite*",
+        "apps/backend/**/*.db*",
+        "apps/backend/**/*.sqlite*",
         "ops/keys/",
     )
     for required in required_ignores:
