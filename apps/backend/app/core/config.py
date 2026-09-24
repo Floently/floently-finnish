@@ -172,6 +172,9 @@ class Settings:
     frontend_base_url: str | None = _get_optional_str("FRONTEND_BASE_URL")
     stripe_secret_key: str | None = _get_optional_str("STRIPE_SECRET_KEY")
     stripe_webhook_secret: str | None = _get_optional_str("STRIPE_WEBHOOK_SECRET")
+    # Server-side only: never name this EXPO_PUBLIC_* or send to React Native.
+    revenuecat_secret_api_key: str | None = _get_optional_str("REVENUECAT_SECRET_API_KEY")
+    revenuecat_webhook_authorization: str | None = _get_optional_str("REVENUECAT_WEBHOOK_AUTHORIZATION")
     stripe_price_yki_1_month: str | None = _get_optional_str("STRIPE_PRICE_YKI_1_MONTH")
     stripe_price_yki_3_months: str | None = _get_optional_str("STRIPE_PRICE_YKI_3_MONTHS")
     stripe_price_yki_12_months: str | None = _get_optional_str("STRIPE_PRICE_YKI_12_MONTHS")
