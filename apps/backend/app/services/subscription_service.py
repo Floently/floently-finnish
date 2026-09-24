@@ -1902,98 +1902,147 @@ def _store_billing_period_from_plan(plan_id: str) -> str:
 
 
 def apply_store_subscription_sync(*, user: dict[str, Any], payload: dict[str, Any]) -> dict[str, Any]:
+    """Reconcile logged-in user's SERVER-VERIFIED RevenueCat subscription.
+
+    Entitlement IDs, purchase dates, customerInfo, product identifiers and
+    RevenueCat app user IDs from the mobile request are never payment evidence.
+    """
     current = _fresh_user_record(user)
     platform = str(payload.get("platform") or "").strip().lower()
-    provider = "apple" if platform == "ios" else "google_play" if platform == "android" else "manual"
+    if platform not in {"ios", "android"}:
+        raise AppError(400, "INVALID_STORE_PLATFORM", "Select an iOS or Android store.", False, {"classification": "non_retryable"})
 
-    active_entitlements = _store_active_entitlements(payload)
-    if not active_entitlements:
-        raise AppError(
-            409,
-            "NO_ACTIVE_STORE_ENTITLEMENT",
-            "The store purchase completed, but no active RevenueCat entitlement was found yet.",
-            True,
-            {"classification": "retryable", "provider": provider},
+    key = SETTINGS.revenuecat_secret_api_key
+    if not key:
+        raise AppError(503, "STORE_VERIFICATION_UNAVAILABLE", "Store verification is not configured. Try again later.", True, {"classification": "retryable"})
+
+    app_user_id = str(current.get("user_id") or "").strip()
+    if not app_user_id:
+        raise AppError(401, "AUTH_REQUIRED", "Sign in to restore your purchase.", False, {"classification": "non_retryable"})
+
+    expected_plan_id = _store_payload_text(payload, "plan", "plan_id", "planId")
+    if expected_plan_id and expected_plan_id not in PLAN_BY_ID:
+        raise AppError(400, "VALIDATION_ERROR", "Unknown billing plan.", False, {"classification": "non_retryable"})
+
+    provider = "apple" if platform == "ios" else "google_play"
+    try:
+        subscriber = fetch_revenuecat_v1_subscriber(app_user_id=app_user_id, secret_api_key=key)
+        verified = verify_store_subscriber(
+            app_user_id=app_user_id,
+            payload=subscriber,
+            platform=platform,
+            expected_plan_id=expected_plan_id,
         )
+    except RevenueCatVerificationError as exc:
+        raise AppError(
+            503,
+            "STORE_VERIFICATION_UNAVAILABLE",
+            "Could not confirm the store purchase yet. Please use Restore Purchases in a moment.",
+            True,
+            {"classification": "retryable"},
+        ) from exc
 
-    raw_plan_id = _store_payload_text(payload, "plan", "plan_id", "planId")
-    pathway = _store_pathway_from_entitlements(active_entitlements, raw_plan_id)
-    plan_id = _store_plan_id_from_payload(payload, pathway)
-    billing_period = str(payload.get("billing_period") or payload.get("billingPeriod") or _store_billing_period_from_plan(plan_id))
+    existing_provider = _normalize_provider(current.get("subscription_provider"))
+    if verified is None or not verified.grants_access:
+        # An empty RevenueCat customer cannot invalidate an unrelated Stripe,
+        # employer, or different-platform subscription.
+        if existing_provider != provider:
+            raise AppError(
+                409, "NO_ACTIVE_STORE_ENTITLEMENT",
+                "No active subscription was found for this store account.",
+                True, {"classification": "retryable"},
+            )
+        expiry = utc_now().replace(microsecond=0).isoformat()
+        updated, _ = auth_repository.AUTH_USERS.update_user(
+            app_user_id,
+            subscription_tier="free",
+            subscription_status="expired",
+            access_choice="free",
+            subscription_expires_at=expiry,
+            current_period_end=expiry,
+            access_ends_at=expiry,
+            cancel_at_period_end=False,
+            canceled_at=None,
+        )
+        STORE.write_snapshot()
+        _log_subscription_event(
+            "store_subscription_expired",
+            user=updated,
+            metadata={"provider": provider, "platform": platform},
+        )
+        return {
+            "synced": True,
+            "provider": provider,
+            "platform": platform,
+            "plan_id": None,
+            "active_entitlements": [],
+            "subscription": subscription_status(user=updated),
+        }
 
+    pathway = (
+        "combined" if verified.entitlement_id == "combined_access"
+        else "professional" if verified.entitlement_id == "professional_access"
+        else "yki"
+    )
     raw_professions = payload.get("selected_professions")
     if raw_professions is None:
         raw_professions = payload.get("selectedProfessions")
-    if raw_professions is None:
-        raw_professions = payload.get("professions")
-
     professions = _normalize_professions(raw_professions) or _normalize_professions(current.get("selected_professions"))
+    # The current mobile Professional/Combined store products each include one
+    # profession. A forged request must not expand the profession-slot count.
+    professions = professions[:1] if pathway in {"professional", "combined"} else []
     if pathway in {"professional", "combined"} and not professions:
         professions = ["nurse"]
 
-    package_id = _store_payload_text(payload, "package_id", "packageId")
-    customer_info = payload.get("customer_info") or payload.get("customerInfo")
-    revenuecat_app_user_id = None
-    original_app_user_id = None
-    transaction_id = None
-
-    if isinstance(customer_info, dict):
-        revenuecat_app_user_id = _store_payload_text(customer_info, "appUserID", "app_user_id", "appUserId")
-        original_app_user_id = _store_payload_text(customer_info, "originalAppUserId", "original_app_user_id")
-        transaction_id = _store_payload_text(customer_info, "originalPurchaseDate", "original_purchase_date")
-
-    expires_at = _store_expiration_from_customer_info(payload, active_entitlements)
-    now_iso = utc_now().replace(microsecond=0).isoformat()
-
     details = {
-        "plan_id": plan_id,
+        "plan_id": verified.plan_id,
         "pathway": pathway,
-        "billing_period": billing_period,
+        "billing_period": _store_billing_period_from_plan(verified.plan_id),
         "professions": professions,
         "profession_count": len(professions),
-        "price_id": package_id,
     }
-
+    trialing = verified.status == "trialing"
     updated = _update_user_subscription_from_details(
         user=current,
         details=details,
-        stripe_customer_id=revenuecat_app_user_id or original_app_user_id or current.get("stripe_customer_id"),
-        stripe_subscription_id=transaction_id or package_id or current.get("stripe_subscription_id"),
-        stripe_price_id=package_id or current.get("stripe_price_id"),
-        subscription_expires_at=expires_at or current.get("subscription_expires_at"),
-        trial_ends_at=None,
-        current_period_start=current.get("current_period_start") or now_iso,
-        current_period_end=expires_at or current.get("current_period_end"),
-        trial_started_at=None,
-        cancel_at_period_end=False,
-        canceled_at=None,
-        subscription_status="active",
-        access_choice="paid",
+        subscription_expires_at=verified.expires_at,
+        trial_ends_at=verified.expires_at if trialing else None,
+        current_period_start=verified.purchased_at,
+        current_period_end=verified.expires_at,
+        trial_started_at=verified.purchased_at if trialing else None,
+        cancel_at_period_end=bool(verified.cancellation_detected_at),
+        canceled_at=verified.cancellation_detected_at,
+        subscription_status=verified.status,
+        access_choice="trial" if trialing else "paid",
         subscription_provider=provider,
     )
+    # The shared update helper only writes canceled_at when non-null.
+    if not verified.cancellation_detected_at and current.get("canceled_at"):
+        updated, _ = auth_repository.AUTH_USERS.update_user(app_user_id, canceled_at=None)
+        STORE.write_snapshot()
 
     _log_subscription_event(
-        "store_subscription_synced",
+        "store_subscription_verified",
         user=updated,
         metadata={
             "provider": provider,
             "platform": platform,
-            "plan_id": plan_id,
-            "package_id": package_id,
-            "pathway": pathway,
-            "active_entitlements": active_entitlements,
-            "professions": professions,
-            "expires_at": expires_at,
+            "product_id": verified.product_id,
+            "entitlement_id": verified.entitlement_id,
+            "plan_id": verified.plan_id,
+            "period_type": verified.period_type,
+            "subscription_status": verified.status,
+            "expires_at": verified.expires_at,
+            "sandbox": verified.is_sandbox,
         },
     )
-
     return {
         "synced": True,
         "provider": provider,
         "platform": platform,
-        "plan_id": plan_id,
-        "package_id": package_id,
-        "active_entitlements": active_entitlements,
+        "plan_id": verified.plan_id,
+        "period_type": verified.period_type,
+        "active_entitlements": [verified.entitlement_id],
         "subscription": subscription_status(user=updated),
     }
 
