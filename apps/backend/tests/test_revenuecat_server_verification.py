@@ -138,6 +138,18 @@ def test_old_expired_product_without_entitlement_cannot_block_new_plan():
     assert current.grants_access
 
 
+def test_overlapping_old_and_new_plans_use_current_entitlement_product():
+    old = subscriber(product="floently_yki_monthly", expiry_days=2)
+    new = subscriber(product="floently_yki_yearly", expiry_days=40, period="normal")
+    old["subscriber"]["subscriptions"].update(new["subscriber"]["subscriptions"])
+    old["subscriber"]["entitlements"] = new["subscriber"]["entitlements"]
+    value = verify(old, expected=None)
+    assert value is not None
+    assert value.plan_id == "yki_yearly"
+    assert value.grants_access
+
+
+
 def test_expired_product_without_current_entitlement_is_not_active():
     old = subscriber(expiry_days=-10)
     old["subscriber"]["entitlements"] = {}
