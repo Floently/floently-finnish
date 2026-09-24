@@ -11,6 +11,7 @@ from app.services.revenuecat_server_verification import (
     RevenueCatVerificationError,
     fetch_revenuecat_v1_subscriber,
     verify_apple_subscriber,
+    verify_store_subscriber,
 )
 
 
@@ -159,6 +160,44 @@ def test_grace_ends_at_verified_grace_expiration_not_old_invoice_date():
     assert grace.grants_access
     assert grace.status == "grace_period"
     assert grace.expires_at == when(2)
+
+
+
+@pytest.mark.parametrize(
+    "product,entitlement,plan",
+    [
+        ("floently_yki:monthly", "yki_access", "yki_monthly"),
+        ("floently_yki:three-months", "yki_access", "yki_3_months"),
+        ("floently_yki:yearly", "yki_access", "yki_yearly"),
+        ("floently_prof:monthly", "professional_access", "professional_monthly"),
+        ("floently_prof:three-months", "professional_access", "professional_3_months"),
+        ("floently_prof:annual", "professional_access", "professional_yearly"),
+        ("floently_combo:monthly", "combined_access", "combined_monthly"),
+        ("floently_combo:three-months", "combined_access", "combined_3_months"),
+        ("floently_combo:yearly", "combined_access", "combined_yearly"),
+    ],
+)
+def test_android_exact_revenuecat_product_and_entitlement_mapping(product, entitlement, plan):
+    value = verify_store_subscriber(
+        app_user_id="usr_authenticated_001",
+        payload=subscriber(product=product, entitlement=entitlement, store="play_store"),
+        platform="android",
+        expected_plan_id=plan,
+    )
+    assert value is not None
+    assert value.product_id == product
+    assert value.entitlement_id == entitlement
+    assert value.grants_access
+
+
+def test_apple_product_never_verified_as_android_and_vice_versa():
+    with pytest.raises(RevenueCatVerificationError, match="Expected subscription"):
+        verify_store_subscriber(
+            app_user_id="usr_authenticated_001",
+            payload=subscriber(product="floently_yki_monthly", store="app_store"),
+            platform="android",
+            expected_plan_id="yki_monthly",
+        )
 
 
 
