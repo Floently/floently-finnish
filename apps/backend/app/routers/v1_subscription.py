@@ -7,6 +7,9 @@ from starlette.concurrency import run_in_threadpool
 
 from app.middleware.request_id import get_request_id
 from app.core.responses import success_payload
+from app.core.config import SETTINGS
+from app.services.revenuecat_webhook_auth import RevenueCatWebhookAuthenticationError, authenticate_revenuecat_webhook
+from app.services.revenuecat_webhook_service import reconcile_revenuecat_webhook_event
 from app.core.errors import AppError
 from app.services.auth_service import current_user_from_authorization
 from app.services.subscription_service import (
@@ -115,6 +118,32 @@ def build_subscription_router() -> APIRouter:
             data=await run_in_threadpool(apply_store_subscription_sync, user=user, payload=payload),
             request_id=get_request_id(request),
         )
+
+    @router.post("/subscription/store/revenuecat-webhook")
+    async def revenuecat_subscription_webhook(
+        request: Request,
+        authorization: str | None = Header(default=None),
+        revenuecat_signature: str | None = Header(default=None, alias="X-RevenueCat-Webhook-Signature"),
+    ) -> dict[str, Any]:
+        # Never accept a webhook as proof of payment; authenticate the exact
+        # raw bytes, then refetch the customer's current RevenueCat state.
+        raw_body = await request.body()
+        try:
+            notification = authenticate_revenuecat_webhook(
+                raw_body=raw_body,
+                authorization_header=authorization,
+                signature_header=revenuecat_signature,
+                expected_authorization=SETTINGS.revenuecat_webhook_authorization,
+                signing_secret=SETTINGS.revenuecat_webhook_signing_secret,
+            )
+        except RevenueCatWebhookAuthenticationError as exc:
+            raise AppError(
+                401, "UNAUTHENTICATED_REVENUECAT_WEBHOOK",
+                "RevenueCat webhook authentication failed.",
+                False, {"classification": "non_retryable"},
+            ) from exc
+        result = await run_in_threadpool(reconcile_revenuecat_webhook_event, notification)
+        return success_payload(data=result, request_id=get_request_id(request))
 
     @router.post("/tracking/event")
     async def create_tracking_event(
