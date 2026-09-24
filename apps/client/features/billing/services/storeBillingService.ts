@@ -62,6 +62,7 @@ export type StorePlanAvailability = {
   available: boolean;
   productIdentifier: string | null;
   priceString: string | null;
+  trialEligible: boolean;
 };
 
 export type StoreBillingCatalog = {
@@ -164,6 +165,7 @@ export async function preflightStoreBillingPlans(
         available,
         productIdentifier,
         priceString,
+        trialEligible: Boolean(available && matchedPackage?.trialEligible),
       };
     });
 
