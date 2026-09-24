@@ -208,6 +208,7 @@ export function useRoleplayRecorder(locale = 'fi-FI') {
   const chunkRef = useRef<Blob[]>([]);
   const startedAtRef = useRef<number>(0);
   const phaseRef = useRef<RecorderPhase>('idle');
+  const startingRef = useRef(false);
   const pendingStopRef = useRef(false);
   const stopRecordingRef = useRef<() => Promise<string | null>>(async () => null);
   const amplitudePollRef = useRef<ReturnType<typeof setInterval> | null>(null);
@@ -237,20 +238,27 @@ export function useRoleplayRecorder(locale = 'fi-FI') {
 
   const startRecording = useCallback(async () => {
     setError(null);
-    if (phaseRef.current === 'recording' || phaseRef.current === 'uploading') return;
+    // Lock synchronously, before the awaited cue/permission/recorder setup.
+    // phaseRef changes only after setup, so it cannot prevent double starts.
+    if (
+      startingRef.current
+      || phaseRef.current === 'recording'
+      || phaseRef.current === 'uploading'
+    ) return;
+    startingRef.current = true;
     pendingStopRef.current = false;
     startedAtRef.current = 0;
     nativeDurationMsRef.current = 0;
 
     // Web keeps its existing cue. Native uses a short cue that is awaited
     // and fully released before recording mode is enabled.
-    if (Platform.OS === 'web') {
-      await uiSounds.micOn();
-    } else {
-      await uiSounds.micOnBeforeRecording();
-    }
-
     try {
+      if (Platform.OS === 'web') {
+        await uiSounds.micOn();
+      } else {
+        await uiSounds.micOnBeforeRecording();
+      }
+
       if (Platform.OS === 'web') {
         if (typeof MediaRecorder === 'undefined') {
           throw new Error('Microphone recording is not supported in this browser.');
@@ -318,6 +326,8 @@ export function useRoleplayRecorder(locale = 'fi-FI') {
       setPhaseSafe('error');
       setError(err instanceof Error ? err.message : 'Failed to start recording');
       await uiSounds.error();
+    } finally {
+      startingRef.current = false;
     }
   }, [nativeRecorder, setPhaseSafe]);
 
