@@ -15,6 +15,7 @@ from ..core.config import SETTINGS
 from ..core.errors import AppError
 from ..core.state_store import STORE
 from ..core.utils import parse_iso, utc_now
+from .revenuecat_server_verification import RevenueCatVerificationError, fetch_revenuecat_v1_subscriber, verify_store_subscriber
 from ..db import auth_repository
 from ..db.models import (
     AccessGrant,
@@ -1194,6 +1195,9 @@ def _has_paid_access(user: dict[str, Any]) -> bool:
     status = _normalized_subscription_status(user)
     if _is_payment_blocked_status(status):
         return False
+    # Store introductory periods retain the purchased tier, but remain trials.
+    if status == "trialing" and str(user.get("access_choice") or "").lower() == "trial":
+        return False
     tier = str(user.get("subscription_tier") or "free").strip().lower()
     return tier != "free" and _is_subscription_active(user)
 
@@ -1279,6 +1283,8 @@ def _effective_tier(user: dict[str, Any]) -> str:
     if _is_payment_blocked_status(status):
         return "free"
     if _has_trial_access(user):
+        if _normalize_provider(user.get("subscription_provider")) in {"apple", "google_play"}:
+            return str(user.get("subscription_tier") or "free")
         return "preview_yki"
     tier = str(user.get("subscription_tier") or "free")
     return tier if _is_subscription_active(user) else "free"
@@ -1331,10 +1337,11 @@ def _professional_access_for_tier(tier: str, features: dict[str, dict[str, Any]]
 
 
 def _feature_map(user: dict[str, Any]) -> dict[str, dict[str, Any]]:
-    if _has_trial_access(user):
+    is_store_trial = _has_trial_access(user) and _normalize_provider(user.get("subscription_provider")) in {"apple", "google_play"}
+    if _has_trial_access(user) and not is_store_trial:
         return TIER_FEATURES["free"]
 
-    if not _has_paid_access(user):
+    if not _has_paid_access(user) and not is_store_trial:
         return {
             feature: {
                 **config,
@@ -1486,11 +1493,16 @@ def _subscription_status_base(*, user: dict[str, Any]) -> dict[str, Any]:
         }
 
     if _has_trial_access(user):
+        is_store_trial = _normalize_provider(user.get("subscription_provider")) in {"apple", "google_play"}
+        actual_tier = str(user.get("subscription_tier") or "free") if is_store_trial else "preview_yki"
         features = _feature_map(user)
+        yki_access = _yki_access_for_tier(actual_tier, features) if is_store_trial else True
+        professional_access = _professional_access_for_tier(actual_tier, features) if is_store_trial else False
+        professions = _accessible_professions_for_user(user, actual_tier) if is_store_trial else []
         return {
             "user_id": user["user_id"],
-            "tier": "preview_yki",
-            "billing_tier": "preview_yki",
+            "tier": actual_tier,
+            "billing_tier": actual_tier,
             "access_choice": user.get("access_choice"),
             "features": features,
             "expires_at": user.get("subscription_expires_at"),
@@ -1498,12 +1510,12 @@ def _subscription_status_base(*, user: dict[str, Any]) -> dict[str, Any]:
             "is_trial": True,
             "is_active": True,
             "is_internal_all_access": False,
-            "yki_access": True,
-            "professional_access": False,
-            "accessible_professions": [],
-            "selected_professions": [],
-            "profession_labels": [],
-            "profession_slot_count": 0,
+            "yki_access": yki_access,
+            "professional_access": professional_access,
+            "accessible_professions": professions,
+            "selected_professions": professions,
+            "profession_labels": _profession_labels(professions),
+            "profession_slot_count": len(professions),
             "access_type": _normalize_access_source(user.get("access_source") or "b2c_direct"),
             "access_source": _normalize_access_source(user.get("access_source") or "b2c_direct"),
             "subscription_provider": _normalize_provider(user.get("subscription_provider") or "stripe"),
@@ -1516,8 +1528,8 @@ def _subscription_status_base(*, user: dict[str, Any]) -> dict[str, Any]:
             "organization_id": user.get("organization_id"),
             "cohort_id": user.get("cohort_id"),
             "role": user.get("role") or "user",
-            "pathway": "yki",
-            "plan_key": "preview_yki",
+            "pathway": _pathway_for_tier(actual_tier, yki_access, professional_access) if is_store_trial else "yki",
+            "plan_key": actual_tier,
             **_payment_issue_payload(user),
         }
 
@@ -1581,7 +1593,7 @@ def _subscription_status_base(*, user: dict[str, Any]) -> dict[str, Any]:
         "features": features,
         "expires_at": user.get("subscription_expires_at"),
         "trial_ends_at": user.get("trial_ends_at"),
-        "is_trial": _trial_active(user),
+        "is_trial": _normalized_subscription_status(user) == "trialing" and _trial_active(user),
         "is_active": _has_paid_access(user),
         "is_internal_all_access": False,
         "yki_access": yki_access,
