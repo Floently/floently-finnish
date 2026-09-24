@@ -78,6 +78,49 @@ export type RoleplayTurnResponse = {
   };
 };
 
+export type RoleplayEvaluationCriterion = {
+  id:
+    | 'task_fulfilment'
+    | 'interaction'
+    | 'coherence'
+    | 'grammar'
+    | 'vocabulary'
+    | 'register'
+    | string;
+  name: string;
+  score: number | null;
+  level: string;
+  rationale: string;
+  evidence: string[];
+};
+
+export type RoleplayEvaluationCorrection = {
+  original: string;
+  corrected: string;
+  explanation: string;
+};
+
+export type RoleplayEvaluationReport = {
+  reportVersion: string;
+  evaluationKind: 'roleplay';
+  status: 'ready' | 'fallback';
+  provider: 'openai' | 'deterministic_fallback';
+  model?: string | null;
+  promptVersion: string;
+  rubricVersion: string;
+  disclaimer: string;
+  audioEvidenceAvailable: boolean;
+  pronunciationAssessed: false;
+  estimatedLevel: string;
+  confidence: number;
+  overallSummary: string;
+  criteria: RoleplayEvaluationCriterion[];
+  strengths: string[];
+  improvements: string[];
+  corrections: RoleplayEvaluationCorrection[];
+  actionPlan: string[];
+};
+
 export type RoleplayFinishResponse = {
   sessionId: string;
   completed: boolean;
@@ -106,6 +149,10 @@ export type RoleplayFinishResponse = {
   grammarObservations: string[];
   nextSteps: string[];
   nextAction: string;
+  /** Available from the evaluated backend; older reports may omit it. */
+  evaluation?: RoleplayEvaluationReport;
+  evaluationReport?: RoleplayEvaluationReport;
+  disclaimer?: string;
 };
 
 export async function listRoleplayScenarios(
