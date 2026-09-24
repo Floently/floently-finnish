@@ -50,3 +50,36 @@ At exact Build 36 `9d128763d2a0d78f7c140382d50e0d1dad2e4832`, user ran full `app
 6. Verify authenticated backend user ID is the RevenueCat App User ID (or safely reconciled alias), then secure server-only credentials and real sandbox three-day intro trial; do not install secrets or deploy just because source tests pass.
 
 Reference: `docs/PRODUCTION_SOURCE_RECONCILIATION_20260816.md`, `docs/PRODUCTION_FORWARD_ONLY_INTEGRATION_POLICY.md`, release issue #43.
+
+## 2026-09-24 — actual container Python-source inventory and origin diagnosis
+
+A user-executed **read-only** SHA-256 inventory collected all `*.py` under running `/app/app`, `/app/scripts` and `/app/main.py`, after checking the live image ID against the pinned image. Comparing these exact live bytes at source HEAD `7ded4cec5928f937ea0448a39f0145a34c134024` established:
+
+    LIVE_PYTHON_FILES_CHECKED=205
+    LIVE_PYTHON_EXACT_SOURCE_MATCHES=193
+    LIVE_PYTHON_REVIEWED_LEGACY_DIFFERENCES=2
+    UNEXPLAINED_LIVE_PYTHON_COUNT=0
+    UNRECONCILED_LIVE_PYTHON_COUNT=10
+
+A second user-executed hash-origin diagnosis compared **the actual ten live SHA-256 hashes** against `git show` of the OCI-labelled historic revision, server checkout, and Build 36. Every one of the ten matches the labelled historic revision exactly; six also match the server checkout. No ten-path discrepancy is an unknown overlay.
+
+### Ten independently classified runtime-to-Build36 differences
+
+| Path (under `apps/backend/`) | Actual live byte source | Reviewed candidate change and decision |
+|---|---|---|
+| `app/core/config.py` | IMAGE_LABEL | MERGE: KieliValmis password-reset link default and three server-only RevenueCat secret settings; keep all existing settings. |
+| `app/core/state_store.py` | IMAGE_LABEL + CHECKOUT | MERGE: new processed-RevenueCat-webhook event-ID bucket; existing persistence and backup retained. |
+| `app/routers/v1_roleplay.py` | IMAGE_LABEL + CHECKOUT | MERGE: authenticated same-owner roleplay session routing, safe legacy aliases, deterministic provider voice identity; preserve existing route contracts and evaluation service. |
+| `app/routers/v1_subscription.py` | IMAGE_LABEL + CHECKOUT | MERGE: existing store sync moved off event loop and secured RevenueCat webhook route added; no change to existing public billing path semantics without tests. |
+| `app/services/account_deletion_service.py` | IMAGE_LABEL + CHECKOUT | MERGE: complete DB cleanup first; fail retryably instead of claiming deletion when cleanup partially fails. |
+| `app/services/password_reset_email_service.py` | IMAGE_LABEL only | REPLACE textual email subject: "Reset your Floently Finnish password" → "Reset your KieliValmis password"; webhook sender/link contract unchanged. |
+| `app/services/roleplay_ai_service.py` | IMAGE_LABEL only | MERGE: professional counterpart role-contract validation / bounded retry and deterministic fail-safe; preserve AI/fallback flows. |
+| `app/services/subscription_service.py` | IMAGE_LABEL only | MERGE: server-authoritative RevenueCat V1 Apple/Google purchase and restore; no direct trust in client `customerInfo` or `activeEntitlements`; preserve existing Stripe/employer grants. |
+| `app/services/tts/runtime.py` | IMAGE_LABEL + CHECKOUT | MERGE: clarify provider gender metadata and amend deterministic Finnish fallback; preserve existing TTS call contracts. |
+| `app/services/tts/voice_registry.py` | IMAGE_LABEL + CHECKOUT | MERGE: explicit curated gender metadata and stable per-persona versioned voice identity; preserve legacy resolved-profile transport. |
+
+The exact historical and candidate Git blob IDs for all ten are pinned in `apps/backend/scripts/verify_build36_live_source_audit.py` at commit `736c6b3e12800509308ecd54cf179305a14a2ba0`. This fail-closed release gate accepts a difference only if BOTH (1) the user's live SHA-256 matches its exact historical labelled Git bytes and (2) the Build 36 file is its specifically pinned reviewed blob. Unknown overlays, incomplete manifests and unreviewed source edits still fail.
+
+**Important qualification:** This classifies source preservation; it does **not** by itself prove behavioral equivalence, correct billing identity, all bidirectional Docker artifact content, future migrations, canaries, runtime health or production ancestry. The full backend 149-test suite and TypeScript passed on earlier Build36 source; rerun the new audit locally against the existing manifest before recording its PASS.
+
+**Deployment remains blocked** by exact running-artifact provenance/reconciliation, forward-only ancestry resolution, secure provisioning, real webhook delivery, physical StoreKit introductory trial, and explicit approval.
