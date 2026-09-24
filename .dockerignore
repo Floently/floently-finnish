@@ -9,3 +9,18 @@ apps/backend/card_bank/canonical_bank/validated-overlayed/overlays/
 apps/backend/card_bank/canonical_bank/
 apps/backend/card_bank/canonical_bank/**
 apps/backend/card_bank/canonical_bank.disabled/
+
+# Deployable backend is built with COPY apps/backend/ . Never bake server
+# secrets, generated tokens, persisted accounts, local DBs or runtime caches
+# into a Docker image or transfer them in the Docker build context.
+# docker-compose mounts the real persistent data and Google keys at runtime.
+.git/
+apps/backend/.env
+apps/backend/.env.*
+!apps/backend/.env.example
+apps/backend/persistent/
+apps/backend/runtime/
+ops/keys/
+apps/backend/__pycache__/
+apps/backend/**/__pycache__/
+apps/backend/**/*.pyc
