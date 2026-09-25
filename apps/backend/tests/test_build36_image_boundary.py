@@ -38,6 +38,8 @@ def test_current_candidate_source_boundary_passes(
     [
         "apps/backend/.env",
         "apps/backend/.env.*",
+        "apps/backend/card_bank/overlays/",
+        "apps/backend/card_bank/overlays/**",
         "apps/backend/persistent/",
         "apps/backend/runtime/",
         "ops/keys/",
@@ -100,6 +102,18 @@ def test_missing_persistent_volume_fails(source_tree: Path) -> None:
     path.write_text(
         path.read_text(encoding="utf-8").replace(
             "./apps/backend/persistent/runtime:/app/runtime", "",
+        ),
+        encoding="utf-8",
+    )
+    with pytest.raises(AssertionError, match="Runtime mount/build contract changed"):
+        boundary.main()
+
+
+def test_missing_readonly_overlay_mount_fails(source_tree: Path) -> None:
+    path = source_tree / "docker-compose.yml"
+    path.write_text(
+        path.read_text(encoding="utf-8").replace(
+            "./apps/backend/card_bank/overlays:/app/card_bank/overlays:ro", "",
         ),
         encoding="utf-8",
     )
