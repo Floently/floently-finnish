@@ -22,6 +22,8 @@ def main() -> None:
         ".git/",
         "apps/backend/.env",
         "apps/backend/.env.*",
+        "apps/backend/card_bank/overlays/",
+        "apps/backend/card_bank/overlays/**",
         "apps/backend/persistent/",
         "apps/backend/runtime/",
         "apps/backend/*.db*",
@@ -39,6 +41,8 @@ def main() -> None:
         raise AssertionError("Safe .env.example must remain available after exclusion")
     for forbidden_reinclusion in (
         "!apps/backend/.env",
+        "!apps/backend/card_bank/overlays/",
+        "!apps/backend/card_bank/overlays/**",
         "!apps/backend/persistent/",
         "!apps/backend/runtime/",
         "!ops/keys/",
@@ -63,6 +67,7 @@ def main() -> None:
         "apps/backend/.env",
         "./apps/backend/persistent/puhis.db:/app/puhis.db",
         "./apps/backend/persistent/runtime:/app/runtime",
+        "./apps/backend/card_bank/overlays:/app/card_bank/overlays:ro",
         "${GOOGLE_KEYS_DIR:-./ops/keys}:/keys:ro",
         "RELEASE_SOURCE_SHA: ${RELEASE_SOURCE_SHA:-UNVERIFIED_LOCAL_BUILD}",
     )
