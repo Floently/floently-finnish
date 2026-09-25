@@ -8,6 +8,10 @@ apps/backend/card_bank/canonical_bank/validated-overlayed/overlays/
 *.zip
 apps/backend/card_bank/canonical_bank/
 apps/backend/card_bank/canonical_bank/**
+# Overlays are persistent production data mounted read-only by Compose.
+# Never copy the multi-GB source overlay into an immutable backend image.
+apps/backend/card_bank/overlays/
+apps/backend/card_bank/overlays/**
 apps/backend/card_bank/canonical_bank.disabled/
 
 # Deployable backend is built with COPY apps/backend/ . Never bake server
