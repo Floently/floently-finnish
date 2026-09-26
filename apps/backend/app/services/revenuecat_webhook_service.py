@@ -89,6 +89,57 @@ def _reconcile_user(*, user: dict[str, Any], platform: str) -> None:
         ) from exc
 
 
+def _transfer_platform_candidates(
+    *,
+    event_platform: str | None,
+    user: dict[str, Any],
+) -> list[str]:
+    if event_platform:
+        return [event_platform]
+
+    provider = str(user.get("subscription_provider") or "").strip().lower()
+    if provider in {"apple", "app_store", "appstore", "ios"}:
+        return ["ios"]
+    if provider in {"google_play", "google", "play_store", "playstore", "android"}:
+        return ["android"]
+
+    # RevenueCat documents TRANSFER.store as optional. For a newly receiving
+    # local account with no provider yet, try the two supported mobile stores.
+    # Product verification remains fail-closed and accepts only known products.
+    return ["ios", "android"]
+
+
+def _reconcile_transfer_user(
+    *,
+    user: dict[str, Any],
+    event_platform: str | None,
+) -> None:
+    candidates = _transfer_platform_candidates(
+        event_platform=event_platform,
+        user=user,
+    )
+    last_no_entitlement: AppError | None = None
+
+    for platform in candidates:
+        try:
+            _reconcile_user(user=user, platform=platform)
+            return
+        except AppError as exc:
+            # When TRANSFER.store is absent, a newly receiving account may not
+            # yet have a local provider. Trying the wrong supported store first
+            # yields NO_ACTIVE_STORE_ENTITLEMENT; only then try the other one.
+            if (
+                len(candidates) > 1
+                and exc.code == "NO_ACTIVE_STORE_ENTITLEMENT"
+            ):
+                last_no_entitlement = exc
+                continue
+            raise
+
+    if last_no_entitlement is not None:
+        raise last_no_entitlement
+
+
 def reconcile_revenuecat_webhook_event(parsed: dict[str, Any]) -> dict[str, Any]:
     """Idempotent response for a notification authenticated by HMAC + header.
 
@@ -105,7 +156,9 @@ def reconcile_revenuecat_webhook_event(parsed: dict[str, Any]) -> dict[str, Any]
 
     store = str(event.get("store") or "").strip().upper()
     platform = {"APP_STORE": "ios", "PLAY_STORE": "android"}.get(store)
-    if event_type == "TEST" or platform is None:
+    if event_type == "TEST":
+        return {"received": True, "reconciled": False}
+    if event_type != "TRANSFER" and platform is None:
         return {"received": True, "reconciled": False}
 
     # Prevent two parallel deliveries from reconciling the same notification.
@@ -120,7 +173,10 @@ def reconcile_revenuecat_webhook_event(parsed: dict[str, Any]) -> dict[str, Any]
                 # identities. Never create a local user from a webhook.
                 return {"received": True, "reconciled": False}
             for user in users:
-                _reconcile_user(user=user, platform=platform)
+                _reconcile_transfer_user(
+                    user=user,
+                    event_platform=platform,
+                )
         else:
             user = _matching_account(event)
             if user is None:
