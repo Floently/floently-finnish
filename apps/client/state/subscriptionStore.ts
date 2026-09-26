@@ -73,11 +73,6 @@ type UserLike = {
   subscriptionTierHint?: string | null;
 };
 
-const DEFAULT_ALL_ACCESS_EMAILS = ['ruka@ruka.com', 'obum@learn.floently.com'];
-const DEFAULT_LEARN_ACCESS_EMAILS = ['vitus.idi@floently.com', 'learn@obum.floently.com'];
-const DEFAULT_READ_ACCESS_EMAILS = ['vitus.idi@floently.com'];
-const DEFAULT_CREATE_ACCESS_EMAILS: string[] = [];
-
 function normalizeEmail(value?: string | null) {
   return (value ?? '').trim().toLowerCase();
 }
@@ -98,25 +93,25 @@ function clientEmailAccessOverridesEnabled() {
 function allAccessEmails() {
   if (!clientEmailAccessOverridesEnabled()) return [];
   const configured = typeof process !== 'undefined' ? parseCsvList(process.env?.EXPO_PUBLIC_ALL_ACCESS_TEST_EMAILS) : [];
-  return Array.from(new Set([...DEFAULT_ALL_ACCESS_EMAILS, ...configured]));
+  return Array.from(new Set(configured));
 }
 
 function learnAccessEmails() {
   if (!clientEmailAccessOverridesEnabled()) return [];
   const configured = typeof process !== 'undefined' ? parseCsvList(process.env?.EXPO_PUBLIC_LEARN_ACCESS_TEST_EMAILS) : [];
-  return Array.from(new Set([...DEFAULT_LEARN_ACCESS_EMAILS, ...configured]));
+  return Array.from(new Set(configured));
 }
 
 function readAccessEmails() {
   if (!clientEmailAccessOverridesEnabled()) return [];
   const configured = typeof process !== 'undefined' ? parseCsvList(process.env?.EXPO_PUBLIC_READ_ACCESS_TEST_EMAILS) : [];
-  return Array.from(new Set([...DEFAULT_READ_ACCESS_EMAILS, ...configured]));
+  return Array.from(new Set(configured));
 }
 
 function createAccessEmails() {
   if (!clientEmailAccessOverridesEnabled()) return [];
   const configured = typeof process !== 'undefined' ? parseCsvList(process.env?.EXPO_PUBLIC_CREATE_ACCESS_TEST_EMAILS) : [];
-  return Array.from(new Set([...DEFAULT_CREATE_ACCESS_EMAILS, ...configured]));
+  return Array.from(new Set(configured));
 }
 
 function isAllAccessEmail(email?: string | null) {
