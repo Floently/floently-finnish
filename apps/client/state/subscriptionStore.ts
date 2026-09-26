@@ -89,22 +89,32 @@ function parseCsvList(value?: string | null) {
     .filter(Boolean);
 }
 
+function clientEmailAccessOverridesEnabled() {
+  // Client-side email allowlists are a development convenience only.
+  // Production/TestFlight access must come from the authenticated backend.
+  return typeof __DEV__ !== 'undefined' && __DEV__ === true;
+}
+
 function allAccessEmails() {
+  if (!clientEmailAccessOverridesEnabled()) return [];
   const configured = typeof process !== 'undefined' ? parseCsvList(process.env?.EXPO_PUBLIC_ALL_ACCESS_TEST_EMAILS) : [];
   return Array.from(new Set([...DEFAULT_ALL_ACCESS_EMAILS, ...configured]));
 }
 
 function learnAccessEmails() {
+  if (!clientEmailAccessOverridesEnabled()) return [];
   const configured = typeof process !== 'undefined' ? parseCsvList(process.env?.EXPO_PUBLIC_LEARN_ACCESS_TEST_EMAILS) : [];
   return Array.from(new Set([...DEFAULT_LEARN_ACCESS_EMAILS, ...configured]));
 }
 
 function readAccessEmails() {
+  if (!clientEmailAccessOverridesEnabled()) return [];
   const configured = typeof process !== 'undefined' ? parseCsvList(process.env?.EXPO_PUBLIC_READ_ACCESS_TEST_EMAILS) : [];
   return Array.from(new Set([...DEFAULT_READ_ACCESS_EMAILS, ...configured]));
 }
 
 function createAccessEmails() {
+  if (!clientEmailAccessOverridesEnabled()) return [];
   const configured = typeof process !== 'undefined' ? parseCsvList(process.env?.EXPO_PUBLIC_CREATE_ACCESS_TEST_EMAILS) : [];
   return Array.from(new Set([...DEFAULT_CREATE_ACCESS_EMAILS, ...configured]));
 }
