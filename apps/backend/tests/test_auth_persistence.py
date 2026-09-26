@@ -111,6 +111,59 @@ class AuthPersistenceTests(unittest.TestCase):
             self.assertEqual(obum_user["name"], "Obum")
             self.assertEqual(testuser_user["name"], "Test User")
 
+    def test_legacy_state_migration_does_not_overwrite_newer_subscription_truth(self) -> None:
+        with tempfile.TemporaryDirectory() as tmpdir:
+            tmp_path = Path(tmpdir)
+            db_path = tmp_path / "puhis.db"
+            state_path = tmp_path / "state.json"
+
+            stale_store = InMemoryStateStore(path=state_path)
+            stale_store.set(
+                "users",
+                "usr_store",
+                {
+                    "user_id": "usr_store",
+                    "email": "billing-test@learn.floently.com",
+                    "password_hash": None,
+                    "subscription_tier": "professional_premium",
+                    "subscription_provider": None,
+                    "subscription_status": None,
+                },
+            )
+            stale_store.write_snapshot()
+
+            repo = self._repo(db_path)
+            repo.save_user(
+                {
+                    "user_id": "usr_store",
+                    "email": "billing-test@learn.floently.com",
+                    "name": "Billing Test",
+                    "password_hash": hash_password("Billing-Test-Password-123"),
+                    "subscription_tier": "yki_monthly",
+                    "subscription_pathway": "yki",
+                    "subscription_billing_period": "monthly",
+                    "subscription_provider": "apple",
+                    "subscription_status": "trialing",
+                    "access_choice": "trial",
+                    "subscription_expires_at": "2026-09-27T09:45:04+00:00",
+                    "current_period_end": "2026-09-27T09:45:04+00:00",
+                    "provider_links": {},
+                    "created_at": "2026-01-01T00:00:00+00:00",
+                },
+                overwrite_password=True,
+            )
+
+            result = repo.migrate_state_users(stale_store._data["users"])
+
+            self.assertEqual(result, {"created": 0, "updated": 0, "skipped": 1})
+            persisted = repo.get_user_by_email("billing-test@learn.floently.com")
+            self.assertIsNotNone(persisted)
+            self.assertEqual(persisted["subscription_tier"], "yki_monthly")
+            self.assertEqual(persisted["subscription_provider"], "apple")
+            self.assertEqual(persisted["subscription_status"], "trialing")
+            self.assertEqual(persisted["access_choice"], "trial")
+            self.assertEqual(persisted["subscription_expires_at"], "2026-09-27T09:45:04+00:00")
+
     def test_login_user_ignores_stale_json_state_once_password_is_in_db(self) -> None:
         with tempfile.TemporaryDirectory() as tmpdir:
             tmp_path = Path(tmpdir)
