@@ -17,7 +17,8 @@
     "verify:account-deletion-access": "node ./scripts/verify-account-deletion-access.mjs",
     "verify:revenuecat-identity": "node ./scripts/verify-revenuecat-identity.mjs",
     "verify:store-billing-preflight": "node ./scripts/verify-store-billing-preflight.mjs",
-    "verify:ios-release-identity": "node ./scripts/verify-ios-release-identity.mjs"
+    "verify:ios-release-identity": "node ./scripts/verify-ios-release-identity.mjs",
+    "verify:subscription-authority": "node ./scripts/verify-subscription-authority.mjs"
   },
   "dependencies": {
     "@expo/metro-runtime": "^55.0.11",
