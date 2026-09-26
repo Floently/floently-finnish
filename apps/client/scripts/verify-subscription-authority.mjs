@@ -17,10 +17,28 @@ function requireText(text, label) {
   }
 }
 
+function forbidText(text, label) {
+  if (source.includes(text)) {
+    throw new Error(`Subscription authority invariant failed: ${label}`);
+  }
+}
+
 requireText(
   "return typeof __DEV__ !== 'undefined' && __DEV__ === true;",
   'client email access overrides must be disabled in production/TestFlight builds',
 );
+
+for (const forbidden of [
+  'DEFAULT_ALL_ACCESS_EMAILS',
+  'DEFAULT_LEARN_ACCESS_EMAILS',
+  'DEFAULT_READ_ACCESS_EMAILS',
+  'DEFAULT_CREATE_ACCESS_EMAILS',
+]) {
+  forbidText(
+    forbidden,
+    'hard-coded client entitlement identities must not exist',
+  );
+}
 
 for (const functionName of [
   'allAccessEmails',
