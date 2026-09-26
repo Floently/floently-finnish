@@ -202,3 +202,70 @@ def test_non_transfer_identity_conflict_still_fails_closed(monkeypatch):
 
     assert exc.value.code == "REVENUECAT_IDENTITY_CONFLICT"
     assert fake_store.events == {}
+
+
+def test_transfer_without_store_uses_existing_apple_provider(monkeypatch):
+    event = _transfer_event("evt-no-store-source")
+    event["event"].pop("store")
+    source = {
+        "user_id": "usr_source",
+        "subscription_provider": "apple",
+    }
+    fake_store = _FakeStore()
+    calls = []
+
+    monkeypatch.setattr(
+        webhook.auth_repository,
+        "AUTH_USERS",
+        _FakeUsers({"usr_source": source}),
+    )
+    monkeypatch.setattr(webhook, "STORE", fake_store)
+    monkeypatch.setattr(
+        webhook,
+        "apply_store_subscription_sync",
+        lambda *, user, payload: calls.append(
+            (user["user_id"], payload["platform"])
+        ),
+    )
+
+    result = webhook.reconcile_revenuecat_webhook_event(event)
+
+    assert result == {"received": True, "reconciled": True}
+    assert calls == [("usr_source", "ios")]
+
+
+def test_transfer_without_store_can_fallback_to_android_for_new_destination(monkeypatch):
+    event = _transfer_event("evt-no-store-destination")
+    event["event"].pop("store")
+    event["event"]["transferred_from"] = []
+    destination = {"user_id": "usr_destination"}
+    fake_store = _FakeStore()
+    calls = []
+
+    monkeypatch.setattr(
+        webhook.auth_repository,
+        "AUTH_USERS",
+        _FakeUsers({"usr_destination": destination}),
+    )
+    monkeypatch.setattr(webhook, "STORE", fake_store)
+
+    def sync(*, user, payload):
+        calls.append((user["user_id"], payload["platform"]))
+        if payload["platform"] == "ios":
+            raise AppError(
+                409,
+                "NO_ACTIVE_STORE_ENTITLEMENT",
+                "No active subscription was found for this store account.",
+                True,
+                {"classification": "retryable"},
+            )
+
+    monkeypatch.setattr(webhook, "apply_store_subscription_sync", sync)
+
+    result = webhook.reconcile_revenuecat_webhook_event(event)
+
+    assert result == {"received": True, "reconciled": True}
+    assert calls == [
+        ("usr_destination", "ios"),
+        ("usr_destination", "android"),
+    ]
