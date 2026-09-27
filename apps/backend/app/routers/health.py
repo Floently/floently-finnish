@@ -26,6 +26,7 @@ async def password_reset_delivery_readiness() -> JSONResponse:
         content={
             'status': 'ready' if delivery.ready else 'unavailable',
             'service': 'password-reset-delivery',
+            'verification': 'configuration',
             **delivery.as_dict(),
         },
     )
