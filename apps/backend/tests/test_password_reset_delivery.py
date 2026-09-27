@@ -104,6 +104,41 @@ class PasswordResetDeliveryTests(unittest.TestCase):
         self.assertEqual(message["Subject"], "Reset your KieliValmis password")
         self.assertEqual(message["To"], "learner@example.invalid")
 
+    def test_smtp_implicit_ssl_delivery_uses_default_ssl_context(self) -> None:
+        self._configure_smtp()
+        self._set("password_reset_smtp_port", 465)
+        self._set("password_reset_smtp_use_tls", False)
+        self._set("password_reset_smtp_use_ssl", True)
+        smtp_context_manager = MagicMock()
+        smtp_connection = smtp_context_manager.__enter__.return_value
+        tls_context = object()
+
+        with patch(
+            "app.services.password_reset_email_service.ssl.create_default_context",
+            return_value=tls_context,
+        ), patch(
+            "app.services.password_reset_email_service.smtplib.SMTP_SSL",
+            return_value=smtp_context_manager,
+        ) as smtp_factory:
+            accepted = send_password_reset_email(
+                email="learner@example.invalid",
+                links=PasswordResetLinks(
+                    deep_link="floently://auth/reset-password?token=example",
+                    web_link="https://app.kielivalmis.com/auth/reset-password?token=example",
+                ),
+                expires_in_minutes=30,
+            )
+
+        self.assertTrue(accepted)
+        smtp_factory.assert_called_once_with(
+            "smtp.example.invalid",
+            465,
+            timeout=5,
+            context=tls_context,
+        )
+        smtp_connection.login.assert_called_once_with("example-user", "example-value")
+        smtp_connection.send_message.assert_called_once()
+
     def test_incomplete_smtp_credentials_fail_closed(self) -> None:
         self._configure_smtp()
         self._set("password_reset_smtp_password", None)
