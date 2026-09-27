@@ -15,6 +15,7 @@
     "verify:roleplay-scenarios": "node ./scripts/verify-roleplay-scenario-rotation.mjs",
     "verify:navigation": "node ./scripts/verify-navigation-invariants.mjs",
     "verify:guided-speaking": "node ./scripts/verify-guided-speaking-invariants.mjs",
+    "verify:card-level-gate": "node ./scripts/verify-card-level-gate.mjs",
     "verify:account-deletion-access": "node ./scripts/verify-account-deletion-access.mjs",
     "verify:revenuecat-identity": "node ./scripts/verify-revenuecat-identity.mjs",
     "verify:store-billing-preflight": "node ./scripts/verify-store-billing-preflight.mjs",
