@@ -26,7 +26,10 @@ function buildBanks(cards: RuntimeCard[]): CardBankBuckets {
 }
 
 export const cardsService = {
-  async start(mode: CardMode, scope?: CardDeckScope) { return startCardSession(toFilters(mode, scope)); },
+  async start(mode: CardMode, scope?: CardDeckScope) {
+    if (!scope?.level) throw new Error('Choose a level before starting card practice.');
+    return startCardSession(toFilters(mode, scope));
+  },
   async answer(sessionId: string, answer: string) { return submitCardAnswer({ sessionId, userAnswer: answer }); },
   async skip(sessionId: string) { return skipCard(sessionId); },
   async banks(mode: CardMode, scope?: CardDeckScope) { const cards = await getDeckCards(toFilters(mode, scope)); return buildBanks(cards); },
