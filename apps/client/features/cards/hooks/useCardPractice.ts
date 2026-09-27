@@ -8,11 +8,11 @@ function defaultBanks(): CardBankBuckets { return { difficult: [], learned: [], 
 function nextReviewLabel(card: RuntimeCard | null) { if (!card) return null; if (card.state === 'mastered') return 'Strong recall'; if (card.state === 'difficult') return 'Needs extra repetition'; if (card.state === 'learning' && card.seen_count >= 2) return 'Still consolidating'; return 'Fresh card'; }
 function buildHistorySnapshot(card: RuntimeCard, feedback: CardFeedback | null): RuntimeCard { if (!feedback) return card; if (feedback.correct) return { ...card, state: card.state === 'difficult' ? 'learning' : card.state }; return { ...card, state: card.seen_count >= 2 ? 'difficult' : 'learning' }; }
 
-export function useCardPractice(mode: CardMode, scope?: CardDeckScope) {
+export function useCardPractice(mode: CardMode, scope?: CardDeckScope, enabled = true) {
   const [sessionId, setSessionId] = useState<string | null>(null);
   const [current, setCurrent] = useState<RuntimeCard | null>(null);
   const [queuedNext, setQueuedNext] = useState<RuntimeCard | null>(null);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(enabled);
   const [submitting, setSubmitting] = useState(false);
   const [feedback, setFeedback] = useState<CardFeedback | null>(null);
   const [answer, setAnswer] = useState('');
@@ -32,18 +32,48 @@ export function useCardPractice(mode: CardMode, scope?: CardDeckScope) {
   const recordPractice = useStreakStore((state) => state.recordPractice);
   const streakRecordedRef = useRef(false);
 
-  const loadBanks = useCallback(async () => { try { setBanks(await cardsService.banks(mode, scope)); } catch { setBanks(defaultBanks()); } }, [mode, scope]);
+  const loadBanks = useCallback(async () => {
+    if (!enabled) {
+      setBanks(defaultBanks());
+      return;
+    }
+    try { setBanks(await cardsService.banks(mode, scope)); } catch { setBanks(defaultBanks()); }
+  }, [enabled, mode, scope]);
 
   const load = useCallback(async () => {
+    if (!enabled || !scope?.level) {
+      setLoading(false);
+      return;
+    }
     setLoading(true); setError(null);
     try {
       const payload = await cardsService.start(mode, scope);
       setSessionId(payload.session.session_id); setCurrent(payload.firstCard); setQueuedNext(null); setFeedback(null); setAnswer(''); setShowBack(false); setShowHint(false); setCoachHint(null); setSessionCompleted(false); setHistory([]); setRecallIndex(null); setFlagged(false); streakRecordedRef.current = false; await loadBanks();
     } catch (err) { setError(err instanceof Error ? err.message : 'Card session failed to start'); setCurrent(null); setSessionId(null); }
     finally { setLoading(false); }
-  }, [loadBanks, mode, scope]);
+  }, [enabled, loadBanks, mode, scope]);
 
-  useEffect(() => { void load(); }, [load, refreshKey]);
+  useEffect(() => {
+    if (!enabled || !scope?.level) {
+      setSessionId(null);
+      setCurrent(null);
+      setQueuedNext(null);
+      setFeedback(null);
+      setAnswer('');
+      setShowBack(false);
+      setShowHint(false);
+      setCoachHint(null);
+      setSessionCompleted(false);
+      setHistory([]);
+      setRecallIndex(null);
+      setBanks(defaultBanks());
+      setError(null);
+      setFlagged(false);
+      setLoading(false);
+      return;
+    }
+    void load();
+  }, [enabled, load, refreshKey, scope?.level]);
 
   useEffect(() => {
     if (!sessionCompleted || streakRecordedRef.current) return;
