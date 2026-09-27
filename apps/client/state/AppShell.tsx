@@ -391,6 +391,14 @@ export default function AppShell({ requestedScreen = "root" }: Props) {
       );
     }
 
+    if (screen === 'read') {
+      if (isPreview) return false;
+      return Boolean(
+        subscriptionStatus?.isInternalAllAccess ||
+        entitlements.readAccess
+      );
+    }
+
     return true;
   }
 
@@ -759,6 +767,12 @@ export default function AppShell({ requestedScreen = "root" }: Props) {
     if (!isEntitledForScreen(screen)) {
       replaceIfNeeded('billing');
       await resolveAndPersist('billing', 'billing');
+      return;
+    }
+
+    if (screen === 'read') {
+      clearNavigationError();
+      router.push('/read/app' as never);
       return;
     }
 
