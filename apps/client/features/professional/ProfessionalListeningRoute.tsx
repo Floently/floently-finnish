@@ -101,7 +101,7 @@ export default function ProfessionalListeningRoute() {
 
   const onBack = () => router.replace('/professional' as never);
 
-  if (!authHydrated || !preferencesHydrated || !subscriptionLoaded || subscriptionLoading) {
+  if (!authHydrated || !preferencesHydrated || (Boolean(user) && (!subscriptionLoaded || subscriptionLoading))) {
     return (
       <SafeAreaView style={[styles.safeArea, { backgroundColor: palette.background }]}>
         <View accessibilityRole="progressbar" style={styles.centered}>
