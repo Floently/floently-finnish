@@ -66,9 +66,20 @@ Decision:
 - add a dark-theme Scenario practice capture and assert the dark ambient background is actually rendered;
 - run `verify:voice-conversation-ui` from the ordinary client CI job so the source regression guard is enforced rather than only existing as a manual script.
 
+### Finding 4 — Speaking did not hydrate persisted theme preferences
+
+The first dark-mode browser capture remained light even after seeding the persisted dark preference. Source tracing showed that `SpeakingRoute` read `themeMode` but, unlike other top-level theme-aware routes, never called the preferences store's `hydrate` action. A direct `/speaking/` entry could therefore remain on the store's light default for the whole session.
+
+Decision:
+- hydrate the existing preferences store from `SpeakingRoute` when it has not already hydrated;
+- keep the persisted preferences store as the single theme authority;
+- add this hydration contract to the permanent voice UI verifier.
+
+The same browser run also showed that the progressive drawer UAT still expected the historical label `Professional`; the current canonical English drawer label is `Workplace Finnish`. That assertion is updated without changing the drawer product copy.
+
 ## Acceptance criteria
 
-1. The voice conversation surface follows the current canonical app light/dark preference.
+1. The Speaking route hydrates persisted preferences and the voice conversation surface follows the current canonical app light/dark preference.
 2. Light-mode visual values remain materially unchanged.
 3. Dark mode has readable active text, muted text, tray/text-entry surfaces, transcript sheet, status copy, and completion controls.
 4. Safe-area background matches the active voice-conversation background.
