@@ -23,6 +23,9 @@ function forbidText(source, text, label) {
 }
 
 const guided = read('features/speaking/screens/GuidedSpeakingScreen.tsx');
+const cards = read('features/cards/components/CardPracticeSession.tsx');
+const reading = read('features/reading/ReadingRuntimeScreen.tsx');
+const writing = read('features/writing/WritingPracticeScreen.tsx');
 
 requireText(
   guided,
@@ -78,3 +81,66 @@ console.log('GUIDED_EXPERIENCE_INTEGRATION=PASS');
 console.log('GUIDED_REDUCED_MOTION_INTEGRATION=PASS');
 console.log('GUIDED_HAPTIC_SEMANTICS=PASS');
 console.log('GUIDED_PROGRESSION_AUTHORITY_UNCHANGED=PASS');
+
+requireText(
+  cards,
+  "import { ReducedMotionAwareMotion, performLearningHaptic } from '@ui/learningExperience';",
+  'Cards must consume the shared experience primitives',
+);
+requireText(cards, 'kind="feedback-reveal"', 'Cards feedback reveal must use the shared reduced-motion wrapper');
+requireText(cards, "void performLearningHaptic('completion');", 'Cards may haptically confirm only completed sessions');
+requireText(cards, 'if (!sessionCompleted)', 'Cards completion haptic must be gated by the confirmed session state');
+requireText(cards, 'completionHapticDelivered.current', 'Cards completion haptic must be de-duplicated');
+forbidText(cards, 'Haptics.', 'Cards must not bypass the semantic shared haptic helper');
+forbidText(cards, "performLearningHaptic('submit-success')", 'Cards must not haptic every answer submission');
+forbidText(cards, "performLearningHaptic('important-transition')", 'Cards must not haptic routine navigation');
+
+requireText(
+  reading,
+  'ReducedMotionAwareMotion,',
+  'Reading must consume the shared reduced-motion wrapper',
+);
+requireText(reading, 'performLearningHaptic,', 'Reading must consume the shared semantic haptic helper');
+requireText(reading, "kind=\"success\"", 'Reading completion must use semantic success motion');
+requireText(reading, "void performLearningHaptic('completion');", 'Reading completion must use semantic completion haptics');
+const readingDeliveredIndex = reading.indexOf('deliveredResult.current = resultKey;');
+const readingHapticIndex = reading.indexOf("void performLearningHaptic('completion');");
+if (readingDeliveredIndex < 0 || readingHapticIndex < readingDeliveredIndex) {
+  throw new Error(
+    'Learning experience integration failed: Reading haptic must occur only after the completion result has been de-duplicated',
+  );
+}
+forbidText(reading, 'Haptics.', 'Reading must not bypass the semantic shared haptic helper');
+
+requireText(
+  writing,
+  'ReducedMotionAwareMotion,',
+  'Writing must consume the shared reduced-motion wrapper',
+);
+requireText(writing, 'performLearningHaptic,', 'Writing must consume the shared semantic haptic helper');
+requireText(
+  writing,
+  "next.stage === 'feedback' || next.stage === 'compare'",
+  'Writing haptic feedback must be gated by evaluator-confirmed feedback/compare stages',
+);
+requireText(
+  writing,
+  "next.stage === 'compare' ? 'completion' : 'submit-success'",
+  'Writing must distinguish successful feedback delivery from completed revision',
+);
+requireText(
+  writing,
+  "kind={session.stage === 'compare' ? 'success' : 'feedback-reveal'}",
+  'Writing feedback/compare states must use semantic reduced-motion transitions',
+);
+forbidText(writing, 'Haptics.', 'Writing must not bypass the semantic shared haptic helper');
+
+for (const source of [guided, cards, reading, writing]) {
+  forbidText(source, 'withRepeat', 'learning screens must not introduce looping animation');
+  forbidText(source, 'withSequence', 'learning screens must not introduce choreographed animation sequences');
+}
+
+console.log('CARDS_EXPERIENCE_INTEGRATION=PASS');
+console.log('READING_EXPERIENCE_INTEGRATION=PASS');
+console.log('WRITING_EXPERIENCE_INTEGRATION=PASS');
+console.log('ROUTINE_HAPTIC_GUARD=PASS');
