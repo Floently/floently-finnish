@@ -10,7 +10,13 @@ import {
 } from 'react-native';
 
 import type { FloentlyPalette } from '@ui/theme/floentlyPalette';
-import { LearningFocusSurface, PathwayBadge, SkillBadge } from '@ui/learningExperience';
+import {
+  LearningFocusSurface,
+  PathwayBadge,
+  ReducedMotionAwareMotion,
+  SkillBadge,
+  performLearningHaptic,
+} from '@ui/learningExperience';
 
 import { ReadingDocumentCard } from './components/ReadingDocumentCard';
 import { getNextReadingTask } from './readingTasks';
@@ -135,6 +141,7 @@ export function ReadingRuntimeScreen({
       contentVersion: validTask.contentVersion,
       occurredAt: completedAt,
     });
+    void performLearningHaptic('completion');
   }, [identity, session, validTask]);
 
   const contentPadding = width < 480 ? 16 : 28;
@@ -397,6 +404,10 @@ export function ReadingRuntimeScreen({
             ) : null}
 
             {session.phase === 'complete' ? (
+              <ReducedMotionAwareMotion
+                key={`${validTask.taskId}-${identity?.attemptId ?? 'attempt'}-complete`}
+                kind="success"
+              >
               <CompletionPanel
                 palette={palette}
                 session={session}
@@ -414,6 +425,7 @@ export function ReadingRuntimeScreen({
                 onRestart={resetTask}
                 onBack={onBack}
               />
+              </ReducedMotionAwareMotion>
             ) : null}
             </LearningFocusSurface>
           </View>
