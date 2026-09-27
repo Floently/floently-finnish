@@ -867,7 +867,6 @@ export default function RoleplayConversationScreen({
   profession,
   contextLabel,
   scenarioId,
-  entryMode = 'workplace',
   roleplayMode,
 }: {
   levelBand: RoleplayLevelBand;
@@ -875,7 +874,6 @@ export default function RoleplayConversationScreen({
   profession: RoleplayProfession;
   contextLabel?: string;
   scenarioId?: string | null;
-  entryMode?: 'workplace' | 'interview';
   roleplayMode: RoleplayMode;
 }) {
   const recorder = useRoleplayRecorder('fi-FI');
