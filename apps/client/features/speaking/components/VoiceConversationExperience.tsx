@@ -1080,9 +1080,8 @@ const styles = StyleSheet.create({
   },
   swipeHint: {
     alignItems: 'center',
-    bottom: 46,
-    flexDirection: 'row',
-    gap: 5,
+    bottom: 38,
+    flexDirection: 'column',
     justifyContent: 'center',
     left: 0,
     position: 'absolute',
