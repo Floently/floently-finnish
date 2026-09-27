@@ -120,7 +120,7 @@ export default function GuidedSpeakingScreen({
     // enough for explicit user actions; stage resets should only follow
     // context changes.
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [levelBand, profession, currentStageNumber]);
+  }, [profession, currentStageNumber]);
 
   useEffect(() => {
     if (recorder.isRecording) {
