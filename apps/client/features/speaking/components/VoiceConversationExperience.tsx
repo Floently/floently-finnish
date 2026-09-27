@@ -703,7 +703,7 @@ export default function VoiceConversationExperience({
         <View pointerEvents="none" style={styles.textModeSpacer} />
       )}
 
-      {userInputExpected && !trayOpen && state !== 'completed' ? (
+      {userInputExpected && !trayOpen ? (
         <View pointerEvents="none" style={styles.swipeHint}>
           <Ionicons color={mutedColor} name="chevron-up" size={17} />
           <Text style={[styles.swipeHintText, { color: mutedColor }]}>
@@ -886,7 +886,7 @@ const styles = StyleSheet.create({
   },
   headerTitle: {
     fontSize: 19,
-    fontWeight: '650',
+    fontWeight: '600',
     letterSpacing: -0.3,
     maxWidth: '100%',
   },
@@ -950,7 +950,7 @@ const styles = StyleSheet.create({
   },
   activeText: {
     fontSize: 34,
-    fontWeight: '350',
+    fontWeight: '300',
     letterSpacing: -0.8,
     lineHeight: 43,
     maxWidth: 620,
@@ -964,7 +964,7 @@ const styles = StyleSheet.create({
   },
   ghostText: {
     fontSize: 17,
-    fontWeight: '350',
+    fontWeight: '300',
     lineHeight: 22,
   },
   completeCopy: {
@@ -972,7 +972,7 @@ const styles = StyleSheet.create({
   },
   completeTitle: {
     fontSize: 34,
-    fontWeight: '350',
+    fontWeight: '300',
     letterSpacing: -0.8,
     textAlign: 'center',
   },
@@ -1203,12 +1203,12 @@ const styles = StyleSheet.create({
   sheetTitle: {
     color: '#14213A',
     fontSize: 18,
-    fontWeight: '650',
+    fontWeight: '600',
   },
   sheetAction: {
     color: '#5369D9',
     fontSize: 15,
-    fontWeight: '550',
+    fontWeight: '500',
     minWidth: 52,
   },
   sheetActionSpacer: {
@@ -1232,7 +1232,7 @@ const styles = StyleSheet.create({
   sheetSpeaker: {
     color: '#8A99B1',
     fontSize: 12,
-    fontWeight: '650',
+    fontWeight: '600',
     letterSpacing: 0.7,
     textTransform: 'uppercase',
   },
