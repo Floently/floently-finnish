@@ -55,6 +55,7 @@ import { UtilityDrawer } from "@ui/components";
 import { audioSession } from "../features/shared/services/audioSession";
 import { goToLearn, isLearnHost } from "./learnRouting";
 import { useTranslator } from "../features/i18n";
+import type { RoleplayMode } from "@core/api/roleplay";
 import LanguageSelector from "../features/i18n/LanguageSelector";
 
 type YkiLevelBand = 'A1-A2' | 'B1-B2' | 'C1-C2';
@@ -65,6 +66,7 @@ type SpeakingPreset = {
   initialScenarioId?: string | null;
   lockProfession?: boolean;
   entryMode?: 'workplace' | 'interview';
+  roleplayMode?: RoleplayMode;
   contextLabel?: string;
   origin?: 'everyday' | 'professional' | 'yki';
 } | null;
@@ -231,6 +233,7 @@ export default function AppShell({ requestedScreen = "root" }: Props) {
       initialScenarioId: null,
       lockProfession: primaryProfession !== 'general',
       entryMode: 'workplace',
+      roleplayMode: primaryProfession === 'general' ? 'workplace' : 'professional',
       contextLabel: primaryProfession === 'general' ? t('appShellContextGeneralWorkplace') : t('appShellContextProfessionalRoleplay'),
       origin: primaryProfession === 'general' ? 'everyday' : 'professional',
       ...overrides,
@@ -784,6 +787,7 @@ export default function AppShell({ requestedScreen = "root" }: Props) {
             initialScenarioId: null,
             lockProfession: false,
             entryMode: 'workplace',
+            roleplayMode: 'everyday',
             contextLabel: recorded
               ? t('appShellContextGeneralWorkplace')
               : t('appShellContextEverydayRoleplay'),
@@ -834,6 +838,7 @@ export default function AppShell({ requestedScreen = "root" }: Props) {
             initialSurface: guided ? 'guided' : recorded ? 'recorded' : 'conversation',
             initialScenarioId: null,
             entryMode: interview ? 'interview' : 'workplace',
+            roleplayMode: interview ? 'interview' : 'professional',
             contextLabel: interview
               ? t('appShellContextStructuredInterview')
               : t('appShellContextProfessionalRoleplay'),
@@ -1129,6 +1134,7 @@ export default function AppShell({ requestedScreen = "root" }: Props) {
               initialLevelBand: 'B1-B2',
               initialSurface: 'conversation',
               initialProfession: 'general',
+              roleplayMode: 'everyday',
               contextLabel: t('appShellContextEverydayRoleplay'),
               origin: 'everyday',
             });
@@ -1213,6 +1219,7 @@ export default function AppShell({ requestedScreen = "root" }: Props) {
           initialScenarioId={speakingPreset?.initialScenarioId}
           lockProfession={speakingPreset?.lockProfession}
           entryMode={speakingPreset?.entryMode}
+          roleplayMode={speakingPreset?.roleplayMode}
           contextLabel={speakingPreset?.contextLabel}
         />
         {drawer}
@@ -1269,8 +1276,8 @@ export default function AppShell({ requestedScreen = "root" }: Props) {
           onOpenMenu={openSidebar}
           initialLevelBand={examPresetLevel}
           onOpenPractice={(levelBand) => { if (levelBand) setExamPresetLevel(levelBand); void navigateTo("yki-practice"); }}
-          onOpenSpeakingRecording={(levelBand) => { setSpeakingPreset({ initialLevelBand: levelBand, initialSurface: 'recorded', initialProfession: 'general', contextLabel: t('appShellYkiRecordedSpeakingContext'), origin: 'yki' }); void navigateTo("speaking-practice"); }}
-          onOpenSpeakingConversation={(levelBand) => { setSpeakingPreset({ initialLevelBand: levelBand, initialSurface: 'conversation', initialProfession: 'general', contextLabel: t('appShellYkiConversationSpeakingContext'), origin: 'yki' }); void navigateTo("speaking-practice"); }}
+          onOpenSpeakingRecording={(levelBand) => { setSpeakingPreset({ initialLevelBand: levelBand, initialSurface: 'recorded', initialProfession: 'general', roleplayMode: 'yki', contextLabel: t('appShellYkiRecordedSpeakingContext'), origin: 'yki' }); void navigateTo("speaking-practice"); }}
+          onOpenSpeakingConversation={(levelBand) => { setSpeakingPreset({ initialLevelBand: levelBand, initialSurface: 'conversation', initialProfession: 'general', roleplayMode: 'yki', contextLabel: t('appShellYkiConversationSpeakingContext'), origin: 'yki' }); void navigateTo("speaking-practice"); }}
         />
         {drawer}
       </>
@@ -1289,9 +1296,10 @@ export default function AppShell({ requestedScreen = "root" }: Props) {
               initialLevelBand: config.levelBand ?? 'B1-B2',
               initialSurface: 'conversation',
               initialProfession: 'general',
-              initialScenarioId: config.scenarioHint ?? null,
+              initialScenarioId: null,
               lockProfession: false,
               entryMode: 'workplace',
+              roleplayMode: 'yki',
               contextLabel: t('appShellYkiSpeakingPracticeContext'),
               origin: 'yki',
             });
