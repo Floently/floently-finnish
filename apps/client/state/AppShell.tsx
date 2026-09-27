@@ -808,12 +808,16 @@ export default function AppShell({ requestedScreen = "root" }: Props) {
           setActiveContext(profession);
         }
 
-        if (activity === 'professional-roleplay') {
+        if (activity === 'professional-roleplay' || activity === 'professional-interview') {
+          const interview = activity === 'professional-interview';
           setSpeakingPreset({
             ...professionalPreset,
             initialSurface: 'conversation',
-            entryMode: 'workplace',
-            contextLabel: t('appShellContextProfessionalRoleplay'),
+            initialScenarioId: null,
+            entryMode: interview ? 'interview' : 'workplace',
+            contextLabel: interview
+              ? t('appShellContextStructuredInterview')
+              : t('appShellContextProfessionalRoleplay'),
           });
           replaceIfNeeded('speaking-practice');
           await resolveAndPersist('speaking-practice', 'speaking-practice');
@@ -964,13 +968,17 @@ export default function AppShell({ requestedScreen = "root" }: Props) {
         ? 'professional'
         : activeScreen === 'yki-practice' || activeScreen === 'yki-exam'
           ? 'yki'
-          : activeScreen === 'progress'
-            ? 'progress'
-            : activeScreen === 'settings'
-              ? 'settings'
-              : activeScreen === 'billing'
-                ? 'billing'
-                : activeScreen === 'speaking-practice' && speakingPreset?.lockProfession
+          : activeScreen === 'daily-practice'
+            ? 'practice'
+            : activeScreen === 'progress'
+              ? 'progress'
+              : activeScreen === 'settings'
+                ? 'settings'
+                : activeScreen === 'help'
+                  ? 'help'
+                  : activeScreen === 'billing'
+                    ? 'billing'
+                    : activeScreen === 'speaking-practice' && speakingPreset?.lockProfession
                   ? 'professional'
                   : activeScreen === 'speaking-practice' &&
                       speakingPreset?.contextLabel === t('appShellContextEverydayRoleplay')
