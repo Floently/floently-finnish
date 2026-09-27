@@ -83,6 +83,60 @@ requireText(
   'Professional reading must be reachable as a guarded drawer leaf',
 );
 
+requireText(
+  sidebar,
+  "id: 'everyday-speaking'",
+  'Everyday speaking must be a progressive drawer branch ready for staged speaking children',
+);
+
+requireText(
+  sidebar,
+  "id: 'professional-speaking'",
+  'Professional speaking must be a progressive drawer branch',
+);
+
+requireText(
+  sidebar,
+  "activity: 'professional-interview'",
+  'Structured professional interview practice must remain reachable from the drawer',
+);
+
+requireText(
+  sidebar,
+  "navigateTo('daily-practice')",
+  'the existing Practice hub must be reachable from the drawer',
+);
+
+requireText(
+  sidebar,
+  "navigateTo('help')",
+  'Help and support must remain reachable from the drawer',
+);
+
+requireText(
+  appShell,
+  "activeScreen === 'daily-practice'",
+  'the current Practice location must be identified when the drawer opens',
+);
+
+requireText(
+  appShell,
+  "activeScreen === 'help'",
+  'the current Help location must be identified when the drawer opens',
+);
+
+requireText(
+  utilityDrawer,
+  'minHeight: 52',
+  'drawer navigation rows must keep a mobile-friendly touch target',
+);
+
+requireText(
+  utilityDrawer,
+  'width: 44,\n    height: 44',
+  'drawer close control must keep a mobile-friendly touch target',
+);
+
 forbidText(
   sidebar,
   'router.',
@@ -249,6 +303,10 @@ console.log('PASS: progressive drawer branches expose accessible expanded state.
 console.log('PASS: one sibling branch is open per hierarchy depth.');
 console.log('PASS: branch presses expand without navigating.');
 console.log('PASS: drawer leaf shortcuts execute only after entitlement checks.');
+console.log('PASS: Practice and Help remain reachable from the drawer.');
+console.log('PASS: Everyday and Professional Speaking are progressive branches.');
+console.log('PASS: structured Professional interview remains reachable.');
+console.log('PASS: drawer controls preserve mobile-friendly touch targets.');
 console.log('PASS: current pathway can reopen its drawer branch.');
 console.log('PASS: localhost behavior is development-only.');
 console.log('NAVIGATION_INVARIANTS=PASS');
