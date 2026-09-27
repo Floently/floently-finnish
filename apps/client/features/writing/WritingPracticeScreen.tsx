@@ -12,7 +12,13 @@ import {
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { colors, spacing, typography } from '@ui/theme';
 import { getFloentlyPalette } from '@ui/theme/floentlyPalette';
-import { LearningFocusSurface, PathwayBadge, SkillBadge } from '@ui/learningExperience';
+import {
+  LearningFocusSurface,
+  PathwayBadge,
+  ReducedMotionAwareMotion,
+  SkillBadge,
+  performLearningHaptic,
+} from '@ui/learningExperience';
 
 import {
   beginRevision,
@@ -308,6 +314,9 @@ export default function WritingPracticeScreen({ pathway, profession, initialTask
         submittedAt: new Date().toISOString(),
       });
       setSession(next);
+      if (next.stage === 'feedback' || next.stage === 'compare') {
+        void performLearningHaptic(next.stage === 'compare' ? 'completion' : 'submit-success');
+      }
       const result = buildWritingTaskResult(next);
       if (result) onResult?.(result);
     } finally {
@@ -369,7 +378,12 @@ export default function WritingPracticeScreen({ pathway, profession, initialTask
           ) : null}
 
           {session.stage === 'feedback' || session.stage === 'compare' ? (
-            <WritingFeedbackPanel session={session} onRevise={() => setSession(beginRevision(session))} />
+            <ReducedMotionAwareMotion
+              key={`${session.task.taskId}-${session.stage}`}
+              kind={session.stage === 'compare' ? 'success' : 'feedback-reveal'}
+            >
+              <WritingFeedbackPanel session={session} onRevise={() => setSession(beginRevision(session))} />
+            </ReducedMotionAwareMotion>
           ) : null}
 
           {session.stage === 'compare' && nextCanonicalTask ? (
