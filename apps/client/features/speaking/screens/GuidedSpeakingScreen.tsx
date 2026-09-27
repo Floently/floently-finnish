@@ -16,6 +16,7 @@ import {
   guidedSpeakingVoiceProfile,
   getGuidedSpeakingStages,
 } from '../guidedSpeakingStages';
+import { guidedSpeakingLesson } from '../guidedSpeakingCurriculum';
 import {
   speakRoleplayText,
   stopRoleplayAudioPlayback,
@@ -66,6 +67,7 @@ export default function GuidedSpeakingScreen({
   const [ttsUnavailable, setTtsUnavailable] = useState(false);
 
   const stage = stages[stageIndex];
+  const curriculumLesson = guidedSpeakingLesson(currentStageNumber);
   const visibleStageNumber = stageIndex + 1;
   const visibleLevel = guidedSpeakingLevelForStage(visibleStageNumber);
   const stageCompleted = attempts.some((attempt) => attempt.stageId === stage.curriculumId);
@@ -226,8 +228,8 @@ export default function GuidedSpeakingScreen({
             <Text style={[styles.eyebrow, { color: primary }]}>
               {t('roleplayLevelLabel')} · {visibleLevel} · Stage {visibleStageNumber}
             </Text>
-            <Text style={[styles.title, { color: text }]}>{stage.titleFi}</Text>
-            <Text style={[styles.subtitle, { color: muted }]}>{stage.goalFi}</Text>
+            <Text style={[styles.title, { color: text }]}>{curriculumLesson?.titleFi ?? stage.titleFi}</Text>
+            <Text style={[styles.subtitle, { color: muted }]}>{curriculumLesson?.goalFi ?? stage.goalFi}</Text>
           </View>
 
           <View style={[styles.journeyCard, { backgroundColor: surface, borderColor: border }]}>
