@@ -388,4 +388,5 @@ await import('./verify-guided-speaking-invariants.mjs');
 await import('./verify-card-level-gate.mjs');
 await import('./verify-practice-one-next-session.mjs');
 await import('./verify-professional-mission-chain.mjs');
+await import('./verify-reading-writing-progression.mjs');
 console.log('NAVIGATION_INVARIANTS=PASS');
