@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Pressable, SafeAreaView, ScrollView, StyleSheet, Text, TextInput, View } from 'react-native';
 
 import type { RoleplayLevelBand, RoleplayProfession } from '@core/api/roleplay';
+import { ReducedMotionAwareMotion, performLearningHaptic } from '@ui/learningExperience';
 import { getFloentlyPalette } from '@ui/theme/floentlyPalette';
 
 import { usePreferencesStore } from '../../../state/preferencesStore';
@@ -200,6 +201,10 @@ export default function GuidedSpeakingScreen({
 
     await completePersistedStage(curriculumLesson.id, curriculumLesson.version, visibleStageNumber);
 
+    void performLearningHaptic(
+      isReviewing ? 'retry-success' : visibleStageNumber === levelEnd ? 'milestone' : 'completion',
+    );
+
     if (isReviewing) {
       await resumePersistedFrontier();
       void stopRoleplayAudioPlayback();
@@ -327,7 +332,11 @@ export default function GuidedSpeakingScreen({
           ) : null}
 
           {lessonStep === 'recall' && retrievalLessons.length > 0 ? (
-            <View style={[styles.recallCard, { backgroundColor: surface, borderColor: border }]}>
+            <ReducedMotionAwareMotion
+              key={`recall-${visibleStageNumber}`}
+              kind="task-enter"
+              style={[styles.recallCard, { backgroundColor: surface, borderColor: border }]}
+            >
               <Text style={[styles.sectionLabel, { color: soft }]}>Remember?</Text>
               {!recallOpen ? (
                 <>
@@ -367,11 +376,15 @@ export default function GuidedSpeakingScreen({
                   </Pressable>
                 </View>
               )}
-            </View>
+            </ReducedMotionAwareMotion>
           ) : null}
 
           {lessonStep === 'listen' ? (
-            <View style={[styles.modelCard, { backgroundColor: surface, borderColor: border }]}>
+            <ReducedMotionAwareMotion
+              key={`listen-${visibleStageNumber}`}
+              kind="next-task"
+              style={[styles.modelCard, { backgroundColor: surface, borderColor: border }]}
+            >
             <View style={styles.cardHeaderRow}>
               <View style={[styles.stageBadge, { backgroundColor: `${primary}18` }]}>
                 <Text style={[styles.stageBadgeText, { color: primary }]}>
@@ -415,11 +428,15 @@ export default function GuidedSpeakingScreen({
             >
               <Text style={styles.primaryStepButtonText}>I'm ready to speak</Text>
             </Pressable>
-          </View>
+          </ReducedMotionAwareMotion>
           ) : null}
 
           {lessonStep === 'speak' ? (
-            <View style={styles.speakStep}>
+            <ReducedMotionAwareMotion
+              key={`speak-${visibleStageNumber}`}
+              kind="next-task"
+              style={styles.speakStep}
+            >
               <View style={[styles.practiceCard, { backgroundColor: surface, borderColor: border }]}>
             <Text style={[styles.sectionLabel, { color: soft }]}>Tehtävä</Text>
             <Text style={[styles.promptText, { color: text }]}>{curriculumLesson.promptFi}</Text>
@@ -449,13 +466,15 @@ export default function GuidedSpeakingScreen({
             </View>
 
             {transcript ? (
-              <View
-                accessibilityLiveRegion="polite"
-                style={[styles.transcriptBox, { backgroundColor: raised, borderColor: success }]}
-              >
-                <Text style={[styles.transcriptMarker, { color: success }]}>✓</Text>
-                <Text style={[styles.transcriptText, { color: text }]}>{transcript}</Text>
-              </View>
+              <ReducedMotionAwareMotion kind="feedback-reveal">
+                <View
+                  accessibilityLiveRegion="polite"
+                  style={[styles.transcriptBox, { backgroundColor: raised, borderColor: success }]}
+                >
+                  <Text style={[styles.transcriptMarker, { color: success }]}>✓</Text>
+                  <Text style={[styles.transcriptText, { color: text }]}>{transcript}</Text>
+                </View>
+              </ReducedMotionAwareMotion>
             ) : null}
 
             {recorder.error ? (
@@ -517,7 +536,7 @@ export default function GuidedSpeakingScreen({
               </Text>
             </Pressable>
               </View>
-            </View>
+            </ReducedMotionAwareMotion>
           ) : null}
         </ScrollView>
       </View>
