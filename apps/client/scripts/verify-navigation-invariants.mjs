@@ -389,4 +389,5 @@ await import('./verify-card-level-gate.mjs');
 await import('./verify-practice-one-next-session.mjs');
 await import('./verify-professional-mission-chain.mjs');
 await import('./verify-reading-writing-progression.mjs');
+await import('./verify-learning-experience-integration.mjs');
 console.log('NAVIGATION_INVARIANTS=PASS');
