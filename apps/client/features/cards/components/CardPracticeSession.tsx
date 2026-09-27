@@ -560,7 +560,7 @@ export function CardPracticeSession() {
 
       {feedback ? (
         <ReducedMotionAwareMotion
-          key={`${displayedCard?.card_id ?? 'card'}-feedback`}
+          key={`${displayedCard?.id ?? 'card'}-feedback`}
           kind="feedback-reveal"
           style={[styles.feedbackPanel, { borderColor: feedback.correct ? 'rgba(78,143,106,0.28)' : 'rgba(214,69,69,0.22)' }, isDark && { backgroundColor: palette.surfaceRaised }]}
         >
