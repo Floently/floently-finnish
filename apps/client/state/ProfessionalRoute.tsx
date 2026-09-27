@@ -2,7 +2,7 @@ import React, { useEffect, useMemo, useState } from 'react';
 import { Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { router } from 'expo-router';
-import { colors, spacing, typography } from '@ui/theme';
+import { spacing, typography } from '@ui/theme';
 import { getFloentlyPalette } from '@ui/theme/floentlyPalette';
 import { PathwayBadge, SkillBadge } from '@ui/learningExperience';
 import type { RoleplayLevelBand, RoleplayProfession } from '@core/api/roleplay';
@@ -287,7 +287,7 @@ export default function ProfessionalRoute({
                 {mission.title}
               </Text>
             </View>
-            <View style={[styles.readyBadge, { backgroundColor: palette.successSoft }]}>
+            <View style={[styles.readyBadge, { backgroundColor: palette.accentSoft }]}>
               <Text style={[styles.readyBadgeText, { color: palette.success }]}>Ready</Text>
             </View>
           </View>
@@ -557,7 +557,7 @@ const styles = StyleSheet.create({
     letterSpacing: 0.5,
     textTransform: 'uppercase',
   },
-  goalValue: { fontSize: 14, lineHeight: 21, fontWeight: '650' },
+  goalValue: { fontSize: 14, lineHeight: 21, fontWeight: '600' },
   missionMeta: { fontSize: 12, lineHeight: 18 },
   primaryButton: {
     minHeight: 54,
