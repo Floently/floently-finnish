@@ -123,6 +123,38 @@ const A21_SEEDS: LessonSeed[] = [
   expectedMinWords: expectedMinWords as number, expectedMaxWords: expectedMaxWords as number,
 }));
 
+const A22_SEEDS: LessonSeed[] = [
+  ['Kerro muutoksesta elämässä','Kuvaile viimeaikaista muutosta ja sen vaikutusta.','Aloitin uuden kurssin viime kuussa. Aluksi se oli vaikea, mutta nyt rytmi tuntuu hyvältä.','Kerro yhdestä viimeaikaisesta muutoksesta elämässäsi ja miten se vaikutti sinuun.',undefined,['aloitin','aluksi','mutta nyt'],14,32],
+  ['Selitä tavoite','Kerro tavoitteesi ja miten aiot saavuttaa sen.','Haluan parantaa suomeani, joten harjoittelen puhumista joka päivä ja kuuntelen uutisia.','Kerro yksi tavoitteesi ja kaksi asiaa, joita teet sen saavuttamiseksi.',undefined,['haluan','joten','harjoittelen'],14,32],
+  ['Kerro oppimisesta','Kuvaile mikä auttaa sinua oppimaan.','Opin parhaiten, kun käytän uutta asiaa heti käytännössä ja palaan siihen myöhemmin.','Kerro mikä auttaa sinua oppimaan uuden asian.',undefined,['opin parhaiten','kun','myöhemmin'],14,32],
+  ['Pyydä palautetta','Pyydä palautetta ja tarkennusta.','Voisitko kertoa, mikä tässä oli hyvää ja mitä minun kannattaisi vielä harjoitella?','Pyydä palautetta tekemästäsi työstä ja kysy mitä voisit parantaa.',undefined,['voisitko kertoa','mitä','kannattaisi'],14,32],
+  ['Reagoi palautteeseen','Vastaa palautteeseen rakentavasti.','Kiitos palautteesta. Ymmärrän asian ja yritän kiinnittää siihen enemmän huomiota ensi kerralla.','Saat korjaavaa palautetta. Kiitä, osoita ymmärtäneesi ja kerro mitä teet seuraavaksi.',undefined,['kiitos palautteesta','ymmärrän','ensi kerralla'],15,34],
+  ['Selitä palveluongelma','Kuvaile palvelussa tapahtunut ongelma selkeästi.','Tilasin tuotteen viikko sitten, mutta sitä ei ole vielä toimitettu eikä seurannassa näy muutosta.','Selitä asiakaspalvelulle toimitusongelma ja kerro mitä tietoa sinulla on.',undefined,['tilasin','ei ole vielä','seurannassa'],15,34],
+  ['Pyydä ratkaisua palvelussa','Kerro toivomasi ratkaisu kohteliaasti.','Jos toimitus ei onnistu tällä viikolla, haluaisin perua tilauksen ja saada rahat takaisin.','Kerro asiakaspalvelulle millaisen ratkaisun haluat ja millä ehdolla.',undefined,['jos','haluaisin','rahat takaisin'],15,34],
+  ['Tee reklamaatio','Yhdistä tapahtuma, ongelma ja ratkaisu.','Ostin laitteen kolme päivää sitten. Se sammuu jatkuvasti, joten haluaisin vaihtaa sen toimivaan tuotteeseen.','Tee lyhyt suullinen reklamaatio viallisesta laitteesta.',undefined,['ostin','sammuu','joten haluaisin'],16,36],
+  ['Kuvaile naapurustoa','Kerro alueen hyvistä ja huonoista puolista.','Alue on rauhallinen ja palvelut ovat lähellä, mutta iltaisin bussit kulkevat harvoin.','Kuvaile asuinaluettasi ja mainitse yksi hyvä ja yksi huono puoli.',undefined,['rauhallinen','mutta','harvoin'],15,34],
+  ['Keskustele asumistoiveesta','Kerro millaista asuntoa etsit ja miksi.','Etsin kaksioita hyvien yhteyksien varrelta, koska kuljen töihin julkisilla joka päivä.','Kerro millaista asuntoa etsit ja perustele kaksi tärkeää ominaisuutta.',undefined,['etsin','koska','minulle on tärkeää'],16,36],
+  ['Ilmoita häiriöstä','Kuvaile asumiseen liittyvä häiriö asiallisesti.','Naapurista kuuluu öisin kovaa musiikkia, ja se on jatkunut useana yönä. Haluaisin kysyä, miten asiassa pitäisi toimia.','Ilmoita toistuvasta meluhäiriöstä ja kysy mitä voit tehdä.',undefined,['öisin','on jatkunut','miten pitäisi toimia'],16,36],
+  ['Suunnittele matkaa yhdessä','Ehdota vaihtoehtoa ja huomioi toisen toive.','Voisimme mennä junalla aamulla. Jos haluat lähteä myöhemmin, myös iltapäivällä on hyvä yhteys.','Suunnittele ystävän kanssa matkaa ja tarjoa kaksi vaihtoehtoa.',undefined,['voisimme','jos haluat','myös'],16,36],
+  ['Kerro matkakokemuksesta','Kuvaile matkan onnistumista ja yhtä ongelmaa.','Matka onnistui muuten hyvin, mutta paluujuna oli niin täynnä, ettemme saaneet istumapaikkoja.','Kerro matkasta: mikä onnistui ja mikä ei.',undefined,['muuten hyvin','mutta','emme saaneet'],16,36],
+  ['Selvitä väärinkäsitys','Kerro mitä ymmärsit ja pyydä vahvistus.','Luulin, että tapaaminen alkaa kahdelta. Ymmärsinkö viestin väärin vai muuttuiko aika?','Olet eri aikaan paikalla kuin muut. Selvitä kohteliaasti mitä tapahtui.',undefined,['luulin että','ymmärsinkö','vai'],16,36],
+  ['Korjaa oma virhe','Myönnä virhe ja ehdota korjausta.','Huomasin, että lähetin sinulle vanhan tiedoston. Pahoittelen virhettä. Lähetän oikean version heti.','Kerro tekemästäsi pienestä virheestä, pyydä anteeksi ja korjaa tilanne.',undefined,['huomasin että','pahoittelen','heti'],16,36],
+  ['Kerro työtilanteen etenemisestä','Anna lyhyt tilannepäivitys.','Ensimmäinen osa on valmis, mutta tarvitsen vielä yhden tiedon ennen kuin voin viimeistellä työn.','Anna työstä tilannepäivitys: mikä on valmis ja mikä vielä puuttuu.',undefined,['on valmis','tarvitsen vielä','ennen kuin'],16,36],
+  ['Pyydä lisäaikaa','Perustele miksi tarvitset lisää aikaa.','Tarvitsisin yhden lisäpäivän, koska odotan vielä asiakkaan vastausta enkä halua tehdä oletuksia.','Pyydä tehtävälle yksi lisäpäivä ja perustele pyyntö.',undefined,['tarvitsisin','koska','en halua'],16,36],
+  ['Ehdota parannusta','Tee rakentava ehdotus arjen tai työn käytäntöön.','Voisimme sopia tehtävät jo viikon alussa, jotta kaikille olisi selvää, kuka tekee mitä.','Ehdota yhtä parannusta tiimin tai ryhmän työskentelyyn ja kerro hyöty.',undefined,['voisimme','jotta','olisi selvää'],17,38],
+  ['Kysy toisen näkemystä','Esitä oma ajatus ja pyydä mielipidettä.','Minusta tämä vaihtoehto on selkeämpi, mutta haluaisin kuulla, mitä sinä ajattelet.','Kerro oma näkemyksesi ja pyydä toisen mielipidettä.',undefined,['minusta','mutta','mitä sinä ajattelet'],16,36],
+  ['Ole eri mieltä kohteliaasti','Ilmaise eriävä mielipide ja perustele.','Ymmärrän ajatuksesi, mutta näen asian hieman eri tavalla, koska tämä ratkaisu vie enemmän aikaa.','Ole kohteliaasti eri mieltä ja anna yksi syy.',undefined,['ymmärrän','mutta','koska'],17,38],
+  ['Tee kompromissiehdotus','Yhdistä kaksi erilaista toivetta ratkaisuksi.','Voisimme aloittaa sinun ehdotuksellasi ja tarkistaa viikon päästä, tarvitseeko suunnitelmaa muuttaa.','Kaksi ihmistä haluaa eri ratkaisut. Ehdota kompromissia.',undefined,['voisimme','ja','tarvitseeko'],17,38],
+  ['Kerro uutisesta tai tapahtumasta','Tiivistä kuulemasi asia omin sanoin.','Kuulin, että alueelle avataan uusi kirjasto ensi vuonna. Se voisi helpottaa opiskelua, koska nykyinen kirjasto on kaukana.','Kerro lyhyesti jostakin kuulemastasi paikallisesta uutisesta tai muutoksesta ja sen mahdollisesta vaikutuksesta.',undefined,['kuulin että','voisi','koska'],18,40],
+  ['Vertaa ennen ja nyt','Kuvaile miten jokin asia on muuttunut.','Kun muutin tänne, en tuntenut aluetta hyvin. Nyt osaan liikkua helposti ja tiedän, mistä saan apua.','Vertaa jotakin asiaa elämässäsi ennen ja nyt.',undefined,['kun','nyt','osaan'],18,40],
+  ['Perustele päätös','Kuvaile vaihtoehdot ja perustele tekemäsi päätös.','Harkitsin kahta kurssia. Valitsin tämän, koska aikataulu sopii paremmin ja sisältö tukee tavoitteitani.','Kerro päätöksestä, jossa vertailit vähintään kahta vaihtoehtoa.',undefined,['harkitsin','valitsin','koska'],18,40],
+  ['Itsenäinen ongelmanratkaisu','Selitä monivaiheinen arkitilanne ja neuvottele ratkaisu.','Tilaukseni piti saapua maanantaina, mutta sitä ei näy seurannassa. Tarvitsen tuotteen perjantaihin mennessä. Jos toimitus ei ehdi, haluaisin noutaa vastaavan tuotteen myymälästä.','Ota yhteyttä asiakaspalveluun: selitä toimitusongelma, määräaika ja ehdota vaihtoehtoista ratkaisua.',undefined,['piti saapua','tarvitsen','jos','haluaisin'],20,45],
+].map(([titleFi,goalFi,modelFi,promptFi,responseFrameFi,supportFi,expectedMinWords,expectedMaxWords]) => ({
+  titleFi: titleFi as string, goalFi: goalFi as string, modelFi: modelFi as string, promptFi: promptFi as string,
+  responseFrameFi: responseFrameFi as string | undefined, supportFi: supportFi as string[],
+  expectedMinWords: expectedMinWords as number, expectedMaxWords: expectedMaxWords as number,
+}));
+
 const THEMES = [
   ['Arki', 'Kerro yhdestä arjen asiasta.', 'Tänään menen kauppaan.', 'Kerro yhdestä asiasta, jonka teet tänään.'],
   ['Koti', 'Kuvaile kotiasi lyhyesti.', 'Asun pienessä asunnossa lähellä keskustaa.', 'Kerro missä ja millaisessa kodissa asut.'],
@@ -177,7 +209,7 @@ function generatedSeed(number: number): LessonSeed {
 
 export const GUIDED_SPEAKING_CURRICULUM: GuidedSpeakingLesson[] = Array.from({ length: 300 }, (_, index) => {
   const number = index + 1;
-  const seed = number <= A1_SEEDS.length ? A1_SEEDS[index] : number <= 50 ? A12_SEEDS[number - 26] : number <= 75 ? A21_SEEDS[number - 51] : generatedSeed(number);
+  const seed = number <= A1_SEEDS.length ? A1_SEEDS[index] : number <= 50 ? A12_SEEDS[number - 26] : number <= 75 ? A21_SEEDS[number - 51] : number <= 100 ? A22_SEEDS[number - 76] : generatedSeed(number);
   return {
     ...seed,
     id: idFor(number),
