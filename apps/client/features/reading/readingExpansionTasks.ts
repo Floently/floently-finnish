@@ -1,4 +1,5 @@
 import type {
+  ReadingChoiceQuestion,
   ReadingLevel,
   ReadingQuestionFamily,
   ReadingScope,
@@ -64,14 +65,14 @@ function makeReadingTask(input: AuthoredReading): ReadingTask {
       segments: input.segments.map((text, index) => ({
         id: `${input.id}.segment-${index + 1}`,
         text,
-        emphasis: index === 0 ? 'body' : 'body',
+        emphasis: 'body',
       })),
     },
     vocabulary: (input.vocabulary ?? []).map((item, index) => ({
       id: `${input.id}.vocab-${index + 1}`,
       ...item,
     })),
-    questions: input.questions.map((question, index) => {
+    questions: input.questions.map((question, index): ReadingChoiceQuestion => {
       const questionId = `${input.id}.q-${index + 1}`;
       const options = question.options.map((label, optionIndex) => ({
         id: `${questionId}.o-${optionIndex + 1}`,
