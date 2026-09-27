@@ -1241,6 +1241,7 @@ export default function AppShell({ requestedScreen = "root" }: Props) {
               initialScenarioId: scenarioId ?? null,
               lockProfession: true,
               entryMode,
+              roleplayMode: entryMode === 'interview' ? 'interview' : 'professional',
               contextLabel: entryMode === 'interview' ? t('appShellContextStructuredInterview') : t('appShellContextProfessionalRoleplay'),
               origin: 'professional',
             });
