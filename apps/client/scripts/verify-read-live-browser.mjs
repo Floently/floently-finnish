@@ -26,6 +26,8 @@ for (const route of requiredRoutes) {
 const browser = read('features/read/mobile/ReadLiveBrowserScreen.tsx');
 const guard = read('features/read/mobile/ReadProtectedRoute.tsx');
 const home = read('features/read/mobile/ReadMobileScreens.tsx');
+const drawer = read('config/navigation/AppShell_sidebar_sections.ts');
+const appShell = read('state/AppShell.tsx');
 const subscribeRoute = read('app/read/subscribe.tsx');
 const browserRoute = read('app/read/browser.tsx');
 const pkg = JSON.parse(read('package.json'));
@@ -61,5 +63,11 @@ assert.ok(browserRoute.includes('<ReadProtectedRoute>'),
   'Live browser route must be protected by the Read content gate');
 assert.ok(home.includes("navigate('/read/browser')"),
   'Read home must expose the live web Reader');
+assert.ok(home.includes("{ key: 'browser', label: 'Browser', route: '/read/browser'"),
+  'Read bottom navigation must expose the live Browser');
+assert.ok(drawer.includes("onPress: () => void navigateTo('read')"),
+  'Signed-in Floently drawer must expose guarded Read navigation');
+assert.ok(appShell.includes("if (screen === 'read')"),
+  'AppShell must own the Read entitlement/navigation decision');
 
 console.log('READ_LIVE_BROWSER_INVARIANTS=PASS');
