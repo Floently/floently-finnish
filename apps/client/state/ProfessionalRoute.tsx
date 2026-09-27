@@ -267,6 +267,7 @@ export default function ProfessionalRoute({
 
         <View style={styles.skillIdentityRow}>
           <PathwayBadge pathway="professional" palette={palette} compact />
+          <SkillBadge skill="listening" palette={palette} compact />
           <SkillBadge skill="speaking" palette={palette} compact />
           <SkillBadge skill="reading" palette={palette} compact />
           <SkillBadge skill="writing" palette={palette} compact />
@@ -322,7 +323,7 @@ export default function ProfessionalRoute({
           </Pressable>
 
           <Text style={[styles.primaryHint, { color: palette.textMuted }]}>
-            Listening is not available yet, so the first runnable step is Speaking.
+            Start by listening to the workplace message, then carry the same information into Speaking, Reading and Writing.
           </Text>
         </View>
 
