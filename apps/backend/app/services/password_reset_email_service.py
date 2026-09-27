@@ -57,6 +57,9 @@ def _smtp_configuration_status() -> PasswordResetDeliveryStatus:
         return PasswordResetDeliveryStatus(False, "smtp", "smtp_port_invalid")
     if use_tls and use_ssl:
         return PasswordResetDeliveryStatus(False, "smtp", "smtp_tls_mode_conflict")
+    environment = str(SETTINGS.environment or "").strip().lower()
+    if not use_tls and not use_ssl and environment not in {"development", "dev", "local", "test", "testing"}:
+        return PasswordResetDeliveryStatus(False, "smtp", "smtp_tls_required")
     if bool(username) != bool(password):
         return PasswordResetDeliveryStatus(False, "smtp", "smtp_credentials_incomplete")
     return PasswordResetDeliveryStatus(True, "smtp", "ready")
