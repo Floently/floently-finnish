@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from 'react';
+import React, { useEffect, useMemo, useRef, useState } from 'react';
 import {
   ActivityIndicator,
   Pressable,
@@ -9,6 +9,7 @@ import {
   View,
 } from 'react-native';
 import { router, useLocalSearchParams } from 'expo-router';
+import { ReducedMotionAwareMotion, performLearningHaptic } from '@ui/learningExperience';
 import { getFloentlyPalette } from '@ui/theme/floentlyPalette';
 import { usePreferencesStore } from '../../../state/preferencesStore';
 import { useCardLevelPreferenceStore } from '../../../state/cardLevelPreferenceStore';
@@ -334,6 +335,17 @@ export function CardPracticeSession() {
   const isChoiceMode = Boolean(visibleOptions.length);
   const indicatorCount = 4;
   const activeIndicator = Math.min(indicatorCount - 1, Math.floor(progress.ratio * indicatorCount));
+  const completionHapticDelivered = useRef(false);
+
+  useEffect(() => {
+    if (!sessionCompleted) {
+      completionHapticDelivered.current = false;
+      return;
+    }
+    if (completionHapticDelivered.current) return;
+    completionHapticDelivered.current = true;
+    void performLearningHaptic('completion');
+  }, [sessionCompleted]);
 
   const reportCurrentCard = async (reason: string) => {
     if (!displayedCard || flagged || reportSubmitting) return;
@@ -547,7 +559,11 @@ export function CardPracticeSession() {
       </View>
 
       {feedback ? (
-        <View style={[styles.feedbackPanel, { borderColor: feedback.correct ? 'rgba(78,143,106,0.28)' : 'rgba(214,69,69,0.22)' }, isDark && { backgroundColor: palette.surfaceRaised }]}>
+        <ReducedMotionAwareMotion
+          key={`${displayedCard?.card_id ?? 'card'}-feedback`}
+          kind="feedback-reveal"
+          style={[styles.feedbackPanel, { borderColor: feedback.correct ? 'rgba(78,143,106,0.28)' : 'rgba(214,69,69,0.22)' }, isDark && { backgroundColor: palette.surfaceRaised }]}
+        >
           <Text style={[styles.feedbackTitle, { color: feedback.correct ? COLORS.mastered : COLORS.difficult }]}>
             {feedback.correct ? t('cardsCorrectFeedback') : t('cardsStrengthenThisOne')}
           </Text>
@@ -556,7 +572,7 @@ export function CardPracticeSession() {
           <Pressable onPress={() => void advance()} style={[styles.nextButton, isDark && { backgroundColor: palette.primarySurface }]}>
             <Text style={[styles.nextButtonText, isDark && { color: palette.primary }]}>{sessionCompleted ? t('cardsFinishSession') : t('cardsNextCard')}</Text>
           </Pressable>
-        </View>
+        </ReducedMotionAwareMotion>
       ) : null}
 
       {error ? <Text style={styles.inlineError}>{error}</Text> : null}
