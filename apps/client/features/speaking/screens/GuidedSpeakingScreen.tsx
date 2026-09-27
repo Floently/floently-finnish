@@ -348,7 +348,7 @@ export default function GuidedSpeakingScreen({
           ) : null}
 
           {lessonStep === 'listen' ? (
-          <View style={[styles.modelCard, { backgroundColor: surface, borderColor: border }]}>
+            <View style={[styles.modelCard, { backgroundColor: surface, borderColor: border }]}>
             <View style={styles.cardHeaderRow}>
               <View style={[styles.stageBadge, { backgroundColor: `${primary}18` }]}>
                 <Text style={[styles.stageBadgeText, { color: primary }]}>
@@ -384,7 +384,6 @@ export default function GuidedSpeakingScreen({
                 Ääni ei ole juuri nyt saatavilla. Voit lukea mallin ja jatkaa harjoitusta.
               </Text>
             ) : null}
-          </View>
 
             <Pressable
               accessibilityRole="button"
@@ -397,7 +396,8 @@ export default function GuidedSpeakingScreen({
           ) : null}
 
           {lessonStep === 'speak' ? (
-          <View style={[styles.practiceCard, { backgroundColor: surface, borderColor: border }]}>
+            <View style={styles.speakStep}>
+              <View style={[styles.practiceCard, { backgroundColor: surface, borderColor: border }]}>
             <Text style={[styles.sectionLabel, { color: soft }]}>Tehtävä</Text>
             <Text style={[styles.promptText, { color: text }]}>{curriculumLesson?.promptFi ?? stage.promptFi}</Text>
 
@@ -455,13 +455,9 @@ export default function GuidedSpeakingScreen({
                 />
               </View>
             ) : null}
-          </View>
+              </View>
 
-          </View>
-          ) : null}
-
-          {lessonStep === 'speak' ? (
-          <View style={[styles.nextCard, { backgroundColor: surface, borderColor: border }]}>
+              <View style={[styles.nextCard, { backgroundColor: surface, borderColor: border }]}>
             <View style={styles.nextCopy}>
               <Text style={[styles.nextTitle, { color: text }]}>
                 {stageIndex === stages.length - 1
@@ -491,7 +487,8 @@ export default function GuidedSpeakingScreen({
                   : t('commonNext')}
               </Text>
             </Pressable>
-          </View>
+              </View>
+            </View>
           ) : null}
         </ScrollView>
       </View>
@@ -578,6 +575,7 @@ const styles = StyleSheet.create({
   listenButton: { minHeight: 46, borderRadius: 14, borderWidth: 1, paddingHorizontal: 14, alignSelf: 'flex-start', alignItems: 'center', justifyContent: 'center' },
   listenButtonText: { fontSize: 13, fontWeight: '900' },
   supportNote: { fontSize: 12, lineHeight: 18 },
+  speakStep: { gap: 16 },
   practiceCard: { borderRadius: 22, borderWidth: 1, padding: 17, gap: 14 },
   promptText: { fontSize: 17, lineHeight: 25, fontWeight: '700' },
   frameBox: { borderRadius: 14, borderWidth: 1, padding: 13 },
