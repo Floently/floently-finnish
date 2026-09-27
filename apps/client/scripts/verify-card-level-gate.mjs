@@ -28,6 +28,7 @@ const hook = read('features/cards/hooks/useCardPractice.ts');
 const service = read('features/cards/services/cardsService.ts');
 const store = read('state/cardLevelPreferenceStore.ts');
 const appShell = read('state/AppShell.tsx');
+const ykiPractice = read('state/YkiPracticeRoute.tsx');
 
 for (const level of ['A1_A2', 'B1_B2', 'C1_C2']) {
   requireText(gate, `value: '${level}'`, `level choice ${level} must be visible`);
@@ -90,9 +91,26 @@ forbidText(
   'drawer must not silently bypass the level gate with a hidden level',
 );
 
+forbidText(
+  ykiPractice,
+  "router.push('/cards?mode=vocabulary&domain=general'",
+  'YKI practice must not present general cards as YKI-specific material before suitability certification',
+);
+forbidText(
+  ykiPractice,
+  "t('ykiRouteCardsTitle')",
+  'YKI practice must not advertise uncertified YKI Cards',
+);
+requireText(
+  ykiPractice,
+  'onStartRoleplay(roleplayConfig)',
+  'removing the idle YKI shortcut must preserve speaking-task handoff to roleplay',
+);
+
 console.log('PASS: card practice starts only after explicit level confirmation.');
 console.log('PASS: A1-A2, B1-B2 and C1-C2 are the supported learner choices.');
 console.log('PASS: remembered levels preselect without auto-starting.');
 console.log('PASS: mode changes and restarts return to level confirmation.');
 console.log('PASS: the service boundary rejects unscoped card session starts.');
+console.log('PASS: uncertified general cards are not advertised as YKI-specific material.');
 console.log('CARD_LEVEL_GATE_INVARIANTS=PASS');
