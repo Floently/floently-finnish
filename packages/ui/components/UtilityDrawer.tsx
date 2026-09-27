@@ -123,17 +123,18 @@ export default function UtilityDrawer({
   const primaryDim = isDark ? 'rgba(79,127,255,0.15)' : palette.primarySurface;
   const overlayBg = isDark ? 'rgba(2,8,20,0.62)' : palette.overlay;
   const [expandedPath, setExpandedPath] = React.useState<string[]>([]);
+  const initialExpandedPathKey = initialExpandedPath?.length
+    ? initialExpandedPath.join('>')
+    : initialExpandedItemId ?? '';
 
   React.useEffect(() => {
     if (!visible) return;
     setExpandedPath(
-      initialExpandedPath?.length
-        ? [...initialExpandedPath]
-        : initialExpandedItemId
-          ? [initialExpandedItemId]
-          : [],
+      initialExpandedPathKey
+        ? initialExpandedPathKey.split('>')
+        : [],
     );
-  }, [initialExpandedItemId, initialExpandedPath, visible]);
+  }, [initialExpandedPathKey, visible]);
 
   function toggleBranch(itemId: string, depth: number) {
     setExpandedPath((current) => {
