@@ -436,25 +436,21 @@ export function createDrawerSections(
     });
   }
 
-  if (hasLearnAccess) {
-    sections.push({
-      label: translate(language, 'drawerMyPathway'),
-      items: [
-        {
-          id: 'practice',
-          icon: '▶',
-          label: translate(language, 'ykiPracticeGuidedPracticeLabel'),
-          accentColor: '#3EC58A',
-          hint: translate(language, 'ykiPracticeOverviewDetail'),
-          onPress: () => void navigateTo('daily-practice'),
-        },
-      ],
-    });
-  }
-
   sections.push({
     label: translate(language, 'drawerMyPathway'),
     items: [
+      ...(hasLearnAccess
+        ? [
+            {
+              id: 'practice',
+              icon: '▶',
+              label: translate(language, 'ykiPracticeGuidedPracticeLabel'),
+              accentColor: '#3EC58A',
+              hint: translate(language, 'ykiPracticeOverviewDetail'),
+              onPress: () => void navigateTo('daily-practice'),
+            },
+          ]
+        : []),
       {
         id: 'progress',
         icon: '📈',
