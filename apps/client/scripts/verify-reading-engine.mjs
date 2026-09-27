@@ -1,16 +1,27 @@
 import assert from 'node:assert/strict';
 import { execFileSync } from 'node:child_process';
 import { existsSync, readFileSync } from 'node:fs';
-import { stripTypeScriptTypes } from 'node:module';
+import ts from 'typescript';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../../..');
 const BASE_SHA = '69813b433838130d5afe4b052360dbfd12df3f40';
 
+function transpileTypeScript(source, fileName) {
+  return ts.transpileModule(source, {
+    fileName,
+    compilerOptions: {
+      module: ts.ModuleKind.ESNext,
+      target: ts.ScriptTarget.ES2022,
+      importsNotUsedAsValues: ts.ImportsNotUsedAsValues.Remove,
+    },
+  }).outputText;
+}
+
 async function importTypeScript(relativePath) {
   const source = readFileSync(path.join(ROOT, relativePath), 'utf8');
-  const javascript = stripTypeScriptTypes(source, { mode: 'transform' });
+  const javascript = transpileTypeScript(source, relativePath);
   return import(`data:text/javascript;base64,${Buffer.from(javascript).toString('base64')}`);
 }
 
@@ -20,7 +31,10 @@ const expansionSource = readFileSync(
   path.join(ROOT, 'apps/client/features/reading/readingExpansionTasks.ts'),
   'utf8',
 );
-const expansionJavaScript = stripTypeScriptTypes(expansionSource, { mode: 'transform' });
+const expansionJavaScript = transpileTypeScript(
+  expansionSource,
+  'apps/client/features/reading/readingExpansionTasks.ts',
+);
 const expansionUrl = `data:text/javascript;base64,${Buffer.from(expansionJavaScript).toString('base64')}`;
 const contentSource = readFileSync(
   path.join(ROOT, 'apps/client/features/reading/readingTasks.ts'),
@@ -29,7 +43,10 @@ const contentSource = readFileSync(
   /import \{[\s\S]*?EVERYDAY_READING_EXPANSION,[\s\S]*?PROFESSIONAL_READING_EXPANSION,[\s\S]*?\} from '\.\/readingExpansionTasks';/,
   `const { EVERYDAY_READING_EXPANSION, PROFESSIONAL_READING_EXPANSION } = await import('${expansionUrl}');`,
 );
-const contentJavaScript = stripTypeScriptTypes(contentSource, { mode: 'transform' });
+const contentJavaScript = transpileTypeScript(
+  contentSource,
+  'apps/client/features/reading/readingTasks.ts',
+);
 const content = await import(
   `data:text/javascript;base64,${Buffer.from(contentJavaScript).toString('base64')}`
 );
