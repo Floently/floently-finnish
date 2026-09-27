@@ -202,6 +202,7 @@ export default function SpeakingRoute({ onBack, onOpenMenu, initialLevelBand = '
         levelBand={levelBand}
         scenarioId={scenarioId}
         onBack={initialSurface === 'conversation' ? onBack : () => setSurface('menu')}
+        onOpenMenu={onOpenMenu}
         roleplayMode={resolvedRoleplayMode}
         contextLabel={contextLabel}
       />
