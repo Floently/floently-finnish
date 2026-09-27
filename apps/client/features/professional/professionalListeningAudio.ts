@@ -48,7 +48,6 @@ export async function playProfessionalListeningText(
     );
 
     if (!started) {
-      callbacks?.onUnavailable?.();
       return false;
     }
 
