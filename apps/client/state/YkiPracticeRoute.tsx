@@ -9,7 +9,6 @@ import {
   View,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { router } from 'expo-router';
 import { getFloentlyPalette } from '@ui/theme/floentlyPalette';
 import { usePreferencesStore } from './preferencesStore';
 import {
@@ -564,29 +563,6 @@ export default function YkiPracticeRoute({ onBack, onOpenMenu, onOpenExam, onOpe
           </View>
         )}
 
-        {!loading && !session && (
-          <View style={[styles.cardsCard, { backgroundColor: surface, borderColor: border }]}>
-            <Text style={[styles.cardsTitle, { color: text }]}>{t('ykiRouteCardsTitle')}</Text>
-            <Text style={[styles.cardsBody, { color: muted }]}>{t('ykiRouteCardsDetail')}</Text>
-            <Pressable
-              onPress={() => router.push('/cards?mode=vocabulary&domain=general' as never)}
-              style={[styles.cardsButton, { backgroundColor: T.yki }]}
-            >
-              <Text style={styles.cardsButtonText}>{t('ykiRouteOpenCards')}</Text>
-            </Pressable>
-            <Pressable
-              onPress={() => handleStartRoleplay({
-                level_band: selectedLevel,
-                profession: 'general',
-                scenario_id: 'general_everyday_conversation',
-              })}
-              style={[styles.cardsButton, { backgroundColor: T.warning, marginTop: 10 }]}
-            >
-              <Text style={styles.cardsButtonText}>{t('ykiRouteStartConversationRoleplay')}</Text>
-            </Pressable>
-          </View>
-        )}
-
         {/* Loading / error */}
         {loading && (
           <View style={styles.centeredRow}>
@@ -708,11 +684,6 @@ const styles = StyleSheet.create({
   skillChip: { flexDirection: 'row', alignItems: 'center', gap: 5, borderRadius: 999, paddingHorizontal: 10, paddingVertical: 4, borderWidth: 1 },
   skillChipText: { fontSize: 12, fontWeight: '700' },
   overviewNote: { fontSize: 12, lineHeight: 18 },
-  cardsCard: { borderRadius: 16, borderWidth: 1, padding: 16, gap: 10 },
-  cardsTitle: { fontSize: 15, fontWeight: '700' },
-  cardsBody: { fontSize: 12, lineHeight: 18 },
-  cardsButton: { alignSelf: 'flex-start', minHeight: 40, borderRadius: 999, paddingHorizontal: 16, justifyContent: 'center' },
-  cardsButtonText: { color: '#fff', fontSize: 13, fontWeight: '700' },
   centeredRow: { flexDirection: 'row', alignItems: 'center', gap: 10, justifyContent: 'center', padding: 20 },
   loadingText: { fontSize: 13 },
   errorRow: { borderRadius: 12, borderWidth: 1, padding: 14 },
