@@ -264,11 +264,7 @@ export default function SpeakingRoute({ onBack, onOpenMenu, initialLevelBand = '
                     {t('ykiPracticeGuidedPracticeLabel')} · {t('ykiRouteSkillSpeaking')}
                   </Text>
                   <Text style={[styles.subnavTileSub, { color: mutedColor }]}>
-                    {levelBand === 'A1-A2'
-                      ? '1 → 7: mallista lyhyeen ohjattuun keskusteluun.'
-                      : levelBand === 'B1-B2'
-                        ? '1 → 7: tuetusta vastauksesta perusteltuun keskusteluun.'
-                        : '1 → 7: täsmällisestä reagoinnista vaativaan vuorovaikutukseen.'}
+                    {'Etene vaihe kerrallaan. Jatka siitä, mihin jäit, tai kertaa aiemmin läpäisty vaihe Historiasta.'}
                   </Text>
                 </View>
               </Pressable>
