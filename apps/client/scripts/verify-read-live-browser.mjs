@@ -55,6 +55,11 @@ assert.ok(!/READ_BROWSER_URL[^\n]*token|[?&](token|apiKey)=/i.test(browser),
 assert.ok(browser.includes("window.location.assign(browserUrl)"),
   'Web builds must enter the canonical Browser V2 web route directly');
 
+assert.ok(browser.includes("parsed.searchParams.delete('embed')"),
+  'Expo web builds must not impersonate the React Native injected-auth bridge');
+assert.ok(browser.includes('key={`${user.id}:${reloadKey}`}'),
+  'React Native Read browser must remount when the signed-in account changes');
+
 assert.ok(guard.includes('requireReadAccess = true'),
   'Read content guard must require Read access by default');
 assert.ok(guard.includes('subscription?.entitlements?.readAccess'),
