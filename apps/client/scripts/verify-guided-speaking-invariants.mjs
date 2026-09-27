@@ -59,6 +59,9 @@ requireText(curriculum, "{ level: 'C2', count: 50 }", 'C2 must have an explicit 
 requireText(curriculum, 'retrievalStageIds: retrievalFor(number)', 'every curriculum stage must carry deterministic retrieval references');
 requireText(curriculum, "['Tervehdi'", 'Stage 1 must be individually authored rather than generated at runtime');
 requireText(curriculum, "['Ensimmäinen keskustelu'", 'A1.1 Stage 25 must be individually authored and cumulative');
+requireText(curriculum, 'const A12_SEEDS: LessonSeed[]', 'A1.2 must use individually authored lesson records');
+requireText(curriculum, "['Arjen keskustelu'", 'A1.2 Stage 50 must be individually authored and cumulative');
+requireText(curriculum, 'number <= 50 ? A12_SEEDS[number - 26]', 'Stages 26-50 must resolve from authored A1.2 content, not templates');
 forbidText(curriculum, 'Math.random', 'curriculum construction must never use random generation');
 
 requireText(stages, 'export type GuidedSpeakingStageId = \`GS-\${string}\`;', 'curriculum stages need permanent deterministic IDs');
