@@ -1,5 +1,6 @@
 import type { RoleplayLevelBand, RoleplayProfession } from '@core/api/roleplay';
 
+export type GuidedSpeakingStageId = `GS-${string}`;
 export type GuidedSpeakingStageKind =
   | 'basic_chunk'
   | 'listen_respond'
@@ -11,6 +12,10 @@ export type GuidedSpeakingStageKind =
 
 export type GuidedSpeakingStage = {
   id: GuidedSpeakingStageKind;
+  /** Permanent curriculum identity. Never reuse for different learning content. */
+  curriculumId: GuidedSpeakingStageId;
+  /** Content version keeps historical attempts tied to the material practised. */
+  version: 1;
   order: 1 | 2 | 3 | 4 | 5 | 6 | 7;
   titleFi: string;
   goalFi: string;
@@ -475,6 +480,8 @@ function buildStages(variants: StageVariant[]): GuidedSpeakingStage[] {
   return variants.map((variant, index) => ({
     ...variant,
     id: STAGE_IDS[index],
+    curriculumId: `GS-${String(index + 1).padStart(3, '0')}`,
+    version: 1,
     order: (index + 1) as GuidedSpeakingStage['order'],
     productionBurden: (index + 1) as GuidedSpeakingStage['productionBurden'],
   }));
