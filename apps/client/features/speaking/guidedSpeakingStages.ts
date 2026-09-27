@@ -1,6 +1,30 @@
 import type { RoleplayLevelBand, RoleplayProfession } from '@core/api/roleplay';
 
 export type GuidedSpeakingStageId = `GS-${string}`;
+export type GuidedSpeakingLevel =
+  | 'A1.1' | 'A1.2'
+  | 'A2.1' | 'A2.2'
+  | 'B1.1' | 'B1.2'
+  | 'B2.1' | 'B2.2'
+  | 'C1' | 'C2';
+
+export const GUIDED_SPEAKING_LEVELS: GuidedSpeakingLevel[] = [
+  'A1.1', 'A1.2', 'A2.1', 'A2.2', 'B1.1', 'B1.2', 'B2.1', 'B2.2', 'C1', 'C2',
+];
+
+export function guidedSpeakingLevelForStage(stageNumber: number): GuidedSpeakingLevel {
+  if (stageNumber <= 25) return 'A1.1';
+  if (stageNumber <= 50) return 'A1.2';
+  if (stageNumber <= 75) return 'A2.1';
+  if (stageNumber <= 100) return 'A2.2';
+  if (stageNumber <= 125) return 'B1.1';
+  if (stageNumber <= 150) return 'B1.2';
+  if (stageNumber <= 175) return 'B2.1';
+  if (stageNumber <= 200) return 'B2.2';
+  if (stageNumber <= 250) return 'C1';
+  return 'C2';
+}
+
 export type GuidedSpeakingStageKind =
   | 'basic_chunk'
   | 'listen_respond'
