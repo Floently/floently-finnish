@@ -653,8 +653,13 @@ def request_password_reset(*, email: str, request_ip: str | None = None) -> dict
             expires_in_minutes=max(1, SETTINGS.password_reset_token_ttl_minutes),
         )
     except Exception:
-        # Keep reset response neutral and avoid logging recipient or token data.
-        password_reset_logger.exception("Password reset delivery provider error.")
+        # Keep reset response neutral and never echo provider exception details,
+        # recipient identity, reset links, or tokens into logs.
+        delivery_status = get_password_reset_delivery_status()
+        password_reset_logger.error(
+            "Password reset delivery provider error provider=%s.",
+            delivery_status.provider,
+        )
     else:
         delivery_status = get_password_reset_delivery_status()
         if delivery_accepted:
