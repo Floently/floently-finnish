@@ -1,293 +1,113 @@
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import path from 'node:path';
-import vm from 'node:vm';
 import { fileURLToPath } from 'node:url';
-import ts from 'typescript';
 
-const scriptDirectory = path.dirname(
-  fileURLToPath(import.meta.url),
+const scriptDirectory = path.dirname(fileURLToPath(import.meta.url));
+const clientRoot = path.resolve(scriptDirectory, '..');
+const repoRoot = path.resolve(clientRoot, '../..');
+
+function read(relativePath) {
+  return fs.readFileSync(path.join(repoRoot, relativePath), 'utf8');
+}
+
+const screenSource = read('apps/client/features/speaking/screens/RoleplayConversationScreen.tsx');
+const completionSource = read('apps/client/features/speaking/components/SessionCompletion.tsx');
+const speakingRouteSource = read('apps/client/state/SpeakingRoute.tsx');
+const appShellSource = read('apps/client/state/AppShell.tsx');
+const apiSource = read('packages/core/api/roleplay.ts');
+const backendSource = read('apps/backend/app/runtime/roleplay.py');
+const routerSource = read('apps/backend/app/routers/v1_roleplay.py');
+
+assert.ok(
+  apiSource.includes("export type RoleplayMode = 'everyday' | 'workplace' | 'yki' | 'professional' | 'interview'"),
+  'core API must expose the stable non-localized roleplay mode contract',
 );
 
-const clientRoot = path.resolve(
-  scriptDirectory,
-  '..',
+assert.ok(
+  apiSource.includes('roleplay_mode: payload.roleplayMode'),
+  'client API must transmit roleplay_mode explicitly',
 );
 
-const corePath = path.join(
-  clientRoot,
-  'features/speaking/services/roleplayScenarioRotationCore.ts',
+assert.ok(
+  screenSource.includes('roleplayMode,'),
+  'conversation screen must receive roleplayMode as an explicit prop',
 );
 
-const source = fs.readFileSync(
-  corePath,
-  'utf8',
+assert.ok(
+  screenSource.includes('roleplayMode,\n        scenarioId: resolvedScenarioId'),
+  'roleplay start must pass the explicit roleplay mode to the core API',
 );
 
-const compiled = ts.transpileModule(
-  source,
-  {
-    compilerOptions: {
-      module: ts.ModuleKind.CommonJS,
-      target: ts.ScriptTarget.ES2020,
-      strict: true,
-    },
-  },
-).outputText;
-
-const moduleObject = {
-  exports: {},
-};
-
-const context = {
-  console,
-  exports: moduleObject.exports,
-  module: moduleObject,
-};
-
-vm.runInNewContext(
-  compiled,
-  context,
-  {
-    filename: corePath,
-  },
+assert.ok(
+  !screenSource.includes('pickRotatingRoleplayScenario'),
+  'client must not own ordinary scenario rotation',
 );
 
-const {
-  selectNextRoleplayScenario,
-} = moduleObject.exports;
-
-assert.equal(
-  typeof selectNextRoleplayScenario,
-  'function',
-  'rotation core must export selectNextRoleplayScenario',
+assert.ok(
+  !screenSource.includes('scenarioIdForContext'),
+  'translated context labels must not choose a scenario',
 );
 
-const randomValues = [
-  0.12,
-  0.81,
-  0.33,
-  0.64,
-  0.05,
-  0.91,
-  0.47,
-  0.22,
-];
+assert.ok(
+  completionSource.includes('const primaryOnPress = () => onStartSession();'),
+  'ordinary another-round action must delegate next-scenario selection to the server',
+);
 
-let randomIndex = 0;
+assert.ok(
+  completionSource.includes('completedScenarioId ?? undefined'),
+  'explicit Replay must still be able to request the same scenario',
+);
 
-const deterministicRandom = () => {
-  const value =
-    randomValues[
-      randomIndex % randomValues.length
-    ];
+assert.ok(
+  speakingRouteSource.includes('roleplayMode={resolvedRoleplayMode}'),
+  'SpeakingRoute must carry resolved roleplay mode into conversation runtime',
+);
 
-  randomIndex += 1;
-  return value;
-};
-
-const catalog = [
-  'scenario-a',
-  'scenario-b',
-  'scenario-c',
-];
-
-let state = null;
-const firstCycle = [];
-
-for (let index = 0; index < catalog.length; index += 1) {
-  const result = selectNextRoleplayScenario(
-    catalog,
-    state,
-    deterministicRandom,
-  );
-
+for (const mode of ['everyday', 'workplace', 'professional', 'interview', 'yki']) {
   assert.ok(
-    result.scenarioId,
-    'every draw must return a scenario',
-  );
-
-  firstCycle.push(result.scenarioId);
-  state = result.state;
-}
-
-assert.equal(
-  new Set(firstCycle).size,
-  catalog.length,
-  'every scenario must appear before the bag repeats',
-);
-
-const fourth = selectNextRoleplayScenario(
-  catalog,
-  state,
-  deterministicRandom,
-);
-
-assert.notEqual(
-  fourth.scenarioId,
-  firstCycle[firstCycle.length - 1],
-  'a new bag must not immediately repeat the previous scenario',
-);
-
-state = fourth.state;
-let previous = fourth.scenarioId;
-
-for (let index = 0; index < 20; index += 1) {
-  const result = selectNextRoleplayScenario(
-    catalog,
-    state,
-    deterministicRandom,
-  );
-
-  assert.notEqual(
-    result.scenarioId,
-    previous,
-    'consecutive sessions must differ when alternatives exist',
-  );
-
-  previous = result.scenarioId;
-  state = result.state;
-}
-
-const changedCatalogResult =
-  selectNextRoleplayScenario(
-    [
-      'scenario-b',
-      'scenario-c',
-      'scenario-d',
-    ],
-    state,
-    deterministicRandom,
-  );
-
-assert.ok(
-  [
-    'scenario-b',
-    'scenario-c',
-    'scenario-d',
-  ].includes(changedCatalogResult.scenarioId),
-  'catalogue changes must discard removed scenario IDs',
-);
-
-const singleFirst =
-  selectNextRoleplayScenario(
-    ['only-scenario'],
-    null,
-    deterministicRandom,
-  );
-
-const singleSecond =
-  selectNextRoleplayScenario(
-    ['only-scenario'],
-    singleFirst.state,
-    deterministicRandom,
-  );
-
-assert.equal(
-  singleFirst.scenarioId,
-  'only-scenario',
-  'single-scenario professions must remain usable',
-);
-
-assert.equal(
-  singleSecond.scenarioId,
-  'only-scenario',
-  'single scenario may repeat because no alternative exists',
-);
-
-const screenSource = fs.readFileSync(
-  path.join(
-    clientRoot,
-    'features/speaking/screens/RoleplayConversationScreen.tsx',
-  ),
-  'utf8',
-);
-
-const completionSource = fs.readFileSync(
-  path.join(
-    clientRoot,
-    'features/speaking/components/SessionCompletion.tsx',
-  ),
-  'utf8',
-);
-
-const alternativesSource = fs.readFileSync(
-  path.join(
-    clientRoot,
-    'features/speaking/data/alternativeScenarios.ts',
-  ),
-  'utf8',
-);
-
-assert.ok(
-  screenSource.includes(
-    'await listRoleplayScenarios(',
-  ),
-  'screen must retrieve the live backend scenario catalogue',
-);
-
-assert.ok(
-  screenSource.includes(
-    'await pickRotatingRoleplayScenario({',
-  ),
-  'ordinary roleplay start must use persistent rotation',
-);
-
-assert.ok(
-  !screenSource.includes(
-    "if (profession === 'nurse') return 'nurse_shift_handover';",
-  ),
-  'nurse roleplay must not have a permanently fixed default',
-);
-
-assert.ok(
-  !screenSource.includes(
-    "if (profession === 'doctor') return 'doctor_patient_interview';",
-  ),
-  'doctor roleplay must not have a permanently fixed default',
-);
-
-assert.ok(
-  !screenSource.includes(
-    "return 'general_everyday_conversation';",
-  ),
-  'general roleplay must not have a permanently fixed ordinary default',
-);
-
-assert.ok(
-  completionSource.includes(
-    'completedScenarioId ?? undefined',
-  ),
-  'the explicit Replay button must still repeat the same scenario',
-);
-
-for (const requiredScenario of [
-  'general_everyday_conversation',
-  'general_supervisor_instruction',
-  'general_issue_report',
-]) {
-  assert.ok(
-    alternativesSource.includes(requiredScenario),
-    `general alternative catalogue must include ${requiredScenario}`,
+    appShellSource.includes(`roleplayMode: '${mode}'`) || speakingRouteSource.includes(`? '${mode}'`) || speakingRouteSource.includes(`: '${mode}'`),
+    `route layer must explicitly represent ${mode} mode`,
   );
 }
 
-console.log(
-  'PASS: every scenario appears before repetition',
+assert.ok(
+  backendSource.includes('ROLEPLAY_MODES: tuple[str, ...]'),
+  'backend must define the canonical roleplay mode set',
 );
 
-console.log(
-  'PASS: immediate repeats are prevented',
+assert.ok(
+  backendSource.includes('def select_roleplay_scenario('),
+  'backend must own scenario selection',
 );
 
-console.log(
-  'PASS: catalogue changes are reconciled',
+assert.ok(
+  backendSource.includes('ROLEPLAY_SCENARIO_OUTSIDE_POOL'),
+  'backend must reject explicit scenario IDs from another mode/profession pool',
 );
 
-console.log(
-  'PASS: explicit replay-same behaviour remains',
+assert.ok(
+  backendSource.includes('"scenarioPool": scenario_pool'),
+  'session start must expose the eligible scenario pool for diagnostics',
 );
 
-console.log(
-  'ROLEPLAY_SCENARIO_ROTATION=PASS',
+assert.ok(
+  backendSource.includes('"selectionReason": selection_reason'),
+  'session start must expose why the scenario was selected',
 );
+
+assert.ok(
+  backendSource.includes('del context_label'),
+  'legacy display context must be explicitly ignored by scenario resolution',
+);
+
+assert.ok(
+  routerSource.includes('roleplay_mode: str | None = None'),
+  'HTTP contract must accept roleplay_mode during compatibility migration',
+);
+
+console.log('PASS: explicit roleplay mode crosses AppShell -> client API -> backend');
+console.log('PASS: ordinary scenario selection is server-owned');
+console.log('PASS: translated context labels no longer route content');
+console.log('PASS: Replay remains an explicit same-scenario action');
+console.log('ROLEPLAY_SCENARIO_ROTATION=PASS');
