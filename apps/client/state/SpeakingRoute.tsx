@@ -10,6 +10,7 @@ import { LEVEL_BANDS, SPEAKING_TRACKS } from '../features/speaking/types';
 import type { RoleplayLevelBand, RoleplayProfession } from '@core/api/roleplay';
 import RoleplayConversationScreen from '../features/speaking/screens/RoleplayConversationScreen';
 import RecordedResponseScreen from '../features/speaking/screens/RecordedResponseScreen';
+import GuidedSpeakingScreen from '../features/speaking/screens/GuidedSpeakingScreen';
 import type { SpeakingSurface } from '../features/speaking/types';
 
 const T = {
@@ -90,7 +91,7 @@ export default function SpeakingRoute({ onBack, onOpenMenu, initialLevelBand = '
   // to the speaking menu while the roleplay backend session is already working.
   useEffect(() => {
     setSurface((current) => {
-      if (current === "conversation" || current === "recorded") {
+      if (current === "guided" || current === "conversation" || current === "recorded") {
         return current;
       }
       return initialSurface;
@@ -182,6 +183,20 @@ export default function SpeakingRoute({ onBack, onOpenMenu, initialLevelBand = '
         : t('roleplayGeneralFinnishLabel');
   const heading = profession === 'general' ? t('speakingGeneralWorkplaceScenariosTitle') : t('speakingProfessionWorkplaceScenariosTitle').replace('{profession}', professionLabel);
 
+  if (surface === 'guided') {
+    return (
+      <GuidedSpeakingScreen
+        profession={profession}
+        levelBand={levelBand}
+        onBack={() => setSurface('menu')}
+        onLevelBandChange={setLevelBand}
+        onOpenRoleplay={() => {
+          setScenarioId(null);
+          setSurface('conversation');
+        }}
+      />
+    );
+  }
   if (surface === 'conversation') {
     return <RoleplayConversationScreen profession={profession} levelBand={levelBand} scenarioId={scenarioId ?? (entryMode === 'interview' ? defaultInterviewScenario(profession) : null)} onBack={() => setSurface('menu')} entryMode={entryMode} />;
   }
@@ -228,8 +243,34 @@ export default function SpeakingRoute({ onBack, onOpenMenu, initialLevelBand = '
               <Pressable
                 onPress={() => {
                   setScenarioId(null);
-                  setSurface('conversation');
+                  setSurface('guided');
                 }}
+                style={[styles.subnavTile, { backgroundColor: surface_, borderColor: border }]}
+                accessibilityRole="button"
+                accessibilityLabel={`${t('ykiPracticeGuidedPracticeLabel')} ${t('ykiRouteSkillSpeaking')}`}
+              >
+                <View style={[styles.subnavIconBadge, { backgroundColor: `${accent}18` }]}>
+                  <Text style={[styles.subnavIconText, { color: accent }]}>↗</Text>
+                </View>
+                <View style={styles.subnavTileText}>
+                  <Text style={[styles.subnavTileTitle, { color: textColor }]}>
+                    {t('ykiPracticeGuidedPracticeLabel')} · {t('ykiRouteSkillSpeaking')}
+                  </Text>
+                  <Text style={[styles.subnavTileSub, { color: mutedColor }]}>
+                    {levelBand === 'A1-A2'
+                      ? '1 → 7: mallista lyhyeen ohjattuun keskusteluun.'
+                      : levelBand === 'B1-B2'
+                        ? '1 → 7: tuetusta vastauksesta perusteltuun keskusteluun.'
+                        : '1 → 7: täsmällisestä reagoinnista vaativaan vuorovaikutukseen.'}
+                  </Text>
+                </View>
+              </Pressable>
+
+              <Pressable
+                onPress={() => {
+                  setScenarioId(null);
+                  setSurface('conversation');
+                }
                 style={[styles.subnavTile, { backgroundColor: surface_, borderColor: border }]}
                 accessibilityRole="button"
                 accessibilityLabel={t('commonOpenRoleplay')}
