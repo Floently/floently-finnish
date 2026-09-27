@@ -13,6 +13,7 @@ import type { FloentlyPalette } from '@ui/theme/floentlyPalette';
 import { LearningFocusSurface, PathwayBadge, SkillBadge } from '@ui/learningExperience';
 
 import { ReadingDocumentCard } from './components/ReadingDocumentCard';
+import { getNextReadingTask } from './readingTasks';
 import { ReadingQuestionCard } from './components/ReadingQuestionCard';
 import { ReadingStatePanel } from './components/ReadingStatePanel';
 import {
@@ -294,7 +295,7 @@ export function ReadingRuntimeScreen({
                             { color: selected ? palette.primary : palette.text },
                           ]}
                         >
-                          {option.level}
+                          {option.level} · {option.title}
                         </Text>
                       </Pressable>
                     );
@@ -400,6 +401,16 @@ export function ReadingRuntimeScreen({
                 palette={palette}
                 session={session}
                 task={validTask}
+                nextTask={
+                  onSelectTask
+                    ? getNextReadingTask(validTask.taskId)
+                    : undefined
+                }
+                onNextTask={
+                  onSelectTask
+                    ? (taskId) => onSelectTask(taskId)
+                    : undefined
+                }
                 onRestart={resetTask}
                 onBack={onBack}
               />
@@ -416,12 +427,16 @@ function CompletionPanel({
   palette,
   session,
   task,
+  nextTask,
+  onNextTask,
   onRestart,
   onBack,
 }: {
   palette: FloentlyPalette;
   session: ReadingSessionState;
   task: ReadingTask;
+  nextTask?: ReadingTask;
+  onNextTask?: (taskId: string) => void;
   onRestart: () => void;
   onBack: () => void;
 }) {
@@ -444,16 +459,34 @@ function CompletionPanel({
           ? ` Korjasit ${summary.correctedCount} vastausta palautteen avulla.`
           : ' Kaikki vastaukset osuivat heti.'}
       </Text>
+      {nextTask && onNextTask ? (
+        <Pressable
+          accessibilityRole="button"
+          accessibilityLabel={`Seuraava lukutehtävä: ${nextTask.level} ${nextTask.title}`}
+          onPress={() => onNextTask(nextTask.taskId)}
+          style={({ pressed }) => [
+            styles.primaryButton,
+            { backgroundColor: pressed ? palette.primaryPressed : palette.primary },
+          ]}
+        >
+          <Text style={[styles.primaryButtonText, { color: palette.background }]}>
+            Seuraava · {nextTask.level} · {nextTask.title}
+          </Text>
+        </Pressable>
+      ) : null}
       <Pressable
         accessibilityRole="button"
         accessibilityLabel="Tee tehtävä uudelleen"
         onPress={onRestart}
         style={({ pressed }) => [
-          styles.primaryButton,
-          { backgroundColor: pressed ? palette.primaryPressed : palette.primary },
+          styles.secondaryButton,
+          {
+            backgroundColor: pressed ? palette.primarySurface : 'transparent',
+            borderColor: palette.borderStrong,
+          },
         ]}
       >
-        <Text style={[styles.primaryButtonText, { color: palette.background }]}>Tee uudelleen</Text>
+        <Text style={[styles.secondaryButtonText, { color: palette.text }]}>Tee uudelleen</Text>
       </Pressable>
       <Pressable
         accessibilityRole="button"
