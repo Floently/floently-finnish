@@ -24,15 +24,18 @@ Reviewed:
 
 The UAT contract requires light and dark themes to remain readable, and the ambient background component already contains a dark palette. However, `VoiceConversationExperience` currently forces `const dark = false`, uses light-only text/surface values, and the parent `SafeAreaView` also forces `#F8FBFF`.
 
+Further source inspection found that `RoleplayConversationScreen` already reads the canonical in-app `themeMode` from `usePreferencesStore` and resolves the standard Floently palette from that preference. A direct `useColorScheme` subscription inside the child would therefore create a second, potentially conflicting theme authority.
+
 Decision:
-- subscribe to the system color scheme using React Native's existing `useColorScheme` hook;
+- keep `usePreferencesStore.themeMode` as the existing app theme authority;
+- pass the resolved dark/light state into `VoiceConversationExperience`;
 - keep the existing light palette unchanged;
 - activate the already-authored dark ambient palette and add restrained dark surface/text counterparts;
-- do not introduce a theme dependency or a second app-level theme authority.
+- match the parent safe-area background to the same theme;
+- do not add another theme dependency or theme authority.
 
-Primary reference:
-- React Native `useColorScheme`: https://reactnative.dev/docs/0.83/usecolorscheme
-- The hook is designed to subscribe to active system color-scheme changes and requires no new dependency.
+Rejected alternative:
+- direct React Native `useColorScheme` inside `VoiceConversationExperience`. It is a valid platform API, but it was rejected here because the app already has an explicit persisted light/dark preference and the voice surface must follow that canonical preference rather than the OS independently.
 
 ### Finding 2 — alternate tray microphone can bypass the learner-turn gate
 
@@ -55,7 +58,7 @@ Primary reference:
 
 ## Acceptance criteria
 
-1. The voice conversation surface follows the current system light/dark scheme.
+1. The voice conversation surface follows the current canonical app light/dark preference.
 2. Light-mode visual values remain materially unchanged.
 3. Dark mode has readable active text, muted text, tray/text-entry surfaces, transcript sheet, status copy, and completion controls.
 4. Safe-area background matches the active voice-conversation background.
