@@ -31,13 +31,11 @@ type Props = {
   onOpenRoleplay: () => void;
 };
 
-const LEVEL_BANDS: RoleplayLevelBand[] = ['A1-A2', 'B1-B2', 'C1-C2'];
-
 export default function GuidedSpeakingScreen({
   levelBand,
   profession,
   onBack,
-  onLevelBandChange,
+  onLevelBandChange: _onLevelBandChange,
   onOpenRoleplay,
 }: Props) {
   const { t } = useTranslator();
@@ -61,6 +59,7 @@ export default function GuidedSpeakingScreen({
 
   const [historyOpen, setHistoryOpen] = useState(false);
   const [recallOpen, setRecallOpen] = useState(false);
+  const [lessonStep, setLessonStep] = useState<'recall' | 'listen' | 'speak'>(() => 'listen');
   const [transcript, setTranscript] = useState<string | null>(null);
   const [typedFallback, setTypedFallback] = useState('');
   const [attempted, setAttempted] = useState(false);
@@ -74,6 +73,10 @@ export default function GuidedSpeakingScreen({
   const visibleStageNumber = stageIndex + 1;
   const visibleLevel = guidedSpeakingLevelForStage(visibleStageNumber);
   const stageCompleted = attempts.some((attempt) => attempt.stageId === stage.curriculumId);
+  const completedCount = Math.max(0, highestUnlockedNumber - 1);
+  const levelStart = visibleLevel === 'A1.1' ? 1 : visibleLevel === 'A1.2' ? 26 : visibleLevel === 'A2.1' ? 51 : visibleLevel === 'A2.2' ? 76 : visibleStageNumber;
+  const levelEnd = visibleLevel === 'A1.1' ? 25 : visibleLevel === 'A1.2' ? 50 : visibleLevel === 'A2.1' ? 75 : visibleLevel === 'A2.2' ? 100 : Math.max(visibleStageNumber, highestUnlockedNumber);
+  const levelProgress = Math.max(0, Math.min(1, (visibleStageNumber - levelStart) / Math.max(1, levelEnd - levelStart + 1)));
   const canAdvance =
     (attempted || stageCompleted || typedFallback.trim().length > 0) &&
     !recorder.isRecording &&
@@ -95,13 +98,14 @@ export default function GuidedSpeakingScreen({
     setAttempted(false);
     setTtsUnavailable(false);
     setRecallOpen(false);
+    setLessonStep(retrievalLessons.length > 0 ? 'recall' : 'listen');
     void recorder.cancelRecording();
     void stopRoleplayAudioPlayback();
     // The recorder object is intentionally omitted. Its methods are stable
     // enough for explicit user actions; stage resets should only follow
     // context changes.
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [levelBand, profession]);
+  }, [levelBand, profession, currentStageNumber]);
 
   useEffect(() => {
     if (recorder.isRecording) {
@@ -236,23 +240,31 @@ export default function GuidedSpeakingScreen({
             <Text style={[styles.subtitle, { color: muted }]}>{curriculumLesson?.goalFi ?? stage.goalFi}</Text>
           </View>
 
-          <View style={[styles.journeyCard, { backgroundColor: surface, borderColor: border }]}>
-            <View style={styles.journeyCopy}>
-              <Text style={[styles.sectionLabel, { color: soft }]}>Your journey</Text>
-              <Text style={[styles.journeyText, { color: text }]}>
-                {visibleLevel} · Stage {visibleStageNumber}
-              </Text>
+          <View style={[styles.progressCard, { backgroundColor: surface, borderColor: border }]}>
+            <View style={styles.progressHeader}>
+              <View>
+                <Text style={[styles.sectionLabel, { color: soft }]}>Your progress</Text>
+                <Text style={[styles.progressTitle, { color: text }]}>
+                  {visibleLevel} · Stage {visibleStageNumber}
+                </Text>
+              </View>
+              {highestUnlockedNumber > 1 ? (
+                <Pressable
+                  accessibilityRole="button"
+                  accessibilityState={{ expanded: historyOpen }}
+                  onPress={() => setHistoryOpen((open) => !open)}
+                  style={[styles.historyButton, { borderColor: border, backgroundColor: raised }]}
+                >
+                  <Text style={[styles.historyButtonText, { color: text }]}>History</Text>
+                </Pressable>
+              ) : null}
             </View>
-            {highestUnlockedNumber > 1 ? (
-              <Pressable
-                accessibilityRole="button"
-                accessibilityState={{ expanded: historyOpen }}
-                onPress={() => setHistoryOpen((open) => !open)}
-                style={[styles.historyButton, { borderColor: border, backgroundColor: raised }]}
-              >
-                <Text style={[styles.historyButtonText, { color: text }]}>History</Text>
-              </Pressable>
-            ) : null}
+            <View style={[styles.progressTrack, { backgroundColor: raised }]}>
+              <View style={[styles.progressFill, { backgroundColor: primary, width: `${Math.max(4, levelProgress * 100)}%` }]} />
+            </View>
+            <Text style={[styles.progressCaption, { color: muted }]}>
+              {completedCount} stages completed · Keep going one step at a time
+            </Text>
           </View>
 
           {historyOpen ? (
@@ -291,34 +303,7 @@ export default function GuidedSpeakingScreen({
             </View>
           ) : null}
 
-          <View style={[styles.levelCard, { backgroundColor: surface, borderColor: border }]}>
-            <Text style={[styles.sectionLabel, { color: soft }]}>{t('roleplayLevelLabel')}</Text>
-            <View style={styles.levelRow}>
-              {LEVEL_BANDS.map((band) => {
-                const selected = band === levelBand;
-                return (
-                  <Pressable
-                    key={band}
-                    accessibilityRole="button"
-                    accessibilityState={{ selected }}
-                    onPress={() => onLevelBandChange(band)}
-                    disabled={recorder.isRecording || recorder.phase === 'uploading' || ttsPlaying}
-                    style={[
-                      styles.levelPill,
-                      { backgroundColor: raised, borderColor: border },
-                      selected && { backgroundColor: primary, borderColor: primary },
-                    ]}
-                  >
-                    <Text style={[styles.levelText, { color: muted }, selected && styles.levelTextSelected]}>
-                      {band}
-                    </Text>
-                  </Pressable>
-                );
-              })}
-            </View>
-          </View>
-
-          {retrievalLessons.length > 0 ? (
+          {lessonStep === 'recall' && retrievalLessons.length > 0 ? (
             <View style={[styles.recallCard, { backgroundColor: surface, borderColor: border }]}>
               <Text style={[styles.sectionLabel, { color: soft }]}>Remember?</Text>
               {!recallOpen ? (
@@ -345,13 +330,24 @@ export default function GuidedSpeakingScreen({
                     </View>
                   ))}
                   <Text style={[styles.supportNote, { color: muted }]}>
-                    Say the answers from memory. Then continue with today's new material.
+                    Say the answers from memory.
                   </Text>
+                  <Pressable
+                    accessibilityRole="button"
+                    onPress={() => {
+                      setRecallOpen(false);
+                      setLessonStep('listen');
+                    }}
+                    style={[styles.primaryStepButton, { backgroundColor: primary }]}
+                  >
+                    <Text style={styles.primaryStepButtonText}>Continue</Text>
+                  </Pressable>
                 </View>
               )}
             </View>
           ) : null}
 
+          {lessonStep === 'listen' ? (
           <View style={[styles.modelCard, { backgroundColor: surface, borderColor: border }]}>
             <View style={styles.cardHeaderRow}>
               <View style={[styles.stageBadge, { backgroundColor: `${primary}18` }]}>
@@ -390,6 +386,17 @@ export default function GuidedSpeakingScreen({
             ) : null}
           </View>
 
+            <Pressable
+              accessibilityRole="button"
+              onPress={() => setLessonStep('speak')}
+              style={[styles.primaryStepButton, { backgroundColor: primary }]}
+            >
+              <Text style={styles.primaryStepButtonText}>I'm ready to speak</Text>
+            </Pressable>
+          </View>
+          ) : null}
+
+          {lessonStep === 'speak' ? (
           <View style={[styles.practiceCard, { backgroundColor: surface, borderColor: border }]}>
             <Text style={[styles.sectionLabel, { color: soft }]}>Tehtävä</Text>
             <Text style={[styles.promptText, { color: text }]}>{curriculumLesson?.promptFi ?? stage.promptFi}</Text>
@@ -450,6 +457,10 @@ export default function GuidedSpeakingScreen({
             ) : null}
           </View>
 
+          </View>
+          ) : null}
+
+          {lessonStep === 'speak' ? (
           <View style={[styles.nextCard, { backgroundColor: surface, borderColor: border }]}>
             <View style={styles.nextCopy}>
               <Text style={[styles.nextTitle, { color: text }]}>
@@ -481,6 +492,7 @@ export default function GuidedSpeakingScreen({
               </Text>
             </Pressable>
           </View>
+          ) : null}
         </ScrollView>
       </View>
     </SafeAreaView>
@@ -512,6 +524,14 @@ const styles = StyleSheet.create({
   eyebrow: { fontSize: 11, fontWeight: '800', letterSpacing: 0.8, textTransform: 'uppercase' },
   title: { fontSize: 28, lineHeight: 34, fontWeight: '800' },
   subtitle: { fontSize: 15, lineHeight: 22 },
+  progressCard: { borderRadius: 20, borderWidth: 1, padding: 16, gap: 12 },
+  progressHeader: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', gap: 12 },
+  progressTitle: { fontSize: 18, lineHeight: 24, fontWeight: '900', marginTop: 3 },
+  progressTrack: { height: 10, borderRadius: 999, overflow: 'hidden' },
+  progressFill: { height: '100%', borderRadius: 999 },
+  progressCaption: { fontSize: 12, lineHeight: 18, fontWeight: '700' },
+  primaryStepButton: { minHeight: 52, borderRadius: 16, alignItems: 'center', justifyContent: 'center', paddingHorizontal: 18 },
+  primaryStepButtonText: { color: '#FFFFFF', fontSize: 15, fontWeight: '900' },
   journeyCard: { borderRadius: 18, borderWidth: 1, padding: 14, flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', gap: 12 },
   journeyCopy: { flex: 1, gap: 4 },
   journeyText: { fontSize: 16, lineHeight: 22, fontWeight: '800' },
