@@ -13,6 +13,7 @@ export type DrawerRoute =
   | 'billing';
 
 export type DrawerActivity =
+  | 'everyday-guided'
   | 'everyday-roleplay'
   | 'everyday-recorded'
   | 'everyday-cards-vocabulary'
@@ -20,6 +21,7 @@ export type DrawerActivity =
   | 'everyday-cards-grammar'
   | 'everyday-reading'
   | 'everyday-writing'
+  | 'professional-guided'
   | 'professional-roleplay'
   | 'professional-interview'
   | 'professional-recorded'
@@ -93,6 +95,18 @@ function everydayItems(
       accentColor: '#F0A436',
       hint: translate(language, 'learningDailyRoleplayDetail'),
       children: [
+        {
+          id: 'everyday-guided',
+          icon: '↗',
+          label: `${translate(language, 'ykiPracticeGuidedPracticeLabel')} · ${translate(language, 'ykiRouteSkillSpeaking')}`,
+          accentColor: '#F0A436',
+          hint: translate(language, 'learningDailyRoleplayDetail'),
+          onPress: () =>
+            void navigateTo('learning', {
+              learningBranch: 'everyday',
+              activity: 'everyday-guided',
+            }),
+        },
         {
           id: 'everyday-roleplay',
           icon: '💬',
@@ -211,6 +225,17 @@ function professionalItems(
       accentColor: '#F0A436',
       hint: translate(language, 'professionalRoleplayDetail'),
       children: [
+        {
+          id: 'professional-guided',
+          icon: '↗',
+          label: `${translate(language, 'ykiPracticeGuidedPracticeLabel')} · ${translate(language, 'ykiRouteSkillSpeaking')}`,
+          accentColor: '#F0A436',
+          hint: translate(language, 'professionalRoleplayDetail'),
+          onPress: () =>
+            void navigateTo('professional-finnish', {
+              activity: 'professional-guided',
+            }),
+        },
         {
           id: 'professional-roleplay',
           icon: '💬',
