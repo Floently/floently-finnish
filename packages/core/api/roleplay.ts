@@ -3,6 +3,7 @@ import { apiClient } from './client';
 export type RoleplayProfession = 'general' | 'nurse' | 'doctor' | 'practical_nurse';
 export type RoleplayLevelBand = 'A1-A2' | 'B1-B2' | 'C1-C2';
 export type RoleplayTrack = 'general' | 'professional';
+export type RoleplayMode = 'everyday' | 'workplace' | 'yki' | 'professional' | 'interview';
 
 export type RoleplayVoiceIdentity = {
   identityId: string;
@@ -26,6 +27,7 @@ export type RoleplayScenarioSummary = {
   levelBand: RoleplayLevelBand;
   profession: RoleplayProfession;
   track: RoleplayTrack;
+  roleplayMode?: RoleplayMode;
   personaName?: string;
   personaId?: string;
   personaGender?: 'male' | 'female';
@@ -37,6 +39,9 @@ export type RoleplaySessionStart = {
   profession: RoleplayProfession;
   levelBand: RoleplayLevelBand;
   track: RoleplayTrack;
+  roleplayMode: RoleplayMode;
+  scenarioPool: string[];
+  selectionReason: 'explicit_scenario' | 'unused_pool' | 'pool_recycled' | string;
   scenario: RoleplayScenarioSummary;
   introText: string;
   openingText: string;
@@ -158,9 +163,15 @@ export type RoleplayFinishResponse = {
 export async function listRoleplayScenarios(
   profession: RoleplayProfession,
   levelBand: RoleplayLevelBand,
+  roleplayMode?: RoleplayMode,
 ): Promise<RoleplayScenarioSummary[]> {
+  const params = new URLSearchParams({
+    profession,
+    level_band: levelBand,
+    ...(roleplayMode ? { roleplay_mode: roleplayMode } : {}),
+  });
   const res = await apiClient.get<{ scenarios: RoleplayScenarioSummary[] }>(
-    `/api/v1/roleplay/scenarios?profession=${encodeURIComponent(profession)}&level_band=${encodeURIComponent(levelBand)}`,
+    `/api/v1/roleplay/scenarios?${params.toString()}`,
   );
   return res.data?.scenarios ?? [];
 }
@@ -168,12 +179,14 @@ export async function listRoleplayScenarios(
 export async function startRoleplaySession(payload: {
   profession: RoleplayProfession;
   levelBand: RoleplayLevelBand;
+  roleplayMode: RoleplayMode;
   scenarioId?: string | null;
   contextLabel?: string | null;
 }): Promise<RoleplaySessionStart> {
   const res = await apiClient.post<RoleplaySessionStart>('/api/v1/roleplay/session/start', {
     profession: payload.profession,
     level_band: payload.levelBand,
+    roleplay_mode: payload.roleplayMode,
     scenario_id: payload.scenarioId ?? null,
     context_label: payload.contextLabel ?? null,
   });
