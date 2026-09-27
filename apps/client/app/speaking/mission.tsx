@@ -103,6 +103,7 @@ export default function ProfessionalMissionSpeakingEntry() {
       initialScenarioId={missionPreset.initialScenarioId}
       lockProfession={missionPreset.lockProfession}
       entryMode={missionPreset.entryMode}
+      roleplayMode={missionPreset.roleplayMode}
       contextLabel={missionPreset.contextLabel}
     />
   );
