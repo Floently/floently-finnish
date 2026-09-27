@@ -342,6 +342,18 @@ requireText(
 );
 
 requireText(
+  utilityDrawer,
+  "const initialExpandedPathKey = initialExpandedPath?.length",
+  'drawer expansion initialization must use a stable value key',
+);
+
+forbidText(
+  utilityDrawer,
+  '[initialExpandedItemId, initialExpandedPath, visible]',
+  'drawer expansion must not reset merely because a parent recreated the same path array',
+);
+
+requireText(
   learnRouting,
   "__DEV__",
   'localhost routing support must remain development-only',
@@ -370,5 +382,6 @@ console.log('PASS: existing recorded speaking remains reachable in Everyday and 
 console.log('PASS: existing Workplace Incident Lab remains reachable through the guarded Professional branch.');
 console.log('PASS: drawer controls preserve mobile-friendly touch targets and modal accessibility semantics.');
 console.log('PASS: current route can reopen and identify its exact drawer branch when known.');
+console.log('PASS: parent refreshes cannot reset the same user-expanded drawer path by array identity alone.');
 console.log('PASS: localhost behavior is development-only.');
 console.log('NAVIGATION_INVARIANTS=PASS');
