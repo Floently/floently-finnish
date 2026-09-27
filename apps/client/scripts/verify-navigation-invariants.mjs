@@ -252,10 +252,10 @@ requireText(
   'LearningRoute must derive its initial branch from the URL',
 );
 
-requireText(
+forbidText(
   appShell,
   'setDrawerOpen(false);\n      void navigateTo(route, options);',
-  'drawer navigation callback must close once before guarded navigation',
+  'AppShell must not duplicate the drawer component close before navigation',
 );
 
 const entitlementGuardIndex = appShell.indexOf(
@@ -298,7 +298,7 @@ console.log('PASS: Progress is exposed as a drawer destination.');
 console.log('PASS: route reconciliation cannot depend on activeScreen.');
 console.log('PASS: duplicate global learning-branch state is absent.');
 console.log('PASS: LearningRoute remains URL-driven.');
-console.log('PASS: drawer closes once before navigation.');
+console.log('PASS: drawer leaf closes once before navigation.');
 console.log('PASS: progressive drawer branches expose accessible expanded state.');
 console.log('PASS: one sibling branch is open per hierarchy depth.');
 console.log('PASS: branch presses expand without navigating.');
