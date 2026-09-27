@@ -106,6 +106,9 @@ requireText(curriculum, 'number <= 50 ? A12_SEEDS[number - 26]', 'Stages 26-50 m
 forbidText(curriculum, 'Math.random', 'curriculum construction must never use random generation');
 forbidText(curriculum, 'generatedSeed', 'all 300 guided speaking lessons must be authored records with no template fallback');
 forbidText(curriculum, 'const THEMES =', 'authored curriculum must not retain a generic theme-template lesson generator');
+requireText(curriculum, 'function levelFor(number: number)', 'curriculum must keep deterministic level resolution after template removal');
+requireText(curriculum, 'function idFor(number: number)', 'curriculum must keep deterministic permanent ID generation');
+requireText(curriculum, 'function retrievalFor(number: number)', 'curriculum must keep deterministic retrieval scheduling');
 
 requireText(stages, 'export type GuidedSpeakingStageId = \`GS-\${string}\`;', 'curriculum stages need permanent deterministic IDs');
 requireText(stages, 'curriculumId: GuidedSpeakingStageId;', 'stage records must carry permanent curriculum identity');
@@ -117,8 +120,10 @@ requireText(stages, "curriculumId: \`GS-\${String(index + 1).padStart(3, '0')}\`
 
 requireText(progressStore, 'highestUnlockedNumber: number;', 'progress must track furthest unlocked stage separately');
 requireText(progressStore, 'attempts: GuidedSpeakingAttempt[];', 'repeat attempts must be historical records');
-requireText(progressStore, 'if (stageNumber < 1 || stageNumber >= state.highestUnlockedNumber) return;', 'history navigation must allow passed stages only, never the current/future frontier');
-requireText(progressStore, 'Math.max(state.highestUnlockedNumber, stageNumber + 1)', 'repeating an earlier stage must never roll progression backward');
+requireText(progressStore, 'stageNumber >= state.highestUnlockedNumber', 'history navigation must allow passed stages only, never the current/future frontier');
+requireText(progressStore, 'GUIDED_SPEAKING_COMPLETE_SENTINEL', 'progress must represent completion of Stage 300 without inventing Stage 301 UI');
+requireText(progressStore, 'resumeFrontier', 'reviewing an earlier stage must have an explicit path back to the learner frontier');
+requireText(progressStore, 'Math.max(state.highestUnlockedNumber, safeStageNumber + 1)', 'repeating an earlier stage must never roll progression backward');
 requireText(progressStore, 'stageVersion', 'attempt history must retain curriculum version');
 
 requireText(
@@ -181,10 +186,14 @@ requireText(screen, 'highestUnlockedNumber', 'stage navigation must use persiste
 requireText(screen, '>History</Text>', 'passed stages must live behind a single History layer');
 requireText(screen, 'highestUnlockedNumber - 1', 'History must exclude the current/future frontier');
 forbidText(screen, '<View style={styles.progressRow}', 'practice UI must not splatter numbered stage navigation across the main flow');
-requireText(screen, 'openPersistedStage(index + 1)', 'review navigation must persist selected unlocked stage');
-requireText(screen, 'completePersistedStage(stage.curriculumId, stage.version, visibleStageNumber)', 'completion must record permanent stage identity and version');
-requireText(screen, 'guidedSpeakingRetrievalLessons(currentStageNumber)', 'Guided Speaking runtime must load deterministic recall material');
-requireText(screen, 'lesson.number < currentStageNumber', 'recall must never reference current or future stages');
+requireText(screen, 'GUIDED_SPEAKING_CURRICULUM', 'the authored 300-stage bank must own runtime navigation and History');
+requireText(screen, 'await openPersistedStage(stageNumber)', 'review navigation must persist the exact passed stage');
+requireText(screen, 'completePersistedStage(curriculumLesson.id, curriculumLesson.version, visibleStageNumber)', 'completion must record the authored curriculum stage identity and version');
+requireText(screen, 'guidedSpeakingRetrievalLessons(visibleStageNumber)', 'Guided Speaking runtime must load deterministic recall material from the authored stage');
+requireText(screen, 'lesson.number < visibleStageNumber', 'recall must never reference current or future stages');
+requireText(screen, 'await resumePersistedFrontier()', 'a completed review must return directly to the current learner frontier');
+forbidText(screen, 'const [stageIndex, setStageIndex]', 'the legacy seven-step local index must not own 300-stage progression');
+forbidText(screen, 'stage.curriculumId', 'runtime completion must not use legacy seven-stage curriculum IDs');
 requireText(screen, "lessonStep === 'recall'", 'recall must be the only active learning step when due');
 requireText(screen, "lessonStep === 'listen'", 'listen must be an explicit single learning step');
 requireText(screen, "lessonStep === 'speak'", 'speaking must be an explicit single learning step');
@@ -195,7 +204,7 @@ forbidText(screen, 'LEVEL_BANDS.map', 'level switching must not compete with the
 requireText(screen, '>Remember?</Text>', 'recall must be presented as a separate layered step');
 requireText(screen, '>Start recall</Text>', 'recall content must stay behind one deliberate action');
 
-requireText(screen, 'guidedSpeakingLevelForStage(visibleStageNumber)', 'UI must show explicit learner-visible sublevel');
+requireText(screen, 'const visibleLevel = curriculumLesson.level;', 'UI must show the authored learner-visible sublevel');
 
 requireText(
   screen,
@@ -214,8 +223,8 @@ requireText(
 );
 requireText(
   screen,
-  'stageIndex === stages.length - 1',
-  'the final guided stage must have a distinct completion handoff',
+  'visibleStageNumber === GUIDED_SPEAKING_MAX_STAGE',
+  'only authored Stage 300 may hand off to open Roleplay',
 );
 requireText(
   screen,
@@ -290,6 +299,7 @@ if (
 console.log('PASS: guided phase order remains deterministic during curriculum migration.');
 console.log('PASS: permanent versioned curriculum IDs are present.');
 console.log('PASS: persisted attempt history supports repeat without progression rollback.');
+console.log('PASS: authored Stage 1-300 runtime owns progression; legacy seven-step indexing is not authoritative.');
 console.log('PASS: CEFR bands materially change support and production expectations.');
 console.log('PASS: Everyday and Professional guided content remain distinct.');
 console.log('PASS: Guided Speaking reuses canonical Finnish TTS/STT.');
