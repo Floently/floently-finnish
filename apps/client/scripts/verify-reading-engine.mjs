@@ -271,7 +271,7 @@ test('Everyday and Professional task resolution remains scoped', () => {
   assert.equal(content.resolveReadingTask({ scope: 'everyday', level: 'C3' }).status, 'invalid_level');
   assert.equal(content.getNextReadingTask('reading.everyday.a1.library-hours')?.taskId, 'reading.everyday.a1.bus-stop-change');
   assert.equal(content.getNextReadingTask('reading.everyday.c2.public-response'), undefined);
-  assert.equal(content.getNextReadingTask('reading.professional.c2-policy-wording'), undefined);
+  assert.equal(content.getNextReadingTask('reading.professional.c2.policy-wording'), undefined);
 });
 
 test('CEFR scaffolding fades monotonically by level', () => {
