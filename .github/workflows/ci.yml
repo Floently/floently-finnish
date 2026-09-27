@@ -86,6 +86,8 @@ jobs:
         run: pnpm --dir apps/client exec tsc --noEmit
       - name: Verify subscription authority invariants
         run: pnpm --dir apps/client run verify:subscription-authority
+      - name: Verify live Read browser invariants
+        run: pnpm --dir apps/client run verify:read-live-browser
       - name: Lint subscription authority hotfix
         run: pnpm --dir apps/client exec eslint state/subscriptionStore.ts scripts/verify-subscription-authority.mjs
       - name: Load production Expo public environment
