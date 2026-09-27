@@ -390,4 +390,5 @@ await import('./verify-practice-one-next-session.mjs');
 await import('./verify-professional-mission-chain.mjs');
 await import('./verify-reading-writing-progression.mjs');
 await import('./verify-learning-experience-integration.mjs');
+await import('./verify-professional-listening.mjs');
 console.log('NAVIGATION_INVARIANTS=PASS');
