@@ -104,6 +104,16 @@ class PasswordResetDeliveryTests(unittest.TestCase):
         self.assertEqual(message["Subject"], "Reset your KieliValmis password")
         self.assertEqual(message["To"], "learner@example.invalid")
 
+    def test_incomplete_smtp_credentials_fail_closed(self) -> None:
+        self._configure_smtp()
+        self._set("password_reset_smtp_password", None)
+
+        status = get_password_reset_delivery_status()
+
+        self.assertFalse(status.ready)
+        self.assertEqual(status.provider, "smtp")
+        self.assertEqual(status.reason, "smtp_credentials_incomplete")
+
     def test_conflicting_smtp_tls_modes_fail_readiness(self) -> None:
         self._configure_smtp()
         self._set("password_reset_smtp_use_ssl", True)
