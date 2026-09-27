@@ -110,7 +110,7 @@ jobs:
           const assert = (condition, message) => { if (!condition) throw new Error(message); };
           assert(config.name === 'KieliValmis', `Unexpected app name: ${config.name}`);
           assert(config.ios?.bundleIdentifier === 'com.vitusidi.floently', `Unexpected bundle ID: ${config.ios?.bundleIdentifier}`);
-          assert(config.runtimeVersion === '1.0.2', `Unexpected runtimeVersion: ${config.runtimeVersion}`);
+          assert(config.runtimeVersion === '1.0.3', `Unexpected runtimeVersion: ${config.runtimeVersion}`);
           assert(config.updates?.enabled === true, 'Expo Updates is not enabled');
           assert(
             config.updates?.url === 'https://u.expo.dev/fa02c141-0a3b-4dbc-9122-7c1cf31ba42c',
