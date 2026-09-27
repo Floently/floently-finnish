@@ -5,11 +5,13 @@ import type { RoleplayLevelBand, RoleplayProfession } from '@core/api/roleplay';
 import { getFloentlyPalette } from '@ui/theme/floentlyPalette';
 
 import { usePreferencesStore } from '../../../state/preferencesStore';
+import { useGuidedSpeakingProgressStore } from '../../../state/guidedSpeakingProgressStore';
 import { useTranslator } from '../../i18n';
 import RoleplayMicButton from '../components/RoleplayMicButton';
 import { useRoleplayRecorder } from '../hooks/useRoleplayRecorder';
 import {
   guidedSpeakingExpectedResponseRange,
+  guidedSpeakingLevelForStage,
   guidedSpeakingTtsSpeed,
   guidedSpeakingVoiceProfile,
   getGuidedSpeakingStages,
@@ -42,16 +44,20 @@ export default function GuidedSpeakingScreen({
   const palette = getFloentlyPalette(themeMode);
   const isDark = themeMode === 'dark';
   const recorder = useRoleplayRecorder('fi-FI');
+  const progressHydrated = useGuidedSpeakingProgressStore((state) => state.hasHydrated);
+  const highestUnlockedNumber = useGuidedSpeakingProgressStore((state) => state.highestUnlockedNumber);
+  const currentStageNumber = useGuidedSpeakingProgressStore((state) => state.currentStageNumber);
+  const attempts = useGuidedSpeakingProgressStore((state) => state.attempts);
+  const hydrateProgress = useGuidedSpeakingProgressStore((state) => state.hydrate);
+  const openPersistedStage = useGuidedSpeakingProgressStore((state) => state.openStage);
+  const completePersistedStage = useGuidedSpeakingProgressStore((state) => state.completeStage);
 
   const stages = useMemo(
     () => getGuidedSpeakingStages(profession, levelBand),
     [levelBand, profession],
   );
   const [stageIndex, setStageIndex] = useState(0);
-  const [maxUnlockedIndex, setMaxUnlockedIndex] = useState(0);
-  const [completedStageIds, setCompletedStageIds] = useState<Set<string>>(
-    () => new Set(),
-  );
+
   const [transcript, setTranscript] = useState<string | null>(null);
   const [typedFallback, setTypedFallback] = useState('');
   const [attempted, setAttempted] = useState(false);
@@ -59,7 +65,9 @@ export default function GuidedSpeakingScreen({
   const [ttsUnavailable, setTtsUnavailable] = useState(false);
 
   const stage = stages[stageIndex];
-  const stageCompleted = completedStageIds.has(stage.id);
+  const visibleStageNumber = stageIndex + 1;
+  const visibleLevel = guidedSpeakingLevelForStage(visibleStageNumber);
+  const stageCompleted = attempts.some((attempt) => attempt.stageId === stage.curriculumId);
   const canAdvance =
     (attempted || stageCompleted || typedFallback.trim().length > 0) &&
     !recorder.isRecording &&
@@ -67,9 +75,15 @@ export default function GuidedSpeakingScreen({
     !ttsPlaying;
 
   useEffect(() => {
-    setStageIndex(0);
-    setMaxUnlockedIndex(0);
-    setCompletedStageIds(new Set<string>());
+    void hydrateProgress();
+  }, [hydrateProgress]);
+
+  useEffect(() => {
+    if (!progressHydrated) return;
+    setStageIndex(Math.min(stages.length - 1, Math.max(0, currentStageNumber - 1)));
+  }, [currentStageNumber, progressHydrated, stages.length]);
+
+  useEffect(() => {
     setTranscript(null);
     setTypedFallback('');
     setAttempted(false);
@@ -140,7 +154,7 @@ export default function GuidedSpeakingScreen({
 
   function openStage(index: number) {
     if (
-      index > maxUnlockedIndex ||
+      index + 1 > highestUnlockedNumber ||
       recorder.isRecording ||
       recorder.phase === 'uploading' ||
       ttsPlaying
@@ -149,18 +163,15 @@ export default function GuidedSpeakingScreen({
     setStageIndex(index);
     setTranscript(null);
     setTypedFallback('');
-    setAttempted(completedStageIds.has(stages[index].id));
+    openPersistedStage(index + 1);
+    setAttempted(attempts.some((attempt) => attempt.stageId === stages[index].curriculumId));
     setTtsUnavailable(false);
   }
 
-  function advance() {
+  async function advance() {
     if (!canAdvance) return;
 
-    setCompletedStageIds((current) => {
-      const next = new Set(current);
-      next.add(stage.id);
-      return next;
-    });
+    await completePersistedStage(stage.curriculumId, stage.version, visibleStageNumber);
 
     if (stageIndex === stages.length - 1) {
       onOpenRoleplay();
@@ -169,7 +180,6 @@ export default function GuidedSpeakingScreen({
 
     const nextIndex = stageIndex + 1;
     void stopRoleplayAudioPlayback();
-    setMaxUnlockedIndex((current) => Math.max(current, nextIndex));
     setStageIndex(nextIndex);
     setTranscript(null);
     setTypedFallback('');
@@ -213,7 +223,7 @@ export default function GuidedSpeakingScreen({
         >
           <View style={styles.heading}>
             <Text style={[styles.eyebrow, { color: primary }]}>
-              {t('roleplayLevelLabel')} · {levelBand}
+              {t('roleplayLevelLabel')} · {visibleLevel} · Stage {visibleStageNumber}
             </Text>
             <Text style={[styles.title, { color: text }]}>{stage.titleFi}</Text>
             <Text style={[styles.subtitle, { color: muted }]}>{stage.goalFi}</Text>
@@ -221,9 +231,9 @@ export default function GuidedSpeakingScreen({
 
           <View style={styles.progressRow} accessibilityLabel={`${stage.order} / ${stages.length}`}>
             {stages.map((item, index) => {
-              const unlocked = index <= maxUnlockedIndex;
+              const unlocked = index + 1 <= highestUnlockedNumber;
               const active = index === stageIndex;
-              const complete = completedStageIds.has(item.id);
+              const complete = attempts.some((attempt) => attempt.stageId === item.curriculumId);
               const stageNavigationDisabled =
                 !unlocked ||
                 recorder.isRecording ||
@@ -400,7 +410,7 @@ export default function GuidedSpeakingScreen({
               </Text>
             </View>
             <Pressable
-              onPress={advance}
+              onPress={() => void advance()}
               disabled={!canAdvance}
               accessibilityRole="button"
               accessibilityState={{ disabled: !canAdvance }}
