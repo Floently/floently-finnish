@@ -15,7 +15,24 @@ async function importTypeScript(relativePath) {
 }
 
 const engine = await importTypeScript('apps/client/features/reading/readingEngine.ts');
-const content = await importTypeScript('apps/client/features/reading/readingTasks.ts');
+
+const expansionSource = readFileSync(
+  path.join(ROOT, 'apps/client/features/reading/readingExpansionTasks.ts'),
+  'utf8',
+);
+const expansionJavaScript = stripTypeScriptTypes(expansionSource, { mode: 'transform' });
+const expansionUrl = `data:text/javascript;base64,${Buffer.from(expansionJavaScript).toString('base64')}`;
+const contentSource = readFileSync(
+  path.join(ROOT, 'apps/client/features/reading/readingTasks.ts'),
+  'utf8',
+).replace(
+  /import \{[\s\S]*?EVERYDAY_READING_EXPANSION,[\s\S]*?PROFESSIONAL_READING_EXPANSION,[\s\S]*?\} from '\.\/readingExpansionTasks';/,
+  `const { EVERYDAY_READING_EXPANSION, PROFESSIONAL_READING_EXPANSION } = await import('${expansionUrl}');`,
+);
+const contentJavaScript = stripTypeScriptTypes(contentSource, { mode: 'transform' });
+const content = await import(
+  `data:text/javascript;base64,${Buffer.from(contentJavaScript).toString('base64')}`
+);
 
 let passed = 0;
 function test(name, run) {
@@ -91,7 +108,7 @@ const professional = content.findReadingTaskById('reading.professional.b2.shift-
 assert.ok(everydayA1 && everydayA2 && everydayB2 && professional);
 
 test('all representative content validates and is original', () => {
-  assert.equal(content.READING_TASKS.length, 5);
+  assert.equal(content.READING_TASKS.length, 20);
   const taskIds = new Set();
   const families = new Set();
   for (const task of content.READING_TASKS) {
@@ -237,8 +254,8 @@ test('corrected answers are preserved without inflating first-try score', () => 
 });
 
 test('Everyday and Professional task resolution remains scoped', () => {
-  assert.equal(content.getReadingTasks('everyday').length, 4);
-  assert.equal(content.getReadingTasks('professional').length, 1);
+  assert.equal(content.getReadingTasks('everyday').length, 12);
+  assert.equal(content.getReadingTasks('professional').length, 8);
   assert.equal(
     content.resolveReadingTask({ scope: 'everyday', taskId: professional.taskId }).status,
     'not_found',
@@ -247,13 +264,19 @@ test('Everyday and Professional task resolution remains scoped', () => {
     content.resolveReadingTask({ scope: 'professional', taskId: everydayA1.taskId }).status,
     'not_found',
   );
-  assert.equal(content.resolveReadingTask({ scope: 'everyday', level: 'C1' }).status, 'invalid_level');
+  assert.equal(content.resolveReadingTask({ scope: 'everyday', level: 'C1' }).status, 'ready');
+  assert.equal(content.resolveReadingTask({ scope: 'everyday', level: 'C2' }).status, 'ready');
+  assert.equal(content.resolveReadingTask({ scope: 'professional', level: 'C1' }).status, 'ready');
   assert.equal(content.resolveReadingTask({ scope: 'professional', level: 'A1' }).status, 'empty');
+  assert.equal(content.resolveReadingTask({ scope: 'everyday', level: 'C3' }).status, 'invalid_level');
+  assert.equal(content.getNextReadingTask('reading.everyday.a1.library-hours')?.taskId, 'reading.everyday.a1.bus-stop-change');
+  assert.equal(content.getNextReadingTask('reading.everyday.c2.public-response'), undefined);
+  assert.equal(content.getNextReadingTask('reading.professional.c2-policy-wording'), undefined);
 });
 
 test('CEFR scaffolding fades monotonically by level', () => {
-  const levels = ['A1', 'A2', 'B1', 'B2'];
-  assert.deepEqual(levels.map((level) => engine.getReadingScaffolding(level).supportScore), [4, 3, 2, 1]);
+  const levels = ['A1', 'A2', 'B1', 'B2', 'C1', 'C2'];
+  assert.deepEqual(levels.map((level) => engine.getReadingScaffolding(level).supportScore), [4, 3, 2, 1, 1, 1]);
   assert.equal(engine.getReadingScaffolding('A1').chunkDocument, true);
   assert.equal(engine.getReadingScaffolding('A1').showStrategyHints, true);
   assert.equal(engine.getReadingScaffolding('B2').chunkDocument, false);
