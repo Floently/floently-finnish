@@ -16,7 +16,7 @@ import {
   guidedSpeakingVoiceProfile,
   getGuidedSpeakingStages,
 } from '../guidedSpeakingStages';
-import { guidedSpeakingLesson } from '../guidedSpeakingCurriculum';
+import { guidedSpeakingLesson, guidedSpeakingRetrievalLessons } from '../guidedSpeakingCurriculum';
 import {
   speakRoleplayText,
   stopRoleplayAudioPlayback,
@@ -60,6 +60,7 @@ export default function GuidedSpeakingScreen({
   const [stageIndex, setStageIndex] = useState(0);
 
   const [historyOpen, setHistoryOpen] = useState(false);
+  const [recallOpen, setRecallOpen] = useState(false);
   const [transcript, setTranscript] = useState<string | null>(null);
   const [typedFallback, setTypedFallback] = useState('');
   const [attempted, setAttempted] = useState(false);
@@ -68,6 +69,8 @@ export default function GuidedSpeakingScreen({
 
   const stage = stages[stageIndex];
   const curriculumLesson = guidedSpeakingLesson(currentStageNumber);
+  const retrievalLessons = guidedSpeakingRetrievalLessons(currentStageNumber)
+    .filter((lesson) => lesson.number < currentStageNumber && attempts.some((attempt) => attempt.stageId === lesson.id));
   const visibleStageNumber = stageIndex + 1;
   const visibleLevel = guidedSpeakingLevelForStage(visibleStageNumber);
   const stageCompleted = attempts.some((attempt) => attempt.stageId === stage.curriculumId);
@@ -91,6 +94,7 @@ export default function GuidedSpeakingScreen({
     setTypedFallback('');
     setAttempted(false);
     setTtsUnavailable(false);
+    setRecallOpen(false);
     void recorder.cancelRecording();
     void stopRoleplayAudioPlayback();
     // The recorder object is intentionally omitted. Its methods are stable
@@ -314,6 +318,40 @@ export default function GuidedSpeakingScreen({
             </View>
           </View>
 
+          {retrievalLessons.length > 0 ? (
+            <View style={[styles.recallCard, { backgroundColor: surface, borderColor: border }]}>
+              <Text style={[styles.sectionLabel, { color: soft }]}>Remember?</Text>
+              {!recallOpen ? (
+                <>
+                  <Text style={[styles.recallPrompt, { color: text }]}>
+                    Before the new step, recall something you already learned.
+                  </Text>
+                  <Pressable
+                    accessibilityRole="button"
+                    onPress={() => setRecallOpen(true)}
+                    style={[styles.recallButton, { backgroundColor: raised, borderColor: border }]}
+                  >
+                    <Text style={[styles.recallButtonText, { color: primary }]}>Start recall</Text>
+                  </Pressable>
+                </>
+              ) : (
+                <View style={styles.recallList}>
+                  {retrievalLessons.map((lesson) => (
+                    <View key={lesson.id} style={[styles.recallItem, { backgroundColor: raised, borderColor: border }]}>
+                      <Text style={[styles.recallStage, { color: soft }]}>
+                        From Stage {lesson.number}
+                      </Text>
+                      <Text style={[styles.recallPrompt, { color: text }]}>{lesson.promptFi}</Text>
+                    </View>
+                  ))}
+                  <Text style={[styles.supportNote, { color: muted }]}>
+                    Say the answers from memory. Then continue with today's new material.
+                  </Text>
+                </View>
+              )}
+            </View>
+          ) : null}
+
           <View style={[styles.modelCard, { backgroundColor: surface, borderColor: border }]}>
             <View style={styles.cardHeaderRow}>
               <View style={[styles.stageBadge, { backgroundColor: `${primary}18` }]}>
@@ -504,6 +542,13 @@ const styles = StyleSheet.create({
   levelPill: { minHeight: 42, borderRadius: 999, borderWidth: 1, paddingHorizontal: 14, alignItems: 'center', justifyContent: 'center' },
   levelText: { fontSize: 12, fontWeight: '800' },
   levelTextSelected: { color: '#FFFFFF' },
+  recallCard: { borderRadius: 20, borderWidth: 1, padding: 16, gap: 12 },
+  recallPrompt: { fontSize: 16, lineHeight: 23, fontWeight: '700' },
+  recallButton: { minHeight: 48, borderRadius: 14, borderWidth: 1, alignItems: 'center', justifyContent: 'center', paddingHorizontal: 16 },
+  recallButtonText: { fontSize: 14, fontWeight: '900' },
+  recallList: { gap: 9 },
+  recallItem: { borderRadius: 14, borderWidth: 1, padding: 12, gap: 4 },
+  recallStage: { fontSize: 11, lineHeight: 16, fontWeight: '800' },
   modelCard: { borderRadius: 22, borderWidth: 1, padding: 17, gap: 12 },
   cardHeaderRow: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', gap: 12 },
   stageBadge: { borderRadius: 999, paddingHorizontal: 9, paddingVertical: 5 },
