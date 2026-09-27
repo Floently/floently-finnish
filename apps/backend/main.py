@@ -26,6 +26,7 @@ from app.core.config import SETTINGS
 from app.core.state_store import STORE
 from app.db import auth_repository
 from app.services.auth_service import bootstrap_password_users
+from app.services.password_reset_email_service import get_password_reset_delivery_status
 from app.services.voice_service import get_tts_health_snapshot
 
 app = FastAPI(title="floently-finnish")
@@ -143,6 +144,21 @@ async def bootstrap_auth_password_users_on_startup() -> None:
             logger.info("Bootstrapped auth password users: %s", json.dumps(result, ensure_ascii=False))
     except Exception as exc:
         logger.warning("Could not bootstrap auth password users: %s", exc)
+
+
+@app.on_event("startup")
+async def log_password_reset_delivery_on_startup() -> None:
+    try:
+        delivery = get_password_reset_delivery_status()
+        log = logger.info if delivery.ready else logger.error
+        log(
+            "Password reset delivery readiness: provider=%s ready=%s reason=%s.",
+            delivery.provider,
+            delivery.ready,
+            delivery.reason,
+        )
+    except Exception as exc:  # pragma: no cover - startup observability only
+        logger.warning("Could not compute password reset delivery readiness: %s", exc)
 
 
 @app.on_event("startup")
