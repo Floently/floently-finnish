@@ -7,7 +7,7 @@ import type {
 export const READING_ENGINE_VERSION = 'reading-engine.v1' as const;
 
 export type ReadingScope = Extract<LearningPathway, 'everyday' | 'professional'>;
-export type ReadingLevel = 'A1' | 'A2' | 'B1' | 'B2';
+export type ReadingLevel = 'A1' | 'A2' | 'B1' | 'B2' | 'C1' | 'C2';
 export type ReadingDocumentType =
   | 'notice'
   | 'message'
@@ -179,6 +179,24 @@ const READING_SCAFFOLDING: Record<ReadingLevel, ReadingScaffolding> = {
     vocabularyLabel: 'Sanasto',
     presentation: 'independent',
   },
+  C1: {
+    supportScore: 1,
+    showContext: false,
+    showReadingGoal: false,
+    chunkDocument: false,
+    showStrategyHints: false,
+    vocabularyLabel: 'Sanasto',
+    presentation: 'independent',
+  },
+  C2: {
+    supportScore: 1,
+    showContext: false,
+    showReadingGoal: false,
+    chunkDocument: false,
+    showStrategyHints: false,
+    vocabularyLabel: 'Sanasto',
+    presentation: 'independent',
+  },
 };
 
 export function getReadingScaffolding(level: ReadingLevel): ReadingScaffolding {
@@ -319,8 +337,15 @@ export function validateReadingTask(value: unknown): ReadingTaskValidation {
   if (value.pathway !== 'everyday' && value.pathway !== 'professional') {
     errors.push('pathway must be everyday or professional');
   }
-  if (value.level !== 'A1' && value.level !== 'A2' && value.level !== 'B1' && value.level !== 'B2') {
-    errors.push('level must be A1, A2, B1, or B2');
+  if (
+    value.level !== 'A1' &&
+    value.level !== 'A2' &&
+    value.level !== 'B1' &&
+    value.level !== 'B2' &&
+    value.level !== 'C1' &&
+    value.level !== 'C2'
+  ) {
+    errors.push('level must be A1, A2, B1, B2, C1, or C2');
   }
   if (typeof value.estimatedMinutes !== 'number' || value.estimatedMinutes <= 0) {
     errors.push('estimatedMinutes must be positive');
