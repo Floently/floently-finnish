@@ -1,4 +1,8 @@
 import type { ReadingLevel, ReadingScope, ReadingTask } from './readingEngine';
+import {
+  EVERYDAY_READING_EXPANSION,
+  PROFESSIONAL_READING_EXPANSION,
+} from './readingExpansionTasks';
 
 const ORIGINAL_PROVENANCE = {
   author: 'KieliValmis / Agent C',
@@ -535,12 +539,49 @@ const PROFESSIONAL_B2: ReadingTask = {
   provenance: ORIGINAL_PROVENANCE,
 };
 
+const READING_LEVEL_ORDER: readonly ReadingLevel[] = [
+  'A1',
+  'A2',
+  'B1',
+  'B2',
+  'C1',
+  'C2',
+];
+
+function expansionAt(
+  tasks: readonly ReadingTask[],
+  level: ReadingLevel,
+  index: number,
+): ReadingTask {
+  const task = tasks.filter((candidate) => candidate.level === level)[index];
+  if (!task) {
+    throw new Error(`READING_EXPANSION_TASK_MISSING:${level}:${index}`);
+  }
+  return task;
+}
+
 export const READING_TASKS: readonly ReadingTask[] = [
   EVERYDAY_A1,
+  expansionAt(EVERYDAY_READING_EXPANSION, 'A1', 0),
   EVERYDAY_A2,
+  expansionAt(EVERYDAY_READING_EXPANSION, 'A2', 0),
   EVERYDAY_B1,
+  expansionAt(EVERYDAY_READING_EXPANSION, 'B1', 0),
   EVERYDAY_B2,
+  expansionAt(EVERYDAY_READING_EXPANSION, 'B2', 0),
+  expansionAt(EVERYDAY_READING_EXPANSION, 'C1', 0),
+  expansionAt(EVERYDAY_READING_EXPANSION, 'C1', 1),
+  expansionAt(EVERYDAY_READING_EXPANSION, 'C2', 0),
+  expansionAt(EVERYDAY_READING_EXPANSION, 'C2', 1),
+
+  expansionAt(PROFESSIONAL_READING_EXPANSION, 'B1', 0),
+  expansionAt(PROFESSIONAL_READING_EXPANSION, 'B1', 1),
   PROFESSIONAL_B2,
+  expansionAt(PROFESSIONAL_READING_EXPANSION, 'B2', 0),
+  expansionAt(PROFESSIONAL_READING_EXPANSION, 'C1', 0),
+  expansionAt(PROFESSIONAL_READING_EXPANSION, 'C1', 1),
+  expansionAt(PROFESSIONAL_READING_EXPANSION, 'C2', 0),
+  expansionAt(PROFESSIONAL_READING_EXPANSION, 'C2', 1),
 ];
 
 export function getReadingTasks(scope: ReadingScope): ReadingTask[] {
@@ -549,6 +590,20 @@ export function getReadingTasks(scope: ReadingScope): ReadingTask[] {
 
 export function findReadingTaskById(taskId: string): ReadingTask | undefined {
   return READING_TASKS.find((task) => task.taskId === taskId);
+}
+
+export function getReadingLevels(scope: ReadingScope): ReadingLevel[] {
+  const available = new Set(getReadingTasks(scope).map((task) => task.level));
+  return READING_LEVEL_ORDER.filter((level) => available.has(level));
+}
+
+export function getNextReadingTask(taskId: string): ReadingTask | undefined {
+  const current = findReadingTaskById(taskId);
+  if (!current) return undefined;
+  const scoped = getReadingTasks(current.pathway);
+  const index = scoped.findIndex((task) => task.taskId === taskId);
+  if (index < 0) return undefined;
+  return scoped[index + 1];
 }
 
 export type ReadingTaskResolution =
@@ -579,5 +634,12 @@ export function resolveReadingTask(args: {
 }
 
 export function isReadingLevel(value: string): value is ReadingLevel {
-  return value === 'A1' || value === 'A2' || value === 'B1' || value === 'B2';
+  return (
+    value === 'A1' ||
+    value === 'A2' ||
+    value === 'B1' ||
+    value === 'B2' ||
+    value === 'C1' ||
+    value === 'C2'
+  );
 }
