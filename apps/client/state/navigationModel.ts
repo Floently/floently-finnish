@@ -12,6 +12,7 @@ export type GuardedScreen =
   | "progress"
   | "settings"
   | "billing"
+  | "read"
   | "error";
 
 export type RequestedScreen =
@@ -30,6 +31,7 @@ export type RequestedScreen =
   | "progress"
   | "settings"
   | "billing"
+  | "read"
   | "create";
 
 export type NavigationErrorCode =
@@ -63,6 +65,7 @@ const SCREEN_PATHS: Record<GuardedScreen, string> = {
   progress: "/progress",
   settings: "/settings",
   billing: "/billing/subscription",
+  read: "/read/app",
   error: "/",
 };
 
