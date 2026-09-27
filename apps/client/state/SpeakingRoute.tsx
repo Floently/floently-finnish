@@ -229,7 +229,7 @@ export default function SpeakingRoute({ onBack, onOpenMenu, initialLevelBand = '
               navigation hub, not via an in-page picker. */}
 
           {/* ── Per-profession sub-nav ───────────────────────────────────────
-              The user sees three (or two for general) prominent entry tiles:
+              Guided Speaking now sits before the existing open-ended entries:
                 Roleplay  →  workplace dialogue scenarios
                 Interview →  structured interview practice (skipped for general)
                 Incident workflow → existing work-incidence-recording feature
@@ -270,7 +270,7 @@ export default function SpeakingRoute({ onBack, onOpenMenu, initialLevelBand = '
                 onPress={() => {
                   setScenarioId(null);
                   setSurface('conversation');
-                }
+                }}
                 style={[styles.subnavTile, { backgroundColor: surface_, borderColor: border }]}
                 accessibilityRole="button"
                 accessibilityLabel={t('commonOpenRoleplay')}
