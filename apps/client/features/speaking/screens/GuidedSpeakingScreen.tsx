@@ -58,6 +58,7 @@ export default function GuidedSpeakingScreen({
   );
   const [stageIndex, setStageIndex] = useState(0);
 
+  const [historyOpen, setHistoryOpen] = useState(false);
   const [transcript, setTranscript] = useState<string | null>(null);
   const [typedFallback, setTypedFallback] = useState('');
   const [attempted, setAttempted] = useState(false);
@@ -229,47 +230,60 @@ export default function GuidedSpeakingScreen({
             <Text style={[styles.subtitle, { color: muted }]}>{stage.goalFi}</Text>
           </View>
 
-          <View style={styles.progressRow} accessibilityLabel={`${stage.order} / ${stages.length}`}>
-            {stages.map((item, index) => {
-              const unlocked = index + 1 <= highestUnlockedNumber;
-              const active = index === stageIndex;
-              const complete = attempts.some((attempt) => attempt.stageId === item.curriculumId);
-              const stageNavigationDisabled =
-                !unlocked ||
-                recorder.isRecording ||
-                recorder.phase === 'uploading' ||
-                ttsPlaying;
-              return (
-                <Pressable
-                  key={item.id}
-                  disabled={stageNavigationDisabled}
-                  onPress={() => openStage(index)}
-                  accessibilityRole="button"
-                  accessibilityState={{
-                    disabled: stageNavigationDisabled,
-                    selected: active,
-                  }}
-                  style={[
-                    styles.progressStep,
-                    { borderColor: border, backgroundColor: raised },
-                    active && { borderColor: primary, backgroundColor: `${primary}22` },
-                    complete && { borderColor: success, backgroundColor: `${success}18` },
-                    !unlocked && styles.lockedStep,
-                  ]}
-                >
-                  <Text
-                    style={[
-                      styles.progressStepText,
-                      { color: soft },
-                      (active || complete) && { color: complete ? success : primary },
-                    ]}
-                  >
-                    {item.order}
-                  </Text>
-                </Pressable>
-              );
-            })}
+          <View style={[styles.journeyCard, { backgroundColor: surface, borderColor: border }]}>
+            <View style={styles.journeyCopy}>
+              <Text style={[styles.sectionLabel, { color: soft }]}>Your journey</Text>
+              <Text style={[styles.journeyText, { color: text }]}>
+                {visibleLevel} · Stage {visibleStageNumber}
+              </Text>
+            </View>
+            {highestUnlockedNumber > 1 ? (
+              <Pressable
+                accessibilityRole="button"
+                accessibilityState={{ expanded: historyOpen }}
+                onPress={() => setHistoryOpen((open) => !open)}
+                style={[styles.historyButton, { borderColor: border, backgroundColor: raised }]}
+              >
+                <Text style={[styles.historyButtonText, { color: text }]}>History</Text>
+              </Pressable>
+            ) : null}
           </View>
+
+          {historyOpen ? (
+            <View style={[styles.historyPanel, { backgroundColor: surface, borderColor: border }]}>
+              <Text style={[styles.historyTitle, { color: text }]}>Passed stages</Text>
+              <Text style={[styles.supportNote, { color: muted }]}>
+                Repeat any stage you have already passed. Future stages appear only when you reach them.
+              </Text>
+              <View style={styles.historyList}>
+                {stages.slice(0, Math.max(0, Math.min(stages.length, highestUnlockedNumber - 1))).map((item, index) => {
+                  const completed = attempts.some((attempt) => attempt.stageId === item.curriculumId);
+                  return (
+                    <Pressable
+                      key={item.curriculumId}
+                      disabled={!completed || recorder.isRecording || recorder.phase === 'uploading' || ttsPlaying}
+                      onPress={() => {
+                        openStage(index);
+                        setHistoryOpen(false);
+                      }}
+                      accessibilityRole="button"
+                      style={[styles.historyRow, { borderColor: border, backgroundColor: raised }]}
+                    >
+                      <View style={styles.historyRowCopy}>
+                        <Text style={[styles.historyRowTitle, { color: text }]}>
+                          {guidedSpeakingLevelForStage(index + 1)} · Stage {index + 1}
+                        </Text>
+                        <Text numberOfLines={1} style={[styles.historyRowGoal, { color: muted }]}>
+                          {item.goalFi}
+                        </Text>
+                      </View>
+                      <Text style={[styles.historyRepeat, { color: primary }]}>Repeat</Text>
+                    </Pressable>
+                  );
+                })}
+              </View>
+            </View>
+          ) : null}
 
           <View style={[styles.levelCard, { backgroundColor: surface, borderColor: border }]}>
             <Text style={[styles.sectionLabel, { color: soft }]}>{t('roleplayLevelLabel')}</Text>
@@ -458,6 +472,19 @@ const styles = StyleSheet.create({
   eyebrow: { fontSize: 11, fontWeight: '800', letterSpacing: 0.8, textTransform: 'uppercase' },
   title: { fontSize: 28, lineHeight: 34, fontWeight: '800' },
   subtitle: { fontSize: 15, lineHeight: 22 },
+  journeyCard: { borderRadius: 18, borderWidth: 1, padding: 14, flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', gap: 12 },
+  journeyCopy: { flex: 1, gap: 4 },
+  journeyText: { fontSize: 16, lineHeight: 22, fontWeight: '800' },
+  historyButton: { minHeight: 44, borderRadius: 999, borderWidth: 1, paddingHorizontal: 16, alignItems: 'center', justifyContent: 'center' },
+  historyButtonText: { fontSize: 13, fontWeight: '800' },
+  historyPanel: { borderRadius: 20, borderWidth: 1, padding: 14, gap: 10 },
+  historyTitle: { fontSize: 18, lineHeight: 24, fontWeight: '800' },
+  historyList: { gap: 8 },
+  historyRow: { minHeight: 58, borderRadius: 14, borderWidth: 1, paddingHorizontal: 12, paddingVertical: 9, flexDirection: 'row', alignItems: 'center', gap: 12 },
+  historyRowCopy: { flex: 1, gap: 2 },
+  historyRowTitle: { fontSize: 14, fontWeight: '800' },
+  historyRowGoal: { fontSize: 12, lineHeight: 17 },
+  historyRepeat: { fontSize: 12, fontWeight: '900' },
   progressRow: { flexDirection: 'row', gap: 7, alignItems: 'center' },
   progressStep: {
     flex: 1,
