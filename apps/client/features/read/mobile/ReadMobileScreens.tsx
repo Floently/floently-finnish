@@ -521,12 +521,23 @@ export function ReadHomeScreen() {
           <View style={styles.homeHeroText}>
             <Text style={[styles.kicker, { color: palette.accent2 }]}>Floently Read</Text>
             <Text style={[styles.homeTitle, { color: palette.text }]}>Read, listen, and understand.</Text>
-            <Text style={[styles.homeSubtitle, { color: palette.muted }]}>Import anything, continue instantly, and listen with a calm native reader.</Text>
+            <Text style={[styles.homeSubtitle, { color: palette.muted }]}>Import anything, browse live websites, continue instantly, and listen with a calm reader.</Text>
           </View>
           <MetricPill label="Day streak" value="7" tone="amber" />
         </View>
 
         <SyncBanner />
+
+        <View style={[styles.sectionCard, { backgroundColor: palette.surfaceRaised, borderColor: palette.borderStrong }]}>
+          <View>
+            <Text style={[styles.kicker, { color: palette.accent2 }]}>Live web Reader</Text>
+            <Text style={[styles.sectionTitle, { color: palette.text, marginTop: 6 }]}>Browse the real website</Text>
+            <Text style={[styles.cardBody, { color: palette.muted, marginTop: 6 }]}>
+              Open a site in the secure remote browser, sign in when needed, interact normally, and use Reader without converting the website into a static document.
+            </Text>
+          </View>
+          <PrimaryButton label="Open live browser" onPress={() => navigate('/read/browser')} />
+        </View>
 
         <View style={[styles.sectionCard, { backgroundColor: palette.surface, borderColor: palette.border }]}>
           <View style={styles.sectionHeaderRow}>
