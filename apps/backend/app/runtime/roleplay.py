@@ -2586,6 +2586,7 @@ def start_session(
     if (
         _is_a1_a2_level(level_band)
         and not created.get("mission")
+        and spec.roleplay_mode in {"professional", "interview"}
     ):
         chosen_opening_text = _a1_beginner_opening(
             chosen_opening_text,
