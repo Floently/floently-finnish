@@ -33,6 +33,7 @@ import RoleplayTranscriptList from '../components/RoleplayTranscriptList';
 import { primeRoleplayAudioPlayback, speakRoleplayText, stopRoleplayAudioPlayback, uiSounds } from '../services/roleplayAudio';
 import { useRoleplayRecorder } from '../hooks/useRoleplayRecorder';
 import { SessionCompletion } from '../components/SessionCompletion';
+import VoiceConversationExperience, { type VoiceConversationUiState } from '../components/VoiceConversationExperience';
 import type { TranscriptMessage } from '../types';
 
 const AUTO_PLAY_ROLEPLAY_OPENING_AUDIO = true;
@@ -905,6 +906,8 @@ export default function RoleplayConversationScreen({
   const [error, setError] = useState<string | null>(null);
   const [showTranscriptReport, setShowTranscriptReport] = useState(false);
   const [micBusy, setMicBusy] = useState(false);
+  const [conversationUiState, setConversationUiState] = useState<VoiceConversationUiState>('idle');
+  const [textMode, setTextMode] = useState(false);
 
   // ---- colour tokens ----
   // All tokens resolve through the canonical palette which supports both modes.
@@ -934,6 +937,9 @@ export default function RoleplayConversationScreen({
     setPendingOpeningAudio(null);
     openingAudioPlayedRef.current = null;
     setShowTranscriptReport(false);
+    setConversationUiState('idle');
+    setTextMode(false);
+    setRemoteAudioAvailable(true);
     try {
       // The server owns ordinary scenario selection and rotation. The client
       // only sends a scenario ID for a deliberate explicit launch or Replay.
@@ -971,6 +977,7 @@ export default function RoleplayConversationScreen({
       });
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Failed to start roleplay');
+      setConversationUiState('error');
       await uiSounds.error();
     } finally {
       setLoading(false);
@@ -991,7 +998,14 @@ export default function RoleplayConversationScreen({
       void speakRoleplayText({
         text: pendingOpeningAudio.text,
         voiceProfile: pendingOpeningAudio.voiceProfile,
-        onUnavailable: () => setRemoteAudioAvailable(false),
+        onStart: () => setConversationUiState('aiSpeaking'),
+        onFinish: () => setConversationUiState('userListening'),
+        onUnavailable: () => {
+          setRemoteAudioAvailable(false);
+          setConversationUiState('userListening');
+        },
+      }).then((played) => {
+        if (!played) setConversationUiState('userListening');
       });
     }, 350);
 
@@ -1008,6 +1022,7 @@ export default function RoleplayConversationScreen({
   const submitTranscript = useCallback(async (transcript: string) => {
     if (!sessionId || !transcript.trim() || feedbackReport) return;
     setSubmitting(true);
+    setConversationUiState('processing');
     setError(null);
     try {
       const userMessage: TranscriptMessage = {
@@ -1039,24 +1054,52 @@ export default function RoleplayConversationScreen({
       setRemoteAudioAvailable(true);
       await stopRoleplayAudioPlayback();
       await new Promise((resolve) => setTimeout(resolve, 120));
-      let ttsCreated = true;
-      const playedReplyAudio = await speakRoleplayText({
-        text: response.aiText,
-        voiceProfile: response.voiceProfile,
-        onUnavailable: () => {
-          ttsCreated = false;
-          setRemoteAudioAvailable(false);
-          setFeedbackLine((current) => current ?? 'TTS audio could not be created. Text reply is still shown.');
-        },
-      });
 
-      if (!playedReplyAudio && ttsCreated) {
-        setFeedbackLine((current) => current ?? 'Audio playback was blocked by iOS browser audio rules. Continuing with text.');
+      let playedReplyAudio = false;
+      let playbackDone: Promise<void> | null = null;
+
+      if (!textMode) {
+        let resolvePlayback: (() => void) | null = null;
+        playbackDone = new Promise<void>((resolve) => {
+          resolvePlayback = resolve;
+        });
+
+        let ttsCreated = true;
+        playedReplyAudio = await speakRoleplayText({
+          text: response.aiText,
+          voiceProfile: response.voiceProfile,
+          onStart: () => setConversationUiState('aiSpeaking'),
+          onFinish: () => {
+            resolvePlayback?.();
+            if (!response.completed) setConversationUiState('userListening');
+          },
+          onUnavailable: () => {
+            ttsCreated = false;
+            resolvePlayback?.();
+            setRemoteAudioAvailable(false);
+            if (!response.completed) setConversationUiState('userListening');
+            setFeedbackLine((current) => current ?? 'TTS audio could not be created. Text reply is still shown.');
+          },
+        });
+
+        if (!playedReplyAudio && ttsCreated) {
+          resolvePlayback?.();
+          setFeedbackLine((current) => current ?? 'Audio playback was blocked. Continuing with text.');
+          if (!response.completed) setConversationUiState('userListening');
+        }
+      } else if (!response.completed) {
+        setConversationUiState('userListening');
       }
 
       if (response.completed) {
+        if (playedReplyAudio && playbackDone) {
+          await Promise.race([
+            playbackDone,
+            new Promise<void>((resolve) => setTimeout(resolve, 15000)),
+          ]);
+        }
+
         const finished = await finishRoleplaySession(sessionId);
-        // v2 backend returns the full report; v1 returned just summary string
         if (typeof finished === 'object' && 'transcriptAnnotated' in finished) {
           const fullReport = finished as unknown as FeedbackReport;
           setPersonaName((current) =>
@@ -1068,7 +1111,6 @@ export default function RoleplayConversationScreen({
           );
           setFeedbackReport(fullReport);
         } else {
-          // Graceful degradation for old backend
           setFeedbackReport({
             sessionId: sessionId,
             completed: true,
@@ -1087,21 +1129,37 @@ export default function RoleplayConversationScreen({
             nextAction: (finished as any).nextAction ?? 'Jatka harjoittelua',
           });
         }
+        setConversationUiState('completed');
         await uiSounds.success();
       }
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Failed to submit turn');
+      setConversationUiState('error');
       await uiSounds.error();
     } finally {
       setSubmitting(false);
       setManualText('');
     }
-  }, [sessionId, feedbackReport, personaName, levelBand, scenario, currentTurn]);
+  }, [sessionId, feedbackReport, personaName, levelBand, scenario, currentTurn, textMode]);
 
   const canSendManual = useMemo(
     () => Boolean(manualText.trim()) && !submitting && !feedbackReport,
     [manualText, submitting, feedbackReport],
   );
+
+  useEffect(() => {
+    if (feedbackReport) {
+      setConversationUiState('completed');
+      return;
+    }
+    if (recorder.phase === 'recording') {
+      setConversationUiState('userSpeaking');
+    } else if (recorder.phase === 'uploading') {
+      setConversationUiState('processing');
+    } else if (recorder.phase === 'error') {
+      setConversationUiState('error');
+    }
+  }, [feedbackReport, recorder.phase]);
 
   const handleMicTap = useCallback(() => {
     void primeRoleplayAudioPlayback();
@@ -1110,16 +1168,17 @@ export default function RoleplayConversationScreen({
       setMicBusy(true);
       try {
         if (recorder.phase === 'recording') {
+          setConversationUiState('processing');
           const transcript = await recorder.stopRecording();
           if (transcript) {
-              await submitTranscript(transcript);
-            }
+            await submitTranscript(transcript);
+          } else {
+            setConversationUiState('userListening');
+          }
         } else {
+          setTextMode(false);
           await stopRoleplayAudioPlayback();
 
-          // The native app previously started tap_soft.wav and mic_on.wav
-          // immediately before recording. Their shared iOS audio players
-          // interrupted the recorder. Retain the cue only on the web path.
           if (Platform.OS === 'web') {
             await uiSounds.tap();
           }
@@ -1131,6 +1190,29 @@ export default function RoleplayConversationScreen({
       }
     })();
   }, [feedbackReport, micBusy, recorder, submitTranscript, submitting]);
+
+  const latestAssistantMessage = useMemo(
+    () => [...messages].reverse().find((message) => message.speaker === 'assistant') ?? null,
+    [messages],
+  );
+
+  const replayLatestAssistant = useCallback(() => {
+    if (!latestAssistantMessage?.text || textMode || feedbackReport) return;
+    void (async () => {
+      await stopRoleplayAudioPlayback();
+      const played = await speakRoleplayText({
+        text: latestAssistantMessage.text,
+        voiceProfile,
+        onStart: () => setConversationUiState('aiSpeaking'),
+        onFinish: () => setConversationUiState('userListening'),
+        onUnavailable: () => {
+          setRemoteAudioAvailable(false);
+          setConversationUiState('userListening');
+        },
+      });
+      if (!played) setConversationUiState('userListening');
+    })();
+  }, [feedbackReport, latestAssistantMessage, textMode, voiceProfile]);
 
   // ── Issue #5: Export with format selection ───────────────────────────────
   // Previously this only produced .md. Now the user picks markdown, plain
@@ -1231,375 +1313,92 @@ export default function RoleplayConversationScreen({
     );
   }, [exportInFormat]);
 
-  // ---- loading screen ----
-  if (loading) {
-    return (
-      <SafeAreaView style={[styles.safeArea, { backgroundColor: bgColor }]}>
-        <View style={[styles.loadingWrap, { backgroundColor: bgColor }]}>
-          <ActivityIndicator color={primaryColor} size="large" />
-          <Text style={[styles.loadingText, { color: mutedColor }]}>Valmistellaan harjoittelua…</Text>
-        </View>
-      </SafeAreaView>
-    );
-  }
+  const assistantDisplayName =
+    personaName && personaName.toLowerCase() !== 'ai'
+      ? personaName
+      : 'KLYMis Guide';
+
+  const conversationTopic =
+    contextLabel ??
+    (roleplayMode === 'workplace'
+      ? 'Workplace conversation'
+      : roleplayMode === 'professional'
+        ? 'Professional conversation'
+        : roleplayMode === 'yki'
+          ? 'YKI conversation'
+          : roleplayMode === 'interview'
+            ? 'Interview practice'
+            : 'Daily conversation');
+
+  const statusMessage =
+    error ??
+    recorder.error ??
+    (!remoteAudioAvailable
+      ? 'Audio is unavailable right now. You can continue with text.'
+      : conversationUiState === 'processing'
+        ? 'Thinking…'
+        : missingPhrases.length
+          ? `Try: ${missingPhrases.slice(0, 2).join(' · ')}`
+          : feedbackLine);
+
+  const resolvedUiState: VoiceConversationUiState =
+    loading
+      ? 'idle'
+      : feedbackReport
+        ? 'completed'
+        : conversationUiState;
 
   return (
-    <SafeAreaView style={[styles.safeArea, { backgroundColor: bgColor }]}>
-      <ScrollView
-        style={styles.screenScroll}
-        contentContainerStyle={styles.screenContent}
-        keyboardShouldPersistTaps="handled"
-        showsVerticalScrollIndicator={false}
-      >
-        <RoleplayScenarioHeader
-          currentTurn={currentTurn}
-          levelBand={levelBand}
-          maxTurns={maxTurns}
-          onBack={onBack}
-          profession={profession}
-          scenario={scenario}
-          personaName={personaName}
-        />
-
-        {/* Key phrase pills */}
-        <View style={styles.keyPhraseRow}>
-          {(scenario?.keyPhrases ?? []).slice(0, 5).map((phrase) => (
-            <View
-              key={phrase}
-              style={[
-                styles.keyPhrasePill,
-                isLight && { backgroundColor: palette.primarySurface, borderColor: palette.border },
-              ]}
-            >
-              <Text style={[styles.keyPhraseText, isLight && { color: primaryColor }]}>{phrase}</Text>
-            </View>
-          ))}
-        </View>
-
-        <View style={[styles.sessionCard, { backgroundColor: cardBg, borderColor: cardBorder }]}>
-          {/* Persona label */}
-          <View style={styles.personaRow}>
-            <View style={[styles.personaBadge, { backgroundColor: primaryColor + '22' }]}>
-              <Text style={[styles.personaText, { color: primaryColor }]}>
-                Keskustelukumppani: {personaName}
-              </Text>
-            </View>
-          </View>
-
-          {/* ── Issue #4 fix ───────────────────────────────────────────────
-              The live transcript was sometimes collapsing to ~0 height because
-              the ScrollView's flex:1 was competing with siblings (manual input,
-              action row, mic panel, retention surface) inside a single
-              sessionCard. Wrapping in a flex:1 View with a minHeight floor
-              guarantees the transcript is always visible during the active
-              conversation. We also hide the live transcript once feedbackReport
-              is present, since the annotated transcript replaces it at that
-              point — showing both was confusing.
-          */}
-          {!feedbackReport ? (
-            <View style={styles.transcriptListWrap}>
-              <RoleplayTranscriptList messages={messages} personaName={personaName} />
-            </View>
-          ) : null}
-
-          {/* Inline status rows */}
-          {error ? <Text style={styles.errorText}>{error}</Text> : null}
-          {!remoteAudioAvailable ? (
-            <Text style={styles.warningText}>TTS ei saatavilla — teksti näkyy silti.</Text>
-          ) : null}
-          {feedbackLine ? (
-            <Text style={[styles.feedbackLine, isLight && { color: palette.text }]}>
-              💬 {feedbackLine}
-            </Text>
-          ) : null}
-          {missingPhrases.length ? (
-            <Text style={styles.warningText}>
-              Kokeile vielä: {missingPhrases.join(', ')}
-            </Text>
-          ) : null}
-          {recorder.error ? <Text style={styles.errorText}>{recorder.error}</Text> : null}
-
-          {/* Manual text input */}
-          {!feedbackReport ? (
-            <>
-              <View style={styles.manualRow}>
-                <TextInput
-                  placeholder="Kirjoita vastaus tarvittaessa…"
-                  placeholderTextColor={isLight ? palette.textSoft : '#7F8BA5'}
-                  value={manualText}
-                  onChangeText={setManualText}
-                  editable={!submitting}
-                  style={[
-                    styles.input,
-                    isLight && {
-                      backgroundColor: palette.surfaceMuted,
-                      borderColor: palette.border,
-                      color: palette.text,
-                    },
-                  ]}
-                  multiline
-                />
-                <Pressable
-                  onPress={() => void submitTranscript(manualText)}
-                  disabled={!canSendManual}
-                  style={[
-                    styles.sendButton,
-                    { backgroundColor: primaryColor },
-                    !canSendManual && styles.disabledButton,
-                  ]}
-                >
-                  <Text style={styles.sendButtonText}>Lähetä</Text>
-                </Pressable>
-              </View>
-
-              <View style={styles.actionRow}>
-                <View style={[styles.micPanel, { backgroundColor: palette.surface, borderColor: palette.border }]}>
-                  <WaveformMicRing
-                    phase={recorder.phase}
-                    amplitude={recorder.amplitude}
-                    themeMode={themeMode}
-                    size={260}
-                    onPress={handleMicTap}
-                    disabled={recorder.phase === 'uploading' || submitting || micBusy || !!feedbackReport}
-                  />
-                </View>
-                <Pressable
-                  onPress={() => void stopRoleplayAudioPlayback()}
-                  disabled={
-                    recorder.phase === 'recording' ||
-                    recorder.phase === 'uploading'
-                  }
-                  style={[
-                    styles.secondaryButton,
-                    isLight && {
-                      backgroundColor: palette.surfaceMuted,
-                      borderColor: palette.border,
-                    },
-                    (
-                      recorder.phase === 'recording' ||
-                      recorder.phase === 'uploading'
-                    ) && styles.disabledButton,
-                  ]}
-                >
-                  <Text
-                    style={[
-                      styles.secondaryButtonText,
-                      { color: mutedColor },
-                    ]}
-                  >
-                    Pysäytä toisto
-                  </Text>
-                </Pressable>
-              </View>
-              <Pressable
-                onPress={handleDownload}
-                style={[
-                  styles.secondaryButton,
-                  isLight && { backgroundColor: palette.surfaceMuted, borderColor: palette.border },
-                ]}
-              >
-                <Text style={[styles.secondaryButtonText, { color: mutedColor }]}>Lataa litteraatio</Text>
-              </Pressable>
-            </>
-          ) : null}
-
-          {/* ---- FEEDBACK REPORT ---- */}
-          {feedbackReport ? (
-            <ScrollView style={styles.reportScroll} showsVerticalScrollIndicator={false}>
-              <View style={[styles.reportCard, isLight && { backgroundColor: palette.surfaceMuted, borderColor: palette.border }]}>
-                <Text style={[styles.reportTitle, { color: textColor }]}>
-                  Sessioanalyysi
-                </Text>
-                <Text style={[styles.reportSummary, { color: mutedColor }]}>
-                  {feedbackReport.summary}
-                </Text>
-
-
-                {/* Preserve the detailed backend evaluation in the iOS experience.
-                    Do not infer a spoken-pronunciation score from text evidence. */}
-                {detailedEvaluation ? (
-                  <View style={[styles.phraseSection, { borderColor: cardBorder }]}>
-                    <Text style={[styles.phraseSectionTitle, { color: primaryColor }]}>
-                      AI-arvioitu harjoittelutaso
-                    </Text>
-                    <Text style={[styles.reportSummary, { color: textColor }]}>
-                      {displayRoleplayLevel(detailedEvaluation.estimatedLevel)}
-                    </Text>
-                    <Text style={[styles.obsLine, { color: mutedColor }]}>
-                      {detailedEvaluation.status === 'ready'
-                        ? 'AI-arvio valmis'
-                        : 'Rajoitettu vararaportti'}
-                      {' · '}Luottamus: {Math.round(detailedEvaluation.confidence * 100)} %
-                    </Text>
-                    <Text style={[styles.obsLine, { color: textColor }]}>
-                      {detailedEvaluation.overallSummary}
-                    </Text>
-                    <Text style={[styles.phraseSectionTitle, { color: textColor }]}>
-                      Ei virallinen YKI-tulos
-                    </Text>
-                    <Text style={[styles.obsLine, { color: mutedColor }]}>
-                      {detailedEvaluation.disclaimer}
-                    </Text>
-                    <Text style={[styles.obsLine, { color: mutedColor }]}>
-                      Ääntämistä ei arvioitu.
-                    </Text>
-                    <Text style={[styles.phraseSectionTitle, { color: textColor }]}>
-                      Arviointikriteerit
-                    </Text>
-                    {detailedEvaluation.criteria.map((criterion, index) => (
-                      <View key={`${criterion.id}-${index}`} style={styles.phraseSection}>
-                        <Text style={[styles.obsLine, { color: textColor }]}>
-                          {criterion.name}: {displayRoleplayScore(criterion.score)}
-                          {' · '}{displayRoleplayLevel(criterion.level)}
-                        </Text>
-                        <Text style={[styles.obsLine, { color: mutedColor }]}>
-                          {criterion.rationale}
-                        </Text>
-                        {criterion.evidence.map((evidence, evidenceIndex) => (
-                          <Text key={evidenceIndex} style={[styles.obsLine, { color: mutedColor }]}>
-                            • {evidence}
-                          </Text>
-                        ))}
-                      </View>
-                    ))}
-                    {detailedEvaluation.strengths.length ? (
-                      <View style={styles.phraseSection}>
-                        <Text style={[styles.phraseSectionTitle, { color: textColor }]}>Vahvuudet</Text>
-                        {detailedEvaluation.strengths.map((item, index) => (
-                          <Text key={index} style={[styles.obsLine, { color: mutedColor }]}>• {item}</Text>
-                        ))}
-                      </View>
-                    ) : null}
-                    {detailedEvaluation.improvements.length ? (
-                      <View style={styles.phraseSection}>
-                        <Text style={[styles.phraseSectionTitle, { color: textColor }]}>Kehityskohteet</Text>
-                        {detailedEvaluation.improvements.map((item, index) => (
-                          <Text key={index} style={[styles.obsLine, { color: mutedColor }]}>• {item}</Text>
-                        ))}
-                      </View>
-                    ) : null}
-                    {detailedEvaluation.corrections.length ? (
-                      <View style={styles.phraseSection}>
-                        <Text style={[styles.phraseSectionTitle, { color: textColor }]}>Korjaukset</Text>
-                        {detailedEvaluation.corrections.map((correction, index) => (
-                          <View key={index} style={styles.phraseSection}>
-                            <Text style={[styles.obsLine, { color: mutedColor }]}>
-                              {correction.original} → {correction.corrected}
-                            </Text>
-                            <Text style={[styles.obsLine, { color: mutedColor }]}>
-                              {correction.explanation}
-                            </Text>
-                          </View>
-                        ))}
-                      </View>
-                    ) : null}
-                    <Text style={[styles.phraseSectionTitle, { color: textColor }]}>
-                      Kolmen vaiheen harjoitussuunnitelma
-                    </Text>
-                    {detailedEvaluation.actionPlan.map((step, index) => (
-                      <Text key={index} style={[styles.obsLine, { color: mutedColor }]}>
-                        {index + 1}. {step}
-                      </Text>
-                    ))}
-                  </View>
-                ) : null}
-
-                {/* Score chips */}
-                <View style={styles.scoreRow}>
-                  <ScoreChip label="Avainsanat" value={`${feedbackReport.scores.avgPhrasesCoverage}/3`} color={primaryColor} />
-                  <ScoreChip label="Sanat/vuoro" value={`${feedbackReport.scores.avgWordCount}`} color={primaryColor} />
-                  <ScoreChip label="Korjauskieli" value={feedbackReport.scores.repairLanguageUsed ? '✓' : '–'} color={primaryColor} />
-                </View>
-
-                {/* Annotated transcript toggle */}
-                <Pressable
-                  onPress={() => setShowTranscriptReport((v) => !v)}
-                  style={[styles.toggleButton, { borderColor: cardBorder }]}
-                >
-                  <Text style={[styles.toggleButtonText, { color: primaryColor }]}>
-                    {showTranscriptReport ? 'Piilota litterointi' : 'Näytä kommentoitu litterointi'}
-                  </Text>
-                </Pressable>
-
-                {showTranscriptReport && (
-                  <View style={styles.transcriptReport}>
-                    {feedbackReport.transcriptAnnotated.map((turn, idx) => (
-                      <View key={idx} style={styles.annotatedTurn}>
-                        <Text style={[styles.annotatedSpeaker, { color: primaryColor }]}>
-                          {turn.speaker === 'AI' ? personaName : turn.speaker === 'USER' ? 'Sinä' : turn.speaker}
-                        </Text>
-                        <Text style={[styles.annotatedText, { color: textColor }]}>{turn.text}</Text>
-                        {turn.comment ? (
-                          <Text style={[styles.annotatedComment, { color: mutedColor }]}>
-                            💬 {turn.comment}
-                          </Text>
-                        ) : null}
-                      </View>
-                    ))}
-                  </View>
-                )}
-
-                {/* Strong / difficult phrases */}
-                {feedbackReport.strongPhrases.length ? (
-                  <View style={styles.phraseSection}>
-                    <Text style={[styles.phraseSectionTitle, { color: textColor }]}>Vahvat ilmaisut ✓</Text>
-                    <Text style={[styles.phraseList, { color: mutedColor }]}>
-                      {feedbackReport.strongPhrases.join(' · ')}
-                    </Text>
-                  </View>
-                ) : null}
-                {feedbackReport.difficultPhrases.length ? (
-                  <View style={styles.phraseSection}>
-                    <Text style={[styles.phraseSectionTitle, { color: textColor }]}>Harjoiteltavat ilmaisut</Text>
-                    <Text style={[styles.phraseList, { color: mutedColor }]}>
-                      {feedbackReport.difficultPhrases.join(' · ')}
-                    </Text>
-                  </View>
-                ) : null}
-
-                {/* Grammar observations */}
-                {feedbackReport.grammarObservations.length ? (
-                  <View style={styles.phraseSection}>
-                    <Text style={[styles.phraseSectionTitle, { color: textColor }]}>Kielioppihuomiot</Text>
-                    {feedbackReport.grammarObservations.map((obs, i) => (
-                      <Text key={i} style={[styles.obsLine, { color: mutedColor }]}>• {obs}</Text>
-                    ))}
-                  </View>
-                ) : null}
-
-                {/* Next steps */}
-                {feedbackReport.nextSteps.length ? (
-                  <View style={styles.phraseSection}>
-                    <Text style={[styles.phraseSectionTitle, { color: textColor }]}>Seuraavat askeleet</Text>
-                    {feedbackReport.nextSteps.map((step, i) => (
-                      <Text key={i} style={[styles.obsLine, { color: mutedColor }]}>{i + 1}. {step}</Text>
-                    ))}
-                  </View>
-                ) : null}
-
-                {/* Retention surface — streak, next-scenario CTA, share, secondaries */}
-                <SessionCompletion
-                  personaName={personaName}
-                  profession={profession}
-                  completedScenarioId={feedbackReport.scenario?.id ?? scenario?.id ?? null}
-                  completedScenarioTitle={feedbackReport.scenario?.title ?? scenario?.title ?? null}
-                  onStartSession={(id) => { void startSession(id); }}
-                  onDownloadReport={handleDownload}
-                  palette={{
-                    text: textColor,
-                    muted: mutedColor,
-                    primary: primaryColor,
-                    border: cardBorder,
-                    surface: cardBg,
-                    success: palette.success,
-                    textOnPrimary,
-                  }}
-                />
-              </View>
-            </ScrollView>
-          ) : null}
-        </View>
-      </ScrollView>
+    <SafeAreaView style={styles.voiceSafeArea}>
+      <VoiceConversationExperience
+        amplitude={recorder.amplitude}
+        assistantLabel={assistantDisplayName}
+        canSendManual={canSendManual}
+        completionSummary={feedbackReport?.summary ?? null}
+        headerSubtitle={`${conversationTopic} · ${levelBand}`}
+        headerTitle={scenario?.title ?? 'Speaking practice'}
+        manualText={manualText}
+        messages={messages}
+        micDisabled={
+          loading ||
+          submitting ||
+          micBusy ||
+          recorder.phase === 'uploading' ||
+          Boolean(feedbackReport)
+        }
+        onBack={onBack}
+        onChangeManualText={setManualText}
+        onDownloadTranscript={handleDownload}
+        onEnterTextMode={() => {
+          setTextMode(true);
+          if (conversationUiState === 'aiSpeaking') {
+            void stopRoleplayAudioPlayback();
+            setConversationUiState('userListening');
+          }
+        }}
+        onExitTextMode={() => setTextMode(false)}
+        onMicPress={handleMicTap}
+        onNextConversation={() => {
+          if (scenarioId) {
+            onBack();
+          } else {
+            void startSession();
+          }
+        }}
+        onReplayAudio={latestAssistantMessage ? replayLatestAssistant : undefined}
+        onReplayConversation={() => {
+          void startSession(
+            feedbackReport?.scenario?.id ??
+            scenario?.id ??
+            scenarioId ??
+            undefined,
+          );
+        }}
+        onSendManual={() => void submitTranscript(manualText)}
+        state={resolvedUiState}
+        statusMessage={statusMessage}
+        textMode={textMode}
+      />
     </SafeAreaView>
   );
 }
@@ -1635,6 +1434,7 @@ const scoreChipStyles = StyleSheet.create({
 // --------------------------------------------------------------------------
 
 const styles = StyleSheet.create({
+  voiceSafeArea: { flex: 1, backgroundColor: '#F8FBFF' },
   safeArea: { flex: 1, backgroundColor: colors.bg },
   screenScroll: { flex: 1 },
   screenContent: {
