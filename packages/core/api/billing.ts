@@ -1,4 +1,4 @@
-import { apiClient } from './client';
+import { apiClient, postData } from './client';
 import { normalizeSubscriptionStatus, type BillingPeriod, type CheckoutPathway, type ProfessionKey, type SubscriptionStatus } from './entitlements';
 
 function unwrapPayload<T = unknown>(value: unknown): T {
@@ -72,7 +72,30 @@ export async function trackUsageEvent(payload: {
   return unwrapPayload(res.data);
 }
 
-export async function createPortalSession() {
-  const res = await apiClient.post('/api/v1/subscription/portal', {});
+
+export type StoreSubscriptionSyncPayload = {
+  platform?: string;
+  plan?: string;
+  plan_id?: string;
+  planId?: string;
+  package_id?: string;
+  packageId?: string;
+  billing_period?: BillingPeriod;
+  billingPeriod?: BillingPeriod;
+  selected_professions?: ProfessionKey[];
+  selectedProfessions?: ProfessionKey[];
+  professions?: ProfessionKey[];
+  active_entitlements?: string[];
+  activeEntitlements?: string[];
+  customer_info?: unknown;
+  customerInfo?: unknown;
+};
+
+export async function syncStoreSubscription(payload: StoreSubscriptionSyncPayload) {
+  const res = await apiClient.post('/api/v1/subscription/store/sync', payload);
   return unwrapPayload(res.data);
+}
+
+export async function createPortalSession() {
+  return postData<{ url: string | null; portal_url: string | null }>('/api/v1/subscription/portal', {});
 }

@@ -1,0 +1,72 @@
+[
+  {
+    "id": "production_20260816_doctor_followup_turn_2",
+    "source": "production_incident_2026-08-16",
+    "profession": "doctor",
+    "scenario_id": "doctor_follow_up_explanation",
+    "learner_role": "doctor",
+    "counterpart_role": "patient",
+    "expected_violation": true,
+    "text": "Hyvä, voimme jatkaa. Seuraava vaihe on tutkimus. Voitko kertoa, mitä odotat seuraavalta käynniltä?"
+  },
+  {
+    "id": "production_20260816_doctor_followup_turn_4",
+    "source": "production_incident_2026-08-16",
+    "profession": "doctor",
+    "scenario_id": "doctor_follow_up_explanation",
+    "learner_role": "doctor",
+    "counterpart_role": "patient",
+    "expected_violation": true,
+    "text": "Ymmärrän, että haluat tietää enemmän. Seuraava vaihe on tutkimus, jossa tarkastamme tilanteesi tarkemmin. Onko sinulla kysymyksiä tästä prosessista?"
+  },
+  {
+    "id": "doctor_semantic_flip_examination_plural",
+    "source": "regression_paraphrase",
+    "profession": "doctor",
+    "scenario_id": "doctor_follow_up_explanation",
+    "learner_role": "doctor",
+    "counterpart_role": "patient",
+    "expected_violation": true,
+    "text": "Tutkimme sinut seuraavaksi ja käymme sitten tulokset yhdessä läpi."
+  },
+  {
+    "id": "doctor_semantic_flip_decision",
+    "source": "regression_paraphrase",
+    "profession": "doctor",
+    "scenario_id": "doctor_follow_up_explanation",
+    "learner_role": "doctor",
+    "counterpart_role": "patient",
+    "expected_violation": true,
+    "text": "Käydään ensin oireesi läpi ja sitten päätän, tarvitaanko lisätutkimuksia."
+  },
+  {
+    "id": "doctor_semantic_flip_patient_target",
+    "source": "regression_paraphrase",
+    "profession": "doctor",
+    "scenario_id": "doctor_follow_up_explanation",
+    "learner_role": "doctor",
+    "counterpart_role": "patient",
+    "expected_violation": true,
+    "text": "Kerron sinulle tutkimuksen jälkeen, miten sinun kannattaa edetä."
+  },
+  {
+    "id": "doctor_safe_patient_concern",
+    "source": "positive_control",
+    "profession": "doctor",
+    "scenario_id": "doctor_follow_up_explanation",
+    "learner_role": "doctor",
+    "counterpart_role": "patient",
+    "expected_violation": false,
+    "text": "Minua huolestuttaa tämä oire, koska se alkoi jo eilen illalla."
+  },
+  {
+    "id": "doctor_safe_patient_clarification",
+    "source": "positive_control",
+    "profession": "doctor",
+    "scenario_id": "doctor_follow_up_explanation",
+    "learner_role": "doctor",
+    "counterpart_role": "patient",
+    "expected_violation": false,
+    "text": "Voin kertoa tarkemmin, miltä kipu tuntuu ja milloin se alkoi."
+  }
+]

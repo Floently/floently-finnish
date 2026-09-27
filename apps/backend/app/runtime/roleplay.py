@@ -10,13 +10,24 @@ from app.core.errors import AppError
 from app.core.state_store import STORE
 from app.core.utils import iso_now, new_id, parse_iso, utc_now
 from app.runtime.finnish_personas import pick_persona
-from app.services.roleplay_ai_service import generate_ai_roleplay_reply
+from app.runtime.roleplay_missions import select_roleplay_mission
+from app.services.roleplay_ai_service import (
+    generate_ai_roleplay_reply,
+    validate_ai_roleplay_reply,
+    _violates_role_contract,
+)
+from app.services.roleplay_contract import (
+    PROFESSIONAL_LEARNER_ROLES,
+    build_role_contract,
+)
+from app.services.roleplay_evaluation_service import evaluate_roleplay_session
 
 ROLEPLAY_STAGE_BY_TURN = {0: "OPENING", 1: "ACTIVE_1", 2: "ACTIVE_2", 3: "ACTIVE_3", 4: "ACTIVE_4", 5: "COMPLETE"}
 
 # Three CEFR-grouped buckets the system supports. Used as keys in per-level scenario
 # variants. Anything not in this set is normalized to "B1-B2" by _normalize_level.
 LEVEL_BANDS: tuple[str, ...] = ("A1-A2", "B1-B2", "C1-C2")
+ROLEPLAY_MODES: tuple[str, ...] = ("everyday", "workplace", "yki", "professional", "interview")
 
 
 def _seed_int(seed: str) -> int:
@@ -53,6 +64,7 @@ class ScenarioSpec:
     scenario_id: str
     profession: str
     track: str
+    roleplay_mode: str
     title: str
     persona_name: str
     intro: str
@@ -120,6 +132,7 @@ def _spec(
     voice_profile: str,
     levels: dict[str, LevelVariant],
     interview_mode: bool = False,
+    roleplay_mode: str | None = None,
 ) -> ScenarioSpec:
     """Construct a ScenarioSpec and auto-fill legacy fields from the B1-B2 variant.
 
@@ -133,10 +146,23 @@ def _spec(
     legacy_opener = base.openers[0] if base.openers else ""
     legacy_turns = tuple(slot[0] if slot else "" for slot in base.assistant_turns)
     legacy_closing = base.closing_texts[0] if base.closing_texts else ""
+    resolved_mode = str(roleplay_mode or "").strip().lower()
+    if not resolved_mode:
+        if interview_mode:
+            resolved_mode = "interview"
+        elif track == "professional":
+            resolved_mode = "professional"
+        elif scenario_id == "general_everyday_conversation":
+            resolved_mode = "everyday"
+        else:
+            resolved_mode = "workplace"
+    if resolved_mode not in ROLEPLAY_MODES:
+        raise ValueError(f"ScenarioSpec {scenario_id} has invalid roleplay mode {resolved_mode}")
     return ScenarioSpec(
         scenario_id=scenario_id,
         profession=profession,
         track=track,
+        roleplay_mode=resolved_mode,
         title=title,
         persona_name=persona_name,
         intro=intro,
@@ -150,12 +176,177 @@ def _spec(
         closing_text=legacy_closing,
     )
 
+def _mode_scenario(
+    *,
+    scenario_id: str,
+    roleplay_mode: str,
+    title: str,
+    intro: str,
+    key_phrases: tuple[str, ...],
+    grammar_tip: str,
+    opening_a1: str,
+    opening_b1: str,
+    opening_c1: str,
+) -> ScenarioSpec:
+    """Build a compact general-Finnish scenario with clear CEFR progression.
+
+    These scenarios are intentionally deterministic and mode-owned. The topic
+    stays fixed while the interaction demand rises from short concrete A1-A2
+    turns to justified/negotiated C1-C2 turns.
+    """
+    return _spec(
+        scenario_id=scenario_id,
+        profession="general",
+        track="general",
+        roleplay_mode=roleplay_mode,
+        title=title,
+        persona_name="Conversation partner" if roleplay_mode in {"everyday", "yki"} else "Workplace colleague",
+        intro=intro,
+        key_phrases=key_phrases,
+        grammar_tip=grammar_tip,
+        voice_profile="yki_standard_female",
+        levels={
+            "A1-A2": LevelVariant(
+                openers=(opening_a1,),
+                assistant_turns=(
+                    ("Kerro yksi tärkeä asia.", "Mitä tapahtui?"),
+                    ("Mitä tarvitset nyt?", "Mikä olisi hyvä ratkaisu?"),
+                    ("Voitko sanoa sen vielä lyhyesti?", "Mitä sovitaan?"),
+                    ("Hyvä. Tee lopuksi lyhyt yhteenveto.",),
+                ),
+                closing_texts=("Kiitos. Asia tuli ymmärretyksi.",),
+            ),
+            "B1-B2": LevelVariant(
+                openers=(opening_b1,),
+                assistant_turns=(
+                    ("Voitko tarkentaa, mikä tässä on tärkein ongelma tai tavoite?",),
+                    ("Mitä vaihtoehtoja näet, ja mikä niistä sopisi parhaiten?",),
+                    ("Miten perustelisit ratkaisun toiselle osapuolelle?",),
+                    ("Tiivistä lopuksi, mitä sovittiin ja mitä tapahtuu seuraavaksi.",),
+                ),
+                closing_texts=("Hyvä. Perustelit tilanteen selkeästi ja eteneminen jäi ymmärrettäväksi.",),
+            ),
+            "C1-C2": LevelVariant(
+                openers=(opening_c1,),
+                assistant_turns=(
+                    ("Erittele keskeinen tavoite, rajoitteet ja se, mikä vaatii eniten harkintaa.",),
+                    ("Vertaa vaihtoehtoja ja perustele, mitä kompromisseja niihin liittyy.",),
+                    ("Miten muotoilisit ratkaisun niin, että myös vastapuolen näkökulma tulee huomioiduksi?",),
+                    ("Tee lopuksi täsmällinen yhteenveto päätöksestä, vastuista ja seuraavista vaiheista.",),
+                ),
+                closing_texts=("Kiitos. Keskustelu oli jäsennelty, perusteltu ja tilanteeseen sopivan täsmällinen.",),
+            ),
+        },
+    )
+
+
 _ROLEPLAY_REGISTRY: dict[str, tuple[ScenarioSpec, ...]] = {
     # ───────────────────────────────────────────────────────────────────────────
     # GENERAL — non-medical workplace context. AI is a supervisor or team lead;
     # user is a generic worker. No clinical vocabulary.
     # ───────────────────────────────────────────────────────────────────────────
     "general": (
+        _spec(
+            scenario_id="general_everyday_conversation",
+            profession="general",
+            track="general",
+            title="Everyday Finnish conversation",
+            persona_name="Conversation partner",
+            intro="Harjoittelet tavallista arjen keskustelua Suomessa. Tilanne voi olla kaupassa, ajanvarauksessa, naapurustossa, asiakaspalvelussa tai muussa arkisessa paikassa.",
+            key_phrases=("tervehdys", "kysymys", "selvennys", "kiitos"),
+            grammar_tip="Käytä lyhyitä kohteliaita lauseita: kysy, tarkenna ja vastaa omin sanoin.",
+            voice_profile="yki_standard_female",
+            levels={
+                "A1-A2": LevelVariant(
+                    openers=(
+                        "Hei! Miten voin auttaa sinua tänään?",
+                        "Hei. Mitä asiaa sinulla on?",
+                        "Hyvää päivää. Kerro lyhyesti, mitä tarvitset.",
+                        "Hei! Aloitetaan rauhassa. Mitä haluat kysyä?",
+                    ),
+                    assistant_turns=(
+                        ("Selvä. Voitko sanoa sen vielä vähän tarkemmin?", "Hyvä. Kerro vielä yksi asia.", "Selvä. Mitä tarkoitat?"),
+                        ("Hyvä. Milloin tämä sopii sinulle?", "Selvä. Tarvitsetko sen tänään vai myöhemmin?", "Hyvä. Mikä aika sopii?"),
+                        ("Selvä. Onko sinulla vielä kysymys?", "Hyvä. Haluatko tarkistaa jotain?", "Selvä. Tarvitsetko apua vielä?"),
+                        ("Kiitos. Sano lopuksi lyhyesti, mitä sovimme.", "Hyvä. Tee lyhyt yhteenveto.", "Kiitos. Kerro vielä lopuksi tärkein asia."),
+                    ),
+                    closing_texts=(
+                        "Kiitos. Keskustelu meni hyvin.",
+                        "Hyvä. Puhuit selkeästi.",
+                        "Kiitos. Asia tuli ymmärretyksi.",
+                    ),
+                ),
+                "B1-B2": LevelVariant(
+                    openers=(
+                        "Hei. Miten voin auttaa? Kerro omin sanoin, mitä asia koskee.",
+                        "Hyvää päivää. Aloita kertomalla, mitä tarvitset ja mihin tilanteeseen apua haet.",
+                        "Hei. Kerro ensin lyhyesti taustatilanne, niin katsotaan asiaa yhdessä.",
+                        "Tervetuloa. Mistä haluaisit keskustella tänään?",
+                    ),
+                    assistant_turns=(
+                        (
+                            "Ymmärrän. Voisitko tarkentaa, mikä tässä on sinulle tärkeintä?",
+                            "Selvä. Kerro vielä, mikä vaihtoehto olisi sinulle paras.",
+                            "Hyvä. Mikä asia tässä pitäisi ratkaista ensin?",
+                        ),
+                        (
+                            "Selvä. Jos tämä ei onnistu heti, mikä toinen ratkaisu sopisi sinulle?",
+                            "Hyvä. Miten haluaisit edetä tässä tilanteessa?",
+                            "Ymmärrän. Mikä aikataulu olisi sinulle realistinen?",
+                        ),
+                        (
+                            "Hyvä. Haluatko vielä varmistaa jonkin yksityiskohdan?",
+                            "Selvä. Onko jokin kohta vielä epäselvä?",
+                            "Ymmärrän. Mitä kysyisit vielä ennen kuin päätät?",
+                        ),
+                        (
+                            "Kiitos. Tee lopuksi lyhyt yhteenveto siitä, mitä sovimme ja mitä tapahtuu seuraavaksi.",
+                            "Hyvä. Kerro lopuksi omin sanoin, mikä on seuraava askel.",
+                            "Kiitos. Tiivistä vielä keskustelun tärkein tulos.",
+                        ),
+                    ),
+                    closing_texts=(
+                        "Hyvä. Keskustelu oli selkeä ja arkeen sopiva.",
+                        "Kiitos. Pystyit tarkentamaan asiaa luontevasti.",
+                        "Hyvä työ. Sait asiasi esille ymmärrettävästi.",
+                    ),
+                ),
+                "C1-C2": LevelVariant(
+                    openers=(
+                        "Hei. Kerro vapaasti, mikä tilanne on ja millaista ratkaisua haet.",
+                        "Hyvää päivää. Kuvaile asia kokonaisuutena: tausta, tarve ja toivottu lopputulos.",
+                        "Hei. Aloitetaan siitä, miten itse näet tilanteen ja mikä olisi sinulle toimiva ratkaisu.",
+                    ),
+                    assistant_turns=(
+                        (
+                            "Hyvä kuvaus. Miten perustelisit toiveesi, jos vaihtoehtoja on useita?",
+                            "Selkeästi sanottu. Mitkä yksityiskohdat ovat tässä neuvottelun kannalta olennaisia?",
+                            "Ymmärrän. Miten muotoilisit asian kohteliaasti mutta napakasti?",
+                        ),
+                        (
+                            "Selvä. Jos vastapuoli ehdottaa toista ratkaisua, miten vastaisit rakentavasti?",
+                            "Hyvä. Millaisen kompromissin voisit hyväksyä?",
+                            "Ymmärrän. Miten pidät keskustelun asiallisena, jos tilanne pitkittyy?",
+                        ),
+                        (
+                            "Hyvä. Mitä haluaisit vielä varmistaa ennen lopullista sopimista?",
+                            "Selvä. Miten tarkistaisit, että molemmat ymmärtävät asian samalla tavalla?",
+                            "Hyvä. Millä tavalla pyytäisit vahvistuksen kirjallisesti tai suullisesti?",
+                        ),
+                        (
+                            "Kiitos. Tee lopuksi tiivis, kohtelias yhteenveto sovitusta asiasta ja seuraavista vaiheista.",
+                            "Hyvä. Päätä keskustelu niin, että vastapuolelle jää selkeä kuva jatkosta.",
+                            "Kiitos. Muotoile lopuksi lyhyt yhteenveto, joka sopii arjen viralliseen tilanteeseen.",
+                        ),
+                    ),
+                    closing_texts=(
+                        "Hyvä. Keskustelu oli luonteva, täsmällinen ja tilanteeseen sopiva.",
+                        "Kiitos. Perustelit asiasi selkeästi ja kohteliaasti.",
+                        "Hyvä työ. Pidit keskustelun jäsenneltynä ilman että se kuulosti liian muodolliselta.",
+                    ),
+                ),
+            },
+        ),
         _spec(
             scenario_id="general_supervisor_instruction",
             profession="general",
@@ -357,6 +548,237 @@ _ROLEPLAY_REGISTRY: dict[str, tuple[ScenarioSpec, ...]] = {
                     ),
                 ),
             },
+        ),
+        _mode_scenario(
+            scenario_id="everyday_housing_maintenance",
+            roleplay_mode="everyday",
+            title="Housing maintenance",
+            intro="Harjoittelet asunnon huoltoasian selittämistä ja korjauskäynnistä sopimista.",
+            key_phrases=("asunto", "huolto", "vika", "korjaus"),
+            grammar_tip="Kuvaa ensin ongelma, sitten sen vaikutus ja lopuksi toivottu ratkaisu.",
+            opening_a1="Hei. Kerro, mikä asunnossa ei toimi.",
+            opening_b1="Hei. Kuvaile asunnon ongelma ja kerro, kuinka kiireellinen se mielestäsi on.",
+            opening_c1="Hei. Kuvaa huoltoasia, sen vaikutus asumiseen ja perustele, millaista reagointia tilanne edellyttää.",
+        ),
+        _mode_scenario(
+            scenario_id="everyday_transport_problem",
+            roleplay_mode="everyday",
+            title="Public transport problem",
+            intro="Harjoittelet matkaan, lippuun tai viivästykseen liittyvän ongelman selvittämistä.",
+            key_phrases=("lippu", "matka", "myöhässä", "hyvitys"),
+            grammar_tip="Kerro tapahtumat aikajärjestyksessä ja varmista lopuksi sovittu ratkaisu.",
+            opening_a1="Hei. Mikä matkassa tai lipussa on ongelma?",
+            opening_b1="Hei. Kerro, mitä matkalla tapahtui ja millaista ratkaisua tarvitset.",
+            opening_c1="Hei. Kuvaa matkustustilanne täsmällisesti ja perustele, millaista korjausta tai hyvitystä pidät kohtuullisena.",
+        ),
+        _mode_scenario(
+            scenario_id="workplace_schedule_change",
+            roleplay_mode="workplace",
+            title="Negotiate a schedule change",
+            intro="Harjoittelet työvuoron tai aikataulun muutoksesta keskustelemista rakentavasti.",
+            key_phrases=("aikataulu", "työvuoro", "sopia", "vaihtaa"),
+            grammar_tip="Perustele muutostarve ja ehdota vähintään yhtä toteuttamiskelpoista vaihtoehtoa.",
+            opening_a1="Hei. Haluat muuttaa työaikaa. Mikä aika ei sovi?",
+            opening_b1="Hei. Kerro, miksi nykyinen aikataulu ei toimi ja mitä vaihtoehtoa ehdotat.",
+            opening_c1="Hei. Perustele aikataulumuutoksen tarve ja arvioi samalla sen vaikutus tiimiin ja työn jatkuvuuteen.",
+        ),
+        _mode_scenario(
+            scenario_id="workplace_support_request",
+            roleplay_mode="workplace",
+            title="Request support at work",
+            intro="Harjoittelet avun pyytämistä ajoissa ja tehtävän rajaamista selkeästi.",
+            key_phrases=("apu", "tuki", "priorisoida", "määräaika"),
+            grammar_tip="Nimeä ongelma, mitä olet jo yrittänyt ja millaista tukea tarvitset.",
+            opening_a1="Hei. Tarvitset apua työssä. Missä asiassa?",
+            opening_b1="Hei. Kuvaile tehtävä, missä olet jumissa ja millaista tukea tarvitset.",
+            opening_c1="Hei. Erittele, mikä estää etenemisen, mitä olet jo selvittänyt ja mikä tuki olisi tehokkain seuraava askel.",
+        ),
+        _mode_scenario(
+            scenario_id="yki_service_complaint",
+            roleplay_mode="yki",
+            title="YKI-style service complaint",
+            intro="Harjoittelet palvelutilanteen ongelman kuvaamista, perustelemista ja ratkaisun pyytämistä.",
+            key_phrases=("haluan reklamoida", "ongelma", "ratkaisu", "hyvitys"),
+            grammar_tip="Pidä puheenvuoro tehtävän mukaisena: tilanne, perustelu, pyyntö ja lopetus.",
+            opening_a1="Hei. Palvelussa on ongelma. Kerro, mitä tapahtui.",
+            opening_b1="Hei. Kerro palvelutilanteen ongelma, miksi se haittaa sinua ja mitä ratkaisua toivot.",
+            opening_c1="Hei. Esitä reklamaatio jäsennellysti, perustele vaatimuksesi ja reagoi mahdolliseen vastaväitteeseen.",
+        ),
+        _mode_scenario(
+            scenario_id="yki_opinion_discussion",
+            roleplay_mode="yki",
+            title="YKI-style opinion discussion",
+            intro="Harjoittelet mielipiteen ilmaisemista, perustelua ja toisen näkökulmaan vastaamista.",
+            key_phrases=("mielestäni", "koska", "toisaalta", "olen eri mieltä"),
+            grammar_tip="Ilmaise kanta, anna perustelu ja reagoi toiseen näkökulmaan.",
+            opening_a1="Hei. Puhutaan arjen asiasta. Mitä mieltä olet?",
+            opening_b1="Hei. Kerro kantasi tähän arjen aiheeseen ja perustele se ainakin kahdella syyllä.",
+            opening_c1="Hei. Ota perusteltu kanta, huomioi vastakkainen näkökulma ja tarkenna, missä tilanteissa kantasi voisi muuttua.",
+        ),
+        _mode_scenario(
+            scenario_id="yki_planning_negotiation",
+            roleplay_mode="yki",
+            title="YKI-style planning and negotiation",
+            intro="Harjoittelet yhteisen suunnitelman tekemistä, vaihtoehtojen vertailua ja kompromissia.",
+            key_phrases=("ehdotan", "sopisiko", "vaihtoehto", "kompromissi"),
+            grammar_tip="Ehdota, kysy toisen mielipidettä, neuvottele ja vahvista lopputulos.",
+            opening_a1="Hei. Tehdään suunnitelma yhdessä. Mitä ehdotat?",
+            opening_b1="Hei. Meidän pitää sopia yhteinen suunnitelma. Tee ehdotus ja perustele se.",
+            opening_c1="Hei. Neuvotellaan yhteisestä suunnitelmasta: esitä ensisijainen vaihtoehto, arvioi sen haitat ja rakenna tarvittaessa kompromissi.",
+        ),
+        _mode_scenario(
+            scenario_id="everyday_shop_return",
+            roleplay_mode="everyday",
+            title="Return an item to a shop",
+            intro="Harjoittelet tuotteen palauttamista, syyn kertomista ja vaihdosta tai hyvityksestä sopimista.",
+            key_phrases=("palauttaa", "kuitti", "vaihto", "hyvitys"),
+            grammar_tip="Kerro mitä ostit, mikä ongelma on ja mitä ratkaisua toivot.",
+            opening_a1="Hei. Haluat palauttaa tuotteen. Mikä siinä on ongelma?",
+            opening_b1="Hei. Kerro, mitä haluat palauttaa, miksi ja millaista ratkaisua toivot.",
+            opening_c1="Hei. Esitä palautusasia täsmällisesti ja neuvottele sopiva ratkaisu, jos ensisijainen vaihtoehtosi ei onnistu.",
+        ),
+        _mode_scenario(
+            scenario_id="everyday_bill_question",
+            roleplay_mode="everyday",
+            title="Question a bill",
+            intro="Harjoittelet laskun epäselvän veloituksen selvittämistä ja korjauksesta sopimista.",
+            key_phrases=("lasku", "veloitus", "eräpäivä", "korjata"),
+            grammar_tip="Viittaa laskun tietoon, kuvaa ristiriita ja varmista korjaus sekä uusi eräpäivä.",
+            opening_a1="Hei. Laskussa on ongelma. Mikä maksu on väärin?",
+            opening_b1="Hei. Kerro, mikä laskussa näyttää väärältä ja mitä tietoa haluat tarkistaa.",
+            opening_c1="Hei. Yksilöi laskun ristiriita, perustele odottamasi korjaus ja varmista samalla maksun jatkokäsittely.",
+        ),
+        _mode_scenario(
+            scenario_id="everyday_appointment_change",
+            roleplay_mode="everyday",
+            title="Change an appointment",
+            intro="Harjoittelet ajan siirtämistä, vaihtoehtojen kysymistä ja uuden ajan vahvistamista.",
+            key_phrases=("ajanvaraus", "siirtää", "perua", "sopiva aika"),
+            grammar_tip="Kerro nykyinen aika, muutoksen syy ja kaksi sopivaa vaihtoehtoa.",
+            opening_a1="Hei. Haluat siirtää ajan. Milloin nykyinen aika on?",
+            opening_b1="Hei. Kerro, mitä aikaa haluat muuttaa ja milloin voisit tulla sen sijaan.",
+            opening_c1="Hei. Selitä muutostarve, neuvottele vaihtoehtoisista ajoista ja varmista uuden varauksen ehdot.",
+        ),
+        _mode_scenario(
+            scenario_id="everyday_neighbour_discussion",
+            roleplay_mode="everyday",
+            title="Talk with a neighbour",
+            intro="Harjoittelet arkisen asumisongelman ottamista puheeksi kohteliaasti ja ratkaisun sopimista.",
+            key_phrases=("voisimmeko", "häiritsee", "sopia", "kiitos"),
+            grammar_tip="Kuvaa havainto ilman syyttelyä, kerro vaikutus ja ehdota konkreettista kompromissia.",
+            opening_a1="Hei. Haluat puhua naapurin kanssa yhdestä ongelmasta. Mikä asia?",
+            opening_b1="Hei. Ota asumiseen liittyvä ongelma puheeksi kohteliaasti ja ehdota ratkaisua.",
+            opening_c1="Hei. Kuvaa häiriö neutraalisti, huomioi naapurin näkökulma ja neuvottele molemmille toimiva järjestely.",
+        ),
+        _mode_scenario(
+            scenario_id="everyday_school_contact",
+            roleplay_mode="everyday",
+            title="Contact a school or daycare",
+            intro="Harjoittelet lapsen koulu- tai päiväkotiasian selvittämistä henkilökunnan kanssa.",
+            key_phrases=("koulu", "päiväkoti", "viesti", "sopia"),
+            grammar_tip="Kerro asia, tarvittava tausta ja mitä haluat henkilökunnan kanssa sopia.",
+            opening_a1="Hei. Sinulla on asiaa koululle tai päiväkotiin. Mistä on kyse?",
+            opening_b1="Hei. Kerro, mitä lapsen arkeen liittyvää asiaa haluat selvittää ja mitä toivot seuraavaksi.",
+            opening_c1="Hei. Kuvaa tilanne rakentavasti, erottele havainto tulkinnasta ja sovi selkeä jatkotoimi henkilökunnan kanssa.",
+        ),
+        _mode_scenario(
+            scenario_id="workplace_meeting_contribution",
+            roleplay_mode="workplace",
+            title="Contribute in a meeting",
+            intro="Harjoittelet oman näkemyksen esittämistä kokouksessa ja muiden puheenvuoroihin reagointia.",
+            key_phrases=("ehdotan", "mielestäni", "tarkentaa", "sovitaan"),
+            grammar_tip="Liitä puheenvuorosi keskusteluun, perustele näkökulma ja tee selkeä ehdotus.",
+            opening_a1="Kokous alkaa. Mikä asia sinun pitää sanoa?",
+            opening_b1="Kokouksessa tarvitaan näkemyksesi. Esitä pääasia, perustelu ja ehdotus.",
+            opening_c1="Osallistu keskusteluun niin, että rakennat aiemman puheenvuoron päälle, tuot esiin riskin tai mahdollisuuden ja ehdotat päätöstä.",
+        ),
+        _mode_scenario(
+            scenario_id="workplace_customer_interaction",
+            roleplay_mode="workplace",
+            title="Handle a customer request",
+            intro="Harjoittelet asiakkaan tarpeen selvittämistä, rajojen kertomista ja ratkaisun tarjoamista.",
+            key_phrases=("asiakas", "tarve", "vaihtoehto", "ratkaisu"),
+            grammar_tip="Tarkenna pyyntö, kerro mitä voit tehdä ja varmista asiakkaan hyväksyntä.",
+            opening_a1="Asiakas tarvitsee apua. Kysy, mitä hän tarvitsee.",
+            opening_b1="Asiakas esittää pyynnön, jota pitää tarkentaa. Selvitä tarve ja ehdota ratkaisu.",
+            opening_c1="Selvitä asiakkaan todellinen tarve, sanoita mahdolliset rajoitteet diplomaattisesti ja tarjoa perusteltu vaihtoehto.",
+        ),
+        _mode_scenario(
+            scenario_id="workplace_feedback_conversation",
+            roleplay_mode="workplace",
+            title="Discuss feedback",
+            intro="Harjoittelet palautteen vastaanottamista, tarkentamista ja konkreettisesta kehitystoimesta sopimista.",
+            key_phrases=("palaute", "esimerkki", "kehittää", "sopia"),
+            grammar_tip="Kuuntele palaute, pyydä konkreettinen esimerkki ja sanoita seuraava muutos.",
+            opening_a1="Saat palautetta työstä. Mitä haluat kysyä?",
+            opening_b1="Saat palautetta, joka on hieman yleinen. Pyydä esimerkki ja sovi, mitä muutat.",
+            opening_c1="Käsittele ristiriitaistakin palautetta rakentavasti: erottele havainto tulkinnasta ja muodosta mitattava kehitystoimi.",
+        ),
+        _mode_scenario(
+            scenario_id="workplace_handover",
+            roleplay_mode="workplace",
+            title="Give a work handover",
+            intro="Harjoittelet keskeneräisen työn, riskien ja seuraavien tehtävien luovuttamista toiselle työntekijälle.",
+            key_phrases=("kesken", "valmis", "riski", "seuraavaksi"),
+            grammar_tip="Etene järjestyksessä: tilanne nyt, avoimet asiat, riskit ja seuraava omistaja.",
+            opening_a1="Vuoro vaihtuu. Kerro, mikä työ on valmis ja mikä on kesken.",
+            opening_b1="Anna selkeä luovutus: mikä on tehty, mikä on kesken ja mitä seuraavan työntekijän pitää huomioida.",
+            opening_c1="Tee päätöksentekoa tukeva luovutus, jossa erotat valmiit asiat, avoimet riskit, riippuvuudet ja seuraavat vastuut.",
+        ),
+        _mode_scenario(
+            scenario_id="yki_service_request",
+            roleplay_mode="yki",
+            title="YKI-style service request",
+            intro="Harjoittelet tavallista palvelupyyntöä, tarkentavia kysymyksiä ja lopputuloksen varmistamista.",
+            key_phrases=("tarvitsisin", "voisitteko", "milloin", "kiitos"),
+            grammar_tip="Aloita tilanteesta, esitä pyyntö, vastaa tarkennuksiin ja varmista lopputulos.",
+            opening_a1="Hei. Tarvitset palvelua. Mitä haluat?",
+            opening_b1="Hei. Olet palvelutilanteessa. Kerro tarpeesi ja varmista tärkeät käytännön tiedot.",
+            opening_c1="Hei. Hoida palvelupyyntö sujuvasti, tarkenna ehdot ja reagoi tilanteeseen, jos ensimmäinen ratkaisu ei ole mahdollinen.",
+        ),
+        _mode_scenario(
+            scenario_id="yki_unexpected_problem",
+            roleplay_mode="yki",
+            title="YKI-style unexpected problem",
+            intro="Harjoittelet yllättävään arjen ongelmaan reagoimista, tilanteen selittämistä ja ratkaisun neuvottelemista.",
+            key_phrases=("ongelma", "yllättäen", "mitä voimme tehdä", "sopia"),
+            grammar_tip="Kuvaa odottamaton muutos, sen vaikutus ja uusi ehdotus.",
+            opening_a1="Jokin meni yllättäen pieleen. Mitä tapahtui?",
+            opening_b1="Suunnitelma muuttui yllättäen. Selitä ongelma ja ehdota, miten tilanteesta voidaan jatkaa.",
+            opening_c1="Reagoi odottamattomaan ongelmaan joustavasti, arvioi vaihtoehdot ja neuvottele uusi toimintatapa.",
+        ),
+        _mode_scenario(
+            scenario_id="yki_information_request",
+            roleplay_mode="yki",
+            title="YKI-style information request",
+            intro="Harjoittelet olennaisen tiedon pyytämistä ja epäselvien vastausten tarkentamista.",
+            key_phrases=("haluaisin tietää", "tarkoitatteko", "voitteko tarkentaa", "ymmärsinkö oikein"),
+            grammar_tip="Kysy täsmällisesti, tarkenna tarvittaessa ja varmista, että ymmärsit vastauksen.",
+            opening_a1="Tarvitset tietoa. Mitä haluat kysyä?",
+            opening_b1="Tarvitset päätöstä varten lisätietoa. Kysy olennaiset asiat ja tarkenna epäselvä vastaus.",
+            opening_c1="Hanki puuttuva tieto tehokkaasti: rajaa kysymys, arvioi vastauksen riittävyys ja tee tarvittavat jatkokysymykset.",
+        ),
+        _mode_scenario(
+            scenario_id="yki_formal_register",
+            roleplay_mode="yki",
+            title="YKI-style formal register",
+            intro="Harjoittelet asiallista ja kohteliasta puhetta virallisemmassa palvelu- tai asiointitilanteessa.",
+            key_phrases=("haluaisin tiedustella", "olisiko mahdollista", "voisitteko", "kiitos avustanne"),
+            grammar_tip="Valitse kohtelias rekisteri, perustele pyyntö ja vältä liian tuttavallista ilmaisua.",
+            opening_a1="Olet virallisessa palvelutilanteessa. Esitä asiasi kohteliaasti.",
+            opening_b1="Hoida virallisempi asiointitilanne kohteliaasti ja perustele pyyntösi.",
+            opening_c1="Säädä rekisteri viralliseen tilanteeseen: muotoile pyyntö diplomaattisesti, perustele se ja reagoi institutionaalisiin rajoitteisiin.",
+        ),
+        _mode_scenario(
+            scenario_id="yki_informal_register",
+            roleplay_mode="yki",
+            title="YKI-style informal register",
+            intro="Harjoittelet luontevaa arkista vuorovaikutusta tuttavan kanssa ilman liian muodollista kieltä.",
+            key_phrases=("mitä kuuluu", "sopisiko", "hei muuten", "nähdään"),
+            grammar_tip="Pidä ilmaisu luontevana, reagoi toisen puheeseen ja vie keskustelua eteenpäin.",
+            opening_a1="Tapaat tutun. Aloita lyhyt arkinen keskustelu.",
+            opening_b1="Tapaat tutun ja haluat sopia yhteisestä tekemisestä. Aloita luontevasti ja neuvottele ajasta.",
+            opening_c1="Käy luonteva epämuodollinen keskustelu, jossa vaihdat aihetta sujuvasti, reagoit vihjeisiin ja sovit yhteisen suunnitelman.",
         ),
     ),
 
@@ -1158,6 +1580,159 @@ _ROLEPLAY_REGISTRY: dict[str, tuple[ScenarioSpec, ...]] = {
 
 _SCENARIO_BY_ID = {spec.scenario_id: spec for specs in _ROLEPLAY_REGISTRY.values() for spec in specs}
 
+_ROLEPLAY_POOLS: dict[tuple[str, str], tuple[ScenarioSpec, ...]] = {}
+for _scenario_spec in _SCENARIO_BY_ID.values():
+    _pool_key = (_scenario_spec.roleplay_mode, _scenario_spec.profession)
+    _ROLEPLAY_POOLS[_pool_key] = (
+        *_ROLEPLAY_POOLS.get(_pool_key, tuple()),
+        _scenario_spec,
+    )
+
+
+def _normalize_roleplay_mode(value: str | None) -> str:
+    raw = str(value or "").strip().lower().replace("_", "-")
+    aliases = {
+        "everyday-finnish": "everyday",
+        "general": "everyday",
+        "work": "workplace",
+        "workplace-finnish": "workplace",
+        "profession": "professional",
+        "professional-finnish": "professional",
+    }
+    normalized = aliases.get(raw, raw)
+    if normalized not in ROLEPLAY_MODES:
+        raise ValueError("ROLEPLAY_MODE_INVALID")
+    return normalized
+
+
+def roleplay_scenario_pool(*, roleplay_mode: str, profession: str) -> tuple[ScenarioSpec, ...]:
+    mode = _normalize_roleplay_mode(roleplay_mode)
+    normalized_profession = _normalize_profession(profession)
+    pool = _ROLEPLAY_POOLS.get((mode, normalized_profession), tuple())
+    if not pool:
+        raise ValueError(f"ROLEPLAY_MODE_POOL_EMPTY:{mode}:{normalized_profession}")
+    return pool
+
+
+def _roleplay_rotation_state_key(*, user_key: str, roleplay_mode: str, profession: str) -> str:
+    private_user_key = hashlib.sha256(
+        str(user_key or "preview").encode("utf-8")
+    ).hexdigest()[:24]
+    return f"roleplay_scenario_rotation:{private_user_key}:{roleplay_mode}:{profession}"
+
+
+def select_roleplay_scenario(
+    *,
+    user_key: str,
+    roleplay_mode: str,
+    profession: str,
+    explicit_scenario_id: str | None = None,
+) -> tuple[ScenarioSpec, list[str], str]:
+    """Select one scenario from a strict mode/profession shuffled bag."""
+    mode = _normalize_roleplay_mode(roleplay_mode)
+    normalized_profession = _normalize_profession(profession)
+    pool = roleplay_scenario_pool(
+        roleplay_mode=mode,
+        profession=normalized_profession,
+    )
+    catalog = [spec.scenario_id for spec in pool]
+
+    explicit_id = str(explicit_scenario_id or "").strip()
+    if explicit_id:
+        if explicit_id not in catalog:
+            raise ValueError(
+                f"ROLEPLAY_SCENARIO_OUTSIDE_POOL:{explicit_id}:{mode}:{normalized_profession}"
+            )
+        return _SCENARIO_BY_ID[explicit_id], catalog, "explicit_scenario"
+
+    state_key = _roleplay_rotation_state_key(
+        user_key=user_key,
+        roleplay_mode=mode,
+        profession=normalized_profession,
+    )
+
+    with STORE.locked(("user_content_history", state_key)):
+        previous = STORE.get(
+            "user_content_history",
+            state_key,
+            default=None,
+        )
+        state = dict(previous) if isinstance(previous, dict) else {}
+        stored_catalog = [
+            str(item).strip()
+            for item in state.get("catalog", [])
+            if str(item).strip()
+        ]
+        remaining = [
+            str(item).strip()
+            for item in state.get("remaining", [])
+            if str(item).strip() in catalog
+        ]
+        last_scenario_id = (
+            str(state.get("last_scenario_id") or "").strip()
+            or None
+        )
+        cycle = int(state.get("cycle") or 0)
+
+        if stored_catalog != catalog:
+            remaining = []
+
+        recycled = bool(
+            stored_catalog == catalog
+            and not remaining
+            and last_scenario_id
+        )
+
+        if not remaining:
+            cycle += 1
+            remaining = sorted(
+                catalog,
+                key=lambda scenario_id: _seed_int(
+                    f"{state_key}:{cycle}:{scenario_id}"
+                ),
+            )
+
+        if (
+            last_scenario_id
+            and len(remaining) > 1
+            and remaining[0] == last_scenario_id
+        ):
+            alternative_index = next(
+                (
+                    index
+                    for index, scenario_id in enumerate(remaining)
+                    if scenario_id != last_scenario_id
+                ),
+                0,
+            )
+            remaining[0], remaining[alternative_index] = (
+                remaining[alternative_index],
+                remaining[0],
+            )
+
+        selected_id = remaining.pop(0)
+        STORE.set(
+            "user_content_history",
+            state_key,
+            {
+                "catalog": catalog,
+                "remaining": remaining,
+                "last_scenario_id": selected_id,
+                "cycle": cycle,
+            },
+        )
+
+    try:
+        STORE.write_snapshot()
+    except Exception:
+        pass
+
+    return (
+        _SCENARIO_BY_ID[selected_id],
+        catalog,
+        "pool_recycled" if recycled else "unused_pool",
+    )
+
 
 def _external_status(status: str) -> str:
     return {"ACTIVE": "active", "COMPLETE": "completed", "EXPIRED": "expired"}.get(str(status or "").upper(), "active")
@@ -1206,28 +1781,26 @@ def _scenario_payload(spec: ScenarioSpec, level_band: str) -> dict[str, Any]:
         "levelBand": level_band,
         "profession": spec.profession,
         "track": spec.track,
+        "roleplayMode": spec.roleplay_mode,
         "personaName": spec.persona_name,
         "interviewMode": spec.interview_mode,
     }
 
 
-def _default_scenario_for_profession(profession: str, context_label: str | None = None) -> ScenarioSpec:
-    context = str(context_label or "").lower()
+def _default_scenario_for_profession(profession: str) -> ScenarioSpec:
+    """Legacy internal fallback only; display text never chooses content."""
     specs = _ROLEPLAY_REGISTRY.get(profession) or _ROLEPLAY_REGISTRY["general"]
-    if "interview" in context:
-        for spec in specs:
-            if spec.interview_mode:
-                return spec
     return specs[0]
 
 
 def _resolve_scenario(*, profession: str, scenario_id: str | None = None, context_label: str | None = None) -> ScenarioSpec:
+    del context_label
     profession = _normalize_profession(profession)
     if scenario_id:
         spec = _SCENARIO_BY_ID.get(str(scenario_id).strip())
-        if spec:
+        if spec and spec.profession == profession:
             return spec
-    return _default_scenario_for_profession(profession, context_label)
+    return _default_scenario_for_profession(profession)
 
 
 def _serialize_session(session: dict[str, Any]) -> dict[str, Any]:
@@ -1237,11 +1810,13 @@ def _serialize_session(session: dict[str, Any]) -> dict[str, Any]:
         "expires_at": session["expires_at"],
         "status": _external_status(session["status"]),
         "scenario": session["scenario"],
+        "mission": session.get("mission"),
         "level": session["level"],
         "progress": session["progress"],
         "messages": session["messages"],
         "ui": session["ui"],
         "profession": session.get("profession", "general"),
+        "roleplay_mode": session.get("roleplay_mode"),
         "persona_name": session.get("persona_name", "AI"),
         "persona_id": session.get("persona_id"),
         "persona_gender": session.get("persona_gender"),
@@ -1267,6 +1842,20 @@ def _feedback_line(spec: ScenarioSpec, transcript: str, missing: list[str], turn
 
 def _build_session(*, user_id: str, spec: ScenarioSpec, level_band: str, display_preferences: dict[str, Any] | None = None) -> dict[str, Any]:
     session_id = new_id("rp")
+
+    rotation_user_key = str(
+        (display_preferences or {}).get("_rotation_user_key")
+        or user_id
+        or "preview"
+    )
+
+    mission_payload = select_roleplay_mission(
+        user_key=rotation_user_key,
+        scenario_id=spec.scenario_id,
+        level_band=level_band,
+        session_seed=session_id,
+    )
+
     transcript_id = new_id("tr")
     review_id = new_id("rv")
     created_at = utc_now().replace(microsecond=0).isoformat()
@@ -1301,6 +1890,12 @@ def _build_session(*, user_id: str, spec: ScenarioSpec, level_band: str, display
     chosen_turns = selection["turns"]
     chosen_closing = selection["closing"]
 
+    if mission_payload:
+        chosen_opener = str(
+            mission_payload.get("openingText")
+            or chosen_opener
+        )
+
     opening = {
         "message_id": new_id("msg"),
         "speaker": "AI",
@@ -1310,6 +1905,20 @@ def _build_session(*, user_id: str, spec: ScenarioSpec, level_band: str, display
         "timestamp": iso_now(),
     }
     scenario = _scenario_payload(spec, level_band)
+
+    if mission_payload:
+        scenario.update(
+            {
+                "title": mission_payload["title"],
+                "prompt": mission_payload["prompt"],
+                "keyPhrases": mission_payload["usefulPhrases"],
+                "missionId": mission_payload["missionId"],
+                "setting": mission_payload["setting"],
+                "learnerGoal": mission_payload["learnerGoal"],
+                "complication": mission_payload["complication"],
+            }
+        )
+
     # Override the generic persona_name from the spec with the resolved Finnish persona
     scenario["personaName"] = persona_display
     scenario["personaId"] = persona.id
@@ -1321,8 +1930,22 @@ def _build_session(*, user_id: str, spec: ScenarioSpec, level_band: str, display
         "created_at": created_at,
         "expires_at": expires_at,
         "scenario": scenario,
+        "mission": mission_payload,
+        "role_contract": build_role_contract(
+            profession=spec.profession,
+            scenario_id=spec.scenario_id,
+            persona_name=persona_display,
+            counterpart_role=str(
+                (mission_payload or {}).get(
+                    "counterpartRole"
+                )
+                or spec.persona_name
+                or ""
+            ),
+        ),
         "level": level_band,
         "profession": spec.profession,
+        "roleplay_mode": str((display_preferences or {}).get("roleplay_mode") or spec.roleplay_mode),
         "persona_name": persona_display,
         "persona_id": persona.id,
         "persona_gender": persona.gender,
@@ -1368,6 +1991,365 @@ def _append_turn(session: dict[str, Any], *, speaker: str, text: str, stage: str
     return entry
 
 
+def _safe_professional_counterpart_fallback(
+    *,
+    session: dict[str, Any],
+    spec: ScenarioSpec,
+    user_message: str,
+    terminal_turn: bool,
+) -> str:
+    """Return a deterministic reply that preserves counterpart identity."""
+
+    profession = str(
+        session.get("profession")
+        or spec.profession
+    ).strip().lower()
+
+    message = " ".join(
+        str(
+            user_message
+            or ""
+        ).strip().lower().split()
+    )
+
+    mission = (
+        session.get("mission")
+        if isinstance(
+            session.get("mission"),
+            dict,
+        )
+        else {}
+    )
+
+    contract = (
+        session.get("role_contract")
+        if isinstance(
+            session.get("role_contract"),
+            dict,
+        )
+        else {}
+    )
+
+    counterpart_role = str(
+        contract.get("counterpart_role")
+        or mission.get("counterpartRole")
+        or spec.persona_name
+        or ""
+    ).strip()
+
+    counterpart = (
+        counterpart_role.lower()
+    )
+
+    is_recruiter = any(
+        marker in counterpart
+        for marker in (
+            "recruiter",
+            "rekrytoija",
+            "interviewer",
+            "haastattelija",
+        )
+    )
+
+    is_supervisor = any(
+        marker in counterpart
+        for marker in (
+            "supervisor",
+            "esihenkilö",
+            "manager",
+        )
+    )
+
+    is_nurse_peer = any(
+        marker in counterpart
+        for marker in (
+            "senior nurse",
+            "colleague",
+            "kollega",
+            "coworker",
+            "co-worker",
+        )
+    )
+
+    if terminal_turn:
+        if is_recruiter:
+            return (
+                "Kiitos haastattelusta. "
+                "Sain hyvän kokonaiskuvan "
+                "kokemuksestasi ja työotteestasi."
+            )
+
+        if is_nurse_peer:
+            return (
+                "Kiitos raportista. "
+                "Tärkeimmät asiat ovat nyt "
+                "selvät seuraavaa vuoroa varten."
+            )
+
+        if is_supervisor:
+            return (
+                "Kiitos raportista. "
+                "Tärkeimmät havainnot ja "
+                "jatkoseuranta ovat nyt selvät."
+            )
+
+        if profession == "practical_nurse":
+            return (
+                "Kiitos avusta. Minusta tuntuu "
+                "nyt rauhallisemmalta."
+            )
+
+        if profession in {
+            "doctor",
+            "nurse",
+        }:
+            return (
+                "Kiitos. Tämä keskustelu auttoi "
+                "minua kertomaan tilanteestani "
+                "paremmin."
+            )
+
+        return (
+            "Kiitos keskustelusta. "
+            "Tämä oli hyvä harjoitus."
+        )
+
+    if is_recruiter:
+        if profession == "nurse":
+            return (
+                "Kiitos. Kerro vielä yksi "
+                "konkreettinen esimerkki "
+                "tilanteesta, jossa vastasit "
+                "potilasturvallisuudesta."
+            )
+
+        if profession == "practical_nurse":
+            return (
+                "Kiitos. Kerro vielä yksi "
+                "konkreettinen esimerkki "
+                "tilanteesta, jossa autoit "
+                "asiakasta arjessa."
+            )
+
+        return (
+            "Kiitos. Kerro vielä yksi "
+            "konkreettinen esimerkki "
+            "työkokemuksestasi."
+        )
+
+    if is_nurse_peer:
+        return (
+            "Selvä. Kerro vielä tärkein muutos "
+            "potilaan voinnissa ja mitä "
+            "seuraavan vuoron pitää seurata."
+        )
+
+    if is_supervisor:
+        return (
+            "Selvä. Kerro vielä tärkein havainto "
+            "asiakkaan päivästä ja mitä "
+            "seuraavan vuoron pitää seurata."
+        )
+
+    if profession == "doctor":
+        if message in {
+            "i don't know",
+            "i dont know",
+            "en tiedä",
+            "mä en tiedä",
+            "mina en tieda",
+            "minä en tiedä",
+        }:
+            return (
+                "Ymmärrän. Minua huolestuttaa "
+                "tämä oire, koska se alkoi "
+                "eilen illalla."
+            )
+
+        return (
+            "Minua huolestuttaa tämä vaiva. "
+            "Voinko kertoa tarkemmin, "
+            "miltä se tuntuu?"
+        )
+
+    if profession == "nurse":
+        if message in {
+            "i don't know",
+            "i dont know",
+            "en tiedä",
+            "mä en tiedä",
+            "mina en tieda",
+            "minä en tiedä",
+        }:
+            return (
+                "Ymmärrän. Vointini on vähän "
+                "epävarma, ja haluaisin kertoa "
+                "siitä rauhassa."
+            )
+
+        return (
+            "Minulla on vähän huono olo. "
+            "Voinko kertoa, mitä tunnen juuri nyt?"
+        )
+
+    if profession == "practical_nurse":
+        if message in {
+            "i don't know",
+            "i dont know",
+            "en tiedä",
+            "mä en tiedä",
+            "mina en tieda",
+            "minä en tiedä",
+        }:
+            return (
+                "Ymmärrän. Tarvitsen hetken aikaa, "
+                "mutta voin yrittää kertoa, "
+                "mitä tarvitsen."
+            )
+
+        return (
+            "Voisitko auttaa minua hetken? "
+            "Haluaisin kertoa, mikä minua vaivaa."
+        )
+
+    return (
+        "Ymmärrän. Voit jatkaa lyhyesti "
+        "suomeksi, ja minä vastaan tilanteen mukaan."
+    )
+
+
+def _generate_role_safe_ai_result(
+    *,
+    session: dict[str, Any],
+    spec: ScenarioSpec,
+    user_message: str,
+    missing_phrases: list[str],
+    fallback_text: str,
+    feedback_fallback: str,
+    terminal_turn: bool,
+) -> tuple[dict[str, Any] | None, str]:
+    first_candidate = generate_ai_roleplay_reply(
+        session=session,
+        spec=spec,
+        user_message=user_message,
+        missing_phrases=missing_phrases,
+        fallback_text=fallback_text,
+        feedback_fallback=feedback_fallback,
+        terminal_turn=terminal_turn,
+    )
+
+    if not (
+        first_candidate
+        and str(
+            first_candidate.get("ai_text")
+            or ""
+        ).strip()
+    ):
+        return (
+            None,
+            "generation_unavailable",
+        )
+
+    first_validation = (
+        validate_ai_roleplay_reply(
+            session=session,
+            spec=spec,
+            ai_text=str(
+                first_candidate["ai_text"]
+            ),
+            user_message=user_message,
+        )
+    )
+
+    first_status = str(
+        first_validation.get("status")
+        or "uncertain"
+    )
+
+    if first_status == "valid":
+        return (
+            first_candidate,
+            "validated",
+        )
+
+    if first_status != "invalid":
+        return (
+            None,
+            f"validator_{first_status}",
+        )
+
+    retry_candidate = generate_ai_roleplay_reply(
+        session=session,
+        spec=spec,
+        user_message=user_message,
+        missing_phrases=missing_phrases,
+        fallback_text=fallback_text,
+        feedback_fallback=feedback_fallback,
+        terminal_turn=terminal_turn,
+        role_repair_context={
+            "rejected_reason": str(
+                first_validation.get("reason")
+                or "role_contract_violation"
+            ),
+            "required_action": (
+                "Stay strictly in the "
+                "scenario counterpart role."
+            ),
+        },
+    )
+
+    if not (
+        retry_candidate
+        and str(
+            retry_candidate.get("ai_text")
+            or ""
+        ).strip()
+    ):
+        return (
+            None,
+            "retry_generation_unavailable",
+        )
+
+    retry_validation = (
+        validate_ai_roleplay_reply(
+            session=session,
+            spec=spec,
+            ai_text=str(
+                retry_candidate["ai_text"]
+            ),
+            user_message=user_message,
+        )
+    )
+
+    retry_status = str(
+        retry_validation.get("status")
+        or "uncertain"
+    )
+
+    if retry_status != "valid":
+        return (
+            None,
+            f"retry_{retry_status}",
+        )
+
+    accepted = dict(
+        retry_candidate
+    )
+
+    accepted["engine_mode"] = (
+        str(
+            accepted.get("engine_mode")
+            or "openai_b_lite"
+        )
+        + "_role_retry"
+    )
+
+    return (
+        accepted,
+        "retry_validated",
+    )
+
+
 def _submit_session_turn(*, user_id: str, session_id: str, user_message: str) -> dict[str, Any]:
     message = str(user_message or "").strip()
     if not message:
@@ -1396,25 +2378,149 @@ def _submit_session_turn(*, user_id: str, session_id: str, user_message: str) ->
         scripted_fallback_text = scripted_closing if terminal_turn else scripted_turns[completed - 1]
         engine_mode = "scripted_fallback"
 
-        ai_result = generate_ai_roleplay_reply(
-            session=session,
-            spec=spec,
-            user_message=message,
-            missing_phrases=missing,
-            fallback_text=scripted_fallback_text,
-            feedback_fallback=feedback_line,
-            terminal_turn=terminal_turn,
+        ai_result, role_resolution = (
+            _generate_role_safe_ai_result(
+                session=session,
+                spec=spec,
+                user_message=message,
+                missing_phrases=missing,
+                fallback_text=scripted_fallback_text,
+                feedback_fallback=feedback_line,
+                terminal_turn=terminal_turn,
+            )
         )
 
-        if ai_result and ai_result.get("ai_text"):
-            ai_text = str(ai_result["ai_text"]).strip()
-            feedback_line = str(ai_result.get("feedback_line") or feedback_line).strip()
-            returned_missing = ai_result.get("missing_phrases")
-            if isinstance(returned_missing, list):
-                missing = [str(item).strip() for item in returned_missing if str(item).strip()]
-            engine_mode = str(ai_result.get("engine_mode") or "openai_b_lite")
+        profession = str(
+            session.get("profession")
+            or spec.profession
+        ).strip().lower()
+
+        scenario_id = str(
+            (
+                session.get("scenario")
+                or {}
+            ).get("scenario_id")
+            or spec.scenario_id
+        )
+
+        mission = (
+            session.get("mission")
+            if isinstance(
+                session.get("mission"),
+                dict,
+            )
+            else {}
+        )
+
+        counterpart_role = str(
+            mission.get("counterpartRole")
+            or spec.persona_name
+            or ""
+        )
+
+        role_contract = session.get(
+            "role_contract"
+        )
+
+        if not isinstance(
+            role_contract,
+            dict,
+        ):
+            role_contract = build_role_contract(
+                profession=profession,
+                scenario_id=scenario_id,
+                persona_name=str(
+                    session.get("persona_name")
+                    or "AI"
+                ),
+                counterpart_role=counterpart_role,
+            )
+
+        if (
+            ai_result
+            and ai_result.get("ai_text")
+        ):
+            ai_text = str(
+                ai_result["ai_text"]
+            ).strip()
+
+            feedback_line = str(
+                ai_result.get("feedback_line")
+                or feedback_line
+            ).strip()
+
+            returned_missing = (
+                ai_result.get(
+                    "missing_phrases"
+                )
+            )
+
+            if isinstance(
+                returned_missing,
+                list,
+            ):
+                missing = [
+                    str(item).strip()
+                    for item
+                    in returned_missing
+                    if str(item).strip()
+                ]
+
+            engine_mode = str(
+                ai_result.get("engine_mode")
+                or "openai_b_lite"
+            )
+
         else:
-            ai_text = scripted_fallback_text
+            generated_reply_was_withheld = (
+                role_resolution
+                != "generation_unavailable"
+            )
+
+            if (
+                profession
+                in PROFESSIONAL_LEARNER_ROLES
+                and generated_reply_was_withheld
+            ):
+                ai_text = (
+                    _safe_professional_counterpart_fallback(
+                        session=session,
+                        spec=spec,
+                        user_message=message,
+                        terminal_turn=terminal_turn,
+                    )
+                )
+
+                engine_mode = (
+                    "deterministic_role_fallback_"
+                    + role_resolution
+                )
+
+            else:
+                ai_text = (
+                    scripted_fallback_text
+                )
+
+        if _violates_role_contract(
+            ai_text,
+            profession=profession,
+            scenario_id=scenario_id,
+            counterpart_role=counterpart_role,
+            role_contract=role_contract,
+        ):
+            ai_text = (
+                _safe_professional_counterpart_fallback(
+                    session=session,
+                    spec=spec,
+                    user_message=message,
+                    terminal_turn=terminal_turn,
+                )
+            )
+
+            engine_mode = (
+                f"{engine_mode}"
+                "_role_guard"
+            )
 
         ai_entry = _append_turn(
             session,
@@ -1497,17 +2603,121 @@ def _build_review(*, user_id: str, session_id: str) -> dict[str, Any]:
         }
 
 
-def list_scenarios(*, profession: str = "general", level_band: str = "B1-B2") -> list[dict[str, Any]]:
+def list_scenarios(
+    *,
+    profession: str = "general",
+    level_band: str = "B1-B2",
+    roleplay_mode: str | None = None,
+) -> list[dict[str, Any]]:
     profession = _normalize_profession(profession)
     band = _normalize_level(level_band)
-    return [_scenario_payload(spec, band) for spec in (_ROLEPLAY_REGISTRY.get(profession) or _ROLEPLAY_REGISTRY["general"])]
+    specs = _ROLEPLAY_REGISTRY.get(profession) or _ROLEPLAY_REGISTRY["general"]
+    if roleplay_mode is not None:
+        mode = _normalize_roleplay_mode(roleplay_mode)
+        specs = tuple(spec for spec in specs if spec.roleplay_mode == mode)
+    return [_scenario_payload(spec, band) for spec in specs]
 
 
-def start_session(*, profession: str, level_band: str, scenario_id: str | None = None, context_label: str | None = None) -> dict[str, Any]:
+
+def _is_a1_a2_level(level_band: str | None) -> bool:
+    normalized = str(level_band or "").upper().replace("_", "-")
+    return "A1" in normalized or "A2" in normalized
+
+
+def _a1_beginner_phrase_from_opening(opening_text: str, profession: str) -> str:
+    text = str(opening_text or "").strip()
+    low = text.lower()
+    profession = str(profession or "").strip().lower()
+
+    if "väsynyt" in low or "väsym" in low or "nukkua" in low:
+        phrase = "Minulla on väsymystä."
+    elif "rinnassa" in low:
+        phrase = "Minulla on kipu rinnassa."
+    elif "pään" in low or "pää" in low:
+        phrase = "Minulla on päänsärky."
+    elif "yskä" in low:
+        phrase = "Minulla on yskä."
+    elif "kuume" in low:
+        phrase = "Minulla on kuumetta."
+    elif "kipu" in low or "kipua" in low:
+        phrase = "Minulla on kipua."
+    elif profession == "practical_nurse":
+        if "ruoka" in low or "söi" in low or "syö" in low:
+            phrase = "Asiakas söi hyvin."
+        elif "liikku" in low:
+            phrase = "Asiakas liikkui vähän."
+        elif "aamu" in low:
+            phrase = "Aamu meni hyvin."
+        else:
+            phrase = "Asiakas voi hyvin."
+    elif profession == "nurse":
+        if "lääke" in low:
+            phrase = "Annoin lääkkeen."
+        elif "yö" in low:
+            phrase = "Yö meni rauhallisesti."
+        elif "potilas" in low:
+            phrase = "Potilas voi paremmin."
+        else:
+            phrase = "Potilas voi hyvin."
+    elif profession == "general":
+        if "ongelma" in low or "vika" in low or "pieleen" in low:
+            phrase = "Tässä on ongelma."
+        elif "tehtävä" in low or "työ" in low:
+            phrase = "Teen tämän tehtävän."
+        else:
+            phrase = "Kerron lyhyesti."
+    else:
+        phrase = "Kerron lyhyesti."
+
+    return f"Kuuntele ensin. {phrase} Sano perässä: {phrase}"
+
+
+def _doctor_a1_beginner_opening(opening_text: str) -> str:
+    return _a1_beginner_phrase_from_opening(opening_text, "doctor")
+
+
+def _a1_beginner_opening(opening_text: str, profession: str) -> str:
+    return _a1_beginner_phrase_from_opening(opening_text, profession)
+
+
+def start_session(
+    *,
+    profession: str,
+    level_band: str,
+    roleplay_mode: str | None = None,
+    scenario_id: str | None = None,
+    context_label: str | None = None,
+    rotation_user_key: str | None = None,
+) -> dict[str, Any]:
     normalized_profession = _normalize_profession(profession)
     band = _normalize_level(level_band)
-    spec = _resolve_scenario(profession=normalized_profession, scenario_id=scenario_id, context_label=context_label)
-    created = _create_session(user_id="preview", scenario_id=spec.scenario_id, level=band, display_preferences={"context_label": context_label, "profession": normalized_profession})
+    explicit_spec = _SCENARIO_BY_ID.get(str(scenario_id or "").strip())
+    if roleplay_mode is not None:
+        mode = _normalize_roleplay_mode(roleplay_mode)
+    elif explicit_spec and explicit_spec.profession == normalized_profession:
+        # Compatibility for already-shipped clients that send a stable scenario ID.
+        mode = explicit_spec.roleplay_mode
+    else:
+        # Compatibility only. New clients always send an explicit non-localized mode.
+        mode = "everyday" if normalized_profession == "general" else "professional"
+    rotation_key = rotation_user_key or "preview"
+    spec, scenario_pool, selection_reason = select_roleplay_scenario(
+        user_key=rotation_key,
+        roleplay_mode=mode,
+        profession=normalized_profession,
+        explicit_scenario_id=scenario_id,
+    )
+    created = _create_session(
+        user_id="preview",
+        scenario_id=spec.scenario_id,
+        level=band,
+        display_preferences={
+            "context_label": context_label,
+            "roleplay_mode": mode,
+            "profession": normalized_profession,
+            "_rotation_user_key": rotation_key,
+        },
+    )
     # Pull the resolved Finnish persona (and any resolver-adjusted voice profile) from the
     # created session, rather than echoing back the spec's generic role label.
     created_scenario = created.get("scenario") or {}
@@ -1526,9 +2736,25 @@ def start_session(*, profession: str, level_band: str, scenario_id: str | None =
         chosen_opening_text = str(created_messages[0].get("text") or "")
     if not chosen_opening_text:
         chosen_opening_text = spec.opener  # safety fallback
+
+    if (
+        _is_a1_a2_level(level_band)
+        and not created.get("mission")
+        and spec.roleplay_mode in {"professional", "interview"}
+    ):
+        chosen_opening_text = _a1_beginner_opening(
+            chosen_opening_text,
+            spec.profession,
+        )
     # Same for max user turns — read from the session's progress total which was
     # populated from the chosen variant, not from the spec's legacy length.
     chosen_max_turns = int(((created.get("progress") or {}).get("user_turns_total")) or len(spec.assistant_turns))
+
+    mission_payload = created.get("mission") or {}
+    intro_text = str(
+        mission_payload.get("learnerBrief")
+        or spec.intro
+    )
 
     return {
         "sessionId": created["session_id"],
@@ -1536,9 +2762,13 @@ def start_session(*, profession: str, level_band: str, scenario_id: str | None =
         "profession": normalized_profession,
         "levelBand": band,
         "track": spec.track,
+        "roleplayMode": mode,
+        "scenarioPool": scenario_pool,
+        "selectionReason": selection_reason,
         "scenarioId": spec.scenario_id,
         "scenario": created_scenario or _scenario_payload(spec, band),
-        "introText": spec.intro,
+        "mission": mission_payload or None,
+        "introText": intro_text,
         "openingText": chosen_opening_text,
         "voiceProfile": voice_profile_display,
         "personaName": persona_name_display,
@@ -1570,8 +2800,33 @@ def submit_turn(*, session_id: str, transcript: str) -> dict[str, Any]:
 
 
 def finish_session(*, session_id: str) -> dict[str, Any]:
-    session = _get_session(user_id="preview", session_id=session_id)
+    session = _get_session(
+        user_id="preview",
+        session_id=session_id,
+    )
+
     if session.get("status") != "completed":
-        return {"session_id": session_id, "status": session.get("status"), "completed": False, "message": "Session is still in progress."}
-    review = _build_review(user_id="preview", session_id=session_id)
-    return {**review, "completed": True}
+        return {
+            "session_id": session_id,
+            "status": session.get("status"),
+            "completed": False,
+            "message": "Session is still in progress.",
+        }
+
+    review = _build_review(
+        user_id="preview",
+        session_id=session_id,
+    )
+
+    evaluation_report = evaluate_roleplay_session(
+        session=session,
+        review=review,
+    )
+
+    return {
+        **review,
+        "completed": True,
+        "evaluation": evaluation_report,
+        "evaluationReport": evaluation_report,
+        "disclaimer": evaluation_report["disclaimer"],
+    }

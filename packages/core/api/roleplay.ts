@@ -3,6 +3,20 @@ import { apiClient } from './client';
 export type RoleplayProfession = 'general' | 'nurse' | 'doctor' | 'practical_nurse';
 export type RoleplayLevelBand = 'A1-A2' | 'B1-B2' | 'C1-C2';
 export type RoleplayTrack = 'general' | 'professional';
+export type RoleplayMode = 'everyday' | 'workplace' | 'yki' | 'professional' | 'interview';
+
+export type RoleplayVoiceIdentity = {
+  identityId: string;
+  personaId: string;
+  displayName: string;
+  gender: 'male' | 'female' | 'neutral';
+  language: 'fi-FI' | string;
+  voiceProfile: string;
+  provider: string;
+  providerVoiceId: string;
+  registryVersion: string;
+  genderCertified: boolean;
+};
 
 export type RoleplayScenarioSummary = {
   id: string;
@@ -13,6 +27,7 @@ export type RoleplayScenarioSummary = {
   levelBand: RoleplayLevelBand;
   profession: RoleplayProfession;
   track: RoleplayTrack;
+  roleplayMode?: RoleplayMode;
   personaName?: string;
   personaId?: string;
   personaGender?: 'male' | 'female';
@@ -24,10 +39,21 @@ export type RoleplaySessionStart = {
   profession: RoleplayProfession;
   levelBand: RoleplayLevelBand;
   track: RoleplayTrack;
+  roleplayMode: RoleplayMode;
+  scenarioPool: string[];
+  selectionReason: 'explicit_scenario' | 'unused_pool' | 'pool_recycled' | string;
   scenario: RoleplayScenarioSummary;
   introText: string;
   openingText: string;
+  /**
+   * Legacy transport field. New backends may return a versioned resolved-voice
+   * token here so already-shipped clients request the exact provider voice.
+   */
   voiceProfile: string;
+  /** Original semantic profile such as yki_standard_male when available. */
+  semanticVoiceProfile?: string;
+  /** Structured forward contract for new clients. */
+  voiceIdentity?: RoleplayVoiceIdentity;
   personaName: string;
   personaId?: string;
   personaGender?: 'male' | 'female';
@@ -43,6 +69,8 @@ export type RoleplayTurnResponse = {
   personaId?: string;
   personaGender?: 'male' | 'female';
   voiceProfile: string;
+  semanticVoiceProfile?: string;
+  voiceIdentity?: RoleplayVoiceIdentity;
   feedbackLine?: string;
   missingPhrases?: string[];
   score?: {
@@ -55,12 +83,56 @@ export type RoleplayTurnResponse = {
   };
 };
 
+export type RoleplayEvaluationCriterion = {
+  id:
+    | 'task_fulfilment'
+    | 'interaction'
+    | 'coherence'
+    | 'grammar'
+    | 'vocabulary'
+    | 'register'
+    | string;
+  name: string;
+  score: number | null;
+  level: string;
+  rationale: string;
+  evidence: string[];
+};
+
+export type RoleplayEvaluationCorrection = {
+  original: string;
+  corrected: string;
+  explanation: string;
+};
+
+export type RoleplayEvaluationReport = {
+  reportVersion: string;
+  evaluationKind: 'roleplay';
+  status: 'ready' | 'fallback';
+  provider: 'openai' | 'deterministic_fallback';
+  model?: string | null;
+  promptVersion: string;
+  rubricVersion: string;
+  disclaimer: string;
+  audioEvidenceAvailable: boolean;
+  pronunciationAssessed: false;
+  estimatedLevel: string;
+  confidence: number;
+  overallSummary: string;
+  criteria: RoleplayEvaluationCriterion[];
+  strengths: string[];
+  improvements: string[];
+  corrections: RoleplayEvaluationCorrection[];
+  actionPlan: string[];
+};
+
 export type RoleplayFinishResponse = {
   sessionId: string;
   completed: boolean;
   personaName: string;
   personaId?: string;
   personaGender?: 'male' | 'female';
+  voiceIdentity?: RoleplayVoiceIdentity;
   track: RoleplayTrack;
   trackLabel: string;
   levelBand: string;
@@ -82,14 +154,24 @@ export type RoleplayFinishResponse = {
   grammarObservations: string[];
   nextSteps: string[];
   nextAction: string;
+  /** Available from the evaluated backend; older reports may omit it. */
+  evaluation?: RoleplayEvaluationReport;
+  evaluationReport?: RoleplayEvaluationReport;
+  disclaimer?: string;
 };
 
 export async function listRoleplayScenarios(
   profession: RoleplayProfession,
   levelBand: RoleplayLevelBand,
+  roleplayMode?: RoleplayMode,
 ): Promise<RoleplayScenarioSummary[]> {
+  const params = new URLSearchParams({
+    profession,
+    level_band: levelBand,
+    ...(roleplayMode ? { roleplay_mode: roleplayMode } : {}),
+  });
   const res = await apiClient.get<{ scenarios: RoleplayScenarioSummary[] }>(
-    `/api/v1/roleplay/scenarios?profession=${encodeURIComponent(profession)}&level_band=${encodeURIComponent(levelBand)}`,
+    `/api/v1/roleplay/scenarios?${params.toString()}`,
   );
   return res.data?.scenarios ?? [];
 }
@@ -97,12 +179,14 @@ export async function listRoleplayScenarios(
 export async function startRoleplaySession(payload: {
   profession: RoleplayProfession;
   levelBand: RoleplayLevelBand;
+  roleplayMode: RoleplayMode;
   scenarioId?: string | null;
   contextLabel?: string | null;
 }): Promise<RoleplaySessionStart> {
   const res = await apiClient.post<RoleplaySessionStart>('/api/v1/roleplay/session/start', {
     profession: payload.profession,
     level_band: payload.levelBand,
+    roleplay_mode: payload.roleplayMode,
     scenario_id: payload.scenarioId ?? null,
     context_label: payload.contextLabel ?? null,
   });

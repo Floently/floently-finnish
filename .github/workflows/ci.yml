@@ -12,11 +12,15 @@ jobs:
         working-directory: .
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
+          cache: pip
+          cache-dependency-path: apps/backend/requirements.txt
       - name: Install backend dependencies
-        run: pip install -r apps/backend/requirements.txt
+        run: python -m pip install -r apps/backend/requirements.txt
       - name: Verify material convergence
         run: |
           cd apps/backend
@@ -35,9 +39,28 @@ jobs:
           if len(authority_cards) != len(runtime_cards):
               raise SystemExit("Authority/runtime card count mismatch")
           CHECK
-      - name: Run backend and engine tests
-        run: pytest apps/backend/tests engine/tests -q
+      - name: Verify release backend boundary
+        run: |
+          grep -F 'COPY apps/backend/ .' apps/backend/Dockerfile
+          if grep -Eq 'COPY[[:space:]]+engine(/|[[:space:]])' apps/backend/Dockerfile; then
+            echo 'Root engine unexpectedly entered the deployable backend image.' >&2
+            exit 1
+          fi
+          echo 'DEPLOYABLE_BACKEND_SCOPE=apps/backend'
+      - name: Verify account deletion completion truth
+        run: python -m pytest apps/backend/tests/test_account_deletion_service.py -q
         env:
+          PYTHONPATH: apps/backend
+          FLOENTLY_ENV: development
+          SIGNED_SESSION_SECRET: ci-test-secret
+      # The shipped backend image copies apps/backend only. Root engine/tests is a
+      # separate legacy/provenance tree with imports for untracked engine.learning,
+      # engine.logging and engine.blueprints modules, so it is not a release-runtime
+      # gate. This job tests the complete deployable backend test suite instead.
+      - name: Run deployable backend tests
+        run: python -m pytest apps/backend/tests -q
+        env:
+          PYTHONPATH: apps/backend
           FLOENTLY_ENV: development
           SIGNED_SESSION_SECRET: ci-test-secret
 
@@ -45,10 +68,68 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Pin pnpm
+        uses: pnpm/action-setup@v6
+        with:
+          version: '10.34.0'
+          run_install: false
       - uses: actions/setup-node@v4
         with:
-          node-version: '20'
-      - name: Install client dependencies
-        run: cd apps/client && npm ci
+          node-version: '22'
+          cache: pnpm
+          cache-dependency-path: pnpm-lock.yaml
+      - name: Install frozen workspace dependencies
+        run: pnpm install --frozen-lockfile
       - name: TypeScript check
-        run: cd apps/client && npx tsc --noEmit
+        run: pnpm --dir apps/client exec tsc --noEmit
+      - name: Verify subscription authority invariants
+        run: pnpm --dir apps/client run verify:subscription-authority
+      - name: Lint subscription authority hotfix
+        run: pnpm --dir apps/client exec eslint state/subscriptionStore.ts scripts/verify-subscription-authority.mjs
+      - name: Load production Expo public environment
+        run: |
+          node <<'NODE'
+          const fs = require('fs');
+          const eas = JSON.parse(fs.readFileSync('apps/client/eas.json', 'utf8'));
+          const env = eas?.build?.production?.env ?? {};
+          for (const [key, value] of Object.entries(env)) {
+            fs.appendFileSync(process.env.GITHUB_ENV, `${key}<<__ENV__\n${String(value)}\n__ENV__\n`);
+          }
+          NODE
+      - name: Verify Build 47 OTA runtime identity
+        run: |
+          cd apps/client
+          pnpm exec expo config --type public --json > /tmp/kielivalmis-config.json
+          node <<'NODE'
+          const fs = require('fs');
+          const config = JSON.parse(fs.readFileSync('/tmp/kielivalmis-config.json', 'utf8'));
+          const assert = (condition, message) => { if (!condition) throw new Error(message); };
+          assert(config.name === 'KieliValmis', `Unexpected app name: ${config.name}`);
+          assert(config.ios?.bundleIdentifier === 'com.vitusidi.floently', `Unexpected bundle ID: ${config.ios?.bundleIdentifier}`);
+          assert(config.runtimeVersion === '1.0.2', `Unexpected runtimeVersion: ${config.runtimeVersion}`);
+          assert(config.updates?.enabled === true, 'Expo Updates is not enabled');
+          assert(
+            config.updates?.url === 'https://u.expo.dev/fa02c141-0a3b-4dbc-9122-7c1cf31ba42c',
+            `Unexpected update URL: ${config.updates?.url}`,
+          );
+          assert(config.updates?.checkAutomatically === 'ON_LOAD', `Unexpected update policy: ${config.updates?.checkAutomatically}`);
+          console.log('BUILD47_OTA_RUNTIME_IDENTITY=PASS');
+          NODE
+      - name: Export iOS OTA bundle
+        run: |
+          cd apps/client
+          pnpm exec expo export --platform ios --output-dir /tmp/kielivalmis-build47-authority-export --clear
+          test -n "$(find /tmp/kielivalmis-build47-authority-export -type f -print -quit)"
+          echo "IOS_OTA_EXPORT=PASS"
+      - name: Verify navigation invariants
+        run: pnpm --dir apps/client run verify:navigation
+      - name: Verify account deletion access invariants
+        run: pnpm --dir apps/client run verify:account-deletion-access
+      - name: Verify RevenueCat identity invariants
+        run: pnpm --dir apps/client run verify:revenuecat-identity
+      - name: Verify store billing preflight invariants
+        run: pnpm --dir apps/client run verify:store-billing-preflight
+      - name: Verify iOS release identity invariants
+        run: pnpm --dir apps/client run verify:ios-release-identity

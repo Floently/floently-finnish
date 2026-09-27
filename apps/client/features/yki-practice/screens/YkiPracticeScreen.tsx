@@ -13,6 +13,7 @@ import {
 import { usePreferencesStore } from '../../../state/preferencesStore';
 import { clearPracticeSession, resumePracticeSession, startPracticeSession } from '../services/ykiPracticeService';
 import { useTranslator } from '../../i18n';
+import { audioPlayer } from '../../exam/services/audioPlayer';
 
 const LEVEL_BANDS: YkiLevelBand[] = ['A1-A2', 'B1-B2', 'C1-C2'];
 const FOCUS_OPTIONS: Array<{ key: YkiPracticeFocus; labelKey: 'ykiPracticeFocusMixed' | 'ykiPracticeFocusReading' | 'ykiPracticeFocusListening' | 'ykiPracticeFocusWriting' | 'ykiPracticeFocusSpeaking' }> = [
@@ -32,6 +33,20 @@ type Props = {
 };
 
 export default function YkiPracticeScreen({ onBack, onOpenMenu, onOpenExam, onOpenPractice, onOpenMockCycle }: Props) {
+  // YKI_AUDIO_STOP_ON_EXIT_GUARD
+  useEffect(() => {
+    return () => {
+      void audioPlayer.stopAsync();
+    };
+  }, []);
+
+
+  useEffect(() => {
+    return () => {
+      void audioPlayer.stopAsync();
+    };
+  }, []);
+
   const { t } = useTranslator();
   const [loading, setLoading] = useState(true);
   const [starting, setStarting] = useState(false);

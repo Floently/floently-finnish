@@ -6,7 +6,9 @@ const repoRoot = path.resolve(projectRoot, '../..');
 
 const config = getDefaultConfig(projectRoot);
 
-config.watchFolders = [repoRoot];
+config.watchFolders = Array.from(
+  new Set([...(config.watchFolders || []), repoRoot]),
+);
 
 config.resolver.nodeModulesPaths = [
   path.resolve(projectRoot, 'node_modules'),

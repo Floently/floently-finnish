@@ -1,0 +1,331 @@
+import fs from 'node:fs';
+import path from 'node:path';
+import process from 'node:process';
+
+const clientRoot = process.cwd().endsWith(path.join('apps', 'client'))
+  ? process.cwd()
+  : path.join(process.cwd(), 'apps', 'client');
+
+function read(relativePath) {
+  return fs.readFileSync(path.join(clientRoot, relativePath), 'utf8');
+}
+
+function requireText(source, text, label) {
+  if (!source.includes(text)) {
+    throw new Error(`Guided speaking invariant failed: ${label}`);
+  }
+}
+
+function forbidText(source, text, label) {
+  if (source.includes(text)) {
+    throw new Error(`Guided speaking invariant failed: ${label}`);
+  }
+}
+
+const stages = read('features/speaking/guidedSpeakingStages.ts');
+const screen = read('features/speaking/screens/GuidedSpeakingScreen.tsx');
+const speakingRoute = read('state/SpeakingRoute.tsx');
+const appShell = read('state/AppShell.tsx');
+const drawer = read('config/navigation/AppShell_sidebar_sections.ts');
+const types = read('features/speaking/types.ts');
+const progressStore = read('state/guidedSpeakingProgressStore.ts');
+const curriculum = read('features/speaking/guidedSpeakingCurriculum.ts');
+
+const stageIds = [
+  'basic_chunk',
+  'listen_respond',
+  'controlled_qa',
+  'sentence_frame',
+  'two_turn_exchange',
+  'short_situation',
+  'guided_conversation',
+];
+
+let previousIndex = -1;
+for (const stageId of stageIds) {
+  const index = stages.indexOf(`'${stageId}'`);
+  if (index < 0) {
+    throw new Error(`Guided speaking invariant failed: missing stage ${stageId}`);
+  }
+  if (index <= previousIndex) {
+    throw new Error('Guided speaking invariant failed: stage order changed');
+  }
+  previousIndex = index;
+}
+
+requireText(curriculum, 'Array.from({ length: 300 }', 'curriculum bank must contain exactly 300 deterministic stage slots');
+requireText(curriculum, "{ level: 'A1.1', count: 25 }", 'A1.1 must own its first 25 stages');
+requireText(curriculum, "{ level: 'C2', count: 50 }", 'C2 must have an explicit deterministic stage allocation');
+requireText(curriculum, 'retrievalStageIds: retrievalFor(number)', 'every curriculum stage must carry deterministic retrieval references');
+requireText(curriculum, "['Tervehdi'", 'Stage 1 must be individually authored rather than generated at runtime');
+requireText(curriculum, "['Ensimmäinen keskustelu'", 'A1.1 Stage 25 must be individually authored and cumulative');
+requireText(curriculum, 'const C2B_SEEDS: LessonSeed[]', 'C2 stages 276-300 must use individually authored lesson records');
+requireText(curriculum, "['Itsenäinen C2-keskustelu'", 'C2 Stage 300 must be individually authored and cumulative');
+requireText(curriculum, 'C2B_SEEDS[number - 276]', 'Stages 276-300 must resolve from authored C2 content, not templates');
+
+requireText(curriculum, 'const C2A_SEEDS: LessonSeed[]', 'C2 stages 251-275 must use individually authored lesson records');
+requireText(curriculum, "['Itsenäinen C2-välitavoite'", 'C2 Stage 275 must be individually authored and cumulative');
+requireText(curriculum, 'number <= 275 ? C2A_SEEDS[number - 251]', 'Stages 251-275 must resolve from authored C2 content, not templates');
+
+requireText(curriculum, 'const C1B_SEEDS: LessonSeed[]', 'C1 stages 226-250 must use individually authored lesson records');
+requireText(curriculum, "['Itsenäinen C1-keskustelu'", 'C1 Stage 250 must be individually authored and cumulative');
+requireText(curriculum, 'number <= 250 ? C1B_SEEDS[number - 226]', 'Stages 226-250 must resolve from authored C1 content, not templates');
+
+requireText(curriculum, 'const C1A_SEEDS: LessonSeed[]', 'C1 stages 201-225 must use individually authored lesson records');
+requireText(curriculum, "['Itsenäinen C1-välitavoite'", 'C1 Stage 225 must be individually authored and cumulative');
+requireText(curriculum, 'number <= 225 ? C1A_SEEDS[number - 201]', 'Stages 201-225 must resolve from authored C1 content, not templates');
+
+requireText(curriculum, 'const B22_SEEDS: LessonSeed[]', 'B2.2 must use individually authored lesson records');
+requireText(curriculum, "['Itsenäinen B2.2-keskustelu'", 'B2.2 Stage 200 must be individually authored and cumulative');
+requireText(curriculum, 'number <= 200 ? B22_SEEDS[number - 176]', 'Stages 176-200 must resolve from authored B2.2 content, not templates');
+
+requireText(curriculum, 'const B21_SEEDS: LessonSeed[]', 'B2.1 must use individually authored lesson records');
+requireText(curriculum, "['Itsenäinen B2.1-keskustelu'", 'B2.1 Stage 175 must be individually authored and cumulative');
+requireText(curriculum, 'number <= 175 ? B21_SEEDS[number - 151]', 'Stages 151-175 must resolve from authored B2.1 content, not templates');
+
+requireText(curriculum, 'const B12_SEEDS: LessonSeed[]', 'B1.2 must use individually authored lesson records');
+requireText(curriculum, "['Itsenäinen B1.2-keskustelu'", 'B1.2 Stage 150 must be individually authored and cumulative');
+requireText(curriculum, 'number <= 150 ? B12_SEEDS[number - 126]', 'Stages 126-150 must resolve from authored B1.2 content, not templates');
+
+requireText(curriculum, 'const B11_SEEDS: LessonSeed[]', 'B1.1 must use individually authored lesson records');
+requireText(curriculum, "['Itsenäinen B1-keskustelu'", 'B1.1 Stage 125 must be individually authored and cumulative');
+requireText(curriculum, 'number <= 125 ? B11_SEEDS[number - 101]', 'Stages 101-125 must resolve from authored B1.1 content, not templates');
+
+requireText(curriculum, 'const A22_SEEDS: LessonSeed[]', 'A2.2 must use individually authored lesson records');
+requireText(curriculum, "['Itsenäinen ongelmanratkaisu'", 'A2.2 Stage 100 must be individually authored and cumulative');
+requireText(curriculum, 'number <= 100 ? A22_SEEDS[number - 76]', 'Stages 76-100 must resolve from authored A2.2 content, not templates');
+
+requireText(curriculum, 'const A21_SEEDS: LessonSeed[]', 'A2.1 must use individually authored lesson records');
+requireText(curriculum, "['Itsenäinen arkitilanne'", 'A2.1 Stage 75 must be individually authored and cumulative');
+requireText(curriculum, 'number <= 75 ? A21_SEEDS[number - 51]', 'Stages 51-75 must resolve from authored A2.1 content, not templates');
+requireText(curriculum, 'guidedSpeakingRetrievalLessons', 'runtime must resolve fixed retrieval IDs to exact earlier lessons');
+
+requireText(curriculum, 'const A12_SEEDS: LessonSeed[]', 'A1.2 must use individually authored lesson records');
+requireText(curriculum, "['Arjen keskustelu'", 'A1.2 Stage 50 must be individually authored and cumulative');
+requireText(curriculum, 'number <= 50 ? A12_SEEDS[number - 26]', 'Stages 26-50 must resolve from authored A1.2 content, not templates');
+forbidText(curriculum, 'Math.random', 'curriculum construction must never use random generation');
+forbidText(curriculum, 'generatedSeed', 'all 300 guided speaking lessons must be authored records with no template fallback');
+forbidText(curriculum, 'const THEMES =', 'authored curriculum must not retain a generic theme-template lesson generator');
+
+const authoredLessonRows = curriculum.match(/^\s*\['[^']+'/gm) ?? [];
+if (authoredLessonRows.length !== 300) {
+  throw new Error(
+    `Guided speaking invariant failed: expected 300 authored lesson rows, found ${authoredLessonRows.length}`,
+  );
+}
+const authoredTitles = authoredLessonRows.map((row) => row.match(/\['([^']+)'/)?.[1]).filter(Boolean);
+if (new Set(authoredTitles).size !== 300) {
+  throw new Error('Guided speaking invariant failed: authored lesson titles must be unique across all 300 stages');
+}
+requireText(curriculum, 'function levelFor(number: number)', 'curriculum must keep deterministic level resolution after template removal');
+requireText(curriculum, 'function idFor(number: number)', 'curriculum must keep deterministic permanent ID generation');
+requireText(curriculum, 'function retrievalFor(number: number)', 'curriculum must keep deterministic retrieval scheduling');
+
+requireText(stages, 'export type GuidedSpeakingStageId = \`GS-\${string}\`;', 'curriculum stages need permanent deterministic IDs');
+requireText(stages, 'curriculumId: GuidedSpeakingStageId;', 'stage records must carry permanent curriculum identity');
+requireText(stages, 'version: 1;', 'stage records must be versioned');
+for (const level of ['A1.1', 'A1.2', 'A2.1', 'A2.2', 'B1.1', 'B1.2', 'B2.1', 'B2.2', 'C1', 'C2']) {
+  requireText(stages, `'${level}'`, `missing explicit Guided Speaking level ${level}`);
+}
+requireText(stages, "curriculumId: \`GS-\${String(index + 1).padStart(3, '0')}\`", 'stage IDs must derive deterministically from stable order');
+
+requireText(progressStore, 'highestUnlockedNumber: number;', 'progress must track furthest unlocked stage separately');
+requireText(progressStore, 'attempts: GuidedSpeakingAttempt[];', 'repeat attempts must be historical records');
+requireText(progressStore, 'stageNumber >= state.highestUnlockedNumber', 'history navigation must allow passed stages only, never the current/future frontier');
+requireText(progressStore, 'GUIDED_SPEAKING_COMPLETE_SENTINEL', 'progress must represent completion of Stage 300 without inventing Stage 301 UI');
+requireText(progressStore, 'resumeFrontier', 'reviewing an earlier stage must have an explicit path back to the learner frontier');
+requireText(progressStore, 'Math.max(state.highestUnlockedNumber, safeStageNumber + 1)', 'repeating an earlier stage must never roll progression backward');
+requireText(progressStore, 'stageVersion', 'attempt history must retain curriculum version');
+
+requireText(
+  stages,
+  'export const GUIDED_SPEAKING_STAGE_COUNT = STAGE_IDS.length;',
+  'the stage count must derive from the canonical ordered stage list',
+);
+
+for (const band of ['A1-A2', 'B1-B2', 'C1-C2']) {
+  requireText(
+    stages,
+    `'${band}'`,
+    `missing level band ${band}`,
+  );
+}
+
+requireText(
+  stages,
+  "if (levelBand === 'A1-A2') return 0.86;",
+  'A1-A2 model audio must remain slower than higher bands',
+);
+requireText(
+  stages,
+  "if (levelBand === 'B1-B2') return 0.94;",
+  'B1-B2 model audio must retain an intermediate speed',
+);
+requireText(
+  stages,
+  'expectedMinWords: 7,',
+  'A1-A2 final Everyday guided response must remain short',
+);
+requireText(
+  stages,
+  'expectedMinWords: 24,',
+  'B1-B2 final Everyday guided response must require materially more production',
+);
+requireText(
+  stages,
+  'expectedMinWords: 45,',
+  'C1-C2 final Everyday guided response must require extended production',
+);
+requireText(
+  stages,
+  'expectedMinWords: 10,',
+  'A1-A2 final Professional guided response must remain supported',
+);
+requireText(
+  stages,
+  'expectedMinWords: 26,',
+  'B1-B2 final Professional guided response must require expanded production',
+);
+requireText(
+  stages,
+  'expectedMinWords: 48,',
+  'C1-C2 final Professional guided response must require extended production',
+);
+
+requireText(screen, 'useGuidedSpeakingProgressStore', 'Guided Speaking screen must use persisted learner history');
+requireText(screen, 'highestUnlockedNumber', 'stage navigation must use persisted furthest progress');
+requireText(screen, '>History</Text>', 'passed stages must live behind a single History layer');
+requireText(screen, 'highestUnlockedNumber - 1', 'History must exclude the current/future frontier');
+forbidText(screen, '<View style={styles.progressRow}', 'practice UI must not splatter numbered stage navigation across the main flow');
+requireText(screen, 'GUIDED_SPEAKING_CURRICULUM', 'the authored 300-stage bank must own runtime navigation and History');
+requireText(screen, 'await openPersistedStage(stageNumber)', 'review navigation must persist the exact passed stage');
+requireText(screen, 'completePersistedStage(curriculumLesson.id, curriculumLesson.version, visibleStageNumber)', 'completion must record the authored curriculum stage identity and version');
+requireText(screen, 'guidedSpeakingRetrievalLessons(visibleStageNumber)', 'Guided Speaking runtime must load deterministic recall material from the authored stage');
+requireText(screen, 'lesson.number < visibleStageNumber', 'recall must never reference current or future stages');
+requireText(screen, 'await resumePersistedFrontier()', 'a completed review must return directly to the current learner frontier');
+forbidText(screen, 'const [stageIndex, setStageIndex]', 'the legacy seven-step local index must not own 300-stage progression');
+forbidText(screen, 'stage.curriculumId', 'runtime completion must not use legacy seven-stage curriculum IDs');
+requireText(screen, "lessonStep === 'recall'", 'recall must be the only active learning step when due');
+requireText(screen, "lessonStep === 'listen'", 'listen must be an explicit single learning step');
+requireText(screen, "lessonStep === 'speak'", 'speaking must be an explicit single learning step');
+requireText(screen, ">I'm ready to speak</Text>", 'listen step must have one obvious transition to speaking');
+requireText(screen, 'styles.progressTrack', 'learner must have a clear visual progress indicator');
+forbidText(screen, 'LEVEL_BANDS.map', 'level switching must not compete with the active lesson flow');
+
+requireText(screen, '>Remember?</Text>', 'recall must be presented as a separate layered step');
+requireText(screen, '>Start recall</Text>', 'recall content must stay behind one deliberate action');
+
+requireText(screen, 'const visibleLevel = curriculumLesson.level;', 'UI must show the authored learner-visible sublevel');
+
+requireText(
+  screen,
+  "useRoleplayRecorder('fi-FI')",
+  'Guided Speaking must reuse the canonical Finnish recorder/STT path',
+);
+requireText(
+  screen,
+  'speakRoleplayText({',
+  'Guided Speaking must reuse the canonical speaking TTS path',
+);
+requireText(
+  screen,
+  'if (recorder.isRecording) {\n      setAttempted(true);',
+  'a genuine microphone start must record a speaking attempt',
+);
+requireText(
+  screen,
+  'visibleStageNumber === GUIDED_SPEAKING_MAX_STAGE',
+  'only authored Stage 300 may hand off to open Roleplay',
+);
+requireText(
+  screen,
+  'onOpenRoleplay();',
+  'guided completion must hand off to existing open Roleplay',
+);
+forbidText(
+  screen,
+  'startRoleplaySession',
+  'Guided Speaking must not create a parallel Roleplay session engine',
+);
+forbidText(
+  screen,
+  'submitRoleplayTurn',
+  'Guided Speaking must not duplicate Roleplay turn handling',
+);
+
+requireText(
+  types,
+  "'menu' | 'guided' | 'conversation' | 'recorded'",
+  'guided must be a registered speaking surface',
+);
+requireText(
+  speakingRoute,
+  "if (surface === 'guided')",
+  'SpeakingRoute must mount the guided surface',
+);
+requireText(
+  speakingRoute,
+  "setSurface('guided')",
+  'the speaking menu must expose Guided Speaking',
+);
+requireText(
+  speakingRoute,
+  'Etene vaihe kerrallaan. Jatka siitä, mihin jäit, tai kertaa aiemmin läpäisty vaihe Historiasta.',
+  'Guided Speaking entry copy must describe persisted deterministic progression',
+);
+forbidText(
+  speakingRoute,
+  '1 → 7:',
+  'Guided Speaking entry must never advertise the retired seven-stage prototype',
+);
+requireText(
+  speakingRoute,
+  "setSurface('conversation');",
+  'guided completion must return to the existing conversation surface',
+);
+requireText(
+  speakingRoute,
+  'current === "guided" || current === "conversation" || current === "recorded"',
+  'parent refreshes must not throw a learner out of active guided practice',
+);
+
+requireText(
+  drawer,
+  "activity: 'everyday-guided'",
+  'Everyday Guided Speaking must be reachable from the progressive drawer',
+);
+requireText(
+  drawer,
+  "activity: 'professional-guided'",
+  'Professional Guided Speaking must be reachable from the progressive drawer',
+);
+requireText(
+  appShell,
+  "initialLevelBand: guided ? 'A1-A2' : 'B1-B2'",
+  'drawer Guided Speaking entry must default beginners to A1-A2',
+);
+
+const entitlementGuardIndex = appShell.indexOf("if (!isEntitledForScreen(screen))");
+const activityIndex = appShell.indexOf('if (options?.activity)');
+if (
+  entitlementGuardIndex < 0 ||
+  activityIndex < 0 ||
+  activityIndex < entitlementGuardIndex
+) {
+  throw new Error(
+    'Guided speaking invariant failed: drawer activity routing must remain after entitlement validation',
+  );
+}
+
+console.log('PASS: guided phase order remains deterministic during curriculum migration.');
+console.log('PASS: permanent versioned curriculum IDs are present.');
+console.log('PASS: persisted attempt history supports repeat without progression rollback.');
+console.log('PASS: authored Stage 1-300 runtime owns progression; legacy seven-step indexing is not authoritative.');
+console.log('PASS: authored curriculum contains 300 distinct deterministic lesson records.');
+console.log('PASS: CEFR bands materially change support and production expectations.');
+console.log('PASS: Everyday and Professional drawer entries preserve guarded access to Guided Speaking.');
+console.log('PASS: Guided Speaking reuses canonical Finnish TTS/STT.');
+console.log('PASS: Guided Speaking does not fork the Roleplay session engine.');
+console.log('PASS: Stage 300 alone hands off to the existing open Roleplay surface.');
+console.log('PASS: Guided Speaking drawer leaves remain behind existing entitlement checks.');
+console.log('GUIDED_SPEAKING_INVARIANTS=PASS');

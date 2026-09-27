@@ -1,81 +1,108 @@
-# Store Metadata Drafts (Working Draft)
+# KieliValmis Store Metadata
 
-Last updated: 2026-04-23  
-Status: Draft copy ready, legal URLs pending final publication.
+Last updated: 2026-08-13
+Status: App Store metadata prepared for replacement iOS submission.
 
 ## App Identity
 
-- App Name: `Floently Finnish`
-- Subtitle (iOS, <=30 chars): `Finnish for work and YKI`
-- Android short description (<=80 chars):
-  - `Practice Finnish for work, daily life, and YKI speaking with voice feedback.`
+App Name:
+KieliValmis
 
-## Full Description (Android) / Description (iOS)
+iOS Subtitle:
+Finnish for work and YKI
 
-Floently Finnish helps learners build practical Finnish for real outcomes: workplace communication, daily life in Finland, and YKI preparation.
+Primary Category:
+Education
 
-Core experiences:
-- Guided Finnish pathways for everyday and profession-focused communication
-- Voice-based roleplay with microphone input and transcription-based response handling
-- Structured speaking practice and targeted phrase reinforcement
-- Vocabulary and grammar card sessions adapted by track and level band
+Secondary Category:
+Productivity
 
-Designed for consistent progress:
-- Clear progression across skill areas
-- Context-rich professional scenarios
-- Session-based feedback loops
+## iOS Promotional Text
 
-Important notes:
-- A network connection is required for cloud voice features.
-- Voice features request microphone access.
+Practise practical Finnish for YKI, work and everyday life with speaking roleplay, profession-specific scenarios, grammar and vocabulary practice.
 
-## Keywords (iOS draft)
+## iOS Description
 
-finnish,language,yki,exam,work,healthcare,speaking,vocabulary,grammar
+KieliValmis helps you practise Finnish for real situations: the YKI language exam, working life in Finland, professional communication and everyday life.
 
-## Promotional Text (iOS, <=170 chars)
+Practise speaking
+• Train with guided Finnish speaking exercises.
+• Use interactive roleplay to practise realistic conversations.
+• Record spoken answers and review speech transcriptions.
+• Build confidence for situations you are likely to meet in Finland.
 
-Train practical Finnish for work and YKI with guided speaking, roleplay, and targeted revision.
+Prepare for YKI
+• Practise speaking and other language skills in structured YKI-focused pathways.
+• Work through exercises designed to strengthen practical communication.
+• Reinforce vocabulary, grammar and useful expressions.
 
-## Categories (Recommendation)
+Professional Finnish
+• Practise Finnish for workplace situations.
+• Train with profession-focused scenarios and terminology.
+• Build communication skills for real interactions at work.
 
-- Apple primary: Education
-- Apple secondary: Productivity
-- Google category: Education
+Vocabulary and grammar
+• Review vocabulary with structured card practice.
+• Strengthen grammar through targeted exercises.
+• Continue through practice pathways based on your goals.
 
-## “What’s New” Draft (v1.0.0)
+Learning support
+• Follow your practice progress.
+• Choose learning pathways that match your goals.
+• Practise in short sessions or longer focused study sessions.
 
-- Improved roleplay stability and voice workflow
-- Professional pathway updates across healthcare tracks
-- Better card practice controls and progression behavior
+KieliValmis requires an internet connection for cloud-based features such as speech processing and interactive roleplay.
 
-## Reviewer Notes Draft (Apple + Google)
+Microphone access is used when you choose to practise speaking. Speech recognition is used to transcribe your Finnish practice so you can review your answers. Photo-library access is used only when you choose a profile picture.
 
-1. Test focus areas:
-   - account auth flow
-   - speaking roleplay with microphone permission
-   - card practice paths (general/professional)
-2. Voice feature behavior:
-   - app records short audio clips and sends them for transcription
-   - if transcription provider fails, user receives fallback guidance
-3. If review account is needed:
-   - provide test credentials in store console review fields (not in public listing)
+Some learning pathways and premium features require a subscription.
 
-## Required Screenshot/Graphic Checklist
+KieliValmis is developed by Komplyint Oy as part of the Floently product family.
 
-## Apple
-- iPhone 6.9" display screenshots (required for App Store listing set)
-- iPhone 6.5"/6.7" fallback set as required by current App Store Connect UI
+## iOS Keywords
 
-## Google Play
-- Phone screenshots
-- 512x512 app icon
-- Feature graphic 1024x500
+finnish,yki,language,exam,speaking,work,grammar,vocabulary,finland
 
-## URL Fields (Pending Final Hosting)
+## What's New
 
-- Privacy policy URL: `TBD`
-- Terms URL: `TBD`
-- Support URL: `TBD`
-- Account deletion web URL (Play requirement when account creation exists): `TBD`
+KieliValmis introduces a refreshed learning experience with improved speaking roleplay, updated professional Finnish pathways and better practice progression.
 
+## URLs
+
+Privacy Policy:
+https://www.kielivalmis.com/privacy
+
+Support:
+https://www.kielivalmis.com/support
+
+Terms:
+https://www.kielivalmis.com/terms
+
+Account Deletion Information:
+https://www.kielivalmis.com/delete-account
+
+Marketing Website:
+https://www.kielivalmis.com/
+
+## Screenshot Package
+
+Primary App Store screenshot set:
+- format: PNG
+- count: 8
+- iPhone 6.5-inch slot: 1284 x 2778
+
+Alternative supported set:
+- format: PNG
+- count: 8
+- iPhone 6.9-inch slot: 1290 x 2796
+
+Do not upload the 1290 x 2796 set into the App Store Connect 6.5-inch slot.
+
+## Release Safety
+
+- customer-facing app name: KieliValmis
+- endorsement: by Floently
+- legal operator: Komplyint Oy
+- iOS bundle identifier remains com.vitusidi.floently
+- do not resubmit iOS build 31
+- replacement binary must contain the 2026-08-13 Apple compliance fixes

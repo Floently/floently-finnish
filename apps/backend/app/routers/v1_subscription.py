@@ -3,9 +3,14 @@ from __future__ import annotations
 from typing import Any
 
 from fastapi import APIRouter, Header, Request
+from starlette.concurrency import run_in_threadpool
 
 from app.middleware.request_id import get_request_id
 from app.core.responses import success_payload
+from app.core.config import SETTINGS
+from app.services.revenuecat_webhook_auth import RevenueCatWebhookAuthenticationError, authenticate_revenuecat_webhook
+from app.services.revenuecat_webhook_service import reconcile_revenuecat_webhook_event
+from app.core.errors import AppError
 from app.services.auth_service import current_user_from_authorization
 from app.services.subscription_service import (
     PLAN_CATALOG,
@@ -14,6 +19,7 @@ from app.services.subscription_service import (
     cancel_trial_at_period_end,
     check_feature,
     resume_subscription_renewal,
+    apply_store_subscription_sync,
     subscription_status,
     track_usage_event,
 )
@@ -55,6 +61,23 @@ def build_subscription_router() -> APIRouter:
         authorization: str | None = Header(default=None),
     ) -> dict[str, Any]:
         user, _ = current_user_from_authorization(authorization)
+        current_status = subscription_status(user=user)
+        if current_status.get("trial_used") or current_status.get("trialUsed"):
+            raise AppError(
+                409,
+                "TRIAL_ALREADY_USED",
+                "Trial already used. Choose a paid subscription to continue.",
+                False,
+                {
+                    "classification": "non_retryable",
+                    "trial_used": True,
+                    "trialUsed": True,
+                    "can_start_trial": False,
+                    "canStartTrial": False,
+                    "trial_already_used": True,
+                    "trialAlreadyUsed": True,
+                },
+            )
         # Trials are now started through Stripe Checkout so users enter payment
         # details first and are charged only after the 3-day trial ends.
         # Keep this endpoint as a harmless 200 response for older clients.
@@ -83,6 +106,45 @@ def build_subscription_router() -> APIRouter:
             request_id=get_request_id(request),
         )
 
+
+    @router.post("/subscription/store/sync")
+    async def sync_store_subscription(
+        request: Request,
+        payload: dict[str, Any],
+        authorization: str | None = Header(default=None),
+    ) -> dict[str, Any]:
+        user, _ = current_user_from_authorization(authorization)
+        return success_payload(
+            data=await run_in_threadpool(apply_store_subscription_sync, user=user, payload=payload),
+            request_id=get_request_id(request),
+        )
+
+    @router.post("/subscription/store/revenuecat-webhook")
+    async def revenuecat_subscription_webhook(
+        request: Request,
+        authorization: str | None = Header(default=None),
+        revenuecat_signature: str | None = Header(default=None, alias="X-RevenueCat-Webhook-Signature"),
+    ) -> dict[str, Any]:
+        # Never accept a webhook as proof of payment; authenticate the exact
+        # raw bytes, then refetch the customer's current RevenueCat state.
+        raw_body = await request.body()
+        try:
+            notification = authenticate_revenuecat_webhook(
+                raw_body=raw_body,
+                authorization_header=authorization,
+                signature_header=revenuecat_signature,
+                expected_authorization=SETTINGS.revenuecat_webhook_authorization,
+                signing_secret=SETTINGS.revenuecat_webhook_signing_secret,
+            )
+        except RevenueCatWebhookAuthenticationError as exc:
+            raise AppError(
+                401, "UNAUTHENTICATED_REVENUECAT_WEBHOOK",
+                "RevenueCat webhook authentication failed.",
+                False, {"classification": "non_retryable"},
+            ) from exc
+        result = await run_in_threadpool(reconcile_revenuecat_webhook_event, notification)
+        return success_payload(data=result, request_id=get_request_id(request))
+
     @router.post("/tracking/event")
     async def create_tracking_event(
         request: Request,
@@ -108,7 +170,8 @@ def build_subscription_router() -> APIRouter:
         user, _ = current_user_from_authorization(authorization)
         return success_payload(
             data={
-                "portal_url": billing_portal_url(user_id=user["user_id"]),
+                "url": billing_portal_url(user_id=user["user_id"]),
+                "portal_url": None,
                 "mode": "configured",
             },
             request_id=get_request_id(request),

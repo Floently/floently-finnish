@@ -1,0 +1,37 @@
+name: Wave 1 feature branch safety
+
+on:
+  push:
+    branches:
+      - "agent/b-learning-platform-events-20260816"
+      - "agent/c-reading-engine-20260816"
+      - "agent/d-writing-revision-engine-20260816"
+      - "agent/e-practice-hub-composer-20260816"
+      - "agent/f-professional-missions-20260816"
+      - "agent/g-experience-motion-20260816"
+  pull_request:
+    branches:
+      - "integration/wave1-shared-base-20260816"
+  workflow_dispatch:
+
+jobs:
+  verify-wave1-feature-branch-safety:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out full history
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Fetch immutable Wave-1 base
+        run: git fetch origin integration/wave1-shared-base-20260816
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Verify branch ancestry, production firewall and research-first rule
+        env:
+          WAVE1_BASE_REF: origin/integration/wave1-shared-base-20260816
+        run: node apps/client/scripts/verify-wave1-feature-branch-safety.mjs

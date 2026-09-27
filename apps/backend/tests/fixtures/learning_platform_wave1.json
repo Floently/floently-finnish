@@ -1,0 +1,54 @@
+{
+  "capabilities": [
+    {
+      "capabilityId": "reading.everyday.fixture",
+      "runtime": "reading",
+      "supportedPathways": ["everyday"],
+      "supportedSkills": ["reading"],
+      "health": "available"
+    },
+    {
+      "capabilityId": "speaking.professional.fixture",
+      "runtime": "roleplay",
+      "supportedPathways": ["professional"],
+      "supportedSkills": ["speaking", "listening"],
+      "health": "degraded",
+      "featureFlag": "wave1_professional_speaking"
+    }
+  ],
+  "events": [
+    {
+      "schemaVersion": "learning.v1",
+      "eventId": "fixture-reading-completed",
+      "learnerId": "fixture-user-a",
+      "occurredAt": "2026-08-16T10:00:00+00:00",
+      "eventKind": "reading_completed",
+      "taskId": "fixture-reading-a2",
+      "contentVersion": "fixture-content-v3",
+      "attemptId": "fixture-attempt-reading",
+      "pathway": "everyday",
+      "runtime": "reading",
+      "skills": ["reading"],
+      "levelBand": "A2",
+      "score": 4,
+      "maxScore": 5,
+      "metadata": {"fixture": true}
+    },
+    {
+      "schemaVersion": "learning.v1",
+      "eventId": "fixture-writing-submitted",
+      "learnerId": "fixture-user-a",
+      "occurredAt": "2026-08-16T10:05:00+00:00",
+      "eventKind": "writing_submitted",
+      "taskId": "fixture-writing-b1",
+      "contentVersion": "fixture-writing-v2",
+      "attemptId": "fixture-attempt-writing",
+      "pathway": "professional",
+      "runtime": "writing",
+      "skills": ["writing"],
+      "levelBand": "B1",
+      "profession": "healthcare",
+      "metadata": {"fixture": true}
+    }
+  ]
+}

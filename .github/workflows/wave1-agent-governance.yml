@@ -1,0 +1,35 @@
+name: Wave 1 agent governance
+
+on:
+  push:
+    paths:
+      - ".github/AGENTS.md"
+      - "docs/agents/**"
+      - "docs/PRODUCTION_FORWARD_ONLY_INTEGRATION_POLICY.md"
+      - "packages/core/schemas/learning.ts"
+      - "apps/client/scripts/verify-wave1-agent-governance.mjs"
+      - ".github/workflows/wave1-agent-governance.yml"
+  pull_request:
+    paths:
+      - ".github/AGENTS.md"
+      - "docs/agents/**"
+      - "docs/PRODUCTION_FORWARD_ONLY_INTEGRATION_POLICY.md"
+      - "packages/core/schemas/learning.ts"
+      - "apps/client/scripts/verify-wave1-agent-governance.mjs"
+      - ".github/workflows/wave1-agent-governance.yml"
+  workflow_dispatch:
+
+jobs:
+  verify-wave1-agent-governance:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Verify governance, contracts and production firewall
+        run: node apps/client/scripts/verify-wave1-agent-governance.mjs

@@ -54,12 +54,14 @@ class InMemoryStateStore:
             "email_verification_tokens": {},
             "oauth_states": {},
             "oauth_results": {},
+            "client_devices": {},
             "cards_sessions": {},
             "cards_issues": {},
             "user_content_history": {},
             "roleplay_sessions": {},
             "voice_refs": {},
             "yki_sessions": {},
+            "revenuecat_webhook_events": {},
         }
 
     def _load_initial_state(self) -> dict[str, dict[str, Any]]:

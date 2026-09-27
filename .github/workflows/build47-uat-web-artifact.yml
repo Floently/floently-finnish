@@ -1,0 +1,702 @@
+name: Build 47 UAT web artifact
+
+on:
+  push:
+    branches:
+      - docs/build47-device-uat-readiness-20260927
+      - feature/build47-voice-conversation-ui-20260927
+    paths:
+      - '.github/workflows/build47-uat-web-artifact.yml'
+      - 'docs/agents/BUILD47_PROGRESSIVE_LEARNING_UAT_20260927.md'
+      - 'apps/client/state/SpeakingRoute.tsx'
+      - 'apps/client/scripts/verify-guided-speaking-invariants.mjs'
+      - 'apps/client/features/professional/ProfessionalListeningRoute.tsx'
+      - 'apps/client/scripts/verify-professional-listening.mjs'
+      - 'apps/client/features/speaking/screens/RoleplayConversationScreen.tsx'
+      - 'apps/client/features/speaking/components/VoiceConversationExperience.tsx'
+      - 'apps/client/scripts/verify-voice-conversation-ui.mjs'
+  pull_request:
+    branches:
+      - integration/build47-source-candidate-20260927
+      - docs/build47-device-uat-readiness-20260927
+    paths:
+      - '.github/workflows/build47-uat-web-artifact.yml'
+      - 'docs/agents/BUILD47_PROGRESSIVE_LEARNING_UAT_20260927.md'
+      - 'apps/client/state/SpeakingRoute.tsx'
+      - 'apps/client/scripts/verify-guided-speaking-invariants.mjs'
+      - 'apps/client/features/professional/ProfessionalListeningRoute.tsx'
+      - 'apps/client/scripts/verify-professional-listening.mjs'
+      - 'apps/client/features/speaking/screens/RoleplayConversationScreen.tsx'
+      - 'apps/client/features/speaking/components/VoiceConversationExperience.tsx'
+      - 'apps/client/scripts/verify-voice-conversation-ui.mjs'
+
+jobs:
+  export-web:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+      - name: Verify exact checked-out source
+        shell: bash
+        run: |
+          set -euo pipefail
+          ACTUAL_SHA="$(git rev-parse HEAD)"
+          if [ "${{ github.event_name }}" = "pull_request" ]; then
+            EXPECTED_SHA="${{ github.event.pull_request.head.sha }}"
+          else
+            EXPECTED_SHA="${{ github.sha }}"
+          fi
+          test "$ACTUAL_SHA" = "$EXPECTED_SHA"
+          echo "BUILD47_UAT_CHECKOUT_SHA=$ACTUAL_SHA" >> "$GITHUB_ENV"
+          echo "BUILD47_UAT_EXACT_SOURCE=PASS"
+      - name: Pin pnpm
+        uses: pnpm/action-setup@v6
+        with:
+          version: '10.34.0'
+          run_install: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: pnpm
+          cache-dependency-path: pnpm-lock.yaml
+      - name: Install frozen workspace dependencies
+        run: pnpm install --frozen-lockfile
+      - name: TypeScript check
+        run: pnpm --dir apps/client exec tsc --noEmit
+      - name: Load production Expo public environment
+        run: |
+          node <<'NODE'
+          const fs = require('fs');
+          const eas = JSON.parse(fs.readFileSync('apps/client/eas.json', 'utf8'));
+          const env = eas?.build?.production?.env ?? {};
+          for (const [key, value] of Object.entries(env)) {
+            fs.appendFileSync(process.env.GITHUB_ENV, `${key}<<__ENV__\n${String(value)}\n__ENV__\n`);
+          }
+          NODE
+      - name: Export web app
+        run: |
+          cd apps/client
+          pnpm exec expo export --platform web --output-dir /tmp/kielivalmis-build47-uat-web --clear
+          test -f /tmp/kielivalmis-build47-uat-web/index.html
+      - name: Record exact source identity
+        run: |
+          {
+            echo "KieliValmis Build 47 UAT web artifact"
+            echo "checked_out_head_sha=${BUILD47_UAT_CHECKOUT_SHA}"
+            echo "runtime_candidate_sha=661f3d298c90f8e0c9971dce9a99cb73e721644d"
+            echo "event_name=${GITHUB_EVENT_NAME}"
+            echo "production_actions=none"
+          } > /tmp/kielivalmis-build47-uat-web/BUILD47_UAT_SOURCE.txt
+      - name: Upload exact web export
+        uses: actions/upload-artifact@v4
+        with:
+          name: kielivalmis-build47-uat-web
+          path: /tmp/kielivalmis-build47-uat-web
+          if-no-files-found: error
+          retention-days: 7
+
+  visual-smoke:
+    needs: export-web
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: kielivalmis-build47-uat-web
+          path: /tmp/kielivalmis-build47-uat-web
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Prepare browser runner
+        run: |
+          mkdir -p /tmp/build47-browser
+          cd /tmp/build47-browser
+          npm init -y >/dev/null
+          npm install --silent playwright-core@1.55.0
+          CHROME_PATH="$(command -v google-chrome || command -v chromium || command -v chromium-browser || true)"
+          test -n "$CHROME_PATH"
+          echo "CHROME_PATH=$CHROME_PATH" >> "$GITHUB_ENV"
+      - name: Start exact exported app
+        run: |
+          python3 - <<'PY'
+          import wave
+          rate = 16000
+          seconds = 3
+          with wave.open('/tmp/kielivalmis-build47-uat-web/uat-tone.wav', 'wb') as wav:
+              wav.setnchannels(1)
+              wav.setsampwidth(2)
+              wav.setframerate(rate)
+              wav.writeframes(b'\x00\x00' * rate * seconds)
+          PY
+          cat >/tmp/build47-static-server.py <<'PY'
+          import os
+          from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
+          from urllib.parse import urlsplit
+
+          ROOT = '/tmp/kielivalmis-build47-uat-web'
+
+          class ExportHandler(SimpleHTTPRequestHandler):
+              def __init__(self, *args, **kwargs):
+                  super().__init__(*args, directory=ROOT, **kwargs)
+
+              def do_GET(self):
+                  parsed = urlsplit(self.path)
+                  clean = parsed.path
+                  if clean != '/' and not clean.endswith('/'):
+                      candidate = os.path.join(ROOT, clean.lstrip('/') + '.html')
+                      if os.path.isfile(candidate):
+                          self.path = clean + '.html'
+                          if parsed.query:
+                              self.path += '?' + parsed.query
+                  return super().do_GET()
+
+          ThreadingHTTPServer(('127.0.0.1', 8765), ExportHandler).serve_forever()
+          PY
+          python3 /tmp/build47-static-server.py >/tmp/build47-web.log 2>&1 &
+          echo $! >/tmp/build47-web.pid
+          for attempt in {1..20}; do
+            if curl -fsS http://127.0.0.1:8765/ >/dev/null; then
+              exit 0
+            fi
+            sleep 1
+          done
+          cat /tmp/build47-web.log
+          exit 1
+      - name: Capture changed learner surfaces
+        env:
+          NODE_PATH: /tmp/build47-browser/node_modules
+        run: |
+          mkdir -p /tmp/build47-screens
+          cat >/tmp/build47-browser/capture.mjs <<'NODE'
+          import fs from 'node:fs';
+          import { chromium } from 'playwright-core';
+
+          const appOrigin = 'http://127.0.0.1:8765';
+          const out = '/tmp/build47-screens';
+          const session = {
+            token: 'atk_build47_visual_uat_local',
+            user: {
+              id: 'build47-visual-uat',
+              email: 'build47-uat@local.invalid',
+              name: 'Build 47 UAT',
+              subscriptionTier: 'internal_all_access',
+              planLabel: 'Internal All Access',
+              ykiAccess: true,
+              professionalAccess: true,
+              readAccess: true,
+              createAccess: true,
+              professions: ['doctor', 'nurse', 'practical_nurse'],
+            },
+          };
+          const subscription = {
+            tier: 'internal_all_access',
+            billing_tier: 'internal_all_access',
+            is_internal_all_access: true,
+            is_active: true,
+            yki_access: true,
+            professional_access: true,
+            read_access: true,
+            create_access: true,
+            accessible_professions: ['doctor', 'nurse', 'practical_nurse'],
+            activeContext: 'doctor',
+            accessSummary: 'Build 47 visual UAT local all-access session.',
+          };
+          const envelope = (data, trace = 'uat-trace') => ({
+            ok: true,
+            data,
+            error: null,
+            meta: {
+              version: '2026-04-01.backend-lock.v1',
+              contract_version: '2026-04-01.contract-lock.v1',
+              timestamp: new Date().toISOString(),
+              trace_id: trace,
+              event_id: null,
+            },
+          });
+
+          const browser = await chromium.launch({
+            executablePath: process.env.CHROME_PATH,
+            headless: true,
+            args: ['--no-sandbox', '--disable-dev-shm-usage'],
+          });
+          const context = await browser.newContext({
+            viewport: { width: 390, height: 844 },
+            deviceScaleFactor: 1,
+            colorScheme: 'light',
+            reducedMotion: 'no-preference',
+          });
+
+          await context.addInitScript(({ session }) => {
+            localStorage.setItem('auth_session_v2', JSON.stringify(session));
+            localStorage.setItem('floently_session', session.token);
+            // The app intentionally clears legacy AsyncStorage during hydration.
+            // Keep the existing FlowReader compatibility token available so the
+            // local-only UAT browser can exercise the real restoreSessionFromToken
+            // path without adding any runtime bypass or using a real account.
+            localStorage.setItem('flowReader.auth.apiKey', session.token);
+            localStorage.setItem(
+              'floently.guided-speaking.progress.v1',
+              JSON.stringify({
+                highestUnlockedNumber: 41,
+                currentStageNumber: 41,
+                attempts: [],
+              }),
+            );
+            localStorage.removeItem('floently:nav_state');
+            localStorage.removeItem('floently:learning_session');
+          }, { session });
+
+          await context.route('https://learn-api.floently.com/**', async (route) => {
+            const request = route.request();
+            const url = new URL(request.url());
+            const path = url.pathname;
+            if (path === '/api/v1/auth/session') {
+              await route.fulfill({
+                status: 200,
+                contentType: 'application/json',
+                body: JSON.stringify(envelope({
+                  auth_user: {
+                    user_id: session.user.id,
+                    email: session.user.email,
+                    name: session.user.name,
+                    subscription_tier: 'internal_all_access',
+                    effective_tier: 'internal_all_access',
+                    plan_label: 'Internal All Access',
+                    yki_access: true,
+                    professional_access: true,
+                    read_access: true,
+                    create_access: true,
+                    accessible_professions: ['doctor', 'nurse', 'practical_nurse'],
+                    is_internal_all_access: true,
+                  },
+                }, 'auth-session-uat')),
+              });
+              return;
+            }
+            if (path === '/api/v1/subscription/status') {
+              await route.fulfill({
+                status: 200,
+                contentType: 'application/json',
+                body: JSON.stringify({ data: subscription }),
+              });
+              return;
+            }
+            if (path === '/api/v1/learning/modules') {
+              await route.fulfill({
+                status: 200,
+                contentType: 'application/json',
+                body: JSON.stringify(envelope({
+                  decisionVersion: 'build47-visual-uat.v1',
+                  governanceStatus: 'governed',
+                  governanceVersion: 'build47-visual-governance.v1',
+                  policyVersion: 'build47-visual-policy.v1',
+                  modules: [],
+                }, 'learning-uat')),
+              });
+              return;
+            }
+            if (path === '/api/v1/roleplay/session/start') {
+              await route.fulfill({
+                status: 200,
+                contentType: 'application/json',
+                body: JSON.stringify(envelope({
+                  sessionId: 'uat-roleplay-session',
+                  profession: 'general',
+                  levelBand: 'B1-B2',
+                  track: 'general',
+                  roleplayMode: 'workplace',
+                  scenarioPool: ['uat-daily-conversation'],
+                  selectionReason: 'unused_pool',
+                  scenario: {
+                    id: 'uat-daily-conversation',
+                    title: 'Daily Conversation',
+                    prompt: 'Respond naturally to the guide.',
+                    keyPhrases: ['Hyvää huomenta', 'Kiitos'],
+                    grammarTip: 'Keep the response natural.',
+                    levelBand: 'B1-B2',
+                    profession: 'general',
+                    track: 'general',
+                    roleplayMode: 'workplace',
+                    personaName: 'KLYMis Guide',
+                  },
+                  introText: 'A short daily conversation.',
+                  openingText: 'Good morning. How are you today?',
+                  voiceProfile: 'yki_standard_female',
+                  personaName: 'KLYMis Guide',
+                  maxUserTurns: 1,
+                }, 'roleplay-start-uat')),
+              });
+              return;
+            }
+            if (path === '/api/v1/voice/tts/requests') {
+              await route.fulfill({
+                status: 200,
+                contentType: 'application/json',
+                body: JSON.stringify(envelope({
+                  audio: {
+                    url: 'http://127.0.0.1:8765/uat-tone.wav',
+                    duration_seconds: 3,
+                    provider: 'uat',
+                    replayable: true,
+                    voice_profile: 'yki_standard_female',
+                  },
+                  cache_key: 'uat-tone',
+                  cached: true,
+                  requested_provider: 'uat',
+                }, 'tts-uat')),
+              });
+              return;
+            }
+            if (/^\/api\/v1\/roleplay\/session\/[^/]+\/turn$/.test(path)) {
+              await route.fulfill({
+                status: 200,
+                contentType: 'application/json',
+                body: JSON.stringify(envelope({
+                  sessionId: 'uat-roleplay-session',
+                  completed: true,
+                  currentUserTurn: 1,
+                  aiText: 'That’s great. Let’s continue.',
+                  personaName: 'KLYMis Guide',
+                  voiceProfile: 'yki_standard_female',
+                  feedbackLine: null,
+                  missingPhrases: [],
+                  score: {
+                    coverage: 3,
+                    clarity: 3,
+                    repairLanguage: 0,
+                    structure: 3,
+                    wordCount: 5,
+                    total: 9,
+                  },
+                }, 'roleplay-turn-uat')),
+              });
+              return;
+            }
+            if (/^\/api\/v1\/roleplay\/session\/[^/]+\/finish$/.test(path)) {
+              await route.fulfill({
+                status: 200,
+                contentType: 'application/json',
+                body: JSON.stringify(envelope({
+                  sessionId: 'uat-roleplay-session',
+                  completed: true,
+                  personaName: 'KLYMis Guide',
+                  track: 'general',
+                  trackLabel: 'Daily Conversation',
+                  levelBand: 'B1-B2',
+                  scenario: {
+                    id: 'uat-daily-conversation',
+                    title: 'Daily Conversation',
+                    prompt: 'Respond naturally to the guide.',
+                    keyPhrases: ['Hyvää huomenta', 'Kiitos'],
+                    grammarTip: 'Keep the response natural.',
+                    levelBand: 'B1-B2',
+                    profession: 'general',
+                    track: 'general',
+                    roleplayMode: 'workplace',
+                    personaName: 'KLYMis Guide',
+                  },
+                  summary: 'You completed the conversation clearly.',
+                  scores: {
+                    avgPhrasesCoverage: 3,
+                    avgWordCount: 5,
+                    repairLanguageUsed: false,
+                    totalTurns: 1,
+                  },
+                  transcriptAnnotated: [
+                    { speaker: 'AI', text: 'Good morning. How are you today?', comment: null },
+                    { speaker: 'USER', text: 'I’m fine, thank you.', comment: null },
+                    { speaker: 'AI', text: 'That’s great. Let’s continue.', comment: null },
+                  ],
+                  strongPhrases: ['I’m fine, thank you.'],
+                  difficultPhrases: [],
+                  grammarObservations: [],
+                  nextSteps: ['Continue to the next conversation.'],
+                  nextAction: 'Continue',
+                }, 'roleplay-finish-uat')),
+              });
+              return;
+            }
+            if (path === '/api/v1/tracking/event') {
+              await route.fulfill({
+                status: 200,
+                contentType: 'application/json',
+                body: JSON.stringify({ data: { accepted: true } }),
+              });
+              return;
+            }
+            await route.fulfill({
+              status: 503,
+              contentType: 'application/json',
+              body: JSON.stringify({ error: 'VISUAL_UAT_UNMOCKED_ENDPOINT', path }),
+            });
+          });
+
+          const report = [];
+          async function capture(name, path, expectedTexts = []) {
+            const page = await context.newPage();
+            const pageErrors = [];
+            const consoleErrors = [];
+            const requests = [];
+            page.on('pageerror', (error) => pageErrors.push(String(error)));
+            page.on('console', (message) => {
+              if (message.type() === 'error') consoleErrors.push(message.text());
+            });
+            page.on('request', (request) => {
+              if (request.url().includes('learn-api.floently.com')) {
+                requests.push(`${request.method()} ${new URL(request.url()).pathname}`);
+              }
+            });
+
+            const response = await page.goto(`${appOrigin}${path}`, {
+              waitUntil: 'domcontentloaded',
+              timeout: 30000,
+            });
+            await page.waitForTimeout(2400);
+            const body = await page.locator('body').innerText();
+            const screenshot = `${out}/${name}.png`;
+            await page.screenshot({ path: screenshot, fullPage: true });
+
+            const missing = expectedTexts.filter((text) => !body.toLowerCase().includes(text.toLowerCase()));
+            report.push({
+              name,
+              path,
+              status: response?.status() ?? null,
+              missing,
+              pageErrors,
+              consoleErrors,
+              requests: [...new Set(requests)],
+              bodyPreview: body.slice(0, 2200),
+              screenshot,
+            });
+            await page.close();
+          }
+
+          await capture(
+            '01-speaking-menu',
+            '/speaking/',
+            ['Guided practice', 'Etene vaihe kerrallaan', 'Scenario practice'],
+          );
+
+          {
+            const page = await context.newPage();
+            const pageErrors = [];
+            const consoleErrors = [];
+            page.on('pageerror', (error) => pageErrors.push(String(error)));
+            page.on('console', (message) => {
+              if (message.type() === 'error') consoleErrors.push(message.text());
+            });
+            const response = await page.goto(`${appOrigin}/speaking/?openMenu=1`, {
+              waitUntil: 'domcontentloaded',
+              timeout: 30000,
+            });
+            await page.waitForTimeout(2900);
+            const body = await page.locator('body').innerText();
+            const screenshot = `${out}/02-progressive-drawer.png`;
+            await page.screenshot({ path: screenshot, fullPage: true });
+            const expectedTexts = ['Guided practice · Speaking', 'Professional'];
+            const missing = expectedTexts.filter((text) => !body.toLowerCase().includes(text.toLowerCase()));
+            report.push({
+              name: '02-progressive-drawer',
+              path: '/speaking/ → Menu',
+              status: response?.status() ?? null,
+              missing,
+              pageErrors,
+              consoleErrors,
+              requests: [],
+              bodyPreview: body.slice(0, 2200),
+              screenshot,
+            });
+            await page.close();
+          }
+
+          {
+            const page = await context.newPage();
+            const pageErrors = [];
+            const consoleErrors = [];
+            page.on('pageerror', (error) => pageErrors.push(String(error)));
+            page.on('console', (message) => {
+              if (message.type() === 'error') consoleErrors.push(message.text());
+            });
+            const response = await page.goto(`${appOrigin}/speaking/`, {
+              waitUntil: 'domcontentloaded',
+              timeout: 30000,
+            });
+            await page.waitForTimeout(2400);
+            const guidedButton = page.getByRole('button', { name: /Guided practice.*Speaking/i }).first();
+            await guidedButton.click();
+            await page.waitForTimeout(1200);
+            const body = await page.locator('body').innerText();
+            const screenshot = `${out}/03-guided-speaking-stage-41.png`;
+            await page.screenshot({ path: screenshot, fullPage: true });
+            const expectedTexts = ['Your progress', 'Stage 41', 'History'];
+            const missing = expectedTexts.filter((text) => !body.toLowerCase().includes(text.toLowerCase()));
+            report.push({
+              name: '03-guided-speaking-stage-41',
+              path: '/speaking/ → Guided practice',
+              status: response?.status() ?? null,
+              missing,
+              pageErrors,
+              consoleErrors,
+              requests: [],
+              bodyPreview: body.slice(0, 2200),
+              screenshot,
+            });
+            await page.close();
+          }
+
+          {
+            const page = await context.newPage();
+            const pageErrors = [];
+            const consoleErrors = [];
+            page.on('pageerror', (error) => pageErrors.push(String(error)));
+            page.on('console', (message) => {
+              if (message.type() === 'error') consoleErrors.push(message.text());
+            });
+
+            const response = await page.goto(`${appOrigin}/speaking/`, {
+              waitUntil: 'domcontentloaded',
+              timeout: 30000,
+            });
+            await page.waitForTimeout(2200);
+            await page.locator('[data-testid="scenario-practice-entry"]').click();
+            await page.waitForTimeout(750);
+
+            let body = await page.locator('body').innerText();
+            let screenshot = `${out}/04-voice-conversation-ai-turn.png`;
+            await page.screenshot({ path: screenshot, fullPage: true });
+            let missing = ['Daily Conversation', 'KLYMis Guide'].filter(
+              (text) => !body.toLowerCase().includes(text.toLowerCase()),
+            );
+            if (await page.locator('[data-testid="voice-orb"]').count() !== 1) {
+              missing.push('voice orb');
+            }
+            report.push({
+              name: '04-voice-conversation-ai-turn',
+              path: '/speaking/ → Scenario practice',
+              status: response?.status() ?? null,
+              missing,
+              pageErrors: [...pageErrors],
+              consoleErrors: [...consoleErrors],
+              requests: [],
+              bodyPreview: body.slice(0, 2200),
+              screenshot,
+            });
+
+            await page.waitForTimeout(3300);
+            body = await page.locator('body').innerText();
+            screenshot = `${out}/05-voice-conversation-user-turn.png`;
+            await page.screenshot({ path: screenshot, fullPage: true });
+            missing = ['You', 'Swipe up to speak or type'].filter(
+              (text) => !body.toLowerCase().includes(text.toLowerCase()),
+            );
+            report.push({
+              name: '05-voice-conversation-user-turn',
+              path: '/speaking/ → Scenario practice → learner turn',
+              status: response?.status() ?? null,
+              missing,
+              pageErrors: [...pageErrors],
+              consoleErrors: [...consoleErrors],
+              requests: [],
+              bodyPreview: body.slice(0, 2200),
+              screenshot,
+            });
+
+            await page.getByRole('button', { name: /show conversation controls/i }).click();
+            await page.getByLabel('Type your speaking-practice response').focus();
+            await page.waitForTimeout(350);
+            body = await page.locator('body').innerText();
+            screenshot = `${out}/06-text-only-no-orb.png`;
+            await page.screenshot({ path: screenshot, fullPage: true });
+            missing = [];
+            if (await page.locator('[data-testid="voice-orb"]').count() !== 0) {
+              missing.push('orb must be absent in text mode');
+            }
+            if (!body.toLowerCase().includes('voice')) {
+              missing.push('voice return control');
+            }
+            report.push({
+              name: '06-text-only-no-orb',
+              path: '/speaking/ → controls → text mode',
+              status: response?.status() ?? null,
+              missing,
+              pageErrors: [...pageErrors],
+              consoleErrors: [...consoleErrors],
+              requests: [],
+              bodyPreview: body.slice(0, 2200),
+              screenshot,
+            });
+
+            await page.getByLabel('Type your speaking-practice response').fill("I'm fine, thank you.");
+            await page.getByRole('button', { name: /^Voice$/i }).click();
+            await page.waitForTimeout(150);
+            await page.getByRole('button', { name: /send typed response/i }).click();
+            await page.waitForTimeout(4000);
+
+            body = await page.locator('body').innerText();
+            screenshot = `${out}/07-conversation-complete.png`;
+            await page.screenshot({ path: screenshot, fullPage: true });
+            missing = ['Conversation complete', 'Replay', 'Transcript', 'Previous', 'Next'].filter(
+              (text) => !body.toLowerCase().includes(text.toLowerCase()),
+            );
+            if (await page.locator('[data-testid="voice-orb"]').count() !== 1) {
+              missing.push('completion orb');
+            }
+            report.push({
+              name: '07-conversation-complete',
+              path: '/speaking/ → completed conversation',
+              status: response?.status() ?? null,
+              missing,
+              pageErrors: [...pageErrors],
+              consoleErrors: [...consoleErrors],
+              requests: [],
+              bodyPreview: body.slice(0, 2200),
+              screenshot,
+            });
+
+            await page.close();
+          }
+
+          await capture('08-cards-level-gate', '/cards/', ['A1', 'B1', 'C1', 'Start this level']);
+          await capture(
+            '09-professional-mission',
+            '/professional/',
+            ['Current mission', 'Start mission · Listen', 'Mission path'],
+          );
+          await capture(
+            '10-professional-listening',
+            '/professional/listening?taskId=mission.doctor-follow-up-explanation.listening',
+            ['Mission · Listen', 'Hear the workplace message', 'Use transcript support'],
+          );
+          await capture(
+            '11-everyday-reading',
+            '/learn/reading',
+            ['KieliValmis Reading', 'Arjen lukeminen', 'Aloita kysymykset'],
+          );
+          await capture(
+            '12-everyday-writing',
+            '/learn/writing',
+            ['Choose a task', 'Understand', 'Plan my message'],
+          );
+
+          fs.writeFileSync(`${out}/visual-smoke-report.json`, JSON.stringify(report, null, 2));
+          const fatal = report.flatMap((item) => [
+            ...item.pageErrors.map((message) => `${item.name}: pageerror: ${message}`),
+            ...item.missing.map((message) => `${item.name}: missing expected text: ${message}`),
+          ]);
+          console.log(JSON.stringify(report, null, 2));
+          await browser.close();
+          if (fatal.length) {
+            console.error(fatal.join('\n'));
+            process.exit(1);
+          }
+          NODE
+          node /tmp/build47-browser/capture.mjs
+      - name: Upload Build 47 screenshots
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: kielivalmis-build47-visual-smoke
+          path: /tmp/build47-screens
+          if-no-files-found: error
+          retention-days: 7

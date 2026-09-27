@@ -4,6 +4,7 @@ from datetime import datetime, timezone
 
 from app.cards.adaptive.models import AdaptiveReasonCode, AdaptiveSelectionReason, AdaptiveSessionFilters, AdaptiveSessionPlan, CardPerformanceRecord, ReviewQueueSnapshot
 from app.cards.schemas.cards import CardEnvelope
+from app.cards.schemas.common import DifficultyBand
 from app.cards.schemas.follow_ups import FollowUpVariantType
 from app.cards.schemas.session import CardReviewState
 
@@ -18,7 +19,7 @@ def build_adaptive_plan(
     now: datetime | None = None,
 ) -> AdaptiveSessionPlan:
     current_time = now or datetime.now(timezone.utc)
-    ranked_rows: list[tuple[tuple[int, datetime, float, str], str, AdaptiveSelectionReason]] = []
+    ranked_rows: list[tuple[tuple[int, datetime, float, int, str], str, AdaptiveSelectionReason]] = []
     due_ids: list[str] = []
     new_ids: list[str] = []
     difficult_ids: list[str] = []
@@ -42,7 +43,18 @@ def build_adaptive_plan(
 
         due_rank = 0 if is_due else 1
         due_sort_value = due_at or current_time
-        sort_key = (due_rank, due_sort_value, -performance.difficulty_score, card.id)
+        authored_difficulty_rank = {
+            DifficultyBand.intro: 0,
+            DifficultyBand.core: 1,
+            DifficultyBand.stretch: 2,
+        }.get(card.difficulty, 2)
+        sort_key = (
+            due_rank,
+            due_sort_value,
+            -performance.difficulty_score,
+            authored_difficulty_rank,
+            card.id,
+        )
         reason = AdaptiveSelectionReason(
             card_id=card.id,
             reason_code=reason_code,

@@ -87,7 +87,12 @@ def test_submit_yki_exam_uses_stored_engine_token(monkeypatch):
         )
     )
 
-    assert result == {"status": "submitted"}
+    assert result["status"] == "submitted"
+    assert isinstance(result.get("evaluation"), dict)
+    assert isinstance(result.get("evaluationReport"), dict)
+    assert result["evaluation"] == result["evaluationReport"]
+    assert isinstance(result.get("disclaimer"), str)
+
     assert captured == {
         "method": "POST",
         "path": "/exam/session-2/submit",

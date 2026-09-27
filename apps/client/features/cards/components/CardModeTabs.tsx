@@ -1,26 +1,30 @@
 import { Pressable, StyleSheet, Text, View } from 'react-native';
 import { getFloentlyPalette } from '@ui/theme/floentlyPalette';
+import { useTranslator } from '../../../features/i18n';
 import { usePreferencesStore } from '../../../state/preferencesStore';
 import type { CardMode } from '../types';
 
-const MODES: Array<{ label: string; value: CardMode }> = [
-  { label: 'Vocabulary', value: 'vocabulary' },
-  { label: 'Sentences', value: 'phrases' },
-  { label: 'Grammar', value: 'grammar' },
+type ModeConfig = { labelKey: 'cardsVocabularyLabel' | 'cardsSentencesLabel' | 'cardsGrammarLabel'; value: CardMode };
+
+const MODE_CONFIGS: ModeConfig[] = [
+  { labelKey: 'cardsVocabularyLabel', value: 'vocabulary' },
+  { labelKey: 'cardsSentencesLabel', value: 'phrases' },
+  { labelKey: 'cardsGrammarLabel', value: 'grammar' },
 ];
 
 export function CardModeTabs({ value, onChange }: { value: CardMode; onChange: (m: CardMode) => void }) {
+  const { t } = useTranslator();
   const themeMode = usePreferencesStore((state) => state.themeMode);
   const palette = getFloentlyPalette(themeMode);
   const isDark = themeMode === 'dark';
 
   return (
     <View style={styles.row}>
-      {MODES.map((mode) => {
+      {MODE_CONFIGS.map((mode) => {
         const active = value === mode.value;
         return (
           <Pressable key={mode.value} onPress={() => onChange(mode.value)} style={[styles.pill, isDark && { backgroundColor: palette.surfaceMuted, borderColor: palette.border }, active && styles.pillActive, active && isDark && { backgroundColor: palette.primarySurface, borderColor: palette.primary }]}>
-            <Text style={[styles.label, isDark && { color: palette.textMuted }, active && styles.labelActive, active && isDark && { color: palette.primary }]}>{mode.label}</Text>
+            <Text style={[styles.label, isDark && { color: palette.textMuted }, active && styles.labelActive, active && isDark && { color: palette.primary }]}>{t(mode.labelKey)}</Text>
           </Pressable>
         );
       })}

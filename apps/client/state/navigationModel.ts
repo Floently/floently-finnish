@@ -29,7 +29,8 @@ export type RequestedScreen =
   | "help"
   | "progress"
   | "settings"
-  | "billing";
+  | "billing"
+  | "create";
 
 export type NavigationErrorCode =
   | "AUTH_REQUIRED"

@@ -14,9 +14,9 @@ from app.services.tts.voice_registry import provider_voice_name
 _CACHE_DIR = RUNTIME_DIR / 'tts_cache'
 _CACHE_DIR.mkdir(parents=True, exist_ok=True)
 
-# OpenAI voices kept here as a small lookup since the OpenAI TTS provider
-# doesn't need persona-aware variety. For Google, we ALWAYS use the registry
-# via provider_voice_name() to ensure consistent behavior across the app.
+# OpenAI built-in voice IDs are kept here for backwards compatibility. The
+# provider does not expose a gender metadata field for these built-ins, so the
+# verified male/female contract currently comes from the Google registry.
 _OPENAI_VOICES: dict[str, str] = {"female": "nova", "male": "onyx", "neutral": "nova"}
 _DEV_VOICE = "dev"
 
@@ -110,7 +110,7 @@ async def resolve_tts_audio(
                 cached=True,
             )
 
-    provider_order = _ordered_providers(provider, voice)
+    provider_order = _ordered_providers(provider, voice, voice_profile=voice_profile)
     if not provider_order:
         raise TTSRouterError('No TTS provider is configured for this deployment.')
 
@@ -157,17 +157,18 @@ async def resolve_tts_audio(
     )
 
 
-def _ordered_providers(requested_provider: str | None, voice_hint: str) -> list[tuple]:
+def _ordered_providers(requested_provider: str | None, voice_hint: str, voice_profile: str | None = None) -> list[tuple]:
     """Return list of (provider_instance, voice_id) tuples in try order, configured-only."""
     from app.services.tts.providers.google import GoogleTTSProvider
     from app.services.tts.providers.openai import OpenAIProvider
     from app.services.tts.providers.development_fallback import DevelopmentFallbackProvider
 
     hint = str(voice_hint or "female").strip().lower()
+    resolved_profile = str(voice_profile or f"yki_standard_{hint}").strip()
     google_voice = (
-        provider_voice_name("google", voice_profile=f"yki_standard_{hint}", voice_hint=hint)
+        provider_voice_name("google", voice_profile=resolved_profile, voice_hint=hint)
         or SETTINGS.google_tts_default_voice
-        or "fi-FI-Standard-A"
+        or ("fi-FI-Chirp3-HD-Charon" if hint == "male" else "fi-FI-Standard-B")
     )
     registry = {
         "google": (GoogleTTSProvider(SETTINGS), google_voice),

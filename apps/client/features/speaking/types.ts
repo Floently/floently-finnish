@@ -1,7 +1,7 @@
 import type { RoleplayLevelBand, RoleplayProfession } from '@core/api/roleplay';
 export type { RoleplayLevelBand, RoleplayProfession } from '@core/api/roleplay';
 
-export type SpeakingSurface = 'menu' | 'conversation' | 'recorded';
+export type SpeakingSurface = 'menu' | 'guided' | 'conversation' | 'recorded';
 
 export type SpeakingTrack = {
   id: RoleplayProfession;

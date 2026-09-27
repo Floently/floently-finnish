@@ -1,0 +1,200 @@
+name: YKI evaluation contract
+
+on:
+  push:
+    paths:
+      - "apps/backend/**"
+      - "apps/client/features/exam/**"
+      - "apps/client/features/yki-exam/**"
+      - "apps/client/scripts/verify-yki-*.mjs"
+      - "apps/client/package.json"
+      - "apps/client/tsconfig.json"
+      - "apps/client/eslint.config.js"
+      - "packages/core/api/ykiExam.ts"
+      - "packages/core/api/voice.ts"
+      - "package.json"
+      - "pnpm-lock.yaml"
+      - "pnpm-workspace.yaml"
+      - "tsconfig.json"
+      - ".github/workflows/yki-evaluation.yml"
+  pull_request:
+    paths:
+      - "apps/backend/**"
+      - "apps/client/features/exam/**"
+      - "apps/client/features/yki-exam/**"
+      - "apps/client/scripts/verify-yki-*.mjs"
+      - "apps/client/package.json"
+      - "apps/client/tsconfig.json"
+      - "apps/client/eslint.config.js"
+      - "packages/core/api/ykiExam.ts"
+      - "packages/core/api/voice.ts"
+      - "package.json"
+      - "pnpm-lock.yaml"
+      - "pnpm-workspace.yaml"
+      - "tsconfig.json"
+      - ".github/workflows/yki-evaluation.yml"
+  workflow_dispatch:
+
+jobs:
+  verify-yki-evaluation:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: "pip"
+          cache-dependency-path: apps/backend/requirements.txt
+
+      - name: Install backend dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -r apps/backend/requirements.txt
+
+      - name: Compile YKI protected source and verifiers
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+
+          paths = [
+              Path("apps/backend/app/models/api_models.py"),
+              Path("apps/backend/app/routers/v1_yki.py"),
+              Path("apps/backend/app/runtime/yki.py"),
+              Path("apps/backend/app/runtime/yki_local_fallback.py"),
+              Path("apps/backend/app/services/yki_service.py"),
+              Path("apps/backend/app/services/yki_evaluation_service.py"),
+              Path("apps/backend/scripts/verify_yki_ai_evaluation.py"),
+              Path("apps/backend/scripts/verify_yki_evaluation_regression_recovery.py"),
+              Path("apps/backend/scripts/verify_yki_final_submit_recovery.py"),
+              Path("apps/backend/scripts/verify_yki_local_fallback_evaluation.py"),
+              Path("apps/backend/scripts/verify_yki_report_calibration.py"),
+          ]
+
+          for path in paths:
+              compile(
+                  path.read_text(),
+                  str(path),
+                  "exec",
+              )
+              print(f"COMPILE_PASS={path}")
+          PY
+
+      - name: Verify YKI AI evaluation contract
+        env:
+          PYTHONPATH: apps/backend
+          OPENAI_EVALUATION_ENABLED: "0"
+        run: |
+          python apps/backend/scripts/verify_yki_ai_evaluation.py
+
+      - name: Verify YKI grounded evaluation recovery
+        env:
+          PYTHONPATH: apps/backend
+          OPENAI_EVALUATION_ENABLED: "0"
+        run: |
+          python apps/backend/scripts/verify_yki_evaluation_regression_recovery.py
+
+      - name: Verify YKI final-submit idempotent recovery
+        env:
+          PYTHONPATH: apps/backend
+          OPENAI_EVALUATION_ENABLED: "0"
+        run: |
+          python apps/backend/scripts/verify_yki_final_submit_recovery.py
+
+      - name: Verify YKI local fallback and answer protection
+        env:
+          PYTHONPATH: apps/backend
+          OPENAI_EVALUATION_ENABLED: "0"
+        run: |
+          python apps/backend/scripts/verify_yki_local_fallback_evaluation.py
+
+      - name: Verify YKI report calibration and task balance
+        env:
+          PYTHONPATH: apps/backend
+          OPENAI_EVALUATION_ENABLED: "0"
+        run: |
+          python apps/backend/scripts/verify_yki_report_calibration.py
+
+      - name: Run tracked YKI pytest suite
+        env:
+          PYTHONPATH: apps/backend
+          FLOENTLY_ENV: development
+          SIGNED_SESSION_SECRET: ci-test-secret
+          OPENAI_EVALUATION_ENABLED: "0"
+        run: |
+          python -m pytest -q \
+            apps/backend/tests/test_yki_local_fallback.py \
+            apps/backend/tests/test_yki_orchestrator.py \
+            apps/backend/tests/test_yki_state_machine.py
+
+  verify-yki-client:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up pnpm
+        uses: pnpm/action-setup@v6
+        with:
+          version: "10.34.0"
+          run_install: false
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "pnpm"
+          cache-dependency-path: pnpm-lock.yaml
+
+      - name: Install frozen workspace dependencies
+        run: |
+          pnpm install --frozen-lockfile
+
+      - name: TypeScript check
+        run: |
+          pnpm --dir apps/client exec tsc --noEmit
+
+      - name: Lint protected YKI client source
+        run: |
+          cd apps/client
+          pnpm exec eslint \
+            features/exam/screens/ExamRuntimeScreen.tsx \
+            features/exam/screens/ResultsOverviewScreen.tsx \
+            features/exam/services/audioPlayer.ts \
+            features/exam/state/examResultsPersistence.ts \
+            features/yki-exam/screens/YkiExamScreen.tsx \
+            features/yki-exam/services/ykiExamService.ts \
+            scripts/verify-yki-evaluation-integration.mjs \
+            scripts/verify-yki-final-submit-recovery.mjs \
+            scripts/verify-yki-local-fallback-contract.mjs \
+            scripts/verify-yki-multivoice-contract.mjs \
+            scripts/verify-yki-report-calibration.mjs \
+            scripts/verify-yki-report-hardening.mjs \
+            scripts/verify-yki-session-handoff.mjs \
+            scripts/verify-yki-speaking-timer-autosave.mjs \
+            ../../packages/core/api/voice.ts \
+            ../../packages/core/api/ykiExam.ts
+
+      - name: Verify YKI client contracts
+        run: |
+          node apps/client/scripts/verify-yki-evaluation-integration.mjs
+          node apps/client/scripts/verify-yki-final-submit-recovery.mjs
+          node apps/client/scripts/verify-yki-local-fallback-contract.mjs
+          node apps/client/scripts/verify-yki-multivoice-contract.mjs
+          node apps/client/scripts/verify-yki-report-calibration.mjs
+          node apps/client/scripts/verify-yki-report-hardening.mjs
+          node apps/client/scripts/verify-yki-session-handoff.mjs
+          node apps/client/scripts/verify-yki-speaking-timer-autosave.mjs
+
+      - name: Verify KieliValmis native branding
+        run: |
+          cd apps/client
+          node ./scripts/verify-kielivalmis-rebrand.mjs
+          node ./scripts/audit-kielivalmis-visible-brand.mjs
+
+      - name: Verify shared voice and navigation regressions
+        run: |
+          cd apps/client
+          node ./scripts/verify-roleplay-audio-invariants.mjs
+          node ./scripts/verify-navigation-invariants.mjs

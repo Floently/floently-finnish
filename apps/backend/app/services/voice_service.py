@@ -3,6 +3,7 @@ from __future__ import annotations
 import io
 import logging
 import os
+import re
 import shutil
 import sys
 import traceback
@@ -19,7 +20,11 @@ from app.services.tts.voice_registry import validate_voice_registry
 
 ALLOWED_AUDIO_MIME_TYPES = {"audio/m4a", "audio/mp4", "audio/webm", "audio/ogg", "audio/wav", "audio/mpeg", "audio/mp3"}
 MIN_AUDIO_BYTES = 256  # anything smaller is almost certainly a broken recording, not speech
-_SILENCE_FAILURE_MARKERS = ("openai_returned_empty_transcript", "google_returned_empty_transcript")
+_SILENCE_FAILURE_MARKERS = (
+    "openai_returned_empty_transcript",
+    "google_returned_empty_transcript",
+    "hallucinated_placeholder_transcript",
+)
 _TOO_SHORT_FAILURE_MARKERS = ("audio_too_short", "too_short")
 _CONFIG_FAILURE_MARKERS = (
     "openai_not_configured",
@@ -52,6 +57,61 @@ _PERMISSION_FAILURE_MARKERS = (
     "api has not been used",
     "access denied",
 )
+
+
+_STT_HALLUCINATION_PHRASES = (
+    "thanks for watching",
+    "thank you for watching",
+    "kiitos kun katsoit",
+    "kiitos etta katsoit",
+    "kiitos että katsoit",
+    "kiitos katsomisesta",
+    "thanks for listening",
+    "thank you for listening",
+    "subscribe",
+    "like and subscribe",
+    "tekstitys",
+    "subtitles",
+    "caption",
+)
+
+_STT_SUSPICIOUS_SINGLE_PHRASES = (
+    "te-palvelut",
+    "te palvelut",
+)
+
+
+def _normalize_stt_text_for_guard(text: str) -> str:
+    raw = str(text or "").strip().lower()
+    raw = raw.replace("–", "-").replace("—", "-")
+    # Remove punctuation so "Kiitos, kun katsoit." becomes "kiitos kun katsoit".
+    raw = re.sub(r"[^\wåäöÅÄÖ]+", " ", raw, flags=re.UNICODE)
+    return " ".join(raw.split())
+
+
+def _looks_like_stt_hallucination(text: str, *, mode: str, duration_ms: int | None = None) -> bool:
+    """Reject common STT hallucinations from silence/noise before the app trusts them.
+
+    Whisper-style STT often invents caption phrases such as "thanks for watching"
+    on silent, too-short, or badly decoded mobile recordings. In roleplay this is
+    worse than an empty transcript because it sends nonsense into the conversation.
+    """
+    normalized = _normalize_stt_text_for_guard(text)
+    if not normalized:
+        return False
+
+    if any(phrase in normalized for phrase in _STT_HALLUCINATION_PHRASES):
+        return True
+
+    # In roleplay, these very short standalone outputs are usually hallucinations
+    # when the user was speaking about a doctor/patient situation.
+    if str(mode or "").strip().lower() == "roleplay":
+        if normalized in _STT_SUSPICIOUS_SINGLE_PHRASES:
+            return True
+        if duration_ms is not None and duration_ms < 1200 and len(normalized.split()) <= 2:
+            return True
+
+    return False
 
 
 def _configure_voice_logger() -> logging.Logger:
@@ -160,6 +220,32 @@ def _to_linear16(raw: bytes, src_format: str) -> tuple[tuple[bytes, int] | None,
         return None, reason
 
 
+
+def _audio_debug_metrics(raw: bytes, filename: str, mime_type: str) -> dict[str, Any]:
+    """Best-effort audio diagnostics for mobile STT debugging."""
+    metrics: dict[str, Any] = {
+        "bytes": len(raw),
+        "filename": filename,
+        "mime_type": mime_type,
+        "src_format": _guess_src_format(filename, mime_type),
+    }
+    try:
+        from pydub import AudioSegment  # type: ignore
+        seg = AudioSegment.from_file(io.BytesIO(raw), format=metrics["src_format"])
+        metrics.update({
+            "duration_ms": len(seg),
+            "channels": seg.channels,
+            "frame_rate": seg.frame_rate,
+            "sample_width": seg.sample_width,
+            "rms": seg.rms,
+            "max_dBFS": None if seg.max_dBFS == float("-inf") else round(float(seg.max_dBFS), 2),
+            "dBFS": None if seg.dBFS == float("-inf") else round(float(seg.dBFS), 2),
+        })
+    except Exception as exc:
+        metrics["decode_error"] = f"{type(exc).__name__}: {exc}"
+    return metrics
+
+
 def _guess_src_format(filename: str, mime_type: str) -> str:
     lower_name = (filename or "").lower()
     lower_mime = (mime_type or "").lower()
@@ -262,7 +348,7 @@ def _transcribe_with_openai(raw: bytes, filename: str, locale: str) -> tuple[str
 
 
 def _transcribe_best_effort(
-    raw: bytes, filename: str, mime_type: str, locale: str
+    raw: bytes, filename: str, mime_type: str, locale: str, mode: str, duration_ms: int | None = None
 ) -> tuple[str | None, str | None, bool, list[str], list[dict[str, str]]]:
     """Try providers in order. Return (transcript, provider_used, stt_available, failure_reasons).
 
@@ -276,16 +362,28 @@ def _transcribe_best_effort(
 
     transcript, reason = _transcribe_with_openai(raw, filename, locale)
     if transcript:
-        provider_results.append({"provider": "openai", "status": "success"})
-        return transcript, "openai", True, failures, provider_results
+        if _looks_like_stt_hallucination(transcript, mode=mode, duration_ms=duration_ms):
+            reason = f"hallucinated_placeholder_transcript: {transcript!r}"
+            _LOG.warning("Rejected OpenAI STT hallucination: transcript=%r mode=%s duration_ms=%s bytes=%s", transcript, mode, duration_ms, len(raw))
+            failures.append(f"openai: {reason}")
+            provider_results.append({"provider": "openai", "status": "rejected", "reason": reason})
+        else:
+            provider_results.append({"provider": "openai", "status": "success"})
+            return transcript, "openai", True, failures, provider_results
     if reason:
         failures.append(f"openai: {reason}")
         provider_results.append({"provider": "openai", "status": "failed", "reason": reason})
 
     transcript, reason = _transcribe_with_google(raw, filename, locale, mime_type)
     if transcript:
-        provider_results.append({"provider": "google", "status": "success"})
-        return transcript, "google", True, failures, provider_results
+        if _looks_like_stt_hallucination(transcript, mode=mode, duration_ms=duration_ms):
+            reason = f"hallucinated_placeholder_transcript: {transcript!r}"
+            _LOG.warning("Rejected Google STT hallucination: transcript=%r mode=%s duration_ms=%s bytes=%s", transcript, mode, duration_ms, len(raw))
+            failures.append(f"google: {reason}")
+            provider_results.append({"provider": "google", "status": "rejected", "reason": reason})
+        else:
+            provider_results.append({"provider": "google", "status": "success"})
+            return transcript, "google", True, failures, provider_results
     if reason:
         failures.append(f"google: {reason}")
         provider_results.append({"provider": "google", "status": "failed", "reason": reason})
@@ -312,12 +410,54 @@ def get_stt_runtime_snapshot() -> dict[str, Any]:
     }
 
 
+def _looks_like_roleplay_stt_hallucination(
+    transcript: str | None,
+    *,
+    duration_ms: int | None,
+    decoded_duration_ms: int | None,
+) -> bool:
+    """Reject likely roleplay STT hallucinations before they reach AI conversation."""
+    clean = " ".join(str(transcript or "").strip().lower().split())
+    if not clean:
+        return False
+
+    effective_duration = decoded_duration_ms if isinstance(decoded_duration_ms, int) else duration_ms
+    if not isinstance(effective_duration, int) or effective_duration < 3000:
+        return False
+
+    compact = clean.strip(" .,!?:;\"'“”’")
+    suspicious_exact = {
+        "hey",
+        "hei",
+        "hi",
+        "hello",
+        "jari",
+        "lahtinen",
+        "jari lahtinen",
+        "kiitos",
+        "thank you",
+        "thanks",
+        "okay",
+        "ok",
+    }
+
+    if compact in suspicious_exact:
+        return True
+
+    words = [part for part in compact.replace("-", " ").split() if part]
+    if len(words) <= 1 and len(compact) <= 12:
+        return True
+
+    return False
+
+
 def transcribe_audio(
     *,
     raw_bytes: bytes,
     filename: str,
     mime_type: str,
     duration_ms: int | None,
+    client_file_size_bytes: int | None = None,
     session_id: str,
     speaking_session_id: str | None,
     turn_id: str | None,
@@ -331,7 +471,7 @@ def transcribe_audio(
         raise AppError(
             400,
             "AUDIO_TOO_SHORT",
-            "Recording is too short. Please hold the microphone for at least one second and try again.",
+            "Recording is too short. Please record at least 3 seconds and speak one full sentence.",
             False,
             {"classification": "non_retryable", "byte_count": len(raw_bytes)},
         )
@@ -342,6 +482,8 @@ def transcribe_audio(
         raise AppError(400, "VALIDATION_ERROR", "Unsupported audio mime type.", False, {"classification": "non_retryable", "mime_type": mime_type})
     if duration_ms is not None and duration_ms < 0:
         raise AppError(400, "VALIDATION_ERROR", "duration_ms must be zero or greater.", False, {"classification": "non_retryable"})
+    if client_file_size_bytes is not None and client_file_size_bytes < 0:
+        raise AppError(400, "VALIDATION_ERROR", "client_file_size_bytes must be zero or greater.", False, {"classification": "non_retryable"})
 
     effective_speaking_session_id = speaking_session_id or session_id
     audio_ref, audio_path = save_voice_file(
@@ -354,7 +496,104 @@ def transcribe_audio(
         turn_id=turn_id,
     )
 
-    transcript, provider, stt_available, failures, provider_results = _transcribe_best_effort(raw_bytes, filename, mime_type, locale)
+    debug_metrics = _audio_debug_metrics(raw_bytes, filename, mime_type)
+
+    if mode == "roleplay" and len(raw_bytes) < 2048:
+        _LOG.warning(
+            "Rejected roleplay STT upload: file too small bytes=%s client_file_size_bytes=%s duration_ms=%s filename=%s mime_type=%s",
+            len(raw_bytes),
+            client_file_size_bytes,
+            duration_ms,
+            filename,
+            mime_type,
+        )
+        return {
+            "transcript": "",
+            "text": "",
+            "provider": None,
+            "stt_available": True,
+            "stored_audio_path": audio_path,
+            "voice_ref": audio_ref,
+            "duration_ms": duration_ms,
+            "debug_metrics": debug_metrics,
+            "client_file_size_bytes": client_file_size_bytes,
+            "server_file_size_bytes": len(raw_bytes),
+            "failure_reasons": ["roleplay_audio_file_too_small"],
+            "provider_results": [],
+        }
+    _LOG.warning("STT input audio metrics: %s", debug_metrics)
+
+    decoded_duration_ms = debug_metrics.get("duration_ms")
+    if mode == "roleplay" and isinstance(decoded_duration_ms, int) and decoded_duration_ms < 2500:
+        return {
+            "stt_available": True,
+            "transcript": None,
+            "text": None,
+            "audio_ref": audio_ref,
+            "provider": None,
+            "error_code": "AUDIO_TOO_SHORT",
+            "error_message": "I could not hear enough speech. Please record at least 3 seconds, speak clearly, and try again.",
+            "failure_reasons": [f"decoded_audio_too_short:{decoded_duration_ms}ms"],
+            "provider_results": [],
+            "debug_metrics": debug_metrics,
+        }
+
+    if mode == "roleplay":
+        _LOG.info(
+            "Roleplay STT upload metrics: bytes=%s client_file_size_bytes=%s duration_ms=%s decoded_duration_ms=%s filename=%s mime_type=%s",
+            len(raw_bytes),
+            client_file_size_bytes,
+            duration_ms,
+            decoded_duration_ms,
+            filename,
+            mime_type,
+        )
+
+    transcript, provider, stt_available, failures, provider_results = _transcribe_best_effort(
+        raw_bytes,
+        filename,
+        mime_type,
+        locale,
+        mode,
+        duration_ms,
+    )
+
+    if mode == "roleplay" and _looks_like_roleplay_stt_hallucination(
+        transcript,
+        duration_ms=duration_ms,
+        decoded_duration_ms=decoded_duration_ms,
+    ):
+        _LOG.warning(
+            "Rejected suspicious roleplay STT transcript: transcript=%r bytes=%s client_file_size_bytes=%s duration_ms=%s decoded_duration_ms=%s filename=%s mime_type=%s",
+            transcript,
+            len(raw_bytes),
+            client_file_size_bytes,
+            duration_ms,
+            decoded_duration_ms,
+            filename,
+            mime_type,
+        )
+        return {
+            "ok": True,
+            "audio_ref": audio_ref,
+            "transcript": None,
+            "text": None,
+            "stt_available": True,
+            "mode": mode,
+            "locale": locale,
+            "duration_ms": duration_ms,
+            "provider": provider,
+            "provider_attempt_order": ["openai", "google"],
+            "provider_results": provider_results,
+            "session_id": session_id,
+            "speaking_session_id": effective_speaking_session_id,
+            "client_file_size_bytes": client_file_size_bytes,
+            "server_file_size_bytes": len(raw_bytes),
+            "error_code": "STT_TRANSCRIPT_UNCERTAIN",
+            "error_message": "I could not understand enough clear speech. Please record at least 3 seconds and say one full sentence.",
+            "failure_reasons": failures + ["roleplay_stt_suspicious_short_transcript"],
+            "debug_metrics": debug_metrics,
+        }
 
     if transcript:
         _LOG.info(

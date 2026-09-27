@@ -64,3 +64,22 @@ backups/backend-persistence-*/
 apps/backend/.env
 apps/backend/.env.backup.*
 *.backup.*
+
+# Local safety backups created during manual release/debug patches
+*.bak
+*.bak-*
+.env*.bak-*
+*.local.bak-*
+*_backup*
+_backups/
+_incoming/
+
+# Local card-bank audit/quarantine scratch outputs
+apps/backend/card_bank/audits/
+apps/backend/card_bank/quarantine/
+apps/backend/card_bank/canonical_bank/published.disabled-*/
+
+# Accidental local scratch files/directories
+client@1.0.0
+expo
+voice_name.

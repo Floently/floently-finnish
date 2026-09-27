@@ -1,0 +1,51 @@
+name: Roleplay mission bank
+
+on:
+  pull_request:
+    paths:
+      - "apps/backend/app/runtime/roleplay_missions.py"
+      - "apps/backend/app/runtime/roleplay.py"
+      - "apps/backend/app/services/roleplay_ai_service.py"
+      - "apps/backend/app/routers/v1_roleplay.py"
+      - "apps/backend/scripts/verify_roleplay_mission_bank.py"
+      - ".github/workflows/roleplay-mission-bank.yml"
+  push:
+    paths:
+      - "apps/backend/app/runtime/roleplay_missions.py"
+      - "apps/backend/app/runtime/roleplay.py"
+      - "apps/backend/app/services/roleplay_ai_service.py"
+      - "apps/backend/app/routers/v1_roleplay.py"
+      - "apps/backend/scripts/verify_roleplay_mission_bank.py"
+      - ".github/workflows/roleplay-mission-bank.yml"
+
+jobs:
+  verify-roleplay-mission-bank:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install backend dependencies
+        run: pip install -r apps/backend/requirements.txt
+
+      - name: Compile changed backend modules
+        working-directory: apps/backend
+        run: |
+          python -m compileall -q \
+            app/runtime/roleplay_missions.py \
+            app/runtime/roleplay.py \
+            app/services/roleplay_ai_service.py \
+            app/routers/v1_roleplay.py \
+            scripts/verify_roleplay_mission_bank.py
+
+      - name: Verify mission catalogue and rotation
+        working-directory: apps/backend
+        env:
+          STATE_STORE_PATH: /tmp/floently-roleplay-mission-ci-state.json
+        run: python scripts/verify_roleplay_mission_bank.py

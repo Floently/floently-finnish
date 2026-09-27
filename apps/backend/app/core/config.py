@@ -122,9 +122,9 @@ class Settings:
         getenv("PASSWORD_RESET_DEEP_LINK_BASE", "floently://auth/reset-password") or "floently://auth/reset-password"
     ).strip() or "floently://auth/reset-password"
     password_reset_web_base_url: str = (
-        getenv("PASSWORD_RESET_WEB_BASE_URL", "https://learn.floently.com/auth/reset-password")
-        or "https://learn.floently.com/auth/reset-password"
-    ).strip() or "https://learn.floently.com/auth/reset-password"
+        getenv("PASSWORD_RESET_WEB_BASE_URL", "https://app.kielivalmis.com/auth/reset-password")
+        or "https://app.kielivalmis.com/auth/reset-password"
+    ).strip() or "https://app.kielivalmis.com/auth/reset-password"
     password_reset_email_from: str | None = _get_optional_str("PASSWORD_RESET_EMAIL_FROM")
     password_reset_email_webhook_url: str | None = _get_optional_str("PASSWORD_RESET_EMAIL_WEBHOOK_URL")
 
@@ -172,6 +172,10 @@ class Settings:
     frontend_base_url: str | None = _get_optional_str("FRONTEND_BASE_URL")
     stripe_secret_key: str | None = _get_optional_str("STRIPE_SECRET_KEY")
     stripe_webhook_secret: str | None = _get_optional_str("STRIPE_WEBHOOK_SECRET")
+    # Server-side only: never name this EXPO_PUBLIC_* or send to React Native.
+    revenuecat_secret_api_key: str | None = _get_optional_str("REVENUECAT_SECRET_API_KEY")
+    revenuecat_webhook_authorization: str | None = _get_optional_str("REVENUECAT_WEBHOOK_AUTHORIZATION")
+    revenuecat_webhook_signing_secret: str | None = _get_optional_str("REVENUECAT_WEBHOOK_SIGNING_SECRET")
     stripe_price_yki_1_month: str | None = _get_optional_str("STRIPE_PRICE_YKI_1_MONTH")
     stripe_price_yki_3_months: str | None = _get_optional_str("STRIPE_PRICE_YKI_3_MONTHS")
     stripe_price_yki_12_months: str | None = _get_optional_str("STRIPE_PRICE_YKI_12_MONTHS")

@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState, useCallback } from 'react';
-import { AppState } from "react-native";
-import { usePathname, useRouter } from "expo-router";
+import { AppState, Platform } from 'react-native';
+import { useLocalSearchParams, usePathname, useRouter } from "expo-router";
 
 import { setAuthToken } from "@core/api/apiClient";
 import { logger } from "@core/logging/logger";
@@ -24,7 +24,6 @@ import SettingsRoute from "./SettingsRoute";
 import { useNetworkStore } from "./networkStore";
 import type {
   GuardedScreen,
-  NavigationErrorCode,
   NavigationErrorState,
   RequestedScreen,
 } from "./navigationModel";
@@ -47,22 +46,29 @@ import { useAuthStore } from "./authStore";
 import { usePreferencesStore } from "./preferencesStore";
 import { useSubscriptionStore } from "./subscriptionStore";
 import { usePlacementStore } from "./placementStore";
-import createDrawerSections from "../config/navigation/AppShell_sidebar_sections";
+import { useStreakStore } from "./streakStore";
+import {
+  createDrawerSections,
+  type DrawerNavigationOptions,
+} from "../config/navigation/AppShell_sidebar_sections";
 import { UtilityDrawer } from "@ui/components";
 import { audioSession } from "../features/shared/services/audioSession";
 import { goToLearn, isLearnHost } from "./learnRouting";
 import { useTranslator } from "../features/i18n";
+import type { RoleplayMode } from "@core/api/roleplay";
 import LanguageSelector from "../features/i18n/LanguageSelector";
 
 type YkiLevelBand = 'A1-A2' | 'B1-B2' | 'C1-C2';
 type SpeakingPreset = {
   initialLevelBand: YkiLevelBand;
-  initialSurface: 'menu' | 'conversation' | 'recorded';
+  initialSurface: 'menu' | 'guided' | 'conversation' | 'recorded';
   initialProfession?: 'general' | 'nurse' | 'doctor' | 'practical_nurse';
   initialScenarioId?: string | null;
   lockProfession?: boolean;
   entryMode?: 'workplace' | 'interview';
+  roleplayMode?: RoleplayMode;
   contextLabel?: string;
+  origin?: 'everyday' | 'professional' | 'yki';
 } | null;
 
 type Props = {
@@ -111,6 +117,12 @@ function isSecondaryScreen(
   );
 }
 
+function isAccountManagementScreen(
+  screen: GuardedScreen | RequestedScreen,
+): screen is "help" | "settings" | "billing" {
+  return screen === "help" || screen === "settings" || screen === "billing";
+}
+
 async function validateLearningGuard(): Promise<LearningGuardResult> {
   const learningResponse = await getLearningSystem();
 
@@ -133,6 +145,7 @@ async function validateLearningGuard(): Promise<LearningGuardResult> {
 export default function AppShell({ requestedScreen = "root" }: Props) {
   const pathname = usePathname();
   const router = useRouter();
+  const openMenuParam = useLocalSearchParams<{ openMenu?: string }>().openMenu;
   const hydrateSession = useAuthStore((state) => state.hydrateSession);
   const hasHydrated = useAuthStore((state) => state.hasHydrated);
   const user = useAuthStore((state) => state.user);
@@ -159,6 +172,15 @@ export default function AppShell({ requestedScreen = "root" }: Props) {
   const placementHydrate = usePlacementStore((state) => state.hydrate);
   const placementHasHydrated = usePlacementStore((state) => state.hasHydrated);
   const placementShouldPrompt = usePlacementStore((state) => state.shouldPrompt());
+  const placementUserKey = (
+    (user as { id?: string; userId?: string; email?: string } | null)?.id ||
+    (user as { id?: string; userId?: string; email?: string } | null)?.userId ||
+    (user as { id?: string; userId?: string; email?: string } | null)?.email ||
+    null
+  );
+  const streakHasHydrated = useStreakStore((state) => state.hasHydrated);
+  const hydrateStreak = useStreakStore((state) => state.hydrate);
+  const currentStreak = useStreakStore((state) => state.currentStreak);
   const subscriptionStatus = useSubscriptionStore((state) => state.status);
   const subscriptionGuardKey = [
     subscriptionStatus?.billingTier ?? '',
@@ -176,6 +198,13 @@ export default function AppShell({ requestedScreen = "root" }: Props) {
   const setActiveContext = useSubscriptionStore((state) => state.setActiveContext);
   const { t } = useTranslator();
   const lastLoggedScreenRef = useRef<string | null>(null);
+
+  // Route reconciliation must be driven by the requested route, authentication
+  // and entitlement state — not by the active-screen mutation caused by
+  // navigateTo(). Reading the latest value through a ref prevents a stale
+  // route entry from immediately cancelling a user navigation.
+  const activeScreenRef = useRef(activeScreen);
+  activeScreenRef.current = activeScreen;
   const [examPresetLevel, setExamPresetLevel] = useState<YkiLevelBand>('B1-B2');
   const [speakingPreset, setSpeakingPreset] = useState<SpeakingPreset>(null);
   // ── Roleplay UX restructuring (per-profession isolation) ──────────────────
@@ -204,7 +233,9 @@ export default function AppShell({ requestedScreen = "root" }: Props) {
       initialScenarioId: null,
       lockProfession: primaryProfession !== 'general',
       entryMode: 'workplace',
+      roleplayMode: primaryProfession === 'general' ? 'workplace' : 'professional',
       contextLabel: primaryProfession === 'general' ? t('appShellContextGeneralWorkplace') : t('appShellContextProfessionalRoleplay'),
+      origin: primaryProfession === 'general' ? 'everyday' : 'professional',
       ...overrides,
     };
   }, [subscriptionStatus?.entitlements, t]);
@@ -229,6 +260,12 @@ export default function AppShell({ requestedScreen = "root" }: Props) {
   const openSidebar = () => setDrawerOpen(true);
 
   useEffect(() => {
+    if (openMenuParam === '1') {
+      setDrawerOpen(true);
+    }
+  }, [openMenuParam]);
+
+  useEffect(() => {
     void hydrateSession();
   }, [hydrateSession]);
 
@@ -242,8 +279,12 @@ export default function AppShell({ requestedScreen = "root" }: Props) {
   }, [clearSubscription, hasHydrated, hydrateSubscription, user]);
 
   useEffect(() => {
-    void placementHydrate();
-  }, [placementHydrate]);
+    void placementHydrate(placementUserKey);
+  }, [placementHydrate, placementUserKey]);
+
+  useEffect(() => {
+    if (!streakHasHydrated) void hydrateStreak();
+  }, [hydrateStreak, streakHasHydrated]);
 
   useEffect(() => startMonitoring(), [startMonitoring]);
 
@@ -269,14 +310,13 @@ export default function AppShell({ requestedScreen = "root" }: Props) {
   }, [activeScreen]);
 
   function replaceIfNeeded(screen: GuardedScreen) {
-    if (screen === 'learning' && typeof window !== 'undefined' && !isLearnHost()) {
+    if (Platform.OS === 'web' && screen === 'learning' && typeof window !== 'undefined' && !isLearnHost()) {
       goToLearn('/learn');
       return;
     }
 
     const path = getPathForScreen(screen);
     if (pathname !== path) {
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       router.replace(path as any);
     }
   }
@@ -292,6 +332,15 @@ export default function AppShell({ requestedScreen = "root" }: Props) {
       subscriptionStatus?.hasAnySubscription ||
       subscriptionStatus?.isActive,
     );
+
+    // Account management is a property of authentication, not a paid learning
+    // entitlement. A signed-in user must always be able to reach Settings/Help
+    // (and Billing) so they can manage or delete the account even when they have
+    // never subscribed, their trial expired, or payment failed.
+    if (user && isAccountManagementScreen(screen)) {
+      return true;
+    }
+
     if (!entitlements) {
       // Do not send authenticated users to billing while subscription status is still hydrating.
       // The backend remains the source of truth; this only prevents premature frontend redirects.
@@ -307,6 +356,7 @@ export default function AppShell({ requestedScreen = "root" }: Props) {
 
     if (screen === 'learning' || screen === 'daily-practice') {
       return !isPreview && Boolean(
+        subscriptionStatus?.isInternalAllAccess ||
         entitlements.learnAccess ||
         entitlements.ykiAccess ||
         entitlements.professionalAccess
@@ -315,7 +365,12 @@ export default function AppShell({ requestedScreen = "root" }: Props) {
 
     if (screen === 'speaking-practice') {
       if (isPreview) return previewPath === 'doctor' || previewPath === 'nurse' || previewPath === 'practical_nurse';
-      return entitlements.learnAccess;
+      return Boolean(
+        subscriptionStatus?.isInternalAllAccess ||
+        entitlements.learnAccess ||
+        entitlements.ykiAccess ||
+        entitlements.professionalAccess
+      );
     }
 
     if (screen === 'yki-practice') {
@@ -330,7 +385,10 @@ export default function AppShell({ requestedScreen = "root" }: Props) {
 
     if (screen === 'professional-finnish') {
       if (isPreview) return previewPath === 'doctor' || previewPath === 'nurse' || previewPath === 'practical_nurse';
-      return entitlements.professionalAccess;
+      return Boolean(
+        subscriptionStatus?.isInternalAllAccess ||
+        entitlements.professionalAccess
+      );
     }
 
     return true;
@@ -641,12 +699,14 @@ export default function AppShell({ requestedScreen = "root" }: Props) {
       return;
     }
 
+    const currentActiveScreen = activeScreenRef.current;
+
     const isStableProtectedScreen =
-      activeScreen !== "landing" &&
-      activeScreen !== "auth" &&
-      activeScreen !== "home" &&
-      activeScreen !== "billing" &&
-      activeScreen !== "error";
+      currentActiveScreen !== "landing" &&
+      currentActiveScreen !== "auth" &&
+      currentActiveScreen !== "home" &&
+      currentActiveScreen !== "billing" &&
+      currentActiveScreen !== "error";
 
     if (
       requestedScreen === "root" &&
@@ -657,15 +717,22 @@ export default function AppShell({ requestedScreen = "root" }: Props) {
       // During subscription refresh, subscriptionStatus can briefly be missing.
       // In that case, keep the current feature screen stable and let backend
       // remain the real security layer.
-      if (!subscriptionStatus || isEntitledForScreen(activeScreen)) {
+      if (!subscriptionStatus || isEntitledForScreen(currentActiveScreen)) {
         return;
       }
     }
 
     void resolveRequestedRoute(requestedScreen);
-  }, [hasHydrated, requestedScreen, user?.id, activeScreen, subscriptionGuardKey]);
+    // The dependency list is intentionally limited to route/auth/entitlement
+    // inputs. activeScreen is an OUTPUT of navigation and must not retrigger
+    // reconciliation before Expo Router commits the destination.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [hasHydrated, requestedScreen, user?.id, subscriptionGuardKey]);
 
-  async function navigateTo(screen: GuardedScreen) {
+  async function navigateTo(
+    screen: GuardedScreen,
+    options?: DrawerNavigationOptions,
+  ) {
     beginNavigationCheck(screen);
 
     if (screen === "auth") {
@@ -695,6 +762,120 @@ export default function AppShell({ requestedScreen = "root" }: Props) {
       return;
     }
 
+    // Progressive drawer leaves deliberately pass through the guarded
+    // AppShell destination above before opening an existing nested activity.
+    // This keeps Cards/Reading/Writing shortcuts from becoming an entitlement
+    // bypass while avoiding a second navigation/business-logic authority.
+    if (options?.activity) {
+      const activity = options.activity;
+
+      if (activity.startsWith('everyday-')) {
+        clearNavigationError();
+        setActiveContext('none');
+
+        if (
+          activity === 'everyday-guided' ||
+          activity === 'everyday-roleplay' ||
+          activity === 'everyday-recorded'
+        ) {
+          const guided = activity === 'everyday-guided';
+          const recorded = activity === 'everyday-recorded';
+          setSpeakingPreset({
+            initialLevelBand: guided ? 'A1-A2' : 'B1-B2',
+            initialSurface: guided ? 'guided' : recorded ? 'recorded' : 'conversation',
+            initialProfession: 'general',
+            initialScenarioId: null,
+            lockProfession: false,
+            entryMode: 'workplace',
+            roleplayMode: 'everyday',
+            contextLabel: recorded
+              ? t('appShellContextGeneralWorkplace')
+              : t('appShellContextEverydayRoleplay'),
+            origin: 'everyday',
+          });
+          replaceIfNeeded('speaking-practice');
+          await resolveAndPersist('speaking-practice', 'speaking-practice');
+          return;
+        }
+
+        await resolveAndPersist('learning', 'learning');
+
+        const everydayPath =
+          activity === 'everyday-reading'
+            ? '/learn/reading'
+            : activity === 'everyday-writing'
+              ? '/learn/writing'
+              : activity === 'everyday-cards-phrases'
+                ? '/cards?mode=phrases&domain=general'
+                : activity === 'everyday-cards-grammar'
+                  ? '/cards?mode=grammar&domain=general'
+                  : '/cards?mode=vocabulary&domain=general';
+
+        router.push(everydayPath as never);
+        return;
+      }
+
+      if (activity.startsWith('professional-')) {
+        clearNavigationError();
+        const professionalPreset = buildProfessionLockedPreset();
+        const profession = professionalPreset.initialProfession;
+        if (profession === 'doctor' || profession === 'nurse' || profession === 'practical_nurse') {
+          setActiveContext(profession);
+        }
+
+        if (
+          activity === 'professional-guided' ||
+          activity === 'professional-roleplay' ||
+          activity === 'professional-interview' ||
+          activity === 'professional-recorded'
+        ) {
+          const guided = activity === 'professional-guided';
+          const interview = activity === 'professional-interview';
+          const recorded = activity === 'professional-recorded';
+          setSpeakingPreset({
+            ...professionalPreset,
+            initialLevelBand: guided ? 'A1-A2' : professionalPreset.initialLevelBand,
+            initialSurface: guided ? 'guided' : recorded ? 'recorded' : 'conversation',
+            initialScenarioId: null,
+            entryMode: interview ? 'interview' : 'workplace',
+            roleplayMode: interview ? 'interview' : 'professional',
+            contextLabel: interview
+              ? t('appShellContextStructuredInterview')
+              : t('appShellContextProfessionalRoleplay'),
+            origin: 'professional',
+          });
+          replaceIfNeeded('speaking-practice');
+          await resolveAndPersist('speaking-practice', 'speaking-practice');
+          return;
+        }
+
+        await resolveAndPersist('professional-finnish', 'professional-finnish');
+
+        if (activity === 'professional-incident-lab') {
+          router.push('/professional/incidents' as never);
+          return;
+        }
+
+        const professionalQuery =
+          profession === 'doctor' || profession === 'nurse' || profession === 'practical_nurse'
+            ? `&profession=${encodeURIComponent(profession)}`
+            : '';
+        const professionalPath =
+          activity === 'professional-reading'
+            ? '/professional/reading'
+            : activity === 'professional-writing'
+              ? '/professional/writing'
+              : activity === 'professional-cards-phrases'
+                ? `/cards?mode=phrases&domain=professional${professionalQuery}`
+                : activity === 'professional-cards-grammar'
+                  ? `/cards?mode=grammar&domain=professional${professionalQuery}`
+                  : `/cards?mode=vocabulary&domain=professional${professionalQuery}`;
+
+        router.push(professionalPath as never);
+        return;
+      }
+    }
+
     if (screen === "home") {
       clearNavigationError();
       replaceIfNeeded("home");
@@ -712,7 +893,27 @@ export default function AppShell({ requestedScreen = "root" }: Props) {
 
     if (screen === "learning") {
       clearNavigationError();
-      if (subscriptionStatus?.entitlements?.activeContext) setActiveContext(subscriptionStatus.entitlements.activeContext);
+
+      if (subscriptionStatus?.entitlements?.activeContext) {
+        setActiveContext(
+          subscriptionStatus.entitlements.activeContext,
+        );
+      }
+
+      if (options?.learningBranch === 'everyday') {
+        await resolveAndPersist("learning", screen);
+
+        if (Platform.OS === 'web') {
+          goToLearn('/?branch=everyday');
+        } else {
+          router.replace(
+            '/learn?branch=everyday' as never,
+          );
+        }
+
+        return;
+      }
+
       replaceIfNeeded("learning");
       await resolveAndPersist("learning", screen);
       return;
@@ -774,15 +975,85 @@ export default function AppShell({ requestedScreen = "root" }: Props) {
     void navigateTo(previousScreen);
   }
 
-  const drawerSections = createDrawerSections((route) => {
-    void navigateTo(route);
-  }, { ...(subscriptionStatus?.entitlements ?? {}), isPreview: subscriptionStatus?.isPreview, previewPath: subscriptionStatus?.previewPath ?? null }, language);
+  const drawerSections = createDrawerSections(
+    (route, options) => {
+      void navigateTo(route, options);
+    },
+    {
+      ...(subscriptionStatus?.entitlements ?? {}),
+      isPreview: subscriptionStatus?.isPreview,
+      previewPath: subscriptionStatus?.previewPath ?? null,
+      isInternalAllAccess: subscriptionStatus?.isInternalAllAccess,
+      hasAnySubscription: subscriptionStatus?.hasAnySubscription,
+      isActive: subscriptionStatus?.isActive,
+    },
+    language,
+  );
+
+  const drawerActiveItemId =
+    activeScreen === 'learning'
+      ? 'everyday-overview'
+      : activeScreen === 'professional-finnish'
+        ? 'professional-overview'
+        : activeScreen === 'yki-practice'
+          ? 'yki-practice'
+          : activeScreen === 'yki-exam'
+            ? 'yki-exam'
+            : activeScreen === 'daily-practice'
+              ? 'practice'
+              : activeScreen === 'progress'
+                ? 'progress'
+                : activeScreen === 'settings'
+                  ? 'settings'
+                  : activeScreen === 'help'
+                    ? 'help'
+                    : activeScreen === 'billing'
+                      ? 'billing'
+                      : activeScreen === 'speaking-practice'
+                        ? speakingPreset?.origin === 'professional'
+                          ? speakingPreset.initialSurface === 'guided'
+                            ? 'professional-guided'
+                            : speakingPreset.initialSurface === 'recorded'
+                              ? 'professional-recorded'
+                              : speakingPreset.entryMode === 'interview'
+                              ? 'professional-interview'
+                              : speakingPreset.initialSurface === 'conversation'
+                                ? 'professional-roleplay'
+                                : 'professional-speaking'
+                          : speakingPreset?.origin === 'yki'
+                            ? 'yki-practice'
+                            : speakingPreset?.initialSurface === 'guided'
+                              ? 'everyday-guided'
+                              : speakingPreset?.initialSurface === 'recorded'
+                                ? 'everyday-recorded'
+                                : speakingPreset?.initialSurface === 'conversation'
+                                ? 'everyday-roleplay'
+                                : 'everyday-speaking'
+                        : undefined;
+
+  const drawerInitialExpandedPath =
+    activeScreen === 'learning'
+      ? ['everyday']
+      : activeScreen === 'professional-finnish'
+        ? ['professional']
+        : activeScreen === 'yki-practice' || activeScreen === 'yki-exam'
+          ? ['yki']
+          : activeScreen === 'speaking-practice'
+            ? speakingPreset?.origin === 'professional'
+              ? ['professional', 'professional-speaking']
+              : speakingPreset?.origin === 'yki'
+                ? ['yki']
+                : ['everyday', 'everyday-speaking']
+            : [];
 
   const drawer = (
     <UtilityDrawer
+      streakDays={currentStreak}
       visible={drawerOpen}
       onClose={() => setDrawerOpen(false)}
       sections={drawerSections}
+      initialExpandedPath={drawerInitialExpandedPath}
+      activeItemId={drawerActiveItemId}
       themeMode={themeMode}
       isAuthenticated={Boolean(user)}
       userName={displayName}
@@ -808,7 +1079,7 @@ export default function AppShell({ requestedScreen = "root" }: Props) {
         <Stack gap="sm">
               <Card>
                 <Stack gap="xs">
-                  <Text variant="title">Floently</Text>
+                  <Text variant="title">KieliValmis</Text>
               <Text tone="muted">{t('appShellValidating')}</Text>
                 </Stack>
               </Card>
@@ -863,7 +1134,9 @@ export default function AppShell({ requestedScreen = "root" }: Props) {
               initialLevelBand: 'B1-B2',
               initialSurface: 'conversation',
               initialProfession: 'general',
+              roleplayMode: 'everyday',
               contextLabel: t('appShellContextEverydayRoleplay'),
+              origin: 'everyday',
             });
             void navigateTo('speaking-practice');
           }}
@@ -946,6 +1219,7 @@ export default function AppShell({ requestedScreen = "root" }: Props) {
           initialScenarioId={speakingPreset?.initialScenarioId}
           lockProfession={speakingPreset?.lockProfession}
           entryMode={speakingPreset?.entryMode}
+          roleplayMode={speakingPreset?.roleplayMode}
           contextLabel={speakingPreset?.contextLabel}
         />
         {drawer}
@@ -967,7 +1241,9 @@ export default function AppShell({ requestedScreen = "root" }: Props) {
               initialScenarioId: scenarioId ?? null,
               lockProfession: true,
               entryMode,
+              roleplayMode: entryMode === 'interview' ? 'interview' : 'professional',
               contextLabel: entryMode === 'interview' ? t('appShellContextStructuredInterview') : t('appShellContextProfessionalRoleplay'),
+              origin: 'professional',
             });
             void navigateTo('speaking-practice');
           }}
@@ -1001,8 +1277,8 @@ export default function AppShell({ requestedScreen = "root" }: Props) {
           onOpenMenu={openSidebar}
           initialLevelBand={examPresetLevel}
           onOpenPractice={(levelBand) => { if (levelBand) setExamPresetLevel(levelBand); void navigateTo("yki-practice"); }}
-          onOpenSpeakingRecording={(levelBand) => { setSpeakingPreset({ initialLevelBand: levelBand, initialSurface: 'recorded', initialProfession: 'general', contextLabel: t('appShellYkiRecordedSpeakingContext') }); void navigateTo("speaking-practice"); }}
-          onOpenSpeakingConversation={(levelBand) => { setSpeakingPreset({ initialLevelBand: levelBand, initialSurface: 'conversation', initialProfession: 'general', contextLabel: t('appShellYkiConversationSpeakingContext') }); void navigateTo("speaking-practice"); }}
+          onOpenSpeakingRecording={(levelBand) => { setSpeakingPreset({ initialLevelBand: levelBand, initialSurface: 'recorded', initialProfession: 'general', roleplayMode: 'yki', contextLabel: t('appShellYkiRecordedSpeakingContext'), origin: 'yki' }); void navigateTo("speaking-practice"); }}
+          onOpenSpeakingConversation={(levelBand) => { setSpeakingPreset({ initialLevelBand: levelBand, initialSurface: 'conversation', initialProfession: 'general', roleplayMode: 'yki', contextLabel: t('appShellYkiConversationSpeakingContext'), origin: 'yki' }); void navigateTo("speaking-practice"); }}
         />
         {drawer}
       </>
@@ -1020,8 +1296,13 @@ export default function AppShell({ requestedScreen = "root" }: Props) {
             setSpeakingPreset({
               initialLevelBand: config.levelBand ?? 'B1-B2',
               initialSurface: 'conversation',
-              initialProfession: (config.profession ?? 'general') as NonNullable<SpeakingPreset>['initialProfession'],
+              initialProfession: 'general',
+              initialScenarioId: null,
+              lockProfession: false,
+              entryMode: 'workplace',
+              roleplayMode: 'yki',
               contextLabel: t('appShellYkiSpeakingPracticeContext'),
+              origin: 'yki',
             });
             void navigateTo("speaking-practice");
           }}
