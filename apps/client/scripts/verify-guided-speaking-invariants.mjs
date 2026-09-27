@@ -28,6 +28,7 @@ const speakingRoute = read('state/SpeakingRoute.tsx');
 const appShell = read('state/AppShell.tsx');
 const drawer = read('config/navigation/AppShell_sidebar_sections.ts');
 const types = read('features/speaking/types.ts');
+const progressStore = read('state/guidedSpeakingProgressStore.ts');
 
 const stageIds = [
   'basic_chunk',
@@ -50,6 +51,17 @@ for (const stageId of stageIds) {
   }
   previousIndex = index;
 }
+
+requireText(stages, 'export type GuidedSpeakingStageId = \`GS-\${string}\`;', 'curriculum stages need permanent deterministic IDs');
+requireText(stages, 'curriculumId: GuidedSpeakingStageId;', 'stage records must carry permanent curriculum identity');
+requireText(stages, 'version: 1;', 'stage records must be versioned');
+requireText(stages, "curriculumId: \`GS-\${String(index + 1).padStart(3, '0')}\`", 'stage IDs must derive deterministically from stable order');
+
+requireText(progressStore, 'highestUnlockedNumber: number;', 'progress must track furthest unlocked stage separately');
+requireText(progressStore, 'attempts: GuidedSpeakingAttempt[];', 'repeat attempts must be historical records');
+requireText(progressStore, 'if (stageNumber < 1 || stageNumber > state.highestUnlockedNumber) return;', 'learners may open any unlocked earlier stage');
+requireText(progressStore, 'Math.max(state.highestUnlockedNumber, stageNumber + 1)', 'repeating an earlier stage must never roll progression backward');
+requireText(progressStore, 'stageVersion', 'attempt history must retain curriculum version');
 
 requireText(
   stages,
@@ -196,7 +208,9 @@ if (
   );
 }
 
-console.log('PASS: seven deterministic Guided Speaking stages stay ordered.');
+console.log('PASS: guided phase order remains deterministic during curriculum migration.');
+console.log('PASS: permanent versioned curriculum IDs are present.');
+console.log('PASS: persisted attempt history supports repeat without progression rollback.');
 console.log('PASS: CEFR bands materially change support and production expectations.');
 console.log('PASS: Everyday and Professional guided content remain distinct.');
 console.log('PASS: Guided Speaking reuses canonical Finnish TTS/STT.');
