@@ -121,7 +121,7 @@ export default function GuidedSpeakingScreen({
     setTtsUnavailable(false);
     setTtsPlaying(true);
     const played = await speakRoleplayText({
-      text: stage.modelFi,
+      text: curriculumLesson?.modelFi ?? stage.modelFi,
       voiceProfile: guidedSpeakingVoiceProfile(profession),
       speed: guidedSpeakingTtsSpeed(levelBand),
       onStart: () => setTtsPlaying(true),
@@ -327,7 +327,7 @@ export default function GuidedSpeakingScreen({
             </View>
 
             <Text style={[styles.sectionLabel, { color: soft }]}>Malli</Text>
-            <Text style={[styles.modelText, { color: text }]}>{stage.modelFi}</Text>
+            <Text style={[styles.modelText, { color: text }]}>{curriculumLesson?.modelFi ?? stage.modelFi}</Text>
 
             <Pressable
               onPress={() => void playModel()}
@@ -354,17 +354,17 @@ export default function GuidedSpeakingScreen({
 
           <View style={[styles.practiceCard, { backgroundColor: surface, borderColor: border }]}>
             <Text style={[styles.sectionLabel, { color: soft }]}>Tehtävä</Text>
-            <Text style={[styles.promptText, { color: text }]}>{stage.promptFi}</Text>
+            <Text style={[styles.promptText, { color: text }]}>{curriculumLesson?.promptFi ?? stage.promptFi}</Text>
 
-            {stage.responseFrameFi ? (
+            {(curriculumLesson?.responseFrameFi ?? stage.responseFrameFi) ? (
               <View style={[styles.frameBox, { backgroundColor: raised, borderColor: border }]}>
-                <Text style={[styles.frameText, { color: text }]}>{stage.responseFrameFi}</Text>
+                <Text style={[styles.frameText, { color: text }]}>{curriculumLesson?.responseFrameFi ?? stage.responseFrameFi}</Text>
               </View>
             ) : null}
 
-            {stage.supportFi.length ? (
+            {(curriculumLesson?.supportFi ?? stage.supportFi).length ? (
               <View style={styles.supportRow}>
-                {stage.supportFi.map((item) => (
+                {(curriculumLesson?.supportFi ?? stage.supportFi).map((item) => (
                   <View key={item} style={[styles.supportChip, { backgroundColor: raised, borderColor: border }]}>
                     <Text style={[styles.supportChipText, { color: muted }]}>{item}</Text>
                   </View>
