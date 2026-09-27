@@ -1,8 +1,13 @@
 'use strict';
 
+const {
+  EVERYDAY_WRITING_EXPANSION,
+  PROFESSIONAL_WRITING_EXPANSION,
+} = require('./writingExpansionTasks');
+
 const ALL_HEALTHCARE_PROFESSIONS = ['doctor', 'nurse', 'practical_nurse'];
 
-const WRITING_TASKS = [
+const BASE_WRITING_TASKS = [
   {
     taskId: 'writing.everyday.library-reply.a1',
     contentVersion: '2026-08-16.1',
@@ -377,6 +382,44 @@ const WRITING_TASKS = [
   },
 ];
 
+function baseTask(taskId) {
+  const task = BASE_WRITING_TASKS.find((candidate) => candidate.taskId === taskId);
+  if (!task) throw new Error(`BASE_WRITING_TASK_MISSING:${taskId}`);
+  return task;
+}
+
+function expansionAt(tasks, level, index) {
+  const task = tasks.filter((candidate) => candidate.level === level)[index];
+  if (!task) throw new Error(`WRITING_EXPANSION_TASK_MISSING:${level}:${index}`);
+  return task;
+}
+
+const WRITING_LEVEL_ORDER = ['A1', 'A2', 'B1', 'B2', 'C1', 'C2'];
+
+const WRITING_TASKS = [
+  baseTask('writing.everyday.library-reply.a1'),
+  expansionAt(EVERYDAY_WRITING_EXPANSION, 'A1', 0),
+  baseTask('writing.everyday.appointment-change.a2'),
+  expansionAt(EVERYDAY_WRITING_EXPANSION, 'A2', 0),
+  baseTask('writing.everyday.repair-email.b1'),
+  expansionAt(EVERYDAY_WRITING_EXPANSION, 'B1', 0),
+  expansionAt(EVERYDAY_WRITING_EXPANSION, 'B2', 0),
+  expansionAt(EVERYDAY_WRITING_EXPANSION, 'B2', 1),
+  expansionAt(EVERYDAY_WRITING_EXPANSION, 'C1', 0),
+  expansionAt(EVERYDAY_WRITING_EXPANSION, 'C1', 1),
+  expansionAt(EVERYDAY_WRITING_EXPANSION, 'C2', 0),
+  expansionAt(EVERYDAY_WRITING_EXPANSION, 'C2', 1),
+
+  baseTask('writing.professional.shift-update.b1'),
+  expansionAt(PROFESSIONAL_WRITING_EXPANSION, 'B1', 0),
+  baseTask('writing.professional.incident-summary.b2'),
+  expansionAt(PROFESSIONAL_WRITING_EXPANSION, 'B2', 0),
+  expansionAt(PROFESSIONAL_WRITING_EXPANSION, 'C1', 0),
+  expansionAt(PROFESSIONAL_WRITING_EXPANSION, 'C1', 1),
+  expansionAt(PROFESSIONAL_WRITING_EXPANSION, 'C2', 0),
+  expansionAt(PROFESSIONAL_WRITING_EXPANSION, 'C2', 1),
+];
+
 function tasksForPathway(pathway, profession) {
   return WRITING_TASKS.filter((task) => {
     if (task.pathway !== pathway) return false;
@@ -389,9 +432,25 @@ function writingTaskById(taskId) {
   return WRITING_TASKS.find((task) => task.taskId === taskId) || null;
 }
 
+function getWritingLevels(pathway, profession) {
+  const available = new Set(tasksForPathway(pathway, profession).map((task) => task.level));
+  return WRITING_LEVEL_ORDER.filter((level) => available.has(level));
+}
+
+function getNextWritingTask(taskId, profession) {
+  const current = writingTaskById(taskId);
+  if (!current) return null;
+  const scoped = tasksForPathway(current.pathway, profession);
+  const index = scoped.findIndex((task) => task.taskId === taskId);
+  if (index < 0) return null;
+  return scoped[index + 1] || null;
+}
+
 module.exports = {
   WRITING_TASKS,
   tasksForPathway,
   writingTaskById,
+  getWritingLevels,
+  getNextWritingTask,
 };
 
