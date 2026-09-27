@@ -67,24 +67,31 @@ if (legacyProjectSource.includes('PRODUCT_BUNDLE_IDENTIFIER = "com.vitusidi.floe
   console.log('INFO: legacy root iOS project still carries its historical bundle ID and is explicitly non-authoritative for App Store releases.');
 }
 
-// Build 36 ships KieliValmis ONLY. The Read and Create source modules remain
-// in the monorepo for separate applications, but must not become Expo routes.
-for (const excludedProduct of ['read', 'create']) {
-  assertTrue(
-    !fs.existsSync(path.join(clientRoot, 'app', excludedProduct)),
-    `KieliValmis iOS release must exclude /${excludedProduct} routes`,
-  );
-}
+// KieliValmis remains the App Store identity/root product, while Floently Read
+// is now an explicitly routed product inside the same React Native application.
+// Create remains excluded until its release is deliberately reactivated.
+assertTrue(
+  fs.existsSync(path.join(clientRoot, 'app', 'read', 'browser.tsx')),
+  'React Native release must include the protected Floently Read browser route',
+);
+assertTrue(
+  fs.existsSync(path.join(clientRoot, 'app', 'read', 'app.tsx')),
+  'React Native release must include the Floently Read app route',
+);
+assertTrue(
+  !fs.existsSync(path.join(clientRoot, 'app', 'create')),
+  'KieliValmis iOS release must still exclude unfinished /create routes',
+);
 for (const [profileName, profile] of Object.entries(eas.build ?? {})) {
   assertTrue(
-    !Object.hasOwn(profile?.env ?? {}, 'EXPO_PUBLIC_READ_API_BASE_URL'),
-    `KieliValmis EAS ${profileName} must not expose Read backend configuration`,
+    profile?.env?.EXPO_PUBLIC_READ_BROWSER_URL === 'https://read.floently.com/app/browser-v2/live?embed=react-native',
+    `React Native EAS ${profileName} must pin the canonical Browser V2 Read URL`,
   );
 }
 const nativeRootSource = readText(path.join(clientRoot, 'app', 'index.tsx'));
 assertTrue(nativeRootSource.includes('KieliValmisLandingScreen'), 'mobile app must retain KieliValmis entry');
-assertTrue(!/NativeFloentlyProductGatewayScreen|NativeReadPreviewScreen/.test(nativeRootSource), 'mobile app must not enter Read/Floently gateway');
-console.log('PASS: KieliValmis-only release excludes Read/Create Expo routes and Read API configuration.');
+assertTrue(!/NativeFloentlyProductGatewayScreen|NativeReadPreviewScreen/.test(nativeRootSource), 'root route must retain KieliValmis entry instead of silently replacing it with a second product shell');
+console.log('PASS: KieliValmis release identity is preserved while protected Floently Read routes are enabled.');
 
 console.log(`PASS: App Store release identity is ${identity.bundleIdentifier} / ASC ${identity.appStoreConnectAppId}.`);
 console.log('PASS: apps/client + Expo prebuild is the only recorded iOS App Store release authority.');
