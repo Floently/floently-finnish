@@ -7,6 +7,7 @@ export type DrawerRoute =
   | 'yki-exam'
   | 'professional-finnish'
   | 'speaking-practice'
+  | 'help'
   | 'progress'
   | 'settings'
   | 'billing';
@@ -19,6 +20,7 @@ export type DrawerActivity =
   | 'everyday-reading'
   | 'everyday-writing'
   | 'professional-roleplay'
+  | 'professional-interview'
   | 'professional-cards-vocabulary'
   | 'professional-cards-phrases'
   | 'professional-cards-grammar'
@@ -87,11 +89,20 @@ function everydayItems(
       label: translate(language, 'ykiRouteSkillSpeaking'),
       accentColor: '#F0A436',
       hint: translate(language, 'learningDailyRoleplayDetail'),
-      onPress: () =>
-        void navigateTo('learning', {
-          learningBranch: 'everyday',
-          activity: 'everyday-roleplay',
-        }),
+      children: [
+        {
+          id: 'everyday-roleplay',
+          icon: '💬',
+          label: translate(language, 'learningDailyRoleplayTitle'),
+          accentColor: '#F0A436',
+          hint: translate(language, 'learningDailyRoleplayDetail'),
+          onPress: () =>
+            void navigateTo('learning', {
+              learningBranch: 'everyday',
+              activity: 'everyday-roleplay',
+            }),
+        },
+      ],
     },
     {
       id: 'everyday-cards',
@@ -181,13 +192,33 @@ function professionalItems(
     {
       id: 'professional-speaking',
       icon: '🎙',
-      label: translate(language, 'professionalRoleplayTitle'),
+      label: translate(language, 'ykiRouteSkillSpeaking'),
       accentColor: '#F0A436',
       hint: translate(language, 'professionalRoleplayDetail'),
-      onPress: () =>
-        void navigateTo('professional-finnish', {
-          activity: 'professional-roleplay',
-        }),
+      children: [
+        {
+          id: 'professional-roleplay',
+          icon: '💬',
+          label: translate(language, 'professionalRoleplayTitle'),
+          accentColor: '#F0A436',
+          hint: translate(language, 'professionalRoleplayDetail'),
+          onPress: () =>
+            void navigateTo('professional-finnish', {
+              activity: 'professional-roleplay',
+            }),
+        },
+        {
+          id: 'professional-interview',
+          icon: '◫',
+          label: translate(language, 'professionalInterviewTitle'),
+          accentColor: '#F0A436',
+          hint: translate(language, 'professionalInterviewDetail'),
+          onPress: () =>
+            void navigateTo('professional-finnish', {
+              activity: 'professional-interview',
+            }),
+        },
+      ],
     },
     {
       id: 'professional-cards',
@@ -319,6 +350,14 @@ export function createDrawerSections(
           hint: translate(language, 'drawerSettingsHint'),
           onPress: () => void navigateTo('settings'),
         },
+        {
+          id: 'preview-help',
+          icon: '?',
+          label: translate(language, 'settingsHelpAndSupport'),
+          accentColor: '#8EA3C3',
+          hint: translate(language, 'settingsHelpAndSupport'),
+          onPress: () => void navigateTo('help'),
+        },
       ],
     });
     return sections;
@@ -397,6 +436,22 @@ export function createDrawerSections(
     });
   }
 
+  if (hasLearnAccess) {
+    sections.push({
+      label: translate(language, 'drawerMyPathway'),
+      items: [
+        {
+          id: 'practice',
+          icon: '▶',
+          label: translate(language, 'ykiPracticeGuidedPracticeLabel'),
+          accentColor: '#3EC58A',
+          hint: translate(language, 'ykiPracticeOverviewDetail'),
+          onPress: () => void navigateTo('daily-practice'),
+        },
+      ],
+    });
+  }
+
   sections.push({
     label: translate(language, 'drawerMyPathway'),
     items: [
@@ -429,6 +484,14 @@ export function createDrawerSections(
         accentColor: '#8EA3C3',
         hint: translate(language, 'drawerSettingsHint'),
         onPress: () => void navigateTo('settings'),
+      },
+      {
+        id: 'help',
+        icon: '?',
+        label: translate(language, 'settingsHelpAndSupport'),
+        accentColor: '#8EA3C3',
+        hint: translate(language, 'settingsHelpAndSupport'),
+        onPress: () => void navigateTo('help'),
       },
     ],
   });
