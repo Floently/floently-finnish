@@ -1,0 +1,56 @@
+name: Build 47 UAT web artifact
+
+on:
+  pull_request:
+    branches:
+      - integration/build47-source-candidate-20260927
+    paths:
+      - '.github/workflows/build47-uat-web-artifact.yml'
+      - 'docs/agents/BUILD47_PROGRESSIVE_LEARNING_UAT_20260927.md'
+
+jobs:
+  export-web:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Pin pnpm
+        uses: pnpm/action-setup@v6
+        with:
+          version: '10.34.0'
+          run_install: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: pnpm
+          cache-dependency-path: pnpm-lock.yaml
+      - name: Install frozen workspace dependencies
+        run: pnpm install --frozen-lockfile
+      - name: TypeScript check
+        run: pnpm --dir apps/client exec tsc --noEmit
+      - name: Load production Expo public environment
+        run: |
+          node <<'NODE'
+          const fs = require('fs');
+          const eas = JSON.parse(fs.readFileSync('apps/client/eas.json', 'utf8'));
+          const env = eas?.build?.production?.env ?? {};
+          for (const [key, value] of Object.entries(env)) {
+            fs.appendFileSync(process.env.GITHUB_ENV, `${key}<<__ENV__\n${String(value)}\n__ENV__\n`);
+          }
+          NODE
+      - name: Export web app
+        run: |
+          cd apps/client
+          pnpm exec expo export --platform web --output-dir /tmp/kielivalmis-build47-uat-web --clear
+          test -f /tmp/kielivalmis-build47-uat-web/index.html
+      - name: Record exact source identity
+        run: |
+          printf '%s\n' "${GITHUB_SHA}" > /tmp/kielivalmis-build47-uat-web/BUILD47_UAT_SOURCE.txt
+      - name: Upload exact web export
+        uses: actions/upload-artifact@v4
+        with:
+          name: kielivalmis-build47-uat-web
+          path: /tmp/kielivalmis-build47-uat-web
+          if-no-files-found: error
+          retention-days: 7
