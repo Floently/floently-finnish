@@ -60,7 +60,7 @@ import LanguageSelector from "../features/i18n/LanguageSelector";
 type YkiLevelBand = 'A1-A2' | 'B1-B2' | 'C1-C2';
 type SpeakingPreset = {
   initialLevelBand: YkiLevelBand;
-  initialSurface: 'menu' | 'conversation' | 'recorded';
+  initialSurface: 'menu' | 'guided' | 'conversation' | 'recorded';
   initialProfession?: 'general' | 'nurse' | 'doctor' | 'practical_nurse';
   initialScenarioId?: string | null;
   lockProfession?: boolean;
@@ -770,11 +770,16 @@ export default function AppShell({ requestedScreen = "root" }: Props) {
         clearNavigationError();
         setActiveContext('none');
 
-        if (activity === 'everyday-roleplay' || activity === 'everyday-recorded') {
+        if (
+          activity === 'everyday-guided' ||
+          activity === 'everyday-roleplay' ||
+          activity === 'everyday-recorded'
+        ) {
+          const guided = activity === 'everyday-guided';
           const recorded = activity === 'everyday-recorded';
           setSpeakingPreset({
-            initialLevelBand: 'B1-B2',
-            initialSurface: recorded ? 'recorded' : 'conversation',
+            initialLevelBand: guided ? 'A1-A2' : 'B1-B2',
+            initialSurface: guided ? 'guided' : recorded ? 'recorded' : 'conversation',
             initialProfession: 'general',
             initialScenarioId: null,
             lockProfession: false,
@@ -815,15 +820,18 @@ export default function AppShell({ requestedScreen = "root" }: Props) {
         }
 
         if (
+          activity === 'professional-guided' ||
           activity === 'professional-roleplay' ||
           activity === 'professional-interview' ||
           activity === 'professional-recorded'
         ) {
+          const guided = activity === 'professional-guided';
           const interview = activity === 'professional-interview';
           const recorded = activity === 'professional-recorded';
           setSpeakingPreset({
             ...professionalPreset,
-            initialSurface: recorded ? 'recorded' : 'conversation',
+            initialLevelBand: guided ? 'A1-A2' : professionalPreset.initialLevelBand,
+            initialSurface: guided ? 'guided' : recorded ? 'recorded' : 'conversation',
             initialScenarioId: null,
             entryMode: interview ? 'interview' : 'workplace',
             contextLabel: interview
@@ -998,18 +1006,22 @@ export default function AppShell({ requestedScreen = "root" }: Props) {
                       ? 'billing'
                       : activeScreen === 'speaking-practice'
                         ? speakingPreset?.origin === 'professional'
-                          ? speakingPreset.initialSurface === 'recorded'
-                            ? 'professional-recorded'
-                            : speakingPreset.entryMode === 'interview'
+                          ? speakingPreset.initialSurface === 'guided'
+                            ? 'professional-guided'
+                            : speakingPreset.initialSurface === 'recorded'
+                              ? 'professional-recorded'
+                              : speakingPreset.entryMode === 'interview'
                               ? 'professional-interview'
                               : speakingPreset.initialSurface === 'conversation'
                                 ? 'professional-roleplay'
                                 : 'professional-speaking'
                           : speakingPreset?.origin === 'yki'
                             ? 'yki-practice'
-                            : speakingPreset?.initialSurface === 'recorded'
-                              ? 'everyday-recorded'
-                              : speakingPreset?.initialSurface === 'conversation'
+                            : speakingPreset?.initialSurface === 'guided'
+                              ? 'everyday-guided'
+                              : speakingPreset?.initialSurface === 'recorded'
+                                ? 'everyday-recorded'
+                                : speakingPreset?.initialSurface === 'conversation'
                                 ? 'everyday-roleplay'
                                 : 'everyday-speaking'
                         : undefined;
