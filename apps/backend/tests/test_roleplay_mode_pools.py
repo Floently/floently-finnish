@@ -28,10 +28,10 @@ class RoleplayModePoolTests(unittest.TestCase):
         }
 
         for mode, scenario_ids in pools.items():
-            self.assertGreaterEqual(
+            self.assertEqual(
                 len(scenario_ids),
-                3,
-                f"{mode} should have multiple distinct scenarios",
+                8,
+                f"{mode} should expose exactly eight distinct general scenarios",
             )
 
         self.assertTrue(pools["everyday"].isdisjoint(pools["workplace"]))
@@ -170,7 +170,7 @@ class RoleplayModePoolTests(unittest.TestCase):
 
         try:
             self.assertEqual(result["roleplayMode"], "yki")
-            self.assertGreaterEqual(len(result["scenarioPool"]), 3)
+            self.assertEqual(len(result["scenarioPool"]), 8)
             self.assertIn(result["scenarioId"], result["scenarioPool"])
             self.assertIn(
                 result["selectionReason"],
