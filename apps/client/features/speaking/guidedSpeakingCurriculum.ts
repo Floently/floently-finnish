@@ -91,6 +91,38 @@ const A12_SEEDS: LessonSeed[] = [
   expectedMinWords: expectedMinWords as number, expectedMaxWords: expectedMaxWords as number,
 }));
 
+const A21_SEEDS: LessonSeed[] = [
+  ['Kerro tavallisesta viikosta','Kuvaile tavallisen viikon rytmiä.','Arkipäivisin opiskelen, ja viikonloppuna tapaan usein ystäviä.','Kerro mitä teet tavallisesti arkena ja viikonloppuna.',undefined,['arkipäivisin','viikonloppuna','usein'],8,18],
+  ['Vertaa kahta päivää','Kerro miten kaksi päivää eroavat toisistaan.','Maanantai on kiireinen, mutta perjantai on yleensä rauhallisempi.','Vertaa maanantaita ja perjantaita.',undefined,['kiireinen','mutta','rauhallisempi'],8,18],
+  ['Selitä myöhästyminen','Kerro syy ja mitä tapahtuu seuraavaksi.','Bussi oli myöhässä, joten saavun noin vartin myöhemmin.','Ilmoita myöhästymisestä, kerro syy ja arvioi saapumisaika.',undefined,['oli myöhässä','joten','saavun'],9,20],
+  ['Vaihda varausta','Pyydä muuttamaan varausta ja ehdota uutta aikaa.','Minulla on aika keskiviikkona, mutta haluaisin siirtää sen perjantaille.','Pyydä siirtämään keskiviikon aika perjantaille.',undefined,['minulla on aika','haluaisin siirtää','perjantaille'],9,20],
+  ['Selvitä vaihtoehdot','Kysy mitä vaihtoehtoja tilanteessa on.','Tämä aika ei sovi minulle. Onko ensi viikolla muita vapaita aikoja?','Kerro ettei aika sovi ja kysy vaihtoehtoja.',undefined,['ei sovi','onko','muita vapaita aikoja'],9,20],
+  ['Kuvaile asuntoa','Kuvaile asuntoa useammalla yksityiskohdalla.','Asun kaksiossa. Asunto on valoisa, ja parvekkeelta näkyy puisto.','Kuvaile kotiasi vähintään kolmella tiedolla.',undefined,['asun','asunto on','näkyy'],10,22],
+  ['Kerro asumisen ongelmasta','Selitä kodin ongelma ja pyydä toimintaa.','Keittiön hana vuotaa. Voisiko joku tulla katsomaan sitä tällä viikolla?','Ilmoita vuotavasta hanasta ja pyydä apua.',undefined,['hana vuotaa','voisiko joku','tulla katsomaan'],10,22],
+  ['Sovi huoltokäynti','Sovi kotiin tehtävä käynti.','Torstai sopii, mutta olen kotona vasta kello neljän jälkeen.','Sovi huoltokäynti ja kerro milloin olet kotona.',undefined,['sopii','olen kotona','jälkeen'],10,22],
+  ['Kerro ostosongelmasta','Selitä tuotteen ongelma ja toiveesi.','Ostin tämän eilen, mutta se ei toimi. Haluaisin vaihtaa sen uuteen.','Kerro viallisesta tuotteesta ja pyydä vaihtoa.',undefined,['ostin','ei toimi','haluaisin vaihtaa'],10,22],
+  ['Vertaa tuotteita','Vertaa kahta vaihtoehtoa ja tee valinta.','Tämä on halvempi, mutta toinen vaikuttaa kestävämmältä. Valitsen toisen.','Vertaa kahta tuotetta ja kerro kumman valitset.',undefined,['halvempi','mutta','kestävämpi','valitsen'],10,24],
+  ['Pyydä suositusta','Kerro tarpeesi ja pyydä ehdotusta.','Tarvitsen kengät talveksi. Mitä suosittelette, jos kävelen paljon?','Kerro mitä tarvitset ja pyydä suositusta.',undefined,['tarvitsen','mitä suosittelette','jos'],10,24],
+  ['Kerro matkasta','Kuvaile tulevaa matkaa.','Lähden ensi kuussa Turkuun kahdeksi päiväksi ja aion matkustaa junalla.','Kerro minne matkustat, milloin ja kuinka pitkäksi aikaa.',undefined,['lähden','ensi kuussa','kahdeksi päiväksi'],10,24],
+  ['Ratkaise matkustusongelma','Selitä ongelma ja kysy ratkaisu.','Junani peruttiin. Miten pääsen Tampereelle tänä iltana?','Kerro perutusta junasta ja kysy vaihtoehtoista reittiä.',undefined,['peruttiin','miten pääsen','tänä iltana'],10,24],
+  ['Kysy vaihtoyhteydestä','Kysy tarkennuksia matkareitistä.','Missä vaihdan junaa, ja kuinka paljon vaihtoaikaa minulla on?','Kysy missä vaihdat ja paljonko aikaa vaihtoon on.',undefined,['missä vaihdan','kuinka paljon','vaihtoaikaa'],10,24],
+  ['Kerro terveydestä tarkemmin','Kuvaile oiretta, kestoa ja vaikutusta.','Minulla on ollut päänsärkyä kolme päivää, ja se vaikeuttaa nukkumista.','Kerro oire, kuinka kauan se on kestänyt ja miten se vaikuttaa sinuun.',undefined,['on ollut','kolme päivää','vaikeuttaa'],11,25],
+  ['Vastaa hoitokysymykseen','Kerro mitä olet jo tehnyt oireelle.','Olen levännyt ja ottanut särkylääkettä, mutta olo ei ole parantunut.','Kerro mitä olet kokeillut ja onko se auttanut.',undefined,['olen levännyt','ottanut','mutta'],11,25],
+  ['Pyydä tarkennusta lääkkeeseen','Varmista lääkkeen käyttöohje.','Ymmärsinkö oikein, että otan tämän kaksi kertaa päivässä ruoan kanssa?','Toista lääkkeen käyttöohje omin sanoin ja varmista se.',undefined,['ymmärsinkö oikein','kaksi kertaa päivässä','ruoan kanssa'],11,25],
+  ['Kuvaile työtehtävää','Selitä mitä teet työssä tai opinnoissa.','Työssäni päivitän verkkosisältöä ja autan tiimiä teknisissä tehtävissä.','Kuvaile kaksi tavallista työ- tai opiskelutehtävääsi.',undefined,['työssäni','päivitän','autan'],11,25],
+  ['Kerro työongelmasta','Selitä ongelma ja pyydä yhteistyötä.','En pääse tähän järjestelmään. Voisitko tarkistaa, onko käyttöoikeuteni kunnossa?','Kerro työssä ilmenevästä käyttöongelmasta ja pyydä apua.',undefined,['en pääse','voisitko tarkistaa','käyttöoikeus'],11,25],
+  ['Sovi työnjaosta','Ehdota miten tehtävät jaetaan.','Voin tehdä ensimmäisen osan tänään, jos sinä hoidat loput huomenna.','Ehdota yksinkertaista työnjakoa.',undefined,['voin tehdä','jos sinä','huomenna'],11,25],
+  ['Kerro kokemuksesta','Kuvaile mennyt tapahtuma ja oma reaktiosi.','Viime viikonloppuna kävin konsertissa. Musiikki oli hyvä, mutta paikka oli liian täynnä.','Kerro viime viikonlopun tapahtumasta ja mielipiteesi siitä.',undefined,['viime viikonloppuna','oli','mutta'],12,28],
+  ['Selitä valinta','Kerro mitä valitsit ja miksi.','Valitsin junan auton sijaan, koska halusin matkustaa rauhassa.','Kerro yksi tekemäsi valinta ja perustele se.',undefined,['valitsin','sijaan','koska'],12,28],
+  ['Anna yksinkertainen neuvo','Reagoi ongelmaan ja ehdota ratkaisua.','Jos olet väsynyt, kannattaa ehkä levätä tänään ja jatkaa huomenna.','Ystävä on väsynyt. Anna hänelle neuvo.',undefined,['jos','kannattaa','ehkä'],12,28],
+  ['Kerro suunnitelman muutoksesta','Selitä mikä muuttui ja mitä teet nyt.','Aioin lähteä ulos, mutta alkoi sataa, joten päätin jäädä kotiin.','Kerro suunnitelmasta, joka muuttui, ja miksi.',undefined,['aioin','mutta','joten päätin'],12,28],
+  ['Itsenäinen arkitilanne','Yhdistä ongelman kuvaus, perustelu ja ratkaisuehdotus.','Minulla oli aika tänään, mutta bussini peruttiin enkä ehdi ajoissa. Voisimmeko siirtää ajan huomiselle?','Olet myöhästymässä tärkeästä tapaamisesta. Selitä tilanne ja ehdota ratkaisua.',undefined,['mutta','en ehdi','voisimmeko'],14,32],
+].map(([titleFi,goalFi,modelFi,promptFi,responseFrameFi,supportFi,expectedMinWords,expectedMaxWords]) => ({
+  titleFi: titleFi as string, goalFi: goalFi as string, modelFi: modelFi as string, promptFi: promptFi as string,
+  responseFrameFi: responseFrameFi as string | undefined, supportFi: supportFi as string[],
+  expectedMinWords: expectedMinWords as number, expectedMaxWords: expectedMaxWords as number,
+}));
+
 const THEMES = [
   ['Arki', 'Kerro yhdestä arjen asiasta.', 'Tänään menen kauppaan.', 'Kerro yhdestä asiasta, jonka teet tänään.'],
   ['Koti', 'Kuvaile kotiasi lyhyesti.', 'Asun pienessä asunnossa lähellä keskustaa.', 'Kerro missä ja millaisessa kodissa asut.'],
@@ -145,7 +177,7 @@ function generatedSeed(number: number): LessonSeed {
 
 export const GUIDED_SPEAKING_CURRICULUM: GuidedSpeakingLesson[] = Array.from({ length: 300 }, (_, index) => {
   const number = index + 1;
-  const seed = number <= A1_SEEDS.length ? A1_SEEDS[index] : number <= 50 ? A12_SEEDS[number - 26] : generatedSeed(number);
+  const seed = number <= A1_SEEDS.length ? A1_SEEDS[index] : number <= 50 ? A12_SEEDS[number - 26] : number <= 75 ? A21_SEEDS[number - 51] : generatedSeed(number);
   return {
     ...seed,
     id: idFor(number),
