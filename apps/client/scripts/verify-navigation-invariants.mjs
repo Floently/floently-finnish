@@ -295,8 +295,32 @@ if (
 
 requireText(
   appShell,
-  "initialExpandedItemId={drawerInitialExpandedItemId}",
-  'drawer must receive the current unambiguous pathway as its initial expanded branch',
+  "initialExpandedPath={drawerInitialExpandedPath}",
+  'drawer must receive the exact current branch path when it is known',
+);
+
+requireText(
+  appShell,
+  "origin?: 'everyday' | 'professional' | 'yki'",
+  'speaking navigation must preserve origin without inferring it from translated copy',
+);
+
+requireText(
+  appShell,
+  "['professional', 'professional-speaking']",
+  'Professional speaking context must reopen the nested Speaking branch',
+);
+
+requireText(
+  appShell,
+  "['everyday', 'everyday-speaking']",
+  'Everyday speaking context must reopen the nested Speaking branch',
+);
+
+requireText(
+  utilityDrawer,
+  'initialExpandedPath?.length',
+  'UtilityDrawer must restore nested expansion paths',
 );
 
 requireText(
@@ -327,6 +351,6 @@ console.log('PASS: structured Professional interview remains reachable.');
 console.log('PASS: existing recorded speaking remains reachable in Everyday and Professional branches.');
 console.log('PASS: existing Workplace Incident Lab remains reachable through the guarded Professional branch.');
 console.log('PASS: drawer controls preserve mobile-friendly touch targets.');
-console.log('PASS: current pathway can reopen its drawer branch.');
+console.log('PASS: current route can reopen and identify its exact drawer branch when known.');
 console.log('PASS: localhost behavior is development-only.');
 console.log('NAVIGATION_INVARIANTS=PASS');
