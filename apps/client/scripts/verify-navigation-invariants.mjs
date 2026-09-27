@@ -387,4 +387,5 @@ console.log('PASS: localhost behavior is development-only.');
 await import('./verify-guided-speaking-invariants.mjs');
 await import('./verify-card-level-gate.mjs');
 await import('./verify-practice-one-next-session.mjs');
+await import('./verify-professional-mission-chain.mjs');
 console.log('NAVIGATION_INVARIANTS=PASS');
