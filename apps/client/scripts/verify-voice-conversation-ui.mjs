@@ -62,7 +62,7 @@ for (const required of [
   'Swipe up to speak or type',
   "state === 'completed'",
   "!textMode ? (",
-  "presentationStyle="pageSheet"",
+  'presentationStyle="pageSheet"',
   'Conversation complete',
   'Review or continue',
   'Previous',
