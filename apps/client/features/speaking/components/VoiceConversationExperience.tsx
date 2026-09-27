@@ -297,6 +297,7 @@ function VoiceOrb({
 
   return (
     <Animated.View
+      testID="voice-orb"
       accessibilityElementsHidden
       importantForAccessibility="no-hide-descendants"
       style={[
@@ -646,7 +647,7 @@ export default function VoiceConversationExperience({
     state === 'error';
 
   return (
-    <View style={styles.root} {...gestureResponder.panHandlers}>
+    <View testID="voice-conversation-root" style={styles.root} {...gestureResponder.panHandlers}>
       <AmbientBackground dark={dark} />
 
       <View style={styles.header}>
@@ -713,6 +714,7 @@ export default function VoiceConversationExperience({
 
       {state !== 'completed' ? (
         <Animated.View
+          testID="voice-input-tray"
           pointerEvents={trayOpen ? 'auto' : 'none'}
           style={[styles.inputTray, trayStyle]}
         >
