@@ -192,3 +192,15 @@ export const GUIDED_SPEAKING_CURRICULUM: GuidedSpeakingLesson[] = Array.from({ l
 export function guidedSpeakingLesson(number: number): GuidedSpeakingLesson | undefined {
   return GUIDED_SPEAKING_CURRICULUM[number - 1];
 }
+
+export function guidedSpeakingLessonById(id: GuidedSpeakingStageId): GuidedSpeakingLesson | undefined {
+  return GUIDED_SPEAKING_CURRICULUM.find((lesson) => lesson.id === id);
+}
+
+export function guidedSpeakingRetrievalLessons(number: number): GuidedSpeakingLesson[] {
+  const lesson = guidedSpeakingLesson(number);
+  if (!lesson) return [];
+  return lesson.retrievalStageIds
+    .map(guidedSpeakingLessonById)
+    .filter((item): item is GuidedSpeakingLesson => Boolean(item));
+}
