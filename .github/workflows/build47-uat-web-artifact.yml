@@ -60,3 +60,228 @@ jobs:
           path: /tmp/kielivalmis-build47-uat-web
           if-no-files-found: error
           retention-days: 7
+
+  visual-smoke:
+    needs: export-web
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: kielivalmis-build47-uat-web
+          path: /tmp/kielivalmis-build47-uat-web
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Prepare browser runner
+        run: |
+          mkdir -p /tmp/build47-browser
+          cd /tmp/build47-browser
+          npm init -y >/dev/null
+          npm install --silent playwright-core@1.55.0
+          CHROME_PATH="$(command -v google-chrome || command -v chromium || command -v chromium-browser || true)"
+          test -n "$CHROME_PATH"
+          echo "CHROME_PATH=$CHROME_PATH" >> "$GITHUB_ENV"
+      - name: Start exact exported app
+        run: |
+          python3 -m http.server 8765 --directory /tmp/kielivalmis-build47-uat-web >/tmp/build47-web.log 2>&1 &
+          echo $! >/tmp/build47-web.pid
+          for attempt in {1..20}; do
+            if curl -fsS http://127.0.0.1:8765/ >/dev/null; then
+              exit 0
+            fi
+            sleep 1
+          done
+          cat /tmp/build47-web.log
+          exit 1
+      - name: Capture changed learner surfaces
+        env:
+          NODE_PATH: /tmp/build47-browser/node_modules
+        run: |
+          mkdir -p /tmp/build47-screens
+          cat >/tmp/build47-browser/capture.mjs <<'NODE'
+          import fs from 'node:fs';
+          import { chromium } from 'playwright-core';
+
+          const appOrigin = 'http://127.0.0.1:8765';
+          const out = '/tmp/build47-screens';
+          const session = {
+            token: 'atk_build47_visual_uat_local',
+            user: {
+              id: 'build47-visual-uat',
+              email: 'build47-uat@local.invalid',
+              name: 'Build 47 UAT',
+              subscriptionTier: 'internal_all_access',
+              planLabel: 'Internal All Access',
+              ykiAccess: true,
+              professionalAccess: true,
+              readAccess: true,
+              createAccess: true,
+              professions: ['doctor', 'nurse', 'practical_nurse'],
+            },
+          };
+          const subscription = {
+            tier: 'internal_all_access',
+            billing_tier: 'internal_all_access',
+            is_internal_all_access: true,
+            is_active: true,
+            yki_access: true,
+            professional_access: true,
+            read_access: true,
+            create_access: true,
+            accessible_professions: ['doctor', 'nurse', 'practical_nurse'],
+            activeContext: 'doctor',
+            accessSummary: 'Build 47 visual UAT local all-access session.',
+          };
+          const envelope = (data, trace = 'uat-trace') => ({
+            ok: true,
+            data,
+            error: null,
+            meta: {
+              version: '2026-04-01.backend-lock.v1',
+              contract_version: '2026-04-01.contract-lock.v1',
+              timestamp: new Date().toISOString(),
+              trace_id: trace,
+              event_id: null,
+            },
+          });
+
+          const browser = await chromium.launch({
+            executablePath: process.env.CHROME_PATH,
+            headless: true,
+            args: ['--no-sandbox', '--disable-dev-shm-usage'],
+          });
+          const context = await browser.newContext({
+            viewport: { width: 390, height: 844 },
+            deviceScaleFactor: 1,
+            colorScheme: 'light',
+            reducedMotion: 'no-preference',
+          });
+
+          await context.addInitScript(({ session }) => {
+            localStorage.setItem('auth_session_v2', JSON.stringify(session));
+            localStorage.setItem('floently_session', session.token);
+            localStorage.setItem(
+              'floently.guided-speaking.progress.v1',
+              JSON.stringify({
+                highestUnlockedNumber: 41,
+                currentStageNumber: 41,
+                attempts: [],
+              }),
+            );
+            localStorage.removeItem('floently:nav_state');
+            localStorage.removeItem('floently:learning_session');
+          }, { session });
+
+          await context.route('https://learn-api.floently.com/**', async (route) => {
+            const request = route.request();
+            const url = new URL(request.url());
+            const path = url.pathname;
+            if (path === '/api/v1/subscription/status') {
+              await route.fulfill({
+                status: 200,
+                contentType: 'application/json',
+                body: JSON.stringify({ data: subscription }),
+              });
+              return;
+            }
+            if (path === '/api/v1/learning/modules') {
+              await route.fulfill({
+                status: 200,
+                contentType: 'application/json',
+                body: JSON.stringify(envelope({
+                  decisionVersion: 'build47-visual-uat.v1',
+                  governanceStatus: 'governed',
+                  governanceVersion: 'build47-visual-governance.v1',
+                  policyVersion: 'build47-visual-policy.v1',
+                  modules: [],
+                }, 'learning-uat')),
+              });
+              return;
+            }
+            if (path === '/api/v1/tracking/event') {
+              await route.fulfill({
+                status: 200,
+                contentType: 'application/json',
+                body: JSON.stringify({ data: { accepted: true } }),
+              });
+              return;
+            }
+            await route.fulfill({
+              status: 503,
+              contentType: 'application/json',
+              body: JSON.stringify({ error: 'VISUAL_UAT_UNMOCKED_ENDPOINT', path }),
+            });
+          });
+
+          const report = [];
+          async function capture(name, path, expectedTexts = []) {
+            const page = await context.newPage();
+            const pageErrors = [];
+            const consoleErrors = [];
+            const requests = [];
+            page.on('pageerror', (error) => pageErrors.push(String(error)));
+            page.on('console', (message) => {
+              if (message.type() === 'error') consoleErrors.push(message.text());
+            });
+            page.on('request', (request) => {
+              if (request.url().includes('learn-api.floently.com')) {
+                requests.push(`${request.method()} ${new URL(request.url()).pathname}`);
+              }
+            });
+
+            const response = await page.goto(`${appOrigin}${path}`, {
+              waitUntil: 'domcontentloaded',
+              timeout: 30000,
+            });
+            await page.waitForTimeout(2400);
+            const body = await page.locator('body').innerText();
+            const screenshot = `${out}/${name}.png`;
+            await page.screenshot({ path: screenshot, fullPage: true });
+
+            const missing = expectedTexts.filter((text) => !body.toLowerCase().includes(text.toLowerCase()));
+            report.push({
+              name,
+              path,
+              status: response?.status() ?? null,
+              missing,
+              pageErrors,
+              consoleErrors,
+              requests: [...new Set(requests)],
+              bodyPreview: body.slice(0, 2200),
+              screenshot,
+            });
+            await page.close();
+          }
+
+          await capture('01-speaking-menu', '/speaking/', ['Guided', 'Roleplay']);
+          await capture('02-cards-level-gate', '/cards/', ['A1', 'B1', 'C1']);
+          await capture('03-professional-mission', '/professional/', ['Start mission', 'Mission path', 'Listen', 'Speak', 'Read', 'Write']);
+          await capture(
+            '04-professional-listening',
+            '/professional/listening/?taskId=mission.doctor-follow-up-explanation.listening',
+            ['Listen', 'doctor'],
+          );
+          await capture('05-everyday-reading', '/learn/reading/', ['Reading']);
+          await capture('06-everyday-writing', '/learn/writing/', ['Writing']);
+
+          fs.writeFileSync(`${out}/visual-smoke-report.json`, JSON.stringify(report, null, 2));
+          const fatal = report.flatMap((item) => [
+            ...item.pageErrors.map((message) => `${item.name}: pageerror: ${message}`),
+            ...item.missing.map((message) => `${item.name}: missing expected text: ${message}`),
+          ]);
+          console.log(JSON.stringify(report, null, 2));
+          await browser.close();
+          if (fatal.length) {
+            console.error(fatal.join('\n'));
+            process.exit(1);
+          }
+          NODE
+          node /tmp/build47-browser/capture.mjs
+      - name: Upload Build 47 screenshots
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: kielivalmis-build47-visual-smoke
+          path: /tmp/build47-screens
+          if-no-files-found: error
+          retention-days: 7
