@@ -95,7 +95,8 @@ export const useGuidedSpeakingProgressStore = create<GuidedSpeakingProgressState
 
   openStage(stageNumber) {
     const state = get();
-    if (stageNumber < 1 || stageNumber > state.highestUnlockedNumber) return;
+    if (stageNumber < 1 || stageNumber >= state.highestUnlockedNumber) return;
+    // History exposes passed stages only. The current/future frontier is not opened through review navigation.
     // Reviewing Stage 20 while Stage 40 is unlocked changes only the viewed stage.
     // It never reduces highestUnlockedNumber.
     set({ currentStageNumber: stageNumber });
