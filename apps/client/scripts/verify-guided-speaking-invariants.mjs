@@ -55,6 +55,9 @@ for (const stageId of stageIds) {
 requireText(stages, 'export type GuidedSpeakingStageId = \`GS-\${string}\`;', 'curriculum stages need permanent deterministic IDs');
 requireText(stages, 'curriculumId: GuidedSpeakingStageId;', 'stage records must carry permanent curriculum identity');
 requireText(stages, 'version: 1;', 'stage records must be versioned');
+for (const level of ['A1.1', 'A1.2', 'A2.1', 'A2.2', 'B1.1', 'B1.2', 'B2.1', 'B2.2', 'C1', 'C2']) {
+  requireText(stages, `'${level}'`, `missing explicit Guided Speaking level ${level}`);
+}
 requireText(stages, "curriculumId: \`GS-\${String(index + 1).padStart(3, '0')}\`", 'stage IDs must derive deterministically from stable order');
 
 requireText(progressStore, 'highestUnlockedNumber: number;', 'progress must track furthest unlocked stage separately');
@@ -117,6 +120,12 @@ requireText(
   'expectedMinWords: 48,',
   'C1-C2 final Professional guided response must require extended production',
 );
+
+requireText(screen, 'useGuidedSpeakingProgressStore', 'Guided Speaking screen must use persisted learner history');
+requireText(screen, 'highestUnlockedNumber', 'stage navigation must use persisted furthest progress');
+requireText(screen, 'openPersistedStage(index + 1)', 'review navigation must persist selected unlocked stage');
+requireText(screen, 'completePersistedStage(stage.curriculumId, stage.version, visibleStageNumber)', 'completion must record permanent stage identity and version');
+requireText(screen, 'guidedSpeakingLevelForStage(visibleStageNumber)', 'UI must show explicit learner-visible sublevel');
 
 requireText(
   screen,
