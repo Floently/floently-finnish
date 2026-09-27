@@ -14,11 +14,11 @@ import {
 } from 'react-native';
 import {
   finishRoleplaySession,
-  listRoleplayScenarios,
   startRoleplaySession,
   submitRoleplayTurn,
   type RoleplayLevelBand,
   type RoleplayFinishResponse,
+  type RoleplayMode,
   type RoleplayProfession,
   type RoleplayScenarioSummary,
 } from '@core/api/roleplay';
@@ -31,7 +31,6 @@ import { WaveformMicRing } from '../components/WaveformMicRing';
 import RoleplayScenarioHeader from '../components/RoleplayScenarioHeader';
 import RoleplayTranscriptList from '../components/RoleplayTranscriptList';
 import { primeRoleplayAudioPlayback, speakRoleplayText, stopRoleplayAudioPlayback, uiSounds } from '../services/roleplayAudio';
-import { pickRotatingRoleplayScenario } from '../services/roleplayScenarioRotation';
 import { useRoleplayRecorder } from '../hooks/useRoleplayRecorder';
 import { SessionCompletion } from '../components/SessionCompletion';
 import type { TranscriptMessage } from '../types';
@@ -40,69 +39,6 @@ const AUTO_PLAY_ROLEPLAY_OPENING_AUDIO = true;
 
 function messageId(prefix: string) {
   return `${prefix}_${Date.now()}_${Math.random().toString(36).slice(2, 8)}`;
-}
-
-function scenarioIdForContext(
-  profession: RoleplayProfession,
-  contextLabel?: string,
-): string | undefined {
-  const normalized = String(
-    contextLabel || '',
-  ).toLowerCase();
-
-  // Explicit interview and strongly contextual launches remain
-  // deterministic. Ordinary roleplay launches are intentionally left
-  // unresolved so the persistent shuffled rotation can choose them.
-  if (normalized.includes('interview')) {
-    if (profession === 'doctor') {
-      return 'doctor_patient_interview';
-    }
-
-    if (profession === 'nurse') {
-      return 'nurse_interview_beta';
-    }
-
-    if (profession === 'practical_nurse') {
-      return 'practical_nurse_interview';
-    }
-  }
-
-  if (
-    profession === 'general' &&
-    (
-      normalized.includes('issue') ||
-      normalized.includes('problem') ||
-      normalized.includes('report')
-    )
-  ) {
-    return 'general_issue_report';
-  }
-
-  return undefined;
-}
-
-/**
- * Defensive sanity check for #9.
- *
- * If a profession-mismatched scenarioId is propagated in (e.g. a doctor scenario
- * id while the user's profession is 'general'), drop it and let the resolver
- * pick a profession-appropriate one. This prevents the regression where a stale
- * scenarioId from a previous session causes "general" roleplay to behave as
- * profession-specific.
- */
-function isScenarioIdValidForProfession(scenarioId: string | undefined, profession: RoleplayProfession): boolean {
-  if (!scenarioId) return false;
-  const id = scenarioId.toLowerCase();
-  // The naming convention in the registry is "<profession>_<scenario_name>".
-  // general_*    → general
-  // nurse_*      → nurse
-  // doctor_*     → doctor
-  // practical_*  → practical_nurse
-  if (profession === 'general') return id.startsWith('general_');
-  if (profession === 'nurse') return id.startsWith('nurse_');
-  if (profession === 'doctor') return id.startsWith('doctor_');
-  if (profession === 'practical_nurse') return id.startsWith('practical_');
-  return true; // unknown profession → trust the scenarioId
 }
 
 // --------------------------------------------------------------------------
@@ -932,6 +868,7 @@ export default function RoleplayConversationScreen({
   contextLabel,
   scenarioId,
   entryMode = 'workplace',
+  roleplayMode,
 }: {
   levelBand: RoleplayLevelBand;
   onBack: () => void;
@@ -939,6 +876,7 @@ export default function RoleplayConversationScreen({
   contextLabel?: string;
   scenarioId?: string | null;
   entryMode?: 'workplace' | 'interview';
+  roleplayMode: RoleplayMode;
 }) {
   const recorder = useRoleplayRecorder('fi-FI');
   const themeMode = usePreferencesStore((state) => state.themeMode);
@@ -999,66 +937,17 @@ export default function RoleplayConversationScreen({
     openingAudioPlayedRef.current = null;
     setShowTranscriptReport(false);
     try {
-      // Explicit scenario launches keep priority. Ordinary roleplay
-      // launches use a persistent shuffled bag so every available scenario
-      // appears before the cycle repeats.
-      const candidateIds: (string | undefined)[] = [
-        overrideScenarioId ?? undefined,
-        scenarioId ?? undefined,
-        scenarioIdForContext(
-          profession,
-          contextLabel ??
-            (
-              entryMode === 'interview'
-                ? 'interview'
-                : undefined
-            ),
-        ),
-      ];
-
-      const validIds = candidateIds.filter(
-        (id) =>
-          isScenarioIdValidForProfession(
-            id,
-            profession,
-          ),
-      );
-
-      let resolvedScenarioId =
-        validIds[0];
-
-      if (!resolvedScenarioId) {
-        try {
-          const availableScenarios =
-            await listRoleplayScenarios(
-              profession,
-              levelBand,
-            );
-
-          resolvedScenarioId =
-            await pickRotatingRoleplayScenario({
-              profession,
-              scenarios: availableScenarios,
-              scope: entryMode,
-            });
-        } catch {
-          // Starting the roleplay remains available if the scenario-list
-          // request fails. The backend will apply its compatible fallback.
-          resolvedScenarioId = undefined;
-        }
-      }
+      // The server owns ordinary scenario selection and rotation. The client
+      // only sends a scenario ID for a deliberate explicit launch or Replay.
+      const resolvedScenarioId =
+        overrideScenarioId ?? scenarioId ?? undefined;
 
       const payload = await startRoleplaySession({
         profession,
         levelBand,
+        roleplayMode,
         scenarioId: resolvedScenarioId,
-        contextLabel:
-          contextLabel ??
-          (
-            entryMode === 'interview'
-              ? 'interview'
-              : undefined
-          ),
+        contextLabel,
       });
       setSessionId(payload.sessionId);
       setScenario(payload.scenario);
@@ -1088,7 +977,7 @@ export default function RoleplayConversationScreen({
     } finally {
       setLoading(false);
     }
-  }, [contextLabel, entryMode, levelBand, profession, scenarioId]);
+  }, [contextLabel, levelBand, profession, roleplayMode, scenarioId]);
 
   useEffect(() => {
     if (!AUTO_PLAY_ROLEPLAY_OPENING_AUDIO) return;
