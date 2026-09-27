@@ -4,6 +4,8 @@ import { create } from 'zustand';
 import type { GuidedSpeakingStageId } from '../features/speaking/guidedSpeakingStages';
 
 const STORAGE_KEY = 'floently.guided-speaking.progress.v1';
+const GUIDED_SPEAKING_MAX_STAGE = 300;
+const GUIDED_SPEAKING_COMPLETE_SENTINEL = GUIDED_SPEAKING_MAX_STAGE + 1;
 const memoryStore = new Map<string, string>();
 
 export type GuidedSpeakingAttempt = {
@@ -13,6 +15,11 @@ export type GuidedSpeakingAttempt = {
 };
 
 type PersistedProgress = {
+  /**
+   * 1..300 points at the current frontier. 301 means all 300 stages have
+   * been passed. Keeping the completion sentinel lets History expose Stage
+   * 300 after the curriculum is complete without inventing a Stage 301.
+   */
   highestUnlockedNumber: number;
   currentStageNumber: number;
   attempts: GuidedSpeakingAttempt[];
@@ -21,7 +28,8 @@ type PersistedProgress = {
 type GuidedSpeakingProgressState = PersistedProgress & {
   hasHydrated: boolean;
   hydrate: () => Promise<void>;
-  openStage: (stageNumber: number) => void;
+  openStage: (stageNumber: number) => Promise<void>;
+  resumeFrontier: () => Promise<void>;
   completeStage: (stageId: GuidedSpeakingStageId, stageVersion: number, stageNumber: number) => Promise<void>;
   reset: () => Promise<void>;
 };
@@ -33,10 +41,14 @@ const DEFAULTS: PersistedProgress = {
 };
 
 function normalize(raw: Partial<PersistedProgress>): PersistedProgress {
-  const highest = Math.max(1, Number.isFinite(raw.highestUnlockedNumber) ? Number(raw.highestUnlockedNumber) : 1);
+  const highest = Math.min(
+    GUIDED_SPEAKING_COMPLETE_SENTINEL,
+    Math.max(1, Number.isFinite(raw.highestUnlockedNumber) ? Number(raw.highestUnlockedNumber) : 1),
+  );
   const current = Math.min(
+    GUIDED_SPEAKING_MAX_STAGE,
     highest,
-    Math.max(1, Number.isFinite(raw.currentStageNumber) ? Number(raw.currentStageNumber) : highest),
+    Math.max(1, Number.isFinite(raw.currentStageNumber) ? Number(raw.currentStageNumber) : Math.min(highest, GUIDED_SPEAKING_MAX_STAGE)),
   );
   return {
     highestUnlockedNumber: highest,
@@ -93,21 +105,48 @@ export const useGuidedSpeakingProgressStore = create<GuidedSpeakingProgressState
     set({ ...stored, hasHydrated: true });
   },
 
-  openStage(stageNumber) {
+  async openStage(stageNumber) {
     const state = get();
-    if (stageNumber < 1 || stageNumber >= state.highestUnlockedNumber) return;
+    if (stageNumber < 1 || stageNumber >= state.highestUnlockedNumber || stageNumber > GUIDED_SPEAKING_MAX_STAGE) return;
     // History exposes passed stages only. The current/future frontier is not opened through review navigation.
     // Reviewing Stage 20 while Stage 40 is unlocked changes only the viewed stage.
     // It never reduces highestUnlockedNumber.
-    set({ currentStageNumber: stageNumber });
+    const next: PersistedProgress = {
+      highestUnlockedNumber: state.highestUnlockedNumber,
+      currentStageNumber: stageNumber,
+      attempts: state.attempts,
+    };
+    await writeStorage(next);
+    set(next);
+  },
+
+  async resumeFrontier() {
+    const state = get();
+    const next: PersistedProgress = {
+      highestUnlockedNumber: state.highestUnlockedNumber,
+      currentStageNumber: Math.min(GUIDED_SPEAKING_MAX_STAGE, state.highestUnlockedNumber),
+      attempts: state.attempts,
+    };
+    await writeStorage(next);
+    set(next);
   },
 
   async completeStage(stageId, stageVersion, stageNumber) {
     const state = get();
-    const nextHighest = Math.max(state.highestUnlockedNumber, stageNumber + 1);
+    const safeStageNumber = Math.min(GUIDED_SPEAKING_MAX_STAGE, Math.max(1, stageNumber));
+    const frontierNumber = Math.min(GUIDED_SPEAKING_MAX_STAGE, state.highestUnlockedNumber);
+    const isFrontierAttempt = safeStageNumber >= frontierNumber;
+    const nextHighest = isFrontierAttempt
+      ? Math.min(
+          GUIDED_SPEAKING_COMPLETE_SENTINEL,
+          Math.max(state.highestUnlockedNumber, safeStageNumber + 1),
+        )
+      : state.highestUnlockedNumber;
     const next: PersistedProgress = {
       highestUnlockedNumber: nextHighest,
-      currentStageNumber: Math.min(stageNumber + 1, nextHighest),
+      currentStageNumber: isFrontierAttempt
+        ? Math.min(GUIDED_SPEAKING_MAX_STAGE, safeStageNumber + 1)
+        : safeStageNumber,
       attempts: [
         ...state.attempts,
         { stageId, stageVersion, completedAt: new Date().toISOString() },
