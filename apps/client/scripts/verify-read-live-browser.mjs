@@ -39,6 +39,8 @@ for (const marker of [
   "https://read.floently.com/app/browser-v2/live?embed=react-native",
   "flowReader.auth.apiKey",
   "flowReader.auth.session",
+  "injectedJavaScriptObject={",
+  "flowReaderAuth: embeddedAuth",
   "injectedJavaScriptBeforeContentLoaded={authBootstrap}",
   "originWhitelist={['https://read.floently.com']}",
   "hostname === READ_BROWSER_HOST",
