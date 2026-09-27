@@ -271,13 +271,17 @@ Full history belongs in the Transcript view.
 
 ## 9. Voice orb
 
-The orb is the primary visual object in **voice mode**.
+The orb is the primary visual object and the primary **voice recording control** in voice mode.
 
-It is **not** a microphone button.
+The learner does not need to reveal another control before responding.
 
-It must not contain a microphone icon.
+Interaction:
+- tap the orb once to start recording;
+- tap the orb again to stop recording, transcribe and submit;
+- do not place a microphone icon inside the orb;
+- during AI speech, processing and completion, the orb remains visual/status feedback but does not start recording.
 
-It is ambient status feedback for the conversation.
+The orb therefore combines conversation-state feedback with the simplest possible push-to-start / tap-to-stop voice interaction.
 
 ### Position
 
@@ -410,9 +414,13 @@ The page should initially feel almost empty.
 
 ### Learner starts speaking
 
-- no permanent mic chrome appears on the main canvas;
+- the learner taps the orb;
+- recording starts using the canonical microphone/STT path;
+- no separate microphone control needs to be revealed;
+- no microphone icon is drawn inside the orb;
 - orb reacts to real microphone amplitude;
 - learner label/state remains clear;
+- the learner taps the orb again to finish the turn;
 - when genuine STT partials exist, they may stream into the active text.
 
 ### Learner finishes
@@ -426,24 +434,33 @@ No conversation stack is created.
 
 ---
 
-## 13. Microphone and typing access
+## 13. Voice response and typing access
 
-The main page must not permanently show the microphone or typing field.
+The main page must not permanently show a separate microphone button or typing field.
 
-Instead, the user reveals the utility tray intentionally.
+### Primary voice interaction
 
-Primary gesture:
+The orb is the normal voice-response control.
 
-- **swipe upward** on the live page.
+- **tap the orb once** to begin recording;
+- **tap the orb again** to stop recording and submit the recognized turn;
+- the learner must not need to swipe up before speaking;
+- when it is not the learner's turn, the orb remains visual but is not an active recording trigger.
+
+### Swipe-up interaction
+
+Swipe-up is for revealing the utility tray when the learner wants to **type** or access secondary controls.
 
 The context/settings button may also reveal the same tray.
 
-Tray may contain:
+The tray may contain:
 
-- microphone action;
+- microphone action as an alternate voice control;
 - typing field;
 - Replay when useful;
 - Voice return action when currently text-only.
+
+The presence of the microphone in the tray does not change the primary interaction: normal voice response is always available directly from the orb.
 
 ### Text mode
 
@@ -739,17 +756,20 @@ The implementation is not complete unless all are true:
 11. Orb reacts to canonical microphone amplitude during learner recording.
 12. AI speaking changes the orb state.
 13. Processing has a calmer distinct orb state.
-14. Swipe-up or contextual control reveals the microphone/text tray.
-15. Transcript history opens separately.
-16. Completion alone reveals Replay / Transcript / Previous / Next.
-17. Reduce Motion removes perspective/large movement.
-18. Existing server roleplay/session authority remains unchanged.
-19. Existing recorder/STT/TTS authority remains unchanged.
-20. No new native graphics dependency is required.
-21. CI, audio invariants, scenario-rotation invariants and source-candidate checks remain green.
+14. Tapping the orb starts recording when the learner's turn is ready.
+15. Tapping the orb again stops recording and submits through the canonical STT path.
+16. Swipe-up is not required for voice response; it reveals typing and secondary controls.
+17. The revealed tray may still contain an alternate microphone action.
+18. Transcript history opens separately.
+19. Completion alone reveals Replay / Transcript / Previous / Next.
+20. Reduce Motion removes perspective/large movement.
+21. Existing server roleplay/session authority remains unchanged.
+22. Existing recorder/STT/TTS authority remains unchanged.
+23. No new native graphics dependency is required.
+24. CI, audio invariants, scenario-rotation invariants and source-candidate checks remain green.
 
 ---
 
 ## 26. Visual intent in one sentence
 
-**A nearly empty luminous page where spoken words occupy the centre for only the current turn, previous speech curves quietly into the background, and a low living orb confirms the voice state without competing with the lesson.**
+**A nearly empty luminous page where spoken words occupy the centre for only the current turn, previous speech curves quietly into the background, and a low living orb both reflects the voice state and gives the learner the simplest possible tap-to-speak interaction.**
