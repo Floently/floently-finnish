@@ -26,7 +26,7 @@ import {
   updateWritingPlan,
   wordCount,
 } from './engine';
-import { tasksForPathway } from './tasks';
+import { getNextWritingTask, tasksForPathway } from './tasks';
 import { WritingFeedbackPanel } from './components/WritingFeedbackPanel';
 import { usePreferencesStore } from '../../state/preferencesStore';
 import type {
@@ -287,6 +287,9 @@ export default function WritingPracticeScreen({ pathway, profession, initialTask
   const [session, setSession] = useState(() => createWritingSession(initialTask, new Date().toISOString()));
   const [submitting, setSubmitting] = useState(false);
   const submissionInFlight = useRef(false);
+  const nextCanonicalTask = session.stage === 'compare'
+    ? getNextWritingTask(session.task.taskId, profession)
+    : null;
 
   function selectTask(taskId: string) {
     const nextTask = availableTasks.find((task) => task.taskId === taskId);
@@ -367,6 +370,19 @@ export default function WritingPracticeScreen({ pathway, profession, initialTask
 
           {session.stage === 'feedback' || session.stage === 'compare' ? (
             <WritingFeedbackPanel session={session} onRevise={() => setSession(beginRevision(session))} />
+          ) : null}
+
+          {session.stage === 'compare' && nextCanonicalTask ? (
+            <Pressable
+              accessibilityRole="button"
+              accessibilityLabel={`Next writing task: ${nextCanonicalTask.level} ${nextCanonicalTask.title}`}
+              onPress={() => selectTask(nextCanonicalTask.taskId)}
+              style={({ pressed }) => [styles.primaryButton, pressed && styles.pressed]}
+            >
+              <Text style={styles.primaryButtonText}>
+                Next writing task · {nextCanonicalTask.level} · {nextCanonicalTask.title}
+              </Text>
+            </Pressable>
           ) : null}
           </LearningFocusSurface>
         </ScrollView>
