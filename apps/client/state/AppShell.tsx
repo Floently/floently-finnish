@@ -947,7 +947,6 @@ export default function AppShell({ requestedScreen = "root" }: Props) {
 
   const drawerSections = createDrawerSections(
     (route, options) => {
-      setDrawerOpen(false);
       void navigateTo(route, options);
     },
     {
