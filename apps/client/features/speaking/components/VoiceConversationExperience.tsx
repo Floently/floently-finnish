@@ -8,7 +8,6 @@ import {
   Text,
   TextInput,
   View,
-  useColorScheme,
   useWindowDimensions,
 } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
@@ -54,6 +53,7 @@ type Props = {
   assistantLabel: string;
   canSendManual: boolean;
   completionSummary?: string | null;
+  dark: boolean;
   headerSubtitle: string;
   headerTitle: string;
   manualText: string;
@@ -636,6 +636,7 @@ export default function VoiceConversationExperience({
   assistantLabel,
   canSendManual,
   completionSummary,
+  dark,
   headerSubtitle,
   headerTitle,
   manualText,
@@ -657,7 +658,6 @@ export default function VoiceConversationExperience({
   textMode,
 }: Props) {
   const { width } = useWindowDimensions();
-  const dark = useColorScheme() === 'dark';
   const [trayOpen, setTrayOpen] = useState(false);
   const [transcriptVisible, setTranscriptVisible] = useState(false);
   const turn = useActiveConversationTurn(messages, state, textMode);
