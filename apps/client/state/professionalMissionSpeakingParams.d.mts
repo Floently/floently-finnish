@@ -16,6 +16,7 @@ export type ProfessionalMissionSpeakingPreset = {
   initialScenarioId: string;
   lockProfession: true;
   entryMode: ProfessionalMissionSpeakingEntryMode;
+  roleplayMode: 'professional';
   contextLabel: string;
 };
 
