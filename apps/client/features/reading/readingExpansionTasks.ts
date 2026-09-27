@@ -235,7 +235,7 @@ export const EVERYDAY_READING_EXPANSION: readonly ReadingTask[] = [
     estimatedMinutes: 8,
     documentType: 'policy',
     documentTitle: 'Korvauspäätös',
-    metadata: 'Kotielä? Ei — kodin irtaimistovakuutus · fiktiivinen päätös',
+    metadata: 'Kodin irtaimistovakuutus · fiktiivinen päätös',
     segments: [
       'Ilmoituksesi mukaan puhelin putosi 12.9. ja näyttö rikkoutui. Vahinko kuuluu irtaimistovakuutuksen rikkoutumisturvan piiriin.',
       'Korvauksen perusteena käytetään vastaavan laitteen tämänhetkistä arvoa. Laitteen iän vuoksi arvosta vähennetään ehtojen mukainen ikävähennys, minkä jälkeen summasta vähennetään 150 euron omavastuu.',
@@ -647,7 +647,7 @@ export const PROFESSIONAL_READING_EXPANSION: readonly ReadingTask[] = [
     tags: ['päätösvalmistelu', 'analyysi', 'työelämä'],
   }),
   makeReadingTask({
-    id: 'reading.professional.c2-policy-wording',
+    id: 'reading.professional.c2.policy-wording',
     pathway: 'professional',
     level: 'C2',
     title: 'Ohjetekstin vastuunrajaukset',
