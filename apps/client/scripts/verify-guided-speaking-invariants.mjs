@@ -59,6 +59,11 @@ requireText(curriculum, "{ level: 'C2', count: 50 }", 'C2 must have an explicit 
 requireText(curriculum, 'retrievalStageIds: retrievalFor(number)', 'every curriculum stage must carry deterministic retrieval references');
 requireText(curriculum, "['Tervehdi'", 'Stage 1 must be individually authored rather than generated at runtime');
 requireText(curriculum, "['Ensimmäinen keskustelu'", 'A1.1 Stage 25 must be individually authored and cumulative');
+requireText(curriculum, 'const A21_SEEDS: LessonSeed[]', 'A2.1 must use individually authored lesson records');
+requireText(curriculum, "['Itsenäinen arkitilanne'", 'A2.1 Stage 75 must be individually authored and cumulative');
+requireText(curriculum, 'number <= 75 ? A21_SEEDS[number - 51]', 'Stages 51-75 must resolve from authored A2.1 content, not templates');
+requireText(curriculum, 'guidedSpeakingRetrievalLessons', 'runtime must resolve fixed retrieval IDs to exact earlier lessons');
+
 requireText(curriculum, 'const A12_SEEDS: LessonSeed[]', 'A1.2 must use individually authored lesson records');
 requireText(curriculum, "['Arjen keskustelu'", 'A1.2 Stage 50 must be individually authored and cumulative');
 requireText(curriculum, 'number <= 50 ? A12_SEEDS[number - 26]', 'Stages 26-50 must resolve from authored A1.2 content, not templates');
@@ -140,6 +145,11 @@ requireText(screen, 'highestUnlockedNumber - 1', 'History must exclude the curre
 forbidText(screen, '<View style={styles.progressRow}', 'practice UI must not splatter numbered stage navigation across the main flow');
 requireText(screen, 'openPersistedStage(index + 1)', 'review navigation must persist selected unlocked stage');
 requireText(screen, 'completePersistedStage(stage.curriculumId, stage.version, visibleStageNumber)', 'completion must record permanent stage identity and version');
+requireText(screen, 'guidedSpeakingRetrievalLessons(currentStageNumber)', 'Guided Speaking runtime must load deterministic recall material');
+requireText(screen, 'lesson.number < currentStageNumber', 'recall must never reference current or future stages');
+requireText(screen, '>Remember?</Text>', 'recall must be presented as a separate layered step');
+requireText(screen, '>Start recall</Text>', 'recall content must stay behind one deliberate action');
+
 requireText(screen, 'guidedSpeakingLevelForStage(visibleStageNumber)', 'UI must show explicit learner-visible sublevel');
 
 requireText(
