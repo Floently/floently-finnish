@@ -87,7 +87,31 @@ jobs:
           echo "CHROME_PATH=$CHROME_PATH" >> "$GITHUB_ENV"
       - name: Start exact exported app
         run: |
-          python3 -m http.server 8765 --directory /tmp/kielivalmis-build47-uat-web >/tmp/build47-web.log 2>&1 &
+          cat >/tmp/build47-static-server.py <<'PY'
+          import os
+          from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
+          from urllib.parse import urlsplit
+
+          ROOT = '/tmp/kielivalmis-build47-uat-web'
+
+          class ExportHandler(SimpleHTTPRequestHandler):
+              def __init__(self, *args, **kwargs):
+                  super().__init__(*args, directory=ROOT, **kwargs)
+
+              def do_GET(self):
+                  parsed = urlsplit(self.path)
+                  clean = parsed.path
+                  if clean != '/' and not clean.endswith('/'):
+                      candidate = os.path.join(ROOT, clean.lstrip('/') + '.html')
+                      if os.path.isfile(candidate):
+                          self.path = clean + '.html'
+                          if parsed.query:
+                              self.path += '?' + parsed.query
+                  return super().do_GET()
+
+          ThreadingHTTPServer(('127.0.0.1', 8765), ExportHandler).serve_forever()
+          PY
+          python3 /tmp/build47-static-server.py >/tmp/build47-web.log 2>&1 &
           echo $! >/tmp/build47-web.pid
           for attempt in {1..20}; do
             if curl -fsS http://127.0.0.1:8765/ >/dev/null; then
@@ -262,11 +286,11 @@ jobs:
           await capture('03-professional-access-boundary', '/professional/', ['AUTH_REQUIRED', 'Sign in']);
           await capture(
             '04-professional-listening',
-            '/professional/listening.html?taskId=mission.doctor-follow-up-explanation.listening',
-            ['Listen'],
+            '/professional/listening?taskId=mission.doctor-follow-up-explanation.listening',
+            ['Professional Listening', 'Sign in'],
           );
-          await capture('05-everyday-reading', '/learn/reading.html', ['Read']);
-          await capture('06-everyday-writing', '/learn/writing.html', ['Writ']);
+          await capture('05-everyday-reading', '/learn/reading', ['Kirjaudu sisään jatkaaksesi']);
+          await capture('06-everyday-writing', '/learn/writing', ['Sign in for Writing']);
 
           fs.writeFileSync(`${out}/visual-smoke-report.json`, JSON.stringify(report, null, 2));
           const fatal = report.flatMap((item) => [
