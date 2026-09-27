@@ -106,6 +106,61 @@ class RoleplayModePoolTests(unittest.TestCase):
             self.assertNotEqual(next_spec.scenario_id, selected[-1])
         self.assertEqual(next_reason, "pool_recycled")
 
+    def test_ten_starts_rotate_without_consecutive_duplicates(self) -> None:
+        for mode in ("everyday", "workplace", "yki"):
+            user_key = f"test-ten-starts-{mode}"
+            selected: list[str] = []
+
+            with patch.object(STORE, "write_snapshot", return_value=None):
+                for _ in range(10):
+                    spec, catalog, _reason = roleplay.select_roleplay_scenario(
+                        user_key=user_key,
+                        roleplay_mode=mode,
+                        profession="general",
+                    )
+                    selected.append(spec.scenario_id)
+                    self.assertEqual(len(catalog), 8)
+
+            self.assertEqual(
+                len(set(selected[:8])),
+                8,
+                f"{mode} must exhaust all eight scenarios before reuse",
+            )
+            self.assertTrue(
+                all(left != right for left, right in zip(selected, selected[1:])),
+                f"{mode} must not immediately repeat across ten starts",
+            )
+
+    def test_cefr_changes_dialogue_complexity_not_scenario_catalog(self) -> None:
+        pool = roleplay.roleplay_scenario_pool(
+            roleplay_mode="yki",
+            profession="general",
+        )
+        spec = pool[0]
+        selected = {
+            level: spec.select_for_session(
+                level_band=level,
+                seed="fixed-cefr-comparison",
+            )
+            for level in ("A1-A2", "B1-B2", "C1-C2")
+        }
+
+        self.assertEqual(
+            {item["level_band"] for item in selected.values()},
+            {"A1-A2", "B1-B2", "C1-C2"},
+        )
+        self.assertEqual(len({item["opener"] for item in selected.values()}), 3)
+        self.assertEqual(
+            [item.scenario_id for item in pool],
+            [
+                item.scenario_id
+                for item in roleplay.roleplay_scenario_pool(
+                    roleplay_mode="yki",
+                    profession="general",
+                )
+            ],
+        )
+
     def test_explicit_replay_is_allowed_but_wrong_pool_is_rejected(self) -> None:
         user_key = "test-roleplay-explicit-replay"
         everyday = roleplay.roleplay_scenario_pool(
