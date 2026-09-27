@@ -212,6 +212,11 @@ jobs:
           await context.addInitScript(({ session }) => {
             localStorage.setItem('auth_session_v2', JSON.stringify(session));
             localStorage.setItem('floently_session', session.token);
+            // The app intentionally clears legacy AsyncStorage during hydration.
+            // Keep the existing FlowReader compatibility token available so the
+            // local-only UAT browser can exercise the real restoreSessionFromToken
+            // path without adding any runtime bypass or using a real account.
+            localStorage.setItem('flowReader.auth.apiKey', session.token);
             localStorage.setItem(
               'floently.guided-speaking.progress.v1',
               JSON.stringify({
@@ -228,6 +233,29 @@ jobs:
             const request = route.request();
             const url = new URL(request.url());
             const path = url.pathname;
+            if (path === '/api/v1/auth/session') {
+              await route.fulfill({
+                status: 200,
+                contentType: 'application/json',
+                body: JSON.stringify(envelope({
+                  auth_user: {
+                    user_id: session.user.id,
+                    email: session.user.email,
+                    name: session.user.name,
+                    subscription_tier: 'internal_all_access',
+                    effective_tier: 'internal_all_access',
+                    plan_label: 'Internal All Access',
+                    yki_access: true,
+                    professional_access: true,
+                    read_access: true,
+                    create_access: true,
+                    accessible_professions: ['doctor', 'nurse', 'practical_nurse'],
+                    is_internal_all_access: true,
+                  },
+                }, 'auth-session-uat')),
+              });
+              return;
+            }
             if (path === '/api/v1/subscription/status') {
               await route.fulfill({
                 status: 200,
@@ -305,16 +333,68 @@ jobs:
             await page.close();
           }
 
-          await capture('01-speaking-access-boundary', '/speaking/', ['AUTH_REQUIRED', 'Sign in']);
-          await capture('02-cards-level-gate', '/cards/', ['A1', 'B1', 'C1']);
-          await capture('03-professional-access-boundary', '/professional/', ['AUTH_REQUIRED', 'Sign in']);
           await capture(
-            '04-professional-listening',
-            '/professional/listening?taskId=mission.doctor-follow-up-explanation.listening',
-            ['Professional Listening', 'Sign in'],
+            '01-speaking-menu',
+            '/speaking/',
+            ['Guided practice', 'Etene vaihe kerrallaan', 'Roleplay'],
           );
-          await capture('05-everyday-reading', '/learn/reading', ['Kirjaudu sisään jatkaaksesi']);
-          await capture('06-everyday-writing', '/learn/writing', ['Sign in for Writing']);
+
+          {
+            const page = await context.newPage();
+            const pageErrors = [];
+            const consoleErrors = [];
+            page.on('pageerror', (error) => pageErrors.push(String(error)));
+            page.on('console', (message) => {
+              if (message.type() === 'error') consoleErrors.push(message.text());
+            });
+            const response = await page.goto(`${appOrigin}/speaking/`, {
+              waitUntil: 'domcontentloaded',
+              timeout: 30000,
+            });
+            await page.waitForTimeout(2400);
+            const guidedButton = page.getByRole('button', { name: /Guided practice.*Speaking/i }).first();
+            await guidedButton.click();
+            await page.waitForTimeout(1200);
+            const body = await page.locator('body').innerText();
+            const screenshot = `${out}/02-guided-speaking-stage-41.png`;
+            await page.screenshot({ path: screenshot, fullPage: true });
+            const expectedTexts = ['Your progress', 'Stage 41', 'History'];
+            const missing = expectedTexts.filter((text) => !body.toLowerCase().includes(text.toLowerCase()));
+            report.push({
+              name: '02-guided-speaking-stage-41',
+              path: '/speaking/ → Guided practice',
+              status: response?.status() ?? null,
+              missing,
+              pageErrors,
+              consoleErrors,
+              requests: [],
+              bodyPreview: body.slice(0, 2200),
+              screenshot,
+            });
+            await page.close();
+          }
+
+          await capture('03-cards-level-gate', '/cards/', ['A1', 'B1', 'C1', 'Start this level']);
+          await capture(
+            '04-professional-mission',
+            '/professional/',
+            ['Current mission', 'Start mission · Listen', 'Mission path'],
+          );
+          await capture(
+            '05-professional-listening',
+            '/professional/listening?taskId=mission.doctor-follow-up-explanation.listening',
+            ['Mission · Listen', 'Hear the workplace message', 'Use transcript support'],
+          );
+          await capture(
+            '06-everyday-reading',
+            '/learn/reading',
+            ['KieliValmis Reading', 'Arjen lukeminen', 'Aloita kysymykset'],
+          );
+          await capture(
+            '07-everyday-writing',
+            '/learn/writing',
+            ['Choose a task', 'Understand', 'Plan my message'],
+          );
 
           fs.writeFileSync(`${out}/visual-smoke-report.json`, JSON.stringify(report, null, 2));
           const fatal = report.flatMap((item) => [
