@@ -411,58 +411,6 @@ const C2B_SEEDS: LessonSeed[] = [
   expectedMinWords: expectedMinWords as number, expectedMaxWords: expectedMaxWords as number,
 }));
 
-const THEMES = [
-  ['Arki', 'Kerro yhdestä arjen asiasta.', 'Tänään menen kauppaan.', 'Kerro yhdestä asiasta, jonka teet tänään.'],
-  ['Koti', 'Kuvaile kotiasi lyhyesti.', 'Asun pienessä asunnossa lähellä keskustaa.', 'Kerro missä ja millaisessa kodissa asut.'],
-  ['Ruoka', 'Kerro mitä haluat syödä.', 'Haluaisin keittoa ja leipää.', 'Kerro mitä haluaisit syödä.'],
-  ['Kauppa', 'Pyydä tuotetta ja kysy hintaa.', 'Anteeksi, missä maito on ja paljonko se maksaa?', 'Olet kaupassa. Kysy tuotteen paikkaa ja hintaa.'],
-  ['Liikkuminen', 'Kysy reittiä ja varmista suunta.', 'Miten pääsen asemalle? Menenkö tästä suoraan?', 'Kysy tietä asemalle ja varmista suunta.'],
-  ['Aika', 'Sovi yksinkertainen tapaamisaika.', 'Sopisiko keskiviikkona kello kolme?', 'Ehdota tapaamiselle päivää ja aikaa.'],
-  ['Työ ja opiskelu', 'Kerro työstäsi tai opiskelustasi.', 'Opiskelen tietotekniikkaa ja teen töitä osa-aikaisesti.', 'Kerro lyhyesti mitä opiskelet tai mitä työtä teet.'],
-  ['Terveys', 'Kerro yksinkertaisesta oireesta.', 'Minulla on kurkku kipeä ja tarvitsen apua.', 'Kerro yhdestä oireesta ja että tarvitset apua.'],
-  ['Palvelu', 'Selitä lyhyesti mitä tarvitset.', 'Tarvitsen uuden ajan ensi viikolle.', 'Kerro palvelutilanteessa mitä tarvitset.'],
-  ['Mielipide', 'Kerro mielipiteesi ja yksi syy.', 'Minusta tämä on hyvä vaihtoehto, koska se on helppo.', 'Kerro mielipiteesi ja yksi syy.'],
-] as const;
-
-function levelFor(number: number): GuidedSpeakingLevel {
-  let cursor = 0;
-  for (const item of LEVEL_PLAN) {
-    cursor += item.count;
-    if (number <= cursor) return item.level;
-  }
-  return 'C2';
-}
-
-function idFor(number: number): GuidedSpeakingStageId {
-  return `GS-${String(number).padStart(3, '0')}`;
-}
-
-function retrievalFor(number: number): GuidedSpeakingStageId[] {
-  const offsets = number < 8 ? [1, 3] : number < 30 ? [2, 7, 12] : [3, 10, 25];
-  return [...new Set(offsets.map((offset) => number - offset).filter((n) => n > 0).map(idFor))];
-}
-
-function generatedSeed(number: number): LessonSeed {
-  const level = levelFor(number);
-  const theme = THEMES[(number - 26) % THEMES.length];
-  const [themeName, baseGoal, baseModel, basePrompt] = theme;
-  const advanced = ['B2.1','B2.2','C1','C2'].includes(level);
-  const upper = ['B1.1','B1.2','B2.1','B2.2','C1','C2'].includes(level);
-  const goalFi = advanced ? `${baseGoal} Perustele ja reagoi mahdolliseen jatkokysymykseen.` : upper ? `${baseGoal} Lisää yksi perustelu tai tarkennus.` : baseGoal;
-  const modelFi = advanced ? `${baseModel} Perustelen valintani ja tarkennan tarvittaessa.` : upper ? `${baseModel} Voin myös kertoa siitä lisää.` : baseModel;
-  const promptFi = advanced ? `${basePrompt} Perustele vastaus ja lisää yksi tarkennus.` : upper ? `${basePrompt} Lisää yksi syy tai yksityiskohta.` : basePrompt;
-  const baseWords = level.startsWith('A1') ? 5 : level.startsWith('A2') ? 8 : level.startsWith('B1') ? 14 : level.startsWith('B2') ? 22 : level === 'C1' ? 32 : 42;
-  return {
-    titleFi: `${themeName}: vaihe ${number}`,
-    goalFi,
-    modelFi,
-    promptFi,
-    supportFi: level.startsWith('A') ? ['aloita rauhassa', 'käytä tuttua rakennetta'] : [],
-    expectedMinWords: baseWords,
-    expectedMaxWords: baseWords + (advanced ? 35 : upper ? 22 : 12),
-  };
-}
-
 export const GUIDED_SPEAKING_CURRICULUM: GuidedSpeakingLesson[] = Array.from({ length: 300 }, (_, index) => {
   const number = index + 1;
   const seed = number <= A1_SEEDS.length ? A1_SEEDS[index] : number <= 50 ? A12_SEEDS[number - 26] : number <= 75 ? A21_SEEDS[number - 51] : number <= 100 ? A22_SEEDS[number - 76] : number <= 125 ? B11_SEEDS[number - 101] : number <= 150 ? B12_SEEDS[number - 126] : number <= 175 ? B21_SEEDS[number - 151] : number <= 200 ? B22_SEEDS[number - 176] : number <= 225 ? C1A_SEEDS[number - 201] : number <= 250 ? C1B_SEEDS[number - 226] : number <= 275 ? C2A_SEEDS[number - 251] : C2B_SEEDS[number - 276];
