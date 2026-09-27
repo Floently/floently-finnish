@@ -391,4 +391,5 @@ await import('./verify-professional-mission-chain.mjs');
 await import('./verify-reading-writing-progression.mjs');
 await import('./verify-learning-experience-integration.mjs');
 await import('./verify-professional-listening.mjs');
+await import('./verify-build47-source-candidate.mjs');
 console.log('NAVIGATION_INVARIANTS=PASS');
