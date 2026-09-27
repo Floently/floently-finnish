@@ -21,7 +21,6 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import { Pressable, Share, StyleSheet, Text, View } from 'react-native';
 import { useStreakStore, type StreakUpdateResult } from '../../../state/streakStore';
-import { pickAlternativeScenario, type ScenarioOption } from '../data/alternativeScenarios';
 import { useTranslator } from '../../i18n';
 
 export type SessionCompletionProps = {
@@ -87,15 +86,6 @@ export function SessionCompletion({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const alternative: ScenarioOption | null = useMemo(
-    () =>
-      pickAlternativeScenario({
-        profession,
-        justCompletedScenarioId: completedScenarioId,
-      }),
-    [profession, completedScenarioId],
-  );
-
   const streakHeadline = useMemo(() => {
     if (!streakResult) return null;
     const { currentStreak, change } = streakResult;
@@ -120,13 +110,12 @@ export function SessionCompletion({
     }
   };
 
-  const primaryLabel = alternative
-    ? `${t('roleplayNextPrefix')} ${alternative.title}`
-    : t('roleplayAnotherRoundLabel');
-  const primaryHint = alternative
-    ? t('roleplayDifferentScenarioHint').replace('{profession}', profession.replace('_', ' '))
-    : undefined;
-  const primaryOnPress = () => onStartSession(alternative?.id);
+  const primaryLabel = t('roleplayAnotherRoundLabel');
+  const primaryHint = t('roleplayDifferentScenarioHint').replace('{profession}', profession.replace('_', ' '));
+  // No scenario ID: the server selects the next unused scenario inside the
+  // current roleplay mode/profession pool. Replay below remains the only
+  // deliberate same-scenario path.
+  const primaryOnPress = () => onStartSession();
 
   return (
     <View style={styles.root}>
