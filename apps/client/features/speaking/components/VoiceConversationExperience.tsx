@@ -8,6 +8,7 @@ import {
   Text,
   TextInput,
   View,
+  useColorScheme,
   useWindowDimensions,
 } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
@@ -535,6 +536,7 @@ function TranscriptStage({
 function TranscriptModal({
   assistantLabel,
   completionSummary,
+  dark,
   messages,
   onClose,
   onDownload,
@@ -542,6 +544,7 @@ function TranscriptModal({
 }: {
   assistantLabel: string;
   completionSummary?: string | null;
+  dark: boolean;
   messages: TranscriptMessage[];
   onClose: () => void;
   onDownload?: () => void;
@@ -557,15 +560,32 @@ function TranscriptModal({
       transparent={false}
       visible={visible}
     >
-      <View style={styles.transcriptSheet}>
-        <View style={styles.sheetHeader}>
+      <View
+        style={[
+          styles.transcriptSheet,
+          { backgroundColor: dark ? '#0B1324' : '#F8FBFF' },
+        ]}
+      >
+        <View
+          style={[
+            styles.sheetHeader,
+            { borderBottomColor: dark ? '#23324A' : '#E4EAF3' },
+          ]}
+        >
           <Pressable onPress={onClose} accessibilityRole="button">
-            <Text style={styles.sheetAction}>Close</Text>
+            <Text style={[styles.sheetAction, { color: dark ? '#AFC0FF' : '#5369D9' }]}>Close</Text>
           </Pressable>
-          <Text style={styles.sheetTitle}>Transcript</Text>
+          <Text
+            style={[
+              styles.sheetTitle,
+              { color: dark ? '#F3F6FF' : '#14213A' },
+            ]}
+          >
+            Transcript
+          </Text>
           {onDownload ? (
             <Pressable onPress={onDownload} accessibilityRole="button">
-              <Text style={styles.sheetAction}>Export</Text>
+              <Text style={[styles.sheetAction, { color: dark ? '#AFC0FF' : '#5369D9' }]}>Export</Text>
             </Pressable>
           ) : (
             <View style={styles.sheetActionSpacer} />
@@ -576,14 +596,33 @@ function TranscriptModal({
           showsVerticalScrollIndicator={false}
         >
           {completionSummary ? (
-            <Text style={styles.sheetSummary}>{completionSummary}</Text>
+            <Text
+              style={[
+                styles.sheetSummary,
+                { color: dark ? '#AAB7CF' : '#5D6F8E' },
+              ]}
+            >
+              {completionSummary}
+            </Text>
           ) : null}
           {turns.map((turn) => (
             <View key={turn.id} style={styles.sheetTurn}>
-              <Text style={styles.sheetSpeaker}>
+              <Text
+                style={[
+                  styles.sheetSpeaker,
+                  { color: dark ? '#93A3BD' : '#8A99B1' },
+                ]}
+              >
                 {turn.speaker === 'assistant' ? assistantLabel : 'You'}
               </Text>
-              <Text style={styles.sheetText}>{turn.text}</Text>
+              <Text
+                style={[
+                  styles.sheetText,
+                  { color: dark ? '#F3F6FF' : '#14213A' },
+                ]}
+              >
+                {turn.text}
+              </Text>
             </View>
           ))}
         </ScrollView>
@@ -618,15 +657,15 @@ export default function VoiceConversationExperience({
   textMode,
 }: Props) {
   const { width } = useWindowDimensions();
+  const dark = useColorScheme() === 'dark';
   const [trayOpen, setTrayOpen] = useState(false);
   const [transcriptVisible, setTranscriptVisible] = useState(false);
   const turn = useActiveConversationTurn(messages, state, textMode);
   const progressiveTurn = useProgressiveAssistantText(turn, state, textMode);
   const trayProgress = useSharedValue(0);
 
-  const dark = false;
-  const textColor = '#14213A';
-  const mutedColor = '#8394B2';
+  const textColor = dark ? '#F3F6FF' : '#14213A';
+  const mutedColor = dark ? '#AAB7CF' : '#8394B2';
   const orbSize = Math.min(292, Math.max(226, width * 0.67));
 
   useEffect(() => {
@@ -678,6 +717,12 @@ export default function VoiceConversationExperience({
       state === 'userSpeaking' ||
       state === 'error');
 
+  const trayMicEnabled =
+    !micDisabled &&
+    (state === 'userListening' ||
+      state === 'userSpeaking' ||
+      state === 'error');
+
   return (
     <View testID="voice-conversation-root" style={styles.root} {...gestureResponder.panHandlers}>
       <AmbientBackground dark={dark} />
@@ -687,7 +732,18 @@ export default function VoiceConversationExperience({
           accessibilityLabel="Menu"
           accessibilityRole="button"
           onPress={onMenu}
-          style={styles.headerButton}
+          style={[
+            styles.headerButton,
+            {
+              backgroundColor: dark
+                ? 'rgba(20,32,54,0.78)'
+                : 'rgba(255,255,255,0.64)',
+              borderColor: dark
+                ? 'rgba(132,151,184,0.24)'
+                : 'rgba(255,255,255,0.74)',
+              shadowColor: dark ? '#000000' : '#A6B9D5',
+            },
+          ]}
         >
           <Ionicons color={textColor} name="menu-outline" size={27} />
         </Pressable>
@@ -705,7 +761,18 @@ export default function VoiceConversationExperience({
           accessibilityLabel={trayOpen ? 'Hide conversation controls' : 'Show conversation controls'}
           accessibilityRole="button"
           onPress={() => setTrayOpen((open) => !open)}
-          style={styles.headerButton}
+          style={[
+            styles.headerButton,
+            {
+              backgroundColor: dark
+                ? 'rgba(20,32,54,0.78)'
+                : 'rgba(255,255,255,0.64)',
+              borderColor: dark
+                ? 'rgba(132,151,184,0.24)'
+                : 'rgba(255,255,255,0.74)',
+              shadowColor: dark ? '#000000' : '#A6B9D5',
+            },
+          ]}
         >
           <Ionicons color={textColor} name="options-outline" size={25} />
         </Pressable>
@@ -721,7 +788,13 @@ export default function VoiceConversationExperience({
 
       {statusMessage && state !== 'completed' ? (
         <View style={styles.statusWrap}>
-          <Text accessibilityLiveRegion="polite" style={styles.statusText}>
+          <Text
+            accessibilityLiveRegion="polite"
+            style={[
+              styles.statusText,
+              { color: dark ? '#AAB7CF' : '#657691' },
+            ]}
+          >
             {statusMessage}
           </Text>
         </View>
@@ -767,9 +840,25 @@ export default function VoiceConversationExperience({
         <Animated.View
           testID="voice-input-tray"
           pointerEvents={trayOpen ? 'auto' : 'none'}
-          style={[styles.inputTray, trayStyle]}
+          style={[
+            styles.inputTray,
+            {
+              backgroundColor: dark
+                ? 'rgba(14,25,43,0.94)'
+                : 'rgba(255,255,255,0.9)',
+              borderColor: dark
+                ? 'rgba(91,111,145,0.42)'
+                : 'rgba(220,229,244,0.92)',
+            },
+            trayStyle,
+          ]}
         >
-          <View style={styles.trayHandle} />
+          <View
+            style={[
+              styles.trayHandle,
+              { backgroundColor: dark ? '#596982' : '#CCD6E5' },
+            ]}
+          />
           <View style={styles.inputActions}>
             <Pressable
               accessibilityLabel={
@@ -778,15 +867,16 @@ export default function VoiceConversationExperience({
                   : 'Start microphone recording'
               }
               accessibilityRole="button"
-              disabled={micDisabled}
+              disabled={!trayMicEnabled}
               onPress={() => {
+                if (!trayMicEnabled) return;
                 onExitTextMode();
                 onMicPress();
               }}
               style={[
                 styles.micButton,
                 state === 'userSpeaking' && styles.micButtonActive,
-                micDisabled && styles.controlDisabled,
+                !trayMicEnabled && styles.controlDisabled,
               ]}
             >
               <Ionicons
@@ -796,7 +886,15 @@ export default function VoiceConversationExperience({
               />
             </Pressable>
 
-            <View style={styles.textEntryWrap}>
+            <View
+              style={[
+                styles.textEntryWrap,
+                {
+                  backgroundColor: dark ? '#111D31' : '#F3F7FC',
+                  borderColor: dark ? '#33445F' : '#DDE5F0',
+                },
+              ]}
+            >
               <TextInput
                 accessibilityLabel="Type your speaking-practice response"
                 editable={!micDisabled}
@@ -804,8 +902,8 @@ export default function VoiceConversationExperience({
                 onChangeText={onChangeManualText}
                 onFocus={onEnterTextMode}
                 placeholder="Type a response…"
-                placeholderTextColor="#93A2BA"
-                style={styles.textEntry}
+                placeholderTextColor={dark ? '#8392AA' : '#93A2BA'}
+                style={[styles.textEntry, { color: textColor }]}
                 value={manualText}
               />
               {manualText.trim() ? (
@@ -858,7 +956,17 @@ export default function VoiceConversationExperience({
             <Pressable
               accessibilityRole="button"
               onPress={onReplayConversation}
-              style={styles.completionChip}
+              style={[
+                styles.completionChip,
+                {
+                  backgroundColor: dark
+                    ? 'rgba(20,32,54,0.82)'
+                    : 'rgba(255,255,255,0.62)',
+                  borderColor: dark
+                    ? 'rgba(132,151,184,0.28)'
+                    : 'rgba(255,255,255,0.75)',
+                },
+              ]}
             >
               <Ionicons color={textColor} name="refresh-outline" size={19} />
               <Text style={[styles.completionChipText, { color: textColor }]}>Replay</Text>
@@ -866,7 +974,17 @@ export default function VoiceConversationExperience({
             <Pressable
               accessibilityRole="button"
               onPress={() => setTranscriptVisible(true)}
-              style={styles.completionChip}
+              style={[
+                styles.completionChip,
+                {
+                  backgroundColor: dark
+                    ? 'rgba(20,32,54,0.82)'
+                    : 'rgba(255,255,255,0.62)',
+                  borderColor: dark
+                    ? 'rgba(132,151,184,0.28)'
+                    : 'rgba(255,255,255,0.75)',
+                },
+              ]}
             >
               <Ionicons color={textColor} name="document-text-outline" size={18} />
               <Text style={[styles.completionChipText, { color: textColor }]}>Transcript</Text>
@@ -877,7 +995,18 @@ export default function VoiceConversationExperience({
             <Pressable
               accessibilityRole="button"
               onPress={onBack}
-              style={[styles.navButton, styles.navButtonSecondary]}
+              style={[
+                styles.navButton,
+                styles.navButtonSecondary,
+                {
+                  backgroundColor: dark
+                    ? 'rgba(20,32,54,0.82)'
+                    : 'rgba(255,255,255,0.64)',
+                  borderColor: dark
+                    ? 'rgba(132,151,184,0.28)'
+                    : 'rgba(255,255,255,0.78)',
+                },
+              ]}
             >
               <Text style={[styles.navButtonText, { color: textColor }]}>Previous</Text>
             </Pressable>
@@ -896,6 +1025,7 @@ export default function VoiceConversationExperience({
       <TranscriptModal
         assistantLabel={assistantLabel}
         completionSummary={completionSummary}
+        dark={dark}
         messages={messages}
         onClose={() => setTranscriptVisible(false)}
         onDownload={onDownloadTranscript}
