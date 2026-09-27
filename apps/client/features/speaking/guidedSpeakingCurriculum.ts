@@ -59,6 +59,38 @@ const A1_SEEDS: LessonSeed[] = [
   expectedMinWords: expectedMinWords as number, expectedMaxWords: expectedMaxWords as number,
 }));
 
+const A12_SEEDS: LessonSeed[] = [
+  ['Esittele perheesi','Kerro lyhyesti perheestäsi.','Minulla on yksi veli ja yksi sisko.','Kerro kahdella lauseella perheestäsi.',undefined,['minulla on','veli','sisko'],5,12],
+  ['Kerro aamustasi','Kerro mitä teet aamulla.','Herään seitsemältä ja syön aamupalaa.','Kerro mitä teet aamulla.',undefined,['herään','syön','aamulla'],5,12],
+  ['Kerro päivästäsi','Kerro päivän tavallisista tekemisistä.','Päivällä opiskelen ja illalla olen kotona.','Kerro mitä teet päivällä ja illalla.',undefined,['päivällä','illalla','olen'],6,14],
+  ['Sovi tapaaminen','Ehdota aikaa ja reagoi vastaukseen.','Sopisiko torstaina kello viisi?','Ehdota tapaamisaikaa torstaille.',undefined,['sopisiko','torstaina','kello'],5,12],
+  ['Muuta aikaa','Pyydä muuttamaan sovittua aikaa.','Anteeksi, voimmeko tavata myöhemmin?','Pyydä siirtämään tapaaminen myöhemmäksi.',undefined,['anteeksi','voimmeko','myöhemmin'],5,12],
+  ['Tilaa lounas','Tilaa ruoka ja juoma.','Haluaisin keiton ja vettä, kiitos.','Tilaa lounas ja juoma kohteliaasti.',undefined,['haluaisin','ja','kiitos'],5,12],
+  ['Kysy vaihtoehtoa','Kysy onko jotain muuta saatavilla.','Onko teillä jotain muuta vaihtoehtoa?','Kysy ravintolassa toista vaihtoehtoa.',undefined,['onko teillä','muuta','vaihtoehtoa'],5,12],
+  ['Kerro ruokavaliosta','Kerro yksinkertainen ruokarajoite.','En syö lihaa. Onko tämä kasvisruokaa?','Kerro ettet syö lihaa ja kysy sopiiko ruoka.',undefined,['en syö','lihaa','onko tämä'],6,14],
+  ['Palauta tuote','Kerro kaupassa yksinkertainen ongelma.','Haluaisin palauttaa tämän. Se on liian pieni.','Pyydä palauttamaan vaate ja kerro miksi.',undefined,['haluaisin palauttaa','liian pieni'],6,14],
+  ['Kysy kokoa','Pyydä eri kokoa.','Onko tätä isompaa kokoa?','Kysy onko tuotteesta isompaa kokoa.',undefined,['onko tätä','isompaa','kokoa'],4,10],
+  ['Kysy bussista','Varmista meneekö bussi oikeaan paikkaan.','Meneekö tämä bussi keskustaan?','Kysy meneekö bussi keskustaan.',undefined,['meneekö','bussi','keskustaan'],4,10],
+  ['Osta lippu','Pyydä matkalippu.','Yksi lippu Tampereelle, kiitos.','Osta yksi lippu Tampereelle.',undefined,['yksi lippu','Tampereelle','kiitos'],4,10],
+  ['Kerro myöhästymisestä','Ilmoita että olet myöhässä.','Olen vähän myöhässä. Tulen noin kymmenen minuutin päästä.','Kerro että olet kymmenen minuuttia myöhässä.',undefined,['olen myöhässä','tulen','minuutin päästä'],7,16],
+  ['Soita ajanvaraukseen','Kerro miksi soitat.','Hei, soitan ajanvarauksesta. Haluaisin uuden ajan.','Aloita puhelu ja pyydä uutta aikaa.',undefined,['soitan','ajanvarauksesta','uuden ajan'],6,14],
+  ['Kerro oireesta','Kerro missä sinulla on kipua.','Minulla on ollut selkä kipeä kaksi päivää.','Kerro että selkäsi on ollut kipeä kaksi päivää.',undefined,['minulla on ollut','selkä','kaksi päivää'],6,14],
+  ['Kysy lääkkeestä','Kysy miten lääkettä käytetään.','Kuinka usein tätä lääkettä otetaan?','Kysy kuinka usein lääke otetaan.',undefined,['kuinka usein','lääkettä','otetaan'],5,12],
+  ['Kerro työpäivästä','Kerro milloin työpäiväsi alkaa ja loppuu.','Työpäiväni alkaa kahdeksalta ja loppuu neljältä.','Kerro työpäiväsi alkamis- ja loppumisaika.',undefined,['alkaa','loppuu','kahdeksalta'],6,14],
+  ['Pyydä työssä apua','Pyydä työkaverilta apua tehtävään.','Voitko auttaa minua tämän tehtävän kanssa?','Pyydä työkaverilta apua.',undefined,['voitko auttaa','minua','tehtävän kanssa'],6,14],
+  ['Kysy ohjetta','Pyydä selittämään mitä pitää tehdä.','Voitko näyttää, mitä minun pitää tehdä?','Pyydä työkaveria näyttämään tehtävä.',undefined,['voitko näyttää','minun pitää'],6,14],
+  ['Kerro suunnitelmasta','Kerro mitä aiot tehdä viikonloppuna.','Viikonloppuna aion levätä ja tavata ystävän.','Kerro viikonlopun suunnitelmastasi.',undefined,['viikonloppuna','aion','tavata'],6,14],
+  ['Kerro eilisestä','Kerro yksi asia jonka teit eilen.','Eilen kävin kaupassa ja tein ruokaa.','Kerro kaksi asiaa, jotka teit eilen.',undefined,['eilen','kävin','tein'],6,14],
+  ['Kerro säästä','Kuvaile tämän päivän säätä.','Tänään on kylmä, mutta aurinko paistaa.','Kerro millainen sää tänään on.',undefined,['tänään','kylmä','aurinko paistaa'],6,14],
+  ['Kutsu mukaan','Kutsu toinen ihminen tekemään jotain.','Haluatko lähteä kanssani kahville huomenna?','Kutsu ystävä kahville huomenna.',undefined,['haluatko lähteä','kanssani','huomenna'],6,14],
+  ['Kieltäydy kohteliaasti','Kieltäydy ja anna lyhyt syy.','Kiitos kutsusta, mutta en pääse huomenna.','Kieltäydy kutsusta kohteliaasti ja kerro miksi.',undefined,['kiitos kutsusta','mutta','en pääse'],6,14],
+  ['Arjen keskustelu','Yhdistä sopiminen, tarkennus ja kohtelias reagointi.','Hei! Sopisiko tapaaminen perjantaina? Jos se ei käy, voimme tavata maanantaina.','Sovi tapaaminen. Ehdota aikaa ja anna yksi vaihtoehto.',undefined,['sopisiko','jos','voimme'],10,22],
+].map(([titleFi,goalFi,modelFi,promptFi,responseFrameFi,supportFi,expectedMinWords,expectedMaxWords]) => ({
+  titleFi: titleFi as string, goalFi: goalFi as string, modelFi: modelFi as string, promptFi: promptFi as string,
+  responseFrameFi: responseFrameFi as string | undefined, supportFi: supportFi as string[],
+  expectedMinWords: expectedMinWords as number, expectedMaxWords: expectedMaxWords as number,
+}));
+
 const THEMES = [
   ['Arki', 'Kerro yhdestä arjen asiasta.', 'Tänään menen kauppaan.', 'Kerro yhdestä asiasta, jonka teet tänään.'],
   ['Koti', 'Kuvaile kotiasi lyhyesti.', 'Asun pienessä asunnossa lähellä keskustaa.', 'Kerro missä ja millaisessa kodissa asut.'],
@@ -113,7 +145,7 @@ function generatedSeed(number: number): LessonSeed {
 
 export const GUIDED_SPEAKING_CURRICULUM: GuidedSpeakingLesson[] = Array.from({ length: 300 }, (_, index) => {
   const number = index + 1;
-  const seed = number <= A1_SEEDS.length ? A1_SEEDS[index] : generatedSeed(number);
+  const seed = number <= A1_SEEDS.length ? A1_SEEDS[index] : number <= 50 ? A12_SEEDS[number - 26] : generatedSeed(number);
   return {
     ...seed,
     id: idFor(number),
