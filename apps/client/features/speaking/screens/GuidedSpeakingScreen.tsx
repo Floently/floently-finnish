@@ -417,7 +417,7 @@ const styles = StyleSheet.create({
   scrollContent: { paddingHorizontal: 18, paddingBottom: 40, gap: 16 },
   heading: { gap: 7, paddingTop: 4 },
   eyebrow: { fontSize: 11, fontWeight: '800', letterSpacing: 0.8, textTransform: 'uppercase' },
-  title: { fontSize: 28, lineHeight: 34, fontWeight: '850' },
+  title: { fontSize: 28, lineHeight: 34, fontWeight: '800' },
   subtitle: { fontSize: 15, lineHeight: 22 },
   progressRow: { flexDirection: 'row', gap: 7, alignItems: 'center' },
   progressStep: {
@@ -460,7 +460,7 @@ const styles = StyleSheet.create({
   errorText: { color: '#FF8B8B', fontSize: 12, lineHeight: 18, fontWeight: '700' },
   nextCard: { borderRadius: 22, borderWidth: 1, padding: 16, gap: 14 },
   nextCopy: { gap: 4 },
-  nextTitle: { fontSize: 17, lineHeight: 23, fontWeight: '850' },
+  nextTitle: { fontSize: 17, lineHeight: 23, fontWeight: '800' },
   nextDetail: { fontSize: 13, lineHeight: 20 },
   nextButton: { minHeight: 50, borderRadius: 999, alignItems: 'center', justifyContent: 'center', paddingHorizontal: 18 },
   nextButtonText: { color: '#FFFFFF', fontSize: 14, fontWeight: '900' },
