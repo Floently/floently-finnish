@@ -66,6 +66,7 @@ type SpeakingPreset = {
   lockProfession?: boolean;
   entryMode?: 'workplace' | 'interview';
   contextLabel?: string;
+  origin?: 'everyday' | 'professional' | 'yki';
 } | null;
 
 type Props = {
@@ -231,6 +232,7 @@ export default function AppShell({ requestedScreen = "root" }: Props) {
       lockProfession: primaryProfession !== 'general',
       entryMode: 'workplace',
       contextLabel: primaryProfession === 'general' ? t('appShellContextGeneralWorkplace') : t('appShellContextProfessionalRoleplay'),
+      origin: primaryProfession === 'general' ? 'everyday' : 'professional',
       ...overrides,
     };
   }, [subscriptionStatus?.entitlements, t]);
@@ -757,6 +759,110 @@ export default function AppShell({ requestedScreen = "root" }: Props) {
       return;
     }
 
+    // Progressive drawer leaves deliberately pass through the guarded
+    // AppShell destination above before opening an existing nested activity.
+    // This keeps Cards/Reading/Writing shortcuts from becoming an entitlement
+    // bypass while avoiding a second navigation/business-logic authority.
+    if (options?.activity) {
+      const activity = options.activity;
+
+      if (activity.startsWith('everyday-')) {
+        clearNavigationError();
+        setActiveContext('none');
+
+        if (activity === 'everyday-roleplay' || activity === 'everyday-recorded') {
+          const recorded = activity === 'everyday-recorded';
+          setSpeakingPreset({
+            initialLevelBand: 'B1-B2',
+            initialSurface: recorded ? 'recorded' : 'conversation',
+            initialProfession: 'general',
+            initialScenarioId: null,
+            lockProfession: false,
+            entryMode: 'workplace',
+            contextLabel: recorded
+              ? t('appShellContextGeneralWorkplace')
+              : t('appShellContextEverydayRoleplay'),
+            origin: 'everyday',
+          });
+          replaceIfNeeded('speaking-practice');
+          await resolveAndPersist('speaking-practice', 'speaking-practice');
+          return;
+        }
+
+        await resolveAndPersist('learning', 'learning');
+
+        const everydayPath =
+          activity === 'everyday-reading'
+            ? '/learn/reading'
+            : activity === 'everyday-writing'
+              ? '/learn/writing'
+              : activity === 'everyday-cards-phrases'
+                ? '/cards?mode=phrases&domain=general'
+                : activity === 'everyday-cards-grammar'
+                  ? '/cards?mode=grammar&domain=general'
+                  : '/cards?mode=vocabulary&domain=general';
+
+        router.push(everydayPath as never);
+        return;
+      }
+
+      if (activity.startsWith('professional-')) {
+        clearNavigationError();
+        const professionalPreset = buildProfessionLockedPreset();
+        const profession = professionalPreset.initialProfession;
+        if (profession === 'doctor' || profession === 'nurse' || profession === 'practical_nurse') {
+          setActiveContext(profession);
+        }
+
+        if (
+          activity === 'professional-roleplay' ||
+          activity === 'professional-interview' ||
+          activity === 'professional-recorded'
+        ) {
+          const interview = activity === 'professional-interview';
+          const recorded = activity === 'professional-recorded';
+          setSpeakingPreset({
+            ...professionalPreset,
+            initialSurface: recorded ? 'recorded' : 'conversation',
+            initialScenarioId: null,
+            entryMode: interview ? 'interview' : 'workplace',
+            contextLabel: interview
+              ? t('appShellContextStructuredInterview')
+              : t('appShellContextProfessionalRoleplay'),
+            origin: 'professional',
+          });
+          replaceIfNeeded('speaking-practice');
+          await resolveAndPersist('speaking-practice', 'speaking-practice');
+          return;
+        }
+
+        await resolveAndPersist('professional-finnish', 'professional-finnish');
+
+        if (activity === 'professional-incident-lab') {
+          router.push('/professional/incidents' as never);
+          return;
+        }
+
+        const professionalQuery =
+          profession === 'doctor' || profession === 'nurse' || profession === 'practical_nurse'
+            ? `&profession=${encodeURIComponent(profession)}`
+            : '';
+        const professionalPath =
+          activity === 'professional-reading'
+            ? '/professional/reading'
+            : activity === 'professional-writing'
+              ? '/professional/writing'
+              : activity === 'professional-cards-phrases'
+                ? `/cards?mode=phrases&domain=professional${professionalQuery}`
+                : activity === 'professional-cards-grammar'
+                  ? `/cards?mode=grammar&domain=professional${professionalQuery}`
+                  : `/cards?mode=vocabulary&domain=professional${professionalQuery}`;
+
+        router.push(professionalPath as never);
+        return;
+      }
+    }
+
     if (screen === "home") {
       clearNavigationError();
       replaceIfNeeded("home");
@@ -858,7 +964,6 @@ export default function AppShell({ requestedScreen = "root" }: Props) {
 
   const drawerSections = createDrawerSections(
     (route, options) => {
-      setDrawerOpen(false);
       void navigateTo(route, options);
     },
     {
@@ -872,12 +977,66 @@ export default function AppShell({ requestedScreen = "root" }: Props) {
     language,
   );
 
+  const drawerActiveItemId =
+    activeScreen === 'learning'
+      ? 'everyday-overview'
+      : activeScreen === 'professional-finnish'
+        ? 'professional-overview'
+        : activeScreen === 'yki-practice'
+          ? 'yki-practice'
+          : activeScreen === 'yki-exam'
+            ? 'yki-exam'
+            : activeScreen === 'daily-practice'
+              ? 'practice'
+              : activeScreen === 'progress'
+                ? 'progress'
+                : activeScreen === 'settings'
+                  ? 'settings'
+                  : activeScreen === 'help'
+                    ? 'help'
+                    : activeScreen === 'billing'
+                      ? 'billing'
+                      : activeScreen === 'speaking-practice'
+                        ? speakingPreset?.origin === 'professional'
+                          ? speakingPreset.initialSurface === 'recorded'
+                            ? 'professional-recorded'
+                            : speakingPreset.entryMode === 'interview'
+                              ? 'professional-interview'
+                              : speakingPreset.initialSurface === 'conversation'
+                                ? 'professional-roleplay'
+                                : 'professional-speaking'
+                          : speakingPreset?.origin === 'yki'
+                            ? 'yki-practice'
+                            : speakingPreset?.initialSurface === 'recorded'
+                              ? 'everyday-recorded'
+                              : speakingPreset?.initialSurface === 'conversation'
+                                ? 'everyday-roleplay'
+                                : 'everyday-speaking'
+                        : undefined;
+
+  const drawerInitialExpandedPath =
+    activeScreen === 'learning'
+      ? ['everyday']
+      : activeScreen === 'professional-finnish'
+        ? ['professional']
+        : activeScreen === 'yki-practice' || activeScreen === 'yki-exam'
+          ? ['yki']
+          : activeScreen === 'speaking-practice'
+            ? speakingPreset?.origin === 'professional'
+              ? ['professional', 'professional-speaking']
+              : speakingPreset?.origin === 'yki'
+                ? ['yki']
+                : ['everyday', 'everyday-speaking']
+            : [];
+
   const drawer = (
     <UtilityDrawer
       streakDays={currentStreak}
       visible={drawerOpen}
       onClose={() => setDrawerOpen(false)}
       sections={drawerSections}
+      initialExpandedPath={drawerInitialExpandedPath}
+      activeItemId={drawerActiveItemId}
       themeMode={themeMode}
       isAuthenticated={Boolean(user)}
       userName={displayName}
@@ -959,6 +1118,7 @@ export default function AppShell({ requestedScreen = "root" }: Props) {
               initialSurface: 'conversation',
               initialProfession: 'general',
               contextLabel: t('appShellContextEverydayRoleplay'),
+              origin: 'everyday',
             });
             void navigateTo('speaking-practice');
           }}
@@ -1063,6 +1223,7 @@ export default function AppShell({ requestedScreen = "root" }: Props) {
               lockProfession: true,
               entryMode,
               contextLabel: entryMode === 'interview' ? t('appShellContextStructuredInterview') : t('appShellContextProfessionalRoleplay'),
+              origin: 'professional',
             });
             void navigateTo('speaking-practice');
           }}
@@ -1096,8 +1257,8 @@ export default function AppShell({ requestedScreen = "root" }: Props) {
           onOpenMenu={openSidebar}
           initialLevelBand={examPresetLevel}
           onOpenPractice={(levelBand) => { if (levelBand) setExamPresetLevel(levelBand); void navigateTo("yki-practice"); }}
-          onOpenSpeakingRecording={(levelBand) => { setSpeakingPreset({ initialLevelBand: levelBand, initialSurface: 'recorded', initialProfession: 'general', contextLabel: t('appShellYkiRecordedSpeakingContext') }); void navigateTo("speaking-practice"); }}
-          onOpenSpeakingConversation={(levelBand) => { setSpeakingPreset({ initialLevelBand: levelBand, initialSurface: 'conversation', initialProfession: 'general', contextLabel: t('appShellYkiConversationSpeakingContext') }); void navigateTo("speaking-practice"); }}
+          onOpenSpeakingRecording={(levelBand) => { setSpeakingPreset({ initialLevelBand: levelBand, initialSurface: 'recorded', initialProfession: 'general', contextLabel: t('appShellYkiRecordedSpeakingContext'), origin: 'yki' }); void navigateTo("speaking-practice"); }}
+          onOpenSpeakingConversation={(levelBand) => { setSpeakingPreset({ initialLevelBand: levelBand, initialSurface: 'conversation', initialProfession: 'general', contextLabel: t('appShellYkiConversationSpeakingContext'), origin: 'yki' }); void navigateTo("speaking-practice"); }}
         />
         {drawer}
       </>
@@ -1120,6 +1281,7 @@ export default function AppShell({ requestedScreen = "root" }: Props) {
               lockProfession: false,
               entryMode: 'workplace',
               contextLabel: t('appShellYkiSpeakingPracticeContext'),
+              origin: 'yki',
             });
             void navigateTo("speaking-practice");
           }}
