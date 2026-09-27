@@ -145,6 +145,14 @@ assert.ok(screen.includes('task.authorityBoundary'));
 
 assert.ok(route.includes("findProfessionalMissionListeningTask(requestedTaskId, profession)"));
 assert.ok(route.includes("!subscriptionStatus?.isInternalAllAccess && !entitlements?.professionalAccess"));
+assert.ok(
+  route.includes("(Boolean(user) && (!subscriptionLoaded || subscriptionLoading))"),
+  'signed-out Professional Listening must not wait forever for subscription hydration',
+);
+assert.ok(
+  route.indexOf("if (!user)") > route.indexOf("(Boolean(user) && (!subscriptionLoaded || subscriptionLoading))"),
+  'Professional Listening must resolve auth hydration before rendering its signed-out access message',
+);
 assert.ok(route.includes("const speakingStep = chain.steps.find((step) => step.id === 'speak')"));
 assert.ok(routeEntry.includes("ProfessionalListeningRoute"));
 
