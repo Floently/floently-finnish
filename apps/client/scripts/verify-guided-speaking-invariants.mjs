@@ -106,6 +106,17 @@ requireText(curriculum, 'number <= 50 ? A12_SEEDS[number - 26]', 'Stages 26-50 m
 forbidText(curriculum, 'Math.random', 'curriculum construction must never use random generation');
 forbidText(curriculum, 'generatedSeed', 'all 300 guided speaking lessons must be authored records with no template fallback');
 forbidText(curriculum, 'const THEMES =', 'authored curriculum must not retain a generic theme-template lesson generator');
+
+const authoredLessonRows = curriculum.match(/^\s*\['[^']+'/gm) ?? [];
+if (authoredLessonRows.length !== 300) {
+  throw new Error(
+    `Guided speaking invariant failed: expected 300 authored lesson rows, found ${authoredLessonRows.length}`,
+  );
+}
+const authoredTitles = authoredLessonRows.map((row) => row.match(/\['([^']+)'/)?.[1]).filter(Boolean);
+if (new Set(authoredTitles).size !== 300) {
+  throw new Error('Guided speaking invariant failed: authored lesson titles must be unique across all 300 stages');
+}
 requireText(curriculum, 'function levelFor(number: number)', 'curriculum must keep deterministic level resolution after template removal');
 requireText(curriculum, 'function idFor(number: number)', 'curriculum must keep deterministic permanent ID generation');
 requireText(curriculum, 'function retrievalFor(number: number)', 'curriculum must keep deterministic retrieval scheduling');
@@ -300,10 +311,11 @@ console.log('PASS: guided phase order remains deterministic during curriculum mi
 console.log('PASS: permanent versioned curriculum IDs are present.');
 console.log('PASS: persisted attempt history supports repeat without progression rollback.');
 console.log('PASS: authored Stage 1-300 runtime owns progression; legacy seven-step indexing is not authoritative.');
+console.log('PASS: authored curriculum contains 300 distinct deterministic lesson records.');
 console.log('PASS: CEFR bands materially change support and production expectations.');
-console.log('PASS: Everyday and Professional guided content remain distinct.');
+console.log('PASS: Everyday and Professional drawer entries preserve guarded access to Guided Speaking.');
 console.log('PASS: Guided Speaking reuses canonical Finnish TTS/STT.');
 console.log('PASS: Guided Speaking does not fork the Roleplay session engine.');
-console.log('PASS: stage 7 hands off to the existing open Roleplay surface.');
+console.log('PASS: Stage 300 alone hands off to the existing open Roleplay surface.');
 console.log('PASS: Guided Speaking drawer leaves remain behind existing entitlement checks.');
 console.log('GUIDED_SPEAKING_INVARIANTS=PASS');
