@@ -1,0 +1,206 @@
+import fs from 'node:fs';
+import path from 'node:path';
+import process from 'node:process';
+
+const clientRoot = process.cwd().endsWith(path.join('apps', 'client'))
+  ? process.cwd()
+  : path.join(process.cwd(), 'apps', 'client');
+
+function read(relativePath) {
+  return fs.readFileSync(path.join(clientRoot, relativePath), 'utf8');
+}
+
+function requireText(source, text, label) {
+  if (!source.includes(text)) {
+    throw new Error(`Guided speaking invariant failed: ${label}`);
+  }
+}
+
+function forbidText(source, text, label) {
+  if (source.includes(text)) {
+    throw new Error(`Guided speaking invariant failed: ${label}`);
+  }
+}
+
+const stages = read('features/speaking/guidedSpeakingStages.ts');
+const screen = read('features/speaking/screens/GuidedSpeakingScreen.tsx');
+const speakingRoute = read('state/SpeakingRoute.tsx');
+const appShell = read('state/AppShell.tsx');
+const drawer = read('config/navigation/AppShell_sidebar_sections.ts');
+const types = read('features/speaking/types.ts');
+
+const stageIds = [
+  'basic_chunk',
+  'listen_respond',
+  'controlled_qa',
+  'sentence_frame',
+  'two_turn_exchange',
+  'short_situation',
+  'guided_conversation',
+];
+
+let previousIndex = -1;
+for (const stageId of stageIds) {
+  const index = stages.indexOf(`'${stageId}'`);
+  if (index < 0) {
+    throw new Error(`Guided speaking invariant failed: missing stage ${stageId}`);
+  }
+  if (index <= previousIndex) {
+    throw new Error('Guided speaking invariant failed: stage order changed');
+  }
+  previousIndex = index;
+}
+
+requireText(
+  stages,
+  'export const GUIDED_SPEAKING_STAGE_COUNT = STAGE_IDS.length;',
+  'the stage count must derive from the canonical ordered stage list',
+);
+
+for (const band of ['A1-A2', 'B1-B2', 'C1-C2']) {
+  requireText(
+    stages,
+    `'${band}'`,
+    `missing level band ${band}`,
+  );
+}
+
+requireText(
+  stages,
+  "if (levelBand === 'A1-A2') return 0.86;",
+  'A1-A2 model audio must remain slower than higher bands',
+);
+requireText(
+  stages,
+  "if (levelBand === 'B1-B2') return 0.94;",
+  'B1-B2 model audio must retain an intermediate speed',
+);
+requireText(
+  stages,
+  'expectedMinWords: 7,',
+  'A1-A2 final Everyday guided response must remain short',
+);
+requireText(
+  stages,
+  'expectedMinWords: 24,',
+  'B1-B2 final Everyday guided response must require materially more production',
+);
+requireText(
+  stages,
+  'expectedMinWords: 45,',
+  'C1-C2 final Everyday guided response must require extended production',
+);
+requireText(
+  stages,
+  'expectedMinWords: 10,',
+  'A1-A2 final Professional guided response must remain supported',
+);
+requireText(
+  stages,
+  'expectedMinWords: 26,',
+  'B1-B2 final Professional guided response must require expanded production',
+);
+requireText(
+  stages,
+  'expectedMinWords: 48,',
+  'C1-C2 final Professional guided response must require extended production',
+);
+
+requireText(
+  screen,
+  "useRoleplayRecorder('fi-FI')",
+  'Guided Speaking must reuse the canonical Finnish recorder/STT path',
+);
+requireText(
+  screen,
+  'speakRoleplayText({',
+  'Guided Speaking must reuse the canonical speaking TTS path',
+);
+requireText(
+  screen,
+  'if (recorder.isRecording) {\n      setAttempted(true);',
+  'a genuine microphone start must record a speaking attempt',
+);
+requireText(
+  screen,
+  'stageIndex === stages.length - 1',
+  'the final guided stage must have a distinct completion handoff',
+);
+requireText(
+  screen,
+  'onOpenRoleplay();',
+  'guided completion must hand off to existing open Roleplay',
+);
+forbidText(
+  screen,
+  'startRoleplaySession',
+  'Guided Speaking must not create a parallel Roleplay session engine',
+);
+forbidText(
+  screen,
+  'submitRoleplayTurn',
+  'Guided Speaking must not duplicate Roleplay turn handling',
+);
+
+requireText(
+  types,
+  "'menu' | 'guided' | 'conversation' | 'recorded'",
+  'guided must be a registered speaking surface',
+);
+requireText(
+  speakingRoute,
+  "if (surface === 'guided')",
+  'SpeakingRoute must mount the guided surface',
+);
+requireText(
+  speakingRoute,
+  "setSurface('guided')",
+  'the speaking menu must expose Guided Speaking',
+);
+requireText(
+  speakingRoute,
+  "setSurface('conversation');",
+  'guided completion must return to the existing conversation surface',
+);
+requireText(
+  speakingRoute,
+  'current === "guided" || current === "conversation" || current === "recorded"',
+  'parent refreshes must not throw a learner out of active guided practice',
+);
+
+requireText(
+  drawer,
+  "activity: 'everyday-guided'",
+  'Everyday Guided Speaking must be reachable from the progressive drawer',
+);
+requireText(
+  drawer,
+  "activity: 'professional-guided'",
+  'Professional Guided Speaking must be reachable from the progressive drawer',
+);
+requireText(
+  appShell,
+  "initialLevelBand: guided ? 'A1-A2' : 'B1-B2'",
+  'drawer Guided Speaking entry must default beginners to A1-A2',
+);
+
+const entitlementGuardIndex = appShell.indexOf("if (!isEntitledForScreen(screen))");
+const activityIndex = appShell.indexOf('if (options?.activity)');
+if (
+  entitlementGuardIndex < 0 ||
+  activityIndex < 0 ||
+  activityIndex < entitlementGuardIndex
+) {
+  throw new Error(
+    'Guided speaking invariant failed: drawer activity routing must remain after entitlement validation',
+  );
+}
+
+console.log('PASS: seven deterministic Guided Speaking stages stay ordered.');
+console.log('PASS: CEFR bands materially change support and production expectations.');
+console.log('PASS: Everyday and Professional guided content remain distinct.');
+console.log('PASS: Guided Speaking reuses canonical Finnish TTS/STT.');
+console.log('PASS: Guided Speaking does not fork the Roleplay session engine.');
+console.log('PASS: stage 7 hands off to the existing open Roleplay surface.');
+console.log('PASS: Guided Speaking drawer leaves remain behind existing entitlement checks.');
+console.log('GUIDED_SPEAKING_INVARIANTS=PASS');
