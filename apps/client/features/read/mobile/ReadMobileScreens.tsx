@@ -27,7 +27,7 @@ import { readRenderApi } from './readRenderApi';
 import { restoreReadStorePurchases, startReadStorePurchase, type ReadStorePlanId } from '../../billing/services/storeBillingService';
 import { useSubscriptionStore } from '../../../state/subscriptionStore';
 
-type ReadTab = 'home' | 'library' | 'import' | 'reader' | 'settings' | 'analytics' | 'subscribe' | 'create';
+type ReadTab = 'home' | 'library' | 'import' | 'reader' | 'settings' | 'analytics' | 'subscribe' | 'browser';
 type ImportMode = 'file' | 'paste' | 'url' | 'scan' | 'record';
 type AudioPlaybackState = 'idle' | 'preparing' | 'ready' | 'playing' | 'paused' | 'error';
 type ReadTone = 'blue' | 'purple' | 'teal' | 'amber' | 'rose' | 'neutral';
@@ -64,7 +64,7 @@ const bottomTabs: Array<{ key: ReadTab; label: string; route: string; icon: stri
   { key: 'home', label: 'Home', route: '/read/app', icon: 'Home' },
   { key: 'library', label: 'Library', route: '/read/library', icon: 'Files' },
   { key: 'import', label: 'Import', route: '/read/import', icon: '+' },
-  { key: 'create', label: 'Create', route: '/create', icon: 'AI' },
+  { key: 'browser', label: 'Browser', route: '/read/browser', icon: 'Web' },
   { key: 'settings', label: 'Settings', route: '/read/settings', icon: 'Set' },
 ];
 
