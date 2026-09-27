@@ -35,6 +35,17 @@ function getBrowserUrl() {
   }
 }
 
+function getBrowserUrlForPlatform(url: string) {
+  if (Platform.OS !== 'web') return url;
+  try {
+    const parsed = new URL(url);
+    parsed.searchParams.delete('embed');
+    return parsed.toString();
+  } catch {
+    return 'https://read.floently.com/app/browser-v2/live';
+  }
+}
+
 function canStayInsideReadBrowser(url: string) {
   if (url === 'about:blank') return true;
   try {
@@ -70,7 +81,7 @@ export default function ReadLiveBrowserScreen() {
   const [canGoBack, setCanGoBack] = useState(false);
   const [loading, setLoading] = useState(true);
   const [loadError, setLoadError] = useState<string | null>(null);
-  const browserUrl = useMemo(getBrowserUrl, []);
+  const browserUrl = useMemo(() => getBrowserUrlForPlatform(getBrowserUrl()), []);
 
   const embeddedAuth = useMemo(() => {
     if (!token || !user) return null;
@@ -206,7 +217,7 @@ export default function ReadLiveBrowserScreen() {
           </View>
         ) : (
           <WebView
-            key={reloadKey}
+            key={`${user.id}:${reloadKey}`}
             ref={webViewRef}
             source={{ uri: browserUrl }}
             style={styles.webView}
