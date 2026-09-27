@@ -85,9 +85,20 @@ assert.equal(
   'Writing must not leak from Everyday C2 into Professional',
 );
 
-for (const source of [readingExpansion, writingExpansion]) {
-  assert.doesNotMatch(source, /YKI-origin|official YKI|textbook exercise|paid course/i);
-}
+assert.match(
+  readingExpansion,
+  /Not adapted from YKI, textbooks, or paid course material\./,
+  'Reading expansion must explicitly declare original non-YKI/non-proprietary provenance',
+);
+assert.ok(
+  writingExpansion.includes('originalContent: true'),
+  'Writing expansion must keep every authored task inside the original-content contract',
+);
+assert.doesNotMatch(
+  readingExpansion + writingExpansion,
+  /ykiOrigin\s*:\s*true|proprietaryOrigin\s*:\s*true/,
+  'expanded banks must never declare YKI or proprietary instructional provenance',
+);
 
 console.log('PASS: Reading and Writing extend through C1/C2.');
 console.log('PASS: canonical banks are expanded and deterministic.');
