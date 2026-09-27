@@ -25,6 +25,7 @@ from app.services.roleplay_session_service import (
 class RoleplaySessionStartRequest(BaseModel):
     profession: str
     level_band: str
+    roleplay_mode: str | None = None
     scenario_id: str | None = None
     context_label: str | None = None
 
@@ -130,6 +131,7 @@ def build_roleplay_router() -> APIRouter:
     async def get_roleplay_scenarios_route(
         profession: str = "general",
         level_band: str = "B1-B2",
+        roleplay_mode: str | None = None,
         authorization: str | None = Header(default=None),
     ) -> dict[str, Any]:
         user, _ = current_user_from_authorization(authorization)
@@ -137,6 +139,7 @@ def build_roleplay_router() -> APIRouter:
         scenarios = runtime_list_scenarios(
             profession=profession,  # type: ignore[arg-type]
             level_band=level_band,  # type: ignore[arg-type]
+            roleplay_mode=roleplay_mode,
         )
         return {"scenarios": scenarios}
 
@@ -154,6 +157,7 @@ def build_roleplay_router() -> APIRouter:
                 user_id=owner_id,
                 profession=payload.profession,  # type: ignore[arg-type]
                 level_band=payload.level_band,  # type: ignore[arg-type]
+                roleplay_mode=payload.roleplay_mode,
                 scenario_id=payload.scenario_id,
                 context_label=payload.context_label,
             )
