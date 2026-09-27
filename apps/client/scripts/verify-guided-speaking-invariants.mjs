@@ -270,6 +270,16 @@ requireText(
 );
 requireText(
   speakingRoute,
+  'Etene vaihe kerrallaan. Jatka siitä, mihin jäit, tai kertaa aiemmin läpäisty vaihe Historiasta.',
+  'Guided Speaking entry copy must describe persisted deterministic progression',
+);
+forbidText(
+  speakingRoute,
+  '1 → 7:',
+  'Guided Speaking entry must never advertise the retired seven-stage prototype',
+);
+requireText(
+  speakingRoute,
   "setSurface('conversation');",
   'guided completion must return to the existing conversation surface',
 );
