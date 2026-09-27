@@ -104,6 +104,8 @@ requireText(curriculum, 'const A12_SEEDS: LessonSeed[]', 'A1.2 must use individu
 requireText(curriculum, "['Arjen keskustelu'", 'A1.2 Stage 50 must be individually authored and cumulative');
 requireText(curriculum, 'number <= 50 ? A12_SEEDS[number - 26]', 'Stages 26-50 must resolve from authored A1.2 content, not templates');
 forbidText(curriculum, 'Math.random', 'curriculum construction must never use random generation');
+forbidText(curriculum, 'generatedSeed', 'all 300 guided speaking lessons must be authored records with no template fallback');
+forbidText(curriculum, 'const THEMES =', 'authored curriculum must not retain a generic theme-template lesson generator');
 
 requireText(stages, 'export type GuidedSpeakingStageId = \`GS-\${string}\`;', 'curriculum stages need permanent deterministic IDs');
 requireText(stages, 'curriculumId: GuidedSpeakingStageId;', 'stage records must carry permanent curriculum identity');
