@@ -62,7 +62,7 @@ requireText(stages, "curriculumId: \`GS-\${String(index + 1).padStart(3, '0')}\`
 
 requireText(progressStore, 'highestUnlockedNumber: number;', 'progress must track furthest unlocked stage separately');
 requireText(progressStore, 'attempts: GuidedSpeakingAttempt[];', 'repeat attempts must be historical records');
-requireText(progressStore, 'if (stageNumber < 1 || stageNumber > state.highestUnlockedNumber) return;', 'learners may open any unlocked earlier stage');
+requireText(progressStore, 'if (stageNumber < 1 || stageNumber >= state.highestUnlockedNumber) return;', 'history navigation must allow passed stages only, never the current/future frontier');
 requireText(progressStore, 'Math.max(state.highestUnlockedNumber, stageNumber + 1)', 'repeating an earlier stage must never roll progression backward');
 requireText(progressStore, 'stageVersion', 'attempt history must retain curriculum version');
 
@@ -123,6 +123,9 @@ requireText(
 
 requireText(screen, 'useGuidedSpeakingProgressStore', 'Guided Speaking screen must use persisted learner history');
 requireText(screen, 'highestUnlockedNumber', 'stage navigation must use persisted furthest progress');
+requireText(screen, '>History</Text>', 'passed stages must live behind a single History layer');
+requireText(screen, 'highestUnlockedNumber - 1', 'History must exclude the current/future frontier');
+forbidText(screen, '<View style={styles.progressRow}', 'practice UI must not splatter numbered stage navigation across the main flow');
 requireText(screen, 'openPersistedStage(index + 1)', 'review navigation must persist selected unlocked stage');
 requireText(screen, 'completePersistedStage(stage.curriculumId, stage.version, visibleStageNumber)', 'completion must record permanent stage identity and version');
 requireText(screen, 'guidedSpeakingLevelForStage(visibleStageNumber)', 'UI must show explicit learner-visible sublevel');
