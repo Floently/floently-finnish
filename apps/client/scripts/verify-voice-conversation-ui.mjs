@@ -14,6 +14,7 @@ function read(relativePath) {
 const screen = read('features/speaking/screens/RoleplayConversationScreen.tsx');
 const experience = read('features/speaking/components/VoiceConversationExperience.tsx');
 const recorder = read('features/speaking/hooks/useRoleplayRecorder.ts');
+const speakingRoute = read('state/SpeakingRoute.tsx');
 const packageJson = JSON.parse(read('package.json'));
 const designSpec = fs.readFileSync(
   path.join(clientRoot, '..', '..', 'docs', 'design', 'KLYMIS_SPEAKING_VOICE_CONVERSATION_UI.md'),
@@ -42,7 +43,8 @@ assert.ok(
 );
 
 assert.ok(
-  screen.includes('onOpenMenu={onOpenMenu}') &&
+  speakingRoute.includes('onOpenMenu={onOpenMenu}') &&
+    screen.includes('onMenu={onOpenMenu}') &&
     experience.includes('accessibilityLabel="Menu"') &&
     experience.includes('onPress={onMenu}'),
   'the circular header menu control must open the real app menu rather than masquerade as Back',
