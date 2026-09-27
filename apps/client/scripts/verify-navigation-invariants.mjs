@@ -155,6 +155,24 @@ requireText(
   'drawer close control must keep a mobile-friendly touch target',
 );
 
+requireText(
+  utilityDrawer,
+  "accessibilityLabel={t('commonClose')}",
+  'drawer close control must have a localized screen-reader label',
+);
+
+requireText(
+  utilityDrawer,
+  'accessibilityViewIsModal',
+  'drawer must expose modal accessibility semantics while open',
+);
+
+requireText(
+  utilityDrawer,
+  'maxWidth: 420',
+  'drawer must remain usable on wide tablet/web surfaces',
+);
+
 forbidText(
   sidebar,
   'router.',
@@ -350,7 +368,7 @@ console.log('PASS: Everyday and Professional Speaking are progressive branches.'
 console.log('PASS: structured Professional interview remains reachable.');
 console.log('PASS: existing recorded speaking remains reachable in Everyday and Professional branches.');
 console.log('PASS: existing Workplace Incident Lab remains reachable through the guarded Professional branch.');
-console.log('PASS: drawer controls preserve mobile-friendly touch targets.');
+console.log('PASS: drawer controls preserve mobile-friendly touch targets and modal accessibility semantics.');
 console.log('PASS: current route can reopen and identify its exact drawer branch when known.');
 console.log('PASS: localhost behavior is development-only.');
 console.log('NAVIGATION_INVARIANTS=PASS');
