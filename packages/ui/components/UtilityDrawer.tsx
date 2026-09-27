@@ -215,9 +215,14 @@ export default function UtilityDrawer({
         <Pressable
           style={[styles.backdrop, { backgroundColor: overlayBg }]}
           onPress={onClose}
+          accessible={false}
         />
 
-        <View style={[styles.drawer, { backgroundColor: bg, borderLeftColor: borderCol }]}>
+        <View
+          style={[styles.drawer, { backgroundColor: bg, borderLeftColor: borderCol }]}
+          accessibilityViewIsModal
+          importantForAccessibility="yes"
+        >
           <ScrollView
             contentContainerStyle={styles.scrollContent}
             showsVerticalScrollIndicator={false}
@@ -232,7 +237,12 @@ export default function UtilityDrawer({
                     <Text style={styles.clockText}>{clockLabel}</Text>
                   </View>
                 ) : <View />}
-                <Pressable onPress={onClose} style={styles.closeBtn}>
+                <Pressable
+                  onPress={onClose}
+                  style={styles.closeBtn}
+                  accessibilityRole="button"
+                  accessibilityLabel={t('commonClose')}
+                >
                   <Text style={styles.closeBtnText}>✕</Text>
                 </Pressable>
               </View>
@@ -341,6 +351,7 @@ const styles = StyleSheet.create({
   backdrop: { flex: 1 },
   drawer: {
     width: '82%',
+    maxWidth: 420,
     minHeight: '100%',
     borderTopLeftRadius: 26,
     borderBottomLeftRadius: 26,
