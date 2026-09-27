@@ -22,6 +22,7 @@ function forbidText(source, text, label) {
   }
 }
 
+const screen = read('features/cards/screens/CardPracticeScreen.tsx');
 const session = read('features/cards/components/CardPracticeSession.tsx');
 const gate = read('features/cards/components/CardLevelGate.tsx');
 const hook = read('features/cards/hooks/useCardPractice.ts');
@@ -29,6 +30,38 @@ const service = read('features/cards/services/cardsService.ts');
 const store = read('state/cardLevelPreferenceStore.ts');
 const appShell = read('state/AppShell.tsx');
 const ykiPractice = read('state/YkiPracticeRoute.tsx');
+
+
+requireText(
+  screen,
+  'if (!preferencesHydrated) void hydratePreferences();',
+  'Cards direct entry must hydrate the persisted theme preference',
+);
+requireText(
+  screen,
+  "position: 'relative'",
+  'Cards top navigation must establish an explicit stacking context',
+);
+requireText(
+  screen,
+  'zIndex: 100',
+  'Cards top navigation must remain above later decorative content',
+);
+requireText(
+  screen,
+  'elevation: 12',
+  'Cards top navigation must preserve overlap priority on Android',
+);
+requireText(
+  screen,
+  "backgroundColor: '#FFFFFF'",
+  'light-mode Back control must use an opaque readable surface',
+);
+requireText(
+  screen,
+  "color: isDark ? palette.primary : '#2D4FA5'",
+  'Back label must keep strong light-mode contrast and canonical dark color',
+);
 
 for (const level of ['A1_A2', 'B1_B2', 'C1_C2']) {
   requireText(gate, `value: '${level}'`, `level choice ${level} must be visible`);
