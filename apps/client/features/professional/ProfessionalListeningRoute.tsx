@@ -205,5 +205,5 @@ const styles = StyleSheet.create({
   },
   actionButtonText: { color: '#FFFFFF', fontSize: 15, fontWeight: '800' },
   backAction: { minHeight: 44, alignItems: 'center', justifyContent: 'center' },
-  backActionText: { color: '#345EC3', fontSize: 14, fontWeight: '750' },
+  backActionText: { color: '#345EC3', fontSize: 14, fontWeight: '700' },
 });
