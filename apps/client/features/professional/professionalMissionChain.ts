@@ -6,7 +6,7 @@ import {
 } from '@core/professional/missions.mjs';
 
 export type ProfessionalMissionLaunch = {
-  pathname: '/speaking/mission' | '/professional/reading' | '/professional/writing';
+  pathname: '/professional/listening' | '/speaking/mission' | '/professional/reading' | '/professional/writing';
   params: Record<string, string>;
 };
 
@@ -66,9 +66,14 @@ export function buildProfessionalMissionChain(
       title: listen.content.title,
       detail: listen.objective,
       skills: ['listening'],
-      available: false,
-      availabilityLabel: 'Listening is not available yet',
-      launch: null,
+      available: true,
+      availabilityLabel: 'Ready',
+      launch: {
+        pathname: '/professional/listening',
+        params: {
+          taskId: `mission.${mission.missionId}.listening`,
+        },
+      },
     },
     {
       id: 'speak',
