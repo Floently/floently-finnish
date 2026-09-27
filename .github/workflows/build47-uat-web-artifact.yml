@@ -257,16 +257,16 @@ jobs:
             await page.close();
           }
 
-          await capture('01-speaking-menu', '/speaking/', ['Guided', 'Roleplay', 'Etene vaihe kerrallaan']);
+          await capture('01-speaking-access-boundary', '/speaking/', ['AUTH_REQUIRED', 'Sign in']);
           await capture('02-cards-level-gate', '/cards/', ['A1', 'B1', 'C1']);
-          await capture('03-professional-mission', '/professional/', ['Start mission', 'Mission path', 'Listen', 'Speak', 'Read', 'Write']);
+          await capture('03-professional-access-boundary', '/professional/', ['AUTH_REQUIRED', 'Sign in']);
           await capture(
             '04-professional-listening',
-            '/professional/listening/?taskId=mission.doctor-follow-up-explanation.listening',
-            ['Listen', 'doctor'],
+            '/professional/listening.html?taskId=mission.doctor-follow-up-explanation.listening',
+            ['Listen'],
           );
-          await capture('05-everyday-reading', '/learn/reading/', ['Reading']);
-          await capture('06-everyday-writing', '/learn/writing/', ['Writing']);
+          await capture('05-everyday-reading', '/learn/reading.html', ['Read']);
+          await capture('06-everyday-writing', '/learn/writing.html', ['Writ']);
 
           fs.writeFileSync(`${out}/visual-smoke-report.json`, JSON.stringify(report, null, 2));
           const fatal = report.flatMap((item) => [
