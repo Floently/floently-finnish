@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Pressable, SafeAreaView, ScrollView, StyleSheet, Text, TextInput, View } from 'react-native';
 
 import type { RoleplayLevelBand, RoleplayProfession } from '@core/api/roleplay';
@@ -10,13 +10,15 @@ import { useTranslator } from '../../i18n';
 import RoleplayMicButton from '../components/RoleplayMicButton';
 import { useRoleplayRecorder } from '../hooks/useRoleplayRecorder';
 import {
-  guidedSpeakingExpectedResponseRange,
   guidedSpeakingLevelForStage,
   guidedSpeakingTtsSpeed,
   guidedSpeakingVoiceProfile,
-  getGuidedSpeakingStages,
 } from '../guidedSpeakingStages';
-import { guidedSpeakingLesson, guidedSpeakingRetrievalLessons } from '../guidedSpeakingCurriculum';
+import {
+  GUIDED_SPEAKING_CURRICULUM,
+  guidedSpeakingLesson,
+  guidedSpeakingRetrievalLessons,
+} from '../guidedSpeakingCurriculum';
 import {
   speakRoleplayText,
   stopRoleplayAudioPlayback,
@@ -31,8 +33,29 @@ type Props = {
   onOpenRoleplay: () => void;
 };
 
+const GUIDED_SPEAKING_MAX_STAGE = GUIDED_SPEAKING_CURRICULUM.length;
+
+function guidedLevelBounds(level: ReturnType<typeof guidedSpeakingLevelForStage>): [number, number] {
+  if (level === 'A1.1') return [1, 25];
+  if (level === 'A1.2') return [26, 50];
+  if (level === 'A2.1') return [51, 75];
+  if (level === 'A2.2') return [76, 100];
+  if (level === 'B1.1') return [101, 125];
+  if (level === 'B1.2') return [126, 150];
+  if (level === 'B2.1') return [151, 175];
+  if (level === 'B2.2') return [176, 200];
+  if (level === 'C1') return [201, 250];
+  return [251, 300];
+}
+
+function roleplayBandForGuidedLevel(level: ReturnType<typeof guidedSpeakingLevelForStage>): RoleplayLevelBand {
+  if (level.startsWith('A')) return 'A1-A2';
+  if (level.startsWith('B')) return 'B1-B2';
+  return 'C1-C2';
+}
+
 export default function GuidedSpeakingScreen({
-  levelBand,
+  levelBand: _levelBand,
   profession,
   onBack,
   onLevelBandChange: _onLevelBandChange,
@@ -43,19 +66,12 @@ export default function GuidedSpeakingScreen({
   const palette = getFloentlyPalette(themeMode);
   const isDark = themeMode === 'dark';
   const recorder = useRoleplayRecorder('fi-FI');
-  const progressHydrated = useGuidedSpeakingProgressStore((state) => state.hasHydrated);
   const highestUnlockedNumber = useGuidedSpeakingProgressStore((state) => state.highestUnlockedNumber);
   const currentStageNumber = useGuidedSpeakingProgressStore((state) => state.currentStageNumber);
-  const attempts = useGuidedSpeakingProgressStore((state) => state.attempts);
   const hydrateProgress = useGuidedSpeakingProgressStore((state) => state.hydrate);
   const openPersistedStage = useGuidedSpeakingProgressStore((state) => state.openStage);
+  const resumePersistedFrontier = useGuidedSpeakingProgressStore((state) => state.resumeFrontier);
   const completePersistedStage = useGuidedSpeakingProgressStore((state) => state.completeStage);
-
-  const stages = useMemo(
-    () => getGuidedSpeakingStages(profession, levelBand),
-    [levelBand, profession],
-  );
-  const [stageIndex, setStageIndex] = useState(0);
 
   const [historyOpen, setHistoryOpen] = useState(false);
   const [recallOpen, setRecallOpen] = useState(false);
@@ -66,17 +82,21 @@ export default function GuidedSpeakingScreen({
   const [ttsPlaying, setTtsPlaying] = useState(false);
   const [ttsUnavailable, setTtsUnavailable] = useState(false);
 
-  const stage = stages[stageIndex];
-  const curriculumLesson = guidedSpeakingLesson(currentStageNumber);
-  const retrievalLessons = guidedSpeakingRetrievalLessons(currentStageNumber)
-    .filter((lesson) => lesson.number < currentStageNumber && attempts.some((attempt) => attempt.stageId === lesson.id));
-  const visibleStageNumber = stageIndex + 1;
-  const visibleLevel = guidedSpeakingLevelForStage(visibleStageNumber);
-  const stageCompleted = attempts.some((attempt) => attempt.stageId === stage.curriculumId);
-  const completedCount = Math.max(0, highestUnlockedNumber - 1);
-  const levelStart = visibleLevel === 'A1.1' ? 1 : visibleLevel === 'A1.2' ? 26 : visibleLevel === 'A2.1' ? 51 : visibleLevel === 'A2.2' ? 76 : visibleStageNumber;
-  const levelEnd = visibleLevel === 'A1.1' ? 25 : visibleLevel === 'A1.2' ? 50 : visibleLevel === 'A2.1' ? 75 : visibleLevel === 'A2.2' ? 100 : Math.max(visibleStageNumber, highestUnlockedNumber);
-  const levelProgress = Math.max(0, Math.min(1, (visibleStageNumber - levelStart) / Math.max(1, levelEnd - levelStart + 1)));
+  const curriculumLesson = guidedSpeakingLesson(currentStageNumber) ?? GUIDED_SPEAKING_CURRICULUM[0];
+  const visibleStageNumber = curriculumLesson.number;
+  const visibleLevel = curriculumLesson.level;
+  const activeLevelBand = roleplayBandForGuidedLevel(visibleLevel);
+  const frontierStageNumber = Math.min(GUIDED_SPEAKING_MAX_STAGE, highestUnlockedNumber);
+  const isReviewing = visibleStageNumber < frontierStageNumber;
+  const stageCompleted = visibleStageNumber < highestUnlockedNumber;
+  const completedCount = Math.min(GUIDED_SPEAKING_MAX_STAGE, Math.max(0, highestUnlockedNumber - 1));
+  const retrievalLessons = guidedSpeakingRetrievalLessons(visibleStageNumber)
+    .filter((lesson) => lesson.number < visibleStageNumber && lesson.number < highestUnlockedNumber);
+  const [levelStart, levelEnd] = guidedLevelBounds(visibleLevel);
+  const levelProgress = Math.max(
+    0,
+    Math.min(1, (visibleStageNumber - levelStart + 1) / Math.max(1, levelEnd - levelStart + 1)),
+  );
   const canAdvance =
     (attempted || stageCompleted || typedFallback.trim().length > 0) &&
     !recorder.isRecording &&
@@ -86,11 +106,6 @@ export default function GuidedSpeakingScreen({
   useEffect(() => {
     void hydrateProgress();
   }, [hydrateProgress]);
-
-  useEffect(() => {
-    if (!progressHydrated) return;
-    setStageIndex(Math.min(stages.length - 1, Math.max(0, currentStageNumber - 1)));
-  }, [currentStageNumber, progressHydrated, stages.length]);
 
   useEffect(() => {
     setTranscript(null);
@@ -129,9 +144,9 @@ export default function GuidedSpeakingScreen({
     setTtsUnavailable(false);
     setTtsPlaying(true);
     const played = await speakRoleplayText({
-      text: curriculumLesson?.modelFi ?? stage.modelFi,
+      text: curriculumLesson.modelFi,
       voiceProfile: guidedSpeakingVoiceProfile(profession),
-      speed: guidedSpeakingTtsSpeed(levelBand),
+      speed: guidedSpeakingTtsSpeed(activeLevelBand),
       onStart: () => setTtsPlaying(true),
       onFinish: () => setTtsPlaying(false),
       onUnavailable: () => {
@@ -163,35 +178,44 @@ export default function GuidedSpeakingScreen({
     }
   }
 
-  function openStage(index: number) {
+  async function openStage(stageNumber: number) {
     if (
-      index + 1 > highestUnlockedNumber ||
+      stageNumber < 1 ||
+      stageNumber >= highestUnlockedNumber ||
+      stageNumber > GUIDED_SPEAKING_MAX_STAGE ||
       recorder.isRecording ||
       recorder.phase === 'uploading' ||
       ttsPlaying
     ) return;
     void stopRoleplayAudioPlayback();
-    setStageIndex(index);
     setTranscript(null);
     setTypedFallback('');
-    openPersistedStage(index + 1);
-    setAttempted(attempts.some((attempt) => attempt.stageId === stages[index].curriculumId));
+    setAttempted(true);
     setTtsUnavailable(false);
+    await openPersistedStage(stageNumber);
   }
 
   async function advance() {
     if (!canAdvance) return;
 
-    await completePersistedStage(stage.curriculumId, stage.version, visibleStageNumber);
+    await completePersistedStage(curriculumLesson.id, curriculumLesson.version, visibleStageNumber);
 
-    if (stageIndex === stages.length - 1) {
+    if (isReviewing) {
+      await resumePersistedFrontier();
+      void stopRoleplayAudioPlayback();
+      setTranscript(null);
+      setTypedFallback('');
+      setAttempted(false);
+      setTtsUnavailable(false);
+      return;
+    }
+
+    if (visibleStageNumber === GUIDED_SPEAKING_MAX_STAGE) {
       onOpenRoleplay();
       return;
     }
 
-    const nextIndex = stageIndex + 1;
     void stopRoleplayAudioPlayback();
-    setStageIndex(nextIndex);
     setTranscript(null);
     setTypedFallback('');
     setAttempted(false);
@@ -236,8 +260,8 @@ export default function GuidedSpeakingScreen({
             <Text style={[styles.eyebrow, { color: primary }]}>
               {t('roleplayLevelLabel')} · {visibleLevel} · Stage {visibleStageNumber}
             </Text>
-            <Text style={[styles.title, { color: text }]}>{curriculumLesson?.titleFi ?? stage.titleFi}</Text>
-            <Text style={[styles.subtitle, { color: muted }]}>{curriculumLesson?.goalFi ?? stage.goalFi}</Text>
+            <Text style={[styles.title, { color: text }]}>{curriculumLesson.titleFi}</Text>
+            <Text style={[styles.subtitle, { color: muted }]}>{curriculumLesson.goalFi}</Text>
           </View>
 
           <View style={[styles.progressCard, { backgroundColor: surface, borderColor: border }]}>
@@ -274,14 +298,14 @@ export default function GuidedSpeakingScreen({
                 Repeat any stage you have already passed. Future stages appear only when you reach them.
               </Text>
               <View style={styles.historyList}>
-                {stages.slice(0, Math.max(0, Math.min(stages.length, highestUnlockedNumber - 1))).map((item, index) => {
-                  const completed = attempts.some((attempt) => attempt.stageId === item.curriculumId);
-                  return (
+                {GUIDED_SPEAKING_CURRICULUM
+                  .slice(0, Math.max(0, Math.min(GUIDED_SPEAKING_MAX_STAGE, highestUnlockedNumber - 1)))
+                  .map((item) => (
                     <Pressable
-                      key={item.curriculumId}
-                      disabled={!completed || recorder.isRecording || recorder.phase === 'uploading' || ttsPlaying}
+                      key={item.id}
+                      disabled={recorder.isRecording || recorder.phase === 'uploading' || ttsPlaying}
                       onPress={() => {
-                        openStage(index);
+                        void openStage(item.number);
                         setHistoryOpen(false);
                       }}
                       accessibilityRole="button"
@@ -289,7 +313,7 @@ export default function GuidedSpeakingScreen({
                     >
                       <View style={styles.historyRowCopy}>
                         <Text style={[styles.historyRowTitle, { color: text }]}>
-                          {guidedSpeakingLevelForStage(index + 1)} · Stage {index + 1}
+                          {item.level} · Stage {item.number}
                         </Text>
                         <Text numberOfLines={1} style={[styles.historyRowGoal, { color: muted }]}>
                           {item.goalFi}
@@ -297,8 +321,7 @@ export default function GuidedSpeakingScreen({
                       </View>
                       <Text style={[styles.historyRepeat, { color: primary }]}>Repeat</Text>
                     </Pressable>
-                  );
-                })}
+                  ))}
               </View>
             </View>
           ) : null}
@@ -352,16 +375,16 @@ export default function GuidedSpeakingScreen({
             <View style={styles.cardHeaderRow}>
               <View style={[styles.stageBadge, { backgroundColor: `${primary}18` }]}>
                 <Text style={[styles.stageBadgeText, { color: primary }]}>
-                  {stage.order} / {stages.length}
+                  {visibleLevel} · Stage {visibleStageNumber}
                 </Text>
               </View>
               <Text style={[styles.wordRange, { color: soft }]}>
-                ≈ {guidedSpeakingExpectedResponseRange(stage)}
+                ≈ {curriculumLesson.expectedMinWords}–{curriculumLesson.expectedMaxWords} words
               </Text>
             </View>
 
             <Text style={[styles.sectionLabel, { color: soft }]}>Malli</Text>
-            <Text style={[styles.modelText, { color: text }]}>{curriculumLesson?.modelFi ?? stage.modelFi}</Text>
+            <Text style={[styles.modelText, { color: text }]}>{curriculumLesson.modelFi}</Text>
 
             <Pressable
               onPress={() => void playModel()}
@@ -399,17 +422,17 @@ export default function GuidedSpeakingScreen({
             <View style={styles.speakStep}>
               <View style={[styles.practiceCard, { backgroundColor: surface, borderColor: border }]}>
             <Text style={[styles.sectionLabel, { color: soft }]}>Tehtävä</Text>
-            <Text style={[styles.promptText, { color: text }]}>{curriculumLesson?.promptFi ?? stage.promptFi}</Text>
+            <Text style={[styles.promptText, { color: text }]}>{curriculumLesson.promptFi}</Text>
 
-            {(curriculumLesson?.responseFrameFi ?? stage.responseFrameFi) ? (
+            {curriculumLesson.responseFrameFi ? (
               <View style={[styles.frameBox, { backgroundColor: raised, borderColor: border }]}>
-                <Text style={[styles.frameText, { color: text }]}>{curriculumLesson?.responseFrameFi ?? stage.responseFrameFi}</Text>
+                <Text style={[styles.frameText, { color: text }]}>{curriculumLesson.responseFrameFi}</Text>
               </View>
             ) : null}
 
-            {(curriculumLesson?.supportFi ?? stage.supportFi).length ? (
+            {curriculumLesson.supportFi.length ? (
               <View style={styles.supportRow}>
-                {(curriculumLesson?.supportFi ?? stage.supportFi).map((item) => (
+                {curriculumLesson.supportFi.map((item) => (
                   <View key={item} style={[styles.supportChip, { backgroundColor: raised, borderColor: border }]}>
                     <Text style={[styles.supportChipText, { color: muted }]}>{item}</Text>
                   </View>
@@ -460,14 +483,18 @@ export default function GuidedSpeakingScreen({
               <View style={[styles.nextCard, { backgroundColor: surface, borderColor: border }]}>
             <View style={styles.nextCopy}>
               <Text style={[styles.nextTitle, { color: text }]}>
-                {stageIndex === stages.length - 1
-                  ? t('commonOpenRoleplay')
-                  : t('commonNext')}
+                {isReviewing
+                  ? `Return to Stage ${frontierStageNumber}`
+                  : visibleStageNumber === GUIDED_SPEAKING_MAX_STAGE
+                    ? t('commonOpenRoleplay')
+                    : t('commonNext')}
               </Text>
               <Text style={[styles.nextDetail, { color: muted }]}>
-                {stageIndex === stages.length - 1
-                  ? 'Seuraavaksi käytät samoja taitoja avoimessa keskustelussa.'
-                  : stages[stageIndex + 1]?.goalFi}
+                {isReviewing
+                  ? 'Return to your current learning step without changing your unlocked progress.'
+                  : visibleStageNumber === GUIDED_SPEAKING_MAX_STAGE
+                    ? 'Seuraavaksi käytät samoja taitoja avoimessa keskustelussa.'
+                    : guidedSpeakingLesson(visibleStageNumber + 1)?.goalFi}
               </Text>
             </View>
             <Pressable
@@ -482,9 +509,11 @@ export default function GuidedSpeakingScreen({
               ]}
             >
               <Text style={styles.nextButtonText}>
-                {stageIndex === stages.length - 1
-                  ? t('commonOpenRoleplay')
-                  : t('commonNext')}
+                {isReviewing
+                  ? `Return to Stage ${frontierStageNumber}`
+                  : visibleStageNumber === GUIDED_SPEAKING_MAX_STAGE
+                    ? t('commonOpenRoleplay')
+                    : t('commonNext')}
               </Text>
             </Pressable>
               </View>
