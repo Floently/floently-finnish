@@ -10,7 +10,8 @@ export type DrawerRoute =
   | 'help'
   | 'progress'
   | 'settings'
-  | 'billing';
+  | 'billing'
+  | 'read';
 
 export type DrawerActivity =
   | 'everyday-guided'
@@ -365,6 +366,10 @@ export function createDrawerSections(
     entitlements?.isInternalAllAccess ||
     entitlements?.professionalAccess
   );
+  const hasReadAccess = Boolean(
+    entitlements?.isInternalAllAccess ||
+    entitlements?.readAccess
+  );
 
   if (entitlements?.isPreview) {
     const previewLabel =
@@ -523,6 +528,22 @@ export function createDrawerSections(
       },
     ],
   });
+
+  if (hasReadAccess) {
+    sections.push({
+      label: 'Floently',
+      items: [
+        {
+          id: 'floently-read',
+          icon: '◉',
+          label: 'Floently Read',
+          accentColor: '#8B5CF6',
+          hint: 'Browse live websites, listen, and continue your Read library.',
+          onPress: () => void navigateTo('read'),
+        },
+      ],
+    });
+  }
 
   sections.push({
     label: translate(language, 'drawerAccountAndAccess'),
