@@ -69,6 +69,7 @@ export function parseProfessionalMissionSpeakingParams(params) {
     initialScenarioId: scenarioId,
     lockProfession: true,
     entryMode,
+    roleplayMode: 'professional',
     contextLabel: mission.title,
   });
 }
