@@ -27,6 +27,7 @@ ROLEPLAY_STAGE_BY_TURN = {0: "OPENING", 1: "ACTIVE_1", 2: "ACTIVE_2", 3: "ACTIVE
 # Three CEFR-grouped buckets the system supports. Used as keys in per-level scenario
 # variants. Anything not in this set is normalized to "B1-B2" by _normalize_level.
 LEVEL_BANDS: tuple[str, ...] = ("A1-A2", "B1-B2", "C1-C2")
+ROLEPLAY_MODES: tuple[str, ...] = ("everyday", "workplace", "yki", "professional", "interview")
 
 
 def _seed_int(seed: str) -> int:
@@ -63,6 +64,7 @@ class ScenarioSpec:
     scenario_id: str
     profession: str
     track: str
+    roleplay_mode: str
     title: str
     persona_name: str
     intro: str
@@ -130,6 +132,7 @@ def _spec(
     voice_profile: str,
     levels: dict[str, LevelVariant],
     interview_mode: bool = False,
+    roleplay_mode: str | None = None,
 ) -> ScenarioSpec:
     """Construct a ScenarioSpec and auto-fill legacy fields from the B1-B2 variant.
 
@@ -143,10 +146,23 @@ def _spec(
     legacy_opener = base.openers[0] if base.openers else ""
     legacy_turns = tuple(slot[0] if slot else "" for slot in base.assistant_turns)
     legacy_closing = base.closing_texts[0] if base.closing_texts else ""
+    resolved_mode = str(roleplay_mode or "").strip().lower()
+    if not resolved_mode:
+        if interview_mode:
+            resolved_mode = "interview"
+        elif track == "professional":
+            resolved_mode = "professional"
+        elif scenario_id == "general_everyday_conversation":
+            resolved_mode = "everyday"
+        else:
+            resolved_mode = "workplace"
+    if resolved_mode not in ROLEPLAY_MODES:
+        raise ValueError(f"ScenarioSpec {scenario_id} has invalid roleplay mode {resolved_mode}")
     return ScenarioSpec(
         scenario_id=scenario_id,
         profession=profession,
         track=track,
+        roleplay_mode=resolved_mode,
         title=title,
         persona_name=persona_name,
         intro=intro,
@@ -159,6 +175,70 @@ def _spec(
         assistant_turns=legacy_turns,
         closing_text=legacy_closing,
     )
+
+def _mode_scenario(
+    *,
+    scenario_id: str,
+    roleplay_mode: str,
+    title: str,
+    intro: str,
+    key_phrases: tuple[str, ...],
+    grammar_tip: str,
+    opening_a1: str,
+    opening_b1: str,
+    opening_c1: str,
+) -> ScenarioSpec:
+    """Build a compact general-Finnish scenario with clear CEFR progression.
+
+    These scenarios are intentionally deterministic and mode-owned. The topic
+    stays fixed while the interaction demand rises from short concrete A1-A2
+    turns to justified/negotiated C1-C2 turns.
+    """
+    return _spec(
+        scenario_id=scenario_id,
+        profession="general",
+        track="general",
+        roleplay_mode=roleplay_mode,
+        title=title,
+        persona_name="Conversation partner" if roleplay_mode in {"everyday", "yki"} else "Workplace colleague",
+        intro=intro,
+        key_phrases=key_phrases,
+        grammar_tip=grammar_tip,
+        voice_profile="yki_standard_female",
+        levels={
+            "A1-A2": LevelVariant(
+                openers=(opening_a1,),
+                assistant_turns=(
+                    ("Kerro yksi tärkeä asia.", "Mitä tapahtui?"),
+                    ("Mitä tarvitset nyt?", "Mikä olisi hyvä ratkaisu?"),
+                    ("Voitko sanoa sen vielä lyhyesti?", "Mitä sovitaan?"),
+                    ("Hyvä. Tee lopuksi lyhyt yhteenveto.",),
+                ),
+                closing_texts=("Kiitos. Asia tuli ymmärretyksi.",),
+            ),
+            "B1-B2": LevelVariant(
+                openers=(opening_b1,),
+                assistant_turns=(
+                    ("Voitko tarkentaa, mikä tässä on tärkein ongelma tai tavoite?",),
+                    ("Mitä vaihtoehtoja näet, ja mikä niistä sopisi parhaiten?",),
+                    ("Miten perustelisit ratkaisun toiselle osapuolelle?",),
+                    ("Tiivistä lopuksi, mitä sovittiin ja mitä tapahtuu seuraavaksi.",),
+                ),
+                closing_texts=("Hyvä. Perustelit tilanteen selkeästi ja eteneminen jäi ymmärrettäväksi.",),
+            ),
+            "C1-C2": LevelVariant(
+                openers=(opening_c1,),
+                assistant_turns=(
+                    ("Erittele keskeinen tavoite, rajoitteet ja se, mikä vaatii eniten harkintaa.",),
+                    ("Vertaa vaihtoehtoja ja perustele, mitä kompromisseja niihin liittyy.",),
+                    ("Miten muotoilisit ratkaisun niin, että myös vastapuolen näkökulma tulee huomioiduksi?",),
+                    ("Tee lopuksi täsmällinen yhteenveto päätöksestä, vastuista ja seuraavista vaiheista.",),
+                ),
+                closing_texts=("Kiitos. Keskustelu oli jäsennelty, perusteltu ja tilanteeseen sopivan täsmällinen.",),
+            ),
+        },
+    )
+
 
 _ROLEPLAY_REGISTRY: dict[str, tuple[ScenarioSpec, ...]] = {
     # ───────────────────────────────────────────────────────────────────────────
@@ -468,6 +548,83 @@ _ROLEPLAY_REGISTRY: dict[str, tuple[ScenarioSpec, ...]] = {
                     ),
                 ),
             },
+        ),
+        _mode_scenario(
+            scenario_id="everyday_housing_maintenance",
+            roleplay_mode="everyday",
+            title="Housing maintenance",
+            intro="Harjoittelet asunnon huoltoasian selittämistä ja korjauskäynnistä sopimista.",
+            key_phrases=("asunto", "huolto", "vika", "korjaus"),
+            grammar_tip="Kuvaa ensin ongelma, sitten sen vaikutus ja lopuksi toivottu ratkaisu.",
+            opening_a1="Hei. Kerro, mikä asunnossa ei toimi.",
+            opening_b1="Hei. Kuvaile asunnon ongelma ja kerro, kuinka kiireellinen se mielestäsi on.",
+            opening_c1="Hei. Kuvaa huoltoasia, sen vaikutus asumiseen ja perustele, millaista reagointia tilanne edellyttää.",
+        ),
+        _mode_scenario(
+            scenario_id="everyday_transport_problem",
+            roleplay_mode="everyday",
+            title="Public transport problem",
+            intro="Harjoittelet matkaan, lippuun tai viivästykseen liittyvän ongelman selvittämistä.",
+            key_phrases=("lippu", "matka", "myöhässä", "hyvitys"),
+            grammar_tip="Kerro tapahtumat aikajärjestyksessä ja varmista lopuksi sovittu ratkaisu.",
+            opening_a1="Hei. Mikä matkassa tai lipussa on ongelma?",
+            opening_b1="Hei. Kerro, mitä matkalla tapahtui ja millaista ratkaisua tarvitset.",
+            opening_c1="Hei. Kuvaa matkustustilanne täsmällisesti ja perustele, millaista korjausta tai hyvitystä pidät kohtuullisena.",
+        ),
+        _mode_scenario(
+            scenario_id="workplace_schedule_change",
+            roleplay_mode="workplace",
+            title="Negotiate a schedule change",
+            intro="Harjoittelet työvuoron tai aikataulun muutoksesta keskustelemista rakentavasti.",
+            key_phrases=("aikataulu", "työvuoro", "sopia", "vaihtaa"),
+            grammar_tip="Perustele muutostarve ja ehdota vähintään yhtä toteuttamiskelpoista vaihtoehtoa.",
+            opening_a1="Hei. Haluat muuttaa työaikaa. Mikä aika ei sovi?",
+            opening_b1="Hei. Kerro, miksi nykyinen aikataulu ei toimi ja mitä vaihtoehtoa ehdotat.",
+            opening_c1="Hei. Perustele aikataulumuutoksen tarve ja arvioi samalla sen vaikutus tiimiin ja työn jatkuvuuteen.",
+        ),
+        _mode_scenario(
+            scenario_id="workplace_support_request",
+            roleplay_mode="workplace",
+            title="Request support at work",
+            intro="Harjoittelet avun pyytämistä ajoissa ja tehtävän rajaamista selkeästi.",
+            key_phrases=("apu", "tuki", "priorisoida", "määräaika"),
+            grammar_tip="Nimeä ongelma, mitä olet jo yrittänyt ja millaista tukea tarvitset.",
+            opening_a1="Hei. Tarvitset apua työssä. Missä asiassa?",
+            opening_b1="Hei. Kuvaile tehtävä, missä olet jumissa ja millaista tukea tarvitset.",
+            opening_c1="Hei. Erittele, mikä estää etenemisen, mitä olet jo selvittänyt ja mikä tuki olisi tehokkain seuraava askel.",
+        ),
+        _mode_scenario(
+            scenario_id="yki_service_complaint",
+            roleplay_mode="yki",
+            title="YKI-style service complaint",
+            intro="Harjoittelet palvelutilanteen ongelman kuvaamista, perustelemista ja ratkaisun pyytämistä.",
+            key_phrases=("haluan reklamoida", "ongelma", "ratkaisu", "hyvitys"),
+            grammar_tip="Pidä puheenvuoro tehtävän mukaisena: tilanne, perustelu, pyyntö ja lopetus.",
+            opening_a1="Hei. Palvelussa on ongelma. Kerro, mitä tapahtui.",
+            opening_b1="Hei. Kerro palvelutilanteen ongelma, miksi se haittaa sinua ja mitä ratkaisua toivot.",
+            opening_c1="Hei. Esitä reklamaatio jäsennellysti, perustele vaatimuksesi ja reagoi mahdolliseen vastaväitteeseen.",
+        ),
+        _mode_scenario(
+            scenario_id="yki_opinion_discussion",
+            roleplay_mode="yki",
+            title="YKI-style opinion discussion",
+            intro="Harjoittelet mielipiteen ilmaisemista, perustelua ja toisen näkökulmaan vastaamista.",
+            key_phrases=("mielestäni", "koska", "toisaalta", "olen eri mieltä"),
+            grammar_tip="Ilmaise kanta, anna perustelu ja reagoi toiseen näkökulmaan.",
+            opening_a1="Hei. Puhutaan arjen asiasta. Mitä mieltä olet?",
+            opening_b1="Hei. Kerro kantasi tähän arjen aiheeseen ja perustele se ainakin kahdella syyllä.",
+            opening_c1="Hei. Ota perusteltu kanta, huomioi vastakkainen näkökulma ja tarkenna, missä tilanteissa kantasi voisi muuttua.",
+        ),
+        _mode_scenario(
+            scenario_id="yki_planning_negotiation",
+            roleplay_mode="yki",
+            title="YKI-style planning and negotiation",
+            intro="Harjoittelet yhteisen suunnitelman tekemistä, vaihtoehtojen vertailua ja kompromissia.",
+            key_phrases=("ehdotan", "sopisiko", "vaihtoehto", "kompromissi"),
+            grammar_tip="Ehdota, kysy toisen mielipidettä, neuvottele ja vahvista lopputulos.",
+            opening_a1="Hei. Tehdään suunnitelma yhdessä. Mitä ehdotat?",
+            opening_b1="Hei. Meidän pitää sopia yhteinen suunnitelma. Tee ehdotus ja perustele se.",
+            opening_c1="Hei. Neuvotellaan yhteisestä suunnitelmasta: esitä ensisijainen vaihtoehto, arvioi sen haitat ja rakenna tarvittaessa kompromissi.",
         ),
     ),
 
@@ -1269,6 +1426,159 @@ _ROLEPLAY_REGISTRY: dict[str, tuple[ScenarioSpec, ...]] = {
 
 _SCENARIO_BY_ID = {spec.scenario_id: spec for specs in _ROLEPLAY_REGISTRY.values() for spec in specs}
 
+_ROLEPLAY_POOLS: dict[tuple[str, str], tuple[ScenarioSpec, ...]] = {}
+for _scenario_spec in _SCENARIO_BY_ID.values():
+    _pool_key = (_scenario_spec.roleplay_mode, _scenario_spec.profession)
+    _ROLEPLAY_POOLS[_pool_key] = (
+        *_ROLEPLAY_POOLS.get(_pool_key, tuple()),
+        _scenario_spec,
+    )
+
+
+def _normalize_roleplay_mode(value: str | None) -> str:
+    raw = str(value or "").strip().lower().replace("_", "-")
+    aliases = {
+        "everyday-finnish": "everyday",
+        "general": "everyday",
+        "work": "workplace",
+        "workplace-finnish": "workplace",
+        "profession": "professional",
+        "professional-finnish": "professional",
+    }
+    normalized = aliases.get(raw, raw)
+    if normalized not in ROLEPLAY_MODES:
+        raise ValueError("ROLEPLAY_MODE_INVALID")
+    return normalized
+
+
+def roleplay_scenario_pool(*, roleplay_mode: str, profession: str) -> tuple[ScenarioSpec, ...]:
+    mode = _normalize_roleplay_mode(roleplay_mode)
+    normalized_profession = _normalize_profession(profession)
+    pool = _ROLEPLAY_POOLS.get((mode, normalized_profession), tuple())
+    if not pool:
+        raise ValueError(f"ROLEPLAY_MODE_POOL_EMPTY:{mode}:{normalized_profession}")
+    return pool
+
+
+def _roleplay_rotation_state_key(*, user_key: str, roleplay_mode: str, profession: str) -> str:
+    private_user_key = hashlib.sha256(
+        str(user_key or "preview").encode("utf-8")
+    ).hexdigest()[:24]
+    return f"roleplay_scenario_rotation:{private_user_key}:{roleplay_mode}:{profession}"
+
+
+def select_roleplay_scenario(
+    *,
+    user_key: str,
+    roleplay_mode: str,
+    profession: str,
+    explicit_scenario_id: str | None = None,
+) -> tuple[ScenarioSpec, list[str], str]:
+    """Select one scenario from a strict mode/profession shuffled bag."""
+    mode = _normalize_roleplay_mode(roleplay_mode)
+    normalized_profession = _normalize_profession(profession)
+    pool = roleplay_scenario_pool(
+        roleplay_mode=mode,
+        profession=normalized_profession,
+    )
+    catalog = [spec.scenario_id for spec in pool]
+
+    explicit_id = str(explicit_scenario_id or "").strip()
+    if explicit_id:
+        if explicit_id not in catalog:
+            raise ValueError(
+                f"ROLEPLAY_SCENARIO_OUTSIDE_POOL:{explicit_id}:{mode}:{normalized_profession}"
+            )
+        return _SCENARIO_BY_ID[explicit_id], catalog, "explicit_scenario"
+
+    state_key = _roleplay_rotation_state_key(
+        user_key=user_key,
+        roleplay_mode=mode,
+        profession=normalized_profession,
+    )
+
+    with STORE.locked(("user_content_history", state_key)):
+        previous = STORE.get(
+            "user_content_history",
+            state_key,
+            default=None,
+        )
+        state = dict(previous) if isinstance(previous, dict) else {}
+        stored_catalog = [
+            str(item).strip()
+            for item in state.get("catalog", [])
+            if str(item).strip()
+        ]
+        remaining = [
+            str(item).strip()
+            for item in state.get("remaining", [])
+            if str(item).strip() in catalog
+        ]
+        last_scenario_id = (
+            str(state.get("last_scenario_id") or "").strip()
+            or None
+        )
+        cycle = int(state.get("cycle") or 0)
+
+        if stored_catalog != catalog:
+            remaining = []
+
+        recycled = bool(
+            stored_catalog == catalog
+            and not remaining
+            and last_scenario_id
+        )
+
+        if not remaining:
+            cycle += 1
+            remaining = sorted(
+                catalog,
+                key=lambda scenario_id: _seed_int(
+                    f"{state_key}:{cycle}:{scenario_id}"
+                ),
+            )
+
+        if (
+            last_scenario_id
+            and len(remaining) > 1
+            and remaining[0] == last_scenario_id
+        ):
+            alternative_index = next(
+                (
+                    index
+                    for index, scenario_id in enumerate(remaining)
+                    if scenario_id != last_scenario_id
+                ),
+                0,
+            )
+            remaining[0], remaining[alternative_index] = (
+                remaining[alternative_index],
+                remaining[0],
+            )
+
+        selected_id = remaining.pop(0)
+        STORE.set(
+            "user_content_history",
+            state_key,
+            {
+                "catalog": catalog,
+                "remaining": remaining,
+                "last_scenario_id": selected_id,
+                "cycle": cycle,
+            },
+        )
+
+    try:
+        STORE.write_snapshot()
+    except Exception:
+        pass
+
+    return (
+        _SCENARIO_BY_ID[selected_id],
+        catalog,
+        "pool_recycled" if recycled else "unused_pool",
+    )
+
 
 def _external_status(status: str) -> str:
     return {"ACTIVE": "active", "COMPLETE": "completed", "EXPIRED": "expired"}.get(str(status or "").upper(), "active")
@@ -1317,28 +1627,26 @@ def _scenario_payload(spec: ScenarioSpec, level_band: str) -> dict[str, Any]:
         "levelBand": level_band,
         "profession": spec.profession,
         "track": spec.track,
+        "roleplayMode": spec.roleplay_mode,
         "personaName": spec.persona_name,
         "interviewMode": spec.interview_mode,
     }
 
 
-def _default_scenario_for_profession(profession: str, context_label: str | None = None) -> ScenarioSpec:
-    context = str(context_label or "").lower()
+def _default_scenario_for_profession(profession: str) -> ScenarioSpec:
+    """Legacy internal fallback only; display text never chooses content."""
     specs = _ROLEPLAY_REGISTRY.get(profession) or _ROLEPLAY_REGISTRY["general"]
-    if "interview" in context:
-        for spec in specs:
-            if spec.interview_mode:
-                return spec
     return specs[0]
 
 
 def _resolve_scenario(*, profession: str, scenario_id: str | None = None, context_label: str | None = None) -> ScenarioSpec:
+    del context_label
     profession = _normalize_profession(profession)
     if scenario_id:
         spec = _SCENARIO_BY_ID.get(str(scenario_id).strip())
-        if spec:
+        if spec and spec.profession == profession:
             return spec
-    return _default_scenario_for_profession(profession, context_label)
+    return _default_scenario_for_profession(profession)
 
 
 def _serialize_session(session: dict[str, Any]) -> dict[str, Any]:
@@ -1354,6 +1662,7 @@ def _serialize_session(session: dict[str, Any]) -> dict[str, Any]:
         "messages": session["messages"],
         "ui": session["ui"],
         "profession": session.get("profession", "general"),
+        "roleplay_mode": session.get("roleplay_mode"),
         "persona_name": session.get("persona_name", "AI"),
         "persona_id": session.get("persona_id"),
         "persona_gender": session.get("persona_gender"),
@@ -1482,6 +1791,7 @@ def _build_session(*, user_id: str, spec: ScenarioSpec, level_band: str, display
         ),
         "level": level_band,
         "profession": spec.profession,
+        "roleplay_mode": str((display_preferences or {}).get("roleplay_mode") or spec.roleplay_mode),
         "persona_name": persona_display,
         "persona_id": persona.id,
         "persona_gender": persona.gender,
@@ -2211,24 +2521,30 @@ def start_session(
     *,
     profession: str,
     level_band: str,
+    roleplay_mode: str,
     scenario_id: str | None = None,
     context_label: str | None = None,
     rotation_user_key: str | None = None,
 ) -> dict[str, Any]:
     normalized_profession = _normalize_profession(profession)
     band = _normalize_level(level_band)
-    spec = _resolve_scenario(profession=normalized_profession, scenario_id=scenario_id, context_label=context_label)
+    mode = _normalize_roleplay_mode(roleplay_mode)
+    rotation_key = rotation_user_key or "preview"
+    spec, scenario_pool, selection_reason = select_roleplay_scenario(
+        user_key=rotation_key,
+        roleplay_mode=mode,
+        profession=normalized_profession,
+        explicit_scenario_id=scenario_id,
+    )
     created = _create_session(
         user_id="preview",
         scenario_id=spec.scenario_id,
         level=band,
         display_preferences={
             "context_label": context_label,
+            "roleplay_mode": mode,
             "profession": normalized_profession,
-            "_rotation_user_key": (
-                rotation_user_key
-                or "preview"
-            ),
+            "_rotation_user_key": rotation_key,
         },
     )
     # Pull the resolved Finnish persona (and any resolver-adjusted voice profile) from the
@@ -2274,6 +2590,9 @@ def start_session(
         "profession": normalized_profession,
         "levelBand": band,
         "track": spec.track,
+        "roleplayMode": mode,
+        "scenarioPool": scenario_pool,
+        "selectionReason": selection_reason,
         "scenarioId": spec.scenario_id,
         "scenario": created_scenario or _scenario_payload(spec, band),
         "mission": mission_payload or None,
