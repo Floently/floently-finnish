@@ -486,13 +486,11 @@ jobs:
             page.on('console', (message) => {
               if (message.type() === 'error') consoleErrors.push(message.text());
             });
-            const response = await page.goto(`${appOrigin}/speaking/`, {
+            const response = await page.goto(`${appOrigin}/speaking/?openMenu=1`, {
               waitUntil: 'domcontentloaded',
               timeout: 30000,
             });
-            await page.waitForTimeout(2400);
-            await page.getByRole('button', { name: /^Menu$/i }).first().click();
-            await page.waitForTimeout(500);
+            await page.waitForTimeout(2900);
             const body = await page.locator('body').innerText();
             const screenshot = `${out}/02-progressive-drawer.png`;
             await page.screenshot({ path: screenshot, fullPage: true });
