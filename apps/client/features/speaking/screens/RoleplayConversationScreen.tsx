@@ -1059,9 +1059,9 @@ export default function RoleplayConversationScreen({
       let playbackDone: Promise<void> | null = null;
 
       if (!textMode) {
-        let resolvePlayback: (() => void) | null = null;
+        let resolvePlayback = () => {};
         playbackDone = new Promise<void>((resolve) => {
-          resolvePlayback = resolve;
+          resolvePlayback = () => resolve();
         });
 
         let ttsCreated = true;
@@ -1070,12 +1070,12 @@ export default function RoleplayConversationScreen({
           voiceProfile: response.voiceProfile,
           onStart: () => setConversationUiState('aiSpeaking'),
           onFinish: () => {
-            resolvePlayback?.();
+            resolvePlayback();
             if (!response.completed) setConversationUiState('userListening');
           },
           onUnavailable: () => {
             ttsCreated = false;
-            resolvePlayback?.();
+            resolvePlayback();
             setRemoteAudioAvailable(false);
             if (!response.completed) setConversationUiState('userListening');
             setFeedbackLine((current) => current ?? 'TTS audio could not be created. Text reply is still shown.');
@@ -1083,7 +1083,7 @@ export default function RoleplayConversationScreen({
         });
 
         if (!playedReplyAudio && ttsCreated) {
-          resolvePlayback?.();
+          resolvePlayback();
           setFeedbackLine((current) => current ?? 'Audio playback was blocked. Continuing with text.');
           if (!response.completed) setConversationUiState('userListening');
         }
