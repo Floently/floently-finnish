@@ -62,7 +62,7 @@ function validateWritingTask(task) {
   if (task.pathway !== 'everyday' && task.pathway !== 'professional') {
     throw new Error('INVALID_WRITING_PATHWAY');
   }
-  if (!['A1', 'A2', 'B1', 'B2'].includes(task.level)) {
+  if (!['A1', 'A2', 'B1', 'B2', 'C1', 'C2'].includes(task.level)) {
     throw new Error('INVALID_WRITING_LEVEL');
   }
   if (!Array.isArray(task.feedbackChecks) || task.feedbackChecks.length === 0) {
