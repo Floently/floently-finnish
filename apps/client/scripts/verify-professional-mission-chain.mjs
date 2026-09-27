@@ -60,16 +60,16 @@ assert.ok(
 
 assert.ok(
   missionChain.includes("id: 'listen'") &&
-  missionChain.includes("available: false") &&
-  missionChain.includes("launch: null"),
-  'Professional Listening must fail closed until a canonical runtime exists',
+  missionChain.includes("pathname: '/professional/listening'") &&
+  missionChain.includes("taskId: \`mission.\${mission.missionId}.listening\`"),
+  'Professional Listening must launch the canonical mission listening runtime',
 );
 assert.ok(
-  !missionChain.includes("pathname: '/professional/listening'"),
-  'integration must not invent a Professional Listening route',
+  !missionChain.includes("Listening is not available yet"),
+  'Professional Listening must no longer present as unavailable',
 );
 
-for (const route of ["'/speaking/mission'", "'/professional/reading'", "'/professional/writing'"]) {
+for (const route of ["'/professional/listening'", "'/speaking/mission'", "'/professional/reading'", "'/professional/writing'"]) {
   assert.ok(missionChain.includes(`pathname: ${route}`), `mission chain must use canonical route ${route}`);
 }
 
@@ -117,7 +117,7 @@ for (const preservedTool of [
 
 console.log('PASS: one profession-correct mission is foregrounded.');
 console.log('PASS: Professional mission chain is ordered and context-stable.');
-console.log('PASS: Listening fails closed without inventing a runtime.');
+console.log('PASS: Professional Listening launches the canonical deterministic runtime.');
 console.log('PASS: Speaking, Reading and Writing reuse canonical runtimes.');
 console.log('PASS: mission speaking declares explicit Phase-5 Professional mode.');
 console.log('PASS: existing Professional tools remain reachable under progressive disclosure.');
