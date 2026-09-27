@@ -768,15 +768,18 @@ export default function AppShell({ requestedScreen = "root" }: Props) {
         clearNavigationError();
         setActiveContext('none');
 
-        if (activity === 'everyday-roleplay') {
+        if (activity === 'everyday-roleplay' || activity === 'everyday-recorded') {
+          const recorded = activity === 'everyday-recorded';
           setSpeakingPreset({
             initialLevelBand: 'B1-B2',
-            initialSurface: 'conversation',
+            initialSurface: recorded ? 'recorded' : 'conversation',
             initialProfession: 'general',
             initialScenarioId: null,
             lockProfession: false,
             entryMode: 'workplace',
-            contextLabel: t('appShellContextEverydayRoleplay'),
+            contextLabel: recorded
+              ? t('appShellContextGeneralWorkplace')
+              : t('appShellContextEverydayRoleplay'),
           });
           replaceIfNeeded('speaking-practice');
           await resolveAndPersist('speaking-practice', 'speaking-practice');
@@ -808,11 +811,16 @@ export default function AppShell({ requestedScreen = "root" }: Props) {
           setActiveContext(profession);
         }
 
-        if (activity === 'professional-roleplay' || activity === 'professional-interview') {
+        if (
+          activity === 'professional-roleplay' ||
+          activity === 'professional-interview' ||
+          activity === 'professional-recorded'
+        ) {
           const interview = activity === 'professional-interview';
+          const recorded = activity === 'professional-recorded';
           setSpeakingPreset({
             ...professionalPreset,
-            initialSurface: 'conversation',
+            initialSurface: recorded ? 'recorded' : 'conversation',
             initialScenarioId: null,
             entryMode: interview ? 'interview' : 'workplace',
             contextLabel: interview
@@ -825,6 +833,11 @@ export default function AppShell({ requestedScreen = "root" }: Props) {
         }
 
         await resolveAndPersist('professional-finnish', 'professional-finnish');
+
+        if (activity === 'professional-incident-lab') {
+          router.push('/professional/incidents' as never);
+          return;
+        }
 
         const professionalQuery =
           profession === 'doctor' || profession === 'nurse' || profession === 'practical_nurse'
