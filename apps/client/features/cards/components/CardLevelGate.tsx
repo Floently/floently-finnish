@@ -85,11 +85,11 @@ export function CardLevelGate({
               onPress={() => onChange(level.value)}
               accessibilityRole="radio"
               accessibilityState={{ selected }}
-              accessibilityLabel={\`\${level.code} \${level.title}\`}
+              accessibilityLabel={`${level.code} ${level.title}`}
               style={[
                 styles.levelRow,
                 { backgroundColor: raised, borderColor: border },
-                selected && { borderColor: primary, backgroundColor: \`\${primary}12\` },
+                selected && { borderColor: primary, backgroundColor: `${primary}12` },
               ]}
             >
               <View
@@ -115,7 +115,7 @@ export function CardLevelGate({
       <Pressable
         onPress={onConfirm}
         accessibilityRole="button"
-        accessibilityLabel={\`Start \${modeLabel(mode, t)} at \${LEVELS.find((level) => level.value === value)?.code ?? value}\`}
+        accessibilityLabel={`Start ${modeLabel(mode, t)} at ${LEVELS.find((level) => level.value === value)?.code ?? value}`}
         style={[styles.startButton, { backgroundColor: primary }]}
       >
         <Text style={styles.startButtonText}>Start this level</Text>
