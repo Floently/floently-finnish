@@ -865,6 +865,7 @@ function resolvePersonaName(input: {
 export default function RoleplayConversationScreen({
   levelBand,
   onBack,
+  onOpenMenu,
   profession,
   contextLabel,
   scenarioId,
@@ -872,6 +873,7 @@ export default function RoleplayConversationScreen({
 }: {
   levelBand: RoleplayLevelBand;
   onBack: () => void;
+  onOpenMenu: () => void;
   profession: RoleplayProfession;
   contextLabel?: string;
   scenarioId?: string | null;
@@ -1367,6 +1369,7 @@ export default function RoleplayConversationScreen({
           Boolean(feedbackReport)
         }
         onBack={onBack}
+        onMenu={onOpenMenu}
         onChangeManualText={setManualText}
         onDownloadTranscript={handleDownload}
         onEnterTextMode={() => {
