@@ -59,6 +59,7 @@ type Props = {
   messages: TranscriptMessage[];
   micDisabled: boolean;
   onBack: () => void;
+  onMenu: () => void;
   onChangeManualText: (value: string) => void;
   onDownloadTranscript?: () => void;
   onEnterTextMode: () => void;
@@ -579,6 +580,7 @@ export default function VoiceConversationExperience({
   messages,
   micDisabled,
   onBack,
+  onMenu,
   onChangeManualText,
   onDownloadTranscript,
   onEnterTextMode,
@@ -652,9 +654,9 @@ export default function VoiceConversationExperience({
 
       <View style={styles.header}>
         <Pressable
-          accessibilityLabel="Back"
+          accessibilityLabel="Menu"
           accessibilityRole="button"
-          onPress={onBack}
+          onPress={onMenu}
           style={styles.headerButton}
         >
           <Ionicons color={textColor} name="menu-outline" size={27} />
