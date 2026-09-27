@@ -28,7 +28,7 @@ export type GuidedSpeakingStage = {
   productionBurden: 1 | 2 | 3 | 4 | 5 | 6 | 7;
 };
 
-type StageVariant = Omit<GuidedSpeakingStage, 'id' | 'order' | 'productionBurden'>;
+type StageVariant = Omit<GuidedSpeakingStage, 'id' | 'curriculumId' | 'version' | 'order' | 'productionBurden'>;
 
 const STAGE_IDS: GuidedSpeakingStageKind[] = [
   'basic_chunk',
