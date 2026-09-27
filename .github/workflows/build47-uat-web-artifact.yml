@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - docs/build47-device-uat-readiness-20260927
+      - feature/build47-voice-conversation-ui-20260927
     paths:
       - '.github/workflows/build47-uat-web-artifact.yml'
       - 'docs/agents/BUILD47_PROGRESSIVE_LEARNING_UAT_20260927.md'
@@ -11,9 +12,13 @@ on:
       - 'apps/client/scripts/verify-guided-speaking-invariants.mjs'
       - 'apps/client/features/professional/ProfessionalListeningRoute.tsx'
       - 'apps/client/scripts/verify-professional-listening.mjs'
+      - 'apps/client/features/speaking/screens/RoleplayConversationScreen.tsx'
+      - 'apps/client/features/speaking/components/VoiceConversationExperience.tsx'
+      - 'apps/client/scripts/verify-voice-conversation-ui.mjs'
   pull_request:
     branches:
       - integration/build47-source-candidate-20260927
+      - docs/build47-device-uat-readiness-20260927
     paths:
       - '.github/workflows/build47-uat-web-artifact.yml'
       - 'docs/agents/BUILD47_PROGRESSIVE_LEARNING_UAT_20260927.md'
@@ -21,6 +26,9 @@ on:
       - 'apps/client/scripts/verify-guided-speaking-invariants.mjs'
       - 'apps/client/features/professional/ProfessionalListeningRoute.tsx'
       - 'apps/client/scripts/verify-professional-listening.mjs'
+      - 'apps/client/features/speaking/screens/RoleplayConversationScreen.tsx'
+      - 'apps/client/features/speaking/components/VoiceConversationExperience.tsx'
+      - 'apps/client/scripts/verify-voice-conversation-ui.mjs'
 
 jobs:
   export-web:
@@ -111,6 +119,16 @@ jobs:
           echo "CHROME_PATH=$CHROME_PATH" >> "$GITHUB_ENV"
       - name: Start exact exported app
         run: |
+          python3 - <<'PY'
+          import wave
+          rate = 16000
+          seconds = 3
+          with wave.open('/tmp/kielivalmis-build47-uat-web/uat-tone.wav', 'wb') as wav:
+              wav.setnchannels(1)
+              wav.setsampwidth(2)
+              wav.setframerate(rate)
+              wav.writeframes(b'\x00\x00' * rate * seconds)
+          PY
           cat >/tmp/build47-static-server.py <<'PY'
           import os
           from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
@@ -278,6 +296,127 @@ jobs:
               });
               return;
             }
+            if (path === '/api/v1/roleplay/session/start') {
+              await route.fulfill({
+                status: 200,
+                contentType: 'application/json',
+                body: JSON.stringify(envelope({
+                  sessionId: 'uat-roleplay-session',
+                  profession: 'general',
+                  levelBand: 'B1-B2',
+                  track: 'general',
+                  roleplayMode: 'workplace',
+                  scenarioPool: ['uat-daily-conversation'],
+                  selectionReason: 'unused_pool',
+                  scenario: {
+                    id: 'uat-daily-conversation',
+                    title: 'Daily Conversation',
+                    prompt: 'Respond naturally to the guide.',
+                    keyPhrases: ['Hyvää huomenta', 'Kiitos'],
+                    grammarTip: 'Keep the response natural.',
+                    levelBand: 'B1-B2',
+                    profession: 'general',
+                    track: 'general',
+                    roleplayMode: 'workplace',
+                    personaName: 'KLYMis Guide',
+                  },
+                  introText: 'A short daily conversation.',
+                  openingText: 'Good morning. How are you today?',
+                  voiceProfile: 'yki_standard_female',
+                  personaName: 'KLYMis Guide',
+                  maxUserTurns: 1,
+                }, 'roleplay-start-uat')),
+              });
+              return;
+            }
+            if (path === '/api/v1/voice/tts/requests') {
+              await route.fulfill({
+                status: 200,
+                contentType: 'application/json',
+                body: JSON.stringify(envelope({
+                  audio: {
+                    url: 'http://127.0.0.1:8765/uat-tone.wav',
+                    duration_seconds: 3,
+                    provider: 'uat',
+                    replayable: true,
+                    voice_profile: 'yki_standard_female',
+                  },
+                  cache_key: 'uat-tone',
+                  cached: true,
+                  requested_provider: 'uat',
+                }, 'tts-uat')),
+              });
+              return;
+            }
+            if (/^\/api\/v1\/roleplay\/session\/[^/]+\/turn$/.test(path)) {
+              await route.fulfill({
+                status: 200,
+                contentType: 'application/json',
+                body: JSON.stringify(envelope({
+                  sessionId: 'uat-roleplay-session',
+                  completed: true,
+                  currentUserTurn: 1,
+                  aiText: 'That’s great. Let’s continue.',
+                  personaName: 'KLYMis Guide',
+                  voiceProfile: 'yki_standard_female',
+                  feedbackLine: null,
+                  missingPhrases: [],
+                  score: {
+                    coverage: 3,
+                    clarity: 3,
+                    repairLanguage: 0,
+                    structure: 3,
+                    wordCount: 5,
+                    total: 9,
+                  },
+                }, 'roleplay-turn-uat')),
+              });
+              return;
+            }
+            if (/^\/api\/v1\/roleplay\/session\/[^/]+\/finish$/.test(path)) {
+              await route.fulfill({
+                status: 200,
+                contentType: 'application/json',
+                body: JSON.stringify(envelope({
+                  sessionId: 'uat-roleplay-session',
+                  completed: true,
+                  personaName: 'KLYMis Guide',
+                  track: 'general',
+                  trackLabel: 'Daily Conversation',
+                  levelBand: 'B1-B2',
+                  scenario: {
+                    id: 'uat-daily-conversation',
+                    title: 'Daily Conversation',
+                    prompt: 'Respond naturally to the guide.',
+                    keyPhrases: ['Hyvää huomenta', 'Kiitos'],
+                    grammarTip: 'Keep the response natural.',
+                    levelBand: 'B1-B2',
+                    profession: 'general',
+                    track: 'general',
+                    roleplayMode: 'workplace',
+                    personaName: 'KLYMis Guide',
+                  },
+                  summary: 'You completed the conversation clearly.',
+                  scores: {
+                    avgPhrasesCoverage: 3,
+                    avgWordCount: 5,
+                    repairLanguageUsed: false,
+                    totalTurns: 1,
+                  },
+                  transcriptAnnotated: [
+                    { speaker: 'AI', text: 'Good morning. How are you today?', comment: null },
+                    { speaker: 'USER', text: 'I’m fine, thank you.', comment: null },
+                    { speaker: 'AI', text: 'That’s great. Let’s continue.', comment: null },
+                  ],
+                  strongPhrases: ['I’m fine, thank you.'],
+                  difficultPhrases: [],
+                  grammarObservations: [],
+                  nextSteps: ['Continue to the next conversation.'],
+                  nextAction: 'Continue',
+                }, 'roleplay-finish-uat')),
+              });
+              return;
+            }
             if (path === '/api/v1/tracking/event') {
               await route.fulfill({
                 status: 200,
@@ -408,24 +547,136 @@ jobs:
             await page.close();
           }
 
-          await capture('04-cards-level-gate', '/cards/', ['A1', 'B1', 'C1', 'Start this level']);
+          {
+            const page = await context.newPage();
+            const pageErrors = [];
+            const consoleErrors = [];
+            page.on('pageerror', (error) => pageErrors.push(String(error)));
+            page.on('console', (message) => {
+              if (message.type() === 'error') consoleErrors.push(message.text());
+            });
+
+            const response = await page.goto(`${appOrigin}/speaking/`, {
+              waitUntil: 'domcontentloaded',
+              timeout: 30000,
+            });
+            await page.waitForTimeout(2200);
+            await page.getByText('Scenario practice').first().click();
+            await page.waitForTimeout(750);
+
+            let body = await page.locator('body').innerText();
+            let screenshot = `${out}/04-voice-conversation-ai-turn.png`;
+            await page.screenshot({ path: screenshot, fullPage: true });
+            let missing = ['Daily Conversation', 'KLYMis Guide'].filter(
+              (text) => !body.toLowerCase().includes(text.toLowerCase()),
+            );
+            if (await page.locator('[data-testid="voice-orb"]').count() !== 1) {
+              missing.push('voice orb');
+            }
+            report.push({
+              name: '04-voice-conversation-ai-turn',
+              path: '/speaking/ → Scenario practice',
+              status: response?.status() ?? null,
+              missing,
+              pageErrors: [...pageErrors],
+              consoleErrors: [...consoleErrors],
+              requests: [],
+              bodyPreview: body.slice(0, 2200),
+              screenshot,
+            });
+
+            await page.waitForTimeout(3300);
+            body = await page.locator('body').innerText();
+            screenshot = `${out}/05-voice-conversation-user-turn.png`;
+            await page.screenshot({ path: screenshot, fullPage: true });
+            missing = ['You', 'Swipe up to speak or type'].filter(
+              (text) => !body.toLowerCase().includes(text.toLowerCase()),
+            );
+            report.push({
+              name: '05-voice-conversation-user-turn',
+              path: '/speaking/ → Scenario practice → learner turn',
+              status: response?.status() ?? null,
+              missing,
+              pageErrors: [...pageErrors],
+              consoleErrors: [...consoleErrors],
+              requests: [],
+              bodyPreview: body.slice(0, 2200),
+              screenshot,
+            });
+
+            await page.getByRole('button', { name: /show conversation controls/i }).click();
+            await page.getByLabel('Type your speaking-practice response').focus();
+            await page.waitForTimeout(350);
+            body = await page.locator('body').innerText();
+            screenshot = `${out}/06-text-only-no-orb.png`;
+            await page.screenshot({ path: screenshot, fullPage: true });
+            missing = [];
+            if (await page.locator('[data-testid="voice-orb"]').count() !== 0) {
+              missing.push('orb must be absent in text mode');
+            }
+            if (!body.toLowerCase().includes('voice')) {
+              missing.push('voice return control');
+            }
+            report.push({
+              name: '06-text-only-no-orb',
+              path: '/speaking/ → controls → text mode',
+              status: response?.status() ?? null,
+              missing,
+              pageErrors: [...pageErrors],
+              consoleErrors: [...consoleErrors],
+              requests: [],
+              bodyPreview: body.slice(0, 2200),
+              screenshot,
+            });
+
+            await page.getByLabel('Type your speaking-practice response').fill("I'm fine, thank you.");
+            await page.getByRole('button', { name: /^Voice$/i }).click();
+            await page.waitForTimeout(150);
+            await page.getByRole('button', { name: /send typed response/i }).click();
+            await page.waitForTimeout(4000);
+
+            body = await page.locator('body').innerText();
+            screenshot = `${out}/07-conversation-complete.png`;
+            await page.screenshot({ path: screenshot, fullPage: true });
+            missing = ['Conversation complete', 'Replay', 'Transcript', 'Previous', 'Next'].filter(
+              (text) => !body.toLowerCase().includes(text.toLowerCase()),
+            );
+            if (await page.locator('[data-testid="voice-orb"]').count() !== 1) {
+              missing.push('completion orb');
+            }
+            report.push({
+              name: '07-conversation-complete',
+              path: '/speaking/ → completed conversation',
+              status: response?.status() ?? null,
+              missing,
+              pageErrors: [...pageErrors],
+              consoleErrors: [...consoleErrors],
+              requests: [],
+              bodyPreview: body.slice(0, 2200),
+              screenshot,
+            });
+
+            await page.close();
+          }
+
+          await capture('08-cards-level-gate', '/cards/', ['A1', 'B1', 'C1', 'Start this level']);
           await capture(
-            '05-professional-mission',
+            '09-professional-mission',
             '/professional/',
             ['Current mission', 'Start mission · Listen', 'Mission path'],
           );
           await capture(
-            '06-professional-listening',
+            '10-professional-listening',
             '/professional/listening?taskId=mission.doctor-follow-up-explanation.listening',
             ['Mission · Listen', 'Hear the workplace message', 'Use transcript support'],
           );
           await capture(
-            '07-everyday-reading',
+            '11-everyday-reading',
             '/learn/reading',
             ['KieliValmis Reading', 'Arjen lukeminen', 'Aloita kysymykset'],
           );
           await capture(
-            '08-everyday-writing',
+            '12-everyday-writing',
             '/learn/writing',
             ['Choose a task', 'Understand', 'Plan my message'],
           );
