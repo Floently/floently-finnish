@@ -2449,10 +2449,19 @@ def _build_review(*, user_id: str, session_id: str) -> dict[str, Any]:
         }
 
 
-def list_scenarios(*, profession: str = "general", level_band: str = "B1-B2") -> list[dict[str, Any]]:
+def list_scenarios(
+    *,
+    profession: str = "general",
+    level_band: str = "B1-B2",
+    roleplay_mode: str | None = None,
+) -> list[dict[str, Any]]:
     profession = _normalize_profession(profession)
     band = _normalize_level(level_band)
-    return [_scenario_payload(spec, band) for spec in (_ROLEPLAY_REGISTRY.get(profession) or _ROLEPLAY_REGISTRY["general"])]
+    specs = _ROLEPLAY_REGISTRY.get(profession) or _ROLEPLAY_REGISTRY["general"]
+    if roleplay_mode is not None:
+        mode = _normalize_roleplay_mode(roleplay_mode)
+        specs = tuple(spec for spec in specs if spec.roleplay_mode == mode)
+    return [_scenario_payload(spec, band) for spec in specs]
 
 
 
@@ -2521,14 +2530,22 @@ def start_session(
     *,
     profession: str,
     level_band: str,
-    roleplay_mode: str,
+    roleplay_mode: str | None = None,
     scenario_id: str | None = None,
     context_label: str | None = None,
     rotation_user_key: str | None = None,
 ) -> dict[str, Any]:
     normalized_profession = _normalize_profession(profession)
     band = _normalize_level(level_band)
-    mode = _normalize_roleplay_mode(roleplay_mode)
+    explicit_spec = _SCENARIO_BY_ID.get(str(scenario_id or "").strip())
+    if roleplay_mode is not None:
+        mode = _normalize_roleplay_mode(roleplay_mode)
+    elif explicit_spec and explicit_spec.profession == normalized_profession:
+        # Compatibility for already-shipped clients that send a stable scenario ID.
+        mode = explicit_spec.roleplay_mode
+    else:
+        # Compatibility only. New clients always send an explicit non-localized mode.
+        mode = "everyday" if normalized_profession == "general" else "professional"
     rotation_key = rotation_user_key or "preview"
     spec, scenario_pool, selection_reason = select_roleplay_scenario(
         user_key=rotation_key,
