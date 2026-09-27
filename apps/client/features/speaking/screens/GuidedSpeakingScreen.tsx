@@ -1,5 +1,5 @@
 import React, { useEffect, useMemo, useState } from 'react';
-import { Pressable, SafeAreaView, ScrollView, StyleSheet, Text, View } from 'react-native';
+import { Pressable, SafeAreaView, ScrollView, StyleSheet, Text, TextInput, View } from 'react-native';
 
 import type { RoleplayLevelBand, RoleplayProfession } from '@core/api/roleplay';
 import { getFloentlyPalette } from '@ui/theme/floentlyPalette';
@@ -53,6 +53,7 @@ export default function GuidedSpeakingScreen({
     () => new Set(),
   );
   const [transcript, setTranscript] = useState<string | null>(null);
+  const [typedFallback, setTypedFallback] = useState('');
   const [attempted, setAttempted] = useState(false);
   const [ttsPlaying, setTtsPlaying] = useState(false);
   const [ttsUnavailable, setTtsUnavailable] = useState(false);
@@ -60,15 +61,17 @@ export default function GuidedSpeakingScreen({
   const stage = stages[stageIndex];
   const stageCompleted = completedStageIds.has(stage.id);
   const canAdvance =
-    (attempted || stageCompleted) &&
+    (attempted || stageCompleted || typedFallback.trim().length > 0) &&
     !recorder.isRecording &&
-    recorder.phase !== 'uploading';
+    recorder.phase !== 'uploading' &&
+    !ttsPlaying;
 
   useEffect(() => {
     setStageIndex(0);
     setMaxUnlockedIndex(0);
-    setCompletedStageIds(new Set());
+    setCompletedStageIds(new Set<string>());
     setTranscript(null);
+    setTypedFallback('');
     setAttempted(false);
     setTtsUnavailable(false);
     void recorder.cancelRecording();
@@ -99,6 +102,7 @@ export default function GuidedSpeakingScreen({
     }
 
     setTtsUnavailable(false);
+    setTtsPlaying(true);
     const played = await speakRoleplayText({
       text: stage.modelFi,
       voiceProfile: guidedSpeakingVoiceProfile(profession),
@@ -135,9 +139,16 @@ export default function GuidedSpeakingScreen({
   }
 
   function openStage(index: number) {
-    if (index > maxUnlockedIndex) return;
+    if (
+      index > maxUnlockedIndex ||
+      recorder.isRecording ||
+      recorder.phase === 'uploading' ||
+      ttsPlaying
+    ) return;
+    void stopRoleplayAudioPlayback();
     setStageIndex(index);
     setTranscript(null);
+    setTypedFallback('');
     setAttempted(completedStageIds.has(stages[index].id));
     setTtsUnavailable(false);
   }
@@ -157,9 +168,11 @@ export default function GuidedSpeakingScreen({
     }
 
     const nextIndex = stageIndex + 1;
+    void stopRoleplayAudioPlayback();
     setMaxUnlockedIndex((current) => Math.max(current, nextIndex));
     setStageIndex(nextIndex);
     setTranscript(null);
+    setTypedFallback('');
     setAttempted(false);
     setTtsUnavailable(false);
   }
@@ -211,14 +224,19 @@ export default function GuidedSpeakingScreen({
               const unlocked = index <= maxUnlockedIndex;
               const active = index === stageIndex;
               const complete = completedStageIds.has(item.id);
+              const stageNavigationDisabled =
+                !unlocked ||
+                recorder.isRecording ||
+                recorder.phase === 'uploading' ||
+                ttsPlaying;
               return (
                 <Pressable
                   key={item.id}
-                  disabled={!unlocked}
+                  disabled={stageNavigationDisabled}
                   onPress={() => openStage(index)}
                   accessibilityRole="button"
                   accessibilityState={{
-                    disabled: !unlocked,
+                    disabled: stageNavigationDisabled,
                     selected: active,
                   }}
                   style={[
@@ -254,6 +272,7 @@ export default function GuidedSpeakingScreen({
                     accessibilityRole="button"
                     accessibilityState={{ selected }}
                     onPress={() => onLevelBandChange(band)}
+                    disabled={recorder.isRecording || recorder.phase === 'uploading' || ttsPlaying}
                     style={[
                       styles.levelPill,
                       { backgroundColor: raised, borderColor: border },
@@ -348,11 +367,21 @@ export default function GuidedSpeakingScreen({
             {recorder.error ? (
               <View accessibilityRole="alert" style={[styles.errorBox, { borderColor: '#FF8B8B' }]}>
                 <Text style={styles.errorText}>{recorder.error}</Text>
-                {attempted ? (
-                  <Text style={[styles.supportNote, { color: muted }]}>
-                    Yritys on tallennettu harjoitteluksi. Voit yrittää uudelleen tai jatkaa seuraavaan vaiheeseen.
-                  </Text>
-                ) : null}
+                <Text style={[styles.supportNote, { color: muted }]}>
+                  Voit yrittää puhumista uudelleen. Jos puheentunnistus ei ole käytettävissä, kirjoita harjoittelemasi vastaus alle, jotta etenemisesi ei esty.
+                </Text>
+                <TextInput
+                  value={typedFallback}
+                  onChangeText={setTypedFallback}
+                  placeholder={t('ykiRouteAnswerPlaceholder')}
+                  placeholderTextColor={soft}
+                  multiline
+                  accessibilityLabel={t('ykiRouteAnswerPlaceholder')}
+                  style={[
+                    styles.fallbackInput,
+                    { backgroundColor: raised, borderColor: border, color: text },
+                  ]}
+                />
               </View>
             ) : null}
           </View>
@@ -458,6 +487,16 @@ const styles = StyleSheet.create({
   transcriptText: { flex: 1, fontSize: 14, lineHeight: 21 },
   errorBox: { borderRadius: 14, borderWidth: 1, padding: 12, gap: 6 },
   errorText: { color: '#FF8B8B', fontSize: 12, lineHeight: 18, fontWeight: '700' },
+  fallbackInput: {
+    minHeight: 82,
+    borderRadius: 12,
+    borderWidth: 1,
+    paddingHorizontal: 12,
+    paddingVertical: 10,
+    fontSize: 14,
+    lineHeight: 20,
+    textAlignVertical: 'top',
+  },
   nextCard: { borderRadius: 22, borderWidth: 1, padding: 16, gap: 14 },
   nextCopy: { gap: 4 },
   nextTitle: { fontSize: 17, lineHeight: 23, fontWeight: '800' },
