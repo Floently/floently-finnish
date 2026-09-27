@@ -133,9 +133,30 @@ class PasswordResetDeliveryTests(unittest.TestCase):
         self.assertEqual(payload["status"], "ready")
         self.assertTrue(payload["ready"])
         self.assertEqual(payload["provider"], "smtp")
+        self.assertEqual(payload["verification"], "configuration")
         response_text = response.body.decode("utf-8")
         self.assertNotIn("example-user", response_text)
         self.assertNotIn("example-value", response_text)
+
+    def test_unknown_account_keeps_same_neutral_response_without_delivery(self) -> None:
+        with patch(
+            "app.services.auth_service._check_and_increment_rate_limit",
+            return_value=True,
+        ), patch(
+            "app.services.auth_service._load_user_by_email",
+            return_value=None,
+        ), patch(
+            "app.services.auth_service.send_password_reset_email",
+        ) as delivery, patch(
+            "app.services.auth_service._persist_auth_state",
+        ):
+            result = request_password_reset(
+                email="unknown@example.invalid",
+                request_ip="127.0.0.1",
+            )
+
+        self.assertEqual(result, {"message": PASSWORD_RESET_NEUTRAL_MESSAGE})
+        delivery.assert_not_called()
 
     def test_reset_request_stays_neutral_when_delivery_is_unavailable(self) -> None:
         with patch(
