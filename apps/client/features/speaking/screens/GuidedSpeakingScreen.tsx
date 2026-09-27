@@ -470,7 +470,7 @@ const styles = StyleSheet.create({
   stageBadge: { borderRadius: 999, paddingHorizontal: 9, paddingVertical: 5 },
   stageBadgeText: { fontSize: 11, fontWeight: '900' },
   wordRange: { fontSize: 11, fontWeight: '700' },
-  modelText: { fontSize: 21, lineHeight: 30, fontWeight: '750' },
+  modelText: { fontSize: 21, lineHeight: 30, fontWeight: '700' },
   listenButton: { minHeight: 46, borderRadius: 14, borderWidth: 1, paddingHorizontal: 14, alignSelf: 'flex-start', alignItems: 'center', justifyContent: 'center' },
   listenButtonText: { fontSize: 13, fontWeight: '900' },
   supportNote: { fontSize: 12, lineHeight: 18 },
