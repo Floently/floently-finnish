@@ -103,6 +103,24 @@ requireText(
 
 requireText(
   sidebar,
+  "activity: 'everyday-recorded'",
+  'existing Everyday recorded speaking must remain reachable from the Speaking branch',
+);
+
+requireText(
+  sidebar,
+  "activity: 'professional-recorded'",
+  'existing Professional recorded speaking must remain reachable from the Speaking branch',
+);
+
+requireText(
+  sidebar,
+  "activity: 'professional-incident-lab'",
+  'the existing Workplace Incident Lab must remain reachable from the Professional branch',
+);
+
+requireText(
+  sidebar,
   "navigateTo('daily-practice')",
   'the existing Practice hub must be reachable from the drawer',
 );
@@ -306,6 +324,8 @@ console.log('PASS: drawer leaf shortcuts execute only after entitlement checks.'
 console.log('PASS: Practice and Help remain reachable from the drawer.');
 console.log('PASS: Everyday and Professional Speaking are progressive branches.');
 console.log('PASS: structured Professional interview remains reachable.');
+console.log('PASS: existing recorded speaking remains reachable in Everyday and Professional branches.');
+console.log('PASS: existing Workplace Incident Lab remains reachable through the guarded Professional branch.');
 console.log('PASS: drawer controls preserve mobile-friendly touch targets.');
 console.log('PASS: current pathway can reopen its drawer branch.');
 console.log('PASS: localhost behavior is development-only.');
