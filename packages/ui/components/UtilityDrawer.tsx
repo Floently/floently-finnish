@@ -351,9 +351,9 @@ const styles = StyleSheet.create({
   },
   clockText: { color: '#FFFFFF', fontSize: 12, fontWeight: '700' },
   closeBtn: {
-    width: 34,
-    height: 34,
-    borderRadius: 17,
+    width: 44,
+    height: 44,
+    borderRadius: 22,
     backgroundColor: 'rgba(255,255,255,0.16)',
     alignItems: 'center',
     justifyContent: 'center',
@@ -413,6 +413,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 6,
   },
   navItem: {
+    minHeight: 52,
     flexDirection: 'row',
     alignItems: 'center',
     gap: 10,
@@ -430,8 +431,8 @@ const styles = StyleSheet.create({
     paddingLeft: 2,
   },
   branchChevron: {
-    width: 28,
-    minHeight: 28,
+    width: 44,
+    minHeight: 44,
     alignItems: 'center',
     justifyContent: 'center',
   },
