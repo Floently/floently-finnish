@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import {
   ActivityIndicator,
   Pressable,
@@ -11,11 +11,13 @@ import {
 import { router, useLocalSearchParams } from 'expo-router';
 import { getFloentlyPalette } from '@ui/theme/floentlyPalette';
 import { usePreferencesStore } from '../../../state/preferencesStore';
+import { useCardLevelPreferenceStore } from '../../../state/cardLevelPreferenceStore';
 import { useTranslator } from '../../i18n';
 import { CardBanksPanel } from './CardBanksPanel';
+import { CardLevelGate } from './CardLevelGate';
 import { CardModeTabs } from './CardModeTabs';
 import { useCardPractice } from '../hooks/useCardPractice';
-import type { CardDeckScope, CardMode, RuntimeCard } from '../types';
+import type { CardDeckScope, CardLevelBand, CardMode, RuntimeCard } from '../types';
 
 const COLORS = {
   backgroundTop: '#F4F7FB',
@@ -65,6 +67,21 @@ function parseScope(params: ReturnType<typeof useLocalSearchParams>): CardDeckSc
   const level = typeof params.level === 'string' ? params.level : null;
   const source = typeof params.source === 'string' ? params.source : null;
   return { domain, profession: profession as CardDeckScope['profession'], level, adaptive: true, source };
+}
+
+function normalizeCardLevelBand(value: string | null | undefined): CardLevelBand | null {
+  if (!value) return null;
+  const normalized = value.toUpperCase().replace(/-/g, '_');
+  if (normalized === 'A1' || normalized === 'A2' || normalized === 'A1_A2') return 'A1_A2';
+  if (normalized === 'B1' || normalized === 'B2' || normalized === 'B1_B2') return 'B1_B2';
+  if (normalized === 'C1' || normalized === 'C2' || normalized === 'C1_C2') return 'C1_C2';
+  return null;
+}
+
+function cardLevelLabel(level: CardLevelBand): string {
+  if (level === 'A1_A2') return 'A1–A2';
+  if (level === 'B1_B2') return 'B1–B2';
+  return 'C1–C2';
 }
 
 
@@ -235,14 +252,46 @@ export function CardPracticeSession() {
   const paramProfession = typeof params.profession === 'string' ? params.profession : '';
   const paramLevel = typeof params.level === 'string' ? params.level : '';
   const paramSource = typeof params.source === 'string' ? params.source : '';
+  const cardDomain = paramDomain === 'professional' ? 'professional' : 'general';
+  const levelContextKey = `${cardDomain}:${paramProfession || 'none'}`;
+  const routeLevel = normalizeCardLevelBand(paramLevel);
+
+  const cardLevelPreferencesHydrated = useCardLevelPreferenceStore((state) => state.hasHydrated);
+  const rememberedLevels = useCardLevelPreferenceStore((state) => state.byContext);
+  const hydrateCardLevelPreferences = useCardLevelPreferenceStore((state) => state.hydrate);
+  const rememberCardLevel = useCardLevelPreferenceStore((state) => state.rememberLevel);
+  const [selectedLevel, setSelectedLevel] = useState<CardLevelBand>(() => routeLevel ?? 'A1_A2');
+  const [confirmedLevel, setConfirmedLevel] = useState<CardLevelBand | null>(null);
+  const [levelChoiceTouched, setLevelChoiceTouched] = useState(false);
+
+  useEffect(() => {
+    void hydrateCardLevelPreferences();
+  }, [hydrateCardLevelPreferences]);
+
+  useEffect(() => {
+    setConfirmedLevel(null);
+    setLevelChoiceTouched(false);
+  }, [levelContextKey, paramLevel]);
+
+  useEffect(() => {
+    if (!cardLevelPreferencesHydrated || levelChoiceTouched || confirmedLevel) return;
+    setSelectedLevel(routeLevel ?? rememberedLevels[levelContextKey] ?? 'A1_A2');
+  }, [
+    cardLevelPreferencesHydrated,
+    confirmedLevel,
+    levelChoiceTouched,
+    levelContextKey,
+    rememberedLevels,
+    routeLevel,
+  ]);
 
   const scope = useMemo<CardDeckScope>(() => ({
-    domain: paramDomain === 'professional' ? 'professional' : 'general',
+    domain: cardDomain,
     profession: (paramProfession || null) as CardDeckScope['profession'],
-    level: paramLevel || null,
+    level: confirmedLevel,
     adaptive: true,
     source: paramSource || null,
-  }), [paramDomain, paramProfession, paramLevel, paramSource]);
+  }), [cardDomain, confirmedLevel, paramProfession, paramSource]);
   const {
     displayedCard,
     loading,
@@ -271,7 +320,7 @@ export function CardPracticeSession() {
     currentLabel,
     flagCurrent,
     flagged,
-  } = useCardPractice(mode, scope);
+  } = useCardPractice(mode, scope, confirmedLevel !== null);
 
   const cardTone = toneColor(displayedCard ?? null);
   const header = mode === 'phrases'
@@ -297,6 +346,48 @@ export function CardPracticeSession() {
     }
   };
 
+  const changeMode = (nextMode: CardMode) => {
+    if (nextMode === mode) return;
+    setMode(nextMode);
+    setConfirmedLevel(null);
+    setBanksVisible(false);
+    setReportPanelVisible(false);
+  };
+
+  const chooseLevel = (nextLevel: CardLevelBand) => {
+    setLevelChoiceTouched(true);
+    setSelectedLevel(nextLevel);
+  };
+
+  const confirmLevel = () => {
+    setConfirmedLevel(selectedLevel);
+    void rememberCardLevel(levelContextKey, selectedLevel);
+  };
+
+  if (!confirmedLevel) {
+    return (
+      <View style={[styles.screen, { backgroundColor: isDark ? palette.background : COLORS.backgroundTop }]}>
+        <View style={[styles.backgroundGlowOne, isDark && { backgroundColor: 'rgba(30,50,90,0.35)' }]} />
+        <View style={[styles.backgroundGlowTwo, isDark && { backgroundColor: 'rgba(20,40,80,0.30)' }]} />
+        <View style={styles.waveOne} />
+        <View style={styles.waveTwo} />
+        <CardModeTabs value={mode} onChange={changeMode} />
+        <ScrollView
+          style={styles.practiceScroll}
+          contentContainerStyle={styles.levelGateScrollContent}
+          showsVerticalScrollIndicator={false}
+        >
+          <CardLevelGate
+            mode={mode}
+            value={selectedLevel}
+            onChange={chooseLevel}
+            onConfirm={confirmLevel}
+          />
+        </ScrollView>
+      </View>
+    );
+  }
+
   return (
     <View style={[styles.screen, { backgroundColor: isDark ? palette.background : COLORS.backgroundTop }]}>
       <View style={[styles.backgroundGlowOne, isDark && { backgroundColor: 'rgba(30,50,90,0.35)' }]} />
@@ -309,13 +400,13 @@ export function CardPracticeSession() {
 
 
 
-      <CardModeTabs value={mode} onChange={(nextMode) => setMode(nextMode)} />
+      <CardModeTabs value={mode} onChange={changeMode} />
 
       <View style={styles.headerRow}>
         <Pressable onPress={recallBack} style={[styles.recallButton, isDark && { backgroundColor: palette.surfaceRaised, borderColor: palette.border }]}>
           <Text style={[styles.recallText, isDark && { color: palette.textMuted }]}>{t('cardsRecallBack')}</Text>
         </Pressable>
-        <Text style={[styles.headerTitle, { color: isDark ? palette.textSoft : '#5E789F' }]}>{header}</Text>
+        <Text style={[styles.headerTitle, { color: isDark ? palette.textSoft : '#5E789F' }]}>{header} · {cardLevelLabel(confirmedLevel)}</Text>
         <Pressable onPress={recallForward} style={[styles.recallButton, isDark && { backgroundColor: palette.surfaceRaised, borderColor: palette.border }]}>
           <Text style={[styles.recallText, isDark && { color: palette.textMuted }]}>{t('cardsRecallForward')}</Text>
         </Pressable>
@@ -528,7 +619,7 @@ export function CardPracticeSession() {
           <Text style={[styles.bankButtonText, isDark && { color: palette.textMuted }]}>{t('cardsReviewBanks')}</Text>
         </Pressable>
         <Pressable
-          onPress={sessionCompleted ? refresh : () => router.back()}
+          onPress={sessionCompleted ? () => setConfirmedLevel(null) : () => router.back()}
           style={[styles.endSessionButton, isDark && { backgroundColor: palette.surfaceRaised, borderColor: palette.border }]}
         >
           <Text style={[styles.endSessionText, isDark && { color: palette.textMuted }]}>
@@ -543,6 +634,7 @@ export function CardPracticeSession() {
 
 const styles = StyleSheet.create({
   practiceScroll: { flex: 1, width: '100%' },
+  levelGateScrollContent: { flexGrow: 1, justifyContent: 'center', paddingHorizontal: 18, paddingVertical: 24 },
   practiceScrollContent: { paddingBottom: 130, alignItems: 'center', flexGrow: 1 },
   screen: {
     flex: 1,
