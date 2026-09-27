@@ -15,6 +15,10 @@ const screen = read('features/speaking/screens/RoleplayConversationScreen.tsx');
 const experience = read('features/speaking/components/VoiceConversationExperience.tsx');
 const recorder = read('features/speaking/hooks/useRoleplayRecorder.ts');
 const packageJson = JSON.parse(read('package.json'));
+const designSpec = fs.readFileSync(
+  path.join(clientRoot, '..', '..', 'docs', 'design', 'KLYMIS_SPEAKING_VOICE_CONVERSATION_UI.md'),
+  'utf8',
+);
 
 assert.ok(
   screen.includes('<VoiceConversationExperience'),
@@ -112,3 +116,19 @@ console.log('VOICE_UI_TEXT_MODE_NO_ORB=PASS');
 console.log('VOICE_UI_REDUCED_MOTION=PASS');
 console.log('VOICE_UI_CANONICAL_AUDIO_PATH=PASS');
 console.log('VOICE_CONVERSATION_UI_INVARIANTS=PASS');
+
+
+for (const requiredDesignRule of [
+  'Main live Roleplay surface contains no chat bubbles.',
+  'Text-only mode removes the orb.',
+  'Swipe-up or contextual control reveals the microphone/text tray.',
+  'Reduce Motion removes perspective/large movement.',
+  'Existing recorder/STT/TTS authority remains unchanged.',
+]) {
+  assert.ok(
+    designSpec.includes(requiredDesignRule),
+    `voice UI design authority is missing rule: ${requiredDesignRule}`,
+  );
+}
+
+console.log('VOICE_UI_DESIGN_AUTHORITY=PASS');
