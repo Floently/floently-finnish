@@ -62,15 +62,6 @@ function scenarioCardsForProfession(profession: RoleplayProfession, t: ReturnTyp
   }
 }
 
-function defaultInterviewScenario(profession: RoleplayProfession): string | null {
-  switch (profession) {
-    case 'doctor': return 'doctor_patient_interview';
-    case 'nurse': return 'nurse_interview_beta';
-    case 'practical_nurse': return 'practical_nurse_interview';
-    default: return null;
-  }
-}
-
 export default function SpeakingRoute({ onBack, onOpenMenu, initialLevelBand = 'B1-B2', initialSurface = 'menu', initialProfession = 'general', initialScenarioId = null, lockProfession = false, entryMode = 'workplace', roleplayMode, contextLabel }: Props) {
   const { t } = useTranslator();
   const subscriptionStatus = useSubscriptionStore((s) => s.status);
@@ -211,7 +202,6 @@ export default function SpeakingRoute({ onBack, onOpenMenu, initialLevelBand = '
         levelBand={levelBand}
         scenarioId={scenarioId}
         onBack={() => setSurface('menu')}
-        entryMode={entryMode}
         roleplayMode={resolvedRoleplayMode}
         contextLabel={contextLabel}
       />
