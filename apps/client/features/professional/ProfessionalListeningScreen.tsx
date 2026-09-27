@@ -349,7 +349,7 @@ const styles = StyleSheet.create({
   card: { borderWidth: 1, borderRadius: 24, padding: 18, gap: 14 },
   cardLabel: { fontSize: 12, fontWeight: '900', letterSpacing: 0.5, textTransform: 'uppercase' },
   cardTitle: { fontSize: 21, lineHeight: 28, fontWeight: '800' },
-  goalText: { fontSize: 15, lineHeight: 23, fontWeight: '650' },
+  goalText: { fontSize: 15, lineHeight: 23, fontWeight: '600' },
   helpText: { fontSize: 14, lineHeight: 21 },
   primaryButton: { minHeight: 52, borderRadius: 999, alignItems: 'center', justifyContent: 'center', paddingHorizontal: 18 },
   primaryButtonText: { color: '#FFFFFF', fontSize: 15, fontWeight: '900', textAlign: 'center' },
@@ -367,7 +367,7 @@ const styles = StyleSheet.create({
   optionList: { gap: 10 },
   option: { minHeight: 52, borderWidth: 1, borderRadius: 16, paddingHorizontal: 15, paddingVertical: 13, justifyContent: 'center' },
   optionText: { fontSize: 15, lineHeight: 22, fontWeight: '700' },
-  feedbackText: { fontSize: 16, lineHeight: 24, fontWeight: '650' },
+  feedbackText: { fontSize: 16, lineHeight: 24, fontWeight: '600' },
   safetyCard: { borderWidth: 1, borderRadius: 18, padding: 16, gap: 8 },
   safetyTitle: { fontSize: 15, fontWeight: '800' },
 });
