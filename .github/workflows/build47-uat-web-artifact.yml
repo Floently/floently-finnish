@@ -336,8 +336,42 @@ jobs:
           await capture(
             '01-speaking-menu',
             '/speaking/',
-            ['Guided practice', 'Etene vaihe kerrallaan', 'Roleplay'],
+            ['Guided practice', 'Etene vaihe kerrallaan', 'Scenario practice'],
           );
+
+          {
+            const page = await context.newPage();
+            const pageErrors = [];
+            const consoleErrors = [];
+            page.on('pageerror', (error) => pageErrors.push(String(error)));
+            page.on('console', (message) => {
+              if (message.type() === 'error') consoleErrors.push(message.text());
+            });
+            const response = await page.goto(`${appOrigin}/speaking/`, {
+              waitUntil: 'domcontentloaded',
+              timeout: 30000,
+            });
+            await page.waitForTimeout(2400);
+            await page.getByRole('button', { name: /^Menu$/i }).first().click();
+            await page.waitForTimeout(500);
+            const body = await page.locator('body').innerText();
+            const screenshot = `${out}/02-progressive-drawer.png`;
+            await page.screenshot({ path: screenshot, fullPage: true });
+            const expectedTexts = ['Guided practice · Speaking', 'Professional'];
+            const missing = expectedTexts.filter((text) => !body.toLowerCase().includes(text.toLowerCase()));
+            report.push({
+              name: '02-progressive-drawer',
+              path: '/speaking/ → Menu',
+              status: response?.status() ?? null,
+              missing,
+              pageErrors,
+              consoleErrors,
+              requests: [],
+              bodyPreview: body.slice(0, 2200),
+              screenshot,
+            });
+            await page.close();
+          }
 
           {
             const page = await context.newPage();
@@ -356,12 +390,12 @@ jobs:
             await guidedButton.click();
             await page.waitForTimeout(1200);
             const body = await page.locator('body').innerText();
-            const screenshot = `${out}/02-guided-speaking-stage-41.png`;
+            const screenshot = `${out}/03-guided-speaking-stage-41.png`;
             await page.screenshot({ path: screenshot, fullPage: true });
             const expectedTexts = ['Your progress', 'Stage 41', 'History'];
             const missing = expectedTexts.filter((text) => !body.toLowerCase().includes(text.toLowerCase()));
             report.push({
-              name: '02-guided-speaking-stage-41',
+              name: '03-guided-speaking-stage-41',
               path: '/speaking/ → Guided practice',
               status: response?.status() ?? null,
               missing,
@@ -374,24 +408,24 @@ jobs:
             await page.close();
           }
 
-          await capture('03-cards-level-gate', '/cards/', ['A1', 'B1', 'C1', 'Start this level']);
+          await capture('04-cards-level-gate', '/cards/', ['A1', 'B1', 'C1', 'Start this level']);
           await capture(
-            '04-professional-mission',
+            '05-professional-mission',
             '/professional/',
             ['Current mission', 'Start mission · Listen', 'Mission path'],
           );
           await capture(
-            '05-professional-listening',
+            '06-professional-listening',
             '/professional/listening?taskId=mission.doctor-follow-up-explanation.listening',
             ['Mission · Listen', 'Hear the workplace message', 'Use transcript support'],
           );
           await capture(
-            '06-everyday-reading',
+            '07-everyday-reading',
             '/learn/reading',
             ['KieliValmis Reading', 'Arjen lukeminen', 'Aloita kysymykset'],
           );
           await capture(
-            '07-everyday-writing',
+            '08-everyday-writing',
             '/learn/writing',
             ['Choose a task', 'Understand', 'Plan my message'],
           );
