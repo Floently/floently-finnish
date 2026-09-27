@@ -411,6 +411,24 @@ const C2B_SEEDS: LessonSeed[] = [
   expectedMinWords: expectedMinWords as number, expectedMaxWords: expectedMaxWords as number,
 }));
 
+function levelFor(number: number): GuidedSpeakingLevel {
+  let cursor = 0;
+  for (const item of LEVEL_PLAN) {
+    cursor += item.count;
+    if (number <= cursor) return item.level;
+  }
+  return 'C2';
+}
+
+function idFor(number: number): GuidedSpeakingStageId {
+  return `GS-${String(number).padStart(3, '0')}`;
+}
+
+function retrievalFor(number: number): GuidedSpeakingStageId[] {
+  const offsets = number < 8 ? [1, 3] : number < 30 ? [2, 7, 12] : [3, 10, 25];
+  return [...new Set(offsets.map((offset) => number - offset).filter((n) => n > 0).map(idFor))];
+}
+
 export const GUIDED_SPEAKING_CURRICULUM: GuidedSpeakingLesson[] = Array.from({ length: 300 }, (_, index) => {
   const number = index + 1;
   const seed = number <= A1_SEEDS.length ? A1_SEEDS[index] : number <= 50 ? A12_SEEDS[number - 26] : number <= 75 ? A21_SEEDS[number - 51] : number <= 100 ? A22_SEEDS[number - 76] : number <= 125 ? B11_SEEDS[number - 101] : number <= 150 ? B12_SEEDS[number - 126] : number <= 175 ? B21_SEEDS[number - 151] : number <= 200 ? B22_SEEDS[number - 176] : number <= 225 ? C1A_SEEDS[number - 201] : number <= 250 ? C1B_SEEDS[number - 226] : number <= 275 ? C2A_SEEDS[number - 251] : C2B_SEEDS[number - 276];
