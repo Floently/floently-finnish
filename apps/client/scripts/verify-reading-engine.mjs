@@ -6,7 +6,10 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../../..');
-const BASE_SHA = '69813b433838130d5afe4b052360dbfd12df3f40';
+// In the integrated release, unrelated /read work exists after the August
+// Wave-1 base. Guard this Phase-7 tranche against changing that legacy surface
+// by diffing from its exact green integration base instead of rewriting history.
+const PROTECTED_READ_PROTECTED_READ_BASE_SHA = '577a2175c4650d4fd40eb8038eef6b67ca7eaa2c';
 
 function transpileTypeScript(source, fileName) {
   return ts.transpileModule(source, {
@@ -410,7 +413,7 @@ test('/read remains separate from the canonical Reading runtime', () => {
 
   let hasBaseCommit = false;
   try {
-    execFileSync('git', ['rev-parse', '--verify', `${BASE_SHA}^{commit}`], {
+    execFileSync('git', ['rev-parse', '--verify', `${PROTECTED_READ_BASE_SHA}^{commit}`], {
       cwd: ROOT,
       stdio: 'ignore',
     });
@@ -421,7 +424,7 @@ test('/read remains separate from the canonical Reading runtime', () => {
   if (hasBaseCommit) {
     execFileSync(
       'git',
-      ['diff', '--quiet', BASE_SHA, '--', 'apps/client/app/read', 'apps/client/features/read'],
+      ['diff', '--quiet', PROTECTED_READ_BASE_SHA, '--', 'apps/client/app/read', 'apps/client/features/read'],
       { cwd: ROOT },
     );
   }
