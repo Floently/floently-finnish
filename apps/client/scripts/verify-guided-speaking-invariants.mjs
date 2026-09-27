@@ -59,6 +59,10 @@ requireText(curriculum, "{ level: 'C2', count: 50 }", 'C2 must have an explicit 
 requireText(curriculum, 'retrievalStageIds: retrievalFor(number)', 'every curriculum stage must carry deterministic retrieval references');
 requireText(curriculum, "['Tervehdi'", 'Stage 1 must be individually authored rather than generated at runtime');
 requireText(curriculum, "['Ensimmäinen keskustelu'", 'A1.1 Stage 25 must be individually authored and cumulative');
+requireText(curriculum, 'const C2A_SEEDS: LessonSeed[]', 'C2 stages 251-275 must use individually authored lesson records');
+requireText(curriculum, "['Itsenäinen C2-välitavoite'", 'C2 Stage 275 must be individually authored and cumulative');
+requireText(curriculum, 'number <= 275 ? C2A_SEEDS[number - 251]', 'Stages 251-275 must resolve from authored C2 content, not templates');
+
 requireText(curriculum, 'const C1B_SEEDS: LessonSeed[]', 'C1 stages 226-250 must use individually authored lesson records');
 requireText(curriculum, "['Itsenäinen C1-keskustelu'", 'C1 Stage 250 must be individually authored and cumulative');
 requireText(curriculum, 'number <= 250 ? C1B_SEEDS[number - 226]', 'Stages 226-250 must resolve from authored C1 content, not templates');
