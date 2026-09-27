@@ -80,3 +80,25 @@ This tranche changes only:
 - this research record.
 
 `PRODUCTION_ACTIONS=NONE`
+
+
+## Completeness audit addendum
+
+After the first green tranche, the mounted client was re-audited against issue #46's requirement that the drawer expose all currently supported learner destinations without flattening the full tree.
+
+Additional existing destinations confirmed and incorporated:
+- Integrated Practice / daily-practice;
+- Help and support;
+- Everyday recorded speaking;
+- Professional recorded speaking;
+- Professional structured interview;
+- Workplace Incident Lab.
+
+Information-architecture decision:
+- Everyday and Professional Speaking are parent branches, not direct navigation leaves. This preserves a stable place for the later Guided Speaking tranche without another drawer redesign.
+- Existing Roleplay / Interview / Recorded Speaking remain children of Speaking.
+- Workplace Incident Lab remains a Professional child destination.
+- Practice + Progress share one localized section to avoid duplicate section identities.
+- The drawer component is the single close authority for leaf selection; AppShell no longer repeats the close state update.
+
+No later Guided Speaking implementation, card-level gating, Practice-composer redesign, or roleplay-engine behavior was introduced by this addendum.
