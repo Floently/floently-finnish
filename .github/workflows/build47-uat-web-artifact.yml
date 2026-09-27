@@ -9,6 +9,8 @@ on:
       - 'docs/agents/BUILD47_PROGRESSIVE_LEARNING_UAT_20260927.md'
       - 'apps/client/state/SpeakingRoute.tsx'
       - 'apps/client/scripts/verify-guided-speaking-invariants.mjs'
+      - 'apps/client/features/professional/ProfessionalListeningRoute.tsx'
+      - 'apps/client/scripts/verify-professional-listening.mjs'
   pull_request:
     branches:
       - integration/build47-source-candidate-20260927
@@ -17,6 +19,8 @@ on:
       - 'docs/agents/BUILD47_PROGRESSIVE_LEARNING_UAT_20260927.md'
       - 'apps/client/state/SpeakingRoute.tsx'
       - 'apps/client/scripts/verify-guided-speaking-invariants.mjs'
+      - 'apps/client/features/professional/ProfessionalListeningRoute.tsx'
+      - 'apps/client/scripts/verify-professional-listening.mjs'
 
 jobs:
   export-web:
