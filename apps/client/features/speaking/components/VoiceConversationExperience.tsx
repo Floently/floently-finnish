@@ -83,6 +83,7 @@ function conversationalMessages(messages: TranscriptMessage[]) {
 function useActiveConversationTurn(
   messages: TranscriptMessage[],
   state: VoiceConversationUiState,
+  textMode: boolean,
 ) {
   return useMemo<ConversationTurn | null>(() => {
     const turns = conversationalMessages(messages);
@@ -97,6 +98,14 @@ function useActiveConversationTurn(
     }
 
     if (state === 'userListening' || state === 'userSpeaking') {
+      if (textMode && latest.speaker === 'assistant') {
+        return {
+          id: `assistant-turn-${assistantTurns.length}`,
+          speaker: 'assistant',
+          text: latest.text,
+        };
+      }
+
       const nextUserIndex =
         latest.speaker === 'user'
           ? userTurns.length
@@ -121,7 +130,7 @@ function useActiveConversationTurn(
       speaker: 'user',
       text: latest.text,
     };
-  }, [messages, state]);
+  }, [messages, state, textMode]);
 }
 
 function useProgressiveAssistantText(
@@ -585,7 +594,7 @@ export default function VoiceConversationExperience({
   const { width } = useWindowDimensions();
   const [trayOpen, setTrayOpen] = useState(false);
   const [transcriptVisible, setTranscriptVisible] = useState(false);
-  const turn = useActiveConversationTurn(messages, state);
+  const turn = useActiveConversationTurn(messages, state, textMode);
   const progressiveTurn = useProgressiveAssistantText(turn, state, textMode);
   const trayProgress = useSharedValue(0);
 
