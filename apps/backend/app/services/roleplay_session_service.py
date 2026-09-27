@@ -46,6 +46,7 @@ def start_session(
     user_id: str,
     profession: str,
     level_band: str,
+    roleplay_mode: str | None = None,
     scenario_id: str | None = None,
     context_label: str | None = None,
 ) -> dict[str, Any]:
@@ -57,6 +58,7 @@ def start_session(
     result = roleplay_runtime.start_session(
         profession=profession,
         level_band=level_band,
+        roleplay_mode=roleplay_mode,
         scenario_id=scenario_id,
         context_label=context_label,
         rotation_user_key=owner,
