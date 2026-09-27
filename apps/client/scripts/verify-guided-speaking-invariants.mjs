@@ -151,6 +151,13 @@ requireText(screen, 'openPersistedStage(index + 1)', 'review navigation must per
 requireText(screen, 'completePersistedStage(stage.curriculumId, stage.version, visibleStageNumber)', 'completion must record permanent stage identity and version');
 requireText(screen, 'guidedSpeakingRetrievalLessons(currentStageNumber)', 'Guided Speaking runtime must load deterministic recall material');
 requireText(screen, 'lesson.number < currentStageNumber', 'recall must never reference current or future stages');
+requireText(screen, "lessonStep === 'recall'", 'recall must be the only active learning step when due');
+requireText(screen, "lessonStep === 'listen'", 'listen must be an explicit single learning step');
+requireText(screen, "lessonStep === 'speak'", 'speaking must be an explicit single learning step');
+requireText(screen, ">I'm ready to speak</Text>", 'listen step must have one obvious transition to speaking');
+requireText(screen, 'styles.progressTrack', 'learner must have a clear visual progress indicator');
+forbidText(screen, 'LEVEL_BANDS.map', 'level switching must not compete with the active lesson flow');
+
 requireText(screen, '>Remember?</Text>', 'recall must be presented as a separate layered step');
 requireText(screen, '>Start recall</Text>', 'recall content must stay behind one deliberate action');
 
