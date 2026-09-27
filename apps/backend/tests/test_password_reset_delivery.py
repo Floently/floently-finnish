@@ -25,6 +25,7 @@ class PasswordResetDeliveryTests(unittest.TestCase):
         "password_reset_smtp_password",
         "password_reset_smtp_use_tls",
         "password_reset_smtp_use_ssl",
+        "environment",
     )
 
     def setUp(self) -> None:
@@ -138,6 +139,18 @@ class PasswordResetDeliveryTests(unittest.TestCase):
         )
         smtp_connection.login.assert_called_once_with("example-user", "example-value")
         smtp_connection.send_message.assert_called_once()
+
+    def test_production_smtp_requires_encrypted_transport(self) -> None:
+        self._configure_smtp()
+        self._set("environment", "production")
+        self._set("password_reset_smtp_use_tls", False)
+        self._set("password_reset_smtp_use_ssl", False)
+
+        status = get_password_reset_delivery_status()
+
+        self.assertFalse(status.ready)
+        self.assertEqual(status.provider, "smtp")
+        self.assertEqual(status.reason, "smtp_tls_required")
 
     def test_incomplete_smtp_credentials_fail_closed(self) -> None:
         self._configure_smtp()
