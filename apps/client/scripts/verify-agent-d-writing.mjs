@@ -10,7 +10,12 @@ const clientRoot = join(scriptDirectory, '..');
 const writingRoot = join(clientRoot, 'features', 'writing');
 
 const engine = require(join(writingRoot, 'engine.js'));
-const { WRITING_TASKS, tasksForPathway, writingTaskById } = require(join(writingRoot, 'tasks.js'));
+const {
+  WRITING_TASKS,
+  tasksForPathway,
+  writingTaskById,
+  getNextWritingTask,
+} = require(join(writingRoot, 'tasks.js'));
 const { describeHealthcareWritingMigration } = require(join(writingRoot, 'healthcareMigration.js'));
 
 let assertionCount = 0;
@@ -176,11 +181,34 @@ async function testFailedRevisionOrdering() {
 }
 
 function testTaskFamiliesAndVersions() {
-  equal(WRITING_TASKS.length, 5, 'The initial authored task library has five bounded tasks');
-  equal(tasksForPathway('everyday').length, 3, 'Everyday pathway has A1, A2, and B1 tasks');
-  equal(tasksForPathway('professional', 'nurse').length, 2, 'Professional pathway shares B1 and B2 configurations');
+  equal(WRITING_TASKS.length, 20, 'The canonical Writing bank has twenty bounded authored tasks');
+  equal(tasksForPathway('everyday').length, 12, 'Everyday pathway has two tasks at each A1-C2 level');
+  equal(tasksForPathway('professional', 'nurse').length, 8, 'Professional pathway has two tasks at each B1-C2 level');
   check(WRITING_TASKS.every((task) => task.originalContent === true), 'Every task is marked as original content');
-  check(WRITING_TASKS.every((task) => /^2026-08-16\.1$/.test(task.contentVersion)), 'Every authored task has an explicit content version');
+  check(
+    WRITING_TASKS.every((task) => /^2026-(08-16|09-27)\.1$/.test(task.contentVersion)),
+    'Every authored task has an explicit accepted content version',
+  );
+  deepEqual(
+    tasksForPathway('everyday').map((task) => task.level),
+    ['A1', 'A1', 'A2', 'A2', 'B1', 'B1', 'B2', 'B2', 'C1', 'C1', 'C2', 'C2'],
+    'Everyday Writing order is deterministic from A1 through C2',
+  );
+  deepEqual(
+    tasksForPathway('professional', 'nurse').map((task) => task.level),
+    ['B1', 'B1', 'B2', 'B2', 'C1', 'C1', 'C2', 'C2'],
+    'Professional Writing order is deterministic from B1 through C2',
+  );
+  equal(
+    getNextWritingTask('writing.everyday.library-reply.a1')?.taskId,
+    'writing.everyday.neighbour-noise.a1',
+    'Next Writing stays in the same pathway and canonical order',
+  );
+  equal(
+    getNextWritingTask('writing.everyday.formal-response.c2'),
+    null,
+    'Final Everyday C2 task has no cross-pathway next task',
+  );
 
   const everydayA1 = writingTaskById('writing.everyday.library-reply.a1');
   const everydayA2 = writingTaskById('writing.everyday.appointment-change.a2');
