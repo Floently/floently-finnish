@@ -30,6 +30,8 @@ type Props = {
   sections?: DrawerSection[];
   /** Top-level branch that should open when the drawer becomes visible. */
   initialExpandedItemId?: string;
+  /** Exact branch path to reveal when the current location is nested. */
+  initialExpandedPath?: string[];
   /** Current top-level branch/destination for visual and screen-reader context. */
   activeItemId?: string;
   /**
@@ -68,6 +70,7 @@ export default function UtilityDrawer({
   onClose,
   sections: sectionsProp,
   initialExpandedItemId,
+  initialExpandedPath,
   activeItemId,
   items: itemsProp,
   themeMode = 'dark',
@@ -123,8 +126,14 @@ export default function UtilityDrawer({
 
   React.useEffect(() => {
     if (!visible) return;
-    setExpandedPath(initialExpandedItemId ? [initialExpandedItemId] : []);
-  }, [initialExpandedItemId, visible]);
+    setExpandedPath(
+      initialExpandedPath?.length
+        ? [...initialExpandedPath]
+        : initialExpandedItemId
+          ? [initialExpandedItemId]
+          : [],
+    );
+  }, [initialExpandedItemId, initialExpandedPath, visible]);
 
   function toggleBranch(itemId: string, depth: number) {
     setExpandedPath((current) => {
