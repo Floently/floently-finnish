@@ -123,6 +123,7 @@ export default function IntegratedPracticeRoute({ onBack, onOpenMenu }: Props) {
   const [dismissedTaskIds, setDismissedTaskIds] = useState<string[]>([]);
   const [elapsedMinutes, setElapsedMinutes] = useState(0);
   const [whyOpen, setWhyOpen] = useState(false);
+  const [customizeOpen, setCustomizeOpen] = useState(false);
 
   const entitlementKeys = useMemo(
     () => buildEntitlementKeys(subscriptionStatus),
@@ -212,6 +213,7 @@ export default function IntegratedPracticeRoute({ onBack, onOpenMenu }: Props) {
     setDismissedTaskIds([]);
     setElapsedMinutes(0);
     setWhyOpen(false);
+    setCustomizeOpen(false);
   };
 
   const startSession = () => {
@@ -308,6 +310,11 @@ export default function IntegratedPracticeRoute({ onBack, onOpenMenu }: Props) {
     const preview = composition.manifest.tasks;
     const firstReason = preview[0]?.reasons[0]?.message;
     const previewSkills = [...new Set(preview.flatMap((item) => item.task.skills))];
+    const scopeLabel = SCOPES.find((item) => item.value === scope)?.label ?? 'All';
+    const firstTask = preview[0];
+    const readyDetail = firstTask
+      ? `Start with ${formatPracticeSkills(firstTask.task.skills)}. The rest of the session stays one task at a time.`
+      : 'No compatible tasks are available for the current access and device constraints.';
 
     return (
       <AppScaffold
@@ -317,7 +324,7 @@ export default function IntegratedPracticeRoute({ onBack, onOpenMenu }: Props) {
           <PageHeader
             eyebrow="Practice"
             title="Today’s practice"
-            subtitle="Choose a time budget and pathway scope. Practice mixes the real learning runtimes that fit your access and current constraints."
+            subtitle="Your next session is ready. Start now, or customize the time and pathway."
             actionLabel="Home"
             onActionPress={onBack}
             onMenuPress={onOpenMenu}
@@ -326,65 +333,81 @@ export default function IntegratedPracticeRoute({ onBack, onOpenMenu }: Props) {
         }
       >
         <Stack gap="lg">
-          <View style={styles.badgeRow}>
-            {scope !== 'all' ? <PathwayBadge pathway={scope} palette={palette} /> : null}
-            {previewSkills.map((skill) => <SkillBadge key={skill} skill={skill} palette={palette} compact />)}
-          </View>
-
-          <Card>
-            <Stack gap="md">
-              <Text variant="title">How long?</Text>
-              <View style={practiceLayoutStyles.choices}>
-                {TARGETS.map((minutes) => (
-                  <ChoiceChip
-                    key={minutes}
-                    label={`${minutes} min`}
-                    selected={minutes === targetMinutes}
-                    accessibilityLabel={`${minutes} minute practice session`}
-                    onPress={() => setTargetMinutes(minutes)}
-                  />
-                ))}
-              </View>
-              <Text variant="caption" tone="muted">Time is a limit, not a target to pad. A session may finish early.</Text>
-            </Stack>
-          </Card>
-
-          <Card>
-            <Stack gap="md">
-              <Text variant="title">What should it include?</Text>
-              <View style={practiceLayoutStyles.choices}>
-                {SCOPES.map((item) => (
-                  <ChoiceChip
-                    key={item.value}
-                    label={item.label}
-                    selected={scope === item.value}
-                    accessibilityLabel={`${item.label} practice scope`}
-                    onPress={() => setScope(item.value)}
-                  />
-                ))}
-              </View>
-            </Stack>
-          </Card>
-
           <ReducedMotionAwareMotion kind="task-enter">
-            <Card>
-              <Stack gap="sm">
-                <Text variant="title">Preview</Text>
-                {preview.length ? (
-                  <>
-                    <Text>{preview.map((item) => formatPracticeSkills(item.task.skills)).join(' → ')}</Text>
-                    <Text tone="muted">{composition.totalMinutes} minutes planned</Text>
-                    <Text variant="caption">Why these tasks?</Text>
-                    <Text tone="muted">{firstReason ?? 'The session uses curriculum-safe balance and the time you selected.'}</Text>
-                  </>
-                ) : (
-                  <Text tone="muted">No compatible tasks are available. Practice will not inject an unavailable, unauthorized, wrong-profession, or incompatible task to fill time.</Text>
-                )}
-              </Stack>
-            </Card>
+            <TaskCard
+              themeMode={themeMode}
+              title={`Practice for up to ${targetMinutes} minutes`}
+              detail={readyDetail}
+              meta={preview.length ? `${composition.totalMinutes} min planned · ${scopeLabel}` : 'No compatible session'}
+              actionLabel="Start practice"
+              onPress={preview.length ? startSession : undefined}
+            />
           </ReducedMotionAwareMotion>
 
-          <ActionButton label="Start today’s practice" disabled={!preview.length} onPress={startSession} />
+          <ActionButton
+            label={customizeOpen ? 'Close customization' : 'Customize session'}
+            onPress={() => setCustomizeOpen((open) => !open)}
+          />
+
+          {customizeOpen ? (
+            <Stack gap="lg">
+              <View style={styles.badgeRow}>
+                {scope !== 'all' ? <PathwayBadge pathway={scope} palette={palette} /> : null}
+                {previewSkills.map((skill) => <SkillBadge key={skill} skill={skill} palette={palette} compact />)}
+              </View>
+
+              <Card>
+                <Stack gap="md">
+                  <Text variant="title">How long?</Text>
+                  <View style={practiceLayoutStyles.choices}>
+                    {TARGETS.map((minutes) => (
+                      <ChoiceChip
+                        key={minutes}
+                        label={`${minutes} min`}
+                        selected={minutes === targetMinutes}
+                        accessibilityLabel={`${minutes} minute practice session`}
+                        onPress={() => setTargetMinutes(minutes)}
+                      />
+                    ))}
+                  </View>
+                  <Text variant="caption" tone="muted">Time is a limit, not a target to pad. A session may finish early.</Text>
+                </Stack>
+              </Card>
+
+              <Card>
+                <Stack gap="md">
+                  <Text variant="title">What should it include?</Text>
+                  <View style={practiceLayoutStyles.choices}>
+                    {SCOPES.map((item) => (
+                      <ChoiceChip
+                        key={item.value}
+                        label={item.label}
+                        selected={scope === item.value}
+                        accessibilityLabel={`${item.label} practice scope`}
+                        onPress={() => setScope(item.value)}
+                      />
+                    ))}
+                  </View>
+                </Stack>
+              </Card>
+
+              <Card>
+                <Stack gap="sm">
+                  <Text variant="title">Session plan</Text>
+                  {preview.length ? (
+                    <>
+                      <Text>{preview.map((item) => formatPracticeSkills(item.task.skills)).join(' → ')}</Text>
+                      <Text tone="muted">{composition.totalMinutes} minutes planned</Text>
+                      <Text variant="caption">Why these tasks?</Text>
+                      <Text tone="muted">{firstReason ?? 'The session uses curriculum-safe balance and the time you selected.'}</Text>
+                    </>
+                  ) : (
+                    <Text tone="muted">No compatible tasks are available. Practice will not inject an unavailable, unauthorized, wrong-profession, or incompatible task to fill time.</Text>
+                  )}
+                </Stack>
+              </Card>
+            </Stack>
+          ) : null}
         </Stack>
       </AppScaffold>
     );
