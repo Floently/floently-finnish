@@ -166,7 +166,7 @@ export function ReadingRoute({ scope, onEvent, onResult }: ReadingRouteProps) {
       resolution.status === 'not_found'
         ? 'Pyydettyä tehtävää ei löydy tästä lukupolusta.'
         : resolution.status === 'invalid_level'
-          ? 'Tasoksi voi valita A1, A2, B1 tai B2.'
+          ? 'Tasoksi voi valita A1, A2, B1, B2, C1 tai C2.'
           : 'Tälle tasolle ei ole vielä tehtävää tässä lukupolussa.';
     return (
       <ReadingRuntimeScreen
