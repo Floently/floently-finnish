@@ -103,6 +103,7 @@ jobs:
       - name: Verify App Review remediation invariants
         run: |
           pnpm --dir apps/client run verify:navigation
+          pnpm --dir apps/client run verify:read-live-browser
           pnpm --dir apps/client run verify:account-deletion-access
           pnpm --dir apps/client run verify:revenuecat-identity
           pnpm --dir apps/client run verify:store-billing-preflight

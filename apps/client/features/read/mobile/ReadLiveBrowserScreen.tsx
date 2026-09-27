@@ -72,8 +72,8 @@ export default function ReadLiveBrowserScreen() {
   const [loadError, setLoadError] = useState<string | null>(null);
   const browserUrl = useMemo(getBrowserUrl, []);
 
-  const authBootstrap = useMemo(() => {
-    if (!token || !user) return 'true;';
+  const embeddedAuth = useMemo(() => {
+    if (!token || !user) return null;
     const plan = String(user.subscriptionTier || subscription?.tier || 'free').trim() || 'free';
     const readAccess = Boolean(
       user.readAccess ||
@@ -95,18 +95,23 @@ export default function ReadLiveBrowserScreen() {
         requiresUserApiKey: false,
       },
     };
+    return { token, session };
+  }, [subscription, token, user]);
+
+  const authBootstrap = useMemo(() => {
+    if (!embeddedAuth) return 'true;';
     const script = [
       '(function(){',
       'try {',
-      `localStorage.setItem(${JSON.stringify(AUTH_API_KEY_STORAGE_KEY)}, ${JSON.stringify(token)});`,
-      `localStorage.setItem(${JSON.stringify(AUTH_SESSION_STORAGE_KEY)}, ${JSON.stringify(JSON.stringify(session))});`,
+      `localStorage.setItem(${JSON.stringify(AUTH_API_KEY_STORAGE_KEY)}, ${JSON.stringify(embeddedAuth.token)});`,
+      `localStorage.setItem(${JSON.stringify(AUTH_SESSION_STORAGE_KEY)}, ${JSON.stringify(JSON.stringify(embeddedAuth.session))});`,
       'window.__FLOENTLY_REACT_NATIVE_EMBED__ = true;',
       '} catch (_) {}',
       'true;',
       '})();',
     ];
     return script.join('');
-  }, [subscription, token, user]);
+  }, [embeddedAuth]);
 
   useEffect(() => {
     if (Platform.OS !== 'web') return;
@@ -215,8 +220,15 @@ export default function ReadLiveBrowserScreen() {
             mediaPlaybackRequiresUserAction={false}
             allowsBackForwardNavigationGestures
             setSupportMultipleWindows={false}
+            injectedJavaScriptObject={
+              embeddedAuth ? { flowReaderAuth: embeddedAuth } : {}
+            }
             injectedJavaScriptBeforeContentLoaded={authBootstrap}
             injectedJavaScriptBeforeContentLoadedForMainFrameOnly
+            onMessage={() => {
+              // Keep the native bridge active; Browser V2 does not send
+              // credential or remote-page data back through postMessage.
+            }}
             onLoadStart={() => {
               setLoading(true);
               setLoadError(null);
