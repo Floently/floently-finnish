@@ -135,6 +135,13 @@ assert.ok(
 );
 
 assert.ok(
+  speakingRoute.includes('const preferencesHydrated = usePreferencesStore') &&
+    speakingRoute.includes('const hydratePreferences = usePreferencesStore') &&
+    speakingRoute.includes('if (!preferencesHydrated) void hydratePreferences();'),
+  'Speaking route must hydrate persisted preferences before relying on the canonical theme',
+);
+
+assert.ok(
   screen.includes('const themeMode = usePreferencesStore') &&
     screen.includes('dark={!isLight}') &&
     screen.includes("{ backgroundColor: isLight ? '#F8FBFF' : '#09101F' }") &&
