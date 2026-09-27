@@ -154,6 +154,7 @@ export function useCardPractice(mode: CardMode, scope?: CardDeckScope, enabled =
   const recallForward = useCallback(() => { if (!history.length) return; setShowBack(false); setShowHint(false); setFeedback(null); setRecallIndex((i) => i === null ? Math.max(history.length - 1, 0) : i >= history.length - 1 ? null : i + 1); }, [history.length]);
   const refresh = useCallback(() => setRefreshKey((v) => v + 1), []);
   const currentLabel = nextReviewLabel(displayedCard);
+  const effectiveLoading = loading || (enabled && Boolean(scope?.level) && !sessionId && !error);
 
-  return { current, displayedCard, loading, submitting, feedback, progress, answer, setAnswer, showBack, showHint, visibleHint, hintLoading, playAudio, flip, revealHint, hideHint, submit, advance, skip, recallBack, recallForward, recallIndex, banks, sessionCompleted, refresh, error, currentLabel, flagCurrent, flagged };
+  return { current, displayedCard, loading: effectiveLoading, submitting, feedback, progress, answer, setAnswer, showBack, showHint, visibleHint, hintLoading, playAudio, flip, revealHint, hideHint, submit, advance, skip, recallBack, recallForward, recallIndex, banks, sessionCompleted, refresh, error, currentLabel, flagCurrent, flagged };
 }
