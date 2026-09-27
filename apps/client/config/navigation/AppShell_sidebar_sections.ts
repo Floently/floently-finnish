@@ -14,6 +14,7 @@ export type DrawerRoute =
 
 export type DrawerActivity =
   | 'everyday-roleplay'
+  | 'everyday-recorded'
   | 'everyday-cards-vocabulary'
   | 'everyday-cards-phrases'
   | 'everyday-cards-grammar'
@@ -21,6 +22,8 @@ export type DrawerActivity =
   | 'everyday-writing'
   | 'professional-roleplay'
   | 'professional-interview'
+  | 'professional-recorded'
+  | 'professional-incident-lab'
   | 'professional-cards-vocabulary'
   | 'professional-cards-phrases'
   | 'professional-cards-grammar'
@@ -100,6 +103,18 @@ function everydayItems(
             void navigateTo('learning', {
               learningBranch: 'everyday',
               activity: 'everyday-roleplay',
+            }),
+        },
+        {
+          id: 'everyday-recorded',
+          icon: '🎙',
+          label: translate(language, 'speakingRecordedTitle'),
+          accentColor: '#F0A436',
+          hint: translate(language, 'speakingRecordedDetail'),
+          onPress: () =>
+            void navigateTo('learning', {
+              learningBranch: 'everyday',
+              activity: 'everyday-recorded',
             }),
         },
       ],
@@ -218,7 +233,29 @@ function professionalItems(
               activity: 'professional-interview',
             }),
         },
+        {
+          id: 'professional-recorded',
+          icon: '🎙',
+          label: translate(language, 'speakingRecordedTitle'),
+          accentColor: '#F0A436',
+          hint: translate(language, 'speakingRecordedDetail'),
+          onPress: () =>
+            void navigateTo('professional-finnish', {
+              activity: 'professional-recorded',
+            }),
+        },
       ],
+    },
+    {
+      id: 'professional-incident-lab',
+      icon: '🛠',
+      label: translate(language, 'speakingIncidentLabTitle'),
+      accentColor: '#2DD4BF',
+      hint: translate(language, 'speakingIncidentLabDetail'),
+      onPress: () =>
+        void navigateTo('professional-finnish', {
+          activity: 'professional-incident-lab',
+        }),
     },
     {
       id: 'professional-cards',
