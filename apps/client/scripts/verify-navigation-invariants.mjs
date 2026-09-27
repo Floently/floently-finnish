@@ -386,4 +386,5 @@ console.log('PASS: parent refreshes cannot reset the same user-expanded drawer p
 console.log('PASS: localhost behavior is development-only.');
 await import('./verify-guided-speaking-invariants.mjs');
 await import('./verify-card-level-gate.mjs');
+await import('./verify-practice-one-next-session.mjs');
 console.log('NAVIGATION_INVARIANTS=PASS');
