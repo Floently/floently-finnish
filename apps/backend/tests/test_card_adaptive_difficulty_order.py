@@ -8,7 +8,7 @@ from app.cards.adaptive.performance import create_empty_performance
 from app.cards.adaptive.repetition import create_empty_review_state
 from app.cards.adaptive.scheduler import build_adaptive_plan
 from app.cards.fixtures.sample_payloads import VOCABULARY_CARD_PAYLOAD
-from app.cards.schemas.cards import CardEnvelope
+from app.cards.schemas.cards import CardEnvelope, validate_card_payload
 from app.cards.schemas.common import CardContentType, DifficultyBand, LearningPath, LevelBand, ReviewStateStatus
 
 
@@ -16,7 +16,7 @@ def _card(card_id: str, difficulty: DifficultyBand) -> CardEnvelope:
     payload = deepcopy(VOCABULARY_CARD_PAYLOAD)
     payload["id"] = card_id
     payload["difficulty"] = difficulty.value
-    return CardEnvelope.model_validate(payload)
+    return validate_card_payload(payload)
 
 
 def _maps(cards: list[CardEnvelope], user_id: str):
