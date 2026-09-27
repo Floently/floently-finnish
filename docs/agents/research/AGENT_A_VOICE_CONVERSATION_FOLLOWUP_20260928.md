@@ -56,6 +56,16 @@ Primary reference:
 - React Native `Pressable.disabled`: https://reactnative.dev/docs/0.83/pressable
 - `disabled` is the platform-supported way to prevent press behavior; no custom gesture interception is needed.
 
+### Finding 3 — visual UAT still asserted the superseded interaction copy
+
+The Build 47 visual-smoke workflow already exercises the real exported web application and the Scenario practice voice surface, but its learner-turn assertion still expected `Swipe up to speak or type`. That wording was intentionally superseded when orb tap became the primary microphone interaction.
+
+Decision:
+- update the learner-turn expectation to require both `Tap the orb to speak` and `Swipe up to type`;
+- add `main` as a pull-request base for this Build 47 UAT now that the learner stack has been merged to main;
+- add a dark-theme Scenario practice capture and assert the dark ambient background is actually rendered;
+- run `verify:voice-conversation-ui` from the ordinary client CI job so the source regression guard is enforced rather than only existing as a manual script.
+
 ## Acceptance criteria
 
 1. The voice conversation surface follows the current canonical app light/dark preference.
@@ -66,8 +76,9 @@ Primary reference:
 6. The tray microphone is also operable only during learner-turn states, including when returning from text mode.
 7. AI-speaking, processing, idle and completed states cannot start recording through the tray microphone.
 8. Existing `handleMicTap`, recorder/STT/TTS, server/session, roleplay-pool, auth and entitlement authority are unchanged.
-9. Permanent source verifier assertions cover both repairs.
-10. No native dependency/configuration, backend, production, OTA or store action is introduced.
+9. Permanent source verifier assertions cover both repairs and are executed by normal client CI.
+10. The Build 47 web visual smoke uses the current tap-to-speak/swipe-to-type copy and includes a dark-theme learner-turn capture.
+11. No native dependency/configuration, backend, production, OTA or store action is introduced.
 
 `RESEARCH_GATE=PASS`
 `PRODUCTION_ACTIONS=NONE`
