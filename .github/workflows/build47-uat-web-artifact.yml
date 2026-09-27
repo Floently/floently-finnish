@@ -495,7 +495,7 @@ jobs:
             const body = await page.locator('body').innerText();
             const screenshot = `${out}/02-progressive-drawer.png`;
             await page.screenshot({ path: screenshot, fullPage: true });
-            const expectedTexts = ['Guided practice · Speaking', 'Professional'];
+            const expectedTexts = ['Guided practice · Speaking', 'Workplace Finnish'];
             const missing = expectedTexts.filter((text) => !body.toLowerCase().includes(text.toLowerCase()));
             report.push({
               name: '02-progressive-drawer',
