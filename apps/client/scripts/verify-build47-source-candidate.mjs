@@ -26,6 +26,7 @@ const requiredVerifierImports = [
   './verify-reading-writing-progression.mjs',
   './verify-learning-experience-integration.mjs',
   './verify-professional-listening.mjs',
+  './verify-voice-conversation-ui.mjs',
 ];
 
 for (const verifier of requiredVerifierImports) {
@@ -45,6 +46,7 @@ const requiredScripts = [
   'verify:reading-writing-progression',
   'verify:learning-experience-integration',
   'verify:professional-listening',
+  'verify:voice-conversation-ui',
 ];
 
 for (const script of requiredScripts) {
