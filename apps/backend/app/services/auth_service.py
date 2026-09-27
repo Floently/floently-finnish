@@ -1,4 +1,5 @@
 from __future__ import annotations
+from app.services.device_guard import enforce_client_device_access
 
 import hashlib
 import json
@@ -944,7 +945,11 @@ def get_current_user(*, access_token: str) -> tuple[dict[str, Any], dict[str, An
             raise AppError(401, "AUTH_SESSION_EXPIRED", "Authenticated user was not found.", False, {"classification": "terminal"})
         _assert_auth_session_active(auth_session_id=str(token_payload["auth_session_id"]), user_id=user_id)
 
-    return _auth_user(user), copy_token_payload(token_payload)
+    auth_user = _auth_user(user)
+    copied_token_payload = copy_token_payload(token_payload)
+    device_guard_user = {**user, **auth_user}
+    enforce_client_device_access(user=device_guard_user, token_payload=copied_token_payload)
+    return auth_user, copied_token_payload
 
 
 def logout_auth(*, authorization: str | None, refresh_token: str | None = None) -> dict[str, Any]:

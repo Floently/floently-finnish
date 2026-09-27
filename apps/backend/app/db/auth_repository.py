@@ -512,6 +512,15 @@ class AuthUserRepository:
         return updated, changed
 
     def migrate_state_users(self, state_users: dict[str, Any]) -> dict[str, int]:
+        """Import legacy JSON users without overwriting authoritative DB users.
+
+        The JSON state store predates the SQL-backed auth repository. It remains
+        useful for migrating users that do not yet exist in the database, but it
+        must never be treated as a newer source of truth once a DB user exists.
+        In particular, subscription and billing state can be updated in SQLite
+        independently of the legacy snapshot; replaying an older JSON user on
+        startup would otherwise roll those fields back.
+        """
         created = 0
         updated = 0
         skipped = 0
@@ -525,14 +534,19 @@ class AuthUserRepository:
             if not normalized["email"]:
                 skipped += 1
                 continue
+
+            # Migration is intentionally create-only. Check both stable user ID
+            # and normalized email so an old snapshot cannot overwrite a DB
+            # record after an email or subscription change.
             existing = self.get_user_by_email(normalized["email"])
-            user, changed = self.save_user(payload, overwrite_password=False)
-            if existing is None:
-                created += 1
-            elif changed:
-                updated += 1
-            else:
+            if existing is None and normalized["user_id"]:
+                existing = self.get_user_by_id(normalized["user_id"])
+            if existing is not None:
                 skipped += 1
+                continue
+
+            self.save_user(payload, overwrite_password=False)
+            created += 1
         return {"created": created, "updated": updated, "skipped": skipped}
 
 

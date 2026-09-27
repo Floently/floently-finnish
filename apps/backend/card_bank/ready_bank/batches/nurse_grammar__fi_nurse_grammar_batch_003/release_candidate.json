@@ -1,0 +1,4832 @@
+{
+  "manifest": {
+    "content_type": "grammar_card",
+    "language": "fi",
+    "path": "professional/nurse/grammar",
+    "domain": "medical_work_finnish",
+    "profession": "nurse",
+    "level_band": "B1_B2",
+    "source_id": "source.generated.professional.nurse.grammar",
+    "authoring_note": null,
+    "manifest_origin": "explicit",
+    "manifest_confidence": 0.95,
+    "source_path": "/home/vitus/Asiakirjat/project_documents/floently-finnish/generated_material_bank/nurse_grammar.json"
+  },
+  "items": [
+    {
+      "id": "card.grammar.nurse.verb-rektio-kysya-partitive-elative.a52d23",
+      "version": 1,
+      "path": "professional/nurse/grammar",
+      "domain": "medical_work_finnish",
+      "profession": {
+        "track": "professional",
+        "slug": "nurse",
+        "label": "Nurse"
+      },
+      "level_band": "B1_B2",
+      "difficulty": "core",
+      "language": "fi",
+      "source": {
+        "source_id": "source.generated.professional.nurse.grammar",
+        "kind": "generated_or_recovered_batch",
+        "origin_path": "/home/vitus/Asiakirjat/project_documents/floently-finnish/generated_material_bank/nurse_grammar.json",
+        "authoring_note": "source.generated.professional.nurse.grammar"
+      },
+      "quality": {
+        "status": "prevalidated",
+        "reviewer": null,
+        "validation_checks": [
+          "manifest_detection",
+          "item_extraction",
+          "normalization",
+          "dedupe",
+          "validation"
+        ],
+        "quality_score": 0.95
+      },
+      "tags": [
+        "b1_b2",
+        "medical_work_finnish",
+        "nurse",
+        "grammar_pattern"
+      ],
+      "publication": {
+        "state": "candidate",
+        "version_tag": null,
+        "manifest_ref": "source.generated.professional.nurse.grammar",
+        "validation_passed": true,
+        "published_at": null,
+        "archived_at": null
+      },
+      "content_type": "grammar_card",
+      "content": {
+        "front": {
+          "pattern": "verb rektio kysyä + partitive + elative",
+          "usage": "to ask someone about something"
+        },
+        "back": {
+          "recall_prompt": "What is the function of 'verb rektio kysyä + partitive + elative'?",
+          "gloss": "I ask the patient about allergies.",
+          "example_sentence": "Kysyn potilaalta allergioista."
+        },
+        "prompt_family": "grammar_pattern",
+        "follow_ups": [
+          {
+            "variant_type": "recognition_mcq",
+            "prompt": "What does this example express? Kysyn potilaalta allergioista.",
+            "options": [
+              {
+                "option_id": "o1",
+                "text": "I answer the phone quickly.",
+                "explanation": null
+              },
+              {
+                "option_id": "o2",
+                "text": "I participate in the training.",
+                "explanation": null
+              },
+              {
+                "option_id": "o3",
+                "text": "I trust my colleagues.",
+                "explanation": null
+              },
+              {
+                "option_id": "o4",
+                "text": "I ask the patient about allergies.",
+                "explanation": null
+              }
+            ],
+            "answer_key": "o4",
+            "accepted_variants": [],
+            "evaluation_mode": "option_id"
+          },
+          {
+            "variant_type": "typed_recall",
+            "prompt": "Describe the meaning or function in English.",
+            "answer_key": "I ask the patient about allergies.",
+            "accepted_variants": [],
+            "evaluation_mode": "normalized_text"
+          }
+        ],
+        "explanation": {
+          "summary": "to ask someone about something",
+          "example": "Kysyn potilaalta allergioista."
+        },
+        "audio": null,
+        "validation": {
+          "case_sensitive": false,
+          "normalize_whitespace": true,
+          "allow_partial_credit": false
+        }
+      }
+    },
+    {
+      "id": "card.grammar.nurse.verb-rektio-vastata-illative.11a0cf",
+      "version": 1,
+      "path": "professional/nurse/grammar",
+      "domain": "medical_work_finnish",
+      "profession": {
+        "track": "professional",
+        "slug": "nurse",
+        "label": "Nurse"
+      },
+      "level_band": "B1_B2",
+      "difficulty": "core",
+      "language": "fi",
+      "source": {
+        "source_id": "source.generated.professional.nurse.grammar",
+        "kind": "generated_or_recovered_batch",
+        "origin_path": "/home/vitus/Asiakirjat/project_documents/floently-finnish/generated_material_bank/nurse_grammar.json",
+        "authoring_note": "source.generated.professional.nurse.grammar"
+      },
+      "quality": {
+        "status": "prevalidated",
+        "reviewer": null,
+        "validation_checks": [
+          "manifest_detection",
+          "item_extraction",
+          "normalization",
+          "dedupe",
+          "validation"
+        ],
+        "quality_score": 0.95
+      },
+      "tags": [
+        "b1_b2",
+        "medical_work_finnish",
+        "nurse",
+        "grammar_pattern"
+      ],
+      "publication": {
+        "state": "candidate",
+        "version_tag": null,
+        "manifest_ref": "source.generated.professional.nurse.grammar",
+        "validation_passed": true,
+        "published_at": null,
+        "archived_at": null
+      },
+      "content_type": "grammar_card",
+      "content": {
+        "front": {
+          "pattern": "verb rektio vastata + illative",
+          "usage": "to answer something"
+        },
+        "back": {
+          "recall_prompt": "What is the function of 'verb rektio vastata + illative'?",
+          "gloss": "I answer the phone quickly.",
+          "example_sentence": "Vastaan puhelimeen nopeasti."
+        },
+        "prompt_family": "grammar_pattern",
+        "follow_ups": [
+          {
+            "variant_type": "recognition_mcq",
+            "prompt": "What does this example express? Vastaan puhelimeen nopeasti.",
+            "options": [
+              {
+                "option_id": "o1",
+                "text": "I ask the patient about allergies.",
+                "explanation": null
+              },
+              {
+                "option_id": "o2",
+                "text": "I participate in the training.",
+                "explanation": null
+              },
+              {
+                "option_id": "o3",
+                "text": "I trust my colleagues.",
+                "explanation": null
+              },
+              {
+                "option_id": "o4",
+                "text": "I answer the phone quickly.",
+                "explanation": null
+              }
+            ],
+            "answer_key": "o4",
+            "accepted_variants": [],
+            "evaluation_mode": "option_id"
+          },
+          {
+            "variant_type": "typed_recall",
+            "prompt": "Describe the meaning or function in English.",
+            "answer_key": "I answer the phone quickly.",
+            "accepted_variants": [],
+            "evaluation_mode": "normalized_text"
+          }
+        ],
+        "explanation": {
+          "summary": "to answer something",
+          "example": "Vastaan puhelimeen nopeasti."
+        },
+        "audio": null,
+        "validation": {
+          "case_sensitive": false,
+          "normalize_whitespace": true,
+          "allow_partial_credit": false
+        }
+      }
+    },
+    {
+      "id": "card.grammar.nurse.verb-rektio-osallistua-illative.67cb39",
+      "version": 1,
+      "path": "professional/nurse/grammar",
+      "domain": "medical_work_finnish",
+      "profession": {
+        "track": "professional",
+        "slug": "nurse",
+        "label": "Nurse"
+      },
+      "level_band": "B1_B2",
+      "difficulty": "core",
+      "language": "fi",
+      "source": {
+        "source_id": "source.generated.professional.nurse.grammar",
+        "kind": "generated_or_recovered_batch",
+        "origin_path": "/home/vitus/Asiakirjat/project_documents/floently-finnish/generated_material_bank/nurse_grammar.json",
+        "authoring_note": "source.generated.professional.nurse.grammar"
+      },
+      "quality": {
+        "status": "prevalidated",
+        "reviewer": null,
+        "validation_checks": [
+          "manifest_detection",
+          "item_extraction",
+          "normalization",
+          "dedupe",
+          "validation"
+        ],
+        "quality_score": 0.95
+      },
+      "tags": [
+        "b1_b2",
+        "medical_work_finnish",
+        "nurse",
+        "grammar_pattern"
+      ],
+      "publication": {
+        "state": "candidate",
+        "version_tag": null,
+        "manifest_ref": "source.generated.professional.nurse.grammar",
+        "validation_passed": true,
+        "published_at": null,
+        "archived_at": null
+      },
+      "content_type": "grammar_card",
+      "content": {
+        "front": {
+          "pattern": "verb rektio osallistua + illative",
+          "usage": "to participate in something"
+        },
+        "back": {
+          "recall_prompt": "What is the function of 'verb rektio osallistua + illative'?",
+          "gloss": "I participate in the training.",
+          "example_sentence": "Osallistun koulutukseen."
+        },
+        "prompt_family": "grammar_pattern",
+        "follow_ups": [
+          {
+            "variant_type": "recognition_mcq",
+            "prompt": "What does this example express? Osallistun koulutukseen.",
+            "options": [
+              {
+                "option_id": "o1",
+                "text": "I ask the patient about allergies.",
+                "explanation": null
+              },
+              {
+                "option_id": "o2",
+                "text": "I answer the phone quickly.",
+                "explanation": null
+              },
+              {
+                "option_id": "o3",
+                "text": "I trust my colleagues.",
+                "explanation": null
+              },
+              {
+                "option_id": "o4",
+                "text": "I participate in the training.",
+                "explanation": null
+              }
+            ],
+            "answer_key": "o4",
+            "accepted_variants": [],
+            "evaluation_mode": "option_id"
+          },
+          {
+            "variant_type": "typed_recall",
+            "prompt": "Describe the meaning or function in English.",
+            "answer_key": "I participate in the training.",
+            "accepted_variants": [],
+            "evaluation_mode": "normalized_text"
+          }
+        ],
+        "explanation": {
+          "summary": "to participate in something",
+          "example": "Osallistun koulutukseen."
+        },
+        "audio": null,
+        "validation": {
+          "case_sensitive": false,
+          "normalize_whitespace": true,
+          "allow_partial_credit": false
+        }
+      }
+    },
+    {
+      "id": "card.grammar.nurse.verb-rektio-luottaa-illative.bb4817",
+      "version": 1,
+      "path": "professional/nurse/grammar",
+      "domain": "medical_work_finnish",
+      "profession": {
+        "track": "professional",
+        "slug": "nurse",
+        "label": "Nurse"
+      },
+      "level_band": "B1_B2",
+      "difficulty": "core",
+      "language": "fi",
+      "source": {
+        "source_id": "source.generated.professional.nurse.grammar",
+        "kind": "generated_or_recovered_batch",
+        "origin_path": "/home/vitus/Asiakirjat/project_documents/floently-finnish/generated_material_bank/nurse_grammar.json",
+        "authoring_note": "source.generated.professional.nurse.grammar"
+      },
+      "quality": {
+        "status": "prevalidated",
+        "reviewer": null,
+        "validation_checks": [
+          "manifest_detection",
+          "item_extraction",
+          "normalization",
+          "dedupe",
+          "validation"
+        ],
+        "quality_score": 0.95
+      },
+      "tags": [
+        "b1_b2",
+        "medical_work_finnish",
+        "nurse",
+        "grammar_pattern"
+      ],
+      "publication": {
+        "state": "candidate",
+        "version_tag": null,
+        "manifest_ref": "source.generated.professional.nurse.grammar",
+        "validation_passed": true,
+        "published_at": null,
+        "archived_at": null
+      },
+      "content_type": "grammar_card",
+      "content": {
+        "front": {
+          "pattern": "verb rektio luottaa + illative",
+          "usage": "to trust someone/something"
+        },
+        "back": {
+          "recall_prompt": "What is the function of 'verb rektio luottaa + illative'?",
+          "gloss": "I trust my colleagues.",
+          "example_sentence": "Luotan työkavereihini."
+        },
+        "prompt_family": "grammar_pattern",
+        "follow_ups": [
+          {
+            "variant_type": "recognition_mcq",
+            "prompt": "What does this example express? Luotan työkavereihini.",
+            "options": [
+              {
+                "option_id": "o1",
+                "text": "I ask the patient about allergies.",
+                "explanation": null
+              },
+              {
+                "option_id": "o2",
+                "text": "I answer the phone quickly.",
+                "explanation": null
+              },
+              {
+                "option_id": "o3",
+                "text": "I participate in the training.",
+                "explanation": null
+              },
+              {
+                "option_id": "o4",
+                "text": "I trust my colleagues.",
+                "explanation": null
+              }
+            ],
+            "answer_key": "o4",
+            "accepted_variants": [],
+            "evaluation_mode": "option_id"
+          },
+          {
+            "variant_type": "typed_recall",
+            "prompt": "Describe the meaning or function in English.",
+            "answer_key": "I trust my colleagues.",
+            "accepted_variants": [],
+            "evaluation_mode": "normalized_text"
+          }
+        ],
+        "explanation": {
+          "summary": "to trust someone/something",
+          "example": "Luotan työkavereihini."
+        },
+        "audio": null,
+        "validation": {
+          "case_sensitive": false,
+          "normalize_whitespace": true,
+          "allow_partial_credit": false
+        }
+      }
+    },
+    {
+      "id": "card.grammar.nurse.verb-rektio-tutustua-illative.879985",
+      "version": 1,
+      "path": "professional/nurse/grammar",
+      "domain": "medical_work_finnish",
+      "profession": {
+        "track": "professional",
+        "slug": "nurse",
+        "label": "Nurse"
+      },
+      "level_band": "B1_B2",
+      "difficulty": "core",
+      "language": "fi",
+      "source": {
+        "source_id": "source.generated.professional.nurse.grammar",
+        "kind": "generated_or_recovered_batch",
+        "origin_path": "/home/vitus/Asiakirjat/project_documents/floently-finnish/generated_material_bank/nurse_grammar.json",
+        "authoring_note": "source.generated.professional.nurse.grammar"
+      },
+      "quality": {
+        "status": "prevalidated",
+        "reviewer": null,
+        "validation_checks": [
+          "manifest_detection",
+          "item_extraction",
+          "normalization",
+          "dedupe",
+          "validation"
+        ],
+        "quality_score": 0.95
+      },
+      "tags": [
+        "b1_b2",
+        "medical_work_finnish",
+        "nurse",
+        "grammar_pattern"
+      ],
+      "publication": {
+        "state": "candidate",
+        "version_tag": null,
+        "manifest_ref": "source.generated.professional.nurse.grammar",
+        "validation_passed": true,
+        "published_at": null,
+        "archived_at": null
+      },
+      "content_type": "grammar_card",
+      "content": {
+        "front": {
+          "pattern": "verb rektio tutustua + illative",
+          "usage": "to get familiar with"
+        },
+        "back": {
+          "recall_prompt": "What is the function of 'verb rektio tutustua + illative'?",
+          "gloss": "I familiarize myself with the patient record.",
+          "example_sentence": "Tutustun potilaskertomukseen."
+        },
+        "prompt_family": "grammar_pattern",
+        "follow_ups": [
+          {
+            "variant_type": "recognition_mcq",
+            "prompt": "What does this example express? Tutustun potilaskertomukseen.",
+            "options": [
+              {
+                "option_id": "o1",
+                "text": "I ask the patient about allergies.",
+                "explanation": null
+              },
+              {
+                "option_id": "o2",
+                "text": "I answer the phone quickly.",
+                "explanation": null
+              },
+              {
+                "option_id": "o3",
+                "text": "I participate in the training.",
+                "explanation": null
+              },
+              {
+                "option_id": "o4",
+                "text": "I familiarize myself with the patient record.",
+                "explanation": null
+              }
+            ],
+            "answer_key": "o4",
+            "accepted_variants": [],
+            "evaluation_mode": "option_id"
+          },
+          {
+            "variant_type": "typed_recall",
+            "prompt": "Describe the meaning or function in English.",
+            "answer_key": "I familiarize myself with the patient record.",
+            "accepted_variants": [],
+            "evaluation_mode": "normalized_text"
+          }
+        ],
+        "explanation": {
+          "summary": "to get familiar with",
+          "example": "Tutustun potilaskertomukseen."
+        },
+        "audio": null,
+        "validation": {
+          "case_sensitive": false,
+          "normalize_whitespace": true,
+          "allow_partial_credit": false
+        }
+      }
+    },
+    {
+      "id": "card.grammar.nurse.verb-rektio-vaikuttaa-illative.10ebc8",
+      "version": 1,
+      "path": "professional/nurse/grammar",
+      "domain": "medical_work_finnish",
+      "profession": {
+        "track": "professional",
+        "slug": "nurse",
+        "label": "Nurse"
+      },
+      "level_band": "B1_B2",
+      "difficulty": "core",
+      "language": "fi",
+      "source": {
+        "source_id": "source.generated.professional.nurse.grammar",
+        "kind": "generated_or_recovered_batch",
+        "origin_path": "/home/vitus/Asiakirjat/project_documents/floently-finnish/generated_material_bank/nurse_grammar.json",
+        "authoring_note": "source.generated.professional.nurse.grammar"
+      },
+      "quality": {
+        "status": "prevalidated",
+        "reviewer": null,
+        "validation_checks": [
+          "manifest_detection",
+          "item_extraction",
+          "normalization",
+          "dedupe",
+          "validation"
+        ],
+        "quality_score": 0.95
+      },
+      "tags": [
+        "b1_b2",
+        "medical_work_finnish",
+        "nurse",
+        "grammar_pattern"
+      ],
+      "publication": {
+        "state": "candidate",
+        "version_tag": null,
+        "manifest_ref": "source.generated.professional.nurse.grammar",
+        "validation_passed": true,
+        "published_at": null,
+        "archived_at": null
+      },
+      "content_type": "grammar_card",
+      "content": {
+        "front": {
+          "pattern": "verb rektio vaikuttaa + illative",
+          "usage": "to affect something"
+        },
+        "back": {
+          "recall_prompt": "What is the function of 'verb rektio vaikuttaa + illative'?",
+          "gloss": "The medicine affects blood pressure.",
+          "example_sentence": "Lääke vaikuttaa verenpaineeseen."
+        },
+        "prompt_family": "grammar_pattern",
+        "follow_ups": [
+          {
+            "variant_type": "recognition_mcq",
+            "prompt": "What does this example express? Lääke vaikuttaa verenpaineeseen.",
+            "options": [
+              {
+                "option_id": "o1",
+                "text": "I ask the patient about allergies.",
+                "explanation": null
+              },
+              {
+                "option_id": "o2",
+                "text": "I answer the phone quickly.",
+                "explanation": null
+              },
+              {
+                "option_id": "o3",
+                "text": "I participate in the training.",
+                "explanation": null
+              },
+              {
+                "option_id": "o4",
+                "text": "The medicine affects blood pressure.",
+                "explanation": null
+              }
+            ],
+            "answer_key": "o4",
+            "accepted_variants": [],
+            "evaluation_mode": "option_id"
+          },
+          {
+            "variant_type": "typed_recall",
+            "prompt": "Describe the meaning or function in English.",
+            "answer_key": "The medicine affects blood pressure.",
+            "accepted_variants": [],
+            "evaluation_mode": "normalized_text"
+          }
+        ],
+        "explanation": {
+          "summary": "to affect something",
+          "example": "Lääke vaikuttaa verenpaineeseen."
+        },
+        "audio": null,
+        "validation": {
+          "case_sensitive": false,
+          "normalize_whitespace": true,
+          "allow_partial_credit": false
+        }
+      }
+    },
+    {
+      "id": "card.grammar.nurse.verb-rektio-suostua-illative.c9d11d",
+      "version": 1,
+      "path": "professional/nurse/grammar",
+      "domain": "medical_work_finnish",
+      "profession": {
+        "track": "professional",
+        "slug": "nurse",
+        "label": "Nurse"
+      },
+      "level_band": "B1_B2",
+      "difficulty": "core",
+      "language": "fi",
+      "source": {
+        "source_id": "source.generated.professional.nurse.grammar",
+        "kind": "generated_or_recovered_batch",
+        "origin_path": "/home/vitus/Asiakirjat/project_documents/floently-finnish/generated_material_bank/nurse_grammar.json",
+        "authoring_note": "source.generated.professional.nurse.grammar"
+      },
+      "quality": {
+        "status": "prevalidated",
+        "reviewer": null,
+        "validation_checks": [
+          "manifest_detection",
+          "item_extraction",
+          "normalization",
+          "dedupe",
+          "validation"
+        ],
+        "quality_score": 0.95
+      },
+      "tags": [
+        "b1_b2",
+        "medical_work_finnish",
+        "nurse",
+        "grammar_pattern"
+      ],
+      "publication": {
+        "state": "candidate",
+        "version_tag": null,
+        "manifest_ref": "source.generated.professional.nurse.grammar",
+        "validation_passed": true,
+        "published_at": null,
+        "archived_at": null
+      },
+      "content_type": "grammar_card",
+      "content": {
+        "front": {
+          "pattern": "verb rektio suostua + illative",
+          "usage": "to agree to something"
+        },
+        "back": {
+          "recall_prompt": "What is the function of 'verb rektio suostua + illative'?",
+          "gloss": "The patient agrees to the treatment.",
+          "example_sentence": "Potilas suostuu hoitoon."
+        },
+        "prompt_family": "grammar_pattern",
+        "follow_ups": [
+          {
+            "variant_type": "recognition_mcq",
+            "prompt": "What does this example express? Potilas suostuu hoitoon.",
+            "options": [
+              {
+                "option_id": "o1",
+                "text": "I ask the patient about allergies.",
+                "explanation": null
+              },
+              {
+                "option_id": "o2",
+                "text": "I answer the phone quickly.",
+                "explanation": null
+              },
+              {
+                "option_id": "o3",
+                "text": "I participate in the training.",
+                "explanation": null
+              },
+              {
+                "option_id": "o4",
+                "text": "The patient agrees to the treatment.",
+                "explanation": null
+              }
+            ],
+            "answer_key": "o4",
+            "accepted_variants": [],
+            "evaluation_mode": "option_id"
+          },
+          {
+            "variant_type": "typed_recall",
+            "prompt": "Describe the meaning or function in English.",
+            "answer_key": "The patient agrees to the treatment.",
+            "accepted_variants": [],
+            "evaluation_mode": "normalized_text"
+          }
+        ],
+        "explanation": {
+          "summary": "to agree to something",
+          "example": "Potilas suostuu hoitoon."
+        },
+        "audio": null,
+        "validation": {
+          "case_sensitive": false,
+          "normalize_whitespace": true,
+          "allow_partial_credit": false
+        }
+      }
+    },
+    {
+      "id": "card.grammar.nurse.verb-rektio-uskoa-illative.fb3bd5",
+      "version": 1,
+      "path": "professional/nurse/grammar",
+      "domain": "medical_work_finnish",
+      "profession": {
+        "track": "professional",
+        "slug": "nurse",
+        "label": "Nurse"
+      },
+      "level_band": "B1_B2",
+      "difficulty": "core",
+      "language": "fi",
+      "source": {
+        "source_id": "source.generated.professional.nurse.grammar",
+        "kind": "generated_or_recovered_batch",
+        "origin_path": "/home/vitus/Asiakirjat/project_documents/floently-finnish/generated_material_bank/nurse_grammar.json",
+        "authoring_note": "source.generated.professional.nurse.grammar"
+      },
+      "quality": {
+        "status": "prevalidated",
+        "reviewer": null,
+        "validation_checks": [
+          "manifest_detection",
+          "item_extraction",
+          "normalization",
+          "dedupe",
+          "validation"
+        ],
+        "quality_score": 0.95
+      },
+      "tags": [
+        "b1_b2",
+        "medical_work_finnish",
+        "nurse",
+        "grammar_pattern"
+      ],
+      "publication": {
+        "state": "candidate",
+        "version_tag": null,
+        "manifest_ref": "source.generated.professional.nurse.grammar",
+        "validation_passed": true,
+        "published_at": null,
+        "archived_at": null
+      },
+      "content_type": "grammar_card",
+      "content": {
+        "front": {
+          "pattern": "verb rektio uskoa + illative",
+          "usage": "to believe in something"
+        },
+        "back": {
+          "recall_prompt": "What is the function of 'verb rektio uskoa + illative'?",
+          "gloss": "I believe in recovery.",
+          "example_sentence": "Uskon paranemiseen."
+        },
+        "prompt_family": "grammar_pattern",
+        "follow_ups": [
+          {
+            "variant_type": "recognition_mcq",
+            "prompt": "What does this example express? Uskon paranemiseen.",
+            "options": [
+              {
+                "option_id": "o1",
+                "text": "I ask the patient about allergies.",
+                "explanation": null
+              },
+              {
+                "option_id": "o2",
+                "text": "I answer the phone quickly.",
+                "explanation": null
+              },
+              {
+                "option_id": "o3",
+                "text": "I participate in the training.",
+                "explanation": null
+              },
+              {
+                "option_id": "o4",
+                "text": "I believe in recovery.",
+                "explanation": null
+              }
+            ],
+            "answer_key": "o4",
+            "accepted_variants": [],
+            "evaluation_mode": "option_id"
+          },
+          {
+            "variant_type": "typed_recall",
+            "prompt": "Describe the meaning or function in English.",
+            "answer_key": "I believe in recovery.",
+            "accepted_variants": [],
+            "evaluation_mode": "normalized_text"
+          }
+        ],
+        "explanation": {
+          "summary": "to believe in something",
+          "example": "Uskon paranemiseen."
+        },
+        "audio": null,
+        "validation": {
+          "case_sensitive": false,
+          "normalize_whitespace": true,
+          "allow_partial_credit": false
+        }
+      }
+    },
+    {
+      "id": "card.grammar.nurse.verb-rektio-keskittya-illative.015926",
+      "version": 1,
+      "path": "professional/nurse/grammar",
+      "domain": "medical_work_finnish",
+      "profession": {
+        "track": "professional",
+        "slug": "nurse",
+        "label": "Nurse"
+      },
+      "level_band": "B1_B2",
+      "difficulty": "core",
+      "language": "fi",
+      "source": {
+        "source_id": "source.generated.professional.nurse.grammar",
+        "kind": "generated_or_recovered_batch",
+        "origin_path": "/home/vitus/Asiakirjat/project_documents/floently-finnish/generated_material_bank/nurse_grammar.json",
+        "authoring_note": "source.generated.professional.nurse.grammar"
+      },
+      "quality": {
+        "status": "prevalidated",
+        "reviewer": null,
+        "validation_checks": [
+          "manifest_detection",
+          "item_extraction",
+          "normalization",
+          "dedupe",
+          "validation"
+        ],
+        "quality_score": 0.95
+      },
+      "tags": [
+        "b1_b2",
+        "medical_work_finnish",
+        "nurse",
+        "grammar_pattern"
+      ],
+      "publication": {
+        "state": "candidate",
+        "version_tag": null,
+        "manifest_ref": "source.generated.professional.nurse.grammar",
+        "validation_passed": true,
+        "published_at": null,
+        "archived_at": null
+      },
+      "content_type": "grammar_card",
+      "content": {
+        "front": {
+          "pattern": "verb rektio keskittyä + illative",
+          "usage": "to concentrate on"
+        },
+        "back": {
+          "recall_prompt": "What is the function of 'verb rektio keskittyä + illative'?",
+          "gloss": "I concentrate on the patient's symptoms.",
+          "example_sentence": "Keskityn potilaan oireisiin."
+        },
+        "prompt_family": "grammar_pattern",
+        "follow_ups": [
+          {
+            "variant_type": "recognition_mcq",
+            "prompt": "What does this example express? Keskityn potilaan oireisiin.",
+            "options": [
+              {
+                "option_id": "o1",
+                "text": "I ask the patient about allergies.",
+                "explanation": null
+              },
+              {
+                "option_id": "o2",
+                "text": "I answer the phone quickly.",
+                "explanation": null
+              },
+              {
+                "option_id": "o3",
+                "text": "I participate in the training.",
+                "explanation": null
+              },
+              {
+                "option_id": "o4",
+                "text": "I concentrate on the patient's symptoms.",
+                "explanation": null
+              }
+            ],
+            "answer_key": "o4",
+            "accepted_variants": [],
+            "evaluation_mode": "option_id"
+          },
+          {
+            "variant_type": "typed_recall",
+            "prompt": "Describe the meaning or function in English.",
+            "answer_key": "I concentrate on the patient's symptoms.",
+            "accepted_variants": [],
+            "evaluation_mode": "normalized_text"
+          }
+        ],
+        "explanation": {
+          "summary": "to concentrate on",
+          "example": "Keskityn potilaan oireisiin."
+        },
+        "audio": null,
+        "validation": {
+          "case_sensitive": false,
+          "normalize_whitespace": true,
+          "allow_partial_credit": false
+        }
+      }
+    },
+    {
+      "id": "card.grammar.nurse.verb-rektio-kuulua-illative.f07445",
+      "version": 1,
+      "path": "professional/nurse/grammar",
+      "domain": "medical_work_finnish",
+      "profession": {
+        "track": "professional",
+        "slug": "nurse",
+        "label": "Nurse"
+      },
+      "level_band": "B1_B2",
+      "difficulty": "core",
+      "language": "fi",
+      "source": {
+        "source_id": "source.generated.professional.nurse.grammar",
+        "kind": "generated_or_recovered_batch",
+        "origin_path": "/home/vitus/Asiakirjat/project_documents/floently-finnish/generated_material_bank/nurse_grammar.json",
+        "authoring_note": "source.generated.professional.nurse.grammar"
+      },
+      "quality": {
+        "status": "prevalidated",
+        "reviewer": null,
+        "validation_checks": [
+          "manifest_detection",
+          "item_extraction",
+          "normalization",
+          "dedupe",
+          "validation"
+        ],
+        "quality_score": 0.95
+      },
+      "tags": [
+        "b1_b2",
+        "medical_work_finnish",
+        "nurse",
+        "grammar_pattern"
+      ],
+      "publication": {
+        "state": "candidate",
+        "version_tag": null,
+        "manifest_ref": "source.generated.professional.nurse.grammar",
+        "validation_passed": true,
+        "published_at": null,
+        "archived_at": null
+      },
+      "content_type": "grammar_card",
+      "content": {
+        "front": {
+          "pattern": "verb rektio kuulua + illative",
+          "usage": "to belong to"
+        },
+        "back": {
+          "recall_prompt": "What is the function of 'verb rektio kuulua + illative'?",
+          "gloss": "This patient belongs to the internal medicine ward.",
+          "example_sentence": "Tämä potilas kuuluu sisätautiosastolle."
+        },
+        "prompt_family": "grammar_pattern",
+        "follow_ups": [
+          {
+            "variant_type": "recognition_mcq",
+            "prompt": "What does this example express? Tämä potilas kuuluu sisätautiosastolle.",
+            "options": [
+              {
+                "option_id": "o1",
+                "text": "I ask the patient about allergies.",
+                "explanation": null
+              },
+              {
+                "option_id": "o2",
+                "text": "I answer the phone quickly.",
+                "explanation": null
+              },
+              {
+                "option_id": "o3",
+                "text": "I participate in the training.",
+                "explanation": null
+              },
+              {
+                "option_id": "o4",
+                "text": "This patient belongs to the internal medicine ward.",
+                "explanation": null
+              }
+            ],
+            "answer_key": "o4",
+            "accepted_variants": [],
+            "evaluation_mode": "option_id"
+          },
+          {
+            "variant_type": "typed_recall",
+            "prompt": "Describe the meaning or function in English.",
+            "answer_key": "This patient belongs to the internal medicine ward.",
+            "accepted_variants": [],
+            "evaluation_mode": "normalized_text"
+          }
+        ],
+        "explanation": {
+          "summary": "to belong to",
+          "example": "Tämä potilas kuuluu sisätautiosastolle."
+        },
+        "audio": null,
+        "validation": {
+          "case_sensitive": false,
+          "normalize_whitespace": true,
+          "allow_partial_credit": false
+        }
+      }
+    },
+    {
+      "id": "card.grammar.nurse.verb-rektio-jaada-illative.0bc447",
+      "version": 1,
+      "path": "professional/nurse/grammar",
+      "domain": "medical_work_finnish",
+      "profession": {
+        "track": "professional",
+        "slug": "nurse",
+        "label": "Nurse"
+      },
+      "level_band": "B1_B2",
+      "difficulty": "core",
+      "language": "fi",
+      "source": {
+        "source_id": "source.generated.professional.nurse.grammar",
+        "kind": "generated_or_recovered_batch",
+        "origin_path": "/home/vitus/Asiakirjat/project_documents/floently-finnish/generated_material_bank/nurse_grammar.json",
+        "authoring_note": "source.generated.professional.nurse.grammar"
+      },
+      "quality": {
+        "status": "prevalidated",
+        "reviewer": null,
+        "validation_checks": [
+          "manifest_detection",
+          "item_extraction",
+          "normalization",
+          "dedupe",
+          "validation"
+        ],
+        "quality_score": 0.95
+      },
+      "tags": [
+        "b1_b2",
+        "medical_work_finnish",
+        "nurse",
+        "grammar_pattern"
+      ],
+      "publication": {
+        "state": "candidate",
+        "version_tag": null,
+        "manifest_ref": "source.generated.professional.nurse.grammar",
+        "validation_passed": true,
+        "published_at": null,
+        "archived_at": null
+      },
+      "content_type": "grammar_card",
+      "content": {
+        "front": {
+          "pattern": "verb rektio jäädä + illative",
+          "usage": "to stay in/at"
+        },
+        "back": {
+          "recall_prompt": "What is the function of 'verb rektio jäädä + illative'?",
+          "gloss": "I stay for the night shift.",
+          "example_sentence": "Jään yövuoroon."
+        },
+        "prompt_family": "grammar_pattern",
+        "follow_ups": [
+          {
+            "variant_type": "recognition_mcq",
+            "prompt": "What does this example express? Jään yövuoroon.",
+            "options": [
+              {
+                "option_id": "o1",
+                "text": "I ask the patient about allergies.",
+                "explanation": null
+              },
+              {
+                "option_id": "o2",
+                "text": "I answer the phone quickly.",
+                "explanation": null
+              },
+              {
+                "option_id": "o3",
+                "text": "I participate in the training.",
+                "explanation": null
+              },
+              {
+                "option_id": "o4",
+                "text": "I stay for the night shift.",
+                "explanation": null
+              }
+            ],
+            "answer_key": "o4",
+            "accepted_variants": [],
+            "evaluation_mode": "option_id"
+          },
+          {
+            "variant_type": "typed_recall",
+            "prompt": "Describe the meaning or function in English.",
+            "answer_key": "I stay for the night shift.",
+            "accepted_variants": [],
+            "evaluation_mode": "normalized_text"
+          }
+        ],
+        "explanation": {
+          "summary": "to stay in/at",
+          "example": "Jään yövuoroon."
+        },
+        "audio": null,
+        "validation": {
+          "case_sensitive": false,
+          "normalize_whitespace": true,
+          "allow_partial_credit": false
+        }
+      }
+    },
+    {
+      "id": "card.grammar.nurse.verb-rektio-etsia-partitive.254ec8",
+      "version": 1,
+      "path": "professional/nurse/grammar",
+      "domain": "medical_work_finnish",
+      "profession": {
+        "track": "professional",
+        "slug": "nurse",
+        "label": "Nurse"
+      },
+      "level_band": "B1_B2",
+      "difficulty": "core",
+      "language": "fi",
+      "source": {
+        "source_id": "source.generated.professional.nurse.grammar",
+        "kind": "generated_or_recovered_batch",
+        "origin_path": "/home/vitus/Asiakirjat/project_documents/floently-finnish/generated_material_bank/nurse_grammar.json",
+        "authoring_note": "source.generated.professional.nurse.grammar"
+      },
+      "quality": {
+        "status": "prevalidated",
+        "reviewer": null,
+        "validation_checks": [
+          "manifest_detection",
+          "item_extraction",
+          "normalization",
+          "dedupe",
+          "validation"
+        ],
+        "quality_score": 0.95
+      },
+      "tags": [
+        "b1_b2",
+        "medical_work_finnish",
+        "nurse",
+        "grammar_pattern"
+      ],
+      "publication": {
+        "state": "candidate",
+        "version_tag": null,
+        "manifest_ref": "source.generated.professional.nurse.grammar",
+        "validation_passed": true,
+        "published_at": null,
+        "archived_at": null
+      },
+      "content_type": "grammar_card",
+      "content": {
+        "front": {
+          "pattern": "verb rektio etsiä + partitive",
+          "usage": "to search for (ongoing)"
+        },
+        "back": {
+          "recall_prompt": "What is the function of 'verb rektio etsiä + partitive'?",
+          "gloss": "I'm looking for clean gloves.",
+          "example_sentence": "Etsin puhtaita suojakäsineitä."
+        },
+        "prompt_family": "grammar_pattern",
+        "follow_ups": [
+          {
+            "variant_type": "recognition_mcq",
+            "prompt": "What does this example express? Etsin puhtaita suojakäsineitä.",
+            "options": [
+              {
+                "option_id": "o1",
+                "text": "I ask the patient about allergies.",
+                "explanation": null
+              },
+              {
+                "option_id": "o2",
+                "text": "I answer the phone quickly.",
+                "explanation": null
+              },
+              {
+                "option_id": "o3",
+                "text": "I participate in the training.",
+                "explanation": null
+              },
+              {
+                "option_id": "o4",
+                "text": "I'm looking for clean gloves.",
+                "explanation": null
+              }
+            ],
+            "answer_key": "o4",
+            "accepted_variants": [],
+            "evaluation_mode": "option_id"
+          },
+          {
+            "variant_type": "typed_recall",
+            "prompt": "Describe the meaning or function in English.",
+            "answer_key": "I'm looking for clean gloves.",
+            "accepted_variants": [],
+            "evaluation_mode": "normalized_text"
+          }
+        ],
+        "explanation": {
+          "summary": "to search for (ongoing)",
+          "example": "Etsin puhtaita suojakäsineitä."
+        },
+        "audio": null,
+        "validation": {
+          "case_sensitive": false,
+          "normalize_whitespace": true,
+          "allow_partial_credit": false
+        }
+      }
+    },
+    {
+      "id": "card.grammar.nurse.verb-rektio-rakastaa-partitive.86c853",
+      "version": 1,
+      "path": "professional/nurse/grammar",
+      "domain": "medical_work_finnish",
+      "profession": {
+        "track": "professional",
+        "slug": "nurse",
+        "label": "Nurse"
+      },
+      "level_band": "B1_B2",
+      "difficulty": "core",
+      "language": "fi",
+      "source": {
+        "source_id": "source.generated.professional.nurse.grammar",
+        "kind": "generated_or_recovered_batch",
+        "origin_path": "/home/vitus/Asiakirjat/project_documents/floently-finnish/generated_material_bank/nurse_grammar.json",
+        "authoring_note": "source.generated.professional.nurse.grammar"
+      },
+      "quality": {
+        "status": "prevalidated",
+        "reviewer": null,
+        "validation_checks": [
+          "manifest_detection",
+          "item_extraction",
+          "normalization",
+          "dedupe",
+          "validation"
+        ],
+        "quality_score": 0.95
+      },
+      "tags": [
+        "b1_b2",
+        "medical_work_finnish",
+        "nurse",
+        "grammar_pattern"
+      ],
+      "publication": {
+        "state": "candidate",
+        "version_tag": null,
+        "manifest_ref": "source.generated.professional.nurse.grammar",
+        "validation_passed": true,
+        "published_at": null,
+        "archived_at": null
+      },
+      "content_type": "grammar_card",
+      "content": {
+        "front": {
+          "pattern": "verb rektio rakastaa + partitive",
+          "usage": "to love (ongoing feeling)"
+        },
+        "back": {
+          "recall_prompt": "What is the function of 'verb rektio rakastaa + partitive'?",
+          "gloss": "I love my work.",
+          "example_sentence": "Rakastan työtäni."
+        },
+        "prompt_family": "grammar_pattern",
+        "follow_ups": [
+          {
+            "variant_type": "recognition_mcq",
+            "prompt": "What does this example express? Rakastan työtäni.",
+            "options": [
+              {
+                "option_id": "o1",
+                "text": "I ask the patient about allergies.",
+                "explanation": null
+              },
+              {
+                "option_id": "o2",
+                "text": "I answer the phone quickly.",
+                "explanation": null
+              },
+              {
+                "option_id": "o3",
+                "text": "I participate in the training.",
+                "explanation": null
+              },
+              {
+                "option_id": "o4",
+                "text": "I love my work.",
+                "explanation": null
+              }
+            ],
+            "answer_key": "o4",
+            "accepted_variants": [],
+            "evaluation_mode": "option_id"
+          },
+          {
+            "variant_type": "typed_recall",
+            "prompt": "Describe the meaning or function in English.",
+            "answer_key": "I love my work.",
+            "accepted_variants": [],
+            "evaluation_mode": "normalized_text"
+          }
+        ],
+        "explanation": {
+          "summary": "to love (ongoing feeling)",
+          "example": "Rakastan työtäni."
+        },
+        "audio": null,
+        "validation": {
+          "case_sensitive": false,
+          "normalize_whitespace": true,
+          "allow_partial_credit": false
+        }
+      }
+    },
+    {
+      "id": "card.grammar.nurse.verb-rektio-inhottaa-partitive.786486",
+      "version": 1,
+      "path": "professional/nurse/grammar",
+      "domain": "medical_work_finnish",
+      "profession": {
+        "track": "professional",
+        "slug": "nurse",
+        "label": "Nurse"
+      },
+      "level_band": "B1_B2",
+      "difficulty": "core",
+      "language": "fi",
+      "source": {
+        "source_id": "source.generated.professional.nurse.grammar",
+        "kind": "generated_or_recovered_batch",
+        "origin_path": "/home/vitus/Asiakirjat/project_documents/floently-finnish/generated_material_bank/nurse_grammar.json",
+        "authoring_note": "source.generated.professional.nurse.grammar"
+      },
+      "quality": {
+        "status": "prevalidated",
+        "reviewer": null,
+        "validation_checks": [
+          "manifest_detection",
+          "item_extraction",
+          "normalization",
+          "dedupe",
+          "validation"
+        ],
+        "quality_score": 0.95
+      },
+      "tags": [
+        "b1_b2",
+        "medical_work_finnish",
+        "nurse",
+        "grammar_pattern"
+      ],
+      "publication": {
+        "state": "candidate",
+        "version_tag": null,
+        "manifest_ref": "source.generated.professional.nurse.grammar",
+        "validation_passed": true,
+        "published_at": null,
+        "archived_at": null
+      },
+      "content_type": "grammar_card",
+      "content": {
+        "front": {
+          "pattern": "verb rektio inhottaa + partitive",
+          "usage": "to disgust someone"
+        },
+        "back": {
+          "recall_prompt": "What is the function of 'verb rektio inhottaa + partitive'?",
+          "gloss": "Blood disgusts some nurses.",
+          "example_sentence": "Veri inhottaa joitakin hoitajia."
+        },
+        "prompt_family": "grammar_pattern",
+        "follow_ups": [
+          {
+            "variant_type": "recognition_mcq",
+            "prompt": "What does this example express? Veri inhottaa joitakin hoitajia.",
+            "options": [
+              {
+                "option_id": "o1",
+                "text": "I ask the patient about allergies.",
+                "explanation": null
+              },
+              {
+                "option_id": "o2",
+                "text": "I answer the phone quickly.",
+                "explanation": null
+              },
+              {
+                "option_id": "o3",
+                "text": "I participate in the training.",
+                "explanation": null
+              },
+              {
+                "option_id": "o4",
+                "text": "Blood disgusts some nurses.",
+                "explanation": null
+              }
+            ],
+            "answer_key": "o4",
+            "accepted_variants": [],
+            "evaluation_mode": "option_id"
+          },
+          {
+            "variant_type": "typed_recall",
+            "prompt": "Describe the meaning or function in English.",
+            "answer_key": "Blood disgusts some nurses.",
+            "accepted_variants": [],
+            "evaluation_mode": "normalized_text"
+          }
+        ],
+        "explanation": {
+          "summary": "to disgust someone",
+          "example": "Veri inhottaa joitakin hoitajia."
+        },
+        "audio": null,
+        "validation": {
+          "case_sensitive": false,
+          "normalize_whitespace": true,
+          "allow_partial_credit": false
+        }
+      }
+    },
+    {
+      "id": "card.grammar.nurse.verb-rektio-hairita-partitive.df9ae4",
+      "version": 1,
+      "path": "professional/nurse/grammar",
+      "domain": "medical_work_finnish",
+      "profession": {
+        "track": "professional",
+        "slug": "nurse",
+        "label": "Nurse"
+      },
+      "level_band": "B1_B2",
+      "difficulty": "core",
+      "language": "fi",
+      "source": {
+        "source_id": "source.generated.professional.nurse.grammar",
+        "kind": "generated_or_recovered_batch",
+        "origin_path": "/home/vitus/Asiakirjat/project_documents/floently-finnish/generated_material_bank/nurse_grammar.json",
+        "authoring_note": "source.generated.professional.nurse.grammar"
+      },
+      "quality": {
+        "status": "prevalidated",
+        "reviewer": null,
+        "validation_checks": [
+          "manifest_detection",
+          "item_extraction",
+          "normalization",
+          "dedupe",
+          "validation"
+        ],
+        "quality_score": 0.95
+      },
+      "tags": [
+        "b1_b2",
+        "medical_work_finnish",
+        "nurse",
+        "grammar_pattern"
+      ],
+      "publication": {
+        "state": "candidate",
+        "version_tag": null,
+        "manifest_ref": "source.generated.professional.nurse.grammar",
+        "validation_passed": true,
+        "published_at": null,
+        "archived_at": null
+      },
+      "content_type": "grammar_card",
+      "content": {
+        "front": {
+          "pattern": "verb rektio häiritä + partitive",
+          "usage": "to disturb something/someone"
+        },
+        "back": {
+          "recall_prompt": "What is the function of 'verb rektio häiritä + partitive'?",
+          "gloss": "Noise disturbs the patient's sleep.",
+          "example_sentence": "Melu häiritsee potilaan unta."
+        },
+        "prompt_family": "grammar_pattern",
+        "follow_ups": [
+          {
+            "variant_type": "recognition_mcq",
+            "prompt": "What does this example express? Melu häiritsee potilaan unta.",
+            "options": [
+              {
+                "option_id": "o1",
+                "text": "I ask the patient about allergies.",
+                "explanation": null
+              },
+              {
+                "option_id": "o2",
+                "text": "I answer the phone quickly.",
+                "explanation": null
+              },
+              {
+                "option_id": "o3",
+                "text": "I participate in the training.",
+                "explanation": null
+              },
+              {
+                "option_id": "o4",
+                "text": "Noise disturbs the patient's sleep.",
+                "explanation": null
+              }
+            ],
+            "answer_key": "o4",
+            "accepted_variants": [],
+            "evaluation_mode": "option_id"
+          },
+          {
+            "variant_type": "typed_recall",
+            "prompt": "Describe the meaning or function in English.",
+            "answer_key": "Noise disturbs the patient's sleep.",
+            "accepted_variants": [],
+            "evaluation_mode": "normalized_text"
+          }
+        ],
+        "explanation": {
+          "summary": "to disturb something/someone",
+          "example": "Melu häiritsee potilaan unta."
+        },
+        "audio": null,
+        "validation": {
+          "case_sensitive": false,
+          "normalize_whitespace": true,
+          "allow_partial_credit": false
+        }
+      }
+    },
+    {
+      "id": "card.grammar.nurse.verb-rektio-koskea-partitive.c3583c",
+      "version": 1,
+      "path": "professional/nurse/grammar",
+      "domain": "medical_work_finnish",
+      "profession": {
+        "track": "professional",
+        "slug": "nurse",
+        "label": "Nurse"
+      },
+      "level_band": "B1_B2",
+      "difficulty": "core",
+      "language": "fi",
+      "source": {
+        "source_id": "source.generated.professional.nurse.grammar",
+        "kind": "generated_or_recovered_batch",
+        "origin_path": "/home/vitus/Asiakirjat/project_documents/floently-finnish/generated_material_bank/nurse_grammar.json",
+        "authoring_note": "source.generated.professional.nurse.grammar"
+      },
+      "quality": {
+        "status": "prevalidated",
+        "reviewer": null,
+        "validation_checks": [
+          "manifest_detection",
+          "item_extraction",
+          "normalization",
+          "dedupe",
+          "validation"
+        ],
+        "quality_score": 0.95
+      },
+      "tags": [
+        "b1_b2",
+        "medical_work_finnish",
+        "nurse",
+        "grammar_pattern"
+      ],
+      "publication": {
+        "state": "candidate",
+        "version_tag": null,
+        "manifest_ref": "source.generated.professional.nurse.grammar",
+        "validation_passed": true,
+        "published_at": null,
+        "archived_at": null
+      },
+      "content_type": "grammar_card",
+      "content": {
+        "front": {
+          "pattern": "verb rektio koskea + partitive",
+          "usage": "to touch something"
+        },
+        "back": {
+          "recall_prompt": "What is the function of 'verb rektio koskea + partitive'?",
+          "gloss": "Don't touch the wound with bare hands.",
+          "example_sentence": "Älä koske haavaa paljain käsin."
+        },
+        "prompt_family": "grammar_pattern",
+        "follow_ups": [
+          {
+            "variant_type": "recognition_mcq",
+            "prompt": "What does this example express? Älä koske haavaa paljain käsin.",
+            "options": [
+              {
+                "option_id": "o1",
+                "text": "I ask the patient about allergies.",
+                "explanation": null
+              },
+              {
+                "option_id": "o2",
+                "text": "I answer the phone quickly.",
+                "explanation": null
+              },
+              {
+                "option_id": "o3",
+                "text": "I participate in the training.",
+                "explanation": null
+              },
+              {
+                "option_id": "o4",
+                "text": "Don't touch the wound with bare hands.",
+                "explanation": null
+              }
+            ],
+            "answer_key": "o4",
+            "accepted_variants": [],
+            "evaluation_mode": "option_id"
+          },
+          {
+            "variant_type": "typed_recall",
+            "prompt": "Describe the meaning or function in English.",
+            "answer_key": "Don't touch the wound with bare hands.",
+            "accepted_variants": [],
+            "evaluation_mode": "normalized_text"
+          }
+        ],
+        "explanation": {
+          "summary": "to touch something",
+          "example": "Älä koske haavaa paljain käsin."
+        },
+        "audio": null,
+        "validation": {
+          "case_sensitive": false,
+          "normalize_whitespace": true,
+          "allow_partial_credit": false
+        }
+      }
+    },
+    {
+      "id": "card.grammar.nurse.verb-rektio-pelata-partitive.fe74bf",
+      "version": 1,
+      "path": "professional/nurse/grammar",
+      "domain": "medical_work_finnish",
+      "profession": {
+        "track": "professional",
+        "slug": "nurse",
+        "label": "Nurse"
+      },
+      "level_band": "B1_B2",
+      "difficulty": "core",
+      "language": "fi",
+      "source": {
+        "source_id": "source.generated.professional.nurse.grammar",
+        "kind": "generated_or_recovered_batch",
+        "origin_path": "/home/vitus/Asiakirjat/project_documents/floently-finnish/generated_material_bank/nurse_grammar.json",
+        "authoring_note": "source.generated.professional.nurse.grammar"
+      },
+      "quality": {
+        "status": "prevalidated",
+        "reviewer": null,
+        "validation_checks": [
+          "manifest_detection",
+          "item_extraction",
+          "normalization",
+          "dedupe",
+          "validation"
+        ],
+        "quality_score": 0.95
+      },
+      "tags": [
+        "b1_b2",
+        "medical_work_finnish",
+        "nurse",
+        "grammar_pattern"
+      ],
+      "publication": {
+        "state": "candidate",
+        "version_tag": null,
+        "manifest_ref": "source.generated.professional.nurse.grammar",
+        "validation_passed": true,
+        "published_at": null,
+        "archived_at": null
+      },
+      "content_type": "grammar_card",
+      "content": {
+        "front": {
+          "pattern": "verb rektio pelätä + partitive",
+          "usage": "to fear something"
+        },
+        "back": {
+          "recall_prompt": "What is the function of 'verb rektio pelätä + partitive'?",
+          "gloss": "The patient fears needles.",
+          "example_sentence": "Potilas pelkää neuloja."
+        },
+        "prompt_family": "grammar_pattern",
+        "follow_ups": [
+          {
+            "variant_type": "recognition_mcq",
+            "prompt": "What does this example express? Potilas pelkää neuloja.",
+            "options": [
+              {
+                "option_id": "o1",
+                "text": "I ask the patient about allergies.",
+                "explanation": null
+              },
+              {
+                "option_id": "o2",
+                "text": "I answer the phone quickly.",
+                "explanation": null
+              },
+              {
+                "option_id": "o3",
+                "text": "I participate in the training.",
+                "explanation": null
+              },
+              {
+                "option_id": "o4",
+                "text": "The patient fears needles.",
+                "explanation": null
+              }
+            ],
+            "answer_key": "o4",
+            "accepted_variants": [],
+            "evaluation_mode": "option_id"
+          },
+          {
+            "variant_type": "typed_recall",
+            "prompt": "Describe the meaning or function in English.",
+            "answer_key": "The patient fears needles.",
+            "accepted_variants": [],
+            "evaluation_mode": "normalized_text"
+          }
+        ],
+        "explanation": {
+          "summary": "to fear something",
+          "example": "Potilas pelkää neuloja."
+        },
+        "audio": null,
+        "validation": {
+          "case_sensitive": false,
+          "normalize_whitespace": true,
+          "allow_partial_credit": false
+        }
+      }
+    },
+    {
+      "id": "card.grammar.nurse.verb-rektio-seurata-partitive.8c7a2f",
+      "version": 1,
+      "path": "professional/nurse/grammar",
+      "domain": "medical_work_finnish",
+      "profession": {
+        "track": "professional",
+        "slug": "nurse",
+        "label": "Nurse"
+      },
+      "level_band": "B1_B2",
+      "difficulty": "core",
+      "language": "fi",
+      "source": {
+        "source_id": "source.generated.professional.nurse.grammar",
+        "kind": "generated_or_recovered_batch",
+        "origin_path": "/home/vitus/Asiakirjat/project_documents/floently-finnish/generated_material_bank/nurse_grammar.json",
+        "authoring_note": "source.generated.professional.nurse.grammar"
+      },
+      "quality": {
+        "status": "prevalidated",
+        "reviewer": null,
+        "validation_checks": [
+          "manifest_detection",
+          "item_extraction",
+          "normalization",
+          "dedupe",
+          "validation"
+        ],
+        "quality_score": 0.95
+      },
+      "tags": [
+        "b1_b2",
+        "medical_work_finnish",
+        "nurse",
+        "grammar_pattern"
+      ],
+      "publication": {
+        "state": "candidate",
+        "version_tag": null,
+        "manifest_ref": "source.generated.professional.nurse.grammar",
+        "validation_passed": true,
+        "published_at": null,
+        "archived_at": null
+      },
+      "content_type": "grammar_card",
+      "content": {
+        "front": {
+          "pattern": "verb rektio seurata + partitive",
+          "usage": "to follow something"
+        },
+        "back": {
+          "recall_prompt": "What is the function of 'verb rektio seurata + partitive'?",
+          "gloss": "I follow the patient's condition.",
+          "example_sentence": "Seuraan potilaan vointia."
+        },
+        "prompt_family": "grammar_pattern",
+        "follow_ups": [
+          {
+            "variant_type": "recognition_mcq",
+            "prompt": "What does this example express? Seuraan potilaan vointia.",
+            "options": [
+              {
+                "option_id": "o1",
+                "text": "I ask the patient about allergies.",
+                "explanation": null
+              },
+              {
+                "option_id": "o2",
+                "text": "I answer the phone quickly.",
+                "explanation": null
+              },
+              {
+                "option_id": "o3",
+                "text": "I participate in the training.",
+                "explanation": null
+              },
+              {
+                "option_id": "o4",
+                "text": "I follow the patient's condition.",
+                "explanation": null
+              }
+            ],
+            "answer_key": "o4",
+            "accepted_variants": [],
+            "evaluation_mode": "option_id"
+          },
+          {
+            "variant_type": "typed_recall",
+            "prompt": "Describe the meaning or function in English.",
+            "answer_key": "I follow the patient's condition.",
+            "accepted_variants": [],
+            "evaluation_mode": "normalized_text"
+          }
+        ],
+        "explanation": {
+          "summary": "to follow something",
+          "example": "Seuraan potilaan vointia."
+        },
+        "audio": null,
+        "validation": {
+          "case_sensitive": false,
+          "normalize_whitespace": true,
+          "allow_partial_credit": false
+        }
+      }
+    },
+    {
+      "id": "card.grammar.nurse.verb-rektio-auttaa-partitive-illative.4b30b3",
+      "version": 1,
+      "path": "professional/nurse/grammar",
+      "domain": "medical_work_finnish",
+      "profession": {
+        "track": "professional",
+        "slug": "nurse",
+        "label": "Nurse"
+      },
+      "level_band": "B1_B2",
+      "difficulty": "core",
+      "language": "fi",
+      "source": {
+        "source_id": "source.generated.professional.nurse.grammar",
+        "kind": "generated_or_recovered_batch",
+        "origin_path": "/home/vitus/Asiakirjat/project_documents/floently-finnish/generated_material_bank/nurse_grammar.json",
+        "authoring_note": "source.generated.professional.nurse.grammar"
+      },
+      "quality": {
+        "status": "prevalidated",
+        "reviewer": null,
+        "validation_checks": [
+          "manifest_detection",
+          "item_extraction",
+          "normalization",
+          "dedupe",
+          "validation"
+        ],
+        "quality_score": 0.95
+      },
+      "tags": [
+        "b1_b2",
+        "medical_work_finnish",
+        "nurse",
+        "grammar_pattern"
+      ],
+      "publication": {
+        "state": "candidate",
+        "version_tag": null,
+        "manifest_ref": "source.generated.professional.nurse.grammar",
+        "validation_passed": true,
+        "published_at": null,
+        "archived_at": null
+      },
+      "content_type": "grammar_card",
+      "content": {
+        "front": {
+          "pattern": "verb rektio auttaa + partitive + illative",
+          "usage": "to help someone with something"
+        },
+        "back": {
+          "recall_prompt": "What is the function of 'verb rektio auttaa + partitive + illative'?",
+          "gloss": "I help the patient to the toilet.",
+          "example_sentence": "Autan potilasta wc:hen."
+        },
+        "prompt_family": "grammar_pattern",
+        "follow_ups": [
+          {
+            "variant_type": "recognition_mcq",
+            "prompt": "What does this example express? Autan potilasta wc:hen.",
+            "options": [
+              {
+                "option_id": "o1",
+                "text": "I ask the patient about allergies.",
+                "explanation": null
+              },
+              {
+                "option_id": "o2",
+                "text": "I answer the phone quickly.",
+                "explanation": null
+              },
+              {
+                "option_id": "o3",
+                "text": "I participate in the training.",
+                "explanation": null
+              },
+              {
+                "option_id": "o4",
+                "text": "I help the patient to the toilet.",
+                "explanation": null
+              }
+            ],
+            "answer_key": "o4",
+            "accepted_variants": [],
+            "evaluation_mode": "option_id"
+          },
+          {
+            "variant_type": "typed_recall",
+            "prompt": "Describe the meaning or function in English.",
+            "answer_key": "I help the patient to the toilet.",
+            "accepted_variants": [],
+            "evaluation_mode": "normalized_text"
+          }
+        ],
+        "explanation": {
+          "summary": "to help someone with something",
+          "example": "Autan potilasta wc:hen."
+        },
+        "audio": null,
+        "validation": {
+          "case_sensitive": false,
+          "normalize_whitespace": true,
+          "allow_partial_credit": false
+        }
+      }
+    },
+    {
+      "id": "card.grammar.nurse.verb-rektio-muistuttaa-partitive-elative.8f3c58",
+      "version": 1,
+      "path": "professional/nurse/grammar",
+      "domain": "medical_work_finnish",
+      "profession": {
+        "track": "professional",
+        "slug": "nurse",
+        "label": "Nurse"
+      },
+      "level_band": "B1_B2",
+      "difficulty": "core",
+      "language": "fi",
+      "source": {
+        "source_id": "source.generated.professional.nurse.grammar",
+        "kind": "generated_or_recovered_batch",
+        "origin_path": "/home/vitus/Asiakirjat/project_documents/floently-finnish/generated_material_bank/nurse_grammar.json",
+        "authoring_note": "source.generated.professional.nurse.grammar"
+      },
+      "quality": {
+        "status": "prevalidated",
+        "reviewer": null,
+        "validation_checks": [
+          "manifest_detection",
+          "item_extraction",
+          "normalization",
+          "dedupe",
+          "validation"
+        ],
+        "quality_score": 0.95
+      },
+      "tags": [
+        "b1_b2",
+        "medical_work_finnish",
+        "nurse",
+        "grammar_pattern"
+      ],
+      "publication": {
+        "state": "candidate",
+        "version_tag": null,
+        "manifest_ref": "source.generated.professional.nurse.grammar",
+        "validation_passed": true,
+        "published_at": null,
+        "archived_at": null
+      },
+      "content_type": "grammar_card",
+      "content": {
+        "front": {
+          "pattern": "verb rektio muistuttaa + partitive + elative",
+          "usage": "to remind someone of something"
+        },
+        "back": {
+          "recall_prompt": "What is the function of 'verb rektio muistuttaa + partitive + elative'?",
+          "gloss": "I remind the patient about the blood test.",
+          "example_sentence": "Muistutan potilasta verikokeesta."
+        },
+        "prompt_family": "grammar_pattern",
+        "follow_ups": [
+          {
+            "variant_type": "recognition_mcq",
+            "prompt": "What does this example express? Muistutan potilasta verikokeesta.",
+            "options": [
+              {
+                "option_id": "o1",
+                "text": "I ask the patient about allergies.",
+                "explanation": null
+              },
+              {
+                "option_id": "o2",
+                "text": "I answer the phone quickly.",
+                "explanation": null
+              },
+              {
+                "option_id": "o3",
+                "text": "I participate in the training.",
+                "explanation": null
+              },
+              {
+                "option_id": "o4",
+                "text": "I remind the patient about the blood test.",
+                "explanation": null
+              }
+            ],
+            "answer_key": "o4",
+            "accepted_variants": [],
+            "evaluation_mode": "option_id"
+          },
+          {
+            "variant_type": "typed_recall",
+            "prompt": "Describe the meaning or function in English.",
+            "answer_key": "I remind the patient about the blood test.",
+            "accepted_variants": [],
+            "evaluation_mode": "normalized_text"
+          }
+        ],
+        "explanation": {
+          "summary": "to remind someone of something",
+          "example": "Muistutan potilasta verikokeesta."
+        },
+        "audio": null,
+        "validation": {
+          "case_sensitive": false,
+          "normalize_whitespace": true,
+          "allow_partial_credit": false
+        }
+      }
+    },
+    {
+      "id": "card.grammar.nurse.modal-verb-saattaa-1st-infinitive.d42e73",
+      "version": 1,
+      "path": "professional/nurse/grammar",
+      "domain": "medical_work_finnish",
+      "profession": {
+        "track": "professional",
+        "slug": "nurse",
+        "label": "Nurse"
+      },
+      "level_band": "B1_B2",
+      "difficulty": "core",
+      "language": "fi",
+      "source": {
+        "source_id": "source.generated.professional.nurse.grammar",
+        "kind": "generated_or_recovered_batch",
+        "origin_path": "/home/vitus/Asiakirjat/project_documents/floently-finnish/generated_material_bank/nurse_grammar.json",
+        "authoring_note": "source.generated.professional.nurse.grammar"
+      },
+      "quality": {
+        "status": "prevalidated",
+        "reviewer": null,
+        "validation_checks": [
+          "manifest_detection",
+          "item_extraction",
+          "normalization",
+          "dedupe",
+          "validation"
+        ],
+        "quality_score": 0.95
+      },
+      "tags": [
+        "b1_b2",
+        "medical_work_finnish",
+        "nurse",
+        "grammar_pattern"
+      ],
+      "publication": {
+        "state": "candidate",
+        "version_tag": null,
+        "manifest_ref": "source.generated.professional.nurse.grammar",
+        "validation_passed": true,
+        "published_at": null,
+        "archived_at": null
+      },
+      "content_type": "grammar_card",
+      "content": {
+        "front": {
+          "pattern": "modal verb saattaa + 1st infinitive",
+          "usage": "might do (possibility)"
+        },
+        "back": {
+          "recall_prompt": "What is the function of 'modal verb saattaa + 1st infinitive'?",
+          "gloss": "The patient might be sleeping.",
+          "example_sentence": "Potilas saattaa nukkua."
+        },
+        "prompt_family": "grammar_pattern",
+        "follow_ups": [
+          {
+            "variant_type": "recognition_mcq",
+            "prompt": "What does this example express? Potilas saattaa nukkua.",
+            "options": [
+              {
+                "option_id": "o1",
+                "text": "I ask the patient about allergies.",
+                "explanation": null
+              },
+              {
+                "option_id": "o2",
+                "text": "I answer the phone quickly.",
+                "explanation": null
+              },
+              {
+                "option_id": "o3",
+                "text": "I participate in the training.",
+                "explanation": null
+              },
+              {
+                "option_id": "o4",
+                "text": "The patient might be sleeping.",
+                "explanation": null
+              }
+            ],
+            "answer_key": "o4",
+            "accepted_variants": [],
+            "evaluation_mode": "option_id"
+          },
+          {
+            "variant_type": "typed_recall",
+            "prompt": "Describe the meaning or function in English.",
+            "answer_key": "The patient might be sleeping.",
+            "accepted_variants": [],
+            "evaluation_mode": "normalized_text"
+          }
+        ],
+        "explanation": {
+          "summary": "might do (possibility)",
+          "example": "Potilas saattaa nukkua."
+        },
+        "audio": null,
+        "validation": {
+          "case_sensitive": false,
+          "normalize_whitespace": true,
+          "allow_partial_credit": false
+        }
+      }
+    },
+    {
+      "id": "card.grammar.nurse.modal-verb-taitaa-1st-infinitive.bae551",
+      "version": 1,
+      "path": "professional/nurse/grammar",
+      "domain": "medical_work_finnish",
+      "profession": {
+        "track": "professional",
+        "slug": "nurse",
+        "label": "Nurse"
+      },
+      "level_band": "B1_B2",
+      "difficulty": "core",
+      "language": "fi",
+      "source": {
+        "source_id": "source.generated.professional.nurse.grammar",
+        "kind": "generated_or_recovered_batch",
+        "origin_path": "/home/vitus/Asiakirjat/project_documents/floently-finnish/generated_material_bank/nurse_grammar.json",
+        "authoring_note": "source.generated.professional.nurse.grammar"
+      },
+      "quality": {
+        "status": "prevalidated",
+        "reviewer": null,
+        "validation_checks": [
+          "manifest_detection",
+          "item_extraction",
+          "normalization",
+          "dedupe",
+          "validation"
+        ],
+        "quality_score": 0.95
+      },
+      "tags": [
+        "b1_b2",
+        "medical_work_finnish",
+        "nurse",
+        "grammar_pattern"
+      ],
+      "publication": {
+        "state": "candidate",
+        "version_tag": null,
+        "manifest_ref": "source.generated.professional.nurse.grammar",
+        "validation_passed": true,
+        "published_at": null,
+        "archived_at": null
+      },
+      "content_type": "grammar_card",
+      "content": {
+        "front": {
+          "pattern": "modal verb taitaa + 1st infinitive",
+          "usage": "probably does (assumption)"
+        },
+        "back": {
+          "recall_prompt": "What is the function of 'modal verb taitaa + 1st infinitive'?",
+          "gloss": "The doctor has probably already left.",
+          "example_sentence": "Lääkäri taitaa olla jo lähtenyt."
+        },
+        "prompt_family": "grammar_pattern",
+        "follow_ups": [
+          {
+            "variant_type": "recognition_mcq",
+            "prompt": "What does this example express? Lääkäri taitaa olla jo lähtenyt.",
+            "options": [
+              {
+                "option_id": "o1",
+                "text": "I ask the patient about allergies.",
+                "explanation": null
+              },
+              {
+                "option_id": "o2",
+                "text": "I answer the phone quickly.",
+                "explanation": null
+              },
+              {
+                "option_id": "o3",
+                "text": "I participate in the training.",
+                "explanation": null
+              },
+              {
+                "option_id": "o4",
+                "text": "The doctor has probably already left.",
+                "explanation": null
+              }
+            ],
+            "answer_key": "o4",
+            "accepted_variants": [],
+            "evaluation_mode": "option_id"
+          },
+          {
+            "variant_type": "typed_recall",
+            "prompt": "Describe the meaning or function in English.",
+            "answer_key": "The doctor has probably already left.",
+            "accepted_variants": [],
+            "evaluation_mode": "normalized_text"
+          }
+        ],
+        "explanation": {
+          "summary": "probably does (assumption)",
+          "example": "Lääkäri taitaa olla jo lähtenyt."
+        },
+        "audio": null,
+        "validation": {
+          "case_sensitive": false,
+          "normalize_whitespace": true,
+          "allow_partial_credit": false
+        }
+      }
+    },
+    {
+      "id": "card.grammar.nurse.modal-verb-taytyy-ei-negative.028ff8",
+      "version": 1,
+      "path": "professional/nurse/grammar",
+      "domain": "medical_work_finnish",
+      "profession": {
+        "track": "professional",
+        "slug": "nurse",
+        "label": "Nurse"
+      },
+      "level_band": "B1_B2",
+      "difficulty": "core",
+      "language": "fi",
+      "source": {
+        "source_id": "source.generated.professional.nurse.grammar",
+        "kind": "generated_or_recovered_batch",
+        "origin_path": "/home/vitus/Asiakirjat/project_documents/floently-finnish/generated_material_bank/nurse_grammar.json",
+        "authoring_note": "source.generated.professional.nurse.grammar"
+      },
+      "quality": {
+        "status": "prevalidated",
+        "reviewer": null,
+        "validation_checks": [
+          "manifest_detection",
+          "item_extraction",
+          "normalization",
+          "dedupe",
+          "validation"
+        ],
+        "quality_score": 0.95
+      },
+      "tags": [
+        "b1_b2",
+        "medical_work_finnish",
+        "nurse",
+        "grammar_pattern"
+      ],
+      "publication": {
+        "state": "candidate",
+        "version_tag": null,
+        "manifest_ref": "source.generated.professional.nurse.grammar",
+        "validation_passed": true,
+        "published_at": null,
+        "archived_at": null
+      },
+      "content_type": "grammar_card",
+      "content": {
+        "front": {
+          "pattern": "modal verb täytyy + ei (negative)",
+          "usage": "must not"
+        },
+        "back": {
+          "recall_prompt": "What is the function of 'modal verb täytyy + ei (negative)'?",
+          "gloss": "The medicine must not be given on an empty stomach.",
+          "example_sentence": "Lääkettä ei täyty antaa tyhjään mahaan."
+        },
+        "prompt_family": "grammar_pattern",
+        "follow_ups": [
+          {
+            "variant_type": "recognition_mcq",
+            "prompt": "What does this example express? Lääkettä ei täyty antaa tyhjään mahaan.",
+            "options": [
+              {
+                "option_id": "o1",
+                "text": "I ask the patient about allergies.",
+                "explanation": null
+              },
+              {
+                "option_id": "o2",
+                "text": "I answer the phone quickly.",
+                "explanation": null
+              },
+              {
+                "option_id": "o3",
+                "text": "I participate in the training.",
+                "explanation": null
+              },
+              {
+                "option_id": "o4",
+                "text": "The medicine must not be given on an empty stomach.",
+                "explanation": null
+              }
+            ],
+            "answer_key": "o4",
+            "accepted_variants": [],
+            "evaluation_mode": "option_id"
+          },
+          {
+            "variant_type": "typed_recall",
+            "prompt": "Describe the meaning or function in English.",
+            "answer_key": "The medicine must not be given on an empty stomach.",
+            "accepted_variants": [],
+            "evaluation_mode": "normalized_text"
+          }
+        ],
+        "explanation": {
+          "summary": "must not",
+          "example": "Lääkettä ei täyty antaa tyhjään mahaan."
+        },
+        "audio": null,
+        "validation": {
+          "case_sensitive": false,
+          "normalize_whitespace": true,
+          "allow_partial_credit": false
+        }
+      }
+    },
+    {
+      "id": "card.grammar.nurse.modal-verb-kannattaa-1st-infinitive.d331a7",
+      "version": 1,
+      "path": "professional/nurse/grammar",
+      "domain": "medical_work_finnish",
+      "profession": {
+        "track": "professional",
+        "slug": "nurse",
+        "label": "Nurse"
+      },
+      "level_band": "B1_B2",
+      "difficulty": "core",
+      "language": "fi",
+      "source": {
+        "source_id": "source.generated.professional.nurse.grammar",
+        "kind": "generated_or_recovered_batch",
+        "origin_path": "/home/vitus/Asiakirjat/project_documents/floently-finnish/generated_material_bank/nurse_grammar.json",
+        "authoring_note": "source.generated.professional.nurse.grammar"
+      },
+      "quality": {
+        "status": "prevalidated",
+        "reviewer": null,
+        "validation_checks": [
+          "manifest_detection",
+          "item_extraction",
+          "normalization",
+          "dedupe",
+          "validation"
+        ],
+        "quality_score": 0.95
+      },
+      "tags": [
+        "b1_b2",
+        "medical_work_finnish",
+        "nurse",
+        "grammar_pattern"
+      ],
+      "publication": {
+        "state": "candidate",
+        "version_tag": null,
+        "manifest_ref": "source.generated.professional.nurse.grammar",
+        "validation_passed": true,
+        "published_at": null,
+        "archived_at": null
+      },
+      "content_type": "grammar_card",
+      "content": {
+        "front": {
+          "pattern": "modal verb kannattaa + 1st infinitive",
+          "usage": "it's worth doing"
+        },
+        "back": {
+          "recall_prompt": "What is the function of 'modal verb kannattaa + 1st infinitive'?",
+          "gloss": "It's worth checking the patient's ID bracelet.",
+          "example_sentence": "Kannattaa tarkistaa potilaan ID-ranneke."
+        },
+        "prompt_family": "grammar_pattern",
+        "follow_ups": [
+          {
+            "variant_type": "recognition_mcq",
+            "prompt": "What does this example express? Kannattaa tarkistaa potilaan ID-ranneke.",
+            "options": [
+              {
+                "option_id": "o1",
+                "text": "I ask the patient about allergies.",
+                "explanation": null
+              },
+              {
+                "option_id": "o2",
+                "text": "I answer the phone quickly.",
+                "explanation": null
+              },
+              {
+                "option_id": "o3",
+                "text": "I participate in the training.",
+                "explanation": null
+              },
+              {
+                "option_id": "o4",
+                "text": "It's worth checking the patient's ID bracelet.",
+                "explanation": null
+              }
+            ],
+            "answer_key": "o4",
+            "accepted_variants": [],
+            "evaluation_mode": "option_id"
+          },
+          {
+            "variant_type": "typed_recall",
+            "prompt": "Describe the meaning or function in English.",
+            "answer_key": "It's worth checking the patient's ID bracelet.",
+            "accepted_variants": [],
+            "evaluation_mode": "normalized_text"
+          }
+        ],
+        "explanation": {
+          "summary": "it's worth doing",
+          "example": "Kannattaa tarkistaa potilaan ID-ranneke."
+        },
+        "audio": null,
+        "validation": {
+          "case_sensitive": false,
+          "normalize_whitespace": true,
+          "allow_partial_credit": false
+        }
+      }
+    },
+    {
+      "id": "card.grammar.nurse.modal-verb-on-pakko-1st-infinitive.71ae83",
+      "version": 1,
+      "path": "professional/nurse/grammar",
+      "domain": "medical_work_finnish",
+      "profession": {
+        "track": "professional",
+        "slug": "nurse",
+        "label": "Nurse"
+      },
+      "level_band": "B1_B2",
+      "difficulty": "core",
+      "language": "fi",
+      "source": {
+        "source_id": "source.generated.professional.nurse.grammar",
+        "kind": "generated_or_recovered_batch",
+        "origin_path": "/home/vitus/Asiakirjat/project_documents/floently-finnish/generated_material_bank/nurse_grammar.json",
+        "authoring_note": "source.generated.professional.nurse.grammar"
+      },
+      "quality": {
+        "status": "prevalidated",
+        "reviewer": null,
+        "validation_checks": [
+          "manifest_detection",
+          "item_extraction",
+          "normalization",
+          "dedupe",
+          "validation"
+        ],
+        "quality_score": 0.95
+      },
+      "tags": [
+        "b1_b2",
+        "medical_work_finnish",
+        "nurse",
+        "grammar_pattern"
+      ],
+      "publication": {
+        "state": "candidate",
+        "version_tag": null,
+        "manifest_ref": "source.generated.professional.nurse.grammar",
+        "validation_passed": true,
+        "published_at": null,
+        "archived_at": null
+      },
+      "content_type": "grammar_card",
+      "content": {
+        "front": {
+          "pattern": "modal verb on pakko + 1st infinitive",
+          "usage": "it's necessary/forced"
+        },
+        "back": {
+          "recall_prompt": "What is the function of 'modal verb on pakko + 1st infinitive'?",
+          "gloss": "It is necessary to call the doctor immediately.",
+          "example_sentence": "On pakko soittaa lääkäri heti."
+        },
+        "prompt_family": "grammar_pattern",
+        "follow_ups": [
+          {
+            "variant_type": "recognition_mcq",
+            "prompt": "What does this example express? On pakko soittaa lääkäri heti.",
+            "options": [
+              {
+                "option_id": "o1",
+                "text": "I ask the patient about allergies.",
+                "explanation": null
+              },
+              {
+                "option_id": "o2",
+                "text": "I answer the phone quickly.",
+                "explanation": null
+              },
+              {
+                "option_id": "o3",
+                "text": "I participate in the training.",
+                "explanation": null
+              },
+              {
+                "option_id": "o4",
+                "text": "It is necessary to call the doctor immediately.",
+                "explanation": null
+              }
+            ],
+            "answer_key": "o4",
+            "accepted_variants": [],
+            "evaluation_mode": "option_id"
+          },
+          {
+            "variant_type": "typed_recall",
+            "prompt": "Describe the meaning or function in English.",
+            "answer_key": "It is necessary to call the doctor immediately.",
+            "accepted_variants": [],
+            "evaluation_mode": "normalized_text"
+          }
+        ],
+        "explanation": {
+          "summary": "it's necessary/forced",
+          "example": "On pakko soittaa lääkäri heti."
+        },
+        "audio": null,
+        "validation": {
+          "case_sensitive": false,
+          "normalize_whitespace": true,
+          "allow_partial_credit": false
+        }
+      }
+    },
+    {
+      "id": "card.grammar.nurse.modal-verb-on-lupa-1st-infinitive.77d72a",
+      "version": 1,
+      "path": "professional/nurse/grammar",
+      "domain": "medical_work_finnish",
+      "profession": {
+        "track": "professional",
+        "slug": "nurse",
+        "label": "Nurse"
+      },
+      "level_band": "B1_B2",
+      "difficulty": "core",
+      "language": "fi",
+      "source": {
+        "source_id": "source.generated.professional.nurse.grammar",
+        "kind": "generated_or_recovered_batch",
+        "origin_path": "/home/vitus/Asiakirjat/project_documents/floently-finnish/generated_material_bank/nurse_grammar.json",
+        "authoring_note": "source.generated.professional.nurse.grammar"
+      },
+      "quality": {
+        "status": "prevalidated",
+        "reviewer": null,
+        "validation_checks": [
+          "manifest_detection",
+          "item_extraction",
+          "normalization",
+          "dedupe",
+          "validation"
+        ],
+        "quality_score": 0.95
+      },
+      "tags": [
+        "b1_b2",
+        "medical_work_finnish",
+        "nurse",
+        "grammar_pattern"
+      ],
+      "publication": {
+        "state": "candidate",
+        "version_tag": null,
+        "manifest_ref": "source.generated.professional.nurse.grammar",
+        "validation_passed": true,
+        "published_at": null,
+        "archived_at": null
+      },
+      "content_type": "grammar_card",
+      "content": {
+        "front": {
+          "pattern": "modal verb on lupa + 1st infinitive",
+          "usage": "it's allowed to"
+        },
+        "back": {
+          "recall_prompt": "What is the function of 'modal verb on lupa + 1st infinitive'?",
+          "gloss": "The nurse is allowed to give painkillers.",
+          "example_sentence": "Hoitajalla on lupa antaa kipulääke."
+        },
+        "prompt_family": "grammar_pattern",
+        "follow_ups": [
+          {
+            "variant_type": "recognition_mcq",
+            "prompt": "What does this example express? Hoitajalla on lupa antaa kipulääke.",
+            "options": [
+              {
+                "option_id": "o1",
+                "text": "I ask the patient about allergies.",
+                "explanation": null
+              },
+              {
+                "option_id": "o2",
+                "text": "I answer the phone quickly.",
+                "explanation": null
+              },
+              {
+                "option_id": "o3",
+                "text": "I participate in the training.",
+                "explanation": null
+              },
+              {
+                "option_id": "o4",
+                "text": "The nurse is allowed to give painkillers.",
+                "explanation": null
+              }
+            ],
+            "answer_key": "o4",
+            "accepted_variants": [],
+            "evaluation_mode": "option_id"
+          },
+          {
+            "variant_type": "typed_recall",
+            "prompt": "Describe the meaning or function in English.",
+            "answer_key": "The nurse is allowed to give painkillers.",
+            "accepted_variants": [],
+            "evaluation_mode": "normalized_text"
+          }
+        ],
+        "explanation": {
+          "summary": "it's allowed to",
+          "example": "Hoitajalla on lupa antaa kipulääke."
+        },
+        "audio": null,
+        "validation": {
+          "case_sensitive": false,
+          "normalize_whitespace": true,
+          "allow_partial_credit": false
+        }
+      }
+    },
+    {
+      "id": "card.grammar.nurse.verb-minen-adessive-olla.34d971",
+      "version": 1,
+      "path": "professional/nurse/grammar",
+      "domain": "medical_work_finnish",
+      "profession": {
+        "track": "professional",
+        "slug": "nurse",
+        "label": "Nurse"
+      },
+      "level_band": "B1_B2",
+      "difficulty": "core",
+      "language": "fi",
+      "source": {
+        "source_id": "source.generated.professional.nurse.grammar",
+        "kind": "generated_or_recovered_batch",
+        "origin_path": "/home/vitus/Asiakirjat/project_documents/floently-finnish/generated_material_bank/nurse_grammar.json",
+        "authoring_note": "source.generated.professional.nurse.grammar"
+      },
+      "quality": {
+        "status": "prevalidated",
+        "reviewer": null,
+        "validation_checks": [
+          "manifest_detection",
+          "item_extraction",
+          "normalization",
+          "dedupe",
+          "validation"
+        ],
+        "quality_score": 0.95
+      },
+      "tags": [
+        "b1_b2",
+        "medical_work_finnish",
+        "nurse",
+        "grammar_pattern"
+      ],
+      "publication": {
+        "state": "candidate",
+        "version_tag": null,
+        "manifest_ref": "source.generated.professional.nurse.grammar",
+        "validation_passed": true,
+        "published_at": null,
+        "archived_at": null
+      },
+      "content_type": "grammar_card",
+      "content": {
+        "front": {
+          "pattern": "verb + -minen + adessive (olla)",
+          "usage": "to be in the process of"
+        },
+        "back": {
+          "recall_prompt": "What is the function of 'verb + -minen + adessive (olla)'?",
+          "gloss": "I'm in the process of recording.",
+          "example_sentence": "Olen kirjaamisessa."
+        },
+        "prompt_family": "grammar_pattern",
+        "follow_ups": [
+          {
+            "variant_type": "recognition_mcq",
+            "prompt": "What does this example express? Olen kirjaamisessa.",
+            "options": [
+              {
+                "option_id": "o1",
+                "text": "I ask the patient about allergies.",
+                "explanation": null
+              },
+              {
+                "option_id": "o2",
+                "text": "I answer the phone quickly.",
+                "explanation": null
+              },
+              {
+                "option_id": "o3",
+                "text": "I participate in the training.",
+                "explanation": null
+              },
+              {
+                "option_id": "o4",
+                "text": "I'm in the process of recording.",
+                "explanation": null
+              }
+            ],
+            "answer_key": "o4",
+            "accepted_variants": [],
+            "evaluation_mode": "option_id"
+          },
+          {
+            "variant_type": "typed_recall",
+            "prompt": "Describe the meaning or function in English.",
+            "answer_key": "I'm in the process of recording.",
+            "accepted_variants": [],
+            "evaluation_mode": "normalized_text"
+          }
+        ],
+        "explanation": {
+          "summary": "to be in the process of",
+          "example": "Olen kirjaamisessa."
+        },
+        "audio": null,
+        "validation": {
+          "case_sensitive": false,
+          "normalize_whitespace": true,
+          "allow_partial_credit": false
+        }
+      }
+    },
+    {
+      "id": "card.grammar.nurse.verb-minen-genitive-ajan.a41f47",
+      "version": 1,
+      "path": "professional/nurse/grammar",
+      "domain": "medical_work_finnish",
+      "profession": {
+        "track": "professional",
+        "slug": "nurse",
+        "label": "Nurse"
+      },
+      "level_band": "B1_B2",
+      "difficulty": "core",
+      "language": "fi",
+      "source": {
+        "source_id": "source.generated.professional.nurse.grammar",
+        "kind": "generated_or_recovered_batch",
+        "origin_path": "/home/vitus/Asiakirjat/project_documents/floently-finnish/generated_material_bank/nurse_grammar.json",
+        "authoring_note": "source.generated.professional.nurse.grammar"
+      },
+      "quality": {
+        "status": "prevalidated",
+        "reviewer": null,
+        "validation_checks": [
+          "manifest_detection",
+          "item_extraction",
+          "normalization",
+          "dedupe",
+          "validation"
+        ],
+        "quality_score": 0.95
+      },
+      "tags": [
+        "b1_b2",
+        "medical_work_finnish",
+        "nurse",
+        "grammar_pattern"
+      ],
+      "publication": {
+        "state": "candidate",
+        "version_tag": null,
+        "manifest_ref": "source.generated.professional.nurse.grammar",
+        "validation_passed": true,
+        "published_at": null,
+        "archived_at": null
+      },
+      "content_type": "grammar_card",
+      "content": {
+        "front": {
+          "pattern": "verb + -minen + genitive (ajan)",
+          "usage": "time of doing"
+        },
+        "back": {
+          "recall_prompt": "What is the function of 'verb + -minen + genitive (ajan)'?",
+          "gloss": "The time for giving medicines is now.",
+          "example_sentence": "Lääkkeiden antamisen aika on nyt."
+        },
+        "prompt_family": "grammar_pattern",
+        "follow_ups": [
+          {
+            "variant_type": "recognition_mcq",
+            "prompt": "What does this example express? Lääkkeiden antamisen aika on nyt.",
+            "options": [
+              {
+                "option_id": "o1",
+                "text": "I ask the patient about allergies.",
+                "explanation": null
+              },
+              {
+                "option_id": "o2",
+                "text": "I answer the phone quickly.",
+                "explanation": null
+              },
+              {
+                "option_id": "o3",
+                "text": "I participate in the training.",
+                "explanation": null
+              },
+              {
+                "option_id": "o4",
+                "text": "The time for giving medicines is now.",
+                "explanation": null
+              }
+            ],
+            "answer_key": "o4",
+            "accepted_variants": [],
+            "evaluation_mode": "option_id"
+          },
+          {
+            "variant_type": "typed_recall",
+            "prompt": "Describe the meaning or function in English.",
+            "answer_key": "The time for giving medicines is now.",
+            "accepted_variants": [],
+            "evaluation_mode": "normalized_text"
+          }
+        ],
+        "explanation": {
+          "summary": "time of doing",
+          "example": "Lääkkeiden antamisen aika on nyt."
+        },
+        "audio": null,
+        "validation": {
+          "case_sensitive": false,
+          "normalize_whitespace": true,
+          "allow_partial_credit": false
+        }
+      }
+    },
+    {
+      "id": "card.grammar.nurse.inessive-as-time-kuussa-vuonna.7e4ba4",
+      "version": 1,
+      "path": "professional/nurse/grammar",
+      "domain": "medical_work_finnish",
+      "profession": {
+        "track": "professional",
+        "slug": "nurse",
+        "label": "Nurse"
+      },
+      "level_band": "B1_B2",
+      "difficulty": "core",
+      "language": "fi",
+      "source": {
+        "source_id": "source.generated.professional.nurse.grammar",
+        "kind": "generated_or_recovered_batch",
+        "origin_path": "/home/vitus/Asiakirjat/project_documents/floently-finnish/generated_material_bank/nurse_grammar.json",
+        "authoring_note": "source.generated.professional.nurse.grammar"
+      },
+      "quality": {
+        "status": "prevalidated",
+        "reviewer": null,
+        "validation_checks": [
+          "manifest_detection",
+          "item_extraction",
+          "normalization",
+          "dedupe",
+          "validation"
+        ],
+        "quality_score": 0.95
+      },
+      "tags": [
+        "b1_b2",
+        "medical_work_finnish",
+        "nurse",
+        "grammar_pattern"
+      ],
+      "publication": {
+        "state": "candidate",
+        "version_tag": null,
+        "manifest_ref": "source.generated.professional.nurse.grammar",
+        "validation_passed": true,
+        "published_at": null,
+        "archived_at": null
+      },
+      "content_type": "grammar_card",
+      "content": {
+        "front": {
+          "pattern": "inessive as time (kuussa, vuonna)",
+          "usage": "in a month, in a year"
+        },
+        "back": {
+          "recall_prompt": "What is the function of 'inessive as time (kuussa, vuonna)'?",
+          "gloss": "The patient recovers in a week.",
+          "example_sentence": "Potilas toipuu viikossa."
+        },
+        "prompt_family": "grammar_pattern",
+        "follow_ups": [
+          {
+            "variant_type": "recognition_mcq",
+            "prompt": "What does this example express? Potilas toipuu viikossa.",
+            "options": [
+              {
+                "option_id": "o1",
+                "text": "I ask the patient about allergies.",
+                "explanation": null
+              },
+              {
+                "option_id": "o2",
+                "text": "I answer the phone quickly.",
+                "explanation": null
+              },
+              {
+                "option_id": "o3",
+                "text": "I participate in the training.",
+                "explanation": null
+              },
+              {
+                "option_id": "o4",
+                "text": "The patient recovers in a week.",
+                "explanation": null
+              }
+            ],
+            "answer_key": "o4",
+            "accepted_variants": [],
+            "evaluation_mode": "option_id"
+          },
+          {
+            "variant_type": "typed_recall",
+            "prompt": "Describe the meaning or function in English.",
+            "answer_key": "The patient recovers in a week.",
+            "accepted_variants": [],
+            "evaluation_mode": "normalized_text"
+          }
+        ],
+        "explanation": {
+          "summary": "in a month, in a year",
+          "example": "Potilas toipuu viikossa."
+        },
+        "audio": null,
+        "validation": {
+          "case_sensitive": false,
+          "normalize_whitespace": true,
+          "allow_partial_credit": false
+        }
+      }
+    },
+    {
+      "id": "card.grammar.nurse.adessive-as-instrument-lla.5f1cee",
+      "version": 1,
+      "path": "professional/nurse/grammar",
+      "domain": "medical_work_finnish",
+      "profession": {
+        "track": "professional",
+        "slug": "nurse",
+        "label": "Nurse"
+      },
+      "level_band": "B1_B2",
+      "difficulty": "core",
+      "language": "fi",
+      "source": {
+        "source_id": "source.generated.professional.nurse.grammar",
+        "kind": "generated_or_recovered_batch",
+        "origin_path": "/home/vitus/Asiakirjat/project_documents/floently-finnish/generated_material_bank/nurse_grammar.json",
+        "authoring_note": "source.generated.professional.nurse.grammar"
+      },
+      "quality": {
+        "status": "prevalidated",
+        "reviewer": null,
+        "validation_checks": [
+          "manifest_detection",
+          "item_extraction",
+          "normalization",
+          "dedupe",
+          "validation"
+        ],
+        "quality_score": 0.95
+      },
+      "tags": [
+        "b1_b2",
+        "medical_work_finnish",
+        "nurse",
+        "grammar_pattern"
+      ],
+      "publication": {
+        "state": "candidate",
+        "version_tag": null,
+        "manifest_ref": "source.generated.professional.nurse.grammar",
+        "validation_passed": true,
+        "published_at": null,
+        "archived_at": null
+      },
+      "content_type": "grammar_card",
+      "content": {
+        "front": {
+          "pattern": "adessive as instrument ( -lla )",
+          "usage": "with (tool)"
+        },
+        "back": {
+          "recall_prompt": "What is the function of 'adessive as instrument ( -lla )'?",
+          "gloss": "I measure the fever with an ear thermometer.",
+          "example_sentence": "Mittaan kuumeen korvamittarilla."
+        },
+        "prompt_family": "grammar_pattern",
+        "follow_ups": [
+          {
+            "variant_type": "recognition_mcq",
+            "prompt": "What does this example express? Mittaan kuumeen korvamittarilla.",
+            "options": [
+              {
+                "option_id": "o1",
+                "text": "I ask the patient about allergies.",
+                "explanation": null
+              },
+              {
+                "option_id": "o2",
+                "text": "I answer the phone quickly.",
+                "explanation": null
+              },
+              {
+                "option_id": "o3",
+                "text": "I participate in the training.",
+                "explanation": null
+              },
+              {
+                "option_id": "o4",
+                "text": "I measure the fever with an ear thermometer.",
+                "explanation": null
+              }
+            ],
+            "answer_key": "o4",
+            "accepted_variants": [],
+            "evaluation_mode": "option_id"
+          },
+          {
+            "variant_type": "typed_recall",
+            "prompt": "Describe the meaning or function in English.",
+            "answer_key": "I measure the fever with an ear thermometer.",
+            "accepted_variants": [],
+            "evaluation_mode": "normalized_text"
+          }
+        ],
+        "explanation": {
+          "summary": "with (tool)",
+          "example": "Mittaan kuumeen korvamittarilla."
+        },
+        "audio": null,
+        "validation": {
+          "case_sensitive": false,
+          "normalize_whitespace": true,
+          "allow_partial_credit": false
+        }
+      }
+    },
+    {
+      "id": "card.grammar.nurse.elative-as-cause-sta.e00c26",
+      "version": 1,
+      "path": "professional/nurse/grammar",
+      "domain": "medical_work_finnish",
+      "profession": {
+        "track": "professional",
+        "slug": "nurse",
+        "label": "Nurse"
+      },
+      "level_band": "B1_B2",
+      "difficulty": "core",
+      "language": "fi",
+      "source": {
+        "source_id": "source.generated.professional.nurse.grammar",
+        "kind": "generated_or_recovered_batch",
+        "origin_path": "/home/vitus/Asiakirjat/project_documents/floently-finnish/generated_material_bank/nurse_grammar.json",
+        "authoring_note": "source.generated.professional.nurse.grammar"
+      },
+      "quality": {
+        "status": "prevalidated",
+        "reviewer": null,
+        "validation_checks": [
+          "manifest_detection",
+          "item_extraction",
+          "normalization",
+          "dedupe",
+          "validation"
+        ],
+        "quality_score": 0.95
+      },
+      "tags": [
+        "b1_b2",
+        "medical_work_finnish",
+        "nurse",
+        "grammar_pattern"
+      ],
+      "publication": {
+        "state": "candidate",
+        "version_tag": null,
+        "manifest_ref": "source.generated.professional.nurse.grammar",
+        "validation_passed": true,
+        "published_at": null,
+        "archived_at": null
+      },
+      "content_type": "grammar_card",
+      "content": {
+        "front": {
+          "pattern": "elative as cause ( -sta )",
+          "usage": "because of"
+        },
+        "back": {
+          "recall_prompt": "What is the function of 'elative as cause ( -sta )'?",
+          "gloss": "The patient cries because of pain.",
+          "example_sentence": "Potilas itkee kivusta."
+        },
+        "prompt_family": "grammar_pattern",
+        "follow_ups": [
+          {
+            "variant_type": "recognition_mcq",
+            "prompt": "What does this example express? Potilas itkee kivusta.",
+            "options": [
+              {
+                "option_id": "o1",
+                "text": "I ask the patient about allergies.",
+                "explanation": null
+              },
+              {
+                "option_id": "o2",
+                "text": "I answer the phone quickly.",
+                "explanation": null
+              },
+              {
+                "option_id": "o3",
+                "text": "I participate in the training.",
+                "explanation": null
+              },
+              {
+                "option_id": "o4",
+                "text": "The patient cries because of pain.",
+                "explanation": null
+              }
+            ],
+            "answer_key": "o4",
+            "accepted_variants": [],
+            "evaluation_mode": "option_id"
+          },
+          {
+            "variant_type": "typed_recall",
+            "prompt": "Describe the meaning or function in English.",
+            "answer_key": "The patient cries because of pain.",
+            "accepted_variants": [],
+            "evaluation_mode": "normalized_text"
+          }
+        ],
+        "explanation": {
+          "summary": "because of",
+          "example": "Potilas itkee kivusta."
+        },
+        "audio": null,
+        "validation": {
+          "case_sensitive": false,
+          "normalize_whitespace": true,
+          "allow_partial_credit": false
+        }
+      }
+    },
+    {
+      "id": "card.grammar.nurse.illative-as-result-een.fb582e",
+      "version": 1,
+      "path": "professional/nurse/grammar",
+      "domain": "medical_work_finnish",
+      "profession": {
+        "track": "professional",
+        "slug": "nurse",
+        "label": "Nurse"
+      },
+      "level_band": "B1_B2",
+      "difficulty": "core",
+      "language": "fi",
+      "source": {
+        "source_id": "source.generated.professional.nurse.grammar",
+        "kind": "generated_or_recovered_batch",
+        "origin_path": "/home/vitus/Asiakirjat/project_documents/floently-finnish/generated_material_bank/nurse_grammar.json",
+        "authoring_note": "source.generated.professional.nurse.grammar"
+      },
+      "quality": {
+        "status": "prevalidated",
+        "reviewer": null,
+        "validation_checks": [
+          "manifest_detection",
+          "item_extraction",
+          "normalization",
+          "dedupe",
+          "validation"
+        ],
+        "quality_score": 0.95
+      },
+      "tags": [
+        "b1_b2",
+        "medical_work_finnish",
+        "nurse",
+        "grammar_pattern"
+      ],
+      "publication": {
+        "state": "candidate",
+        "version_tag": null,
+        "manifest_ref": "source.generated.professional.nurse.grammar",
+        "validation_passed": true,
+        "published_at": null,
+        "archived_at": null
+      },
+      "content_type": "grammar_card",
+      "content": {
+        "front": {
+          "pattern": "illative as result ( -een )",
+          "usage": "into a state"
+        },
+        "back": {
+          "recall_prompt": "What is the function of 'illative as result ( -een )'?",
+          "gloss": "The patient went into shock.",
+          "example_sentence": "Potilas meni shokkiin."
+        },
+        "prompt_family": "grammar_pattern",
+        "follow_ups": [
+          {
+            "variant_type": "recognition_mcq",
+            "prompt": "What does this example express? Potilas meni shokkiin.",
+            "options": [
+              {
+                "option_id": "o1",
+                "text": "I ask the patient about allergies.",
+                "explanation": null
+              },
+              {
+                "option_id": "o2",
+                "text": "I answer the phone quickly.",
+                "explanation": null
+              },
+              {
+                "option_id": "o3",
+                "text": "I participate in the training.",
+                "explanation": null
+              },
+              {
+                "option_id": "o4",
+                "text": "The patient went into shock.",
+                "explanation": null
+              }
+            ],
+            "answer_key": "o4",
+            "accepted_variants": [],
+            "evaluation_mode": "option_id"
+          },
+          {
+            "variant_type": "typed_recall",
+            "prompt": "Describe the meaning or function in English.",
+            "answer_key": "The patient went into shock.",
+            "accepted_variants": [],
+            "evaluation_mode": "normalized_text"
+          }
+        ],
+        "explanation": {
+          "summary": "into a state",
+          "example": "Potilas meni shokkiin."
+        },
+        "audio": null,
+        "validation": {
+          "case_sensitive": false,
+          "normalize_whitespace": true,
+          "allow_partial_credit": false
+        }
+      }
+    },
+    {
+      "id": "card.grammar.nurse.translative-as-change-ksi.087cda",
+      "version": 1,
+      "path": "professional/nurse/grammar",
+      "domain": "medical_work_finnish",
+      "profession": {
+        "track": "professional",
+        "slug": "nurse",
+        "label": "Nurse"
+      },
+      "level_band": "B1_B2",
+      "difficulty": "core",
+      "language": "fi",
+      "source": {
+        "source_id": "source.generated.professional.nurse.grammar",
+        "kind": "generated_or_recovered_batch",
+        "origin_path": "/home/vitus/Asiakirjat/project_documents/floently-finnish/generated_material_bank/nurse_grammar.json",
+        "authoring_note": "source.generated.professional.nurse.grammar"
+      },
+      "quality": {
+        "status": "prevalidated",
+        "reviewer": null,
+        "validation_checks": [
+          "manifest_detection",
+          "item_extraction",
+          "normalization",
+          "dedupe",
+          "validation"
+        ],
+        "quality_score": 0.95
+      },
+      "tags": [
+        "b1_b2",
+        "medical_work_finnish",
+        "nurse",
+        "grammar_pattern"
+      ],
+      "publication": {
+        "state": "candidate",
+        "version_tag": null,
+        "manifest_ref": "source.generated.professional.nurse.grammar",
+        "validation_passed": true,
+        "published_at": null,
+        "archived_at": null
+      },
+      "content_type": "grammar_card",
+      "content": {
+        "front": {
+          "pattern": "translative as change ( -ksi )",
+          "usage": "becoming"
+        },
+        "back": {
+          "recall_prompt": "What is the function of 'translative as change ( -ksi )'?",
+          "gloss": "The nurse trains to become a specialized nurse.",
+          "example_sentence": "Hoitaja kouluttautuu erikoissairaanhoitajaksi."
+        },
+        "prompt_family": "grammar_pattern",
+        "follow_ups": [
+          {
+            "variant_type": "recognition_mcq",
+            "prompt": "What does this example express? Hoitaja kouluttautuu erikoissairaanhoitajaksi.",
+            "options": [
+              {
+                "option_id": "o1",
+                "text": "I ask the patient about allergies.",
+                "explanation": null
+              },
+              {
+                "option_id": "o2",
+                "text": "I answer the phone quickly.",
+                "explanation": null
+              },
+              {
+                "option_id": "o3",
+                "text": "I participate in the training.",
+                "explanation": null
+              },
+              {
+                "option_id": "o4",
+                "text": "The nurse trains to become a specialized nurse.",
+                "explanation": null
+              }
+            ],
+            "answer_key": "o4",
+            "accepted_variants": [],
+            "evaluation_mode": "option_id"
+          },
+          {
+            "variant_type": "typed_recall",
+            "prompt": "Describe the meaning or function in English.",
+            "answer_key": "The nurse trains to become a specialized nurse.",
+            "accepted_variants": [],
+            "evaluation_mode": "normalized_text"
+          }
+        ],
+        "explanation": {
+          "summary": "becoming",
+          "example": "Hoitaja kouluttautuu erikoissairaanhoitajaksi."
+        },
+        "audio": null,
+        "validation": {
+          "case_sensitive": false,
+          "normalize_whitespace": true,
+          "allow_partial_credit": false
+        }
+      }
+    },
+    {
+      "id": "card.grammar.nurse.essive-as-temporary-role-na.5430e2",
+      "version": 1,
+      "path": "professional/nurse/grammar",
+      "domain": "medical_work_finnish",
+      "profession": {
+        "track": "professional",
+        "slug": "nurse",
+        "label": "Nurse"
+      },
+      "level_band": "B1_B2",
+      "difficulty": "core",
+      "language": "fi",
+      "source": {
+        "source_id": "source.generated.professional.nurse.grammar",
+        "kind": "generated_or_recovered_batch",
+        "origin_path": "/home/vitus/Asiakirjat/project_documents/floently-finnish/generated_material_bank/nurse_grammar.json",
+        "authoring_note": "source.generated.professional.nurse.grammar"
+      },
+      "quality": {
+        "status": "prevalidated",
+        "reviewer": null,
+        "validation_checks": [
+          "manifest_detection",
+          "item_extraction",
+          "normalization",
+          "dedupe",
+          "validation"
+        ],
+        "quality_score": 0.95
+      },
+      "tags": [
+        "b1_b2",
+        "medical_work_finnish",
+        "nurse",
+        "grammar_pattern"
+      ],
+      "publication": {
+        "state": "candidate",
+        "version_tag": null,
+        "manifest_ref": "source.generated.professional.nurse.grammar",
+        "validation_passed": true,
+        "published_at": null,
+        "archived_at": null
+      },
+      "content_type": "grammar_card",
+      "content": {
+        "front": {
+          "pattern": "essive as temporary role ( -na )",
+          "usage": "as (temporary)"
+        },
+        "back": {
+          "recall_prompt": "What is the function of 'essive as temporary role ( -na )'?",
+          "gloss": "I work as a substitute today.",
+          "example_sentence": "Työskentelen sijaisena tänään."
+        },
+        "prompt_family": "grammar_pattern",
+        "follow_ups": [
+          {
+            "variant_type": "recognition_mcq",
+            "prompt": "What does this example express? Työskentelen sijaisena tänään.",
+            "options": [
+              {
+                "option_id": "o1",
+                "text": "I ask the patient about allergies.",
+                "explanation": null
+              },
+              {
+                "option_id": "o2",
+                "text": "I answer the phone quickly.",
+                "explanation": null
+              },
+              {
+                "option_id": "o3",
+                "text": "I participate in the training.",
+                "explanation": null
+              },
+              {
+                "option_id": "o4",
+                "text": "I work as a substitute today.",
+                "explanation": null
+              }
+            ],
+            "answer_key": "o4",
+            "accepted_variants": [],
+            "evaluation_mode": "option_id"
+          },
+          {
+            "variant_type": "typed_recall",
+            "prompt": "Describe the meaning or function in English.",
+            "answer_key": "I work as a substitute today.",
+            "accepted_variants": [],
+            "evaluation_mode": "normalized_text"
+          }
+        ],
+        "explanation": {
+          "summary": "as (temporary)",
+          "example": "Työskentelen sijaisena tänään."
+        },
+        "audio": null,
+        "validation": {
+          "case_sensitive": false,
+          "normalize_whitespace": true,
+          "allow_partial_credit": false
+        }
+      }
+    },
+    {
+      "id": "card.grammar.nurse.abessive-as-lack-tta.4e8935",
+      "version": 1,
+      "path": "professional/nurse/grammar",
+      "domain": "medical_work_finnish",
+      "profession": {
+        "track": "professional",
+        "slug": "nurse",
+        "label": "Nurse"
+      },
+      "level_band": "B1_B2",
+      "difficulty": "core",
+      "language": "fi",
+      "source": {
+        "source_id": "source.generated.professional.nurse.grammar",
+        "kind": "generated_or_recovered_batch",
+        "origin_path": "/home/vitus/Asiakirjat/project_documents/floently-finnish/generated_material_bank/nurse_grammar.json",
+        "authoring_note": "source.generated.professional.nurse.grammar"
+      },
+      "quality": {
+        "status": "prevalidated",
+        "reviewer": null,
+        "validation_checks": [
+          "manifest_detection",
+          "item_extraction",
+          "normalization",
+          "dedupe",
+          "validation"
+        ],
+        "quality_score": 0.95
+      },
+      "tags": [
+        "b1_b2",
+        "medical_work_finnish",
+        "nurse",
+        "grammar_pattern"
+      ],
+      "publication": {
+        "state": "candidate",
+        "version_tag": null,
+        "manifest_ref": "source.generated.professional.nurse.grammar",
+        "validation_passed": true,
+        "published_at": null,
+        "archived_at": null
+      },
+      "content_type": "grammar_card",
+      "content": {
+        "front": {
+          "pattern": "abessive as lack ( -tta )",
+          "usage": "without (lack)"
+        },
+        "back": {
+          "recall_prompt": "What is the function of 'abessive as lack ( -tta )'?",
+          "gloss": "The patient remained without medicine.",
+          "example_sentence": "Potilas jäi lääkkeittä."
+        },
+        "prompt_family": "grammar_pattern",
+        "follow_ups": [
+          {
+            "variant_type": "recognition_mcq",
+            "prompt": "What does this example express? Potilas jäi lääkkeittä.",
+            "options": [
+              {
+                "option_id": "o1",
+                "text": "I ask the patient about allergies.",
+                "explanation": null
+              },
+              {
+                "option_id": "o2",
+                "text": "I answer the phone quickly.",
+                "explanation": null
+              },
+              {
+                "option_id": "o3",
+                "text": "I participate in the training.",
+                "explanation": null
+              },
+              {
+                "option_id": "o4",
+                "text": "The patient remained without medicine.",
+                "explanation": null
+              }
+            ],
+            "answer_key": "o4",
+            "accepted_variants": [],
+            "evaluation_mode": "option_id"
+          },
+          {
+            "variant_type": "typed_recall",
+            "prompt": "Describe the meaning or function in English.",
+            "answer_key": "The patient remained without medicine.",
+            "accepted_variants": [],
+            "evaluation_mode": "normalized_text"
+          }
+        ],
+        "explanation": {
+          "summary": "without (lack)",
+          "example": "Potilas jäi lääkkeittä."
+        },
+        "audio": null,
+        "validation": {
+          "case_sensitive": false,
+          "normalize_whitespace": true,
+          "allow_partial_credit": false
+        }
+      }
+    },
+    {
+      "id": "card.grammar.nurse.plural-nominative-vs-partitive-in-subjects.f3c664",
+      "version": 1,
+      "path": "professional/nurse/grammar",
+      "domain": "medical_work_finnish",
+      "profession": {
+        "track": "professional",
+        "slug": "nurse",
+        "label": "Nurse"
+      },
+      "level_band": "B1_B2",
+      "difficulty": "core",
+      "language": "fi",
+      "source": {
+        "source_id": "source.generated.professional.nurse.grammar",
+        "kind": "generated_or_recovered_batch",
+        "origin_path": "/home/vitus/Asiakirjat/project_documents/floently-finnish/generated_material_bank/nurse_grammar.json",
+        "authoring_note": "source.generated.professional.nurse.grammar"
+      },
+      "quality": {
+        "status": "prevalidated",
+        "reviewer": null,
+        "validation_checks": [
+          "manifest_detection",
+          "item_extraction",
+          "normalization",
+          "dedupe",
+          "validation"
+        ],
+        "quality_score": 0.95
+      },
+      "tags": [
+        "b1_b2",
+        "medical_work_finnish",
+        "nurse",
+        "grammar_pattern"
+      ],
+      "publication": {
+        "state": "candidate",
+        "version_tag": null,
+        "manifest_ref": "source.generated.professional.nurse.grammar",
+        "validation_passed": true,
+        "published_at": null,
+        "archived_at": null
+      },
+      "content_type": "grammar_card",
+      "content": {
+        "front": {
+          "pattern": "plural nominative vs partitive in subjects",
+          "usage": "all vs some of them"
+        },
+        "back": {
+          "recall_prompt": "What is the function of 'plural nominative vs partitive in subjects'?",
+          "gloss": "The patients are sleeping vs Some patients are sleeping.",
+          "example_sentence": "Potilaat nukkuvat vs Potilaita nukkuu."
+        },
+        "prompt_family": "grammar_pattern",
+        "follow_ups": [
+          {
+            "variant_type": "recognition_mcq",
+            "prompt": "What does this example express? Potilaat nukkuvat vs Potilaita nukkuu.",
+            "options": [
+              {
+                "option_id": "o1",
+                "text": "I ask the patient about allergies.",
+                "explanation": null
+              },
+              {
+                "option_id": "o2",
+                "text": "I answer the phone quickly.",
+                "explanation": null
+              },
+              {
+                "option_id": "o3",
+                "text": "I participate in the training.",
+                "explanation": null
+              },
+              {
+                "option_id": "o4",
+                "text": "The patients are sleeping vs Some patients are sleeping.",
+                "explanation": null
+              }
+            ],
+            "answer_key": "o4",
+            "accepted_variants": [],
+            "evaluation_mode": "option_id"
+          },
+          {
+            "variant_type": "typed_recall",
+            "prompt": "Describe the meaning or function in English.",
+            "answer_key": "The patients are sleeping vs Some patients are sleeping.",
+            "accepted_variants": [],
+            "evaluation_mode": "normalized_text"
+          }
+        ],
+        "explanation": {
+          "summary": "all vs some of them",
+          "example": "Potilaat nukkuvat vs Potilaita nukkuu."
+        },
+        "audio": null,
+        "validation": {
+          "case_sensitive": false,
+          "normalize_whitespace": true,
+          "allow_partial_credit": false
+        }
+      }
+    },
+    {
+      "id": "card.grammar.nurse.subject-in-partitive-indefinite-amount.5eeafb",
+      "version": 1,
+      "path": "professional/nurse/grammar",
+      "domain": "medical_work_finnish",
+      "profession": {
+        "track": "professional",
+        "slug": "nurse",
+        "label": "Nurse"
+      },
+      "level_band": "B1_B2",
+      "difficulty": "core",
+      "language": "fi",
+      "source": {
+        "source_id": "source.generated.professional.nurse.grammar",
+        "kind": "generated_or_recovered_batch",
+        "origin_path": "/home/vitus/Asiakirjat/project_documents/floently-finnish/generated_material_bank/nurse_grammar.json",
+        "authoring_note": "source.generated.professional.nurse.grammar"
+      },
+      "quality": {
+        "status": "prevalidated",
+        "reviewer": null,
+        "validation_checks": [
+          "manifest_detection",
+          "item_extraction",
+          "normalization",
+          "dedupe",
+          "validation"
+        ],
+        "quality_score": 0.95
+      },
+      "tags": [
+        "b1_b2",
+        "medical_work_finnish",
+        "nurse",
+        "grammar_pattern"
+      ],
+      "publication": {
+        "state": "candidate",
+        "version_tag": null,
+        "manifest_ref": "source.generated.professional.nurse.grammar",
+        "validation_passed": true,
+        "published_at": null,
+        "archived_at": null
+      },
+      "content_type": "grammar_card",
+      "content": {
+        "front": {
+          "pattern": "subject in partitive (indefinite amount)",
+          "usage": "there are some"
+        },
+        "back": {
+          "recall_prompt": "What is the function of 'subject in partitive (indefinite amount)'?",
+          "gloss": "There are (some) patients in the waiting room.",
+          "example_sentence": "Odottamossa on potilaita."
+        },
+        "prompt_family": "grammar_pattern",
+        "follow_ups": [
+          {
+            "variant_type": "recognition_mcq",
+            "prompt": "What does this example express? Odottamossa on potilaita.",
+            "options": [
+              {
+                "option_id": "o1",
+                "text": "I ask the patient about allergies.",
+                "explanation": null
+              },
+              {
+                "option_id": "o2",
+                "text": "I answer the phone quickly.",
+                "explanation": null
+              },
+              {
+                "option_id": "o3",
+                "text": "I participate in the training.",
+                "explanation": null
+              },
+              {
+                "option_id": "o4",
+                "text": "There are (some) patients in the waiting room.",
+                "explanation": null
+              }
+            ],
+            "answer_key": "o4",
+            "accepted_variants": [],
+            "evaluation_mode": "option_id"
+          },
+          {
+            "variant_type": "typed_recall",
+            "prompt": "Describe the meaning or function in English.",
+            "answer_key": "There are (some) patients in the waiting room.",
+            "accepted_variants": [],
+            "evaluation_mode": "normalized_text"
+          }
+        ],
+        "explanation": {
+          "summary": "there are some",
+          "example": "Odottamossa on potilaita."
+        },
+        "audio": null,
+        "validation": {
+          "case_sensitive": false,
+          "normalize_whitespace": true,
+          "allow_partial_credit": false
+        }
+      }
+    },
+    {
+      "id": "card.grammar.nurse.zero-person-passiivimuoto-without-passive.b866f8",
+      "version": 1,
+      "path": "professional/nurse/grammar",
+      "domain": "medical_work_finnish",
+      "profession": {
+        "track": "professional",
+        "slug": "nurse",
+        "label": "Nurse"
+      },
+      "level_band": "B1_B2",
+      "difficulty": "core",
+      "language": "fi",
+      "source": {
+        "source_id": "source.generated.professional.nurse.grammar",
+        "kind": "generated_or_recovered_batch",
+        "origin_path": "/home/vitus/Asiakirjat/project_documents/floently-finnish/generated_material_bank/nurse_grammar.json",
+        "authoring_note": "source.generated.professional.nurse.grammar"
+      },
+      "quality": {
+        "status": "prevalidated",
+        "reviewer": null,
+        "validation_checks": [
+          "manifest_detection",
+          "item_extraction",
+          "normalization",
+          "dedupe",
+          "validation"
+        ],
+        "quality_score": 0.95
+      },
+      "tags": [
+        "b1_b2",
+        "medical_work_finnish",
+        "nurse",
+        "grammar_pattern"
+      ],
+      "publication": {
+        "state": "candidate",
+        "version_tag": null,
+        "manifest_ref": "source.generated.professional.nurse.grammar",
+        "validation_passed": true,
+        "published_at": null,
+        "archived_at": null
+      },
+      "content_type": "grammar_card",
+      "content": {
+        "front": {
+          "pattern": "zero person (passiivimuoto without passive)",
+          "usage": "general 'one' or 'you'"
+        },
+        "back": {
+          "recall_prompt": "What is the function of 'zero person (passiivimuoto without passive)'?",
+          "gloss": "One must not forget to record.",
+          "example_sentence": "Ei saa unohtaa kirjata."
+        },
+        "prompt_family": "grammar_pattern",
+        "follow_ups": [
+          {
+            "variant_type": "recognition_mcq",
+            "prompt": "What does this example express? Ei saa unohtaa kirjata.",
+            "options": [
+              {
+                "option_id": "o1",
+                "text": "I ask the patient about allergies.",
+                "explanation": null
+              },
+              {
+                "option_id": "o2",
+                "text": "I answer the phone quickly.",
+                "explanation": null
+              },
+              {
+                "option_id": "o3",
+                "text": "I participate in the training.",
+                "explanation": null
+              },
+              {
+                "option_id": "o4",
+                "text": "One must not forget to record.",
+                "explanation": null
+              }
+            ],
+            "answer_key": "o4",
+            "accepted_variants": [],
+            "evaluation_mode": "option_id"
+          },
+          {
+            "variant_type": "typed_recall",
+            "prompt": "Describe the meaning or function in English.",
+            "answer_key": "One must not forget to record.",
+            "accepted_variants": [],
+            "evaluation_mode": "normalized_text"
+          }
+        ],
+        "explanation": {
+          "summary": "general 'one' or 'you'",
+          "example": "Ei saa unohtaa kirjata."
+        },
+        "audio": null,
+        "validation": {
+          "case_sensitive": false,
+          "normalize_whitespace": true,
+          "allow_partial_credit": false
+        }
+      }
+    },
+    {
+      "id": "card.grammar.nurse.impersonal-with-vn-one-does.359ad8",
+      "version": 1,
+      "path": "professional/nurse/grammar",
+      "domain": "medical_work_finnish",
+      "profession": {
+        "track": "professional",
+        "slug": "nurse",
+        "label": "Nurse"
+      },
+      "level_band": "B1_B2",
+      "difficulty": "core",
+      "language": "fi",
+      "source": {
+        "source_id": "source.generated.professional.nurse.grammar",
+        "kind": "generated_or_recovered_batch",
+        "origin_path": "/home/vitus/Asiakirjat/project_documents/floently-finnish/generated_material_bank/nurse_grammar.json",
+        "authoring_note": "source.generated.professional.nurse.grammar"
+      },
+      "quality": {
+        "status": "prevalidated",
+        "reviewer": null,
+        "validation_checks": [
+          "manifest_detection",
+          "item_extraction",
+          "normalization",
+          "dedupe",
+          "validation"
+        ],
+        "quality_score": 0.95
+      },
+      "tags": [
+        "b1_b2",
+        "medical_work_finnish",
+        "nurse",
+        "grammar_pattern"
+      ],
+      "publication": {
+        "state": "candidate",
+        "version_tag": null,
+        "manifest_ref": "source.generated.professional.nurse.grammar",
+        "validation_passed": true,
+        "published_at": null,
+        "archived_at": null
+      },
+      "content_type": "grammar_card",
+      "content": {
+        "front": {
+          "pattern": "impersonal with -Vn (one does)",
+          "usage": "it is done (general)"
+        },
+        "back": {
+          "recall_prompt": "What is the function of 'impersonal with -Vn (one does)'?",
+          "gloss": "Here, urgent cases are treated first.",
+          "example_sentence": "Täällä hoidetaan kiireelliset tapaukset ensin."
+        },
+        "prompt_family": "grammar_pattern",
+        "follow_ups": [
+          {
+            "variant_type": "recognition_mcq",
+            "prompt": "What does this example express? Täällä hoidetaan kiireelliset tapaukset ensin.",
+            "options": [
+              {
+                "option_id": "o1",
+                "text": "I ask the patient about allergies.",
+                "explanation": null
+              },
+              {
+                "option_id": "o2",
+                "text": "I answer the phone quickly.",
+                "explanation": null
+              },
+              {
+                "option_id": "o3",
+                "text": "I participate in the training.",
+                "explanation": null
+              },
+              {
+                "option_id": "o4",
+                "text": "Here, urgent cases are treated first.",
+                "explanation": null
+              }
+            ],
+            "answer_key": "o4",
+            "accepted_variants": [],
+            "evaluation_mode": "option_id"
+          },
+          {
+            "variant_type": "typed_recall",
+            "prompt": "Describe the meaning or function in English.",
+            "answer_key": "Here, urgent cases are treated first.",
+            "accepted_variants": [],
+            "evaluation_mode": "normalized_text"
+          }
+        ],
+        "explanation": {
+          "summary": "it is done (general)",
+          "example": "Täällä hoidetaan kiireelliset tapaukset ensin."
+        },
+        "audio": null,
+        "validation": {
+          "case_sensitive": false,
+          "normalize_whitespace": true,
+          "allow_partial_credit": false
+        }
+      }
+    },
+    {
+      "id": "card.grammar.nurse.negative-imperative-ala.2353b7",
+      "version": 1,
+      "path": "professional/nurse/grammar",
+      "domain": "medical_work_finnish",
+      "profession": {
+        "track": "professional",
+        "slug": "nurse",
+        "label": "Nurse"
+      },
+      "level_band": "B1_B2",
+      "difficulty": "core",
+      "language": "fi",
+      "source": {
+        "source_id": "source.generated.professional.nurse.grammar",
+        "kind": "generated_or_recovered_batch",
+        "origin_path": "/home/vitus/Asiakirjat/project_documents/floently-finnish/generated_material_bank/nurse_grammar.json",
+        "authoring_note": "source.generated.professional.nurse.grammar"
+      },
+      "quality": {
+        "status": "prevalidated",
+        "reviewer": null,
+        "validation_checks": [
+          "manifest_detection",
+          "item_extraction",
+          "normalization",
+          "dedupe",
+          "validation"
+        ],
+        "quality_score": 0.95
+      },
+      "tags": [
+        "b1_b2",
+        "medical_work_finnish",
+        "nurse",
+        "grammar_pattern"
+      ],
+      "publication": {
+        "state": "candidate",
+        "version_tag": null,
+        "manifest_ref": "source.generated.professional.nurse.grammar",
+        "validation_passed": true,
+        "published_at": null,
+        "archived_at": null
+      },
+      "content_type": "grammar_card",
+      "content": {
+        "front": {
+          "pattern": "negative imperative (älä)",
+          "usage": "do not (singular)"
+        },
+        "back": {
+          "recall_prompt": "What is the function of 'negative imperative (älä)'?",
+          "gloss": "Do not touch the stitches.",
+          "example_sentence": "Älä koske ompeleisiin."
+        },
+        "prompt_family": "grammar_pattern",
+        "follow_ups": [
+          {
+            "variant_type": "recognition_mcq",
+            "prompt": "What does this example express? Älä koske ompeleisiin.",
+            "options": [
+              {
+                "option_id": "o1",
+                "text": "I ask the patient about allergies.",
+                "explanation": null
+              },
+              {
+                "option_id": "o2",
+                "text": "I answer the phone quickly.",
+                "explanation": null
+              },
+              {
+                "option_id": "o3",
+                "text": "I participate in the training.",
+                "explanation": null
+              },
+              {
+                "option_id": "o4",
+                "text": "Do not touch the stitches.",
+                "explanation": null
+              }
+            ],
+            "answer_key": "o4",
+            "accepted_variants": [],
+            "evaluation_mode": "option_id"
+          },
+          {
+            "variant_type": "typed_recall",
+            "prompt": "Describe the meaning or function in English.",
+            "answer_key": "Do not touch the stitches.",
+            "accepted_variants": [],
+            "evaluation_mode": "normalized_text"
+          }
+        ],
+        "explanation": {
+          "summary": "do not (singular)",
+          "example": "Älä koske ompeleisiin."
+        },
+        "audio": null,
+        "validation": {
+          "case_sensitive": false,
+          "normalize_whitespace": true,
+          "allow_partial_credit": false
+        }
+      }
+    },
+    {
+      "id": "card.grammar.nurse.negative-imperative-plural-alkaa.8f39b2",
+      "version": 1,
+      "path": "professional/nurse/grammar",
+      "domain": "medical_work_finnish",
+      "profession": {
+        "track": "professional",
+        "slug": "nurse",
+        "label": "Nurse"
+      },
+      "level_band": "B1_B2",
+      "difficulty": "core",
+      "language": "fi",
+      "source": {
+        "source_id": "source.generated.professional.nurse.grammar",
+        "kind": "generated_or_recovered_batch",
+        "origin_path": "/home/vitus/Asiakirjat/project_documents/floently-finnish/generated_material_bank/nurse_grammar.json",
+        "authoring_note": "source.generated.professional.nurse.grammar"
+      },
+      "quality": {
+        "status": "prevalidated",
+        "reviewer": null,
+        "validation_checks": [
+          "manifest_detection",
+          "item_extraction",
+          "normalization",
+          "dedupe",
+          "validation"
+        ],
+        "quality_score": 0.95
+      },
+      "tags": [
+        "b1_b2",
+        "medical_work_finnish",
+        "nurse",
+        "grammar_pattern"
+      ],
+      "publication": {
+        "state": "candidate",
+        "version_tag": null,
+        "manifest_ref": "source.generated.professional.nurse.grammar",
+        "validation_passed": true,
+        "published_at": null,
+        "archived_at": null
+      },
+      "content_type": "grammar_card",
+      "content": {
+        "front": {
+          "pattern": "negative imperative plural (älkää)",
+          "usage": "do not (plural or polite)"
+        },
+        "back": {
+          "recall_prompt": "What is the function of 'negative imperative plural (älkää)'?",
+          "gloss": "Do not wait in the corridor.",
+          "example_sentence": "Älkää odottako käytävällä."
+        },
+        "prompt_family": "grammar_pattern",
+        "follow_ups": [
+          {
+            "variant_type": "recognition_mcq",
+            "prompt": "What does this example express? Älkää odottako käytävällä.",
+            "options": [
+              {
+                "option_id": "o1",
+                "text": "I ask the patient about allergies.",
+                "explanation": null
+              },
+              {
+                "option_id": "o2",
+                "text": "I answer the phone quickly.",
+                "explanation": null
+              },
+              {
+                "option_id": "o3",
+                "text": "I participate in the training.",
+                "explanation": null
+              },
+              {
+                "option_id": "o4",
+                "text": "Do not wait in the corridor.",
+                "explanation": null
+              }
+            ],
+            "answer_key": "o4",
+            "accepted_variants": [],
+            "evaluation_mode": "option_id"
+          },
+          {
+            "variant_type": "typed_recall",
+            "prompt": "Describe the meaning or function in English.",
+            "answer_key": "Do not wait in the corridor.",
+            "accepted_variants": [],
+            "evaluation_mode": "normalized_text"
+          }
+        ],
+        "explanation": {
+          "summary": "do not (plural or polite)",
+          "example": "Älkää odottako käytävällä."
+        },
+        "audio": null,
+        "validation": {
+          "case_sensitive": false,
+          "normalize_whitespace": true,
+          "allow_partial_credit": false
+        }
+      }
+    },
+    {
+      "id": "card.grammar.nurse.1st-person-plural-imperative-kaamme.4fd04c",
+      "version": 1,
+      "path": "professional/nurse/grammar",
+      "domain": "medical_work_finnish",
+      "profession": {
+        "track": "professional",
+        "slug": "nurse",
+        "label": "Nurse"
+      },
+      "level_band": "B1_B2",
+      "difficulty": "core",
+      "language": "fi",
+      "source": {
+        "source_id": "source.generated.professional.nurse.grammar",
+        "kind": "generated_or_recovered_batch",
+        "origin_path": "/home/vitus/Asiakirjat/project_documents/floently-finnish/generated_material_bank/nurse_grammar.json",
+        "authoring_note": "source.generated.professional.nurse.grammar"
+      },
+      "quality": {
+        "status": "prevalidated",
+        "reviewer": null,
+        "validation_checks": [
+          "manifest_detection",
+          "item_extraction",
+          "normalization",
+          "dedupe",
+          "validation"
+        ],
+        "quality_score": 0.95
+      },
+      "tags": [
+        "b1_b2",
+        "medical_work_finnish",
+        "nurse",
+        "grammar_pattern"
+      ],
+      "publication": {
+        "state": "candidate",
+        "version_tag": null,
+        "manifest_ref": "source.generated.professional.nurse.grammar",
+        "validation_passed": true,
+        "published_at": null,
+        "archived_at": null
+      },
+      "content_type": "grammar_card",
+      "content": {
+        "front": {
+          "pattern": "1st person plural imperative ( -kaamme )",
+          "usage": "let's do"
+        },
+        "back": {
+          "recall_prompt": "What is the function of '1st person plural imperative ( -kaamme )'?",
+          "gloss": "Let's check the patient data together.",
+          "example_sentence": "Tarkistakaamme potilastiedot yhdessä."
+        },
+        "prompt_family": "grammar_pattern",
+        "follow_ups": [
+          {
+            "variant_type": "recognition_mcq",
+            "prompt": "What does this example express? Tarkistakaamme potilastiedot yhdessä.",
+            "options": [
+              {
+                "option_id": "o1",
+                "text": "I ask the patient about allergies.",
+                "explanation": null
+              },
+              {
+                "option_id": "o2",
+                "text": "I answer the phone quickly.",
+                "explanation": null
+              },
+              {
+                "option_id": "o3",
+                "text": "I participate in the training.",
+                "explanation": null
+              },
+              {
+                "option_id": "o4",
+                "text": "Let's check the patient data together.",
+                "explanation": null
+              }
+            ],
+            "answer_key": "o4",
+            "accepted_variants": [],
+            "evaluation_mode": "option_id"
+          },
+          {
+            "variant_type": "typed_recall",
+            "prompt": "Describe the meaning or function in English.",
+            "answer_key": "Let's check the patient data together.",
+            "accepted_variants": [],
+            "evaluation_mode": "normalized_text"
+          }
+        ],
+        "explanation": {
+          "summary": "let's do",
+          "example": "Tarkistakaamme potilastiedot yhdessä."
+        },
+        "audio": null,
+        "validation": {
+          "case_sensitive": false,
+          "normalize_whitespace": true,
+          "allow_partial_credit": false
+        }
+      }
+    },
+    {
+      "id": "card.grammar.nurse.3rd-person-imperative-koon.0ea537",
+      "version": 1,
+      "path": "professional/nurse/grammar",
+      "domain": "medical_work_finnish",
+      "profession": {
+        "track": "professional",
+        "slug": "nurse",
+        "label": "Nurse"
+      },
+      "level_band": "B1_B2",
+      "difficulty": "core",
+      "language": "fi",
+      "source": {
+        "source_id": "source.generated.professional.nurse.grammar",
+        "kind": "generated_or_recovered_batch",
+        "origin_path": "/home/vitus/Asiakirjat/project_documents/floently-finnish/generated_material_bank/nurse_grammar.json",
+        "authoring_note": "source.generated.professional.nurse.grammar"
+      },
+      "quality": {
+        "status": "prevalidated",
+        "reviewer": null,
+        "validation_checks": [
+          "manifest_detection",
+          "item_extraction",
+          "normalization",
+          "dedupe",
+          "validation"
+        ],
+        "quality_score": 0.95
+      },
+      "tags": [
+        "b1_b2",
+        "medical_work_finnish",
+        "nurse",
+        "grammar_pattern"
+      ],
+      "publication": {
+        "state": "candidate",
+        "version_tag": null,
+        "manifest_ref": "source.generated.professional.nurse.grammar",
+        "validation_passed": true,
+        "published_at": null,
+        "archived_at": null
+      },
+      "content_type": "grammar_card",
+      "content": {
+        "front": {
+          "pattern": "3rd person imperative ( -koon )",
+          "usage": "let him/her do"
+        },
+        "back": {
+          "recall_prompt": "What is the function of '3rd person imperative ( -koon )'?",
+          "gloss": "Let the patient rest.",
+          "example_sentence": "Potilas levätköön."
+        },
+        "prompt_family": "grammar_pattern",
+        "follow_ups": [
+          {
+            "variant_type": "recognition_mcq",
+            "prompt": "What does this example express? Potilas levätköön.",
+            "options": [
+              {
+                "option_id": "o1",
+                "text": "I ask the patient about allergies.",
+                "explanation": null
+              },
+              {
+                "option_id": "o2",
+                "text": "I answer the phone quickly.",
+                "explanation": null
+              },
+              {
+                "option_id": "o3",
+                "text": "I participate in the training.",
+                "explanation": null
+              },
+              {
+                "option_id": "o4",
+                "text": "Let the patient rest.",
+                "explanation": null
+              }
+            ],
+            "answer_key": "o4",
+            "accepted_variants": [],
+            "evaluation_mode": "option_id"
+          },
+          {
+            "variant_type": "typed_recall",
+            "prompt": "Describe the meaning or function in English.",
+            "answer_key": "Let the patient rest.",
+            "accepted_variants": [],
+            "evaluation_mode": "normalized_text"
+          }
+        ],
+        "explanation": {
+          "summary": "let him/her do",
+          "example": "Potilas levätköön."
+        },
+        "audio": null,
+        "validation": {
+          "case_sensitive": false,
+          "normalize_whitespace": true,
+          "allow_partial_credit": false
+        }
+      }
+    },
+    {
+      "id": "card.grammar.nurse.passive-imperative-ttakoon.156667",
+      "version": 1,
+      "path": "professional/nurse/grammar",
+      "domain": "medical_work_finnish",
+      "profession": {
+        "track": "professional",
+        "slug": "nurse",
+        "label": "Nurse"
+      },
+      "level_band": "B1_B2",
+      "difficulty": "core",
+      "language": "fi",
+      "source": {
+        "source_id": "source.generated.professional.nurse.grammar",
+        "kind": "generated_or_recovered_batch",
+        "origin_path": "/home/vitus/Asiakirjat/project_documents/floently-finnish/generated_material_bank/nurse_grammar.json",
+        "authoring_note": "source.generated.professional.nurse.grammar"
+      },
+      "quality": {
+        "status": "prevalidated",
+        "reviewer": null,
+        "validation_checks": [
+          "manifest_detection",
+          "item_extraction",
+          "normalization",
+          "dedupe",
+          "validation"
+        ],
+        "quality_score": 0.95
+      },
+      "tags": [
+        "b1_b2",
+        "medical_work_finnish",
+        "nurse",
+        "grammar_pattern"
+      ],
+      "publication": {
+        "state": "candidate",
+        "version_tag": null,
+        "manifest_ref": "source.generated.professional.nurse.grammar",
+        "validation_passed": true,
+        "published_at": null,
+        "archived_at": null
+      },
+      "content_type": "grammar_card",
+      "content": {
+        "front": {
+          "pattern": "passive imperative ( -ttakoon )",
+          "usage": "let it be done"
+        },
+        "back": {
+          "recall_prompt": "What is the function of 'passive imperative ( -ttakoon )'?",
+          "gloss": "Let the wound be closed quickly.",
+          "example_sentence": "Haava suljettakoon nopeasti."
+        },
+        "prompt_family": "grammar_pattern",
+        "follow_ups": [
+          {
+            "variant_type": "recognition_mcq",
+            "prompt": "What does this example express? Haava suljettakoon nopeasti.",
+            "options": [
+              {
+                "option_id": "o1",
+                "text": "I ask the patient about allergies.",
+                "explanation": null
+              },
+              {
+                "option_id": "o2",
+                "text": "I answer the phone quickly.",
+                "explanation": null
+              },
+              {
+                "option_id": "o3",
+                "text": "I participate in the training.",
+                "explanation": null
+              },
+              {
+                "option_id": "o4",
+                "text": "Let the wound be closed quickly.",
+                "explanation": null
+              }
+            ],
+            "answer_key": "o4",
+            "accepted_variants": [],
+            "evaluation_mode": "option_id"
+          },
+          {
+            "variant_type": "typed_recall",
+            "prompt": "Describe the meaning or function in English.",
+            "answer_key": "Let the wound be closed quickly.",
+            "accepted_variants": [],
+            "evaluation_mode": "normalized_text"
+          }
+        ],
+        "explanation": {
+          "summary": "let it be done",
+          "example": "Haava suljettakoon nopeasti."
+        },
+        "audio": null,
+        "validation": {
+          "case_sensitive": false,
+          "normalize_whitespace": true,
+          "allow_partial_credit": false
+        }
+      }
+    },
+    {
+      "id": "card.grammar.nurse.descriptive-plural-iset.ced6e2",
+      "version": 1,
+      "path": "professional/nurse/grammar",
+      "domain": "medical_work_finnish",
+      "profession": {
+        "track": "professional",
+        "slug": "nurse",
+        "label": "Nurse"
+      },
+      "level_band": "B1_B2",
+      "difficulty": "core",
+      "language": "fi",
+      "source": {
+        "source_id": "source.generated.professional.nurse.grammar",
+        "kind": "generated_or_recovered_batch",
+        "origin_path": "/home/vitus/Asiakirjat/project_documents/floently-finnish/generated_material_bank/nurse_grammar.json",
+        "authoring_note": "source.generated.professional.nurse.grammar"
+      },
+      "quality": {
+        "status": "prevalidated",
+        "reviewer": null,
+        "validation_checks": [
+          "manifest_detection",
+          "item_extraction",
+          "normalization",
+          "dedupe",
+          "validation"
+        ],
+        "quality_score": 0.95
+      },
+      "tags": [
+        "b1_b2",
+        "medical_work_finnish",
+        "nurse",
+        "grammar_pattern"
+      ],
+      "publication": {
+        "state": "candidate",
+        "version_tag": null,
+        "manifest_ref": "source.generated.professional.nurse.grammar",
+        "validation_passed": true,
+        "published_at": null,
+        "archived_at": null
+      },
+      "content_type": "grammar_card",
+      "content": {
+        "front": {
+          "pattern": "descriptive plural ( -iset )",
+          "usage": "people associated with"
+        },
+        "back": {
+          "recall_prompt": "What is the function of 'descriptive plural ( -iset )'?",
+          "gloss": "Nurses vs nursing staff (collective).",
+          "example_sentence": "Sairaanhoitajat vs hoitoväki."
+        },
+        "prompt_family": "grammar_pattern",
+        "follow_ups": [
+          {
+            "variant_type": "recognition_mcq",
+            "prompt": "What does this example express? Sairaanhoitajat vs hoitoväki.",
+            "options": [
+              {
+                "option_id": "o1",
+                "text": "I ask the patient about allergies.",
+                "explanation": null
+              },
+              {
+                "option_id": "o2",
+                "text": "I answer the phone quickly.",
+                "explanation": null
+              },
+              {
+                "option_id": "o3",
+                "text": "I participate in the training.",
+                "explanation": null
+              },
+              {
+                "option_id": "o4",
+                "text": "Nurses vs nursing staff (collective).",
+                "explanation": null
+              }
+            ],
+            "answer_key": "o4",
+            "accepted_variants": [],
+            "evaluation_mode": "option_id"
+          },
+          {
+            "variant_type": "typed_recall",
+            "prompt": "Describe the meaning or function in English.",
+            "answer_key": "Nurses vs nursing staff (collective).",
+            "accepted_variants": [],
+            "evaluation_mode": "normalized_text"
+          }
+        ],
+        "explanation": {
+          "summary": "people associated with",
+          "example": "Sairaanhoitajat vs hoitoväki."
+        },
+        "audio": null,
+        "validation": {
+          "case_sensitive": false,
+          "normalize_whitespace": true,
+          "allow_partial_credit": false
+        }
+      }
+    }
+  ]
+}

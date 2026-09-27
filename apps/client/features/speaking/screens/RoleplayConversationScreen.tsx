@@ -17,6 +17,8 @@ import {
   startRoleplaySession,
   submitRoleplayTurn,
   type RoleplayLevelBand,
+  type RoleplayFinishResponse,
+  type RoleplayMode,
   type RoleplayProfession,
   type RoleplayScenarioSummary,
 } from '@core/api/roleplay';
@@ -28,9 +30,10 @@ import { usePreferencesStore } from '../../../state/preferencesStore';
 import { WaveformMicRing } from '../components/WaveformMicRing';
 import RoleplayScenarioHeader from '../components/RoleplayScenarioHeader';
 import RoleplayTranscriptList from '../components/RoleplayTranscriptList';
-import { speakRoleplayText, stopRoleplayAudioPlayback, uiSounds } from '../services/roleplayAudio';
+import { primeRoleplayAudioPlayback, speakRoleplayText, stopRoleplayAudioPlayback, uiSounds } from '../services/roleplayAudio';
 import { useRoleplayRecorder } from '../hooks/useRoleplayRecorder';
 import { SessionCompletion } from '../components/SessionCompletion';
+import VoiceConversationExperience, { type VoiceConversationUiState } from '../components/VoiceConversationExperience';
 import type { TranscriptMessage } from '../types';
 
 const AUTO_PLAY_ROLEPLAY_OPENING_AUDIO = true;
@@ -39,87 +42,468 @@ function messageId(prefix: string) {
   return `${prefix}_${Date.now()}_${Math.random().toString(36).slice(2, 8)}`;
 }
 
-function scenarioIdForContext(profession: RoleplayProfession, contextLabel?: string): string | undefined {
-  const normalized = String(contextLabel || '').toLowerCase();
-  // Interview contexts route to interview-flavored scenarios where they exist.
-  // Note: general has no interview scenario today; it falls through to general defaults.
-  if (normalized.includes('interview')) {
-    if (profession === 'doctor') return 'doctor_patient_interview';
-    if (profession === 'nurse') return 'nurse_interview_beta';
-    if (profession === 'practical_nurse') return 'practical_nurse_interview';
-  }
-  // ── Issue #9 fix ────────────────────────────────────────────────────────
-  // General profession was previously falling through to the default branch
-  // and only ever picking 'general_supervisor_instruction' — so general always
-  // looked the same. Now we explicitly route general by context:
-  //   - "issue", "problem", "report" hint → general_issue_report
-  //   - everything else → general_supervisor_instruction
-  // Both scenarios are non-medical workplace contexts (verified in the
-  // backend roleplay.py — they share zero clinical vocabulary).
-  if (profession === 'general') {
-    if (normalized.includes('issue') || normalized.includes('problem') || normalized.includes('report')) {
-      return 'general_issue_report';
-    }
-    return 'general_supervisor_instruction';
-  }
-  if (profession === 'doctor') return 'doctor_patient_interview';
-  if (profession === 'nurse') return 'nurse_shift_handover';
-  if (profession === 'practical_nurse') return 'practical_nurse_daily_care';
-  return 'general_supervisor_instruction';
-}
-
-/**
- * Defensive sanity check for #9.
- *
- * If a profession-mismatched scenarioId is propagated in (e.g. a doctor scenario
- * id while the user's profession is 'general'), drop it and let the resolver
- * pick a profession-appropriate one. This prevents the regression where a stale
- * scenarioId from a previous session causes "general" roleplay to behave as
- * profession-specific.
- */
-function isScenarioIdValidForProfession(scenarioId: string | undefined, profession: RoleplayProfession): boolean {
-  if (!scenarioId) return false;
-  const id = scenarioId.toLowerCase();
-  // The naming convention in the registry is "<profession>_<scenario_name>".
-  // general_*    → general
-  // nurse_*      → nurse
-  // doctor_*     → doctor
-  // practical_*  → practical_nurse
-  if (profession === 'general') return id.startsWith('general_');
-  if (profession === 'nurse') return id.startsWith('nurse_');
-  if (profession === 'doctor') return id.startsWith('doctor_');
-  if (profession === 'practical_nurse') return id.startsWith('practical_');
-  return true; // unknown profession → trust the scenarioId
-}
-
 // --------------------------------------------------------------------------
 // Types
 // --------------------------------------------------------------------------
 
-type FeedbackReport = {
-  sessionId: string;
-  personaName: string;
-  track: string;
-  trackLabel: string;
-  levelBand: string;
-  scenario: RoleplayScenarioSummary;
-  summary: string;
-  scores: {
-    avgPhrasesCoverage: number;
-    avgWordCount: number;
-    repairLanguageUsed: boolean;
-    totalTurns: number;
-  };
-  transcriptAnnotated: Array<{
-    speaker: string;
-    text: string;
-    comment: string | null;
-  }>;
-  strongPhrases: string[];
-  difficultPhrases: string[];
-  grammarObservations: string[];
-  nextSteps: string[];
-};
+type FeedbackReport = RoleplayFinishResponse;
+
+function roleplayEvaluation(
+  report: FeedbackReport,
+) {
+  return (
+    report.evaluationReport
+    ?? report.evaluation
+    ?? null
+  );
+}
+
+function displayRoleplayLevel(
+  value: string | null | undefined,
+) {
+  if (
+    !value
+    || value === 'insufficient_evidence'
+  ) {
+    return 'Ei riittävästi näyttöä';
+  }
+
+  return value;
+}
+
+function displayRoleplayScore(
+  value: number | null | undefined,
+) {
+  if (typeof value !== 'number') {
+    return 'Ei pisteytetty';
+  }
+
+  const formatted = Number.isInteger(value)
+    ? String(value)
+    : value.toFixed(1);
+
+  return `${formatted}/100`;
+}
+
+function buildRoleplayEvaluationMarkdown(
+  report: FeedbackReport,
+): string[] {
+  const evaluation =
+    roleplayEvaluation(report);
+
+  if (!evaluation) {
+    return [];
+  }
+
+  const lines: string[] = [
+    `## AI-arvioitu harjoittelutaso`,
+    ``,
+    `**Arvioitu taso:** ${displayRoleplayLevel(evaluation.estimatedLevel)}  `,
+    `**Luottamus:** ${Math.round(evaluation.confidence * 100)} %  `,
+    `**Raportin tila:** ${evaluation.status === 'ready' ? 'AI-arvio valmis' : 'Rajoitettu vararaportti'}  `,
+    ``,
+    evaluation.overallSummary,
+    ``,
+    `> ${evaluation.disclaimer}`,
+    ``,
+    `> Ääntämistä, aksenttia tai äänen laatua ei arvioitu.`,
+    ``,
+    `### Arviointikriteerit`,
+    ``,
+  ];
+
+  for (const criterion of evaluation.criteria) {
+    lines.push(
+      `#### ${criterion.name}`,
+      ``,
+      `**Pisteet:** ${displayRoleplayScore(criterion.score)} · **Taso:** ${displayRoleplayLevel(criterion.level)}`,
+      ``,
+      criterion.rationale,
+      ``,
+    );
+
+    if (criterion.evidence.length) {
+      lines.push(
+        `**Näyttö:**`,
+        ...criterion.evidence.map(
+          (item) => `- “${item}”`,
+        ),
+        ``,
+      );
+    }
+  }
+
+  if (evaluation.strengths.length) {
+    lines.push(
+      `### Vahvuudet`,
+      ``,
+      ...evaluation.strengths.map(
+        (item) => `- ${item}`,
+      ),
+      ``,
+    );
+  }
+
+  if (evaluation.improvements.length) {
+    lines.push(
+      `### Tärkeimmät kehityskohteet`,
+      ``,
+      ...evaluation.improvements.map(
+        (item) => `- ${item}`,
+      ),
+      ``,
+    );
+  }
+
+  if (evaluation.corrections.length) {
+    lines.push(
+      `### Korjaukset`,
+      ``,
+    );
+
+    for (
+      const correction
+      of evaluation.corrections
+    ) {
+      lines.push(
+        `- **Alkuperäinen:** ${correction.original}`,
+        `  **Korjattu:** ${correction.corrected}`,
+        `  **Miksi:** ${correction.explanation}`,
+      );
+    }
+
+    lines.push(``);
+  }
+
+  lines.push(
+    `### Kolmen vaiheen harjoitussuunnitelma`,
+    ``,
+    ...evaluation.actionPlan.map(
+      (item, index) =>
+        `${index + 1}. ${item}`,
+    ),
+    ``,
+  );
+
+  return lines;
+}
+
+function buildRoleplayEvaluationPlainText(
+  report: FeedbackReport,
+): string[] {
+  const evaluation =
+    roleplayEvaluation(report);
+
+  if (!evaluation) {
+    return [];
+  }
+
+  const lines: string[] = [
+    `AI-ARVIOITU HARJOITTELUTASO`,
+    ``,
+    `Arvioitu taso: ${displayRoleplayLevel(evaluation.estimatedLevel)}`,
+    `Luottamus: ${Math.round(evaluation.confidence * 100)} %`,
+    `Raportin tila: ${evaluation.status}`,
+    ``,
+    evaluation.overallSummary,
+    ``,
+    evaluation.disclaimer,
+    `Ääntämistä, aksenttia tai äänen laatua ei arvioitu.`,
+    ``,
+    `Arviointikriteerit`,
+    ``,
+  ];
+
+  for (const criterion of evaluation.criteria) {
+    lines.push(
+      `${criterion.name}`,
+      `  Pisteet: ${displayRoleplayScore(criterion.score)}`,
+      `  Taso: ${displayRoleplayLevel(criterion.level)}`,
+      `  Arvio: ${criterion.rationale}`,
+    );
+
+    for (
+      const evidence
+      of criterion.evidence
+    ) {
+      lines.push(
+        `  Näyttö: "${evidence}"`,
+      );
+    }
+
+    lines.push(``);
+  }
+
+  if (evaluation.strengths.length) {
+    lines.push(
+      `Vahvuudet`,
+      ...evaluation.strengths.map(
+        (item) => `  - ${item}`,
+      ),
+      ``,
+    );
+  }
+
+  if (evaluation.improvements.length) {
+    lines.push(
+      `Tärkeimmät kehityskohteet`,
+      ...evaluation.improvements.map(
+        (item) => `  - ${item}`,
+      ),
+      ``,
+    );
+  }
+
+  if (evaluation.corrections.length) {
+    lines.push(
+      `Korjaukset`,
+    );
+
+    for (
+      const correction
+      of evaluation.corrections
+    ) {
+      lines.push(
+        `  Alkuperäinen: ${correction.original}`,
+        `  Korjattu: ${correction.corrected}`,
+        `  Miksi: ${correction.explanation}`,
+        ``,
+      );
+    }
+  }
+
+  lines.push(
+    `Kolmen vaiheen harjoitussuunnitelma`,
+    ...evaluation.actionPlan.map(
+      (item, index) =>
+        `  ${index + 1}. ${item}`,
+    ),
+    ``,
+  );
+
+  return lines;
+}
+
+function buildRoleplayEvaluationHtml(
+  report: FeedbackReport,
+) {
+  const evaluation =
+    roleplayEvaluation(report);
+
+  if (!evaluation) {
+    return `
+      <div style="
+        padding: 12pt;
+        border: 1px solid #E1E8F5;
+        border-radius: 8pt;
+        margin-bottom: 14pt;
+      ">
+        <strong>
+          Yksityiskohtainen AI-arvio ei ollut
+          saatavilla tälle vanhemmalle raportille.
+        </strong>
+      </div>
+    `;
+  }
+
+  const criteriaHtml =
+    evaluation.criteria.map(
+      (criterion) => `
+        <div style="
+          margin: 0 0 10pt;
+          padding: 9pt 10pt;
+          background: #F2F5FB;
+          border-left: 3pt solid #1F47E8;
+          page-break-inside: avoid;
+        ">
+          <div style="
+            font-weight: 800;
+            margin-bottom: 4pt;
+          ">
+            ${escapeHtml(criterion.name)}
+            ·
+            ${escapeHtml(
+              displayRoleplayScore(
+                criterion.score,
+              ),
+            )}
+            ·
+            ${escapeHtml(
+              displayRoleplayLevel(
+                criterion.level,
+              ),
+            )}
+          </div>
+
+          <div>
+            ${escapeHtml(
+              criterion.rationale,
+            )}
+          </div>
+
+          ${
+            criterion.evidence.length
+              ? `
+                <ul>
+                  ${criterion.evidence.map(
+                    (item) =>
+                      `<li>“${escapeHtml(item)}”</li>`,
+                  ).join('')}
+                </ul>
+              `
+              : ''
+          }
+        </div>
+      `,
+    ).join('');
+
+  const correctionsHtml =
+    evaluation.corrections.length
+      ? `
+        <h2>Korjaukset</h2>
+
+        ${evaluation.corrections.map(
+          (correction) => `
+            <div style="
+              margin-bottom: 9pt;
+              padding: 9pt;
+              background: #FFF8E5;
+              border-radius: 7pt;
+              page-break-inside: avoid;
+            ">
+              <div>
+                <strong>Alkuperäinen:</strong>
+                ${escapeHtml(correction.original)}
+              </div>
+              <div>
+                <strong>Korjattu:</strong>
+                ${escapeHtml(correction.corrected)}
+              </div>
+              <div>
+                <strong>Miksi:</strong>
+                ${escapeHtml(correction.explanation)}
+              </div>
+            </div>
+          `,
+        ).join('')}
+      `
+      : '';
+
+  return `
+    <section style="
+      margin-bottom: 16pt;
+      padding: 13pt;
+      border-radius: 9pt;
+      border: 1px solid #C9D9FF;
+      background: #EEF4FF;
+    ">
+      <div style="
+        color: #1F47E8;
+        font-size: 9pt;
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: 0.5pt;
+      ">
+        AI-arvioitu harjoittelutaso
+      </div>
+
+      <div style="
+        font-size: 24pt;
+        font-weight: 900;
+        margin-top: 3pt;
+      ">
+        ${escapeHtml(
+          displayRoleplayLevel(
+            evaluation.estimatedLevel,
+          ),
+        )}
+      </div>
+
+      <div style="
+        color: #5C7299;
+        font-weight: 700;
+      ">
+        Luottamus:
+        ${Math.round(
+          evaluation.confidence * 100,
+        )} %
+      </div>
+
+      <p>
+        ${escapeHtml(
+          evaluation.overallSummary,
+        )}
+      </p>
+    </section>
+
+    <section style="
+      margin-bottom: 16pt;
+      padding: 11pt;
+      border-radius: 8pt;
+      border: 1px solid #E8CB76;
+      background: #FFF8E5;
+    ">
+      <strong>
+        Ei virallinen YKI-tulos
+      </strong>
+
+      <p>
+        ${escapeHtml(
+          evaluation.disclaimer,
+        )}
+      </p>
+
+      <p>
+        Ääntämistä, aksenttia tai
+        äänen laatua ei arvioitu.
+      </p>
+    </section>
+
+    <h2>Arviointikriteerit</h2>
+    ${criteriaHtml}
+
+    ${
+      evaluation.strengths.length
+        ? `
+          <h2>Vahvuudet</h2>
+          <ul>
+            ${evaluation.strengths.map(
+              (item) =>
+                `<li>${escapeHtml(item)}</li>`,
+            ).join('')}
+          </ul>
+        `
+        : ''
+    }
+
+    ${
+      evaluation.improvements.length
+        ? `
+          <h2>Tärkeimmät kehityskohteet</h2>
+          <ul>
+            ${evaluation.improvements.map(
+              (item) =>
+                `<li>${escapeHtml(item)}</li>`,
+            ).join('')}
+          </ul>
+        `
+        : ''
+    }
+
+    ${correctionsHtml}
+
+    <h2>
+      Kolmen vaiheen harjoitussuunnitelma
+    </h2>
+
+    <ol>
+      ${evaluation.actionPlan.map(
+        (item) =>
+          `<li>${escapeHtml(item)}</li>`,
+      ).join('')}
+    </ol>
+  `;
+}
 
 // --------------------------------------------------------------------------
 // Download helper (web only — React Native would use Share API)
@@ -140,6 +524,7 @@ function buildMarkdownReport(report: FeedbackReport): string {
     ``,
     report.summary,
     ``,
+    ...buildRoleplayEvaluationMarkdown(report),
     `---`,
     ``,
     `## Pisteet`,
@@ -228,6 +613,7 @@ function buildPlainTextReport(report: FeedbackReport): string {
     `Taso:                ${report.levelBand}`,
     `Keskustelukumppani:  ${report.personaName}`,
     ``,
+    ...buildRoleplayEvaluationPlainText(report),
     `------------------------------------------------------------`,
     ``,
     `Pisteet`,
@@ -357,6 +743,7 @@ function buildHtmlReport(report: FeedbackReport): string {
     <strong>Keskustelukumppani:</strong> ${escapeHtml(report.personaName)}
   </div>
   <hr/>
+  ${buildRoleplayEvaluationHtml(report)}
   <h2>Pisteet</h2>
   <table class="scores">
     <tr><td>Avainsanojen käyttö (keskimäärin)</td><td>${report.scores.avgPhrasesCoverage} / 3</td></tr>
@@ -446,6 +833,10 @@ type ExportFormat = 'md' | 'txt' | 'pdf';
 
 /** Generic web download (any text format). */
 function downloadOnWeb(content: string, filename: string, mimeType: string) {
+  if (Platform.OS !== 'web' || typeof document === 'undefined' || typeof URL === 'undefined') {
+    throw new Error('Web download is only available in the browser.');
+  }
+
   const blob = new Blob([content], { type: mimeType });
   const url = URL.createObjectURL(blob);
   const a = document.createElement('a');
@@ -474,17 +865,19 @@ function resolvePersonaName(input: {
 export default function RoleplayConversationScreen({
   levelBand,
   onBack,
+  onOpenMenu,
   profession,
   contextLabel,
   scenarioId,
-  entryMode = 'workplace',
+  roleplayMode,
 }: {
   levelBand: RoleplayLevelBand;
   onBack: () => void;
+  onOpenMenu: () => void;
   profession: RoleplayProfession;
   contextLabel?: string;
   scenarioId?: string | null;
-  entryMode?: 'workplace' | 'interview';
+  roleplayMode: RoleplayMode;
 }) {
   const recorder = useRoleplayRecorder('fi-FI');
   const themeMode = usePreferencesStore((state) => state.themeMode);
@@ -508,12 +901,15 @@ export default function RoleplayConversationScreen({
   const [maxTurns, setMaxTurns] = useState(5);
   const [manualText, setManualText] = useState('');
   const [feedbackReport, setFeedbackReport] = useState<FeedbackReport | null>(null);
+  const detailedEvaluation = feedbackReport ? roleplayEvaluation(feedbackReport) : null;
   const [feedbackLine, setFeedbackLine] = useState<string | null>(null);
   const [missingPhrases, setMissingPhrases] = useState<string[]>([]);
   const [remoteAudioAvailable, setRemoteAudioAvailable] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [showTranscriptReport, setShowTranscriptReport] = useState(false);
   const [micBusy, setMicBusy] = useState(false);
+  const [conversationUiState, setConversationUiState] = useState<VoiceConversationUiState>('idle');
+  const [textMode, setTextMode] = useState(false);
 
   // ---- colour tokens ----
   // All tokens resolve through the canonical palette which supports both modes.
@@ -543,18 +939,22 @@ export default function RoleplayConversationScreen({
     setPendingOpeningAudio(null);
     openingAudioPlayedRef.current = null;
     setShowTranscriptReport(false);
+    setConversationUiState('idle');
+    setTextMode(false);
+    setRemoteAudioAvailable(true);
     try {
-      // ── Issue #9 fix ────────────────────────────────────────────────────
-      // Apply scenarioId in priority order, but DROP any scenarioId that
-      // doesn't match the current profession. This prevents stale or
-      // profession-mismatched ids from upstream callers from making the
-      // general roleplay behave as profession-specific.
-      const candidateIds: Array<string | undefined> = [overrideScenarioId ?? undefined, scenarioId ?? undefined];
-      const validIds = candidateIds.filter((id) => isScenarioIdValidForProfession(id, profession));
+      // The server owns ordinary scenario selection and rotation. The client
+      // only sends a scenario ID for a deliberate explicit launch or Replay.
       const resolvedScenarioId =
-        validIds[0]
-        ?? scenarioIdForContext(profession, contextLabel);
-      const payload = await startRoleplaySession({ profession, levelBand, scenarioId: resolvedScenarioId, contextLabel: contextLabel ?? (entryMode === 'interview' ? 'interview' : undefined) });
+        overrideScenarioId ?? scenarioId ?? undefined;
+
+      const payload = await startRoleplaySession({
+        profession,
+        levelBand,
+        roleplayMode,
+        scenarioId: resolvedScenarioId,
+        contextLabel,
+      });
       setSessionId(payload.sessionId);
       setScenario(payload.scenario);
       setVoiceProfile(payload.voiceProfile);
@@ -579,11 +979,12 @@ export default function RoleplayConversationScreen({
       });
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Failed to start roleplay');
+      setConversationUiState('error');
       await uiSounds.error();
     } finally {
       setLoading(false);
     }
-  }, [contextLabel, entryMode, levelBand, profession, scenarioId]);
+  }, [contextLabel, levelBand, profession, roleplayMode, scenarioId]);
 
   useEffect(() => {
     if (!AUTO_PLAY_ROLEPLAY_OPENING_AUDIO) return;
@@ -599,7 +1000,14 @@ export default function RoleplayConversationScreen({
       void speakRoleplayText({
         text: pendingOpeningAudio.text,
         voiceProfile: pendingOpeningAudio.voiceProfile,
-        onUnavailable: () => setRemoteAudioAvailable(false),
+        onStart: () => setConversationUiState('aiSpeaking'),
+        onFinish: () => setConversationUiState('userListening'),
+        onUnavailable: () => {
+          setRemoteAudioAvailable(false);
+          setConversationUiState('userListening');
+        },
+      }).then((played) => {
+        if (!played) setConversationUiState('userListening');
       });
     }, 350);
 
@@ -616,6 +1024,7 @@ export default function RoleplayConversationScreen({
   const submitTranscript = useCallback(async (transcript: string) => {
     if (!sessionId || !transcript.trim() || feedbackReport) return;
     setSubmitting(true);
+    setConversationUiState('processing');
     setError(null);
     try {
       const userMessage: TranscriptMessage = {
@@ -644,15 +1053,55 @@ export default function RoleplayConversationScreen({
       };
       setMessages((cur) => [...cur, aiMessage]);
 
-      await speakRoleplayText({
-        text: response.aiText,
-        voiceProfile: response.voiceProfile,
-        onUnavailable: () => setRemoteAudioAvailable(false),
-      });
+      setRemoteAudioAvailable(true);
+      await stopRoleplayAudioPlayback();
+      await new Promise((resolve) => setTimeout(resolve, 120));
+
+      let playedReplyAudio = false;
+      let playbackDone: Promise<void> | null = null;
+
+      if (!textMode) {
+        let resolvePlayback = () => {};
+        playbackDone = new Promise<void>((resolve) => {
+          resolvePlayback = () => resolve();
+        });
+
+        let ttsCreated = true;
+        playedReplyAudio = await speakRoleplayText({
+          text: response.aiText,
+          voiceProfile: response.voiceProfile,
+          onStart: () => setConversationUiState('aiSpeaking'),
+          onFinish: () => {
+            resolvePlayback();
+            if (!response.completed) setConversationUiState('userListening');
+          },
+          onUnavailable: () => {
+            ttsCreated = false;
+            resolvePlayback();
+            setRemoteAudioAvailable(false);
+            if (!response.completed) setConversationUiState('userListening');
+            setFeedbackLine((current) => current ?? 'TTS audio could not be created. Text reply is still shown.');
+          },
+        });
+
+        if (!playedReplyAudio && ttsCreated) {
+          resolvePlayback();
+          setFeedbackLine((current) => current ?? 'Audio playback was blocked. Continuing with text.');
+          if (!response.completed) setConversationUiState('userListening');
+        }
+      } else if (!response.completed) {
+        setConversationUiState('userListening');
+      }
 
       if (response.completed) {
+        if (playedReplyAudio && playbackDone) {
+          await Promise.race([
+            playbackDone,
+            new Promise<void>((resolve) => setTimeout(resolve, 15000)),
+          ]);
+        }
+
         const finished = await finishRoleplaySession(sessionId);
-        // v2 backend returns the full report; v1 returned just summary string
         if (typeof finished === 'object' && 'transcriptAnnotated' in finished) {
           const fullReport = finished as unknown as FeedbackReport;
           setPersonaName((current) =>
@@ -664,9 +1113,9 @@ export default function RoleplayConversationScreen({
           );
           setFeedbackReport(fullReport);
         } else {
-          // Graceful degradation for old backend
           setFeedbackReport({
             sessionId: sessionId,
+            completed: true,
             personaName,
             track: 'general',
             trackLabel: 'Suomen kielen harjoittelu',
@@ -679,37 +1128,63 @@ export default function RoleplayConversationScreen({
             difficultPhrases: (finished as any).difficultPhrases ?? [],
             grammarObservations: [],
             nextSteps: [(finished as any).nextAction ?? ''],
+            nextAction: (finished as any).nextAction ?? 'Jatka harjoittelua',
           });
         }
+        setConversationUiState('completed');
         await uiSounds.success();
       }
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Failed to submit turn');
+      setConversationUiState('error');
       await uiSounds.error();
     } finally {
       setSubmitting(false);
       setManualText('');
     }
-  }, [sessionId, feedbackReport, personaName, levelBand, scenario, currentTurn]);
+  }, [sessionId, feedbackReport, personaName, levelBand, scenario, currentTurn, textMode]);
 
   const canSendManual = useMemo(
     () => Boolean(manualText.trim()) && !submitting && !feedbackReport,
     [manualText, submitting, feedbackReport],
   );
 
+  useEffect(() => {
+    if (feedbackReport) {
+      setConversationUiState('completed');
+      return;
+    }
+    if (recorder.phase === 'recording') {
+      setConversationUiState('userSpeaking');
+    } else if (recorder.phase === 'uploading') {
+      setConversationUiState('processing');
+    } else if (recorder.phase === 'error') {
+      setConversationUiState('error');
+    }
+  }, [feedbackReport, recorder.phase]);
+
   const handleMicTap = useCallback(() => {
+    void primeRoleplayAudioPlayback();
     if (submitting || feedbackReport || micBusy || recorder.phase === 'uploading') return;
     void (async () => {
       setMicBusy(true);
       try {
         if (recorder.phase === 'recording') {
+          setConversationUiState('processing');
           const transcript = await recorder.stopRecording();
           if (transcript) {
             await submitTranscript(transcript);
+          } else {
+            setConversationUiState('userListening');
           }
         } else {
+          setTextMode(false);
           await stopRoleplayAudioPlayback();
-          await uiSounds.tap();
+
+          if (Platform.OS === 'web') {
+            await uiSounds.tap();
+          }
+
           await recorder.startRecording();
         }
       } finally {
@@ -717,6 +1192,29 @@ export default function RoleplayConversationScreen({
       }
     })();
   }, [feedbackReport, micBusy, recorder, submitTranscript, submitting]);
+
+  const latestAssistantMessage = useMemo(
+    () => [...messages].reverse().find((message) => message.speaker === 'assistant') ?? null,
+    [messages],
+  );
+
+  const replayLatestAssistant = useCallback(() => {
+    if (!latestAssistantMessage?.text || textMode || feedbackReport) return;
+    void (async () => {
+      await stopRoleplayAudioPlayback();
+      const played = await speakRoleplayText({
+        text: latestAssistantMessage.text,
+        voiceProfile,
+        onStart: () => setConversationUiState('aiSpeaking'),
+        onFinish: () => setConversationUiState('userListening'),
+        onUnavailable: () => {
+          setRemoteAudioAvailable(false);
+          setConversationUiState('userListening');
+        },
+      });
+      if (!played) setConversationUiState('userListening');
+    })();
+  }, [feedbackReport, latestAssistantMessage, textMode, voiceProfile]);
 
   // ── Issue #5: Export with format selection ───────────────────────────────
   // Previously this only produced .md. Now the user picks markdown, plain
@@ -817,267 +1315,93 @@ export default function RoleplayConversationScreen({
     );
   }, [exportInFormat]);
 
-  // ---- loading screen ----
-  if (loading) {
-    return (
-      <SafeAreaView style={[styles.safeArea, { backgroundColor: bgColor }]}>
-        <View style={[styles.loadingWrap, { backgroundColor: bgColor }]}>
-          <ActivityIndicator color={primaryColor} size="large" />
-          <Text style={[styles.loadingText, { color: mutedColor }]}>Valmistellaan harjoittelua…</Text>
-        </View>
-      </SafeAreaView>
-    );
-  }
+  const assistantDisplayName =
+    personaName && personaName.toLowerCase() !== 'ai'
+      ? personaName
+      : 'KLYMis Guide';
+
+  const conversationTopic =
+    contextLabel ??
+    (roleplayMode === 'workplace'
+      ? 'Workplace conversation'
+      : roleplayMode === 'professional'
+        ? 'Professional conversation'
+        : roleplayMode === 'yki'
+          ? 'YKI conversation'
+          : roleplayMode === 'interview'
+            ? 'Interview practice'
+            : 'Daily conversation');
+
+  const statusMessage =
+    error ??
+    recorder.error ??
+    (!remoteAudioAvailable
+      ? 'Audio is unavailable right now. You can continue with text.'
+      : conversationUiState === 'processing'
+        ? 'Thinking…'
+        : missingPhrases.length
+          ? `Try: ${missingPhrases.slice(0, 2).join(' · ')}`
+          : feedbackLine);
+
+  const resolvedUiState: VoiceConversationUiState =
+    loading
+      ? 'idle'
+      : feedbackReport
+        ? 'completed'
+        : conversationUiState;
 
   return (
-    <SafeAreaView style={[styles.safeArea, { backgroundColor: bgColor }]}>
-      <ScrollView
-        style={styles.screenScroll}
-        contentContainerStyle={styles.screenContent}
-        keyboardShouldPersistTaps="handled"
-        showsVerticalScrollIndicator={false}
-      >
-        <RoleplayScenarioHeader
-          currentTurn={currentTurn}
-          levelBand={levelBand}
-          maxTurns={maxTurns}
-          onBack={onBack}
-          profession={profession}
-          scenario={scenario}
-          personaName={personaName}
-        />
-
-        {/* Key phrase pills */}
-        <View style={styles.keyPhraseRow}>
-          {(scenario?.keyPhrases ?? []).slice(0, 5).map((phrase) => (
-            <View
-              key={phrase}
-              style={[
-                styles.keyPhrasePill,
-                isLight && { backgroundColor: palette.primarySurface, borderColor: palette.border },
-              ]}
-            >
-              <Text style={[styles.keyPhraseText, isLight && { color: primaryColor }]}>{phrase}</Text>
-            </View>
-          ))}
-        </View>
-
-        <View style={[styles.sessionCard, { backgroundColor: cardBg, borderColor: cardBorder }]}>
-          {/* Persona label */}
-          <View style={styles.personaRow}>
-            <View style={[styles.personaBadge, { backgroundColor: primaryColor + '22' }]}>
-              <Text style={[styles.personaText, { color: primaryColor }]}>
-                Keskustelukumppani: {personaName}
-              </Text>
-            </View>
-          </View>
-
-          {/* ── Issue #4 fix ───────────────────────────────────────────────
-              The live transcript was sometimes collapsing to ~0 height because
-              the ScrollView's flex:1 was competing with siblings (manual input,
-              action row, mic panel, retention surface) inside a single
-              sessionCard. Wrapping in a flex:1 View with a minHeight floor
-              guarantees the transcript is always visible during the active
-              conversation. We also hide the live transcript once feedbackReport
-              is present, since the annotated transcript replaces it at that
-              point — showing both was confusing.
-          */}
-          {!feedbackReport ? (
-            <View style={styles.transcriptListWrap}>
-              <RoleplayTranscriptList messages={messages} personaName={personaName} />
-            </View>
-          ) : null}
-
-          {/* Inline status rows */}
-          {error ? <Text style={styles.errorText}>{error}</Text> : null}
-          {!remoteAudioAvailable ? (
-            <Text style={styles.warningText}>TTS ei saatavilla — teksti näkyy silti.</Text>
-          ) : null}
-          {feedbackLine ? (
-            <Text style={[styles.feedbackLine, isLight && { color: palette.text }]}>
-              💬 {feedbackLine}
-            </Text>
-          ) : null}
-          {missingPhrases.length ? (
-            <Text style={styles.warningText}>
-              Kokeile vielä: {missingPhrases.join(', ')}
-            </Text>
-          ) : null}
-          {recorder.error ? <Text style={styles.errorText}>{recorder.error}</Text> : null}
-
-          {/* Manual text input */}
-          {!feedbackReport ? (
-            <>
-              <View style={styles.manualRow}>
-                <TextInput
-                  placeholder="Kirjoita vastaus tarvittaessa…"
-                  placeholderTextColor={isLight ? palette.textSoft : '#7F8BA5'}
-                  value={manualText}
-                  onChangeText={setManualText}
-                  editable={!submitting}
-                  style={[
-                    styles.input,
-                    isLight && {
-                      backgroundColor: palette.surfaceMuted,
-                      borderColor: palette.border,
-                      color: palette.text,
-                    },
-                  ]}
-                  multiline
-                />
-                <Pressable
-                  onPress={() => void submitTranscript(manualText)}
-                  disabled={!canSendManual}
-                  style={[
-                    styles.sendButton,
-                    { backgroundColor: primaryColor },
-                    !canSendManual && styles.disabledButton,
-                  ]}
-                >
-                  <Text style={styles.sendButtonText}>Lähetä</Text>
-                </Pressable>
-              </View>
-
-              <View style={styles.actionRow}>
-                <View style={[styles.micPanel, { backgroundColor: palette.surface, borderColor: palette.border }]}>
-                  <WaveformMicRing
-                    phase={recorder.phase}
-                    amplitude={recorder.amplitude}
-                    themeMode={themeMode}
-                    size={260}
-                    onPress={handleMicTap}
-                    disabled={recorder.phase === 'uploading' || submitting || micBusy || !!feedbackReport}
-                  />
-                </View>
-                <Pressable
-                  onPress={() => void stopRoleplayAudioPlayback()}
-                  style={[
-                    styles.secondaryButton,
-                    isLight && { backgroundColor: palette.surfaceMuted, borderColor: palette.border },
-                  ]}
-                >
-                  <Text style={[styles.secondaryButtonText, { color: mutedColor }]}>Pysäytä ääni</Text>
-                </Pressable>
-              </View>
-              <Pressable
-                onPress={handleDownload}
-                style={[
-                  styles.secondaryButton,
-                  isLight && { backgroundColor: palette.surfaceMuted, borderColor: palette.border },
-                ]}
-              >
-                <Text style={[styles.secondaryButtonText, { color: mutedColor }]}>Lataa litteraatio</Text>
-              </Pressable>
-            </>
-          ) : null}
-
-          {/* ---- FEEDBACK REPORT ---- */}
-          {feedbackReport ? (
-            <ScrollView style={styles.reportScroll} showsVerticalScrollIndicator={false}>
-              <View style={[styles.reportCard, isLight && { backgroundColor: palette.surfaceMuted, borderColor: palette.border }]}>
-                <Text style={[styles.reportTitle, { color: textColor }]}>
-                  Sessioanalyysi
-                </Text>
-                <Text style={[styles.reportSummary, { color: mutedColor }]}>
-                  {feedbackReport.summary}
-                </Text>
-
-                {/* Score chips */}
-                <View style={styles.scoreRow}>
-                  <ScoreChip label="Avainsanat" value={`${feedbackReport.scores.avgPhrasesCoverage}/3`} color={primaryColor} />
-                  <ScoreChip label="Sanat/vuoro" value={`${feedbackReport.scores.avgWordCount}`} color={primaryColor} />
-                  <ScoreChip label="Korjauskieli" value={feedbackReport.scores.repairLanguageUsed ? '✓' : '–'} color={primaryColor} />
-                </View>
-
-                {/* Annotated transcript toggle */}
-                <Pressable
-                  onPress={() => setShowTranscriptReport((v) => !v)}
-                  style={[styles.toggleButton, { borderColor: cardBorder }]}
-                >
-                  <Text style={[styles.toggleButtonText, { color: primaryColor }]}>
-                    {showTranscriptReport ? 'Piilota litterointi' : 'Näytä kommentoitu litterointi'}
-                  </Text>
-                </Pressable>
-
-                {showTranscriptReport && (
-                  <View style={styles.transcriptReport}>
-                    {feedbackReport.transcriptAnnotated.map((turn, idx) => (
-                      <View key={idx} style={styles.annotatedTurn}>
-                        <Text style={[styles.annotatedSpeaker, { color: primaryColor }]}>
-                          {turn.speaker === 'AI' ? personaName : turn.speaker === 'USER' ? 'Sinä' : turn.speaker}
-                        </Text>
-                        <Text style={[styles.annotatedText, { color: textColor }]}>{turn.text}</Text>
-                        {turn.comment ? (
-                          <Text style={[styles.annotatedComment, { color: mutedColor }]}>
-                            💬 {turn.comment}
-                          </Text>
-                        ) : null}
-                      </View>
-                    ))}
-                  </View>
-                )}
-
-                {/* Strong / difficult phrases */}
-                {feedbackReport.strongPhrases.length ? (
-                  <View style={styles.phraseSection}>
-                    <Text style={[styles.phraseSectionTitle, { color: textColor }]}>Vahvat ilmaisut ✓</Text>
-                    <Text style={[styles.phraseList, { color: mutedColor }]}>
-                      {feedbackReport.strongPhrases.join(' · ')}
-                    </Text>
-                  </View>
-                ) : null}
-                {feedbackReport.difficultPhrases.length ? (
-                  <View style={styles.phraseSection}>
-                    <Text style={[styles.phraseSectionTitle, { color: textColor }]}>Harjoiteltavat ilmaisut</Text>
-                    <Text style={[styles.phraseList, { color: mutedColor }]}>
-                      {feedbackReport.difficultPhrases.join(' · ')}
-                    </Text>
-                  </View>
-                ) : null}
-
-                {/* Grammar observations */}
-                {feedbackReport.grammarObservations.length ? (
-                  <View style={styles.phraseSection}>
-                    <Text style={[styles.phraseSectionTitle, { color: textColor }]}>Kielioppihuomiot</Text>
-                    {feedbackReport.grammarObservations.map((obs, i) => (
-                      <Text key={i} style={[styles.obsLine, { color: mutedColor }]}>• {obs}</Text>
-                    ))}
-                  </View>
-                ) : null}
-
-                {/* Next steps */}
-                {feedbackReport.nextSteps.length ? (
-                  <View style={styles.phraseSection}>
-                    <Text style={[styles.phraseSectionTitle, { color: textColor }]}>Seuraavat askeleet</Text>
-                    {feedbackReport.nextSteps.map((step, i) => (
-                      <Text key={i} style={[styles.obsLine, { color: mutedColor }]}>{i + 1}. {step}</Text>
-                    ))}
-                  </View>
-                ) : null}
-
-                {/* Retention surface — streak, next-scenario CTA, share, secondaries */}
-                <SessionCompletion
-                  personaName={personaName}
-                  profession={profession}
-                  completedScenarioId={feedbackReport.scenario?.id ?? scenario?.id ?? null}
-                  completedScenarioTitle={feedbackReport.scenario?.title ?? scenario?.title ?? null}
-                  onStartSession={(id) => { void startSession(id); }}
-                  onDownloadReport={handleDownload}
-                  palette={{
-                    text: textColor,
-                    muted: mutedColor,
-                    primary: primaryColor,
-                    border: cardBorder,
-                    surface: cardBg,
-                    success: palette.success,
-                    textOnPrimary,
-                  }}
-                />
-              </View>
-            </ScrollView>
-          ) : null}
-        </View>
-      </ScrollView>
+    <SafeAreaView style={styles.voiceSafeArea}>
+      <VoiceConversationExperience
+        amplitude={recorder.amplitude}
+        assistantLabel={assistantDisplayName}
+        canSendManual={canSendManual}
+        completionSummary={feedbackReport?.summary ?? null}
+        headerSubtitle={`${conversationTopic} · ${levelBand}`}
+        headerTitle={scenario?.title ?? 'Speaking practice'}
+        manualText={manualText}
+        messages={messages}
+        micDisabled={
+          loading ||
+          submitting ||
+          micBusy ||
+          recorder.phase === 'uploading' ||
+          Boolean(feedbackReport)
+        }
+        onBack={onBack}
+        onMenu={onOpenMenu}
+        onChangeManualText={setManualText}
+        onDownloadTranscript={handleDownload}
+        onEnterTextMode={() => {
+          setTextMode(true);
+          if (conversationUiState === 'aiSpeaking') {
+            void stopRoleplayAudioPlayback();
+            setConversationUiState('userListening');
+          }
+        }}
+        onExitTextMode={() => setTextMode(false)}
+        onMicPress={handleMicTap}
+        onNextConversation={() => {
+          if (scenarioId) {
+            onBack();
+          } else {
+            void startSession();
+          }
+        }}
+        onReplayAudio={latestAssistantMessage ? replayLatestAssistant : undefined}
+        onReplayConversation={() => {
+          void startSession(
+            feedbackReport?.scenario?.id ??
+            scenario?.id ??
+            scenarioId ??
+            undefined,
+          );
+        }}
+        onSendManual={() => void submitTranscript(manualText)}
+        state={resolvedUiState}
+        statusMessage={statusMessage}
+        textMode={textMode}
+      />
     </SafeAreaView>
   );
 }
@@ -1113,6 +1437,7 @@ const scoreChipStyles = StyleSheet.create({
 // --------------------------------------------------------------------------
 
 const styles = StyleSheet.create({
+  voiceSafeArea: { flex: 1, backgroundColor: '#F8FBFF' },
   safeArea: { flex: 1, backgroundColor: colors.bg },
   screenScroll: { flex: 1 },
   screenContent: {

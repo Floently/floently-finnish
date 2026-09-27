@@ -34,7 +34,7 @@ def send_password_reset_email(*, email: str, links: PasswordResetLinks, expires_
         "type": "password_reset",
         "to": email,
         "from": SETTINGS.password_reset_email_from,
-        "subject": "Reset your Floently Finnish password",
+        "subject": "Reset your KieliValmis password",
         "template_data": {
             "deep_link": links.deep_link,
             "web_link": links.web_link,

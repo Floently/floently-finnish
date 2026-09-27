@@ -1,5 +1,9 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { startYkiExamSession, type StartedExamSession } from '@core/api/ykiExam';
+import {
+  resolveStartedYkiSessionId,
+  startYkiExamSession,
+  type StartedExamSession,
+} from '@core/api/ykiExam';
 
 const YKI_EXAM_SESSION_KEY = 'floently:yki_exam_session_id';
 
@@ -30,11 +34,14 @@ async function setStorageItem(key: string, value: string | null) {
 export async function startExamSession(levelBand = 'B1-B2'): Promise<StartedExamSession> {
   await setStorageItem('floently:yki_exam_level_band', levelBand);
   const data = await startYkiExamSession(levelBand);
-  const sessionId = data.session_id ?? data.id ?? null;
+  const sessionId = resolveStartedYkiSessionId(data);
 
-  if (sessionId) {
-    await setStorageItem(YKI_EXAM_SESSION_KEY, sessionId);
+  if (!sessionId) {
+    await setStorageItem(YKI_EXAM_SESSION_KEY, null);
+    throw new Error('YKI_SESSION_ID_MISSING');
   }
+
+  await setStorageItem(YKI_EXAM_SESSION_KEY, sessionId);
 
   return data;
 }

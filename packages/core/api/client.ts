@@ -1,6 +1,7 @@
 import { getApiBaseUrl } from "./apiConfig";
 import { getAuthToken } from "./apiClient";
 import { extractResponseErrorMessage, isRecord, readResponseBody } from "./response";
+import { getClientDeviceHeaders } from "./deviceIdentity";
 
 type ApiResponse<T> = {
   ok: boolean;
@@ -18,6 +19,14 @@ async function request<T>(path: string, options?: RequestInit): Promise<ApiRespo
     if (token && !requestHeaders.has("Authorization")) {
       requestHeaders.set("Authorization", `Bearer ${token}`);
     }
+
+    const deviceHeaders = await getClientDeviceHeaders();
+    for (const [key, value] of Object.entries(deviceHeaders)) {
+      if (!requestHeaders.has(key)) {
+        requestHeaders.set(key, value);
+      }
+    }
+
     const res = await fetch(`${getApiBaseUrl()}${path}`, {
       ...options,
       headers: requestHeaders,
@@ -47,6 +56,10 @@ export const apiClient = {
     request<T>(path, {
       method: "POST",
       body: JSON.stringify(body),
+    }),
+  delete: <T>(path: string) =>
+    request<T>(path, {
+      method: "DELETE",
     }),
 };
 

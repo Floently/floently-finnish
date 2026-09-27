@@ -13,6 +13,7 @@ import {
 } from '@core/api/auth';
 
 import { setAuthToken } from '@core/api/apiClient';
+import { logOutRevenueCatUser } from '../features/billing/services/revenueCatService';
 
 type AuthState = {
   hasHydrated: boolean;
@@ -123,6 +124,16 @@ export const useAuthStore = create<AuthState>((set) => ({
   },
 
   async logout() {
+    // App logout must also detach the RevenueCat SDK from the previous
+    // authenticated customer. A RevenueCat network failure must never trap the
+    // user in the application session, so local logout proceeds regardless;
+    // the next identified store call will logIn the new app user if necessary.
+    try {
+      await logOutRevenueCatUser();
+    } catch {
+      // Intentionally continue with application-session logout.
+    }
+
     await persistSession(null);
     await clearSession(); // ✅ clear mobile session
     setAuthToken(null);

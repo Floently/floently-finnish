@@ -14,8 +14,7 @@
  *   <WaveformMicRing
  *     phase={recorderPhase}
  *     amplitude={recorderAmplitude}  // 0..1, optional — volume-reactive if provided
- *     onPressIn={startRecording}
- *     onPressOut={stopRecording}
+ *     onPress={toggleRecording}
  *     themeMode="dark"
  *   />
  *
@@ -51,8 +50,6 @@ type Props = {
   /** Override the accent color. Defaults to palette.accent (teal). */
   accentColor?: string;
   themeMode?: FloentlyThemeMode;
-  onPressIn?: () => void;
-  onPressOut?: () => void;
   onPress?: () => void;
   disabled?: boolean;
 };
@@ -87,8 +84,6 @@ export function WaveformMicRing({
   size = 260,
   accentColor,
   themeMode = 'dark',
-  onPressIn,
-  onPressOut,
   onPress,
   disabled,
 }: Props) {
@@ -280,8 +275,6 @@ export function WaveformMicRing({
 
       <Animated.View style={[styles.buttonWrapper, buttonWrapperStyle]}>
         <Pressable
-          onPressIn={onPressIn}
-          onPressOut={onPressOut}
           onPress={onPress}
           disabled={disabled}
           hitSlop={16}

@@ -4,6 +4,7 @@ import {
   createPortalSession,
   getSubscriptionStatus,
   reactivateSubscription,
+  syncStoreSubscription,
   trackUsageEvent,
 } from '@core/api';
 
@@ -13,5 +14,6 @@ export const paymentService = {
   createPortalSession,
   getSubscriptionStatus,
   reactivateSubscription,
+  syncStoreSubscription,
   trackUsageEvent,
 };

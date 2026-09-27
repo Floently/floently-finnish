@@ -95,6 +95,29 @@ def build_auth_router() -> APIRouter:
         data = login_provider(provider_id=payload.provider_id, provider_token=payload.provider_token)
         return success_payload(data=data, request_id=get_request_id(request))
 
+    @router.get("/auth/google/config")
+    async def google_config_route(request: Request) -> dict[str, Any]:
+        client_id = SETTINGS.google_oauth_client_id.strip()
+        enabled = bool(client_id)
+        request_id = get_request_id(request)
+        return {
+            "ok": True,
+            "enabled": enabled,
+            "client_id": client_id,
+            "clientId": client_id,
+            "data": {
+                "enabled": enabled,
+                "client_id": client_id,
+                "clientId": client_id,
+            },
+            "error": None,
+            "meta": {
+                "request_id": request_id,
+                "api_version": "v1",
+            },
+        }
+
+    @router.post("/auth/login/google")
     @router.post("/auth/google")
     async def google_auth_route(request: Request, payload: GoogleAuthRequest) -> dict[str, Any]:
         if payload.oauth_result_id:

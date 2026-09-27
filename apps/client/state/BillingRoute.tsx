@@ -5,7 +5,13 @@ import { AppScaffold, PageHeader } from '@ui/components';
 import { getFloentlyPalette } from '@ui/theme/floentlyPalette';
 
 import { paymentService } from '../features/billing/services/paymentService';
-import { startStorePurchase, supportsStoreBilling } from '../features/billing/services/storeBillingService';
+import {
+  preflightStoreBillingPlans,
+  restoreStorePurchases,
+  startStorePurchase,
+  supportsStoreBilling,
+  type StoreBillingCatalog,
+} from '../features/billing/services/storeBillingService';
 import { useAuthStore } from './authStore';
 import { usePreferencesStore } from './preferencesStore';
 import { useSubscriptionStore } from './subscriptionStore';
@@ -41,8 +47,8 @@ function isActiveSubscriptionStatus(status: unknown): boolean {
     billingTier?: string;
     billing_tier?: string;
   };
-  const tier = String(record.billingTier ?? record.billing_tier ?? record.tier ?? 'free');
-  return Boolean(record.isActive || record.hasAnySubscription || (tier && tier !== 'free'));
+  // Historical billing_tier remains after expiry; it is NOT active access.
+  return Boolean(record.isActive || record.hasAnySubscription);
 }
 
 const PATHWAYS: Array<{ id: CheckoutPathway; titleKey: TranslationKey; eyebrowKey: TranslationKey; detailKey: TranslationKey; highlightKeys: TranslationKey[] }> = [
@@ -69,31 +75,246 @@ const PATHWAYS: Array<{ id: CheckoutPathway; titleKey: TranslationKey; eyebrowKe
   },
 ];
 
+
+type BillingStatusSnapshot = {
+  subscription_status?: string | null;
+  subscriptionStatus?: string | null;
+  access_expired?: boolean;
+  accessExpired?: boolean;
+  has_any_subscription?: boolean;
+  hasAnySubscription?: boolean;
+  has_payment_issue?: boolean;
+  hasPaymentIssue?: boolean;
+  payment_issue_message?: string | null;
+  paymentIssueMessage?: string | null;
+  trial_used?: boolean;
+  trialUsed?: boolean;
+  can_start_trial?: boolean;
+  canStartTrial?: boolean;
+  trial_already_used?: boolean;
+  trialAlreadyUsed?: boolean;
+  tier?: string;
+  billingTier?: string;
+  billing_tier?: string;
+  plan_key?: string;
+  planKey?: string;
+  is_trial?: boolean;
+  isTrial?: boolean;
+  is_active?: boolean;
+  isActive?: boolean;
+  cancel_at_period_end?: boolean;
+  cancelAtPeriodEnd?: boolean;
+  access_ends_at?: string | null;
+  accessEndsAt?: string | null;
+  trial_ends_at?: string | null;
+  trialEndsAt?: string | null;
+  expires_at?: string | null;
+  expiresAt?: string | null;
+};
+
+function unwrapStatusPayload(value: unknown): BillingStatusSnapshot {
+  const root = value && typeof value === 'object' ? value as Record<string, unknown> : {};
+  const data = root.data && typeof root.data === 'object' ? root.data as Record<string, unknown> : root;
+  const subscription = data.subscription && typeof data.subscription === 'object'
+    ? data.subscription as Record<string, unknown>
+    : data;
+  return subscription as BillingStatusSnapshot;
+}
+
+function firstText(...values: Array<unknown>): string | null {
+  for (const value of values) {
+    const text = String(value ?? '').trim();
+    if (text) return text;
+  }
+  return null;
+}
+
+function isTrialAlreadyUsedError(error: unknown): boolean {
+  const message = error instanceof Error ? error.message : String(error ?? '');
+  return /TRIAL_ALREADY_USED|trial already used|already used your trial|already used the free trial/i.test(message);
+}
+
+function formatAccessDate(value?: string | null) {
+  if (!value) return null;
+  const date = new Date(value);
+  if (Number.isNaN(date.getTime())) return value;
+  return date.toLocaleDateString(undefined, { year: 'numeric', month: 'short', day: 'numeric' });
+}
+
 type Props = { onBack: () => void; onOpenMenu: () => void };
 
 export default function BillingRoute({ onBack, onOpenMenu }: Props) {
   const [busyPlan, setBusyPlan] = useState<string | null>(null);
   const [trialBusy, setTrialBusy] = useState(false);
   const [portalBusy, setPortalBusy] = useState(false);
+  const [billingStatusSnapshot, setBillingStatusSnapshot] = useState<BillingStatusSnapshot | null>(null);
+  const [billingActionBusy, setBillingActionBusy] = useState(false);
   const [period, setPeriod] = useState<BillingPeriod>('yearly');
   const [selectedProfessions, setSelectedProfessions] = useState<ProfessionKey[]>(['nurse']);
+  const [storeCatalog, setStoreCatalog] = useState<StoreBillingCatalog | null>(null);
+  const [storeCatalogLoading, setStoreCatalogLoading] = useState(false);
   const user = useAuthStore((state) => state.user);
   const hydratePreferences = usePreferencesStore((state) => state.hydrate);
   const themeMode = usePreferencesStore((state) => state.themeMode);
   const palette = getFloentlyPalette(themeMode);
   const textOnPrimary = themeMode === 'dark' ? palette.background : '#FFFFFF';
+  const { t } = useTranslator();
   const hydrateSubscription = useSubscriptionStore((state) => state.hydrate);
   const refreshSubscription = useSubscriptionStore((state) => state.refresh);
   const subscription = useSubscriptionStore((state) => state.status);
-  const hasActiveSubscription = Boolean(
-    subscription &&
-    !subscription.isPreview &&
-    String(subscription.planLabel ?? '').trim() &&
-    !String(subscription.planLabel ?? '').toLowerCase().includes('free')
+  const isMobileStoreBilling = supportsStoreBilling();
+  const storeUserId = user?.id ?? null;
+  const visibleStorePlanIds = useMemo(
+    () => PATHWAYS.map((pathway) => getPlanByPathwayPeriod(pathway.id, period).id),
+    [period],
   );
+  const statusForBillingUi = billingStatusSnapshot ?? (subscription as unknown as BillingStatusSnapshot | null);
+  const isTrial = Boolean(statusForBillingUi?.is_trial ?? statusForBillingUi?.isTrial);
+  const cancelAtPeriodEnd = Boolean(statusForBillingUi?.cancel_at_period_end ?? statusForBillingUi?.cancelAtPeriodEnd);
+  const rawSubscriptionStatus = String(
+    statusForBillingUi?.subscription_status ??
+      statusForBillingUi?.subscriptionStatus ??
+      '',
+  ).toLowerCase();
+  const hasPaymentIssue = Boolean(
+    statusForBillingUi?.has_payment_issue ??
+      statusForBillingUi?.hasPaymentIssue ??
+      ['past_due', 'unpaid', 'incomplete', 'incomplete_expired', 'canceled'].includes(rawSubscriptionStatus),
+  );
+  const paymentIssueMessage =
+    statusForBillingUi?.payment_issue_message ??
+    statusForBillingUi?.paymentIssueMessage ??
+    t('billingPaymentFailedBody');
+  const accessEndsAtRaw = firstText(
+    statusForBillingUi?.access_ends_at,
+    statusForBillingUi?.accessEndsAt,
+    statusForBillingUi?.trial_ends_at,
+    statusForBillingUi?.trialEndsAt,
+    statusForBillingUi?.expires_at,
+    statusForBillingUi?.expiresAt,
+  );
+  const accessEndsAtLabel = formatAccessDate(accessEndsAtRaw);
+  const accessExpired = Boolean(
+    statusForBillingUi?.access_expired ??
+      statusForBillingUi?.accessExpired ??
+      (accessEndsAtRaw ? new Date(accessEndsAtRaw).getTime() <= Date.now() : false)
+  );
+
+  const hasActiveSubscription = Boolean(
+    (statusForBillingUi?.is_active ??
+      statusForBillingUi?.isActive ??
+      statusForBillingUi?.has_any_subscription ??
+      statusForBillingUi?.hasAnySubscription) &&
+      !hasPaymentIssue &&
+      !accessExpired &&
+      !['expired', 'past_due', 'unpaid', 'incomplete', 'incomplete_expired', 'canceled'].includes(rawSubscriptionStatus)
+  );
+
+  const trialAlreadyUsed = Boolean(
+    statusForBillingUi?.trial_already_used ??
+      statusForBillingUi?.trialAlreadyUsed ??
+      statusForBillingUi?.trial_used ??
+      statusForBillingUi?.trialUsed
+  );
+  const canStartTrial = Boolean(
+    statusForBillingUi?.can_start_trial ??
+      statusForBillingUi?.canStartTrial ??
+      !trialAlreadyUsed
+  );
+  const trialPlanId = getPlanByPathwayPeriod('yki', period).id;
+  const trialStoreAvailability = storeCatalog?.plans.find((item) => item.planId === trialPlanId);
+  const trialStoreUnavailable = Boolean(
+    isMobileStoreBilling && (storeCatalogLoading || !trialStoreAvailability?.available),
+  );
+  const trialActionDisabled = Boolean(
+    hasActiveSubscription || trialAlreadyUsed || !canStartTrial || trialBusy || trialStoreUnavailable ||
+    (Platform.OS === 'ios' && !trialStoreAvailability?.trialEligible),
+  );
+  const showTrialStartCard = Boolean(
+    !hasPaymentIssue && !trialAlreadyUsed && canStartTrial && !hasActiveSubscription &&
+    (Platform.OS !== 'ios' || trialStoreAvailability?.trialEligible),
+  );
+
+  const trialEndRawForManagement =
+    statusForBillingUi?.trial_ends_at ??
+    statusForBillingUi?.trialEndsAt ??
+    accessEndsAtRaw;
+
+  const trialEndsAtLabel = formatAccessDate(trialEndRawForManagement);
+  const trialDaysLeft = (() => {
+    const raw = trialEndRawForManagement;
+    if (!raw) return null;
+    const end = new Date(raw);
+    if (Number.isNaN(end.getTime())) return null;
+    const diffMs = end.getTime() - Date.now();
+    return Math.max(0, Math.ceil(diffMs / 86400000));
+  })();
+
+  const subscriptionManagementStatus = hasPaymentIssue
+    ? t('billingPaymentFailedTitle')
+    : trialAlreadyUsed && !hasActiveSubscription
+      ? t('billingTrialAlreadyUsedTitle')
+      : accessExpired && !hasActiveSubscription
+        ? t('billingAccessExpiredTitle')
+        : isTrial
+          ? cancelAtPeriodEnd
+            ? t('billingTrialCancelledStatus')
+            : t('billingTrialActiveStatus')
+          : cancelAtPeriodEnd
+            ? t('billingRenewalCancelledStatus')
+            : hasActiveSubscription
+              ? t('billingStatusSubscriptionActive')
+              : t('billingStatusNoActiveSubscription');
+
+  const subscriptionManagementBody = hasPaymentIssue
+    ? t('billingManagementPaymentFailedBody')
+    : trialAlreadyUsed && !hasActiveSubscription
+      ? t('billingTrialAlreadyUsedBody')
+      : accessExpired && !hasActiveSubscription
+        ? t('billingAccessExpiredBody')
+        : isTrial
+          ? cancelAtPeriodEnd
+            ? t('billingManagementTrialCancelledBody')
+            : t('billingManagementTrialActiveBody')
+          : cancelAtPeriodEnd
+            ? t('billingManagementRenewalCancelledBody')
+            : hasActiveSubscription
+              ? t('billingManagementSubscriptionActiveBody')
+              : t('billingManagementNoActiveBody');
+
+  const billingManagementActionLabel = isMobileStoreBilling
+    ? t('billingRestorePurchasesAction')
+    : t('billingPaymentMethodStripeAction');
+  const billingManagementActionBody = isMobileStoreBilling
+    ? t('billingRestorePurchasesBody')
+    : t('billingPaymentMethodStripeBody');
+  const billingManagementBusyLabel = isMobileStoreBilling
+    ? t('billingRestorePurchasesBusy')
+    : t('billingOpeningPortal');
+
+
+  const trialCardTitle = trialAlreadyUsed
+    ? t('billingTrialAlreadyUsedTitle')
+    : hasActiveSubscription
+      ? t('billingTrialAlreadyActiveTitle')
+      : trialBusy
+        ? t('billingStartingTrial')
+        : t('billingStartTrial');
+
+  const trialCardBody = trialAlreadyUsed
+    ? t('billingTrialAlreadyUsedBody')
+    : hasActiveSubscription
+      ? t('billingTrialActiveBody')
+      : t('billingPreviewBody');
+
+  const trialCardActionLabel = trialAlreadyUsed
+    ? t('billingTrialAlreadyUsedCta')
+    : hasActiveSubscription
+      ? t('billingTrialAlreadyActiveTitle')
+      : t('billingActivateTrial');
+
   const startPreview = useSubscriptionStore((state) => state.startPreview);
   const endPreview = useSubscriptionStore((state) => state.endPreview);
-  const { t } = useTranslator();
   const billingDisplayLabels = useMemo(() => ({
     billingPeriods: {
       monthly: t('billingPeriodMonthlyLabel'),
@@ -139,6 +360,43 @@ export default function BillingRoute({ onBack, onOpenMenu }: Props) {
   }, [hydrateSubscription, user?.email, user?.subscriptionTier]);
 
   useEffect(() => {
+    void refreshBillingSnapshot();
+  }, [user?.email, user?.subscriptionTier]);
+
+  useEffect(() => {
+    if (!isMobileStoreBilling) {
+      setStoreCatalog(null);
+      setStoreCatalogLoading(false);
+      return;
+    }
+
+    let cancelled = false;
+    setStoreCatalogLoading(true);
+
+    void preflightStoreBillingPlans(visibleStorePlanIds, storeUserId)
+      .then((catalog) => {
+        if (!cancelled) {
+          setStoreCatalog(catalog);
+        }
+      })
+      .catch(() => {
+        if (!cancelled) {
+          setStoreCatalog(null);
+        }
+      })
+      .finally(() => {
+        if (!cancelled) {
+          setStoreCatalogLoading(false);
+        }
+      });
+
+    return () => {
+      cancelled = true;
+    };
+  }, [isMobileStoreBilling, storeUserId, visibleStorePlanIds]);
+
+
+  useEffect(() => {
     if (subscription?.professions?.length) {
       setSelectedProfessions(subscription.professions);
     }
@@ -166,6 +424,71 @@ export default function BillingRoute({ onBack, onOpenMenu }: Props) {
     ? formatSubscriptionAccessLabel(subscription.accessType, billingDisplayLabels)
     : null;
 
+  async function refreshBillingSnapshot() {
+    try {
+      const raw = await paymentService.getSubscriptionStatus();
+      setBillingStatusSnapshot(unwrapStatusPayload(raw));
+      await refreshSubscription({
+        email: user?.email ?? null,
+        subscriptionTierHint: user?.subscriptionTier ?? null,
+      });
+    } catch {
+      // Keep existing subscription UI if the status refresh fails.
+    }
+  }
+
+  async function handleCancelTrial() {
+    if (billingActionBusy) return;
+    Alert.alert(
+      t('billingCancelTrialTitle'),
+      accessEndsAtLabel
+        ? t('billingCancelTrialBodyWithDate').replace('{date}', accessEndsAtLabel)
+        : t('billingCancelTrialBodyNoDate'),
+      [
+        { text: t('billingKeepTrialActive'), style: 'cancel' },
+        {
+          text: t('billingCancelTrialAction'),
+          style: 'destructive',
+          onPress: () => {
+            void (async () => {
+              try {
+                setBillingActionBusy(true);
+                const raw = await paymentService.cancelSubscriptionTrial();
+                setBillingStatusSnapshot(unwrapStatusPayload(raw));
+                await refreshBillingSnapshot();
+                Alert.alert(
+                  t('billingTrialCancelledTitle'),
+                  accessEndsAtLabel
+                    ? t('billingTrialCancelledBodyWithDate').replace('{date}', accessEndsAtLabel)
+                    : t('billingTrialCancelledBodyNoDate'),
+                );
+              } catch (error) {
+                Alert.alert(t('billingCancellationFailedTitle'), error instanceof Error ? error.message : t('billingCouldNotCancelTrial'));
+              } finally {
+                setBillingActionBusy(false);
+              }
+            })();
+          },
+        },
+      ],
+    );
+  }
+
+  async function handleReactivateSubscription() {
+    if (billingActionBusy) return;
+    try {
+      setBillingActionBusy(true);
+      const raw = await paymentService.reactivateSubscription();
+      setBillingStatusSnapshot(unwrapStatusPayload(raw));
+      await refreshBillingSnapshot();
+      Alert.alert(t('billingTrialActiveTitle'), t('billingTrialReactivatedBody'));
+    } catch (error) {
+      Alert.alert(t('billingReactivationFailedTitle'), error instanceof Error ? error.message : t('billingCouldNotReactivateTrial'));
+    } finally {
+      setBillingActionBusy(false);
+    }
+  }
+
   async function openUrl(url: string | undefined) {
     if (!url) {
       Alert.alert(t('billingUnavailableTitle'), t('billingUnavailableBody'));
@@ -176,6 +499,9 @@ export default function BillingRoute({ onBack, onOpenMenu }: Props) {
 
   function toggleProfession(profession: ProfessionKey) {
     setSelectedProfessions((current) => {
+      if (isMobileStoreBilling) {
+        return [profession];
+      }
       if (current.includes(profession)) {
         return current.length === 1 ? current : current.filter((item) => item !== profession);
       }
@@ -184,31 +510,62 @@ export default function BillingRoute({ onBack, onOpenMenu }: Props) {
   }
 
   async function handleCheckout(pathway: CheckoutPathway) {
+    const checkoutProfessions = isMobileStoreBilling ? selectedProfessions.slice(0, 1) : selectedProfessions;
     const request = {
-      ...buildCheckoutRequest(pathway, period, selectedProfessions),
-      trial_days: 3,
+      ...buildCheckoutRequest(pathway, period, checkoutProfessions),
+      ...(isMobileStoreBilling ? {} : { trial_days: 3 }),
     };
     try {
       setBusyPlan(request.plan);
+      if (isMobileStoreBilling) {
+        const availability = storeCatalog?.plans.find((item) => item.planId === request.plan);
+        if (!availability?.available) {
+          Alert.alert(t('billingPurchaseUnavailableTitle'), t('billingPurchaseUnavailableBody'));
+          return;
+        }
+      }
       const latestStatus = await paymentService.getSubscriptionStatus();
       if (isActiveSubscriptionStatus(latestStatus)) {
         Alert.alert(t('billingTrialAlreadyActiveTitle'), t('billingTrialAlreadyActiveBody'));
         return;
       }
-      if (pathway !== 'yki' && selectedProfessions.length === 0) {
+      if (pathway !== 'yki' && checkoutProfessions.length === 0) {
         Alert.alert(t('billingChooseProfessionTitle'), t('billingChooseProfessionBody'));
         return;
       }
       if (supportsStoreBilling()) {
-        if (pathway !== 'yki' && selectedProfessions.length > 1) {
-          Alert.alert(t('billingUseWebCheckoutTitle'), t('billingUseWebCheckoutBody'));
+        const result = await startStorePurchase(request.plan, storeUserId);
+        try {
+          await paymentService.syncStoreSubscription({
+            platform: result.platform,
+            plan: request.plan,
+            package_id: result.packageId,
+            packageId: result.packageId,
+            billing_period: period,
+            billingPeriod: period,
+            selected_professions: checkoutProfessions,
+            selectedProfessions: checkoutProfessions,
+            active_entitlements: result.activeEntitlements,
+            activeEntitlements: result.activeEntitlements,
+          });
+        } catch (syncError) {
+          Alert.alert(
+            'Purchase complete',
+            syncError instanceof Error
+              ? `Payment completed, but access sync failed: ${syncError.message}. Use Restore Purchases after reopening the app.`
+              : 'Payment completed, but access sync failed. Use Restore Purchases after reopening the app.',
+          );
           return;
         }
-        await startStorePurchase(request.plan);
-        Alert.alert(
-          t('billingInAppTitle'),
-          t('billingInAppBody'),
-        );
+        await refreshBillingSnapshot();
+        await refreshSubscription({
+          email: user?.email ?? null,
+          subscriptionTierHint: user?.subscriptionTier ?? null,
+        });
+        const activeEntitlements = result.activeEntitlements.length
+          ? result.activeEntitlements.join(', ')
+          : 'none yet';
+        Alert.alert('Purchase complete', `Store purchase completed and access synced: ${activeEntitlements}.`);
         return;
       }
       const session = await paymentService.createCheckoutSession(request) as { checkout_url?: string; url?: string } | undefined;
@@ -221,6 +578,41 @@ export default function BillingRoute({ onBack, onOpenMenu }: Props) {
   }
 
   async function handlePortal() {
+    if (supportsStoreBilling()) {
+      try {
+        setPortalBusy(true);
+        const result = await restoreStorePurchases(storeUserId);
+        try {
+          await paymentService.syncStoreSubscription({
+            platform: result.platform,
+            active_entitlements: result.activeEntitlements,
+            activeEntitlements: result.activeEntitlements,
+          });
+        } catch (syncError) {
+          Alert.alert(
+            'Restore completed',
+            syncError instanceof Error
+              ? `Purchases were restored, but access sync failed: ${syncError.message}.`
+              : 'Purchases were restored, but access sync failed.',
+          );
+          return;
+        }
+        await refreshBillingSnapshot();
+        await refreshSubscription({
+          email: user?.email ?? null,
+          subscriptionTierHint: user?.subscriptionTier ?? null,
+        });
+        const activeEntitlements = result.activeEntitlements.length
+          ? result.activeEntitlements.join(', ')
+          : 'none';
+        Alert.alert('Purchases restored', `RevenueCat active entitlements synced: ${activeEntitlements}.`);
+      } catch (error) {
+        Alert.alert(t('billingPortalUnavailableTitle'), error instanceof Error ? error.message : t('billingPortalUnavailableBody'));
+      } finally {
+        setPortalBusy(false);
+      }
+      return;
+    }
     try {
       setPortalBusy(true);
       const session = await paymentService.createPortalSession() as { portal_url?: string; url?: string } | undefined;
@@ -233,8 +625,21 @@ export default function BillingRoute({ onBack, onOpenMenu }: Props) {
   }
 
   async function handleStartTrial() {
+    if (trialAlreadyUsed || !canStartTrial) {
+      Alert.alert(t('billingTrialAlreadyUsedRetryTitle'), t('billingTrialAlreadyUsedRetryBody'));
+      return;
+    }
+
     try {
       setTrialBusy(true);
+      if (isMobileStoreBilling && !trialStoreAvailability?.available) {
+        Alert.alert(t('billingPurchaseUnavailableTitle'), t('billingPurchaseUnavailableBody'));
+        return;
+      }
+      if (Platform.OS === 'ios' && !trialStoreAvailability?.trialEligible) {
+        Alert.alert(t('billingPurchaseUnavailableTitle'), t('billingPurchaseUnavailableBody'));
+        return;
+      }
       const latestStatus = await paymentService.getSubscriptionStatus();
       if (isActiveSubscriptionStatus(latestStatus)) {
         Alert.alert(t('billingTrialAlreadyActiveTitle'), t('billingTrialAlreadyActiveBody'));
@@ -247,27 +652,72 @@ export default function BillingRoute({ onBack, onOpenMenu }: Props) {
       const trialPathway: CheckoutPathway = 'yki';
       const request = {
         ...buildCheckoutRequest(trialPathway, period, []),
-        trial_days: 3,
+        ...(isMobileStoreBilling ? {} : { trial_days: 3 }),
       };
+
+      if (supportsStoreBilling()) {
+        const result = await startStorePurchase(request.plan, storeUserId);
+        try {
+          await paymentService.syncStoreSubscription({
+            platform: result.platform,
+            plan: request.plan,
+            package_id: result.packageId,
+            packageId: result.packageId,
+            billing_period: period,
+            billingPeriod: period,
+            selected_professions: [],
+            selectedProfessions: [],
+            active_entitlements: result.activeEntitlements,
+            activeEntitlements: result.activeEntitlements,
+          });
+        } catch (syncError) {
+          Alert.alert(
+            'Trial started',
+            syncError instanceof Error
+              ? `Store trial/purchase completed, but access sync failed: ${syncError.message}. Use Restore Purchases after reopening the app.`
+              : 'Store trial/purchase completed, but access sync failed. Use Restore Purchases after reopening the app.',
+          );
+          return;
+        }
+
+        await refreshBillingSnapshot();
+        await refreshSubscription({
+          email: user?.email ?? null,
+          subscriptionTierHint: user?.subscriptionTier ?? null,
+        });
+
+        const activeEntitlements = result.activeEntitlements.length
+          ? result.activeEntitlements.join(', ')
+          : 'pending store entitlement sync';
+        Alert.alert('Trial started', `Store trial/purchase completed and access synced: ${activeEntitlements}.`);
+        return;
+      }
+
       const session = await paymentService.createCheckoutSession(request) as { checkout_url?: string; url?: string } | undefined;
       await openUrl(session?.url ?? session?.checkout_url);
     } catch (error) {
-      Alert.alert(t('billingTrialUnavailableTitle'), error instanceof Error ? error.message : t('billingTrialUnavailableBody'));
+      if (isTrialAlreadyUsedError(error)) {
+        Alert.alert(t('billingTrialAlreadyUsedRetryTitle'), t('billingTrialAlreadyUsedRetryBody'));
+      } else {
+        const message = error instanceof Error ? error.message : t('billingPurchaseUnavailableBody');
+        Alert.alert(t('billingPurchaseUnavailableTitle'), message);
+      }
     } finally {
       setTrialBusy(false);
     }
   }
 
   function renderProfessionSelector() {
+    const visibleSelectedProfessions = isMobileStoreBilling ? selectedProfessions.slice(0, 1) : selectedProfessions;
     return (
       <View style={styles.professionBox}>
         <View style={styles.planTopRow}>
           <Text style={[styles.professionTitle, { color: palette.text }]}>{t('billingProfessionSlots')}</Text>
-          <Text style={[styles.planChipText, { color: palette.primary }]}>{selectedProfessions.length} {t('billingSelectedSuffix')}</Text>
+          <Text style={[styles.planChipText, { color: palette.primary }]}>{visibleSelectedProfessions.length} {t('billingSelectedSuffix')}</Text>
         </View>
         <View style={styles.professionGrid}>
           {PROFESSION_OPTIONS.map((option) => {
-            const selected = selectedProfessions.includes(option.key);
+            const selected = visibleSelectedProfessions.includes(option.key);
             return (
               <Pressable
                 key={option.key}
@@ -284,7 +734,7 @@ export default function BillingRoute({ onBack, onOpenMenu }: Props) {
             );
           })}
         </View>
-        {selectedProfessions.length > 1 ? (
+        {!isMobileStoreBilling && selectedProfessions.length > 1 ? (
           <Text style={[styles.planBody, { color: palette.accent }]}>{t('billingExtraSlotsDiscountPrefix')} {ADDITIONAL_PROFESSION_DISCOUNT_PERCENT}{t('billingExtraSlotsDiscountSuffix')}</Text>
         ) : null}
       </View>
@@ -299,8 +749,8 @@ export default function BillingRoute({ onBack, onOpenMenu }: Props) {
         <PageHeader
           themeMode={themeMode}
           eyebrow={t('billingAccessEyebrow')}
-          title={t('billingHeaderTitle')}
-          subtitle={t('billingHeaderSubtitle')}
+          title={t('billingManagementPageTitle')}
+          subtitle={t('billingManagementPageSubtitle')}
           actionLabel={t('billingHomeAction')}
           onActionPress={onBack}
           onMenuPress={onOpenMenu}
@@ -312,18 +762,66 @@ export default function BillingRoute({ onBack, onOpenMenu }: Props) {
         <Text style={styles.statusTitle}>{currentPlanLabel}</Text>
         <Text style={styles.statusBody}>{currentAccessSummary}</Text>
         {currentAccessLabel ? <Text style={styles.statusMeta}>{t('settingsAccessType')} - {currentAccessLabel}</Text> : null}
+        {hasPaymentIssue ? (
+          <View style={styles.paymentIssueCard}>
+            <Text style={styles.paymentIssueTitle}>{t('billingPaymentFailedTitle')}</Text>
+            <Text style={styles.paymentIssueBody}>{paymentIssueMessage}</Text>
+            <Text style={styles.paymentIssueBody}>{t('billingPaymentFailedBody')}</Text>
+          </View>
+        ) : null}
+
+        {!hasPaymentIssue && accessEndsAtLabel ? (
+          <Text style={styles.statusMeta}>
+            {isTrial
+              ? cancelAtPeriodEnd
+                ? `${t('billingTrialCancelledStatus')} — ${t('billingAccessActiveUntilStatus')} ${accessEndsAtLabel}`
+                : `${t('billingTrialActiveStatus')} — ${t('billingRenewsAfterStatus')} ${accessEndsAtLabel}`
+              : cancelAtPeriodEnd
+                ? `${t('billingRenewalCancelledStatus')} — ${t('billingAccessActiveUntilStatus')} ${accessEndsAtLabel}`
+                : `${t('billingAccessActiveUntilStatus')} ${accessEndsAtLabel}`}
+          </Text>
+        ) : null}
+        {!hasPaymentIssue && isTrial && !cancelAtPeriodEnd ? (
+          <Pressable
+            accessibilityRole="button"
+            disabled={billingActionBusy}
+            onPress={handleCancelTrial}
+            style={[styles.billingTrialLifecycleButton, { opacity: billingActionBusy ? 0.6 : 1 }]}
+          >
+            <Text style={styles.billingTrialLifecycleText}>
+              {billingActionBusy ? t('billingUpdatingLabel') : t('billingCancelTrialAction')}
+            </Text>
+          </Pressable>
+        ) : null}
+        {!hasPaymentIssue && cancelAtPeriodEnd ? (
+          <Pressable
+            accessibilityRole="button"
+            disabled={billingActionBusy}
+            onPress={() => { void handleReactivateSubscription(); }}
+            style={[styles.billingTrialLifecycleButton, { opacity: billingActionBusy ? 0.6 : 1 }]}
+          >
+            <Text style={styles.billingTrialLifecycleText}>
+              {billingActionBusy ? t('billingUpdatingLabel') : t('billingKeepTrialReactivate')}
+            </Text>
+          </Pressable>
+        ) : null}
       </View>
 
+      {showTrialStartCard ? (
       <View style={[styles.portalButton, { backgroundColor: palette.surface, borderColor: palette.border }]}>
-        <Text style={[styles.portalTitle, { color: palette.text }]}>{hasActiveSubscription ? t('billingTrialAlreadyActiveTitle') : trialBusy ? t('billingStartingTrial') : t('billingStartTrial')}</Text>
-        <Text style={[styles.portalBody, { color: palette.textMuted }]}>{hasActiveSubscription ? t('billingTrialActiveBody') : t('billingPreviewBody')}</Text>
+        <Text style={[styles.portalTitle, { color: palette.text }]}>{trialCardTitle}</Text>
+        {isMobileStoreBilling && !storeCatalogLoading && !trialStoreAvailability?.available ? (
+          <Text style={[styles.portalBody, { color: palette.textMuted }]}>{t('billingPurchaseUnavailableBody')}</Text>
+        ) : Platform.OS !== 'ios' ? (
+          <Text style={[styles.portalBody, { color: palette.textMuted }]}>{trialCardBody}</Text>
+        ) : null}
         <Pressable
           accessibilityRole="button"
-          disabled={hasActiveSubscription}
+          disabled={trialActionDisabled}
           onPress={() => { void handleStartTrial(); }}
-          style={({ pressed }) => [styles.organisationCta, { backgroundColor: palette.primary, opacity: hasActiveSubscription ? 0.65 : 1 }, pressed && !hasActiveSubscription && styles.pressed]}
+          style={({ pressed }) => [styles.organisationCta, { backgroundColor: palette.primary, opacity: trialActionDisabled ? 0.65 : 1 }, pressed && !trialActionDisabled && styles.pressed]}
         >
-          <Text style={[styles.organisationCtaText, { color: textOnPrimary }]}>{hasActiveSubscription ? t('billingTrialAlreadyActiveTitle') : t('billingActivateTrial')}</Text>
+          <Text style={[styles.organisationCtaText, { color: textOnPrimary }]}>{trialCardActionLabel}</Text>
         </Pressable>
         <View style={styles.stack}>
           {PREVIEW_OPTIONS.map((option) => (
@@ -340,23 +838,104 @@ export default function BillingRoute({ onBack, onOpenMenu }: Props) {
           ) : null}
         </View>
       </View>
+      ) : null}
 
-      {Platform.OS === 'web' ? (
-        <Pressable accessibilityRole="button" onPress={() => { void handlePortal(); }} style={({ pressed }) => [styles.portalButton, { backgroundColor: palette.surface, borderColor: palette.border }, pressed && styles.pressed]}>
-          <Text style={[styles.portalTitle, { color: palette.text }]}>{portalBusy ? t('billingOpeningPortal') : t('billingManageSubscription')}</Text>
-          <Text style={[styles.portalBody, { color: palette.textMuted }]}>{t('billingPortalBody')}</Text>
-        </Pressable>
-      ) : (
-        <View style={[styles.portalButton, { backgroundColor: palette.surface, borderColor: palette.border }]}>
-          <Text style={[styles.portalTitle, { color: palette.text }]}>{t('billingManageSubscription')}</Text>
-          <Text style={[styles.portalBody, { color: palette.textMuted }]}>{t('billingMobilePortalBody')}</Text>
+      <View style={[styles.subscriptionManagementCard, { backgroundColor: palette.surface, borderColor: palette.border }]}>
+        <Text style={[styles.portalTitle, { color: palette.text }]}>{t('billingSubscriptionManagementTitle')}</Text>
+        {Platform.OS !== 'ios' ? (
+          <Text style={[styles.portalBody, { color: palette.textMuted }]}>
+            {t('billingSubscriptionManagementBody')}
+          </Text>
+        ) : null}
+
+        <View style={[styles.subscriptionManagementSummary, { backgroundColor: palette.surfaceMuted ?? palette.surface, borderColor: palette.border }]}>
+          <Text style={[styles.subscriptionManagementLabel, { color: palette.textMuted }]}>{t('billingCurrentStatusLabel')}</Text>
+          <Text style={[styles.subscriptionManagementValue, { color: hasPaymentIssue ? '#991B1B' : palette.text }]}>
+            {subscriptionManagementStatus}
+          </Text>
+          {Platform.OS !== 'ios' ? (
+            <Text style={[styles.portalBody, { color: palette.textMuted }]}>{subscriptionManagementBody}</Text>
+          ) : null}
         </View>
-      )}
+
+        {isTrial ? (
+          <View style={[styles.subscriptionManagementSummary, { backgroundColor: palette.surfaceMuted ?? palette.surface, borderColor: palette.border }]}>
+            <Text style={[styles.subscriptionManagementLabel, { color: palette.textMuted }]}>{t('billingTrialLabel')}</Text>
+            <Text style={[styles.subscriptionManagementValue, { color: palette.text }]}>
+              {trialDaysLeft === null ? t('billingTrialEndUnavailable') : trialDaysLeft === 1 ? t('billingTrialDayLeftLabel') : t('billingTrialDaysLeftLabel').replace('{count}', String(trialDaysLeft))}
+            </Text>
+            {trialEndsAtLabel ? (
+              <Text style={[styles.portalBody, { color: palette.textMuted }]}>{t('billingTrialEndsOnLabel').replace('{date}', trialEndsAtLabel)}</Text>
+            ) : null}
+          </View>
+        ) : null}
+
+        {!hasPaymentIssue && isTrial && !cancelAtPeriodEnd ? (
+          <Pressable
+            accessibilityRole="button"
+            disabled={billingActionBusy}
+            onPress={handleCancelTrial}
+            style={({ pressed }) => [
+              styles.subscriptionManagementAction,
+              { borderColor: '#FCA5A5', backgroundColor: '#FEF2F2', opacity: billingActionBusy ? 0.6 : 1 },
+              pressed && !billingActionBusy && styles.pressed,
+            ]}
+          >
+            <Text style={[styles.subscriptionManagementActionText, { color: '#991B1B' }]}>
+              {billingActionBusy ? t('billingUpdatingLabel') : t('billingCancelTrialAction')}
+            </Text>
+          </Pressable>
+        ) : null}
+
+        {!hasPaymentIssue && cancelAtPeriodEnd ? (
+          <Pressable
+            accessibilityRole="button"
+            disabled={billingActionBusy}
+            onPress={() => { void handleReactivateSubscription(); }}
+            style={({ pressed }) => [
+              styles.subscriptionManagementAction,
+              { borderColor: palette.border, backgroundColor: palette.primary, opacity: billingActionBusy ? 0.6 : 1 },
+              pressed && !billingActionBusy && styles.pressed,
+            ]}
+          >
+            <Text style={[styles.subscriptionManagementActionText, { color: textOnPrimary }]}>
+              {billingActionBusy ? t('billingUpdatingLabel') : t('billingKeepTrialReactivate')}
+            </Text>
+          </Pressable>
+        ) : null}
+
+        <Pressable
+          accessibilityRole="button"
+          onPress={() => { void handlePortal(); }}
+          disabled={portalBusy}
+          style={({ pressed }) => [
+            styles.subscriptionManagementAction,
+            { borderColor: palette.border, backgroundColor: palette.surfaceMuted ?? palette.surface, opacity: portalBusy ? 0.65 : 1 },
+            pressed && !portalBusy && styles.pressed,
+          ]}
+        >
+          <Text style={[styles.subscriptionManagementActionText, { color: palette.text }]}>
+            {portalBusy ? billingManagementBusyLabel : billingManagementActionLabel}
+          </Text>
+          {Platform.OS !== 'ios' ? (
+            <Text style={[styles.portalBody, { color: palette.textMuted }]}>
+              {billingManagementActionBody}
+            </Text>
+          ) : null}
+        </Pressable>
+      </View>
 
       <View style={styles.sectionHeading}>
-        <Text style={[styles.sectionTitle, { color: palette.text }]}>{t('billingChoosePaidPathway')}</Text>
-        <Text style={[styles.sectionBody, { color: palette.textMuted }]}>{t('billingPaidPathwayBody')}</Text>
+        <Text style={[styles.sectionTitle, { color: palette.text }]}>{t('billingChoosePlanAfterStatusTitle')}</Text>
+        <Text style={[styles.sectionBody, { color: palette.textMuted }]}>{t('billingChoosePlanAfterStatusBody')}</Text>
       </View>
+
+      {isMobileStoreBilling && !storeCatalogLoading && !storeCatalog?.ready ? (
+        <View style={[styles.portalButton, { backgroundColor: palette.surface, borderColor: palette.border }]}>
+          <Text style={[styles.portalTitle, { color: palette.text }]}>{t('billingPurchaseUnavailableTitle')}</Text>
+          <Text style={[styles.portalBody, { color: palette.textMuted }]}>{t('billingPurchaseUnavailableBody')}</Text>
+        </View>
+      ) : null}
 
       <View style={[styles.segmentWrap, { backgroundColor: palette.surface, borderColor: palette.border }]}>
         {BILLING_PERIOD_OPTIONS.map((option) => {
@@ -372,39 +951,67 @@ export default function BillingRoute({ onBack, onOpenMenu }: Props) {
 
       <View style={styles.pathwayGrid}>
         {PATHWAYS.map((pathway) => {
-          const estimate = estimateCheckoutTotal(pathway.id, period, selectedProfessions, billingDisplayLabels);
+          const billingProfessions = isMobileStoreBilling ? selectedProfessions.slice(0, 1) : selectedProfessions;
+          const estimate = estimateCheckoutTotal(pathway.id, period, billingProfessions, billingDisplayLabels);
           const plan = getPlanByPathwayPeriod(pathway.id, period);
           const isBusy = busyPlan === plan.id;
           const needsProfession = pathway.id !== 'yki';
+          const storeAvailability = storeCatalog?.plans.find((item) => item.planId === plan.id);
+          const storePlanReady = Boolean(storeAvailability?.available);
+          const checkoutDisabled = Boolean(
+            isBusy || (isMobileStoreBilling && (storeCatalogLoading || !storePlanReady)),
+          );
+          const displayedPrice = isMobileStoreBilling
+            ? storeAvailability?.priceString ?? (storeCatalogLoading ? '…' : t('billingUnavailableTitle'))
+            : estimate.totalLabel;
+          const checkoutActionLabel = isBusy
+            ? t('billingOpeningCheckout')
+            : isMobileStoreBilling && storeCatalogLoading
+              ? t('billingOpeningCheckout')
+              : isMobileStoreBilling && !storePlanReady
+                ? t('billingPurchaseUnavailableTitle')
+                : isMobileStoreBilling && storeAvailability?.trialEligible
+                  ? t('billingActivateTrial')
+                  : t('billingStartCheckout');
           return (
             <View key={pathway.id} style={[styles.pricingCard, { backgroundColor: palette.surface, borderColor: palette.border, shadowColor: palette.shadow }]}>
               <View style={styles.planTopRow}>
                 <Text style={[styles.planEyebrow, { color: palette.primary }]}>{t(pathway.eyebrowKey)}</Text>
                 <View style={[styles.planChip, { backgroundColor: palette.primarySurface }]}>
-                  <Text style={[styles.planChipText, { color: palette.primary }]}>{estimate.totalLabel}</Text>
+                  <Text style={[styles.planChipText, { color: palette.primary }]}>{displayedPrice}</Text>
                 </View>
               </View>
               <Text style={[styles.pricingTitle, { color: palette.text }]}>{t(pathway.titleKey)}</Text>
               <Text style={[styles.portalBody, { color: palette.textMuted }]}>{t(pathway.detailKey)}</Text>
-              <Text style={[styles.priceText, { color: palette.text }]}>{estimate.totalLabel}</Text>
-              {needsProfession ? <Text style={[styles.portalBody, { color: palette.textMuted }]}>{professionListLabel(selectedProfessions, billingDisplayLabels.professions, billingDisplayLabels.noProfessionSelected)}</Text> : null}
+              <Text style={[styles.priceText, { color: palette.text }]}>{displayedPrice}</Text>
+              {needsProfession ? <Text style={[styles.portalBody, { color: palette.textMuted }]}>{professionListLabel(billingProfessions, billingDisplayLabels.professions, billingDisplayLabels.noProfessionSelected)}</Text> : null}
               {needsProfession ? renderProfessionSelector() : null}
               <View style={styles.stackTight}>
-                {pathway.highlightKeys.map((item) => (
+                {pathway.highlightKeys.filter((item) => !(isMobileStoreBilling && (item === 'billingProfessionalHighlight2' || item === 'billingCombinedHighlight2'))).map((item) => (
                   <View key={item} style={styles.highlightRow}>
                     <Text style={[styles.check, { color: palette.accent }]}>✓</Text>
                     <Text style={[styles.planBody, { color: palette.textMuted }]}>{t(item)}</Text>
                   </View>
                 ))}
               </View>
-              <Pressable accessibilityRole="button" onPress={() => { void handleCheckout(pathway.id); }} style={({ pressed }) => [styles.organisationCta, { backgroundColor: palette.primary }, pressed && styles.pressed]}>
-                <Text style={[styles.organisationCtaText, { color: textOnPrimary }]}>{isBusy ? t('billingOpeningCheckout') : t('billingStartCheckout')}</Text>
+              <Pressable
+                accessibilityRole="button"
+                disabled={checkoutDisabled}
+                onPress={() => { void handleCheckout(pathway.id); }}
+                style={({ pressed }) => [
+                  styles.organisationCta,
+                  { backgroundColor: palette.primary, opacity: checkoutDisabled ? 0.65 : 1 },
+                  pressed && !checkoutDisabled && styles.pressed,
+                ]}
+              >
+                <Text style={[styles.organisationCtaText, { color: textOnPrimary }]}>{checkoutActionLabel}</Text>
               </Pressable>
             </View>
           );
         })}
       </View>
 
+      {Platform.OS !== 'ios' ? (
       <View style={[styles.organisationCard, { backgroundColor: palette.surface, borderColor: palette.border }]}>
         <Text style={[styles.portalTitle, { color: palette.text }]}>{t('billingOrgTitle')}</Text>
         <Text style={[styles.portalBody, { color: palette.textMuted }]}>{t('billingOrgBody')}</Text>
@@ -420,11 +1027,27 @@ export default function BillingRoute({ onBack, onOpenMenu }: Props) {
           </Pressable>
         </View>
       </View>
+      ) : null}
     </AppScaffold>
   );
 }
 
 const styles = StyleSheet.create({
+  billingTrialLifecycleButton: {
+    alignSelf: 'flex-start',
+    marginTop: 14,
+    borderRadius: 999,
+    borderWidth: 1,
+    borderColor: 'rgba(255,255,255,0.55)',
+    paddingHorizontal: 16,
+    paddingVertical: 10,
+    backgroundColor: 'rgba(255,255,255,0.16)',
+  },
+  billingTrialLifecycleText: {
+    color: '#FFFFFF',
+    fontWeight: '800',
+    fontSize: 13,
+  },
   statusCard: { borderRadius: 24, padding: 18, gap: 8, shadowOpacity: 1, shadowRadius: 16, shadowOffset: { width: 0, height: 8 }, elevation: 2 },
   statusLabel: { color: 'rgba(255,255,255,0.82)', fontSize: 11, fontWeight: '800', textTransform: 'uppercase', letterSpacing: 0.7 },
   statusTitle: { color: '#FFFFFF', fontSize: 24, fontWeight: '800' },
@@ -464,4 +1087,57 @@ const styles = StyleSheet.create({
   organisationCta: { minHeight: 42, borderRadius: 999, alignItems: 'center', justifyContent: 'center' },
   organisationCtaText: { fontWeight: '800' },
   pressed: { opacity: 0.92 },
+  subscriptionManagementCard: {
+    borderRadius: 22,
+    padding: 16,
+    gap: 12,
+    borderWidth: 1,
+  },
+  subscriptionManagementSummary: {
+    borderRadius: 18,
+    padding: 14,
+    gap: 6,
+    borderWidth: 1,
+  },
+  subscriptionManagementLabel: {
+    fontSize: 11,
+    fontWeight: '900',
+    textTransform: 'uppercase',
+    letterSpacing: 0.6,
+  },
+  subscriptionManagementValue: {
+    fontSize: 18,
+    fontWeight: '900',
+  },
+  subscriptionManagementAction: {
+    borderRadius: 18,
+    borderWidth: 1,
+    padding: 14,
+    gap: 6,
+  },
+  subscriptionManagementActionText: {
+    fontSize: 14,
+    fontWeight: '900',
+  },
+  paymentIssueCard: {
+    borderRadius: 18,
+    borderWidth: 1,
+    borderColor: '#FCA5A5',
+    backgroundColor: '#FEF2F2',
+    padding: 14,
+    gap: 6,
+    marginTop: 10,
+  },
+  paymentIssueTitle: {
+    color: '#991B1B',
+    fontSize: 15,
+    fontWeight: '900',
+  },
+  paymentIssueBody: {
+    color: '#7F1D1D',
+    fontSize: 13,
+    lineHeight: 18,
+    fontWeight: '700',
+  },
+
 });

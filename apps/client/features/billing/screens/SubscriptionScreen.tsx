@@ -58,6 +58,18 @@ function pathwayFromOnboarding(intent?: string): CheckoutPathway {
 }
 
 type BillingStatusSnapshot = {
+  subscription_status?: string | null;
+  subscriptionStatus?: string | null;
+  has_payment_issue?: boolean;
+  hasPaymentIssue?: boolean;
+  payment_issue_message?: string | null;
+  paymentIssueMessage?: string | null;
+  trial_used?: boolean;
+  trialUsed?: boolean;
+  can_start_trial?: boolean;
+  canStartTrial?: boolean;
+  trial_already_used?: boolean;
+  trialAlreadyUsed?: boolean;
   tier?: string;
   billingTier?: string;
   plan_key?: string;
@@ -74,8 +86,6 @@ type BillingStatusSnapshot = {
   trialEndsAt?: string | null;
   expires_at?: string | null;
   expiresAt?: string | null;
-  subscription_status?: string | null;
-  subscriptionStatus?: string | null;
   access_source?: string | null;
   accessSource?: string | null;
 };
@@ -111,8 +121,23 @@ export default function SubscriptionScreen() {
   const themeMode = usePreferencesStore((s) => s.themeMode);
   const palette = getFloentlyPalette(themeMode);
   const textOnPrimary = themeMode === 'dark' ? palette.background : '#FFFFFF';
+  const { t } = useTranslator();
   const isTrial = Boolean(billingStatus?.is_trial ?? billingStatus?.isTrial);
   const cancelAtPeriodEnd = Boolean(billingStatus?.cancel_at_period_end ?? billingStatus?.cancelAtPeriodEnd);
+  const rawSubscriptionStatus = String(
+    billingStatus?.subscription_status ??
+      billingStatus?.subscriptionStatus ??
+      '',
+  ).toLowerCase();
+  const hasPaymentIssue = Boolean(
+    billingStatus?.has_payment_issue ??
+      billingStatus?.hasPaymentIssue ??
+      ['past_due', 'unpaid', 'incomplete', 'incomplete_expired', 'canceled'].includes(rawSubscriptionStatus),
+  );
+  const paymentIssueMessage =
+    billingStatus?.payment_issue_message ??
+    billingStatus?.paymentIssueMessage ??
+    t('billingPaymentFailedBody');
   const accessEndsAtRaw = firstText(
     billingStatus?.access_ends_at,
     billingStatus?.accessEndsAt,
@@ -123,6 +148,19 @@ export default function SubscriptionScreen() {
   );
   const accessEndsAtLabel = formatAccessDate(accessEndsAtRaw);
   const hasActiveSubscription = Boolean(tier && tier !== 'free');
+  const trialAlreadyUsed = Boolean(
+    billingStatus?.trial_already_used ??
+      billingStatus?.trialAlreadyUsed ??
+      billingStatus?.trial_used ??
+      billingStatus?.trialUsed
+  );
+  const canStartTrial = Boolean(
+    billingStatus?.can_start_trial ??
+      billingStatus?.canStartTrial ??
+      !trialAlreadyUsed
+  );
+  const trialActionDisabled = Boolean(hasActiveSubscription || trialAlreadyUsed || !canStartTrial);
+
 
   const onboardingIntent = useOnboardingSession((s) => s.intentType);
   const onboardingProfession = useOnboardingSession((s) => s.profession);
@@ -132,7 +170,6 @@ export default function SubscriptionScreen() {
   const [period, setPeriod] = useState<BillingPeriod>(() => normalizeBillingPeriod(onboardingBilling ?? 'yearly'));
   const [selectedProfessions, setSelectedProfessions] = useState<ProfessionKey[]>([defaultProfession]);
   const recommendedPathway = useMemo(() => pathwayFromOnboarding(onboardingIntent), [onboardingIntent]);
-  const { t } = useTranslator();
   const billingDisplayLabels = useMemo(() => ({
     billingPeriods: {
       monthly: t('billingPeriodMonthlyLabel'),
@@ -220,14 +257,14 @@ export default function SubscriptionScreen() {
   async function handleCancelTrial() {
     if (billingActionBusy) return;
     Alert.alert(
-      'Cancel trial?',
+      t('billingCancelTrialTitle'),
       accessEndsAtLabel
-        ? `You will keep access until ${accessEndsAtLabel}. You will not be charged after the trial ends.`
-        : 'You will keep access until the trial or billing period ends. You will not be charged after cancellation takes effect.',
+        ? t('billingCancelTrialBodyWithDate').replace('{date}', accessEndsAtLabel)
+        : t('billingCancelTrialBodyNoDate'),
       [
-        { text: 'Keep trial active', style: 'cancel' },
+        { text: t('billingKeepTrialActive'), style: 'cancel' },
         {
-          text: 'Cancel trial',
+          text: t('billingCancelTrialAction'),
           style: 'destructive',
           onPress: () => {
             void (async () => {
@@ -240,14 +277,14 @@ export default function SubscriptionScreen() {
                 setTier(nextTier || 'free');
                 await refreshBillingStatus();
                 Alert.alert(
-                  'Trial cancelled',
+                  t('billingTrialCancelledTitle'),
                   accessEndsAtLabel
-                    ? `You keep access until ${accessEndsAtLabel}. You will not be charged.`
-                    : 'You keep access until the trial or billing period ends. You will not be charged.',
+                    ? t('billingTrialCancelledBodyWithDate').replace('{date}', accessEndsAtLabel)
+                    : t('billingTrialCancelledBodyNoDate'),
                 );
               } catch (e: unknown) {
-                const message = e instanceof Error ? e.message : 'Could not cancel the trial right now.';
-                Alert.alert('Cancellation failed', message);
+                const message = e instanceof Error ? e.message : t('billingCouldNotCancelTrial');
+                Alert.alert(t('billingCancellationFailedTitle'), message);
               } finally {
                 setBillingActionBusy(false);
               }
@@ -268,10 +305,10 @@ export default function SubscriptionScreen() {
       const nextTier = record.billingTier ?? record.tier ?? record.plan_key ?? record.planKey ?? tier;
       setTier(nextTier || 'free');
       await refreshBillingStatus();
-      Alert.alert('Trial active', 'Your trial or subscription renewal is active again.');
+      Alert.alert(t('billingTrialActiveTitle'), t('billingTrialReactivatedBody'));
     } catch (e: unknown) {
-      const message = e instanceof Error ? e.message : 'Could not reactivate the trial right now.';
-      Alert.alert('Reactivation failed', message);
+      const message = e instanceof Error ? e.message : t('billingCouldNotReactivateTrial');
+      Alert.alert(t('billingReactivationFailedTitle'), message);
     } finally {
       setBillingActionBusy(false);
     }
@@ -329,19 +366,27 @@ export default function SubscriptionScreen() {
         <View style={[styles.currentPlan, { backgroundColor: palette.surface, borderColor: palette.border }]}>
           <Text style={[styles.currentPlanLabel, { color: palette.textMuted }]}>{t('billingCurrentPlanLabel')}</Text>
           <Text style={[styles.currentPlanTitle, { color: palette.text }]}>{currentPlanTitle}</Text>
-          {isTrial ? (
+          {!hasPaymentIssue && isTrial ? (
             <Text style={[styles.currentPlanMeta, { color: palette.textMuted }]}>
               {cancelAtPeriodEnd
-                ? `Trial cancelled${accessEndsAtLabel ? ` · Access until ${accessEndsAtLabel}` : ''}`
-                : `3-day trial active${accessEndsAtLabel ? ` · Renews after ${accessEndsAtLabel}` : ''}`}
+                ? `${t('billingTrialCancelledStatus')}${accessEndsAtLabel ? ` · ${t('billingAccessActiveUntilStatus')} ${accessEndsAtLabel}` : ''}`
+                : `${t('billingTrialActiveStatus')}${accessEndsAtLabel ? ` · ${t('billingRenewsAfterStatus')} ${accessEndsAtLabel}` : ''}`}
             </Text>
-          ) : accessEndsAtLabel ? (
+          ) : !hasPaymentIssue && accessEndsAtLabel ? (
             <Text style={[styles.currentPlanMeta, { color: palette.textMuted }]}>
-              {cancelAtPeriodEnd ? `Renewal cancelled · Access until ${accessEndsAtLabel}` : `Access active until ${accessEndsAtLabel}`}
+              {cancelAtPeriodEnd ? `${t('billingRenewalCancelledStatus')} · ${t('billingAccessActiveUntilStatus')} ${accessEndsAtLabel}` : `${t('billingAccessActiveUntilStatus')} ${accessEndsAtLabel}`}
             </Text>
           ) : null}
 
-          {isTrial && !cancelAtPeriodEnd ? (
+
+          {hasPaymentIssue ? (
+            <View style={styles.paymentIssueCard}>
+              <Text style={styles.paymentIssueTitle}>{t('billingPaymentFailedTitle')}</Text>
+              <Text style={styles.paymentIssueBody}>{paymentIssueMessage}</Text>
+              <Text style={styles.paymentIssueBody}>{t('billingPaymentFailedBody')}</Text>
+            </View>
+          ) : null}
+          {!hasPaymentIssue && isTrial && !cancelAtPeriodEnd ? (
             <Pressable
               accessibilityRole="button"
               disabled={billingActionBusy}
@@ -349,12 +394,12 @@ export default function SubscriptionScreen() {
               style={[styles.cancelButton, { borderColor: palette.border, opacity: billingActionBusy ? 0.6 : 1 }]}
             >
               <Text style={[styles.cancelButtonText, { color: palette.text }]}>
-                {billingActionBusy ? 'Updating…' : 'Cancel trial'}
+                {billingActionBusy ? t('billingUpdatingLabel') : t('billingCancelTrialAction')}
               </Text>
             </Pressable>
           ) : null}
 
-          {cancelAtPeriodEnd ? (
+          {!hasPaymentIssue && cancelAtPeriodEnd ? (
             <Pressable
               accessibilityRole="button"
               disabled={billingActionBusy}
@@ -362,7 +407,7 @@ export default function SubscriptionScreen() {
               style={[styles.reactivateButton, { backgroundColor: palette.primary, opacity: billingActionBusy ? 0.6 : 1 }]}
             >
               <Text style={[styles.reactivateButtonText, { color: textOnPrimary }]}>
-                {billingActionBusy ? 'Updating…' : 'Keep trial / reactivate'}
+                {billingActionBusy ? t('billingUpdatingLabel') : t('billingKeepTrialReactivate')}
               </Text>
             </Pressable>
           ) : null}
@@ -430,11 +475,11 @@ export default function SubscriptionScreen() {
 
               <Pressable
                 accessibilityRole="button"
-                disabled={hasActiveSubscription}
+                disabled={trialActionDisabled}
                 onPress={() => { void openCheckout(pathway.id); }}
-                style={({ pressed }) => [styles.cta, { backgroundColor: palette.primary, opacity: hasActiveSubscription ? 0.65 : 1 }, pressed && !hasActiveSubscription && styles.pressed]}
+                style={({ pressed }) => [styles.cta, { backgroundColor: palette.primary, opacity: trialActionDisabled ? 0.65 : 1 }, pressed && !trialActionDisabled && styles.pressed]}
               >
-                <Text style={[styles.ctaText, { color: textOnPrimary }]}>{hasActiveSubscription ? t('billingTrialAlreadyActiveTitle') : t('billingStartFreeTrial')}</Text>
+                <Text style={[styles.ctaText, { color: textOnPrimary }]}>{trialAlreadyUsed ? t('billingTrialAlreadyUsedCta') : hasActiveSubscription ? t('billingTrialAlreadyActiveTitle') : t('billingStartFreeTrial')}</Text>
               </Pressable>
               <Text style={[styles.planFinePrint, { color: palette.textMuted }]}>{estimate.totalLabel} {t('billingPlanFinePrintSuffix')}</Text>
             </View>
@@ -515,4 +560,25 @@ const styles = StyleSheet.create({
   infoCard: { borderRadius: 20, borderWidth: 1, padding: 16, gap: 9 },
   infoTitle: { fontSize: 15, fontWeight: '900' },
   pressed: { opacity: 0.9 },
+  paymentIssueCard: {
+    borderRadius: 18,
+    borderWidth: 1,
+    borderColor: '#FCA5A5',
+    backgroundColor: '#FEF2F2',
+    padding: 14,
+    gap: 6,
+    marginTop: 10,
+  },
+  paymentIssueTitle: {
+    color: '#991B1B',
+    fontSize: 15,
+    fontWeight: '900',
+  },
+  paymentIssueBody: {
+    color: '#7F1D1D',
+    fontSize: 13,
+    lineHeight: 18,
+    fontWeight: '700',
+  },
+
 });

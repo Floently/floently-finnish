@@ -1,0 +1,133 @@
+{
+  "expo": {
+    "name": "KieliValmis",
+    "slug": "client",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/images/kielivalmis-app-icon.png",
+    "scheme": "floently",
+    "userInterfaceStyle": "automatic",
+    "ios": {
+      "supportsTablet": false,
+      "bundleIdentifier": "com.vitusidi.floently",
+      "infoPlist": {
+        "NSAppTransportSecurity": {
+          "NSAllowsArbitraryLoads": false,
+          "NSAllowsLocalNetworking": true
+        },
+        "NSFaceIDUsageDescription": "Allow $(PRODUCT_NAME) to access your Face ID biometric data.",
+        "NSMicrophoneUsageDescription": "KieliValmis uses your microphone to record your Finnish speaking practice, roleplay responses, and YKI answers.",
+        "NSPhotoLibraryUsageDescription": "KieliValmis accesses your photo library only when you choose a profile picture.",
+        "UIViewControllerBasedStatusBarAppearance": false,
+        "CFBundleURLTypes": [
+          {
+            "CFBundleURLSchemes": [
+              "floently"
+            ]
+          },
+          {
+            "CFBundleURLName": "GoogleSignIn",
+            "CFBundleURLSchemes": [
+              "com.googleusercontent.apps.PLACEHOLDER_REVERSED_IOS_CLIENT_ID"
+            ]
+          }
+        ],
+        "CFBundleDisplayName": "KieliValmis",
+        "NSSpeechRecognitionUsageDescription": "KieliValmis uses speech recognition to transcribe your Finnish speaking practice so you can review and improve your answers."
+      },
+      "icon": "./assets/images/kielivalmis-app-icon.png",
+      "buildNumber": "11"
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/images/kielivalmis-android-foreground.png",
+        "backgroundColor": "#071832",
+        "monochromeImage": "./assets/images/kielivalmis-android-monochrome.png"
+      },
+      "predictiveBackGestureEnabled": false,
+      "package": "com.vitusidi.floently",
+      "permissions": [
+        "RECORD_AUDIO",
+        "VIBRATE",
+        "MODIFY_AUDIO_SETTINGS"
+      ],
+      "allowBackup": false,
+      "intentFilters": [
+        {
+          "action": "VIEW",
+          "autoVerify": false,
+          "data": [
+            {
+              "scheme": "floently"
+            }
+          ],
+          "category": [
+            "BROWSABLE",
+            "DEFAULT"
+          ]
+        }
+      ],
+      "icon": "./assets/images/kielivalmis-app-icon.png"
+    },
+    "web": {
+      "output": "static",
+      "favicon": "./assets/images/kielivalmis-app-icon.png"
+    },
+    "plugins": [
+      "./plugins/withWorkletsFix",
+      "./plugins/withReleaseSigningGuard",
+      "expo-router",
+      [
+        "expo-splash-screen",
+        {
+          "image": "./assets/images/kielivalmis-splash-icon.png",
+          "imageWidth": 200,
+          "resizeMode": "contain",
+          "backgroundColor": "#071832",
+          "dark": {
+            "backgroundColor": "#071832"
+          }
+        }
+      ],
+      "expo-secure-store",
+      [
+        "expo-audio",
+        {
+          "microphonePermission": "KieliValmis uses your microphone to record your Finnish speaking practice, roleplay responses, and YKI answers.",
+          "enableBackgroundPlayback": false,
+          "enableBackgroundRecording": false
+        }
+      ],
+      [
+        "expo-image-picker",
+        {
+          "photosPermission": "KieliValmis accesses your photo library only when you choose a profile picture.",
+          "cameraPermission": false,
+          "microphonePermission": "KieliValmis uses your microphone to record your Finnish speaking practice, roleplay responses, and YKI answers."
+        }
+      ],
+      "expo-image"
+    ],
+    "experiments": {
+      "typedRoutes": true,
+      "reactCompiler": true
+    },
+    "extra": {
+      "router": {},
+      "eas": {
+        "projectId": "fa02c141-0a3b-4dbc-9122-7c1cf31ba42c"
+      },
+      "googleOAuth": {
+        "iosClientId": "${EXPO_PUBLIC_GOOGLE_IOS_CLIENT_ID}",
+        "androidClientId": "${EXPO_PUBLIC_GOOGLE_ANDROID_CLIENT_ID}",
+        "webClientId": "${EXPO_PUBLIC_GOOGLE_WEB_CLIENT_ID}"
+      }
+    },
+    "owner": "vitus-idi",
+    "runtimeVersion": "1.0.2",
+    "updates": {
+      "enabled": false
+    },
+    "favicon": "./assets/images/kielivalmis-app-icon.png"
+  }
+}

@@ -16,6 +16,7 @@ from app.routers.v1_voice import build_voice_router
 from app.routers.v1_roleplay import build_roleplay_router
 from app.routers.v1_yki import build_yki_router
 from app.routers.v1_cards import router as cards_router
+from app.routers.v1_devices import router as devices_router
 
 router = APIRouter()
 
@@ -33,3 +34,4 @@ router.include_router(build_subscription_router())
 router.include_router(build_payment_router())
 router.include_router(cards_router)
 router.include_router(card_audio_router)
+router.include_router(devices_router)

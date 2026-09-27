@@ -35,9 +35,32 @@ type VoiceRuntimeSnapshot = {
 type VoiceRuntimeListener = (snapshot: VoiceRuntimeSnapshot) => void;
 type PlaybackSubscription = { remove?: () => void } | null;
 
+function webAudioDebug(event: string, details?: Record<string, unknown>) {
+  if (Platform.OS !== 'web') return;
+  try {
+    const target = globalThis as typeof globalThis & {
+      __floentlyAudioDebug?: Array<Record<string, unknown>>;
+      console?: Console;
+    };
+    const entry = {
+      at: new Date().toISOString(),
+      event,
+      ...(details ?? {}),
+    };
+    target.__floentlyAudioDebug = [...(target.__floentlyAudioDebug ?? []), entry].slice(-80);
+    target.console?.log?.('[FloentlyAudio]', entry);
+  } catch {
+    // Debug logging must never break playback.
+  }
+}
+
+
 let activePlayer: AudioPlayer | null = null;
+let activeWebAudio: HTMLAudioElement | null = null;
+let activeWebAudioContext: AudioContext | null = null;
 let activePlaybackSubscription: PlaybackSubscription = null;
 let activePlaybackToken = 0;
+const activeTransientPlayers = new Set<AudioPlayer>();
 let operationChain: Promise<void> = Promise.resolve();
 let runtimeStatus: VoiceRuntimeStatus = 'idle';
 let runtimeErrorCode: string | null = null;
@@ -101,16 +124,61 @@ function releasePlayer(player: AudioPlayer | null) {
   try { player.remove(); } catch {}
 }
 
+function releaseWebAudio() {
+  const audio = activeWebAudio;
+  if (!audio) return;
+
+  try { audio.pause(); } catch {}
+
+  // Important for iOS WebKit: keep the user-gesture-unlocked audio element alive.
+  // If we remove/null it after the first AI reply, the second reply is played by a
+  // fresh element created outside the tap gesture and iPhone browsers can block it.
+  if (Platform.OS === 'web') {
+    try { audio.currentTime = 0; } catch {}
+    webAudioDebug('web.keepUnlockedAudioElement');
+    return;
+  }
+
+  activeWebAudio = null;
+  try { audio.removeAttribute('src'); } catch {}
+  try { audio.load(); } catch {}
+}
+
 function releaseActivePlayer() {
   clearPlaybackSubscription();
+  releaseWebAudio();
   const player = activePlayer;
   activePlayer = null;
   releasePlayer(player);
 }
 
+function isRecordingRuntime() {
+  return (
+    runtimeStatus === 'preparing_recording' ||
+    runtimeStatus === 'recording' ||
+    runtimeStatus === 'stopping_recording'
+  );
+}
+
+function releaseTransientPlayers() {
+  for (const player of activeTransientPlayers) {
+    releasePlayer(player);
+  }
+
+  activeTransientPlayers.clear();
+}
+
 function normalizeAudioSource(source: AudioSource | number | { uri: string }): AudioSource {
   if (typeof source === 'number') return source as AudioSource;
   return source as AudioSource;
+}
+
+function webUriFromSource(source: AudioSource | number | { uri: string }): string | null {
+  if (typeof source === 'object' && source !== null && 'uri' in source) {
+    const uri = String((source as { uri?: unknown }).uri ?? '').trim();
+    return uri || null;
+  }
+  return null;
 }
 
 export const audioSession = {
@@ -128,7 +196,13 @@ export const audioSession = {
     await queueExclusive(async () => {
       setRuntimeStatus('preparing_recording', null);
       activePlaybackToken += 1;
+
+      // Native recording must begin with no active player sharing the
+      // iOS AVAudioSession. Previously the tap and mic-on sounds remained
+      // alive and the recording ended when the longer sound finished.
       releaseActivePlayer();
+      releaseTransientPlayers();
+
       await applyAudioMode(recordingMode);
       setRuntimeStatus('recording', null);
     });
@@ -149,8 +223,16 @@ export const audioSession = {
 
   async stopManagedPlayback() {
     await queueExclusive(async () => {
+      // This button controls AI playback, not microphone recording.
+      // It must never switch iOS back to playback-only mode while the
+      // native recorder is active.
+      if (isRecordingRuntime()) {
+        return;
+      }
+
       activePlaybackToken += 1;
       releaseActivePlayer();
+      releaseTransientPlayers();
       await applyAudioMode(playbackMode);
       setRuntimeStatus('idle', null);
     });
@@ -160,77 +242,378 @@ export const audioSession = {
     await queueExclusive(async () => {
       activePlaybackToken += 1;
       releaseActivePlayer();
+      releaseTransientPlayers();
       await applyAudioMode(playbackMode);
       setRuntimeStatus(reason === 'background' ? 'interrupted' : 'idle', reason === 'background' ? 'VOICE_INTERRUPTED' : null);
     });
   },
 
-  async playManaged(source: AudioSource | number | { uri: string }, callbacks?: ManagedPlaybackCallbacks) {
-    return queueExclusive(async () => {
-      setRuntimeStatus('preparing_playback', null);
-      activePlaybackToken += 1;
-      const token = activePlaybackToken;
-      releaseActivePlayer();
-      await applyAudioMode(playbackMode);
-
-      let player: AudioPlayer | null = null;
+    async primeWebPlayback() {
+      if (Platform.OS !== 'web') return true;
 
       try {
-        player = createAudioPlayer(normalizeAudioSource(source), { updateInterval: 150 });
-        activePlayer = player;
-        activePlaybackSubscription = (player as unknown as { addListener: (event: 'playbackStatusUpdate', listener: (status: AudioStatus) => void) => { remove: () => void } }).addListener('playbackStatusUpdate', (status: AudioStatus) => {
-          if (token !== activePlaybackToken) return;
-          if (!status.didJustFinish) return;
-          callbacks?.onEnd?.();
-          void queueExclusive(async () => {
-            if (activePlayer === player) {
-              releaseActivePlayer();
-            } else {
-              releasePlayer(player);
-            }
-            await applyAudioMode(playbackMode);
-            setRuntimeStatus('idle', null);
-          });
-        });
-        callbacks?.onStart?.();
-        player.play();
-        setRuntimeStatus('playing', null);
+        const win = globalThis as typeof globalThis & {
+          AudioContext?: typeof AudioContext;
+          webkitAudioContext?: typeof AudioContext;
+        };
+
+        const AudioContextCtor = win.AudioContext ?? win.webkitAudioContext;
+        if (AudioContextCtor) {
+          activeWebAudioContext = activeWebAudioContext ?? new AudioContextCtor();
+          if (activeWebAudioContext.state !== 'running') {
+            await activeWebAudioContext.resume();
+          }
+
+          const oscillator = activeWebAudioContext.createOscillator();
+          const gain = activeWebAudioContext.createGain();
+          gain.gain.value = 0.00001;
+          oscillator.connect(gain);
+          gain.connect(activeWebAudioContext.destination);
+          oscillator.start();
+          oscillator.stop(activeWebAudioContext.currentTime + 0.01);
+        }
+
+        const audio = activeWebAudio ?? new Audio();
+        activeWebAudio = audio;
+        audio.preload = 'auto';
+        audio.volume = 0.00001;
+        audio.src = 'data:audio/wav;base64,UklGRiQAAABXQVZFZm10IBAAAAABAAEAESsAACJWAAACABAAZGF0YQAAAAA=';
+
+        const playPromise = audio.play();
+        if (playPromise && typeof playPromise.then === 'function') {
+          await playPromise;
+        }
+
+        audio.pause();
+        try { audio.currentTime = 0; } catch {}
+        audio.volume = 1;
+        webAudioDebug('web.primeResolved');
         return true;
-      } catch {
-        if (activePlayer === player) activePlayer = null;
-        callbacks?.onFail?.();
-        releasePlayer(player);
+      } catch (error) {
+        webAudioDebug('web.primeRejected', {
+          name: error instanceof Error ? error.name : null,
+          message: error instanceof Error ? error.message : String(error),
+        });
+        return false;
+      }
+    },
+  async playManaged(source: AudioSource | number | { uri: string }, callbacks?: ManagedPlaybackCallbacks) {
+
+    if (Platform.OS === 'web') {
+      const webUri = webUriFromSource(source);
+      webAudioDebug('playManaged.web.enter', { hasUri: Boolean(webUri), uri: webUri });
+
+      if (webUri) {
+        return queueExclusive(async () => {
+          setRuntimeStatus('preparing_playback', null);
+          activePlaybackToken += 1;
+          const token = activePlaybackToken;
+
+          try {
+            // Keep one persistent HTMLAudioElement for Safari/iOS browser reliability.
+            const audio = activeWebAudio ?? new Audio();
+            activeWebAudio = audio;
+
+            audio.pause();
+            audio.onended = null;
+            audio.onerror = null;
+
+            audio.preload = 'auto';
+            audio.volume = 1;
+            audio.src = webUri;
+
+            audio.onloadedmetadata = () => {
+              webAudioDebug('web.loadedmetadata', {
+                token,
+                duration: Number.isFinite(audio.duration) ? audio.duration : null,
+                src: audio.currentSrc || audio.src,
+              });
+            };
+
+            audio.onplaying = () => {
+              webAudioDebug('web.playing', {
+                token,
+                currentTime: audio.currentTime,
+                src: audio.currentSrc || audio.src,
+              });
+            };
+
+            audio.onended = () => {
+              if (token !== activePlaybackToken) return;
+              webAudioDebug('web.ended', { token });
+              callbacks?.onEnd?.();
+              void queueExclusive(async () => {
+                setRuntimeStatus('idle', null);
+              });
+            };
+
+            audio.onerror = () => {
+              if (token !== activePlaybackToken) return;
+              webAudioDebug('web.error', {
+                token,
+                code: audio.error?.code ?? null,
+                message: audio.error?.message ?? null,
+                src: audio.currentSrc || audio.src,
+              });
+              callbacks?.onFail?.();
+              void queueExclusive(async () => {
+                setRuntimeStatus('error', 'VOICE_PLAYBACK_UNAVAILABLE');
+                setRuntimeStatus('idle', 'VOICE_PLAYBACK_UNAVAILABLE');
+              });
+            };
+
+            callbacks?.onStart?.();
+            webAudioDebug('web.beforePlay', { token, src: audio.src });
+
+            const playPromise = audio.play();
+            if (playPromise && typeof playPromise.then === 'function') {
+              await playPromise;
+            }
+
+            webAudioDebug('web.playResolved', { token, paused: audio.paused, currentTime: audio.currentTime });
+            setRuntimeStatus('playing', null);
+            return true;
+          } catch (error) {
+            webAudioDebug('web.playRejected', {
+              token,
+              name: error instanceof Error ? error.name : null,
+              message: error instanceof Error ? error.message : String(error),
+            });
+            callbacks?.onFail?.();
+            setRuntimeStatus('error', 'VOICE_PLAYBACK_UNAVAILABLE');
+            setRuntimeStatus('idle', 'VOICE_PLAYBACK_UNAVAILABLE');
+            return false;
+          }
+        });
+      }
+    }
+
+
+
+      return queueExclusive(async () => {
+        // A delayed TTS retry must never replace the recording-enabled
+        // AVAudioSession while microphone capture is in progress.
+        if (isRecordingRuntime()) {
+          return false;
+        }
+
+        setRuntimeStatus('preparing_playback', null);
+        activePlaybackToken += 1;
+        const token = activePlaybackToken;
+
         clearPlaybackSubscription();
+        const normalizedSource = normalizeAudioSource(source);
+
+        try {
+          await applyAudioMode(playbackMode);
+
+          const player = createAudioPlayer(normalizedSource, {
+            updateInterval: 250,
+          });
+
+          activePlayer = player;
+
+          const subscription = (
+            player as unknown as {
+              addListener: (
+                event: 'playbackStatusUpdate',
+                listener: (status: AudioStatus) => void,
+              ) => { remove: () => void };
+            }
+          ).addListener('playbackStatusUpdate', (status: AudioStatus) => {
+            if (token !== activePlaybackToken) return;
+
+            if (status.didJustFinish) {
+              callbacks?.onEnd?.();
+              void queueExclusive(async () => {
+                releaseActivePlayer();
+                setRuntimeStatus('idle', null);
+              });
+            }
+          });
+
+          activePlaybackSubscription = subscription;
+
+          callbacks?.onStart?.();
+          player.play();
+          setRuntimeStatus('playing', null);
+
+          return true;
+        } catch {
+          callbacks?.onFail?.();
+
+          releaseActivePlayer();
+          setRuntimeStatus('error', 'VOICE_PLAYBACK_UNAVAILABLE');
+          setRuntimeStatus('idle', 'VOICE_PLAYBACK_UNAVAILABLE');
+
+          return false;
+        }
+      });
+    },
+  async playRecordingStartCue(
+    moduleId: number,
+    timeoutMs = 900,
+  ) {
+    return queueExclusive(async () => {
+      if (isRecordingRuntime()) {
+        return false;
+      }
+
+      setRuntimeStatus('preparing_playback', null);
+      activePlaybackToken += 1;
+      releaseActivePlayer();
+      releaseTransientPlayers();
+
+      try {
+        const asset = Asset.fromModule(moduleId);
+        await asset.downloadAsync();
+
+        const uri = asset.localUri ?? asset.uri;
+
+        if (!uri) {
+          setRuntimeStatus('idle', null);
+          return false;
+        }
+
         await applyAudioMode(playbackMode);
-        setRuntimeStatus('error', 'VOICE_PLAYBACK_UNAVAILABLE');
-        setRuntimeStatus('idle', 'VOICE_PLAYBACK_UNAVAILABLE');
+
+        let player: AudioPlayer | null = null;
+        let subscription: PlaybackSubscription = null;
+        let timeout: ReturnType<typeof setTimeout> | null = null;
+
+        return await new Promise<boolean>((resolve) => {
+          let settled = false;
+
+          const finish = (completed: boolean) => {
+            if (settled) return;
+            settled = true;
+
+            if (timeout) {
+              clearTimeout(timeout);
+              timeout = null;
+            }
+
+            try {
+              subscription?.remove?.();
+            } catch {}
+
+            if (player) {
+              activeTransientPlayers.delete(player);
+            }
+
+            releasePlayer(player);
+            setRuntimeStatus('idle', null);
+            resolve(completed);
+          };
+
+          try {
+            const cuePlayer = createAudioPlayer(
+              { uri },
+              { updateInterval: 50 },
+            );
+
+            player = cuePlayer;
+            activeTransientPlayers.add(cuePlayer);
+
+            subscription = (
+              cuePlayer as unknown as {
+                addListener: (
+                  event: 'playbackStatusUpdate',
+                  listener: (status: AudioStatus) => void,
+                ) => { remove: () => void };
+              }
+            ).addListener(
+              'playbackStatusUpdate',
+              (status: AudioStatus) => {
+                if (status.didJustFinish) {
+                  finish(true);
+                }
+              },
+            );
+
+            timeout = setTimeout(
+              () => finish(false),
+              Math.max(300, timeoutMs),
+            );
+
+            cuePlayer.play();
+          } catch {
+            finish(false);
+          }
+        });
+      } catch {
+        releaseTransientPlayers();
+        setRuntimeStatus('idle', null);
         return false;
       }
     });
   },
 
   async playTransientAsset(moduleId: number) {
-    if (runtimeStatus === 'preparing_recording' || runtimeStatus === 'recording' || runtimeStatus === 'stopping_recording') {
-      return;
-    }
-    const asset = Asset.fromModule(moduleId);
-    await asset.downloadAsync();
-    const uri = asset.localUri ?? asset.uri;
-    if (!uri) return;
-    await applyAudioMode(playbackMode);
-    let player: AudioPlayer | null = null;
-    let subscription: PlaybackSubscription = null;
-    try {
-      player = createAudioPlayer({ uri }, { updateInterval: 150 });
-      subscription = (player as unknown as { addListener: (event: 'playbackStatusUpdate', listener: (status: AudioStatus) => void) => { remove: () => void } }).addListener('playbackStatusUpdate', (status: AudioStatus) => {
-        if (!status.didJustFinish) return;
-        try { subscription?.remove?.(); } catch {}
+    return queueExclusive(async () => {
+      if (isRecordingRuntime()) {
+        return false;
+      }
+
+      const asset = Asset.fromModule(moduleId);
+      await asset.downloadAsync();
+
+      if (isRecordingRuntime()) {
+        return false;
+      }
+
+      const uri = asset.localUri ?? asset.uri;
+      if (!uri) return false;
+
+      await applyAudioMode(playbackMode);
+
+      let player: AudioPlayer | null = null;
+      let subscription: PlaybackSubscription = null;
+
+      try {
+        const transientPlayer = createAudioPlayer(
+          { uri },
+          { updateInterval: 150 },
+        );
+
+        player = transientPlayer;
+        activeTransientPlayers.add(transientPlayer);
+
+        subscription = (
+          transientPlayer as unknown as {
+            addListener: (
+              event: 'playbackStatusUpdate',
+              listener: (status: AudioStatus) => void,
+            ) => { remove: () => void };
+          }
+        ).addListener(
+          'playbackStatusUpdate',
+          (status: AudioStatus) => {
+            if (!status.didJustFinish) return;
+
+            try {
+              subscription?.remove?.();
+            } catch {}
+
+            activeTransientPlayers.delete(transientPlayer);
+            releasePlayer(transientPlayer);
+          },
+        );
+
+        transientPlayer.play();
+        return true;
+      } catch {
+        try {
+          subscription?.remove?.();
+        } catch {}
+
+        if (player) {
+          activeTransientPlayers.delete(player);
+        }
+
         releasePlayer(player);
-      });
-      player.play();
-    } catch {
-      try { subscription?.remove?.(); } catch {}
-      releasePlayer(player);
-    }
+        return false;
+      }
+    });
   },
 };

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Image, Pressable, StyleSheet, Text, View } from 'react-native';
 import { getFloentlyPalette, type FloentlyThemeMode } from '@ui/theme/floentlyPalette';
 
-const HEADER_LOGO = require('../../../apps/client/components/public/logo.png');
+const KIELIVALMIS_MARK = require('../../../apps/kielivalmis-domain-static/assets/kielivalmis-mark.png');
 
 type Props = {
   eyebrow?: string;
@@ -119,14 +119,30 @@ export default function PageHeader({
       <View style={styles.topRow}>
         <View style={styles.brandWrap}>
           {showLogo ? (
-            <Image
-              source={HEADER_LOGO}
-              style={styles.logo}
-              resizeMode="contain"
-              accessible={false}
-            />
+            <View
+              style={styles.brandIdentity}
+              accessible
+              accessibilityLabel="KieliValmis by Floently"
+            >
+              <Image
+                source={KIELIVALMIS_MARK}
+                style={styles.brandMark}
+                resizeMode="contain"
+                accessible={false}
+              />
+              <View>
+                <Text style={[styles.brandName, { color: text }]}>
+                  KieliValmis
+                </Text>
+                <Text style={[styles.brandBy, { color: primary }]}>
+                  BY FLOENTLY
+                </Text>
+              </View>
+            </View>
           ) : (
-            <Text style={[styles.appName, { color: primary }]}>Floently</Text>
+            <Text style={[styles.appName, { color: primary }]}>
+              KieliValmis
+            </Text>
           )}
         </View>
 
@@ -238,10 +254,26 @@ const styles = StyleSheet.create({
     flex: 1,
     minWidth: 0,
   },
-  logo: {
-    width: 230,
-    height: 115,
-    marginLeft: -70,
+  brandIdentity: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 8,
+    minHeight: 40,
+  },
+  brandMark: {
+    width: 34,
+    height: 34,
+  },
+  brandName: {
+    fontSize: 15,
+    fontWeight: '800',
+    letterSpacing: -0.3,
+  },
+  brandBy: {
+    marginTop: 2,
+    fontSize: 7,
+    fontWeight: '900',
+    letterSpacing: 1.1,
   },
   appName: {
     fontSize: 16,

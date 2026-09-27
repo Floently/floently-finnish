@@ -7,9 +7,10 @@ import { usePreferencesStore } from './preferencesStore';
 import { useSubscriptionStore } from './subscriptionStore';
 import { useTranslator } from '../features/i18n';
 import { LEVEL_BANDS, SPEAKING_TRACKS } from '../features/speaking/types';
-import type { RoleplayLevelBand, RoleplayProfession } from '@core/api/roleplay';
+import type { RoleplayLevelBand, RoleplayMode, RoleplayProfession } from '@core/api/roleplay';
 import RoleplayConversationScreen from '../features/speaking/screens/RoleplayConversationScreen';
 import RecordedResponseScreen from '../features/speaking/screens/RecordedResponseScreen';
+import GuidedSpeakingScreen from '../features/speaking/screens/GuidedSpeakingScreen';
 import type { SpeakingSurface } from '../features/speaking/types';
 
 const T = {
@@ -26,6 +27,7 @@ type Props = {
   initialScenarioId?: string | null;
   lockProfession?: boolean;
   entryMode?: 'workplace' | 'interview';
+  roleplayMode?: RoleplayMode;
   contextLabel?: string;
 };
 
@@ -60,16 +62,7 @@ function scenarioCardsForProfession(profession: RoleplayProfession, t: ReturnTyp
   }
 }
 
-function defaultInterviewScenario(profession: RoleplayProfession): string | null {
-  switch (profession) {
-    case 'doctor': return 'doctor_patient_interview';
-    case 'nurse': return 'nurse_interview_beta';
-    case 'practical_nurse': return 'practical_nurse_interview';
-    default: return null;
-  }
-}
-
-export default function SpeakingRoute({ onBack, onOpenMenu, initialLevelBand = 'B1-B2', initialSurface = 'menu', initialProfession = 'general', initialScenarioId = null, lockProfession = false, entryMode = 'workplace', contextLabel }: Props) {
+export default function SpeakingRoute({ onBack, onOpenMenu, initialLevelBand = 'B1-B2', initialSurface = 'menu', initialProfession = 'general', initialScenarioId = null, lockProfession = false, entryMode = 'workplace', roleplayMode, contextLabel }: Props) {
   const { t } = useTranslator();
   const subscriptionStatus = useSubscriptionStore((s) => s.status);
   const activeContext = useSubscriptionStore((s) => s.activeContext);
@@ -90,7 +83,7 @@ export default function SpeakingRoute({ onBack, onOpenMenu, initialLevelBand = '
   // to the speaking menu while the roleplay backend session is already working.
   useEffect(() => {
     setSurface((current) => {
-      if (current === "conversation" || current === "recorded") {
+      if (current === "guided" || current === "conversation" || current === "recorded") {
         return current;
       }
       return initialSurface;
@@ -99,9 +92,14 @@ export default function SpeakingRoute({ onBack, onOpenMenu, initialLevelBand = '
 
   useEffect(() => { setScenarioId(initialScenarioId); }, [initialScenarioId]);
   useEffect(() => {
-    const derived = initialProfession !== 'general' ? initialProfession : (activeContext === 'doctor' || activeContext === 'nurse' || activeContext === 'practical_nurse' ? activeContext : 'general');
+    const isExplicitGeneralEntry = initialProfession === 'general' && Boolean(contextLabel);
+    const derived = isExplicitGeneralEntry
+      ? 'general'
+      : initialProfession !== 'general'
+        ? initialProfession
+        : (activeContext === 'doctor' || activeContext === 'nurse' || activeContext === 'practical_nurse' ? activeContext : 'general');
     setProfession(derived);
-  }, [activeContext, initialProfession]);
+  }, [activeContext, contextLabel, initialProfession]);
 
   const entitledTracks = useMemo(() => {
     const professions = subscriptionStatus?.entitlements?.professions ?? [];
@@ -168,6 +166,12 @@ export default function SpeakingRoute({ onBack, onOpenMenu, initialLevelBand = '
   const softColor = isDark ? T.soft : palette.textSoft;
   const raisedBg = isDark ? T.surfaceRaised : palette.surfaceMuted;
   const accent = TRACK_ACCENTS[profession] ?? T.speak;
+  const resolvedRoleplayMode: RoleplayMode = roleplayMode
+    ?? (entryMode === 'interview'
+      ? 'interview'
+      : profession === 'general'
+        ? 'workplace'
+        : 'professional');
   const professionLabel = profession === 'doctor'
     ? t('professionalNameDoctor')
     : profession === 'practical_nurse'
@@ -177,8 +181,32 @@ export default function SpeakingRoute({ onBack, onOpenMenu, initialLevelBand = '
         : t('roleplayGeneralFinnishLabel');
   const heading = profession === 'general' ? t('speakingGeneralWorkplaceScenariosTitle') : t('speakingProfessionWorkplaceScenariosTitle').replace('{profession}', professionLabel);
 
+  if (surface === 'guided') {
+    return (
+      <GuidedSpeakingScreen
+        profession={profession}
+        levelBand={levelBand}
+        onBack={() => setSurface('menu')}
+        onLevelBandChange={setLevelBand}
+        onOpenRoleplay={() => {
+          setScenarioId(null);
+          setSurface('conversation');
+        }}
+      />
+    );
+  }
   if (surface === 'conversation') {
-    return <RoleplayConversationScreen profession={profession} levelBand={levelBand} scenarioId={scenarioId ?? (entryMode === 'interview' ? defaultInterviewScenario(profession) : null)} onBack={() => setSurface('menu')} entryMode={entryMode} />;
+    return (
+      <RoleplayConversationScreen
+        profession={profession}
+        levelBand={levelBand}
+        scenarioId={scenarioId}
+        onBack={initialSurface === 'conversation' ? onBack : () => setSurface('menu')}
+        onOpenMenu={onOpenMenu}
+        roleplayMode={resolvedRoleplayMode}
+        contextLabel={contextLabel}
+      />
+    );
   }
   if (surface === 'recorded') {
     return <RecordedResponseScreen profession={profession} levelBand={levelBand} onBack={() => setSurface('menu')} />;
@@ -209,7 +237,7 @@ export default function SpeakingRoute({ onBack, onOpenMenu, initialLevelBand = '
               navigation hub, not via an in-page picker. */}
 
           {/* ── Per-profession sub-nav ───────────────────────────────────────
-              The user sees three (or two for general) prominent entry tiles:
+              Guided Speaking now sits before the existing open-ended entries:
                 Roleplay  →  workplace dialogue scenarios
                 Interview →  structured interview practice (skipped for general)
                 Incident workflow → existing work-incidence-recording feature
@@ -221,6 +249,29 @@ export default function SpeakingRoute({ onBack, onOpenMenu, initialLevelBand = '
             <Text style={[styles.sectionTitle, { color: softColor }]}>{t('speakingChooseActionTitle')}</Text>
             <View style={styles.subnavGrid}>
               <Pressable
+                onPress={() => {
+                  setScenarioId(null);
+                  setSurface('guided');
+                }}
+                style={[styles.subnavTile, { backgroundColor: surface_, borderColor: border }]}
+                accessibilityRole="button"
+                accessibilityLabel={`${t('ykiPracticeGuidedPracticeLabel')} ${t('ykiRouteSkillSpeaking')}`}
+              >
+                <View style={[styles.subnavIconBadge, { backgroundColor: `${accent}18` }]}>
+                  <Text style={[styles.subnavIconText, { color: accent }]}>↗</Text>
+                </View>
+                <View style={styles.subnavTileText}>
+                  <Text style={[styles.subnavTileTitle, { color: textColor }]}>
+                    {t('ykiPracticeGuidedPracticeLabel')} · {t('ykiRouteSkillSpeaking')}
+                  </Text>
+                  <Text style={[styles.subnavTileSub, { color: mutedColor }]}>
+                    {'Etene vaihe kerrallaan. Jatka siitä, mihin jäit, tai kertaa aiemmin läpäisty vaihe Historiasta.'}
+                  </Text>
+                </View>
+              </Pressable>
+
+              <Pressable
+                testID="scenario-practice-entry"
                 onPress={() => {
                   setScenarioId(null);
                   setSurface('conversation');

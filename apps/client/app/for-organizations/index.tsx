@@ -1,9 +1,3 @@
-/**
- * Route: /for-organizations
- *
- * Premium B2B page targeting employers (hospitals, clinics, care providers) and
- * municipalities (integration offices). Linked from the WelcomeScreen footer.
- */
-import ForOrganizationsScreen from '../../features/marketing/screens/ForOrganizationsScreen';
+import { NativeForOrganizationsScreen } from '../../features/publicMarketing/screens/NativePublicMarketingScreens';
 
-export default ForOrganizationsScreen;
+export default NativeForOrganizationsScreen;

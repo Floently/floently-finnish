@@ -1,0 +1,2702 @@
+[
+  {
+    "id": "card.grammar.yki.yki-a1-a2-tight-2232-allative-recipient-soitto-naapurille.9e1ea59e",
+    "version": 1,
+    "path": "general/grammar",
+    "domain": "general_finnish",
+    "profession": {
+      "track": "none",
+      "slug": "general",
+      "label": "General"
+    },
+    "level_band": "A1_A2",
+    "difficulty": "foundation",
+    "language": "fi",
+    "source": {
+      "source_id": "source.grammar_rebuild_v4.general-grammar-a1-a2-json",
+      "kind": "generated_or_recovered_batch",
+      "origin_path": "/home/vitus/floently-grammar-rebuild-v4/20_publish_ready_bank/stage4_publish_ready_grammar_bank/validated/yki/exam/grammar/a1_a2.json",
+      "authoring_note": "converted_from_floently_grammar_rebuild_v4_stage6"
+    },
+    "quality": {
+      "status": "prevalidated",
+      "reviewer": null,
+      "validation_checks": [
+        "stage6_mgi_to_server_canonical_conversion",
+        "answer_key_recovery",
+        "overlay_row_conversion",
+        "server_shape_validation"
+      ],
+      "quality_score": 0.95
+    },
+    "tags": [
+      "a1_a2",
+      "general_finnish",
+      "yki",
+      "grammar_memory"
+    ],
+    "publication": {
+      "state": "candidate",
+      "version_tag": "grammar_rebuild_v4_stage6",
+      "manifest_ref": "source.grammar_rebuild_v4.general-grammar-a1-a2-json",
+      "validation_passed": true,
+      "published_at": null,
+      "archived_at": null
+    },
+    "content_type": "grammar_card",
+    "content": {
+      "front": {
+        "rule_label": "vastaanottaja",
+        "pattern": "allatiivi vastaanottajalle",
+        "example": "Soitan naapurille ennen seitsemää."
+      },
+      "back": {
+        "recall_prompt": "Mitä tehtävää muoto “naapurille” tekee lauseessa “Soitan naapurille ennen seitsemää.”?",
+        "rule_summary": "Muoto “naapurille” on allatiivi. Pääte -lle kertoo, kenelle toiminta suuntautuu; lähtömuoto kuten “naapurilta” ei ilmaise vastaanottajaa.",
+        "target_form": "naapurille"
+      },
+      "prompt_family": "grammar_memory",
+      "follow_ups": [
+        {
+          "variant_type": "recognition_mcq",
+          "prompt": "Mitä tehtävää muoto “naapurille” tekee lauseessa “Soitan naapurille ennen seitsemää.”?",
+          "options": [
+            {
+              "option_id": "a",
+              "text": "omistajan muoto"
+            },
+            {
+              "option_id": "b",
+              "text": "vastaanottaja"
+            },
+            {
+              "option_id": "c",
+              "text": "paikka jossa ollaan"
+            },
+            {
+              "option_id": "d",
+              "text": "modaali + perusmuoto"
+            }
+          ],
+          "answer_key": "b",
+          "accepted_variants": [],
+          "evaluation_mode": "option_id"
+        }
+      ],
+      "explanation": {
+        "summary": "Muoto “naapurille” on allatiivi. Pääte -lle kertoo, kenelle toiminta suuntautuu; lähtömuoto kuten “naapurilta” ei ilmaise vastaanottajaa.",
+        "example": "Soitan naapurille ennen seitsemää."
+      },
+      "audio": null,
+      "validation": {
+        "case_sensitive": false,
+        "normalize_whitespace": true,
+        "allow_partial_credit": false
+      }
+    },
+    "promotion": {
+      "bucket": "grammar",
+      "level_file": "a1_a2.json"
+    },
+    "state": "published",
+    "validation_passed": true,
+    "published_at": "2026-05-27T19:05:58.689030+00:00",
+    "_stage6": {
+      "source_rel": "yki/exam/grammar/a1_a2.json",
+      "source_item_key": "yki_a1_a2_tight_2232_allative_recipient_soitto_naapurille",
+      "source_index": 0
+    }
+  },
+  {
+    "id": "card.grammar.yki.yki-a1-a2-tight-2233-allative-recipient-lippu-ystavalle.71a65796",
+    "version": 1,
+    "path": "general/grammar",
+    "domain": "general_finnish",
+    "profession": {
+      "track": "none",
+      "slug": "general",
+      "label": "General"
+    },
+    "level_band": "A1_A2",
+    "difficulty": "foundation",
+    "language": "fi",
+    "source": {
+      "source_id": "source.grammar_rebuild_v4.general-grammar-a1-a2-json",
+      "kind": "generated_or_recovered_batch",
+      "origin_path": "/home/vitus/floently-grammar-rebuild-v4/20_publish_ready_bank/stage4_publish_ready_grammar_bank/validated/yki/exam/grammar/a1_a2.json",
+      "authoring_note": "converted_from_floently_grammar_rebuild_v4_stage6"
+    },
+    "quality": {
+      "status": "prevalidated",
+      "reviewer": null,
+      "validation_checks": [
+        "stage6_mgi_to_server_canonical_conversion",
+        "answer_key_recovery",
+        "overlay_row_conversion",
+        "server_shape_validation"
+      ],
+      "quality_score": 0.95
+    },
+    "tags": [
+      "a1_a2",
+      "general_finnish",
+      "yki",
+      "grammar_memory"
+    ],
+    "publication": {
+      "state": "candidate",
+      "version_tag": "grammar_rebuild_v4_stage6",
+      "manifest_ref": "source.grammar_rebuild_v4.general-grammar-a1-a2-json",
+      "validation_passed": true,
+      "published_at": null,
+      "archived_at": null
+    },
+    "content_type": "grammar_card",
+    "content": {
+      "front": {
+        "rule_label": "vastaanottaja",
+        "pattern": "allatiivi vastaanottajalle",
+        "example": "Annan lipun ystävälle ovella."
+      },
+      "back": {
+        "recall_prompt": "Mikä kielioppirakenne näkyy muodossa “ystävälle” lauseessa “Annan lipun ystävälle ovella.”?",
+        "rule_summary": "Muoto “ystävälle” on allatiivi. Pääte -lle kertoo, kenelle toiminta suuntautuu; lähtömuoto kuten “ystävältä” ei ilmaise vastaanottajaa.",
+        "target_form": "ystävälle"
+      },
+      "prompt_family": "grammar_memory",
+      "follow_ups": [
+        {
+          "variant_type": "recognition_mcq",
+          "prompt": "Mikä kielioppirakenne näkyy muodossa “ystävälle” lauseessa “Annan lipun ystävälle ovella.”?",
+          "options": [
+            {
+              "option_id": "a",
+              "text": "vastaanottaja"
+            },
+            {
+              "option_id": "b",
+              "text": "suunta paikkaan"
+            },
+            {
+              "option_id": "c",
+              "text": "lähtöpaikka"
+            },
+            {
+              "option_id": "d",
+              "text": "määrää ei rajata"
+            }
+          ],
+          "answer_key": "a",
+          "accepted_variants": [],
+          "evaluation_mode": "option_id"
+        }
+      ],
+      "explanation": {
+        "summary": "Muoto “ystävälle” on allatiivi. Pääte -lle kertoo, kenelle toiminta suuntautuu; lähtömuoto kuten “ystävältä” ei ilmaise vastaanottajaa.",
+        "example": "Annan lipun ystävälle ovella."
+      },
+      "audio": null,
+      "validation": {
+        "case_sensitive": false,
+        "normalize_whitespace": true,
+        "allow_partial_credit": false
+      }
+    },
+    "promotion": {
+      "bucket": "grammar",
+      "level_file": "a1_a2.json"
+    },
+    "state": "published",
+    "validation_passed": true,
+    "published_at": "2026-05-27T19:05:58.689630+00:00",
+    "_stage6": {
+      "source_rel": "yki/exam/grammar/a1_a2.json",
+      "source_item_key": "yki_a1_a2_tight_2233_allative_recipient_lippu_ystavalle",
+      "source_index": 1
+    }
+  },
+  {
+    "id": "card.grammar.yki.yki-a1-a2-tight-2234-allative-recipient-kortti-tadille.eeadf0a7",
+    "version": 1,
+    "path": "general/grammar",
+    "domain": "general_finnish",
+    "profession": {
+      "track": "none",
+      "slug": "general",
+      "label": "General"
+    },
+    "level_band": "A1_A2",
+    "difficulty": "foundation",
+    "language": "fi",
+    "source": {
+      "source_id": "source.grammar_rebuild_v4.general-grammar-a1-a2-json",
+      "kind": "generated_or_recovered_batch",
+      "origin_path": "/home/vitus/floently-grammar-rebuild-v4/20_publish_ready_bank/stage4_publish_ready_grammar_bank/validated/yki/exam/grammar/a1_a2.json",
+      "authoring_note": "converted_from_floently_grammar_rebuild_v4_stage6"
+    },
+    "quality": {
+      "status": "prevalidated",
+      "reviewer": null,
+      "validation_checks": [
+        "stage6_mgi_to_server_canonical_conversion",
+        "answer_key_recovery",
+        "overlay_row_conversion",
+        "server_shape_validation"
+      ],
+      "quality_score": 0.95
+    },
+    "tags": [
+      "a1_a2",
+      "general_finnish",
+      "yki",
+      "grammar_memory"
+    ],
+    "publication": {
+      "state": "candidate",
+      "version_tag": "grammar_rebuild_v4_stage6",
+      "manifest_ref": "source.grammar_rebuild_v4.general-grammar-a1-a2-json",
+      "validation_passed": true,
+      "published_at": null,
+      "archived_at": null
+    },
+    "content_type": "grammar_card",
+    "content": {
+      "front": {
+        "rule_label": "vastaanottaja",
+        "pattern": "allatiivi vastaanottajalle",
+        "example": "Kirjoitan kortin tädille viikonloppuna."
+      },
+      "back": {
+        "recall_prompt": "Mikä selitys sopii parhaiten muotoon “tädille” lauseessa “Kirjoitan kortin tädille viikonloppuna.”?",
+        "rule_summary": "Muoto “tädille” on allatiivi. Pääte -lle kertoo, kenelle toiminta suuntautuu; lähtömuoto kuten “tädiltä” ei ilmaise vastaanottajaa.",
+        "target_form": "tädille"
+      },
+      "prompt_family": "grammar_memory",
+      "follow_ups": [
+        {
+          "variant_type": "recognition_mcq",
+          "prompt": "Mikä selitys sopii parhaiten muotoon “tädille” lauseessa “Kirjoitan kortin tädille viikonloppuna.”?",
+          "options": [
+            {
+              "option_id": "a",
+              "text": "suunta paikkaan"
+            },
+            {
+              "option_id": "b",
+              "text": "kielteinen preesens"
+            },
+            {
+              "option_id": "c",
+              "text": "monikon subjekti"
+            },
+            {
+              "option_id": "d",
+              "text": "vastaanottaja"
+            }
+          ],
+          "answer_key": "d",
+          "accepted_variants": [],
+          "evaluation_mode": "option_id"
+        }
+      ],
+      "explanation": {
+        "summary": "Muoto “tädille” on allatiivi. Pääte -lle kertoo, kenelle toiminta suuntautuu; lähtömuoto kuten “tädiltä” ei ilmaise vastaanottajaa.",
+        "example": "Kirjoitan kortin tädille viikonloppuna."
+      },
+      "audio": null,
+      "validation": {
+        "case_sensitive": false,
+        "normalize_whitespace": true,
+        "allow_partial_credit": false
+      }
+    },
+    "promotion": {
+      "bucket": "grammar",
+      "level_file": "a1_a2.json"
+    },
+    "state": "published",
+    "validation_passed": true,
+    "published_at": "2026-05-27T19:05:58.690185+00:00",
+    "_stage6": {
+      "source_rel": "yki/exam/grammar/a1_a2.json",
+      "source_item_key": "yki_a1_a2_tight_2234_allative_recipient_kortti_tadille",
+      "source_index": 2
+    }
+  },
+  {
+    "id": "card.grammar.yki.yki-a1-a2-tight-2235-allative-recipient-paketti-veljelle.bdd60921",
+    "version": 1,
+    "path": "general/grammar",
+    "domain": "general_finnish",
+    "profession": {
+      "track": "none",
+      "slug": "general",
+      "label": "General"
+    },
+    "level_band": "A1_A2",
+    "difficulty": "foundation",
+    "language": "fi",
+    "source": {
+      "source_id": "source.grammar_rebuild_v4.general-grammar-a1-a2-json",
+      "kind": "generated_or_recovered_batch",
+      "origin_path": "/home/vitus/floently-grammar-rebuild-v4/20_publish_ready_bank/stage4_publish_ready_grammar_bank/validated/yki/exam/grammar/a1_a2.json",
+      "authoring_note": "converted_from_floently_grammar_rebuild_v4_stage6"
+    },
+    "quality": {
+      "status": "prevalidated",
+      "reviewer": null,
+      "validation_checks": [
+        "stage6_mgi_to_server_canonical_conversion",
+        "answer_key_recovery",
+        "overlay_row_conversion",
+        "server_shape_validation"
+      ],
+      "quality_score": 0.95
+    },
+    "tags": [
+      "a1_a2",
+      "general_finnish",
+      "yki",
+      "grammar_memory"
+    ],
+    "publication": {
+      "state": "candidate",
+      "version_tag": "grammar_rebuild_v4_stage6",
+      "manifest_ref": "source.grammar_rebuild_v4.general-grammar-a1-a2-json",
+      "validation_passed": true,
+      "published_at": null,
+      "archived_at": null
+    },
+    "content_type": "grammar_card",
+    "content": {
+      "front": {
+        "rule_label": "vastaanottaja",
+        "pattern": "allatiivi vastaanottajalle",
+        "example": "Vien paketin veljelle huomenna."
+      },
+      "back": {
+        "recall_prompt": "Miksi “veljelle” sopii paremmin kuin “veljeltä” lauseessa “Vien paketin veljelle huomenna.”?",
+        "rule_summary": "Muoto “veljelle” on allatiivi. Pääte -lle kertoo, kenelle toiminta suuntautuu; lähtömuoto kuten “veljeltä” ei ilmaise vastaanottajaa.",
+        "target_form": "veljelle"
+      },
+      "prompt_family": "grammar_memory",
+      "follow_ups": [
+        {
+          "variant_type": "recognition_mcq",
+          "prompt": "Miksi “veljelle” sopii paremmin kuin “veljeltä” lauseessa “Vien paketin veljelle huomenna.”?",
+          "options": [
+            {
+              "option_id": "a",
+              "text": "käskymuoto"
+            },
+            {
+              "option_id": "b",
+              "text": "määrää ei rajata"
+            },
+            {
+              "option_id": "c",
+              "text": "vastaanottaja"
+            },
+            {
+              "option_id": "d",
+              "text": "suunta paikkaan"
+            }
+          ],
+          "answer_key": "c",
+          "accepted_variants": [],
+          "evaluation_mode": "option_id"
+        }
+      ],
+      "explanation": {
+        "summary": "Muoto “veljelle” on allatiivi. Pääte -lle kertoo, kenelle toiminta suuntautuu; lähtömuoto kuten “veljeltä” ei ilmaise vastaanottajaa.",
+        "example": "Vien paketin veljelle huomenna."
+      },
+      "audio": null,
+      "validation": {
+        "case_sensitive": false,
+        "normalize_whitespace": true,
+        "allow_partial_credit": false
+      }
+    },
+    "promotion": {
+      "bucket": "grammar",
+      "level_file": "a1_a2.json"
+    },
+    "state": "published",
+    "validation_passed": true,
+    "published_at": "2026-05-27T19:05:58.690768+00:00",
+    "_stage6": {
+      "source_rel": "yki/exam/grammar/a1_a2.json",
+      "source_item_key": "yki_a1_a2_tight_2235_allative_recipient_paketti_veljelle",
+      "source_index": 3
+    }
+  },
+  {
+    "id": "card.grammar.yki.yki-a1-a2-tight-2238-allative-recipient-lahja-siskolle.f01a7a94",
+    "version": 1,
+    "path": "general/grammar",
+    "domain": "general_finnish",
+    "profession": {
+      "track": "none",
+      "slug": "general",
+      "label": "General"
+    },
+    "level_band": "A1_A2",
+    "difficulty": "foundation",
+    "language": "fi",
+    "source": {
+      "source_id": "source.grammar_rebuild_v4.general-grammar-a1-a2-json",
+      "kind": "generated_or_recovered_batch",
+      "origin_path": "/home/vitus/floently-grammar-rebuild-v4/20_publish_ready_bank/stage4_publish_ready_grammar_bank/validated/yki/exam/grammar/a1_a2.json",
+      "authoring_note": "converted_from_floently_grammar_rebuild_v4_stage6"
+    },
+    "quality": {
+      "status": "prevalidated",
+      "reviewer": null,
+      "validation_checks": [
+        "stage6_mgi_to_server_canonical_conversion",
+        "answer_key_recovery",
+        "overlay_row_conversion",
+        "server_shape_validation"
+      ],
+      "quality_score": 0.95
+    },
+    "tags": [
+      "a1_a2",
+      "general_finnish",
+      "yki",
+      "grammar_memory"
+    ],
+    "publication": {
+      "state": "candidate",
+      "version_tag": "grammar_rebuild_v4_stage6",
+      "manifest_ref": "source.grammar_rebuild_v4.general-grammar-a1-a2-json",
+      "validation_passed": true,
+      "published_at": null,
+      "archived_at": null
+    },
+    "content_type": "grammar_card",
+    "content": {
+      "front": {
+        "rule_label": "vastaanottaja",
+        "pattern": "allatiivi vastaanottajalle",
+        "example": "Ostan lahjan siskolle syntymäpäiväksi."
+      },
+      "back": {
+        "recall_prompt": "Mikä kielioppirakenne näkyy muodossa “siskolle” lauseessa “Ostan lahjan siskolle syntymäpäiväksi.”?",
+        "rule_summary": "Muoto “siskolle” on allatiivi. Pääte -lle kertoo, kenelle toiminta suuntautuu; lähtömuoto kuten “siskolta” ei ilmaise vastaanottajaa.",
+        "target_form": "siskolle"
+      },
+      "prompt_family": "grammar_memory",
+      "follow_ups": [
+        {
+          "variant_type": "recognition_mcq",
+          "prompt": "Mikä kielioppirakenne näkyy muodossa “siskolle” lauseessa “Ostan lahjan siskolle syntymäpäiväksi.”?",
+          "options": [
+            {
+              "option_id": "a",
+              "text": "suunta paikkaan"
+            },
+            {
+              "option_id": "b",
+              "text": "ajan ilmaus"
+            },
+            {
+              "option_id": "c",
+              "text": "vertailumuoto"
+            },
+            {
+              "option_id": "d",
+              "text": "vastaanottaja"
+            }
+          ],
+          "answer_key": "d",
+          "accepted_variants": [],
+          "evaluation_mode": "option_id"
+        }
+      ],
+      "explanation": {
+        "summary": "Muoto “siskolle” on allatiivi. Pääte -lle kertoo, kenelle toiminta suuntautuu; lähtömuoto kuten “siskolta” ei ilmaise vastaanottajaa.",
+        "example": "Ostan lahjan siskolle syntymäpäiväksi."
+      },
+      "audio": null,
+      "validation": {
+        "case_sensitive": false,
+        "normalize_whitespace": true,
+        "allow_partial_credit": false
+      }
+    },
+    "promotion": {
+      "bucket": "grammar",
+      "level_file": "a1_a2.json"
+    },
+    "state": "published",
+    "validation_passed": true,
+    "published_at": "2026-05-27T19:05:58.691313+00:00",
+    "_stage6": {
+      "source_rel": "yki/exam/grammar/a1_a2.json",
+      "source_item_key": "yki_a1_a2_tight_2238_allative_recipient_lahja_siskolle",
+      "source_index": 4
+    }
+  },
+  {
+    "id": "card.grammar.yki.yki-a1-a2-tight-2239-allative-recipient-sahkoposti-ohjaajalle.bee44b12",
+    "version": 1,
+    "path": "general/grammar",
+    "domain": "general_finnish",
+    "profession": {
+      "track": "none",
+      "slug": "general",
+      "label": "General"
+    },
+    "level_band": "A1_A2",
+    "difficulty": "foundation",
+    "language": "fi",
+    "source": {
+      "source_id": "source.grammar_rebuild_v4.general-grammar-a1-a2-json",
+      "kind": "generated_or_recovered_batch",
+      "origin_path": "/home/vitus/floently-grammar-rebuild-v4/20_publish_ready_bank/stage4_publish_ready_grammar_bank/validated/yki/exam/grammar/a1_a2.json",
+      "authoring_note": "converted_from_floently_grammar_rebuild_v4_stage6"
+    },
+    "quality": {
+      "status": "prevalidated",
+      "reviewer": null,
+      "validation_checks": [
+        "stage6_mgi_to_server_canonical_conversion",
+        "answer_key_recovery",
+        "overlay_row_conversion",
+        "server_shape_validation"
+      ],
+      "quality_score": 0.95
+    },
+    "tags": [
+      "a1_a2",
+      "general_finnish",
+      "yki",
+      "grammar_memory"
+    ],
+    "publication": {
+      "state": "candidate",
+      "version_tag": "grammar_rebuild_v4_stage6",
+      "manifest_ref": "source.grammar_rebuild_v4.general-grammar-a1-a2-json",
+      "validation_passed": true,
+      "published_at": null,
+      "archived_at": null
+    },
+    "content_type": "grammar_card",
+    "content": {
+      "front": {
+        "rule_label": "vastaanottaja",
+        "pattern": "allatiivi vastaanottajalle",
+        "example": "Lähetän sähköpostin ohjaajalle illalla."
+      },
+      "back": {
+        "recall_prompt": "Mikä selitys sopii parhaiten muotoon “ohjaajalle” lauseessa “Lähetän sähköpostin ohjaajalle illalla.”?",
+        "rule_summary": "Muoto “ohjaajalle” on allatiivi. Pääte -lle kertoo, kenelle toiminta suuntautuu; lähtömuoto kuten “ohjaajalta” ei ilmaise vastaanottajaa.",
+        "target_form": "ohjaajalle"
+      },
+      "prompt_family": "grammar_memory",
+      "follow_ups": [
+        {
+          "variant_type": "recognition_mcq",
+          "prompt": "Mikä selitys sopii parhaiten muotoon “ohjaajalle” lauseessa “Lähetän sähköpostin ohjaajalle illalla.”?",
+          "options": [
+            {
+              "option_id": "a",
+              "text": "omistaja"
+            },
+            {
+              "option_id": "b",
+              "text": "tullaan paikasta"
+            },
+            {
+              "option_id": "c",
+              "text": "vastaanottaja"
+            },
+            {
+              "option_id": "d",
+              "text": "lähtöpaikka"
+            }
+          ],
+          "answer_key": "c",
+          "accepted_variants": [],
+          "evaluation_mode": "option_id"
+        }
+      ],
+      "explanation": {
+        "summary": "Muoto “ohjaajalle” on allatiivi. Pääte -lle kertoo, kenelle toiminta suuntautuu; lähtömuoto kuten “ohjaajalta” ei ilmaise vastaanottajaa.",
+        "example": "Lähetän sähköpostin ohjaajalle illalla."
+      },
+      "audio": null,
+      "validation": {
+        "case_sensitive": false,
+        "normalize_whitespace": true,
+        "allow_partial_credit": false
+      }
+    },
+    "promotion": {
+      "bucket": "grammar",
+      "level_file": "a1_a2.json"
+    },
+    "state": "published",
+    "validation_passed": true,
+    "published_at": "2026-05-27T19:05:58.691842+00:00",
+    "_stage6": {
+      "source_rel": "yki/exam/grammar/a1_a2.json",
+      "source_item_key": "yki_a1_a2_tight_2239_allative_recipient_sahkoposti_ohjaajalle",
+      "source_index": 5
+    }
+  },
+  {
+    "id": "card.grammar.yki.yki-a1-a2-tight-2240-allative-recipient-kuitti-myyjalle.9965d71a",
+    "version": 1,
+    "path": "general/grammar",
+    "domain": "general_finnish",
+    "profession": {
+      "track": "none",
+      "slug": "general",
+      "label": "General"
+    },
+    "level_band": "A1_A2",
+    "difficulty": "foundation",
+    "language": "fi",
+    "source": {
+      "source_id": "source.grammar_rebuild_v4.general-grammar-a1-a2-json",
+      "kind": "generated_or_recovered_batch",
+      "origin_path": "/home/vitus/floently-grammar-rebuild-v4/20_publish_ready_bank/stage4_publish_ready_grammar_bank/validated/yki/exam/grammar/a1_a2.json",
+      "authoring_note": "converted_from_floently_grammar_rebuild_v4_stage6"
+    },
+    "quality": {
+      "status": "prevalidated",
+      "reviewer": null,
+      "validation_checks": [
+        "stage6_mgi_to_server_canonical_conversion",
+        "answer_key_recovery",
+        "overlay_row_conversion",
+        "server_shape_validation"
+      ],
+      "quality_score": 0.95
+    },
+    "tags": [
+      "a1_a2",
+      "general_finnish",
+      "yki",
+      "grammar_memory"
+    ],
+    "publication": {
+      "state": "candidate",
+      "version_tag": "grammar_rebuild_v4_stage6",
+      "manifest_ref": "source.grammar_rebuild_v4.general-grammar-a1-a2-json",
+      "validation_passed": true,
+      "published_at": null,
+      "archived_at": null
+    },
+    "content_type": "grammar_card",
+    "content": {
+      "front": {
+        "rule_label": "vastaanottaja",
+        "pattern": "allatiivi vastaanottajalle",
+        "example": "Annan kuitin myyjälle kassalla."
+      },
+      "back": {
+        "recall_prompt": "Miksi “myyjälle” sopii paremmin kuin “myyjältä” lauseessa “Annan kuitin myyjälle kassalla.”?",
+        "rule_summary": "Muoto “myyjälle” on allatiivi. Pääte -lle kertoo, kenelle toiminta suuntautuu; lähtömuoto kuten “myyjältä” ei ilmaise vastaanottajaa.",
+        "target_form": "myyjälle"
+      },
+      "prompt_family": "grammar_memory",
+      "follow_ups": [
+        {
+          "variant_type": "recognition_mcq",
+          "prompt": "Miksi “myyjälle” sopii paremmin kuin “myyjältä” lauseessa “Annan kuitin myyjälle kassalla.”?",
+          "options": [
+            {
+              "option_id": "a",
+              "text": "tullaan paikasta"
+            },
+            {
+              "option_id": "b",
+              "text": "vastaanottaja"
+            },
+            {
+              "option_id": "c",
+              "text": "lähtöpaikka"
+            },
+            {
+              "option_id": "d",
+              "text": "mennyt aika"
+            }
+          ],
+          "answer_key": "b",
+          "accepted_variants": [],
+          "evaluation_mode": "option_id"
+        }
+      ],
+      "explanation": {
+        "summary": "Muoto “myyjälle” on allatiivi. Pääte -lle kertoo, kenelle toiminta suuntautuu; lähtömuoto kuten “myyjältä” ei ilmaise vastaanottajaa.",
+        "example": "Annan kuitin myyjälle kassalla."
+      },
+      "audio": null,
+      "validation": {
+        "case_sensitive": false,
+        "normalize_whitespace": true,
+        "allow_partial_credit": false
+      }
+    },
+    "promotion": {
+      "bucket": "grammar",
+      "level_file": "a1_a2.json"
+    },
+    "state": "published",
+    "validation_passed": true,
+    "published_at": "2026-05-27T19:05:58.692366+00:00",
+    "_stage6": {
+      "source_rel": "yki/exam/grammar/a1_a2.json",
+      "source_item_key": "yki_a1_a2_tight_2240_allative_recipient_kuitti_myyjalle",
+      "source_index": 6
+    }
+  },
+  {
+    "id": "card.grammar.yki.yki-a1-a2-tight-2242-allative-recipient-viesti-kaverille.e122800b",
+    "version": 1,
+    "path": "general/grammar",
+    "domain": "general_finnish",
+    "profession": {
+      "track": "none",
+      "slug": "general",
+      "label": "General"
+    },
+    "level_band": "A1_A2",
+    "difficulty": "foundation",
+    "language": "fi",
+    "source": {
+      "source_id": "source.grammar_rebuild_v4.general-grammar-a1-a2-json",
+      "kind": "generated_or_recovered_batch",
+      "origin_path": "/home/vitus/floently-grammar-rebuild-v4/20_publish_ready_bank/stage4_publish_ready_grammar_bank/validated/yki/exam/grammar/a1_a2.json",
+      "authoring_note": "converted_from_floently_grammar_rebuild_v4_stage6"
+    },
+    "quality": {
+      "status": "prevalidated",
+      "reviewer": null,
+      "validation_checks": [
+        "stage6_mgi_to_server_canonical_conversion",
+        "answer_key_recovery",
+        "overlay_row_conversion",
+        "server_shape_validation"
+      ],
+      "quality_score": 0.95
+    },
+    "tags": [
+      "a1_a2",
+      "general_finnish",
+      "yki",
+      "grammar_memory"
+    ],
+    "publication": {
+      "state": "candidate",
+      "version_tag": "grammar_rebuild_v4_stage6",
+      "manifest_ref": "source.grammar_rebuild_v4.general-grammar-a1-a2-json",
+      "validation_passed": true,
+      "published_at": null,
+      "archived_at": null
+    },
+    "content_type": "grammar_card",
+    "content": {
+      "front": {
+        "rule_label": "vastaanottaja",
+        "pattern": "allatiivi vastaanottajalle",
+        "example": "Kirjoitan viestin kaverille bussissa."
+      },
+      "back": {
+        "recall_prompt": "Mitä tehtävää muoto “kaverille” tekee lauseessa “Kirjoitan viestin kaverille bussissa.”?",
+        "rule_summary": "Muoto “kaverille” on allatiivi. Pääte -lle kertoo, kenelle toiminta suuntautuu; lähtömuoto kuten “kaverilta” ei ilmaise vastaanottajaa.",
+        "target_form": "kaverille"
+      },
+      "prompt_family": "grammar_memory",
+      "follow_ups": [
+        {
+          "variant_type": "recognition_mcq",
+          "prompt": "Mitä tehtävää muoto “kaverille” tekee lauseessa “Kirjoitan viestin kaverille bussissa.”?",
+          "options": [
+            {
+              "option_id": "a",
+              "text": "lähtöpaikka"
+            },
+            {
+              "option_id": "b",
+              "text": "genetiiviomistaja"
+            },
+            {
+              "option_id": "c",
+              "text": "ollaan paikassa"
+            },
+            {
+              "option_id": "d",
+              "text": "vastaanottaja"
+            }
+          ],
+          "answer_key": "d",
+          "accepted_variants": [],
+          "evaluation_mode": "option_id"
+        }
+      ],
+      "explanation": {
+        "summary": "Muoto “kaverille” on allatiivi. Pääte -lle kertoo, kenelle toiminta suuntautuu; lähtömuoto kuten “kaverilta” ei ilmaise vastaanottajaa.",
+        "example": "Kirjoitan viestin kaverille bussissa."
+      },
+      "audio": null,
+      "validation": {
+        "case_sensitive": false,
+        "normalize_whitespace": true,
+        "allow_partial_credit": false
+      }
+    },
+    "promotion": {
+      "bucket": "grammar",
+      "level_file": "a1_a2.json"
+    },
+    "state": "published",
+    "validation_passed": true,
+    "published_at": "2026-05-27T19:05:58.692908+00:00",
+    "_stage6": {
+      "source_rel": "yki/exam/grammar/a1_a2.json",
+      "source_item_key": "yki_a1_a2_tight_2242_allative_recipient_viesti_kaverille",
+      "source_index": 7
+    }
+  },
+  {
+    "id": "card.grammar.yki.yki-a1-a2-tight-2243-allative-recipient-kysymys-talonmiehelle.d73e7aa9",
+    "version": 1,
+    "path": "general/grammar",
+    "domain": "general_finnish",
+    "profession": {
+      "track": "none",
+      "slug": "general",
+      "label": "General"
+    },
+    "level_band": "A1_A2",
+    "difficulty": "foundation",
+    "language": "fi",
+    "source": {
+      "source_id": "source.grammar_rebuild_v4.general-grammar-a1-a2-json",
+      "kind": "generated_or_recovered_batch",
+      "origin_path": "/home/vitus/floently-grammar-rebuild-v4/20_publish_ready_bank/stage4_publish_ready_grammar_bank/validated/yki/exam/grammar/a1_a2.json",
+      "authoring_note": "converted_from_floently_grammar_rebuild_v4_stage6"
+    },
+    "quality": {
+      "status": "prevalidated",
+      "reviewer": null,
+      "validation_checks": [
+        "stage6_mgi_to_server_canonical_conversion",
+        "answer_key_recovery",
+        "overlay_row_conversion",
+        "server_shape_validation"
+      ],
+      "quality_score": 0.95
+    },
+    "tags": [
+      "a1_a2",
+      "general_finnish",
+      "yki",
+      "grammar_memory"
+    ],
+    "publication": {
+      "state": "candidate",
+      "version_tag": "grammar_rebuild_v4_stage6",
+      "manifest_ref": "source.grammar_rebuild_v4.general-grammar-a1-a2-json",
+      "validation_passed": true,
+      "published_at": null,
+      "archived_at": null
+    },
+    "content_type": "grammar_card",
+    "content": {
+      "front": {
+        "rule_label": "vastaanottaja",
+        "pattern": "allatiivi vastaanottajalle",
+        "example": "Esitän kysymyksen talonmiehelle pihalla."
+      },
+      "back": {
+        "recall_prompt": "Mikä kielioppirakenne näkyy muodossa “talonmiehelle” lauseessa “Esitän kysymyksen talonmiehelle pihalla.”?",
+        "rule_summary": "Muoto “talonmiehelle” on allatiivi. Pääte -lle kertoo, kenelle toiminta suuntautuu; lähtömuoto kuten “talonmieheltä” ei ilmaise vastaanottajaa.",
+        "target_form": "talonmiehelle"
+      },
+      "prompt_family": "grammar_memory",
+      "follow_ups": [
+        {
+          "variant_type": "recognition_mcq",
+          "prompt": "Mikä kielioppirakenne näkyy muodossa “talonmiehelle” lauseessa “Esitän kysymyksen talonmiehelle pihalla.”?",
+          "options": [
+            {
+              "option_id": "a",
+              "text": "ollaan paikassa"
+            },
+            {
+              "option_id": "b",
+              "text": "modaali + perusmuoto"
+            },
+            {
+              "option_id": "c",
+              "text": "vastaanottaja"
+            },
+            {
+              "option_id": "d",
+              "text": "lähtöpaikka"
+            }
+          ],
+          "answer_key": "c",
+          "accepted_variants": [],
+          "evaluation_mode": "option_id"
+        }
+      ],
+      "explanation": {
+        "summary": "Muoto “talonmiehelle” on allatiivi. Pääte -lle kertoo, kenelle toiminta suuntautuu; lähtömuoto kuten “talonmieheltä” ei ilmaise vastaanottajaa.",
+        "example": "Esitän kysymyksen talonmiehelle pihalla."
+      },
+      "audio": null,
+      "validation": {
+        "case_sensitive": false,
+        "normalize_whitespace": true,
+        "allow_partial_credit": false
+      }
+    },
+    "promotion": {
+      "bucket": "grammar",
+      "level_file": "a1_a2.json"
+    },
+    "state": "published",
+    "validation_passed": true,
+    "published_at": "2026-05-27T19:05:58.693455+00:00",
+    "_stage6": {
+      "source_rel": "yki/exam/grammar/a1_a2.json",
+      "source_item_key": "yki_a1_a2_tight_2243_allative_recipient_kysymys_talonmiehelle",
+      "source_index": 8
+    }
+  },
+  {
+    "id": "card.grammar.yki.yki-a1-a2-tight-2244-allative-recipient-kartta-turistille.6c1b744a",
+    "version": 1,
+    "path": "general/grammar",
+    "domain": "general_finnish",
+    "profession": {
+      "track": "none",
+      "slug": "general",
+      "label": "General"
+    },
+    "level_band": "A1_A2",
+    "difficulty": "foundation",
+    "language": "fi",
+    "source": {
+      "source_id": "source.grammar_rebuild_v4.general-grammar-a1-a2-json",
+      "kind": "generated_or_recovered_batch",
+      "origin_path": "/home/vitus/floently-grammar-rebuild-v4/20_publish_ready_bank/stage4_publish_ready_grammar_bank/validated/yki/exam/grammar/a1_a2.json",
+      "authoring_note": "converted_from_floently_grammar_rebuild_v4_stage6"
+    },
+    "quality": {
+      "status": "prevalidated",
+      "reviewer": null,
+      "validation_checks": [
+        "stage6_mgi_to_server_canonical_conversion",
+        "answer_key_recovery",
+        "overlay_row_conversion",
+        "server_shape_validation"
+      ],
+      "quality_score": 0.95
+    },
+    "tags": [
+      "a1_a2",
+      "general_finnish",
+      "yki",
+      "grammar_memory"
+    ],
+    "publication": {
+      "state": "candidate",
+      "version_tag": "grammar_rebuild_v4_stage6",
+      "manifest_ref": "source.grammar_rebuild_v4.general-grammar-a1-a2-json",
+      "validation_passed": true,
+      "published_at": null,
+      "archived_at": null
+    },
+    "content_type": "grammar_card",
+    "content": {
+      "front": {
+        "rule_label": "vastaanottaja",
+        "pattern": "allatiivi vastaanottajalle",
+        "example": "Annan kartan turistille asemalla."
+      },
+      "back": {
+        "recall_prompt": "Mikä selitys sopii parhaiten muotoon “turistille” lauseessa “Annan kartan turistille asemalla.”?",
+        "rule_summary": "Muoto “turistille” on allatiivi. Pääte -lle kertoo, kenelle toiminta suuntautuu; lähtömuoto kuten “turistilta” ei ilmaise vastaanottajaa.",
+        "target_form": "turistille"
+      },
+      "prompt_family": "grammar_memory",
+      "follow_ups": [
+        {
+          "variant_type": "recognition_mcq",
+          "prompt": "Mikä selitys sopii parhaiten muotoon “turistille” lauseessa “Annan kartan turistille asemalla.”?",
+          "options": [
+            {
+              "option_id": "a",
+              "text": "kielen nimi partitiivissa"
+            },
+            {
+              "option_id": "b",
+              "text": "vastaanottaja"
+            },
+            {
+              "option_id": "c",
+              "text": "lähtöpaikka"
+            },
+            {
+              "option_id": "d",
+              "text": "vertailumuoto"
+            }
+          ],
+          "answer_key": "b",
+          "accepted_variants": [],
+          "evaluation_mode": "option_id"
+        }
+      ],
+      "explanation": {
+        "summary": "Muoto “turistille” on allatiivi. Pääte -lle kertoo, kenelle toiminta suuntautuu; lähtömuoto kuten “turistilta” ei ilmaise vastaanottajaa.",
+        "example": "Annan kartan turistille asemalla."
+      },
+      "audio": null,
+      "validation": {
+        "case_sensitive": false,
+        "normalize_whitespace": true,
+        "allow_partial_credit": false
+      }
+    },
+    "promotion": {
+      "bucket": "grammar",
+      "level_file": "a1_a2.json"
+    },
+    "state": "published",
+    "validation_passed": true,
+    "published_at": "2026-05-27T19:05:58.694000+00:00",
+    "_stage6": {
+      "source_rel": "yki/exam/grammar/a1_a2.json",
+      "source_item_key": "yki_a1_a2_tight_2244_allative_recipient_kartta_turistille",
+      "source_index": 9
+    }
+  },
+  {
+    "id": "card.grammar.yki.yki-a1-a2-tight-2245-allative-recipient-ohje-lapselle.508fe948",
+    "version": 1,
+    "path": "general/grammar",
+    "domain": "general_finnish",
+    "profession": {
+      "track": "none",
+      "slug": "general",
+      "label": "General"
+    },
+    "level_band": "A1_A2",
+    "difficulty": "foundation",
+    "language": "fi",
+    "source": {
+      "source_id": "source.grammar_rebuild_v4.general-grammar-a1-a2-json",
+      "kind": "generated_or_recovered_batch",
+      "origin_path": "/home/vitus/floently-grammar-rebuild-v4/20_publish_ready_bank/stage4_publish_ready_grammar_bank/validated/yki/exam/grammar/a1_a2.json",
+      "authoring_note": "converted_from_floently_grammar_rebuild_v4_stage6"
+    },
+    "quality": {
+      "status": "prevalidated",
+      "reviewer": null,
+      "validation_checks": [
+        "stage6_mgi_to_server_canonical_conversion",
+        "answer_key_recovery",
+        "overlay_row_conversion",
+        "server_shape_validation"
+      ],
+      "quality_score": 0.95
+    },
+    "tags": [
+      "a1_a2",
+      "general_finnish",
+      "yki",
+      "grammar_memory"
+    ],
+    "publication": {
+      "state": "candidate",
+      "version_tag": "grammar_rebuild_v4_stage6",
+      "manifest_ref": "source.grammar_rebuild_v4.general-grammar-a1-a2-json",
+      "validation_passed": true,
+      "published_at": null,
+      "archived_at": null
+    },
+    "content_type": "grammar_card",
+    "content": {
+      "front": {
+        "rule_label": "vastaanottaja",
+        "pattern": "allatiivi vastaanottajalle",
+        "example": "Luen ohjeen lapselle rauhallisesti."
+      },
+      "back": {
+        "recall_prompt": "Miksi “lapselle” sopii paremmin kuin “lapselta” lauseessa “Luen ohjeen lapselle rauhallisesti.”?",
+        "rule_summary": "Muoto “lapselle” on allatiivi. Pääte -lle kertoo, kenelle toiminta suuntautuu; lähtömuoto kuten “lapselta” ei ilmaise vastaanottajaa.",
+        "target_form": "lapselle"
+      },
+      "prompt_family": "grammar_memory",
+      "follow_ups": [
+        {
+          "variant_type": "recognition_mcq",
+          "prompt": "Miksi “lapselle” sopii paremmin kuin “lapselta” lauseessa “Luen ohjeen lapselle rauhallisesti.”?",
+          "options": [
+            {
+              "option_id": "a",
+              "text": "vastaanottaja"
+            },
+            {
+              "option_id": "b",
+              "text": "omistaja"
+            },
+            {
+              "option_id": "c",
+              "text": "mennyt aika"
+            },
+            {
+              "option_id": "d",
+              "text": "sisäpaikka"
+            }
+          ],
+          "answer_key": "a",
+          "accepted_variants": [],
+          "evaluation_mode": "option_id"
+        }
+      ],
+      "explanation": {
+        "summary": "Muoto “lapselle” on allatiivi. Pääte -lle kertoo, kenelle toiminta suuntautuu; lähtömuoto kuten “lapselta” ei ilmaise vastaanottajaa.",
+        "example": "Luen ohjeen lapselle rauhallisesti."
+      },
+      "audio": null,
+      "validation": {
+        "case_sensitive": false,
+        "normalize_whitespace": true,
+        "allow_partial_credit": false
+      }
+    },
+    "promotion": {
+      "bucket": "grammar",
+      "level_file": "a1_a2.json"
+    },
+    "state": "published",
+    "validation_passed": true,
+    "published_at": "2026-05-27T19:05:58.694538+00:00",
+    "_stage6": {
+      "source_rel": "yki/exam/grammar/a1_a2.json",
+      "source_item_key": "yki_a1_a2_tight_2245_allative_recipient_ohje_lapselle",
+      "source_index": 10
+    }
+  },
+  {
+    "id": "card.grammar.yki.yki-a1-a2-tight-2247-allative-recipient-paperi-pomolle.4e9b3cdf",
+    "version": 1,
+    "path": "general/grammar",
+    "domain": "general_finnish",
+    "profession": {
+      "track": "none",
+      "slug": "general",
+      "label": "General"
+    },
+    "level_band": "A1_A2",
+    "difficulty": "foundation",
+    "language": "fi",
+    "source": {
+      "source_id": "source.grammar_rebuild_v4.general-grammar-a1-a2-json",
+      "kind": "generated_or_recovered_batch",
+      "origin_path": "/home/vitus/floently-grammar-rebuild-v4/20_publish_ready_bank/stage4_publish_ready_grammar_bank/validated/yki/exam/grammar/a1_a2.json",
+      "authoring_note": "converted_from_floently_grammar_rebuild_v4_stage6"
+    },
+    "quality": {
+      "status": "prevalidated",
+      "reviewer": null,
+      "validation_checks": [
+        "stage6_mgi_to_server_canonical_conversion",
+        "answer_key_recovery",
+        "overlay_row_conversion",
+        "server_shape_validation"
+      ],
+      "quality_score": 0.95
+    },
+    "tags": [
+      "a1_a2",
+      "general_finnish",
+      "yki",
+      "grammar_memory"
+    ],
+    "publication": {
+      "state": "candidate",
+      "version_tag": "grammar_rebuild_v4_stage6",
+      "manifest_ref": "source.grammar_rebuild_v4.general-grammar-a1-a2-json",
+      "validation_passed": true,
+      "published_at": null,
+      "archived_at": null
+    },
+    "content_type": "grammar_card",
+    "content": {
+      "front": {
+        "rule_label": "vastaanottaja",
+        "pattern": "allatiivi vastaanottajalle",
+        "example": "Vien paperin pomolle aamupäivällä."
+      },
+      "back": {
+        "recall_prompt": "Mitä tehtävää muoto “pomolle” tekee lauseessa “Vien paperin pomolle aamupäivällä.”?",
+        "rule_summary": "Muoto “pomolle” on allatiivi. Pääte -lle kertoo, kenelle toiminta suuntautuu; lähtömuoto kuten “pomolta” ei ilmaise vastaanottajaa.",
+        "target_form": "pomolle"
+      },
+      "prompt_family": "grammar_memory",
+      "follow_ups": [
+        {
+          "variant_type": "recognition_mcq",
+          "prompt": "Mitä tehtävää muoto “pomolle” tekee lauseessa “Vien paperin pomolle aamupäivällä.”?",
+          "options": [
+            {
+              "option_id": "a",
+              "text": "sisäpaikka"
+            },
+            {
+              "option_id": "b",
+              "text": "omistajan muoto"
+            },
+            {
+              "option_id": "c",
+              "text": "vastaanottaja"
+            },
+            {
+              "option_id": "d",
+              "text": "omistaja"
+            }
+          ],
+          "answer_key": "c",
+          "accepted_variants": [],
+          "evaluation_mode": "option_id"
+        }
+      ],
+      "explanation": {
+        "summary": "Muoto “pomolle” on allatiivi. Pääte -lle kertoo, kenelle toiminta suuntautuu; lähtömuoto kuten “pomolta” ei ilmaise vastaanottajaa.",
+        "example": "Vien paperin pomolle aamupäivällä."
+      },
+      "audio": null,
+      "validation": {
+        "case_sensitive": false,
+        "normalize_whitespace": true,
+        "allow_partial_credit": false
+      }
+    },
+    "promotion": {
+      "bucket": "grammar",
+      "level_file": "a1_a2.json"
+    },
+    "state": "published",
+    "validation_passed": true,
+    "published_at": "2026-05-27T19:05:58.695081+00:00",
+    "_stage6": {
+      "source_rel": "yki/exam/grammar/a1_a2.json",
+      "source_item_key": "yki_a1_a2_tight_2247_allative_recipient_paperi_pomolle",
+      "source_index": 11
+    }
+  },
+  {
+    "id": "card.grammar.yki.yki-a1-a2-tight-2248-allative-recipient-vastaus-opiskelijalle.3036e495",
+    "version": 1,
+    "path": "general/grammar",
+    "domain": "general_finnish",
+    "profession": {
+      "track": "none",
+      "slug": "general",
+      "label": "General"
+    },
+    "level_band": "A1_A2",
+    "difficulty": "foundation",
+    "language": "fi",
+    "source": {
+      "source_id": "source.grammar_rebuild_v4.general-grammar-a1-a2-json",
+      "kind": "generated_or_recovered_batch",
+      "origin_path": "/home/vitus/floently-grammar-rebuild-v4/20_publish_ready_bank/stage4_publish_ready_grammar_bank/validated/yki/exam/grammar/a1_a2.json",
+      "authoring_note": "converted_from_floently_grammar_rebuild_v4_stage6"
+    },
+    "quality": {
+      "status": "prevalidated",
+      "reviewer": null,
+      "validation_checks": [
+        "stage6_mgi_to_server_canonical_conversion",
+        "answer_key_recovery",
+        "overlay_row_conversion",
+        "server_shape_validation"
+      ],
+      "quality_score": 0.95
+    },
+    "tags": [
+      "a1_a2",
+      "general_finnish",
+      "yki",
+      "grammar_memory"
+    ],
+    "publication": {
+      "state": "candidate",
+      "version_tag": "grammar_rebuild_v4_stage6",
+      "manifest_ref": "source.grammar_rebuild_v4.general-grammar-a1-a2-json",
+      "validation_passed": true,
+      "published_at": null,
+      "archived_at": null
+    },
+    "content_type": "grammar_card",
+    "content": {
+      "front": {
+        "rule_label": "vastaanottaja",
+        "pattern": "allatiivi vastaanottajalle",
+        "example": "Annan vastauksen opiskelijalle heti."
+      },
+      "back": {
+        "recall_prompt": "Mikä kielioppirakenne näkyy muodossa “opiskelijalle” lauseessa “Annan vastauksen opiskelijalle heti.”?",
+        "rule_summary": "Muoto “opiskelijalle” on allatiivi. Pääte -lle kertoo, kenelle toiminta suuntautuu; lähtömuoto kuten “opiskelijalta” ei ilmaise vastaanottajaa.",
+        "target_form": "opiskelijalle"
+      },
+      "prompt_family": "grammar_memory",
+      "follow_ups": [
+        {
+          "variant_type": "recognition_mcq",
+          "prompt": "Mikä kielioppirakenne näkyy muodossa “opiskelijalle” lauseessa “Annan vastauksen opiskelijalle heti.”?",
+          "options": [
+            {
+              "option_id": "a",
+              "text": "määrää ei rajata"
+            },
+            {
+              "option_id": "b",
+              "text": "vastaanottaja"
+            },
+            {
+              "option_id": "c",
+              "text": "omistaja"
+            },
+            {
+              "option_id": "d",
+              "text": "mennään paikkaan"
+            }
+          ],
+          "answer_key": "b",
+          "accepted_variants": [],
+          "evaluation_mode": "option_id"
+        }
+      ],
+      "explanation": {
+        "summary": "Muoto “opiskelijalle” on allatiivi. Pääte -lle kertoo, kenelle toiminta suuntautuu; lähtömuoto kuten “opiskelijalta” ei ilmaise vastaanottajaa.",
+        "example": "Annan vastauksen opiskelijalle heti."
+      },
+      "audio": null,
+      "validation": {
+        "case_sensitive": false,
+        "normalize_whitespace": true,
+        "allow_partial_credit": false
+      }
+    },
+    "promotion": {
+      "bucket": "grammar",
+      "level_file": "a1_a2.json"
+    },
+    "state": "published",
+    "validation_passed": true,
+    "published_at": "2026-05-27T19:05:58.695615+00:00",
+    "_stage6": {
+      "source_rel": "yki/exam/grammar/a1_a2.json",
+      "source_item_key": "yki_a1_a2_tight_2248_allative_recipient_vastaus_opiskelijalle",
+      "source_index": 12
+    }
+  },
+  {
+    "id": "card.grammar.yki.yki-a1-a2-tight-2249-allative-recipient-viesti-vuokranantajalle.13da0d5f",
+    "version": 1,
+    "path": "general/grammar",
+    "domain": "general_finnish",
+    "profession": {
+      "track": "none",
+      "slug": "general",
+      "label": "General"
+    },
+    "level_band": "A1_A2",
+    "difficulty": "foundation",
+    "language": "fi",
+    "source": {
+      "source_id": "source.grammar_rebuild_v4.general-grammar-a1-a2-json",
+      "kind": "generated_or_recovered_batch",
+      "origin_path": "/home/vitus/floently-grammar-rebuild-v4/20_publish_ready_bank/stage4_publish_ready_grammar_bank/validated/yki/exam/grammar/a1_a2.json",
+      "authoring_note": "converted_from_floently_grammar_rebuild_v4_stage6"
+    },
+    "quality": {
+      "status": "prevalidated",
+      "reviewer": null,
+      "validation_checks": [
+        "stage6_mgi_to_server_canonical_conversion",
+        "answer_key_recovery",
+        "overlay_row_conversion",
+        "server_shape_validation"
+      ],
+      "quality_score": 0.95
+    },
+    "tags": [
+      "a1_a2",
+      "general_finnish",
+      "yki",
+      "grammar_memory"
+    ],
+    "publication": {
+      "state": "candidate",
+      "version_tag": "grammar_rebuild_v4_stage6",
+      "manifest_ref": "source.grammar_rebuild_v4.general-grammar-a1-a2-json",
+      "validation_passed": true,
+      "published_at": null,
+      "archived_at": null
+    },
+    "content_type": "grammar_card",
+    "content": {
+      "front": {
+        "rule_label": "vastaanottaja",
+        "pattern": "allatiivi vastaanottajalle",
+        "example": "Lähetän viestin vuokranantajalle kuukauden alussa."
+      },
+      "back": {
+        "recall_prompt": "Mikä selitys sopii parhaiten muotoon “vuokranantajalle” lauseessa “Lähetän viestin vuokranantajalle kuukauden alussa.”?",
+        "rule_summary": "Muoto “vuokranantajalle” on allatiivi. Pääte -lle kertoo, kenelle toiminta suuntautuu; lähtömuoto kuten “vuokranantajalta” ei ilmaise vastaanottajaa.",
+        "target_form": "vuokranantajalle"
+      },
+      "prompt_family": "grammar_memory",
+      "follow_ups": [
+        {
+          "variant_type": "recognition_mcq",
+          "prompt": "Mikä selitys sopii parhaiten muotoon “vuokranantajalle” lauseessa “Lähetän viestin vuokranantajalle kuukauden alussa.”?",
+          "options": [
+            {
+              "option_id": "a",
+              "text": "vastaanottaja"
+            },
+            {
+              "option_id": "b",
+              "text": "omistaja"
+            },
+            {
+              "option_id": "c",
+              "text": "modaali + perusmuoto"
+            },
+            {
+              "option_id": "d",
+              "text": "kielen nimi partitiivissa"
+            }
+          ],
+          "answer_key": "a",
+          "accepted_variants": [],
+          "evaluation_mode": "option_id"
+        }
+      ],
+      "explanation": {
+        "summary": "Muoto “vuokranantajalle” on allatiivi. Pääte -lle kertoo, kenelle toiminta suuntautuu; lähtömuoto kuten “vuokranantajalta” ei ilmaise vastaanottajaa.",
+        "example": "Lähetän viestin vuokranantajalle kuukauden alussa."
+      },
+      "audio": null,
+      "validation": {
+        "case_sensitive": false,
+        "normalize_whitespace": true,
+        "allow_partial_credit": false
+      }
+    },
+    "promotion": {
+      "bucket": "grammar",
+      "level_file": "a1_a2.json"
+    },
+    "state": "published",
+    "validation_passed": true,
+    "published_at": "2026-05-27T19:05:58.696139+00:00",
+    "_stage6": {
+      "source_rel": "yki/exam/grammar/a1_a2.json",
+      "source_item_key": "yki_a1_a2_tight_2249_allative_recipient_viesti_vuokranantajalle",
+      "source_index": 13
+    }
+  },
+  {
+    "id": "card.grammar.yki.yki-a1-a2-tight-2250-allative-recipient-puhelu-hammaslaakarille.46954285",
+    "version": 1,
+    "path": "general/grammar",
+    "domain": "general_finnish",
+    "profession": {
+      "track": "none",
+      "slug": "general",
+      "label": "General"
+    },
+    "level_band": "A1_A2",
+    "difficulty": "foundation",
+    "language": "fi",
+    "source": {
+      "source_id": "source.grammar_rebuild_v4.general-grammar-a1-a2-json",
+      "kind": "generated_or_recovered_batch",
+      "origin_path": "/home/vitus/floently-grammar-rebuild-v4/20_publish_ready_bank/stage4_publish_ready_grammar_bank/validated/yki/exam/grammar/a1_a2.json",
+      "authoring_note": "converted_from_floently_grammar_rebuild_v4_stage6"
+    },
+    "quality": {
+      "status": "prevalidated",
+      "reviewer": null,
+      "validation_checks": [
+        "stage6_mgi_to_server_canonical_conversion",
+        "answer_key_recovery",
+        "overlay_row_conversion",
+        "server_shape_validation"
+      ],
+      "quality_score": 0.95
+    },
+    "tags": [
+      "a1_a2",
+      "general_finnish",
+      "yki",
+      "grammar_memory"
+    ],
+    "publication": {
+      "state": "candidate",
+      "version_tag": "grammar_rebuild_v4_stage6",
+      "manifest_ref": "source.grammar_rebuild_v4.general-grammar-a1-a2-json",
+      "validation_passed": true,
+      "published_at": null,
+      "archived_at": null
+    },
+    "content_type": "grammar_card",
+    "content": {
+      "front": {
+        "rule_label": "vastaanottaja",
+        "pattern": "allatiivi vastaanottajalle",
+        "example": "Soitan hammaslääkärille ajan takia."
+      },
+      "back": {
+        "recall_prompt": "Miksi “hammaslääkärille” sopii paremmin kuin “hammaslääkäriltä” lauseessa “Soitan hammaslääkärille ajan takia.”?",
+        "rule_summary": "Muoto “hammaslääkärille” on allatiivi. Pääte -lle kertoo, kenelle toiminta suuntautuu; lähtömuoto kuten “hammaslääkäriltä” ei ilmaise vastaanottajaa.",
+        "target_form": "hammaslääkärille"
+      },
+      "prompt_family": "grammar_memory",
+      "follow_ups": [
+        {
+          "variant_type": "recognition_mcq",
+          "prompt": "Miksi “hammaslääkärille” sopii paremmin kuin “hammaslääkäriltä” lauseessa “Soitan hammaslääkärille ajan takia.”?",
+          "options": [
+            {
+              "option_id": "a",
+              "text": "kielteinen preesens"
+            },
+            {
+              "option_id": "b",
+              "text": "mennyt aika"
+            },
+            {
+              "option_id": "c",
+              "text": "kokonainen kohde"
+            },
+            {
+              "option_id": "d",
+              "text": "vastaanottaja"
+            }
+          ],
+          "answer_key": "d",
+          "accepted_variants": [],
+          "evaluation_mode": "option_id"
+        }
+      ],
+      "explanation": {
+        "summary": "Muoto “hammaslääkärille” on allatiivi. Pääte -lle kertoo, kenelle toiminta suuntautuu; lähtömuoto kuten “hammaslääkäriltä” ei ilmaise vastaanottajaa.",
+        "example": "Soitan hammaslääkärille ajan takia."
+      },
+      "audio": null,
+      "validation": {
+        "case_sensitive": false,
+        "normalize_whitespace": true,
+        "allow_partial_credit": false
+      }
+    },
+    "promotion": {
+      "bucket": "grammar",
+      "level_file": "a1_a2.json"
+    },
+    "state": "published",
+    "validation_passed": true,
+    "published_at": "2026-05-27T19:05:58.696682+00:00",
+    "_stage6": {
+      "source_rel": "yki/exam/grammar/a1_a2.json",
+      "source_item_key": "yki_a1_a2_tight_2250_allative_recipient_puhelu_hammaslaakarille",
+      "source_index": 14
+    }
+  },
+  {
+    "id": "card.grammar.yki.yki-a1-a2-tight-2252-allative-recipient-paketti-kuskille.1e0d848a",
+    "version": 1,
+    "path": "general/grammar",
+    "domain": "general_finnish",
+    "profession": {
+      "track": "none",
+      "slug": "general",
+      "label": "General"
+    },
+    "level_band": "A1_A2",
+    "difficulty": "foundation",
+    "language": "fi",
+    "source": {
+      "source_id": "source.grammar_rebuild_v4.general-grammar-a1-a2-json",
+      "kind": "generated_or_recovered_batch",
+      "origin_path": "/home/vitus/floently-grammar-rebuild-v4/20_publish_ready_bank/stage4_publish_ready_grammar_bank/validated/yki/exam/grammar/a1_a2.json",
+      "authoring_note": "converted_from_floently_grammar_rebuild_v4_stage6"
+    },
+    "quality": {
+      "status": "prevalidated",
+      "reviewer": null,
+      "validation_checks": [
+        "stage6_mgi_to_server_canonical_conversion",
+        "answer_key_recovery",
+        "overlay_row_conversion",
+        "server_shape_validation"
+      ],
+      "quality_score": 0.95
+    },
+    "tags": [
+      "a1_a2",
+      "general_finnish",
+      "yki",
+      "grammar_memory"
+    ],
+    "publication": {
+      "state": "candidate",
+      "version_tag": "grammar_rebuild_v4_stage6",
+      "manifest_ref": "source.grammar_rebuild_v4.general-grammar-a1-a2-json",
+      "validation_passed": true,
+      "published_at": null,
+      "archived_at": null
+    },
+    "content_type": "grammar_card",
+    "content": {
+      "front": {
+        "rule_label": "vastaanottaja",
+        "pattern": "allatiivi vastaanottajalle",
+        "example": "Annan paketin kuskille ovella."
+      },
+      "back": {
+        "recall_prompt": "Mitä tehtävää muoto “kuskille” tekee lauseessa “Annan paketin kuskille ovella.”?",
+        "rule_summary": "Muoto “kuskille” on allatiivi. Pääte -lle kertoo, kenelle toiminta suuntautuu; lähtömuoto kuten “kuskilta” ei ilmaise vastaanottajaa.",
+        "target_form": "kuskille"
+      },
+      "prompt_family": "grammar_memory",
+      "follow_ups": [
+        {
+          "variant_type": "recognition_mcq",
+          "prompt": "Mitä tehtävää muoto “kuskille” tekee lauseessa “Annan paketin kuskille ovella.”?",
+          "options": [
+            {
+              "option_id": "a",
+              "text": "määrää ei rajata"
+            },
+            {
+              "option_id": "b",
+              "text": "vastaanottaja"
+            },
+            {
+              "option_id": "c",
+              "text": "kielteinen preesens"
+            },
+            {
+              "option_id": "d",
+              "text": "genetiiviomistaja"
+            }
+          ],
+          "answer_key": "b",
+          "accepted_variants": [],
+          "evaluation_mode": "option_id"
+        }
+      ],
+      "explanation": {
+        "summary": "Muoto “kuskille” on allatiivi. Pääte -lle kertoo, kenelle toiminta suuntautuu; lähtömuoto kuten “kuskilta” ei ilmaise vastaanottajaa.",
+        "example": "Annan paketin kuskille ovella."
+      },
+      "audio": null,
+      "validation": {
+        "case_sensitive": false,
+        "normalize_whitespace": true,
+        "allow_partial_credit": false
+      }
+    },
+    "promotion": {
+      "bucket": "grammar",
+      "level_file": "a1_a2.json"
+    },
+    "state": "published",
+    "validation_passed": true,
+    "published_at": "2026-05-27T19:05:58.697230+00:00",
+    "_stage6": {
+      "source_rel": "yki/exam/grammar/a1_a2.json",
+      "source_item_key": "yki_a1_a2_tight_2252_allative_recipient_paketti_kuskille",
+      "source_index": 15
+    }
+  },
+  {
+    "id": "card.grammar.yki.yki-a1-a2-tight-2276-negative-present-et-tarvitse-laukkua.37aac293",
+    "version": 1,
+    "path": "general/grammar",
+    "domain": "general_finnish",
+    "profession": {
+      "track": "none",
+      "slug": "general",
+      "label": "General"
+    },
+    "level_band": "A1_A2",
+    "difficulty": "foundation",
+    "language": "fi",
+    "source": {
+      "source_id": "source.grammar_rebuild_v4.general-grammar-a1-a2-json",
+      "kind": "generated_or_recovered_batch",
+      "origin_path": "/home/vitus/floently-grammar-rebuild-v4/20_publish_ready_bank/stage4_publish_ready_grammar_bank/validated/yki/exam/grammar/a1_a2.json",
+      "authoring_note": "converted_from_floently_grammar_rebuild_v4_stage6"
+    },
+    "quality": {
+      "status": "prevalidated",
+      "reviewer": null,
+      "validation_checks": [
+        "stage6_mgi_to_server_canonical_conversion",
+        "answer_key_recovery",
+        "overlay_row_conversion",
+        "server_shape_validation"
+      ],
+      "quality_score": 0.95
+    },
+    "tags": [
+      "a1_a2",
+      "general_finnish",
+      "yki",
+      "grammar_memory"
+    ],
+    "publication": {
+      "state": "candidate",
+      "version_tag": "grammar_rebuild_v4_stage6",
+      "manifest_ref": "source.grammar_rebuild_v4.general-grammar-a1-a2-json",
+      "validation_passed": true,
+      "published_at": null,
+      "archived_at": null
+    },
+    "content_type": "grammar_card",
+    "content": {
+      "front": {
+        "rule_label": "kielteinen preesens",
+        "pattern": "kielteinen preesens",
+        "example": "Et tarvitse laukkua tänään."
+      },
+      "back": {
+        "recall_prompt": "Mikä muoto sopii lauseeseen: “Et ___ laukkua tänään.”?",
+        "rule_summary": "Kieltosanan jälkeen pääverbi on kieltomuodossa: “tarvitse”. Persoonapäätteellinen muoto ei sovi kieltosanan kanssa.",
+        "target_form": "tarvitse"
+      },
+      "prompt_family": "grammar_memory",
+      "follow_ups": [
+        {
+          "variant_type": "recognition_mcq",
+          "prompt": "Mikä muoto sopii lauseeseen: “Et ___ laukkua tänään.”?",
+          "options": [
+            {
+              "option_id": "a",
+              "text": "tarvitse"
+            },
+            {
+              "option_id": "b",
+              "text": "tarvitset"
+            },
+            {
+              "option_id": "c",
+              "text": "tarvitsit"
+            },
+            {
+              "option_id": "d",
+              "text": "tarvita"
+            }
+          ],
+          "answer_key": "a",
+          "accepted_variants": [],
+          "evaluation_mode": "option_id"
+        }
+      ],
+      "explanation": {
+        "summary": "Kieltosanan jälkeen pääverbi on kieltomuodossa: “tarvitse”. Persoonapäätteellinen muoto ei sovi kieltosanan kanssa.",
+        "example": "Et tarvitse laukkua tänään."
+      },
+      "audio": null,
+      "validation": {
+        "case_sensitive": false,
+        "normalize_whitespace": true,
+        "allow_partial_credit": false
+      }
+    },
+    "promotion": {
+      "bucket": "grammar",
+      "level_file": "a1_a2.json"
+    },
+    "state": "published",
+    "validation_passed": true,
+    "published_at": "2026-05-27T19:05:58.697784+00:00",
+    "_stage6": {
+      "source_rel": "yki/exam/grammar/a1_a2.json",
+      "source_item_key": "yki_a1_a2_tight_2276_negative_present_et_tarvitse_laukkua",
+      "source_index": 16
+    }
+  },
+  {
+    "id": "card.grammar.yki.yki-a1-a2-tight-2281-negative-present-en-halua-mehua.901accc5",
+    "version": 1,
+    "path": "general/grammar",
+    "domain": "general_finnish",
+    "profession": {
+      "track": "none",
+      "slug": "general",
+      "label": "General"
+    },
+    "level_band": "A1_A2",
+    "difficulty": "foundation",
+    "language": "fi",
+    "source": {
+      "source_id": "source.grammar_rebuild_v4.general-grammar-a1-a2-json",
+      "kind": "generated_or_recovered_batch",
+      "origin_path": "/home/vitus/floently-grammar-rebuild-v4/20_publish_ready_bank/stage4_publish_ready_grammar_bank/validated/yki/exam/grammar/a1_a2.json",
+      "authoring_note": "converted_from_floently_grammar_rebuild_v4_stage6"
+    },
+    "quality": {
+      "status": "prevalidated",
+      "reviewer": null,
+      "validation_checks": [
+        "stage6_mgi_to_server_canonical_conversion",
+        "answer_key_recovery",
+        "overlay_row_conversion",
+        "server_shape_validation"
+      ],
+      "quality_score": 0.95
+    },
+    "tags": [
+      "a1_a2",
+      "general_finnish",
+      "yki",
+      "grammar_memory"
+    ],
+    "publication": {
+      "state": "candidate",
+      "version_tag": "grammar_rebuild_v4_stage6",
+      "manifest_ref": "source.grammar_rebuild_v4.general-grammar-a1-a2-json",
+      "validation_passed": true,
+      "published_at": null,
+      "archived_at": null
+    },
+    "content_type": "grammar_card",
+    "content": {
+      "front": {
+        "rule_label": "kielteinen preesens",
+        "pattern": "kielteinen preesens",
+        "example": "En halua mehua nyt."
+      },
+      "back": {
+        "recall_prompt": "Mikä muoto sopii lauseeseen: “En ___ mehua nyt.”?",
+        "rule_summary": "Kieltosanan jälkeen pääverbi on kieltomuodossa: “halua”. Persoonapäätteellinen muoto ei sovi kieltosanan kanssa.",
+        "target_form": "halua"
+      },
+      "prompt_family": "grammar_memory",
+      "follow_ups": [
+        {
+          "variant_type": "recognition_mcq",
+          "prompt": "Mikä muoto sopii lauseeseen: “En ___ mehua nyt.”?",
+          "options": [
+            {
+              "option_id": "a",
+              "text": "halua"
+            },
+            {
+              "option_id": "b",
+              "text": "haluan"
+            },
+            {
+              "option_id": "c",
+              "text": "halusin"
+            },
+            {
+              "option_id": "d",
+              "text": "haluta"
+            }
+          ],
+          "answer_key": "a",
+          "accepted_variants": [],
+          "evaluation_mode": "option_id"
+        }
+      ],
+      "explanation": {
+        "summary": "Kieltosanan jälkeen pääverbi on kieltomuodossa: “halua”. Persoonapäätteellinen muoto ei sovi kieltosanan kanssa.",
+        "example": "En halua mehua nyt."
+      },
+      "audio": null,
+      "validation": {
+        "case_sensitive": false,
+        "normalize_whitespace": true,
+        "allow_partial_credit": false
+      }
+    },
+    "promotion": {
+      "bucket": "grammar",
+      "level_file": "a1_a2.json"
+    },
+    "state": "published",
+    "validation_passed": true,
+    "published_at": "2026-05-27T19:05:58.698379+00:00",
+    "_stage6": {
+      "source_rel": "yki/exam/grammar/a1_a2.json",
+      "source_item_key": "yki_a1_a2_tight_2281_negative_present_en_halua_mehua",
+      "source_index": 17
+    }
+  },
+  {
+    "id": "card.grammar.yki.yki-a1-a2-tight-2286-negative-present-eivat-etsi-avainta.342e219b",
+    "version": 1,
+    "path": "general/grammar",
+    "domain": "general_finnish",
+    "profession": {
+      "track": "none",
+      "slug": "general",
+      "label": "General"
+    },
+    "level_band": "A1_A2",
+    "difficulty": "foundation",
+    "language": "fi",
+    "source": {
+      "source_id": "source.grammar_rebuild_v4.general-grammar-a1-a2-json",
+      "kind": "generated_or_recovered_batch",
+      "origin_path": "/home/vitus/floently-grammar-rebuild-v4/20_publish_ready_bank/stage4_publish_ready_grammar_bank/validated/yki/exam/grammar/a1_a2.json",
+      "authoring_note": "converted_from_floently_grammar_rebuild_v4_stage6"
+    },
+    "quality": {
+      "status": "prevalidated",
+      "reviewer": null,
+      "validation_checks": [
+        "stage6_mgi_to_server_canonical_conversion",
+        "answer_key_recovery",
+        "overlay_row_conversion",
+        "server_shape_validation"
+      ],
+      "quality_score": 0.95
+    },
+    "tags": [
+      "a1_a2",
+      "general_finnish",
+      "yki",
+      "grammar_memory"
+    ],
+    "publication": {
+      "state": "candidate",
+      "version_tag": "grammar_rebuild_v4_stage6",
+      "manifest_ref": "source.grammar_rebuild_v4.general-grammar-a1-a2-json",
+      "validation_passed": true,
+      "published_at": null,
+      "archived_at": null
+    },
+    "content_type": "grammar_card",
+    "content": {
+      "front": {
+        "rule_label": "kielteinen preesens",
+        "pattern": "kielteinen preesens",
+        "example": "He eivät etsi avainta täältä."
+      },
+      "back": {
+        "recall_prompt": "Mikä muoto sopii lauseeseen: “He eivät ___ avainta täältä.”?",
+        "rule_summary": "Kieltosanan jälkeen pääverbi on kieltomuodossa: “etsi”. Persoonapäätteellinen muoto ei sovi kieltosanan kanssa.",
+        "target_form": "etsi"
+      },
+      "prompt_family": "grammar_memory",
+      "follow_ups": [
+        {
+          "variant_type": "recognition_mcq",
+          "prompt": "Mikä muoto sopii lauseeseen: “He eivät ___ avainta täältä.”?",
+          "options": [
+            {
+              "option_id": "a",
+              "text": "etsi"
+            },
+            {
+              "option_id": "b",
+              "text": "etsivät"
+            },
+            {
+              "option_id": "c",
+              "text": "etsivätkö"
+            },
+            {
+              "option_id": "d",
+              "text": "etsiä"
+            }
+          ],
+          "answer_key": "a",
+          "accepted_variants": [],
+          "evaluation_mode": "option_id"
+        }
+      ],
+      "explanation": {
+        "summary": "Kieltosanan jälkeen pääverbi on kieltomuodossa: “etsi”. Persoonapäätteellinen muoto ei sovi kieltosanan kanssa.",
+        "example": "He eivät etsi avainta täältä."
+      },
+      "audio": null,
+      "validation": {
+        "case_sensitive": false,
+        "normalize_whitespace": true,
+        "allow_partial_credit": false
+      }
+    },
+    "promotion": {
+      "bucket": "grammar",
+      "level_file": "a1_a2.json"
+    },
+    "state": "published",
+    "validation_passed": true,
+    "published_at": "2026-05-27T19:05:58.698950+00:00",
+    "_stage6": {
+      "source_rel": "yki/exam/grammar/a1_a2.json",
+      "source_item_key": "yki_a1_a2_tight_2286_negative_present_eivat_etsi_avainta",
+      "source_index": 18
+    }
+  },
+  {
+    "id": "card.grammar.yki.yki-a1-a2-tight-2291-negative-present-ette-tieda-aikaa.5d10ca95",
+    "version": 1,
+    "path": "general/grammar",
+    "domain": "general_finnish",
+    "profession": {
+      "track": "none",
+      "slug": "general",
+      "label": "General"
+    },
+    "level_band": "A1_A2",
+    "difficulty": "foundation",
+    "language": "fi",
+    "source": {
+      "source_id": "source.grammar_rebuild_v4.general-grammar-a1-a2-json",
+      "kind": "generated_or_recovered_batch",
+      "origin_path": "/home/vitus/floently-grammar-rebuild-v4/20_publish_ready_bank/stage4_publish_ready_grammar_bank/validated/yki/exam/grammar/a1_a2.json",
+      "authoring_note": "converted_from_floently_grammar_rebuild_v4_stage6"
+    },
+    "quality": {
+      "status": "prevalidated",
+      "reviewer": null,
+      "validation_checks": [
+        "stage6_mgi_to_server_canonical_conversion",
+        "answer_key_recovery",
+        "overlay_row_conversion",
+        "server_shape_validation"
+      ],
+      "quality_score": 0.95
+    },
+    "tags": [
+      "a1_a2",
+      "general_finnish",
+      "yki",
+      "grammar_memory"
+    ],
+    "publication": {
+      "state": "candidate",
+      "version_tag": "grammar_rebuild_v4_stage6",
+      "manifest_ref": "source.grammar_rebuild_v4.general-grammar-a1-a2-json",
+      "validation_passed": true,
+      "published_at": null,
+      "archived_at": null
+    },
+    "content_type": "grammar_card",
+    "content": {
+      "front": {
+        "rule_label": "kielteinen preesens",
+        "pattern": "kielteinen preesens",
+        "example": "Ette tiedä oikeaa aikaa."
+      },
+      "back": {
+        "recall_prompt": "Mikä muoto sopii lauseeseen: “Ette ___ oikeaa aikaa.”?",
+        "rule_summary": "Kieltosanan jälkeen pääverbi on kieltomuodossa: “tiedä”. Persoonapäätteellinen muoto ei sovi kieltosanan kanssa.",
+        "target_form": "tiedä"
+      },
+      "prompt_family": "grammar_memory",
+      "follow_ups": [
+        {
+          "variant_type": "recognition_mcq",
+          "prompt": "Mikä muoto sopii lauseeseen: “Ette ___ oikeaa aikaa.”?",
+          "options": [
+            {
+              "option_id": "a",
+              "text": "tiedä"
+            },
+            {
+              "option_id": "b",
+              "text": "tiedätte"
+            },
+            {
+              "option_id": "c",
+              "text": "tiesitte"
+            },
+            {
+              "option_id": "d",
+              "text": "tietää"
+            }
+          ],
+          "answer_key": "a",
+          "accepted_variants": [],
+          "evaluation_mode": "option_id"
+        }
+      ],
+      "explanation": {
+        "summary": "Kieltosanan jälkeen pääverbi on kieltomuodossa: “tiedä”. Persoonapäätteellinen muoto ei sovi kieltosanan kanssa.",
+        "example": "Ette tiedä oikeaa aikaa."
+      },
+      "audio": null,
+      "validation": {
+        "case_sensitive": false,
+        "normalize_whitespace": true,
+        "allow_partial_credit": false
+      }
+    },
+    "promotion": {
+      "bucket": "grammar",
+      "level_file": "a1_a2.json"
+    },
+    "state": "published",
+    "validation_passed": true,
+    "published_at": "2026-05-27T19:05:58.699509+00:00",
+    "_stage6": {
+      "source_rel": "yki/exam/grammar/a1_a2.json",
+      "source_item_key": "yki_a1_a2_tight_2291_negative_present_ette_tieda_aikaa",
+      "source_index": 19
+    }
+  },
+  {
+    "id": "card.grammar.yki.yki-a1-a2-tight-2296-negative-present-et-vie-roskia.836eac95",
+    "version": 1,
+    "path": "general/grammar",
+    "domain": "general_finnish",
+    "profession": {
+      "track": "none",
+      "slug": "general",
+      "label": "General"
+    },
+    "level_band": "A1_A2",
+    "difficulty": "foundation",
+    "language": "fi",
+    "source": {
+      "source_id": "source.grammar_rebuild_v4.general-grammar-a1-a2-json",
+      "kind": "generated_or_recovered_batch",
+      "origin_path": "/home/vitus/floently-grammar-rebuild-v4/20_publish_ready_bank/stage4_publish_ready_grammar_bank/validated/yki/exam/grammar/a1_a2.json",
+      "authoring_note": "converted_from_floently_grammar_rebuild_v4_stage6"
+    },
+    "quality": {
+      "status": "prevalidated",
+      "reviewer": null,
+      "validation_checks": [
+        "stage6_mgi_to_server_canonical_conversion",
+        "answer_key_recovery",
+        "overlay_row_conversion",
+        "server_shape_validation"
+      ],
+      "quality_score": 0.95
+    },
+    "tags": [
+      "a1_a2",
+      "general_finnish",
+      "yki",
+      "grammar_memory"
+    ],
+    "publication": {
+      "state": "candidate",
+      "version_tag": "grammar_rebuild_v4_stage6",
+      "manifest_ref": "source.grammar_rebuild_v4.general-grammar-a1-a2-json",
+      "validation_passed": true,
+      "published_at": null,
+      "archived_at": null
+    },
+    "content_type": "grammar_card",
+    "content": {
+      "front": {
+        "rule_label": "kielteinen preesens",
+        "pattern": "kielteinen preesens",
+        "example": "Et vie roskia vielä."
+      },
+      "back": {
+        "recall_prompt": "Mikä muoto sopii lauseeseen: “Et ___ roskia vielä.”?",
+        "rule_summary": "Kieltosanan jälkeen pääverbi on kieltomuodossa: “vie”. Persoonapäätteellinen muoto ei sovi kieltosanan kanssa.",
+        "target_form": "vie"
+      },
+      "prompt_family": "grammar_memory",
+      "follow_ups": [
+        {
+          "variant_type": "recognition_mcq",
+          "prompt": "Mikä muoto sopii lauseeseen: “Et ___ roskia vielä.”?",
+          "options": [
+            {
+              "option_id": "a",
+              "text": "vie"
+            },
+            {
+              "option_id": "b",
+              "text": "viet"
+            },
+            {
+              "option_id": "c",
+              "text": "veit"
+            },
+            {
+              "option_id": "d",
+              "text": "viedä"
+            }
+          ],
+          "answer_key": "a",
+          "accepted_variants": [],
+          "evaluation_mode": "option_id"
+        }
+      ],
+      "explanation": {
+        "summary": "Kieltosanan jälkeen pääverbi on kieltomuodossa: “vie”. Persoonapäätteellinen muoto ei sovi kieltosanan kanssa.",
+        "example": "Et vie roskia vielä."
+      },
+      "audio": null,
+      "validation": {
+        "case_sensitive": false,
+        "normalize_whitespace": true,
+        "allow_partial_credit": false
+      }
+    },
+    "promotion": {
+      "bucket": "grammar",
+      "level_file": "a1_a2.json"
+    },
+    "state": "published",
+    "validation_passed": true,
+    "published_at": "2026-05-27T19:05:58.700071+00:00",
+    "_stage6": {
+      "source_rel": "yki/exam/grammar/a1_a2.json",
+      "source_item_key": "yki_a1_a2_tight_2296_negative_present_et_vie_roskia",
+      "source_index": 20
+    }
+  },
+  {
+    "id": "card.grammar.yki.yki-a1-a2-tight-2256-adessive-place-kassi-tuolilla.45a893cd",
+    "version": 1,
+    "path": "general/grammar",
+    "domain": "general_finnish",
+    "profession": {
+      "track": "none",
+      "slug": "general",
+      "label": "General"
+    },
+    "level_band": "A1_A2",
+    "difficulty": "foundation",
+    "language": "fi",
+    "source": {
+      "source_id": "source.grammar_rebuild_v4.general-grammar-a1-a2-json",
+      "kind": "generated_or_recovered_batch",
+      "origin_path": "/home/vitus/floently-grammar-rebuild-v4/20_publish_ready_bank/stage4_publish_ready_grammar_bank/validated/yki/exam/grammar/a1_a2.json",
+      "authoring_note": "converted_from_floently_grammar_rebuild_v4_stage6"
+    },
+    "quality": {
+      "status": "prevalidated",
+      "reviewer": null,
+      "validation_checks": [
+        "stage6_mgi_to_server_canonical_conversion",
+        "answer_key_recovery",
+        "overlay_row_conversion",
+        "server_shape_validation"
+      ],
+      "quality_score": 0.95
+    },
+    "tags": [
+      "a1_a2",
+      "general_finnish",
+      "yki",
+      "grammar_memory"
+    ],
+    "publication": {
+      "state": "candidate",
+      "version_tag": "grammar_rebuild_v4_stage6",
+      "manifest_ref": "source.grammar_rebuild_v4.general-grammar-a1-a2-json",
+      "validation_passed": true,
+      "published_at": null,
+      "archived_at": null
+    },
+    "content_type": "grammar_card",
+    "content": {
+      "front": {
+        "rule_label": "paikka jossa ollaan",
+        "pattern": "adessiivi paikassa olemiseen",
+        "example": "Kassi on tuolilla keittiössä."
+      },
+      "back": {
+        "recall_prompt": "Mikä muoto sopii lauseeseen: “Kassi on ___ keittiössä.”?",
+        "rule_summary": "Muoto “tuolilla” on adessiivi. Se vastaa kysymykseen missä ja kertoo paikassa olemisen, ei liikkumista paikkaan.",
+        "target_form": "tuolilla"
+      },
+      "prompt_family": "grammar_memory",
+      "follow_ups": [
+        {
+          "variant_type": "recognition_mcq",
+          "prompt": "Mikä muoto sopii lauseeseen: “Kassi on ___ keittiössä.”?",
+          "options": [
+            {
+              "option_id": "a",
+              "text": "tuolilla"
+            },
+            {
+              "option_id": "b",
+              "text": "tuolille"
+            },
+            {
+              "option_id": "c",
+              "text": "tuolilta"
+            },
+            {
+              "option_id": "d",
+              "text": "tuolissa"
+            }
+          ],
+          "answer_key": "a",
+          "accepted_variants": [],
+          "evaluation_mode": "option_id"
+        }
+      ],
+      "explanation": {
+        "summary": "Muoto “tuolilla” on adessiivi. Se vastaa kysymykseen missä ja kertoo paikassa olemisen, ei liikkumista paikkaan.",
+        "example": "Kassi on tuolilla keittiössä."
+      },
+      "audio": null,
+      "validation": {
+        "case_sensitive": false,
+        "normalize_whitespace": true,
+        "allow_partial_credit": false
+      }
+    },
+    "promotion": {
+      "bucket": "grammar",
+      "level_file": "a1_a2.json"
+    },
+    "state": "published",
+    "validation_passed": true,
+    "published_at": "2026-05-27T19:05:58.714626+00:00",
+    "_stage6": {
+      "source_rel": "yki/exam/grammar/a1_a2.json",
+      "source_item_key": "yki_a1_a2_tight_2256_adessive_place_kassi_tuolilla",
+      "source_index": 21
+    }
+  },
+  {
+    "id": "card.grammar.yki.yki-a1-a2-tight-2261-adessive-place-laukku-lattialla.ae196aae",
+    "version": 1,
+    "path": "general/grammar",
+    "domain": "general_finnish",
+    "profession": {
+      "track": "none",
+      "slug": "general",
+      "label": "General"
+    },
+    "level_band": "A1_A2",
+    "difficulty": "foundation",
+    "language": "fi",
+    "source": {
+      "source_id": "source.grammar_rebuild_v4.general-grammar-a1-a2-json",
+      "kind": "generated_or_recovered_batch",
+      "origin_path": "/home/vitus/floently-grammar-rebuild-v4/20_publish_ready_bank/stage4_publish_ready_grammar_bank/validated/yki/exam/grammar/a1_a2.json",
+      "authoring_note": "converted_from_floently_grammar_rebuild_v4_stage6"
+    },
+    "quality": {
+      "status": "prevalidated",
+      "reviewer": null,
+      "validation_checks": [
+        "stage6_mgi_to_server_canonical_conversion",
+        "answer_key_recovery",
+        "overlay_row_conversion",
+        "server_shape_validation"
+      ],
+      "quality_score": 0.95
+    },
+    "tags": [
+      "a1_a2",
+      "general_finnish",
+      "yki",
+      "grammar_memory"
+    ],
+    "publication": {
+      "state": "candidate",
+      "version_tag": "grammar_rebuild_v4_stage6",
+      "manifest_ref": "source.grammar_rebuild_v4.general-grammar-a1-a2-json",
+      "validation_passed": true,
+      "published_at": null,
+      "archived_at": null
+    },
+    "content_type": "grammar_card",
+    "content": {
+      "front": {
+        "rule_label": "paikka jossa ollaan",
+        "pattern": "adessiivi paikassa olemiseen",
+        "example": "Laukku on lattialla oven vieressä."
+      },
+      "back": {
+        "recall_prompt": "Mikä muoto sopii lauseeseen: “Laukku on ___ oven vieressä.”?",
+        "rule_summary": "Muoto “lattialla” on adessiivi. Se vastaa kysymykseen missä ja kertoo paikassa olemisen, ei liikkumista paikkaan.",
+        "target_form": "lattialla"
+      },
+      "prompt_family": "grammar_memory",
+      "follow_ups": [
+        {
+          "variant_type": "recognition_mcq",
+          "prompt": "Mikä muoto sopii lauseeseen: “Laukku on ___ oven vieressä.”?",
+          "options": [
+            {
+              "option_id": "a",
+              "text": "lattialla"
+            },
+            {
+              "option_id": "b",
+              "text": "lattialle"
+            },
+            {
+              "option_id": "c",
+              "text": "lattialta"
+            },
+            {
+              "option_id": "d",
+              "text": "lattiassa"
+            }
+          ],
+          "answer_key": "a",
+          "accepted_variants": [],
+          "evaluation_mode": "option_id"
+        }
+      ],
+      "explanation": {
+        "summary": "Muoto “lattialla” on adessiivi. Se vastaa kysymykseen missä ja kertoo paikassa olemisen, ei liikkumista paikkaan.",
+        "example": "Laukku on lattialla oven vieressä."
+      },
+      "audio": null,
+      "validation": {
+        "case_sensitive": false,
+        "normalize_whitespace": true,
+        "allow_partial_credit": false
+      }
+    },
+    "promotion": {
+      "bucket": "grammar",
+      "level_file": "a1_a2.json"
+    },
+    "state": "published",
+    "validation_passed": true,
+    "published_at": "2026-05-27T19:05:58.715219+00:00",
+    "_stage6": {
+      "source_rel": "yki/exam/grammar/a1_a2.json",
+      "source_item_key": "yki_a1_a2_tight_2261_adessive_place_laukku_lattialla",
+      "source_index": 22
+    }
+  },
+  {
+    "id": "card.grammar.yki.yki-a1-a2-tight-2266-adessive-place-pyora-asemalla.134f8deb",
+    "version": 1,
+    "path": "general/grammar",
+    "domain": "general_finnish",
+    "profession": {
+      "track": "none",
+      "slug": "general",
+      "label": "General"
+    },
+    "level_band": "A1_A2",
+    "difficulty": "foundation",
+    "language": "fi",
+    "source": {
+      "source_id": "source.grammar_rebuild_v4.general-grammar-a1-a2-json",
+      "kind": "generated_or_recovered_batch",
+      "origin_path": "/home/vitus/floently-grammar-rebuild-v4/20_publish_ready_bank/stage4_publish_ready_grammar_bank/validated/yki/exam/grammar/a1_a2.json",
+      "authoring_note": "converted_from_floently_grammar_rebuild_v4_stage6"
+    },
+    "quality": {
+      "status": "prevalidated",
+      "reviewer": null,
+      "validation_checks": [
+        "stage6_mgi_to_server_canonical_conversion",
+        "answer_key_recovery",
+        "overlay_row_conversion",
+        "server_shape_validation"
+      ],
+      "quality_score": 0.95
+    },
+    "tags": [
+      "a1_a2",
+      "general_finnish",
+      "yki",
+      "grammar_memory"
+    ],
+    "publication": {
+      "state": "candidate",
+      "version_tag": "grammar_rebuild_v4_stage6",
+      "manifest_ref": "source.grammar_rebuild_v4.general-grammar-a1-a2-json",
+      "validation_passed": true,
+      "published_at": null,
+      "archived_at": null
+    },
+    "content_type": "grammar_card",
+    "content": {
+      "front": {
+        "rule_label": "paikka jossa ollaan",
+        "pattern": "adessiivi paikassa olemiseen",
+        "example": "Pyörä on asemalla lukossa."
+      },
+      "back": {
+        "recall_prompt": "Mikä muoto sopii lauseeseen: “Pyörä on ___ lukossa.”?",
+        "rule_summary": "Muoto “asemalla” on adessiivi. Se vastaa kysymykseen missä ja kertoo paikassa olemisen, ei liikkumista paikkaan.",
+        "target_form": "asemalla"
+      },
+      "prompt_family": "grammar_memory",
+      "follow_ups": [
+        {
+          "variant_type": "recognition_mcq",
+          "prompt": "Mikä muoto sopii lauseeseen: “Pyörä on ___ lukossa.”?",
+          "options": [
+            {
+              "option_id": "a",
+              "text": "asemalla"
+            },
+            {
+              "option_id": "b",
+              "text": "asemalle"
+            },
+            {
+              "option_id": "c",
+              "text": "asemalta"
+            },
+            {
+              "option_id": "d",
+              "text": "asemassa"
+            }
+          ],
+          "answer_key": "a",
+          "accepted_variants": [],
+          "evaluation_mode": "option_id"
+        }
+      ],
+      "explanation": {
+        "summary": "Muoto “asemalla” on adessiivi. Se vastaa kysymykseen missä ja kertoo paikassa olemisen, ei liikkumista paikkaan.",
+        "example": "Pyörä on asemalla lukossa."
+      },
+      "audio": null,
+      "validation": {
+        "case_sensitive": false,
+        "normalize_whitespace": true,
+        "allow_partial_credit": false
+      }
+    },
+    "promotion": {
+      "bucket": "grammar",
+      "level_file": "a1_a2.json"
+    },
+    "state": "published",
+    "validation_passed": true,
+    "published_at": "2026-05-27T19:05:58.715803+00:00",
+    "_stage6": {
+      "source_rel": "yki/exam/grammar/a1_a2.json",
+      "source_item_key": "yki_a1_a2_tight_2266_adessive_place_pyora_asemalla",
+      "source_index": 23
+    }
+  },
+  {
+    "id": "card.grammar.yki.yki-a1-a2-tight-2271-adessive-place-koira-matolla.a212d8ab",
+    "version": 1,
+    "path": "general/grammar",
+    "domain": "general_finnish",
+    "profession": {
+      "track": "none",
+      "slug": "general",
+      "label": "General"
+    },
+    "level_band": "A1_A2",
+    "difficulty": "foundation",
+    "language": "fi",
+    "source": {
+      "source_id": "source.grammar_rebuild_v4.general-grammar-a1-a2-json",
+      "kind": "generated_or_recovered_batch",
+      "origin_path": "/home/vitus/floently-grammar-rebuild-v4/20_publish_ready_bank/stage4_publish_ready_grammar_bank/validated/yki/exam/grammar/a1_a2.json",
+      "authoring_note": "converted_from_floently_grammar_rebuild_v4_stage6"
+    },
+    "quality": {
+      "status": "prevalidated",
+      "reviewer": null,
+      "validation_checks": [
+        "stage6_mgi_to_server_canonical_conversion",
+        "answer_key_recovery",
+        "overlay_row_conversion",
+        "server_shape_validation"
+      ],
+      "quality_score": 0.95
+    },
+    "tags": [
+      "a1_a2",
+      "general_finnish",
+      "yki",
+      "grammar_memory"
+    ],
+    "publication": {
+      "state": "candidate",
+      "version_tag": "grammar_rebuild_v4_stage6",
+      "manifest_ref": "source.grammar_rebuild_v4.general-grammar-a1-a2-json",
+      "validation_passed": true,
+      "published_at": null,
+      "archived_at": null
+    },
+    "content_type": "grammar_card",
+    "content": {
+      "front": {
+        "rule_label": "paikka jossa ollaan",
+        "pattern": "adessiivi paikassa olemiseen",
+        "example": "Koira makaa matolla eteisessä."
+      },
+      "back": {
+        "recall_prompt": "Mikä muoto sopii lauseeseen: “Koira makaa ___ eteisessä.”?",
+        "rule_summary": "Muoto “matolla” on adessiivi. Se vastaa kysymykseen missä ja kertoo paikassa olemisen, ei liikkumista paikkaan.",
+        "target_form": "matolla"
+      },
+      "prompt_family": "grammar_memory",
+      "follow_ups": [
+        {
+          "variant_type": "recognition_mcq",
+          "prompt": "Mikä muoto sopii lauseeseen: “Koira makaa ___ eteisessä.”?",
+          "options": [
+            {
+              "option_id": "a",
+              "text": "matolla"
+            },
+            {
+              "option_id": "b",
+              "text": "matolle"
+            },
+            {
+              "option_id": "c",
+              "text": "matolta"
+            },
+            {
+              "option_id": "d",
+              "text": "matossa"
+            }
+          ],
+          "answer_key": "a",
+          "accepted_variants": [],
+          "evaluation_mode": "option_id"
+        }
+      ],
+      "explanation": {
+        "summary": "Muoto “matolla” on adessiivi. Se vastaa kysymykseen missä ja kertoo paikassa olemisen, ei liikkumista paikkaan.",
+        "example": "Koira makaa matolla eteisessä."
+      },
+      "audio": null,
+      "validation": {
+        "case_sensitive": false,
+        "normalize_whitespace": true,
+        "allow_partial_credit": false
+      }
+    },
+    "promotion": {
+      "bucket": "grammar",
+      "level_file": "a1_a2.json"
+    },
+    "state": "published",
+    "validation_passed": true,
+    "published_at": "2026-05-27T19:05:58.716384+00:00",
+    "_stage6": {
+      "source_rel": "yki/exam/grammar/a1_a2.json",
+      "source_item_key": "yki_a1_a2_tight_2271_adessive_place_koira_matolla",
+      "source_index": 24
+    }
+  }
+]

@@ -1,20 +1,24 @@
-import React, { useMemo, useState } from 'react';
+import React, { useEffect, useMemo, useRef, useState } from 'react';
 import {
   ActivityIndicator,
   Pressable,
+  ScrollView,
   StyleSheet,
   Text,
   TextInput,
   View,
 } from 'react-native';
 import { router, useLocalSearchParams } from 'expo-router';
+import { ReducedMotionAwareMotion, performLearningHaptic } from '@ui/learningExperience';
 import { getFloentlyPalette } from '@ui/theme/floentlyPalette';
 import { usePreferencesStore } from '../../../state/preferencesStore';
+import { useCardLevelPreferenceStore } from '../../../state/cardLevelPreferenceStore';
 import { useTranslator } from '../../i18n';
 import { CardBanksPanel } from './CardBanksPanel';
+import { CardLevelGate } from './CardLevelGate';
 import { CardModeTabs } from './CardModeTabs';
 import { useCardPractice } from '../hooks/useCardPractice';
-import type { CardDeckScope, CardMode, RuntimeCard } from '../types';
+import type { CardDeckScope, CardLevelBand, CardMode, RuntimeCard } from '../types';
 
 const COLORS = {
   backgroundTop: '#F4F7FB',
@@ -35,6 +39,19 @@ const COLORS = {
   accentEdge: '#F4D38A',
 };
 
+const CARD_REPORT_REASONS = [
+  { code: 'wrong_answer', label: 'Wrong answer' },
+  { code: 'options_mismatch', label: 'Options do not match question' },
+  { code: 'duplicate_options', label: 'Duplicate options' },
+  { code: 'bad_finnish', label: 'Bad Finnish' },
+  { code: 'fake_or_bad_idiom', label: 'Not a real Finnish idiom' },
+  { code: 'bad_grammar_explanation', label: 'Bad grammar explanation' },
+  { code: 'bad_example_sentence', label: 'Bad example sentence' },
+  { code: 'audio_problem', label: 'Audio problem' },
+  { code: 'translation_overlay_problem', label: 'Translation/language problem' },
+  { code: 'other', label: 'Other problem' },
+] as const;
+
 function toneColor(card: RuntimeCard | null) {
   if (!card) return COLORS.primary;
   if (card.state === 'mastered') return COLORS.mastered;
@@ -51,6 +68,21 @@ function parseScope(params: ReturnType<typeof useLocalSearchParams>): CardDeckSc
   const level = typeof params.level === 'string' ? params.level : null;
   const source = typeof params.source === 'string' ? params.source : null;
   return { domain, profession: profession as CardDeckScope['profession'], level, adaptive: true, source };
+}
+
+function normalizeCardLevelBand(value: string | null | undefined): CardLevelBand | null {
+  if (!value) return null;
+  const normalized = value.toUpperCase().replace(/-/g, '_');
+  if (normalized === 'A1' || normalized === 'A2' || normalized === 'A1_A2') return 'A1_A2';
+  if (normalized === 'B1' || normalized === 'B2' || normalized === 'B1_B2') return 'B1_B2';
+  if (normalized === 'C1' || normalized === 'C2' || normalized === 'C1_C2') return 'C1_C2';
+  return null;
+}
+
+function cardLevelLabel(level: CardLevelBand): string {
+  if (level === 'A1_A2') return 'A1–A2';
+  if (level === 'B1_B2') return 'B1–B2';
+  return 'C1–C2';
 }
 
 
@@ -107,8 +139,10 @@ function adaptiveTypography(
     return { fontSize: 18, lineHeight: 24, maxLines: 5, minimumFontScale: 0.88 };
   }
   if (variant === 'option') {
-    if (length > 110) return { fontSize: 13, lineHeight: 18, maxLines: 4, minimumFontScale: 0.86 };
-    return { fontSize: 15, lineHeight: 20, maxLines: 3, minimumFontScale: 0.9 };
+    if (length > 220) return { fontSize: 13, lineHeight: 19, maxLines: 0, minimumFontScale: 1 };
+    if (length > 150) return { fontSize: 13, lineHeight: 19, maxLines: 0, minimumFontScale: 1 };
+    if (length > 90) return { fontSize: 14, lineHeight: 20, maxLines: 0, minimumFontScale: 1 };
+    return { fontSize: 15, lineHeight: 21, maxLines: 0, minimumFontScale: 1 };
   }
   if (variant === 'hint') {
     if (length > 180) return { fontSize: 12, lineHeight: 17, maxLines: 5, minimumFontScale: 0.9 };
@@ -118,8 +152,37 @@ function adaptiveTypography(
   return { fontSize: 14, lineHeight: 20, maxLines: 5, minimumFontScale: 0.92 };
 }
 
+function isUnsafeDisplayText(value: string | null | undefined) {
+  const text = String(value ?? '').trim();
+  return /<html|<\/html|<head|<\/head|<body|<\/body|502 Bad Gateway|nginx\/|Internal server error/i.test(text);
+}
+
+function sanitizeDisplayText(value: string | null | undefined, fallback = '') {
+  const text = String(value ?? '').replace(/\s+/g, ' ').trim();
+  if (!text || isUnsafeDisplayText(text)) return fallback;
+  return text;
+}
+
+function safeOptions(options: Array<{ option_id: string; text: string }> | null | undefined) {
+  return (options ?? [])
+    .map((option, index) => ({
+      ...option,
+      option_id: option.option_id || String.fromCharCode(65 + index),
+      text: sanitizeDisplayText(option.text),
+    }))
+    .filter((option) => option.text.length > 0)
+    .slice(0, 4);
+}
+
 function AdaptiveCardCopy({ text, variant, color, mode }: AdaptiveCardCopyProps) {
-  const metrics = adaptiveTypography(text, variant, mode);
+  const cleanedText = sanitizeDisplayText(
+    text,
+    variant === 'option' ? '' : 'Yhteysvirhe. Yritä uudelleen.',
+  );
+
+  if (!cleanedText) return null;
+
+  const metrics = adaptiveTypography(cleanedText, variant, mode);
   const baseStyle = variant === 'front'
     ? styles.mainWord
     : variant === 'prompt'
@@ -130,11 +193,14 @@ function AdaptiveCardCopy({ text, variant, color, mode }: AdaptiveCardCopyProps)
           ? styles.hintText
           : styles.contextText;
 
+  const lineClamp = undefined;
+
   return (
     <Text
-      adjustsFontSizeToFit
-      minimumFontScale={metrics.minimumFontScale}
-      numberOfLines={metrics.maxLines}
+      adjustsFontSizeToFit={false}
+      minimumFontScale={1}
+      numberOfLines={lineClamp}
+      allowFontScaling
       style={[
         baseStyle,
         {
@@ -144,7 +210,7 @@ function AdaptiveCardCopy({ text, variant, color, mode }: AdaptiveCardCopyProps)
         },
       ]}
     >
-      {text}
+      {cleanedText}
     </Text>
   );
 }
@@ -167,9 +233,15 @@ export function CardPracticeSession() {
   const params = useLocalSearchParams();
   const requestedMode = typeof params.mode === 'string' ? params.mode : 'vocabulary';
   const normalizedRequestedMode = requestedMode === 'sentences' ? 'phrases' : requestedMode;
-  const initialMode: CardMode = normalizedRequestedMode === 'grammar' || normalizedRequestedMode === 'phrases' ? normalizedRequestedMode : 'vocabulary';
+  const initialMode: CardMode = normalizedRequestedMode === 'phrases'
+    ? 'phrases'
+    : normalizedRequestedMode === 'grammar'
+      ? 'grammar'
+      : 'vocabulary';
   const [mode, setMode] = useState<CardMode>(initialMode);
   const [banksVisible, setBanksVisible] = useState(false);
+  const [reportPanelVisible, setReportPanelVisible] = useState(false);
+  const [reportSubmitting, setReportSubmitting] = useState(false);
   const themeMode = usePreferencesStore((state) => state.themeMode);
   const palette = getFloentlyPalette(themeMode);
   const isDark = themeMode === 'dark';
@@ -181,14 +253,46 @@ export function CardPracticeSession() {
   const paramProfession = typeof params.profession === 'string' ? params.profession : '';
   const paramLevel = typeof params.level === 'string' ? params.level : '';
   const paramSource = typeof params.source === 'string' ? params.source : '';
+  const cardDomain = paramDomain === 'professional' ? 'professional' : 'general';
+  const levelContextKey = `${cardDomain}:${paramProfession || 'none'}`;
+  const routeLevel = normalizeCardLevelBand(paramLevel);
+
+  const cardLevelPreferencesHydrated = useCardLevelPreferenceStore((state) => state.hasHydrated);
+  const rememberedLevels = useCardLevelPreferenceStore((state) => state.byContext);
+  const hydrateCardLevelPreferences = useCardLevelPreferenceStore((state) => state.hydrate);
+  const rememberCardLevel = useCardLevelPreferenceStore((state) => state.rememberLevel);
+  const [selectedLevel, setSelectedLevel] = useState<CardLevelBand>(() => routeLevel ?? 'A1_A2');
+  const [confirmedLevel, setConfirmedLevel] = useState<CardLevelBand | null>(null);
+  const [levelChoiceTouched, setLevelChoiceTouched] = useState(false);
+
+  useEffect(() => {
+    void hydrateCardLevelPreferences();
+  }, [hydrateCardLevelPreferences]);
+
+  useEffect(() => {
+    setConfirmedLevel(null);
+    setLevelChoiceTouched(false);
+  }, [levelContextKey, paramLevel]);
+
+  useEffect(() => {
+    if (!cardLevelPreferencesHydrated || levelChoiceTouched || confirmedLevel) return;
+    setSelectedLevel(routeLevel ?? rememberedLevels[levelContextKey] ?? 'A1_A2');
+  }, [
+    cardLevelPreferencesHydrated,
+    confirmedLevel,
+    levelChoiceTouched,
+    levelContextKey,
+    rememberedLevels,
+    routeLevel,
+  ]);
 
   const scope = useMemo<CardDeckScope>(() => ({
-    domain: paramDomain === 'professional' ? 'professional' : 'general',
+    domain: cardDomain,
     profession: (paramProfession || null) as CardDeckScope['profession'],
-    level: paramLevel || null,
+    level: confirmedLevel,
     adaptive: true,
     source: paramSource || null,
-  }), [paramDomain, paramProfession, paramLevel, paramSource]);
+  }), [cardDomain, confirmedLevel, paramProfession, paramSource]);
   const {
     displayedCard,
     loading,
@@ -215,15 +319,86 @@ export function CardPracticeSession() {
     refresh,
     error,
     currentLabel,
-  } = useCardPractice(mode, scope);
+    flagCurrent,
+    flagged,
+  } = useCardPractice(mode, scope, confirmedLevel !== null);
 
   const cardTone = toneColor(displayedCard ?? null);
-  const header = mode === 'phrases' ? t('cardsSentencesLabel') : mode === 'grammar' ? t('cardsGrammarLabel') : t('cardsVocabularyLabel');
+  const header = mode === 'phrases'
+    ? t('cardsSentencesLabel')
+    : mode === 'grammar'
+      ? t('cardsGrammarLabel')
+      : t('cardsVocabularyLabel');
   const followUp = displayedCard?.served_follow_up;
   const isRecallView = recallIndex !== null;
-  const isChoiceMode = Boolean(followUp?.options?.length);
+  const visibleOptions = safeOptions(followUp?.options);
+  const isChoiceMode = Boolean(visibleOptions.length);
   const indicatorCount = 4;
   const activeIndicator = Math.min(indicatorCount - 1, Math.floor(progress.ratio * indicatorCount));
+  const completionHapticDelivered = useRef(false);
+
+  useEffect(() => {
+    if (!sessionCompleted) {
+      completionHapticDelivered.current = false;
+      return;
+    }
+    if (completionHapticDelivered.current) return;
+    completionHapticDelivered.current = true;
+    void performLearningHaptic('completion');
+  }, [sessionCompleted]);
+
+  const reportCurrentCard = async (reason: string) => {
+    if (!displayedCard || flagged || reportSubmitting) return;
+    setReportSubmitting(true);
+    try {
+      await flagCurrent(reason);
+      setReportPanelVisible(false);
+    } finally {
+      setReportSubmitting(false);
+    }
+  };
+
+  const changeMode = (nextMode: CardMode) => {
+    if (nextMode === mode) return;
+    setMode(nextMode);
+    setConfirmedLevel(null);
+    setBanksVisible(false);
+    setReportPanelVisible(false);
+  };
+
+  const chooseLevel = (nextLevel: CardLevelBand) => {
+    setLevelChoiceTouched(true);
+    setSelectedLevel(nextLevel);
+  };
+
+  const confirmLevel = () => {
+    setConfirmedLevel(selectedLevel);
+    void rememberCardLevel(levelContextKey, selectedLevel);
+  };
+
+  if (!confirmedLevel) {
+    return (
+      <View style={[styles.screen, { backgroundColor: isDark ? palette.background : COLORS.backgroundTop }]}>
+        <View style={[styles.backgroundGlowOne, isDark && { backgroundColor: 'rgba(30,50,90,0.35)' }]} />
+        <View style={[styles.backgroundGlowTwo, isDark && { backgroundColor: 'rgba(20,40,80,0.30)' }]} />
+        <View style={styles.waveOne} />
+        <View style={styles.waveTwo} />
+        <CardModeTabs value={mode} onChange={changeMode} />
+        <ScrollView
+          style={styles.practiceScroll}
+          contentContainerStyle={styles.levelGateScrollContent}
+          showsVerticalScrollIndicator={false}
+        >
+          <CardLevelGate
+            mode={mode}
+            value={selectedLevel}
+            onChange={chooseLevel}
+            onConfirm={confirmLevel}
+          />
+        </ScrollView>
+      </View>
+    );
+  }
 
   return (
     <View style={[styles.screen, { backgroundColor: isDark ? palette.background : COLORS.backgroundTop }]}>
@@ -234,22 +409,29 @@ export function CardPracticeSession() {
 
       <CardBanksPanel visible={banksVisible} onClose={() => setBanksVisible(false)} banks={banks} />
 
-      <CardModeTabs value={mode} onChange={(nextMode) => setMode(nextMode)} />
+
+
+
+      <CardModeTabs value={mode} onChange={changeMode} />
 
       <View style={styles.headerRow}>
         <Pressable onPress={recallBack} style={[styles.recallButton, isDark && { backgroundColor: palette.surfaceRaised, borderColor: palette.border }]}>
           <Text style={[styles.recallText, isDark && { color: palette.textMuted }]}>{t('cardsRecallBack')}</Text>
         </Pressable>
-        <Text style={[styles.headerTitle, { color: isDark ? palette.textSoft : '#5E789F' }]}>{header}</Text>
+        <Text style={[styles.headerTitle, { color: isDark ? palette.textSoft : '#5E789F' }]}>{header} · {cardLevelLabel(confirmedLevel)}</Text>
         <Pressable onPress={recallForward} style={[styles.recallButton, isDark && { backgroundColor: palette.surfaceRaised, borderColor: palette.border }]}>
           <Text style={[styles.recallText, isDark && { color: palette.textMuted }]}>{t('cardsRecallForward')}</Text>
         </Pressable>
       </View>
-
       <View style={styles.progressLineTrack}>
         <View style={[styles.progressLineFill, { width: `${Math.max(10, progress.ratio * 100)}%` }]} />
       </View>
 
+      <ScrollView
+        style={styles.practiceScroll}
+        contentContainerStyle={styles.practiceScrollContent}
+        showsVerticalScrollIndicator={false}
+      >
       <View style={styles.cardShell}>
         <View style={[styles.cardOuter, isDark && { backgroundColor: palette.surfaceMuted, shadowColor: 'rgba(0,0,0,0.5)' }]}>
           <View style={[styles.cardInner, isDark && { backgroundColor: palette.surface, borderColor: palette.border }]}>
@@ -287,6 +469,13 @@ export function CardPracticeSession() {
               </Pressable>
             ) : null}
 
+            <View style={styles.cardContentFrame}>
+              <ScrollView
+                style={styles.cardContentScroll}
+                contentContainerStyle={styles.cardContentContainer}
+                nestedScrollEnabled
+                showsVerticalScrollIndicator={false}
+              >
             {loading ? (
               <View style={styles.centerBlock}>
                 <ActivityIndicator color={COLORS.primary} />
@@ -305,7 +494,7 @@ export function CardPracticeSession() {
                     {renderPrompt(displayedCard, isDark ? palette.text : undefined, isDark ? palette.textMuted : undefined, mode)}
                     {isChoiceMode ? (
                       <View style={styles.optionList}>
-                        {followUp?.options.map((option) => {
+                        {visibleOptions.map((option) => {
                           const selected = answer === option.option_id;
                           return (
                             <Pressable key={option.option_id} onPress={() => setAnswer(option.option_id)} style={[styles.optionButton, selected && styles.optionButtonSelected, isDark && { backgroundColor: palette.surfaceMuted, borderColor: palette.border }, isDark && selected && { backgroundColor: palette.primarySurface, borderColor: palette.primary }]}>
@@ -337,6 +526,9 @@ export function CardPracticeSession() {
               </View>
             )}
 
+              </ScrollView>
+            </View>
+
             <View style={[styles.cardFooter, isDark && { borderTopColor: palette.border }]}>
               <Pressable onPress={() => { if (showHint) hideHint(); else void revealHint(); }} style={[styles.footerGhostButton, isDark && { backgroundColor: palette.surfaceMuted, borderColor: palette.border }]}>
                 <Text style={[styles.footerGhostText, isDark && { color: palette.textMuted }]}>{showHint ? t('cardsHideHint') : t('cardsShowHint')}</Text>
@@ -350,16 +542,15 @@ export function CardPracticeSession() {
                 <Pressable
                   onPress={flip}
                   style={[
-                    styles.skipButton,
-                    styles.reverseButton,
-                    isDark && { backgroundColor: palette.surfaceRaised, borderColor: palette.border },
+                    styles.flipIconButtonFilled,
+                    isDark && { backgroundColor: palette.primary, shadowColor: 'rgba(0,0,0,0.35)' },
                     (isRecallView || !displayedCard) && styles.primaryActionDisabled,
                   ]}
                   disabled={isRecallView || !displayedCard}
+                  accessibilityRole="button"
+                  accessibilityLabel="Flip card"
                 >
-                  <Text style={[styles.skipText, styles.reverseButtonText, isDark && { color: palette.textMuted }]}>
-                    {showBack ? '↻' : '⟳'}
-                  </Text>
+                  <Text style={styles.flipIconText}>{String.fromCharCode(8635)}</Text>
                 </Pressable>
               )}
             </View>
@@ -368,7 +559,11 @@ export function CardPracticeSession() {
       </View>
 
       {feedback ? (
-        <View style={[styles.feedbackPanel, { borderColor: feedback.correct ? 'rgba(78,143,106,0.28)' : 'rgba(214,69,69,0.22)' }, isDark && { backgroundColor: palette.surfaceRaised }]}>
+        <ReducedMotionAwareMotion
+          key={`${displayedCard?.id ?? 'card'}-feedback`}
+          kind="feedback-reveal"
+          style={[styles.feedbackPanel, { borderColor: feedback.correct ? 'rgba(78,143,106,0.28)' : 'rgba(214,69,69,0.22)' }, isDark && { backgroundColor: palette.surfaceRaised }]}
+        >
           <Text style={[styles.feedbackTitle, { color: feedback.correct ? COLORS.mastered : COLORS.difficult }]}>
             {feedback.correct ? t('cardsCorrectFeedback') : t('cardsStrengthenThisOne')}
           </Text>
@@ -377,10 +572,56 @@ export function CardPracticeSession() {
           <Pressable onPress={() => void advance()} style={[styles.nextButton, isDark && { backgroundColor: palette.primarySurface }]}>
             <Text style={[styles.nextButtonText, isDark && { color: palette.primary }]}>{sessionCompleted ? t('cardsFinishSession') : t('cardsNextCard')}</Text>
           </Pressable>
-        </View>
+        </ReducedMotionAwareMotion>
       ) : null}
 
       {error ? <Text style={styles.inlineError}>{error}</Text> : null}
+
+      {displayedCard ? (
+        <View style={styles.reportLauncherRow}>
+          <Pressable
+            onPress={() => setReportPanelVisible((visible) => !visible)}
+            style={[
+              styles.reportInfoButton,
+              isDark && { backgroundColor: palette.surfaceRaised, borderColor: palette.border },
+              flagged && styles.reportInfoButtonDone,
+            ]}
+            accessibilityRole="button"
+            accessibilityLabel="Report card problem"
+          >
+            <Text style={[styles.reportInfoText, isDark && { color: palette.text }]}>i</Text>
+          </Pressable>
+          {flagged ? (
+            <Text style={[styles.reportStatusText, isDark && { color: palette.textMuted }]}>Reported</Text>
+          ) : null}
+        </View>
+      ) : null}
+
+      {reportPanelVisible && displayedCard && !flagged ? (
+        <View style={[styles.reportPanel, isDark && { backgroundColor: palette.surfaceRaised, borderColor: palette.border }]}>
+          {/* Report issue info button */}
+          <Text style={[styles.reportTitle, isDark && { color: palette.text }]}>Report a card problem</Text>
+          <Text style={[styles.reportHelpText, isDark && { color: palette.textMuted }]}>
+            Help us clean the card bank. Choose the closest problem type.
+          </Text>
+          <View style={styles.reportReasonGrid}>
+            {CARD_REPORT_REASONS.map((reason) => (
+              <Pressable
+                key={reason.code}
+                onPress={() => void reportCurrentCard(reason.code)}
+                style={[
+                  styles.reportReasonChip,
+                  isDark && { backgroundColor: palette.surfaceMuted, borderColor: palette.border },
+                  reportSubmitting && styles.reportReasonChipDisabled,
+                ]}
+                disabled={reportSubmitting}
+              >
+                <Text style={[styles.reportReasonText, isDark && { color: palette.textMuted }]}>{reason.label}</Text>
+              </Pressable>
+            ))}
+          </View>
+        </View>
+      ) : null}
 
       <View style={styles.dotsRow}>
         {Array.from({ length: indicatorCount }).map((_, index) => {
@@ -394,7 +635,7 @@ export function CardPracticeSession() {
           <Text style={[styles.bankButtonText, isDark && { color: palette.textMuted }]}>{t('cardsReviewBanks')}</Text>
         </Pressable>
         <Pressable
-          onPress={sessionCompleted ? refresh : () => router.back()}
+          onPress={sessionCompleted ? () => setConfirmedLevel(null) : () => router.back()}
           style={[styles.endSessionButton, isDark && { backgroundColor: palette.surfaceRaised, borderColor: palette.border }]}
         >
           <Text style={[styles.endSessionText, isDark && { color: palette.textMuted }]}>
@@ -402,18 +643,21 @@ export function CardPracticeSession() {
           </Text>
         </Pressable>
       </View>
+      </ScrollView>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
+  practiceScroll: { flex: 1, width: '100%' },
+  levelGateScrollContent: { flexGrow: 1, justifyContent: 'center', paddingHorizontal: 18, paddingVertical: 24 },
+  practiceScrollContent: { paddingBottom: 130, alignItems: 'center', flexGrow: 1 },
   screen: {
     flex: 1,
     backgroundColor: COLORS.backgroundTop,
     paddingHorizontal: 20,
     paddingTop: 10,
     paddingBottom: 20,
-    overflow: 'hidden',
   },
   backgroundGlowOne: {
     position: 'absolute',
@@ -462,14 +706,23 @@ const styles = StyleSheet.create({
     marginTop: 8,
     gap: 10,
   },
+
+
+
   recallButton: {
     minHeight: 40,
     paddingHorizontal: 14,
-    borderRadius: 20,
     justifyContent: 'center',
-    backgroundColor: 'rgba(255,255,255,0.68)',
+
+    borderRadius: 999,
     borderWidth: 1,
-    borderColor: 'rgba(55, 85, 143, 0.08)',
+    borderColor: 'rgba(255,255,255,0.90)',
+    backgroundColor: 'rgba(255,255,255,0.82)',
+    shadowColor: 'rgba(62,95,151,0.24)',
+    shadowOpacity: 0.18,
+    shadowRadius: 14,
+    shadowOffset: { width: 0, height: 8 },
+    elevation: 3,
   },
   recallText: {
     fontSize: 14,
@@ -487,7 +740,6 @@ const styles = StyleSheet.create({
     height: 4,
     borderRadius: 999,
     backgroundColor: '#DCE3EE',
-    overflow: 'hidden',
     marginTop: 18,
   },
   progressLineFill: {
@@ -496,14 +748,18 @@ const styles = StyleSheet.create({
     backgroundColor: '#BFD3F8',
   },
   cardShell: {
-    flex: 1,
+    width: '100%',
+    alignItems: 'center',
     justifyContent: 'center',
-    marginTop: 20,
+    marginTop: 18,
+    marginBottom: 12,
+    flexShrink: 0,
   },
   cardOuter: {
     alignSelf: 'center',
-    width: '86%',
-    minHeight: 430,
+    width: '92%',
+    height: 520,
+    maxHeight: 560,
     borderRadius: 30,
     padding: 8,
     backgroundColor: '#F2F6FD',
@@ -520,24 +776,27 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: COLORS.paleBorder,
     paddingHorizontal: 18,
-    paddingTop: 16,
+    paddingTop: 14,
     paddingBottom: 14,
   },
   iconButton: {
     position: 'absolute',
     top: 16,
     width: 42,
-    height: 42,
-    borderRadius: 21,
+    height: 44,
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: '#FFFFFF',
-    shadowColor: '#1E3D79',
-    shadowOpacity: 0.1,
-    shadowRadius: 12,
-    shadowOffset: { width: 0, height: 6 },
-    elevation: 6,
     zIndex: 1,
+
+    borderRadius: 999,
+    borderWidth: 1,
+    borderColor: 'rgba(255,255,255,0.90)',
+    backgroundColor: 'rgba(255,255,255,0.82)',
+    shadowColor: 'rgba(62,95,151,0.24)',
+    shadowOpacity: 0.18,
+    shadowRadius: 14,
+    shadowOffset: { width: 0, height: 8 },
+    elevation: 3,
   },
   speakerIconButton: {
     left: 16,
@@ -550,9 +809,16 @@ const styles = StyleSheet.create({
   },
   iconActionButton: {
     width: 58,
-    borderRadius: 18,
+
+    borderRadius: 999,
     borderWidth: 1,
-    borderColor: 'rgba(87,116,176,0.14)',
+    borderColor: 'rgba(255,255,255,0.90)',
+    backgroundColor: 'rgba(255,255,255,0.82)',
+    shadowColor: 'rgba(62,95,151,0.24)',
+    shadowOpacity: 0.18,
+    shadowRadius: 14,
+    shadowOffset: { width: 0, height: 8 },
+    elevation: 3,
   },
   iconActionButtonDisabled: {
     opacity: 0.45,
@@ -562,10 +828,29 @@ const styles = StyleSheet.create({
     fontWeight: '700',
   },
   centerBlock: {
-    flex: 1,
+    flexGrow: 1,
+    width: '100%',
     alignItems: 'center',
     justifyContent: 'center',
-    paddingTop: 26,
+    paddingTop: 4,
+    paddingBottom: 12,
+    gap: 14,
+  },
+  cardContentFrame: {
+    flex: 1,
+    minHeight: 0,
+    width: '100%',
+    paddingTop: 56,
+  },
+  cardContentScroll: {
+    flex: 1,
+    minHeight: 0,
+    width: '100%',
+  },
+  cardContentContainer: {
+    flexGrow: 1,
+    justifyContent: 'center',
+    paddingBottom: 18,
     gap: 14,
   },
   mainWord: {
@@ -596,42 +881,67 @@ const styles = StyleSheet.create({
   promptBlock: {
     width: '100%',
     gap: 10,
+    flexShrink: 1,
+    paddingHorizontal: 2,
   },
   promptLabel: {
     fontWeight: '700',
     color: COLORS.text,
     textAlign: 'center',
     width: '100%',
+    flexShrink: 1,
+    flexWrap: 'wrap',
   },
   contextText: {
     color: COLORS.muted,
     textAlign: 'center',
     width: '100%',
+    flexShrink: 1,
+    flexWrap: 'wrap',
   },
   optionList: {
     width: '100%',
     gap: 10,
+    flexShrink: 1,
   },
   optionButton: {
-    minHeight: 54,
-    borderRadius: 18,
+    minHeight: 58,
     paddingHorizontal: 14,
-    paddingVertical: 10,
+    paddingVertical: 12,
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: '#F8FBFF',
+    flexShrink: 0,
+
+    borderRadius: 20,
     borderWidth: 1,
-    borderColor: 'rgba(83,110,167,0.14)',
+    borderColor: 'rgba(112,137,178,0.18)',
+    backgroundColor: 'rgba(255,255,255,0.72)',
+    shadowColor: 'rgba(62,95,151,0.16)',
+    shadowOpacity: 0.12,
+    shadowRadius: 12,
+    shadowOffset: { width: 0, height: 6 },
+    elevation: 2,
   },
   optionButtonSelected: {
-    backgroundColor: '#E6EEFF',
-    borderColor: '#88A7E8',
+
+    borderRadius: 20,
+    borderWidth: 1,
+    borderColor: 'rgba(47,107,255,0.48)',
+    backgroundColor: 'rgba(47,107,255,0.10)',
+    shadowColor: '#2F6BFF',
+    shadowOpacity: 0.22,
+    shadowRadius: 16,
+    shadowOffset: { width: 0, height: 9 },
+    elevation: 4,
   },
   optionText: {
-    fontWeight: '600',
+    fontWeight: '700',
     color: COLORS.text,
     textAlign: 'center',
     width: '100%',
+    flexShrink: 1,
+    flexWrap: 'wrap',
+    letterSpacing: 0.1,
   },
   optionTextSelected: {
     color: '#3158AC',
@@ -648,7 +958,7 @@ const styles = StyleSheet.create({
     fontSize: 16,
   },
   cardFooter: {
-    minHeight: 68,
+    minHeight: 76,
     borderTopWidth: 1,
     borderTopColor: 'rgba(82,111,171,0.12)',
     flexDirection: 'row',
@@ -656,15 +966,22 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     gap: 12,
     paddingTop: 12,
+    flexShrink: 0,
   },
   footerGhostButton: {
     minHeight: 34,
     paddingHorizontal: 14,
-    borderRadius: 17,
     justifyContent: 'center',
-    backgroundColor: '#F7FAFF',
+
+    borderRadius: 999,
     borderWidth: 1,
-    borderColor: 'rgba(87,116,176,0.12)',
+    borderColor: 'rgba(255,255,255,0.90)',
+    backgroundColor: 'rgba(255,255,255,0.82)',
+    shadowColor: 'rgba(62,95,151,0.24)',
+    shadowOpacity: 0.18,
+    shadowRadius: 14,
+    shadowOffset: { width: 0, height: 8 },
+    elevation: 3,
   },
   footerGhostText: {
     fontSize: 12,
@@ -696,17 +1013,50 @@ const styles = StyleSheet.create({
     shadowOpacity: 0,
     elevation: 0,
   },
+  flipIconButtonFilled: {
+    width: 56,
+    height: 56,
+    justifyContent: 'center',
+    alignItems: 'center',
+
+    borderRadius: 999,
+    borderWidth: 1,
+    borderColor: 'rgba(89,231,218,0.60)',
+    backgroundColor: '#17AFA1',
+    shadowColor: '#17CFC0',
+    shadowOpacity: 0.38,
+    shadowRadius: 24,
+    shadowOffset: { width: 0, height: 14 },
+    elevation: 7,
+  },
+  flipIconText: {
+    color: '#FFFFFF',
+    fontSize: 30,
+    lineHeight: 34,
+    fontWeight: '900',
+  },
   reverseButtonText: {
     color: '#5A78AB',
     fontSize: 20,
   },
   primaryActionButton: {
     minWidth: 118,
-    minHeight: 54,
-    borderRadius: 24,
+    
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: COLORS.primary,
+    minHeight: 48,
+    flexShrink: 0,
+    alignSelf: 'stretch',
+
+    borderRadius: 999,
+    borderWidth: 1,
+    borderColor: 'rgba(115,180,255,0.55)',
+    backgroundColor: '#2F6BFF',
+    shadowColor: '#2F6BFF',
+    shadowOpacity: 0.36,
+    shadowRadius: 22,
+    shadowOffset: { width: 0, height: 14 },
+    elevation: 6,
   },
   primaryActionDisabled: {
     opacity: 0.45,
@@ -723,6 +1073,9 @@ const styles = StyleSheet.create({
     backgroundColor: 'rgba(255,255,255,0.88)',
     padding: 14,
     gap: 8,
+    maxWidth: 720,
+    width: '92%',
+    flexShrink: 0,
   },
   feedbackTitle: {
     fontSize: 17,
@@ -732,18 +1085,35 @@ const styles = StyleSheet.create({
     fontSize: 14,
     lineHeight: 20,
     color: COLORS.text,
+    flexShrink: 1,
+    flexWrap: 'wrap',
   },
   feedbackAnswer: {
     fontSize: 13,
     color: COLORS.muted,
+    flexShrink: 1,
+    flexWrap: 'wrap',
   },
   nextButton: {
-    alignSelf: 'flex-start',
-    minHeight: 40,
+    
+    
     paddingHorizontal: 16,
-    borderRadius: 20,
+    
+    minHeight: 48,
+    flexShrink: 0,
+    alignSelf: 'stretch',
+    alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: COLORS.softBlueStrong,
+
+    borderRadius: 999,
+    borderWidth: 1,
+    borderColor: 'rgba(115,180,255,0.55)',
+    backgroundColor: '#2F6BFF',
+    shadowColor: '#2F6BFF',
+    shadowOpacity: 0.36,
+    shadowRadius: 22,
+    shadowOffset: { width: 0, height: 14 },
+    elevation: 6,
   },
   nextButtonText: {
     fontSize: 13,
@@ -762,9 +1132,17 @@ const styles = StyleSheet.create({
   retryChip: {
     minHeight: 36,
     paddingHorizontal: 14,
-    borderRadius: 18,
     justifyContent: 'center',
-    backgroundColor: COLORS.softBlue,
+
+    borderRadius: 999,
+    borderWidth: 1,
+    borderColor: 'rgba(255,255,255,0.90)',
+    backgroundColor: 'rgba(255,255,255,0.82)',
+    shadowColor: 'rgba(62,95,151,0.24)',
+    shadowOpacity: 0.18,
+    shadowRadius: 14,
+    shadowOffset: { width: 0, height: 8 },
+    elevation: 3,
   },
   retryChipText: {
     fontSize: 12,
@@ -776,6 +1154,119 @@ const styles = StyleSheet.create({
     fontSize: 12,
     color: COLORS.difficult,
     textAlign: 'center',
+  },
+  reportLauncherRow: {
+    width: '86%',
+    alignSelf: 'center',
+    minHeight: 30,
+    marginTop: 6,
+    flexDirection: 'row',
+    justifyContent: 'flex-end',
+    alignItems: 'center',
+    gap: 8,
+  },
+  reportInfoButton: {
+    width: 28,
+    height: 28,
+    alignItems: 'center',
+    justifyContent: 'center',
+
+    borderRadius: 999,
+    borderWidth: 1,
+    borderColor: 'rgba(255,255,255,0.90)',
+    backgroundColor: 'rgba(255,255,255,0.82)',
+    shadowColor: 'rgba(62,95,151,0.24)',
+    shadowOpacity: 0.18,
+    shadowRadius: 14,
+    shadowOffset: { width: 0, height: 8 },
+    elevation: 3,
+  },
+  reportInfoButtonDone: {
+
+    borderRadius: 999,
+    borderWidth: 1,
+    borderColor: 'rgba(89,231,218,0.60)',
+    backgroundColor: '#17AFA1',
+    shadowColor: '#17CFC0',
+    shadowOpacity: 0.38,
+    shadowRadius: 24,
+    shadowOffset: { width: 0, height: 14 },
+    elevation: 7,
+  },
+  reportInfoText: {
+    fontSize: 17,
+    lineHeight: 20,
+    fontWeight: '800',
+    fontStyle: 'italic',
+    color: '#5E78A6',
+  },
+  reportStatusText: {
+    fontSize: 11,
+    fontWeight: '700',
+    color: COLORS.muted,
+  },
+  reportPanel: {
+    width: '86%',
+    alignSelf: 'center',
+    marginTop: 6,
+    borderRadius: 18,
+    borderWidth: 1,
+    borderColor: 'rgba(83,110,167,0.12)',
+    backgroundColor: 'rgba(255,255,255,0.86)',
+    paddingHorizontal: 12,
+    paddingVertical: 10,
+    gap: 8,
+  },
+  reportPanelHeader: {
+    minHeight: 32,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    gap: 12,
+  },
+  reportTitle: {
+    flex: 1,
+    fontSize: 13,
+    fontWeight: '800',
+    color: COLORS.text,
+  },
+  reportToggle: {
+    fontSize: 12,
+    fontWeight: '800',
+    color: '#5D7BAB',
+  },
+  reportHelpText: {
+    fontSize: 12,
+    lineHeight: 17,
+    color: COLORS.muted,
+  },
+  reportReasonGrid: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    gap: 8,
+  },
+  reportReasonChip: {
+    minHeight: 34,
+    paddingHorizontal: 10,
+    justifyContent: 'center',
+
+    borderRadius: 999,
+    borderWidth: 1,
+    borderColor: 'rgba(255,255,255,0.90)',
+    backgroundColor: 'rgba(255,255,255,0.82)',
+    shadowColor: 'rgba(62,95,151,0.24)',
+    shadowOpacity: 0.18,
+    shadowRadius: 14,
+    shadowOffset: { width: 0, height: 8 },
+    elevation: 3,
+  },
+  reportReasonChipDisabled: {
+    opacity: 0.55,
+  },
+  reportReasonText: {
+    fontSize: 11,
+    fontWeight: '700',
+    color: '#5E78A6',
   },
   dotsRow: {
     flexDirection: 'row',
@@ -801,11 +1292,17 @@ const styles = StyleSheet.create({
   bankButton: {
     minHeight: 34,
     paddingHorizontal: 14,
-    borderRadius: 17,
     justifyContent: 'center',
-    backgroundColor: 'rgba(255,255,255,0.72)',
+
+    borderRadius: 999,
     borderWidth: 1,
-    borderColor: 'rgba(83,110,167,0.12)',
+    borderColor: 'rgba(255,255,255,0.92)',
+    backgroundColor: 'rgba(255,255,255,0.78)',
+    shadowColor: 'rgba(62,95,151,0.30)',
+    shadowOpacity: 0.20,
+    shadowRadius: 18,
+    shadowOffset: { width: 0, height: 10 },
+    elevation: 4,
   },
   bankButtonText: {
     fontSize: 12,
@@ -815,16 +1312,17 @@ const styles = StyleSheet.create({
   endSessionButton: {
     width: '54%',
     minHeight: 54,
-    borderRadius: 28,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#F5F9FF',
+
+    borderRadius: 999,
     borderWidth: 1,
-    borderColor: 'rgba(93, 123, 171, 0.16)',
-    shadowColor: '#274681',
-    shadowOpacity: 0.08,
-    shadowRadius: 12,
-    shadowOffset: { width: 0, height: 6 },
+    borderColor: 'rgba(255,255,255,0.92)',
+    backgroundColor: 'rgba(255,255,255,0.78)',
+    shadowColor: 'rgba(62,95,151,0.30)',
+    shadowOpacity: 0.20,
+    shadowRadius: 18,
+    shadowOffset: { width: 0, height: 10 },
     elevation: 4,
   },
   endSessionText: {

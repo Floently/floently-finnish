@@ -4,6 +4,7 @@ import HomeScreen from '@ui/screens/HomeScreen';
 import { useAuthStore } from './authStore';
 import { usePreferencesStore } from './preferencesStore';
 import { useSubscriptionStore } from './subscriptionStore';
+import { useStreakStore } from './streakStore';
 import { useTranslator } from '../features/i18n';
 
 type Props = {
@@ -56,10 +57,17 @@ export default function HomeRoute({
   const toggleTheme = usePreferencesStore((state) => state.toggleTheme);
   const subscriptionStatus = useSubscriptionStore((state) => state.status);
   const activeContext = useSubscriptionStore((state) => state.activeContext);
+  const streakHasHydrated = useStreakStore((state) => state.hasHydrated);
+  const hydrateStreak = useStreakStore((state) => state.hydrate);
+  const currentStreak = useStreakStore((state) => state.currentStreak);
 
   useEffect(() => {
     void hydratePreferences();
   }, [hydratePreferences]);
+
+  useEffect(() => {
+    if (!streakHasHydrated) void hydrateStreak();
+  }, [hydrateStreak, streakHasHydrated]);
 
   const displayName =
     (user as { displayName?: string; name?: string; email?: string } | null)?.displayName?.trim() ||
@@ -71,17 +79,31 @@ export default function HomeRoute({
   const professionalLabel = professionalSummaryLabel(entitlements?.professions, t);
   const bundle = subscriptionStatus?.plan.category === 'bundle';
   const isPreview = Boolean(subscriptionStatus?.isPreview);
+  const hasLearningAccess = Boolean(
+    subscriptionStatus?.isInternalAllAccess ||
+    subscriptionStatus?.hasAnySubscription ||
+    subscriptionStatus?.isActive ||
+    entitlements?.learnAccess ||
+    entitlements?.ykiAccess ||
+    entitlements?.professionalAccess,
+  );
 
   return (
     <HomeScreen
       isAuthenticated={Boolean(user)}
       userName={displayName}
       userEmail={user?.email ?? t('homeSidebarRoutesHint')}
+      streakDays={currentStreak}
       themeMode={themeMode}
       accessState={{
-        learn: Boolean(entitlements?.learnAccess),
+        learn: hasLearningAccess,
         yki: Boolean(entitlements?.ykiAccess),
-        professional: Boolean(entitlements?.professionalAccess),
+        professional: Boolean(
+          entitlements?.professionalAccess ||
+          subscriptionStatus?.isInternalAllAccess ||
+          subscriptionStatus?.hasAnySubscription ||
+          subscriptionStatus?.isActive
+        ),
         professionalLabel,
         activeContext,
         bundle,
@@ -96,6 +118,17 @@ export default function HomeRoute({
       }}
       onOpenMenu={onOpenMenu}
       onSelectMode={(mode) => {
+        console.info('[floently-nav] HomeRoute.onSelectMode', {
+          mode,
+          learnAccess: Boolean(entitlements?.learnAccess),
+          ykiAccess: Boolean(entitlements?.ykiAccess),
+          professionalAccess: Boolean(entitlements?.professionalAccess),
+          isInternalAllAccess: Boolean(subscriptionStatus?.isInternalAllAccess),
+          hasAnySubscription: Boolean(subscriptionStatus?.hasAnySubscription),
+          isActive: Boolean(subscriptionStatus?.isActive),
+          isPreview,
+          hasLearningAccess,
+        });
         switch (mode) {
           case 'billing':
             onOpenBilling();
@@ -104,7 +137,7 @@ export default function HomeRoute({
             onOpenHelp();
             break;
           case 'learn':
-            if (entitlements?.learnAccess && !isPreview) onOpenLearning();
+            if (hasLearningAccess) onOpenLearning();
             else onOpenBilling();
             break;
           case 'progress':
@@ -119,11 +152,12 @@ export default function HomeRoute({
             break;
           case 'speak':
           case 'scenarios':
-            if ((entitlements?.learnAccess && !isPreview) || subscriptionStatus?.previewPath === 'doctor' || subscriptionStatus?.previewPath === 'nurse' || subscriptionStatus?.previewPath === 'practical_nurse') onOpenSpeakingPractice();
+            if ((hasLearningAccess && !isPreview) || subscriptionStatus?.previewPath === 'doctor' || subscriptionStatus?.previewPath === 'nurse' || subscriptionStatus?.previewPath === 'practical_nurse') onOpenSpeakingPractice();
             else onOpenBilling();
             break;
           case 'work':
-            if (entitlements?.learnAccess || entitlements?.professionalAccess) onOpenLearning();
+            if (entitlements?.professionalAccess || subscriptionStatus?.isInternalAllAccess || subscriptionStatus?.hasAnySubscription || subscriptionStatus?.isActive) onOpenProfessionalFinnish();
+            else if (hasLearningAccess) onOpenLearning();
             else onOpenBilling();
             break;
           case 'exam':

@@ -1,17 +1,18 @@
-import { useCallback, useEffect, useMemo, useState } from 'react';
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { audioPlayer } from '../../exam/services/audioPlayer';
 import { cardsService } from '../services/cardsService';
 import type { CardBankBuckets, CardDeckScope, CardFeedback, CardMode, RuntimeCard } from '../types';
+import { useStreakStore } from '../../../state/streakStore';
 
 function defaultBanks(): CardBankBuckets { return { difficult: [], learned: [], learning: [] }; }
 function nextReviewLabel(card: RuntimeCard | null) { if (!card) return null; if (card.state === 'mastered') return 'Strong recall'; if (card.state === 'difficult') return 'Needs extra repetition'; if (card.state === 'learning' && card.seen_count >= 2) return 'Still consolidating'; return 'Fresh card'; }
 function buildHistorySnapshot(card: RuntimeCard, feedback: CardFeedback | null): RuntimeCard { if (!feedback) return card; if (feedback.correct) return { ...card, state: card.state === 'difficult' ? 'learning' : card.state }; return { ...card, state: card.seen_count >= 2 ? 'difficult' : 'learning' }; }
 
-export function useCardPractice(mode: CardMode, scope?: CardDeckScope) {
+export function useCardPractice(mode: CardMode, scope?: CardDeckScope, enabled = true) {
   const [sessionId, setSessionId] = useState<string | null>(null);
   const [current, setCurrent] = useState<RuntimeCard | null>(null);
   const [queuedNext, setQueuedNext] = useState<RuntimeCard | null>(null);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(enabled);
   const [submitting, setSubmitting] = useState(false);
   const [feedback, setFeedback] = useState<CardFeedback | null>(null);
   const [answer, setAnswer] = useState('');
@@ -26,19 +27,62 @@ export function useCardPractice(mode: CardMode, scope?: CardDeckScope) {
   const [refreshKey, setRefreshKey] = useState(0);
   const [error, setError] = useState<string | null>(null);
   const [flagged, setFlagged] = useState(false);
+  const streakHasHydrated = useStreakStore((state) => state.hasHydrated);
+  const hydrateStreak = useStreakStore((state) => state.hydrate);
+  const recordPractice = useStreakStore((state) => state.recordPractice);
+  const streakRecordedRef = useRef(false);
 
-  const loadBanks = useCallback(async () => { try { setBanks(await cardsService.banks(mode, scope)); } catch { setBanks(defaultBanks()); } }, [mode, scope]);
+  const loadBanks = useCallback(async () => {
+    if (!enabled) {
+      setBanks(defaultBanks());
+      return;
+    }
+    try { setBanks(await cardsService.banks(mode, scope)); } catch { setBanks(defaultBanks()); }
+  }, [enabled, mode, scope]);
 
   const load = useCallback(async () => {
+    if (!enabled || !scope?.level) {
+      setLoading(false);
+      return;
+    }
     setLoading(true); setError(null);
     try {
       const payload = await cardsService.start(mode, scope);
-      setSessionId(payload.session.session_id); setCurrent(payload.firstCard); setQueuedNext(null); setFeedback(null); setAnswer(''); setShowBack(false); setShowHint(false); setCoachHint(null); setSessionCompleted(false); setHistory([]); setRecallIndex(null); setFlagged(false); await loadBanks();
+      setSessionId(payload.session.session_id); setCurrent(payload.firstCard); setQueuedNext(null); setFeedback(null); setAnswer(''); setShowBack(false); setShowHint(false); setCoachHint(null); setSessionCompleted(false); setHistory([]); setRecallIndex(null); setFlagged(false); streakRecordedRef.current = false; await loadBanks();
     } catch (err) { setError(err instanceof Error ? err.message : 'Card session failed to start'); setCurrent(null); setSessionId(null); }
     finally { setLoading(false); }
-  }, [loadBanks, mode, scope]);
+  }, [enabled, loadBanks, mode, scope]);
 
-  useEffect(() => { void load(); }, [load, refreshKey]);
+  useEffect(() => {
+    if (!enabled || !scope?.level) {
+      setSessionId(null);
+      setCurrent(null);
+      setQueuedNext(null);
+      setFeedback(null);
+      setAnswer('');
+      setShowBack(false);
+      setShowHint(false);
+      setCoachHint(null);
+      setSessionCompleted(false);
+      setHistory([]);
+      setRecallIndex(null);
+      setBanks(defaultBanks());
+      setError(null);
+      setFlagged(false);
+      setLoading(false);
+      return;
+    }
+    void load();
+  }, [enabled, load, refreshKey, scope?.level]);
+
+  useEffect(() => {
+    if (!sessionCompleted || streakRecordedRef.current) return;
+    streakRecordedRef.current = true;
+    void (async () => {
+      if (!streakHasHydrated) await hydrateStreak();
+      await recordPractice();
+    })();
+  }, [hydrateStreak, recordPractice, sessionCompleted, streakHasHydrated]);
   const displayedCard = useMemo(() => recallIndex === null ? current : history[recallIndex] ?? current, [current, history, recallIndex]);
   const progress = useMemo(() => { if (!current) return { current: 0, total: 0, ratio: 0 }; const total = Math.max(current.order_index + 4, history.length + 1, 4); const currentPosition = current.order_index + 1; return { current: currentPosition, total, ratio: Math.min(1, currentPosition / total) }; }, [current, history.length]);
   const visibleHint = useMemo(() => showHint ? coachHint : null, [coachHint, showHint]);
@@ -110,6 +154,7 @@ export function useCardPractice(mode: CardMode, scope?: CardDeckScope) {
   const recallForward = useCallback(() => { if (!history.length) return; setShowBack(false); setShowHint(false); setFeedback(null); setRecallIndex((i) => i === null ? Math.max(history.length - 1, 0) : i >= history.length - 1 ? null : i + 1); }, [history.length]);
   const refresh = useCallback(() => setRefreshKey((v) => v + 1), []);
   const currentLabel = nextReviewLabel(displayedCard);
+  const effectiveLoading = loading || (enabled && Boolean(scope?.level) && !sessionId && !error);
 
-  return { current, displayedCard, loading, submitting, feedback, progress, answer, setAnswer, showBack, showHint, visibleHint, hintLoading, playAudio, flip, revealHint, hideHint, submit, advance, skip, recallBack, recallForward, recallIndex, banks, sessionCompleted, refresh, error, currentLabel, flagCurrent, flagged };
+  return { current, displayedCard, loading: effectiveLoading, submitting, feedback, progress, answer, setAnswer, showBack, showHint, visibleHint, hintLoading, playAudio, flip, revealHint, hideHint, submit, advance, skip, recallBack, recallForward, recallIndex, banks, sessionCompleted, refresh, error, currentLabel, flagCurrent, flagged };
 }

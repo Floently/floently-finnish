@@ -1,0 +1,63 @@
+name: Roleplay scenario rotation
+
+on:
+  pull_request:
+    paths:
+      - "apps/client/features/speaking/screens/RoleplayConversationScreen.tsx"
+      - "apps/client/features/speaking/components/SessionCompletion.tsx"
+      - "apps/client/state/AppShell.tsx"
+      - "apps/client/state/SpeakingRoute.tsx"
+      - "apps/client/scripts/verify-roleplay-scenario-rotation.mjs"
+      - "packages/core/api/roleplay.ts"
+      - "apps/backend/app/runtime/roleplay.py"
+      - "apps/backend/app/routers/v1_roleplay.py"
+      - "apps/backend/app/services/roleplay_session_service.py"
+      - "apps/backend/tests/test_roleplay_mode_pools.py"
+      - "apps/client/package.json"
+      - "pnpm-lock.yaml"
+      - ".github/workflows/roleplay-scenario-rotation.yml"
+  push:
+    paths:
+      - "apps/client/features/speaking/screens/RoleplayConversationScreen.tsx"
+      - "apps/client/features/speaking/components/SessionCompletion.tsx"
+      - "apps/client/state/AppShell.tsx"
+      - "apps/client/state/SpeakingRoute.tsx"
+      - "apps/client/scripts/verify-roleplay-scenario-rotation.mjs"
+      - "packages/core/api/roleplay.ts"
+      - "apps/backend/app/runtime/roleplay.py"
+      - "apps/backend/app/routers/v1_roleplay.py"
+      - "apps/backend/app/services/roleplay_session_service.py"
+      - "apps/backend/tests/test_roleplay_mode_pools.py"
+      - "apps/client/package.json"
+      - "pnpm-lock.yaml"
+      - ".github/workflows/roleplay-scenario-rotation.yml"
+
+jobs:
+  verify-roleplay-scenarios:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Pin pnpm
+        uses: pnpm/action-setup@v6
+        with:
+          version: "10.34.0"
+          run_install: false
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: pnpm
+          cache-dependency-path: pnpm-lock.yaml
+
+      - name: Install frozen dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Verify scenario rotation
+        run: pnpm --dir apps/client run verify:roleplay-scenarios
+
+      - name: Verify recorder invariants remain intact
+        run: pnpm --dir apps/client run verify:roleplay-audio

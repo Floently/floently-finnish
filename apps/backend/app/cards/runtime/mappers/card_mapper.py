@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+import random
+
 from app.cards.adaptive.models import CardPerformanceRecord
 from app.cards.runtime.models.api_models import (
     AdaptiveSelectionReasonResponse,
@@ -36,9 +38,7 @@ def map_card_for_runtime(
     if variant_index < 0 or variant_index >= len(card.content.follow_ups):
         raise ValueError(f"variant_index {variant_index} is out of range for card {card.id}")
     follow_up = card.content.follow_ups[variant_index]
-    options = []
-    if hasattr(follow_up, "options"):
-        options = [ServedOptionResponse(option_id=item.option_id, text=item.text) for item in follow_up.options]
+    options = _served_options_for_runtime(card_id=card.id, variant_index=variant_index, follow_up=follow_up)
 
     front_text, back_prompt = _card_texts(card)
     card_state = _resolve_runtime_state(review_state=review_state, performance=performance)
@@ -111,6 +111,24 @@ def _card_texts(card: CardEnvelope) -> tuple[str, str]:
     if isinstance(content, GrammarCardContent):
         return content.front.pattern, content.back.recall_prompt
     raise TypeError("Unsupported card content type")
+
+
+def _served_options_for_runtime(*, card_id: str, variant_index: int, follow_up) -> list[ServedOptionResponse]:
+    if not hasattr(follow_up, "options"):
+        return []
+
+    options = [ServedOptionResponse(option_id=item.option_id, text=item.text) for item in follow_up.options]
+    if len(options) < 2:
+        return options
+
+    shuffled = list(options)
+    random.Random(f"{card_id}|{variant_index}|served_options").shuffle(shuffled)
+
+    answer_key = getattr(follow_up, "answer_key", None)
+    if answer_key and shuffled[0].option_id == answer_key:
+        shuffled = shuffled[1:] + shuffled[:1]
+
+    return shuffled
 
 
 def _resolve_runtime_state(

@@ -1,9 +1,12 @@
 from __future__ import annotations
 
 import asyncio
+import json
+import tempfile
 import unittest
 from pathlib import Path
 
+from app.cards.fixtures import VOCABULARY_CARD_PAYLOAD
 from app.cards.publication.deck_publication_service import DeckPublicationService, DeckPublicationServiceError
 from app.cards.publication.repository import PublishedDatasetRepositoryError
 from app.cards.publication.validated_source_repository import ValidatedCardSourceRepository
@@ -40,12 +43,20 @@ class _InMemoryPublishedRepository:
 
 class PublicationLifecycleTests(unittest.TestCase):
     def setUp(self) -> None:
-        self.accepted_path = (
-            Path(__file__).resolve().parents[1] / "app" / "cards" / "output" / "accepted" / "accepted_cards.json"
+        self._canonical_tmp = tempfile.TemporaryDirectory(prefix="kielivalmis-publication-lifecycle-")
+        self.addCleanup(self._canonical_tmp.cleanup)
+
+        self.canonical_root = Path(self._canonical_tmp.name)
+        validated_dir = self.canonical_root / "validated" / "general" / "vocabulary"
+        validated_dir.mkdir(parents=True, exist_ok=True)
+        (validated_dir / "a1_a2.json").write_text(
+            json.dumps([VOCABULARY_CARD_PAYLOAD]),
+            encoding="utf-8",
         )
+
         self.repository = _InMemoryPublishedRepository()
         self.service = DeckPublicationService(
-            source_repository=ValidatedCardSourceRepository(accepted_cards_path=self.accepted_path),
+            source_repository=ValidatedCardSourceRepository(canonical_root=self.canonical_root),
             published_repository=self.repository,
             audio_preparation_service=_NoOpAudioPreparationService(),
         )

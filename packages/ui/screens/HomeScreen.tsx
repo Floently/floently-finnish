@@ -532,30 +532,32 @@ export default function HomeScreen({
     : currentHour < 17
       ? t('homeGreetingDay')
       : t('homeGreetingEvening');
-  const defaultSkills = [
-    { label: t('ykiPracticeFocusListening'), pct: 72, color: D.primary },
-    { label: t('ykiPracticeFocusReading'), pct: 65, color: D.yki },
-    { label: t('ykiPracticeFocusWriting'), pct: 48, color: D.accent },
-    { label: t('ykiPracticeFocusSpeaking'), pct: 55, color: D.speak },
-  ];
-  const visibleSkills = skills ?? defaultSkills;
+  const hasRealDashboardData = totalCards > 0 || cardsDue > 0 || streakDays > 0 || Boolean(skills?.length);
+  const visibleSkills = skills ?? [];
+
+  const hasCoreLearningAccess = Boolean(accessState?.learn || accessState?.professional || accessState?.yki);
+  const hasScenarioAccess = Boolean(
+    accessState?.professional ||
+    accessState?.learn ||
+    (accessState?.isPreview && accessState?.previewPath !== 'yki')
+  );
 
   const quickActions = [
     {
       label: t('homeVocabularyRoleplay'),
-      sub: accessState?.isPreview ? t('homeVocabularyRoleplayPreviewLocked') : accessState?.learn ? t('homeVocabularyRoleplayLearn') : t('homeVocabularyRoleplayUnlock'),
-      tag: accessState?.isPreview ? t('homePreviewTag') : accessState?.learn ? t('homeLearnTag') : t('homeLockedTag'),
+      sub: accessState?.isPreview ? t('homeVocabularyRoleplayPreviewLocked') : hasCoreLearningAccess ? t('homeVocabularyRoleplayLearn') : t('homeVocabularyRoleplayUnlock'),
+      tag: accessState?.isPreview ? t('homePreviewTag') : hasCoreLearningAccess ? t('homeLearnTag') : t('homeLockedTag'),
       color: D.primary,
       mode: 'learn',
-      locked: !accessState?.learn,
+      locked: !hasCoreLearningAccess,
     },
     {
       label: t('homeWorkplaceScenarios'),
-      sub: accessState?.isPreview && accessState?.previewPath !== 'yki' ? t('homeWorkplaceScenariosPreview') : accessState?.learn ? t('homeWorkplaceScenariosLearn') : t('homeWorkplaceScenariosUnlock'),
-      tag: accessState?.isPreview && accessState?.previewPath !== 'yki' ? t('homePreviewTag') : accessState?.learn ? t('homeScenariosTag') : t('homeLockedTag'),
+      sub: accessState?.isPreview && accessState?.previewPath !== 'yki' ? t('homeWorkplaceScenariosPreview') : hasScenarioAccess ? t('homeWorkplaceScenariosLearn') : t('homeWorkplaceScenariosUnlock'),
+      tag: accessState?.isPreview && accessState?.previewPath !== 'yki' ? t('homePreviewTag') : hasScenarioAccess ? t('homeScenariosTag') : t('homeLockedTag'),
       color: D.speak,
       mode: 'scenarios',
-      locked: !accessState?.learn,
+      locked: !hasScenarioAccess,
     },
     {
       label: t('homeYkiPrep'),
@@ -590,7 +592,7 @@ export default function HomeScreen({
           : t('homeChoosePlanToUnlock');
 
   const completedPct =
-    totalCards > 0 ? Math.round(((totalCards - cardsDue) / totalCards) * 100) : 100;
+    totalCards > 0 ? Math.max(0, Math.min(100, Math.round(((totalCards - cardsDue) / totalCards) * 100))) : 0;
 
   return (
     <>
@@ -657,36 +659,38 @@ export default function HomeScreen({
                 <View style={styles.heroTopRow}>
                   <Text style={[styles.heroEyebrow, { color: primary }]}>{t('homeLanguageToWork')}</Text>
 
-                  <Animated.View
-                    style={[
-                      styles.liveBadge,
-                      {
-                        backgroundColor: D.successDim,
-                        borderColor: 'rgba(62,197,138,0.20)',
-                        transform: [
-                          {
-                            scale: livePulse.interpolate({
-                              inputRange: [0, 0.5, 1],
-                              outputRange: [1, 1.045, 1],
-                            }),
-                          },
-                        ],
-                      },
-                    ]}
-                  >
+                  {hasRealDashboardData ? (
                     <Animated.View
                       style={[
-                        styles.liveDot,
+                        styles.liveBadge,
                         {
-                          opacity: livePulse.interpolate({
-                            inputRange: [0, 0.5, 1],
-                            outputRange: [0.8, 1, 0.8],
-                          }),
+                          backgroundColor: D.successDim,
+                          borderColor: 'rgba(62,197,138,0.20)',
+                          transform: [
+                            {
+                              scale: livePulse.interpolate({
+                                inputRange: [0, 0.5, 1],
+                                outputRange: [1, 1.045, 1],
+                              }),
+                            },
+                          ],
                         },
                       ]}
-                    />
-                    <Text style={styles.liveText}>{t('homeMomentumLive')}</Text>
-                  </Animated.View>
+                    >
+                      <Animated.View
+                        style={[
+                          styles.liveDot,
+                          {
+                            opacity: livePulse.interpolate({
+                              inputRange: [0, 0.5, 1],
+                              outputRange: [0.8, 1, 0.8],
+                            }),
+                          },
+                        ]}
+                      />
+                      <Text style={styles.liveText}>{t('homeMomentumLive')}</Text>
+                    </Animated.View>
+                  ) : null}
                 </View>
 
                 <Text style={[styles.heroTitle, { color: text }]}>{t('homeNextBestStep')}</Text>
@@ -707,7 +711,7 @@ export default function HomeScreen({
               <View style={styles.heroRing}>
                 <View style={[styles.ringOuter, { borderColor: raised }]}>
                   <View style={[styles.ringInner, { borderColor: primary }]} />
-                  <Text style={[styles.ringPct, { color: text }]}>{completedPct}%</Text>
+                  <Text style={[styles.ringPct, { color: text }]}>{totalCards > 0 ? `${completedPct}%` : '—'}</Text>
                 </View>
 
                 {streakDays > 0 && (
@@ -756,48 +760,52 @@ export default function HomeScreen({
             </View>
           </AnimatedSection>
 
-          <AnimatedSection animation={skillsAnim}>
-            <View style={[styles.skillsCard, { backgroundColor: surface, borderColor: border }]}>
-              <View style={styles.skillsHeader}>
-                <Text style={[styles.skillsTitle, { color: text }]}>{t('homeReadinessPillars')}</Text>
-                <View style={[styles.levelBadge, { backgroundColor: raised, borderColor: border }]}>
-                  <Text style={[styles.levelText, { color: primary }]}>{t('homeEstLevel')} {estimatedLevel}</Text>
+          {visibleSkills.length > 0 ? (
+            <AnimatedSection animation={skillsAnim}>
+              <View style={[styles.skillsCard, { backgroundColor: surface, borderColor: border }]}>
+                <View style={styles.skillsHeader}>
+                  <Text style={[styles.skillsTitle, { color: text }]}>{t('homeReadinessPillars')}</Text>
+                  <View style={[styles.levelBadge, { backgroundColor: raised, borderColor: border }]}>
+                    <Text style={[styles.levelText, { color: primary }]}>{t('homeEstLevel')} {estimatedLevel}</Text>
+                  </View>
+                </View>
+
+                <View style={styles.skillList}>
+                  {visibleSkills.map((skill) => (
+                    <SkillMeter
+                      key={skill.label}
+                      label={skill.label}
+                      pct={skill.pct}
+                      color={skill.color}
+                      muted={muted}
+                      soft={soft}
+                      raised={raised}
+                    />
+                  ))}
                 </View>
               </View>
+            </AnimatedSection>
+          ) : null}
 
-              <View style={styles.skillList}>
-                {visibleSkills.map((skill) => (
-                  <SkillMeter
-                    key={skill.label}
-                    label={skill.label}
-                    pct={skill.pct}
-                    color={skill.color}
-                    muted={muted}
-                    soft={soft}
-                    raised={raised}
-                  />
+          {hasRealDashboardData ? (
+            <AnimatedSection animation={statsAnim}>
+              <View style={styles.statsRow}>
+                {[
+                  { val: String(totalCards), label: t('homeVocabularyItems') },
+                  { val: String(streakDays), label: t('homeDayStreak') },
+                  { val: estimatedLevel, label: t('homeEstLevel') },
+                ].map((s) => (
+                  <View
+                    key={s.label}
+                    style={[styles.statCell, { backgroundColor: surface, borderColor: border }]}
+                  >
+                    <Text style={[styles.statVal, { color: text }]}>{s.val}</Text>
+                    <Text style={[styles.statLabel, { color: muted }]}>{s.label}</Text>
+                  </View>
                 ))}
               </View>
-            </View>
-          </AnimatedSection>
-
-          <AnimatedSection animation={statsAnim}>
-            <View style={styles.statsRow}>
-              {[
-                { val: String(totalCards), label: t('homeVocabularyItems') },
-                { val: String(streakDays), label: t('homeDayStreak') },
-                { val: estimatedLevel, label: t('homeEstLevel') },
-              ].map((s) => (
-                <View
-                  key={s.label}
-                  style={[styles.statCell, { backgroundColor: surface, borderColor: border }]}
-                >
-                  <Text style={[styles.statVal, { color: text }]}>{s.val}</Text>
-                  <Text style={[styles.statLabel, { color: muted }]}>{s.label}</Text>
-                </View>
-              ))}
-            </View>
-          </AnimatedSection>
+            </AnimatedSection>
+          ) : null}
 
           <AnimatedSection animation={guideAnim}>
             <View
