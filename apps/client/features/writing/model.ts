@@ -6,7 +6,7 @@ import type {
 } from '@core/schemas/learning';
 
 export type WritingPathway = Extract<LearningPathway, 'everyday' | 'professional'>;
-export type WritingLevel = 'A1' | 'A2' | 'B1' | 'B2';
+export type WritingLevel = 'A1' | 'A2' | 'B1' | 'B2' | 'C1' | 'C2';
 export type WritingRegister = 'informal' | 'neutral' | 'formal' | 'professional_neutral';
 export type WritingFeedbackArea = 'communicative_goal' | 'content' | 'organization' | 'language' | 'register';
 export type WritingStage = 'understand' | 'plan' | 'write' | 'feedback' | 'revise' | 'compare';
