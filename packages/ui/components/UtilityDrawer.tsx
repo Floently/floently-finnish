@@ -6,11 +6,13 @@ import { useTranslator } from '../../../apps/client/features/i18n';
 // ─── Types ────────────────────────────────────────────────────────────────────
 
 type DrawerItem = {
+  id?: string;
   label: string;
   hint?: string;
   icon?: string;
   accentColor?: string;
-  onPress: () => void;
+  onPress?: () => void;
+  children?: DrawerItem[];
 };
 
 type DrawerSection = {
@@ -26,6 +28,10 @@ type Props = {
    * Replaces the flat `items` array from v1.
    */
   sections?: DrawerSection[];
+  /** Top-level branch that should open when the drawer becomes visible. */
+  initialExpandedItemId?: string;
+  /** Current top-level branch/destination for visual and screen-reader context. */
+  activeItemId?: string;
   /**
    * Flat items list kept for backward compatibility.
    * If `sections` is provided it takes priority.
@@ -61,6 +67,8 @@ export default function UtilityDrawer({
   visible,
   onClose,
   sections: sectionsProp,
+  initialExpandedItemId,
+  activeItemId,
   items: itemsProp,
   themeMode = 'dark',
   onToggleTheme,
@@ -111,6 +119,85 @@ export default function UtilityDrawer({
   const primary   = isDark ? '#4F7FFF' : palette.primary;
   const primaryDim = isDark ? 'rgba(79,127,255,0.15)' : palette.primarySurface;
   const overlayBg = isDark ? 'rgba(2,8,20,0.62)' : palette.overlay;
+  const [expandedPath, setExpandedPath] = React.useState<string[]>([]);
+
+  React.useEffect(() => {
+    if (!visible) return;
+    setExpandedPath(initialExpandedItemId ? [initialExpandedItemId] : []);
+  }, [initialExpandedItemId, visible]);
+
+  function toggleBranch(itemId: string, depth: number) {
+    setExpandedPath((current) => {
+      if (current[depth] === itemId) {
+        return current.slice(0, depth);
+      }
+      return [...current.slice(0, depth), itemId];
+    });
+  }
+
+  function renderDrawerItem(
+    item: DrawerItem,
+    depth: number,
+    index: number,
+    parentId: string,
+  ): React.ReactNode {
+    const itemId = item.id ?? `${parentId}.${index}`;
+    const hasChildren = Boolean(item.children?.length);
+    const expanded = hasChildren && expandedPath[depth] === itemId;
+    const active = activeItemId === itemId;
+
+    return (
+      <View key={itemId}>
+        <Pressable
+          onPress={() => {
+            if (hasChildren) {
+              toggleBranch(itemId, depth);
+              return;
+            }
+            onClose();
+            item.onPress?.();
+          }}
+          accessibilityRole="button"
+          accessibilityState={hasChildren ? { expanded } : active ? { selected: true } : undefined}
+          accessibilityHint={item.hint}
+          style={({ pressed }) => [
+            styles.navItem,
+            { paddingLeft: 10 + depth * 14 },
+            active && { backgroundColor: primaryDim },
+            pressed && { backgroundColor: raisedBg },
+          ]}
+        >
+          <View style={[
+            styles.navIcon,
+            { backgroundColor: item.accentColor ? `${item.accentColor}20` : raisedBg },
+          ]}>
+            <Text style={styles.navIconText}>{item.icon ?? '•'}</Text>
+          </View>
+          <View style={styles.navItemContent}>
+            <Text style={[styles.navLabel, { color: textCol }]}>{item.label}</Text>
+            {item.hint ? (
+              <Text style={[styles.navHint, { color: mutedCol }]}>{item.hint}</Text>
+            ) : null}
+          </View>
+          {hasChildren ? (
+            <View style={styles.branchChevron}>
+              <Text style={[styles.branchChevronText, { color: expanded ? primary : mutedCol }]}>
+                {expanded ? '⌄' : '›'}
+              </Text>
+            </View>
+          ) : null}
+        </Pressable>
+
+        {hasChildren && expanded ? (
+          <View style={[styles.childList, { borderLeftColor: borderCol }]}>
+            {item.children?.map((child, childIndex) =>
+              renderDrawerItem(child, depth + 1, childIndex, itemId),
+            )}
+          </View>
+        ) : null}
+      </View>
+    );
+  }
 
   if (!visible) return null;
 
@@ -184,30 +271,9 @@ export default function UtilityDrawer({
             {sections.map((section) => (
               <View key={section.label} style={styles.navSection}>
                 <Text style={[styles.sectionLabel, { color: softCol }]}>{section.label}</Text>
-                {section.items.map((item) => (
-                  <Pressable
-                    key={item.label}
-                    onPress={() => { onClose(); item.onPress(); }}
-                    style={({ pressed }) => [
-                      styles.navItem,
-                      { borderColor: borderCol },
-                      pressed && { backgroundColor: raisedBg },
-                    ]}
-                  >
-                    <View style={[
-                      styles.navIcon,
-                      { backgroundColor: item.accentColor ? `${item.accentColor}20` : raisedBg },
-                    ]}>
-                      <Text style={styles.navIconText}>{item.icon ?? '•'}</Text>
-                    </View>
-                    <View style={styles.navItemContent}>
-                      <Text style={[styles.navLabel, { color: textCol }]}>{item.label}</Text>
-                      {item.hint ? (
-                        <Text style={[styles.navHint, { color: mutedCol }]}>{item.hint}</Text>
-                      ) : null}
-                    </View>
-                  </Pressable>
-                ))}
+                {section.items.map((item, index) =>
+                  renderDrawerItem(item, 0, index, section.label),
+                )}
               </View>
             ))}
 
@@ -358,6 +424,22 @@ const styles = StyleSheet.create({
   navItemContent: { flex: 1, gap: 1 },
   navLabel: { fontSize: 14, fontWeight: '700' },
   navHint: { fontSize: 11, lineHeight: 15 },
+  childList: {
+    marginLeft: 28,
+    borderLeftWidth: 1,
+    paddingLeft: 2,
+  },
+  branchChevron: {
+    width: 28,
+    minHeight: 28,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  branchChevronText: {
+    fontSize: 21,
+    lineHeight: 24,
+    fontWeight: '800',
+  },
 
   // Utility row
   utilRow: {
