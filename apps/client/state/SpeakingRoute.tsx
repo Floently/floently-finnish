@@ -271,6 +271,7 @@ export default function SpeakingRoute({ onBack, onOpenMenu, initialLevelBand = '
               </Pressable>
 
               <Pressable
+                testID="scenario-practice-entry"
                 onPress={() => {
                   setScenarioId(null);
                   setSurface('conversation');
