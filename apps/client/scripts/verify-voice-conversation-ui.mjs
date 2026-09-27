@@ -72,7 +72,9 @@ for (const required of [
   'function TranscriptStage',
   'useReducedMotion()',
   'PanResponder.create',
-  'Swipe up to speak or type',
+  'Tap the orb to speak',
+  'Tap the orb again to finish',
+  'Swipe up to type',
   "state === 'completed'",
   "!textMode ? (",
   'presentationStyle="pageSheet"',
@@ -118,8 +120,32 @@ assert.ok(
   'UI must not fabricate live user speech-recognition results',
 );
 
+assert.ok(
+  experience.includes('testID="voice-orb"') &&
+    experience.includes('onPress={onPress}') &&
+    experience.includes('onMicPress();') &&
+    experience.includes("state === 'userSpeaking'") &&
+    experience.includes("state === 'userListening'"),
+  'the voice orb must be the direct start/stop microphone control during the learner turn',
+);
+
+assert.ok(
+  !experience.includes('Swipe up to speak or type'),
+  'swipe-up must not be taught as a prerequisite for voice response',
+);
+
+assert.ok(
+  experience.includes('Swipe up to type') &&
+    experience.includes('accessibilityLabel=') &&
+    experience.includes("'Stop speaking'") &&
+    experience.includes("'Start speaking'"),
+  'orb and typing interactions must expose clear start/stop and swipe-to-type semantics',
+);
+
 console.log('VOICE_UI_MINIMAL_SURFACE=PASS');
 console.log('VOICE_UI_ROTATING_TRANSCRIPT=PASS');
+console.log('VOICE_UI_ORB_TAP_MIC_CONTROL=PASS');
+console.log('VOICE_UI_SWIPE_TO_TYPE_ONLY=PASS');
 console.log('VOICE_UI_CONTEXTUAL_INPUT_TRAY=PASS');
 console.log('VOICE_UI_TEXT_MODE_NO_ORB=PASS');
 console.log('VOICE_UI_REDUCED_MOTION=PASS');
@@ -130,7 +156,9 @@ console.log('VOICE_CONVERSATION_UI_INVARIANTS=PASS');
 for (const requiredDesignRule of [
   'Main live Roleplay surface contains no chat bubbles.',
   'Text-only mode removes the orb.',
-  'Swipe-up or contextual control reveals the microphone/text tray.',
+  'Tapping the orb starts recording when the learner\'s turn is ready.',
+  'Tapping the orb again stops recording and submits through the canonical STT path.',
+  'Swipe-up is not required for voice response; it reveals typing and secondary controls.',
   'Reduce Motion removes perspective/large movement.',
   'Existing recorder/STT/TTS authority remains unchanged.',
 ]) {
