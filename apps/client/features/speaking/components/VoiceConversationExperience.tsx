@@ -779,6 +779,8 @@ export default function VoiceConversationExperience({
           <View style={styles.traySecondaryRow}>
             {textMode ? (
               <Pressable
+                testID="voice-mode-return"
+                accessibilityLabel="Voice"
                 accessibilityRole="button"
                 onPress={onExitTextMode}
                 style={styles.trayTextButton}
