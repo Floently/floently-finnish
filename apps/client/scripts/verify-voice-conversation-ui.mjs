@@ -41,6 +41,13 @@ assert.ok(
   'live Roleplay UI must not keep the old permanent manual input visible',
 );
 
+assert.ok(
+  screen.includes('onOpenMenu={onOpenMenu}') &&
+    experience.includes('accessibilityLabel="Menu"') &&
+    experience.includes('onPress={onMenu}'),
+  'the circular header menu control must open the real app menu rather than masquerade as Back',
+);
+
 for (const required of [
   "type VoiceConversationUiState",
   "'aiSpeaking'",
