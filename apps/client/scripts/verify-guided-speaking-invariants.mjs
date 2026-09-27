@@ -29,6 +29,7 @@ const appShell = read('state/AppShell.tsx');
 const drawer = read('config/navigation/AppShell_sidebar_sections.ts');
 const types = read('features/speaking/types.ts');
 const progressStore = read('state/guidedSpeakingProgressStore.ts');
+const curriculum = read('features/speaking/guidedSpeakingCurriculum.ts');
 
 const stageIds = [
   'basic_chunk',
@@ -51,6 +52,14 @@ for (const stageId of stageIds) {
   }
   previousIndex = index;
 }
+
+requireText(curriculum, 'Array.from({ length: 300 }', 'curriculum bank must contain exactly 300 deterministic stage slots');
+requireText(curriculum, "{ level: 'A1.1', count: 25 }", 'A1.1 must own its first 25 stages');
+requireText(curriculum, "{ level: 'C2', count: 50 }", 'C2 must have an explicit deterministic stage allocation');
+requireText(curriculum, 'retrievalStageIds: retrievalFor(number)', 'every curriculum stage must carry deterministic retrieval references');
+requireText(curriculum, "['Tervehdi'", 'Stage 1 must be individually authored rather than generated at runtime');
+requireText(curriculum, "['Ensimmäinen keskustelu'", 'A1.1 Stage 25 must be individually authored and cumulative');
+forbidText(curriculum, 'Math.random', 'curriculum construction must never use random generation');
 
 requireText(stages, 'export type GuidedSpeakingStageId = \`GS-\${string}\`;', 'curriculum stages need permanent deterministic IDs');
 requireText(stages, 'curriculumId: GuidedSpeakingStageId;', 'stage records must carry permanent curriculum identity');
