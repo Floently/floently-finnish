@@ -27,6 +27,7 @@ const sidebar = read('config/navigation/AppShell_sidebar_sections.ts');
 const learningRoute = read('state/LearningRoute.tsx');
 const appFlowStore = read('state/appFlowStore.ts');
 const learnRouting = read('state/learnRouting.ts');
+const utilityDrawer = read('../../packages/ui/components/UtilityDrawer.tsx');
 
 requireText(
   sidebar,
@@ -50,6 +51,66 @@ requireText(
   appShell,
   "options?: DrawerNavigationOptions",
   'AppShell must accept the shared drawer navigation options type',
+);
+
+requireText(
+  sidebar,
+  "id: 'everyday'",
+  'progressive drawer must expose an Everyday top-level branch',
+);
+
+requireText(
+  sidebar,
+  "id: 'professional'",
+  'progressive drawer must expose a Professional top-level branch',
+);
+
+requireText(
+  sidebar,
+  "id: 'yki'",
+  'progressive drawer must expose a YKI top-level branch when entitled',
+);
+
+requireText(
+  sidebar,
+  "activity: 'everyday-cards-vocabulary'",
+  'Everyday vocabulary must be reachable as a guarded drawer leaf',
+);
+
+requireText(
+  sidebar,
+  "activity: 'professional-reading'",
+  'Professional reading must be reachable as a guarded drawer leaf',
+);
+
+forbidText(
+  sidebar,
+  'router.',
+  'drawer configuration must not become a second routing authority',
+);
+
+requireText(
+  utilityDrawer,
+  'accessibilityState={hasChildren ? { expanded }',
+  'expandable drawer controls must publish expanded/collapsed accessibility state',
+);
+
+requireText(
+  utilityDrawer,
+  'return [...current.slice(0, depth), itemId];',
+  'opening a drawer branch must collapse any sibling at the same depth',
+);
+
+requireText(
+  utilityDrawer,
+  'if (hasChildren) {\n              toggleBranch(itemId, depth);\n              return;',
+  'drawer branches must expand without navigating',
+);
+
+requireText(
+  utilityDrawer,
+  'onClose();\n            item.onPress?.();',
+  'drawer leaves must close once immediately before navigation',
 );
 
 requireText(
@@ -140,7 +201,30 @@ requireText(
 requireText(
   appShell,
   'setDrawerOpen(false);\n      void navigateTo(route, options);',
-  'drawer navigation must close once before navigation',
+  'drawer navigation callback must close once before guarded navigation',
+);
+
+const entitlementGuardIndex = appShell.indexOf(
+  "if (!isEntitledForScreen(screen))",
+);
+const drawerActivityIndex = appShell.indexOf(
+  "if (options?.activity)",
+);
+
+if (
+  entitlementGuardIndex < 0 ||
+  drawerActivityIndex < 0 ||
+  drawerActivityIndex < entitlementGuardIndex
+) {
+  throw new Error(
+    'Navigation invariant failed: drawer leaf routing must execute only after the existing entitlement guard',
+  );
+}
+
+requireText(
+  appShell,
+  "initialExpandedItemId={drawerInitialExpandedItemId}",
+  'drawer must receive the current unambiguous pathway as its initial expanded branch',
 );
 
 requireText(
@@ -161,5 +245,10 @@ console.log('PASS: route reconciliation cannot depend on activeScreen.');
 console.log('PASS: duplicate global learning-branch state is absent.');
 console.log('PASS: LearningRoute remains URL-driven.');
 console.log('PASS: drawer closes once before navigation.');
+console.log('PASS: progressive drawer branches expose accessible expanded state.');
+console.log('PASS: one sibling branch is open per hierarchy depth.');
+console.log('PASS: branch presses expand without navigating.');
+console.log('PASS: drawer leaf shortcuts execute only after entitlement checks.');
+console.log('PASS: current pathway can reopen its drawer branch.');
 console.log('PASS: localhost behavior is development-only.');
 console.log('NAVIGATION_INVARIANTS=PASS');
