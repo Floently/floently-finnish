@@ -7,12 +7,16 @@ on:
     paths:
       - '.github/workflows/build47-uat-web-artifact.yml'
       - 'docs/agents/BUILD47_PROGRESSIVE_LEARNING_UAT_20260927.md'
+      - 'apps/client/state/SpeakingRoute.tsx'
+      - 'apps/client/scripts/verify-guided-speaking-invariants.mjs'
   pull_request:
     branches:
       - integration/build47-source-candidate-20260927
     paths:
       - '.github/workflows/build47-uat-web-artifact.yml'
       - 'docs/agents/BUILD47_PROGRESSIVE_LEARNING_UAT_20260927.md'
+      - 'apps/client/state/SpeakingRoute.tsx'
+      - 'apps/client/scripts/verify-guided-speaking-invariants.mjs'
 
 jobs:
   export-web:
@@ -253,7 +257,7 @@ jobs:
             await page.close();
           }
 
-          await capture('01-speaking-menu', '/speaking/', ['Guided', 'Roleplay']);
+          await capture('01-speaking-menu', '/speaking/', ['Guided', 'Roleplay', 'Etene vaihe kerrallaan']);
           await capture('02-cards-level-gate', '/cards/', ['A1', 'B1', 'C1']);
           await capture('03-professional-mission', '/professional/', ['Start mission', 'Mission path', 'Listen', 'Speak', 'Read', 'Write']);
           await capture(
