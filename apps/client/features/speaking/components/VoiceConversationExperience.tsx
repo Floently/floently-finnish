@@ -204,10 +204,14 @@ function AmbientBackground({ dark }: { dark: boolean }) {
 
 function VoiceOrb({
   amplitude,
+  disabled,
+  onPress,
   state,
   size,
 }: {
   amplitude: number;
+  disabled: boolean;
+  onPress: () => void;
   state: VoiceConversationUiState;
   size: number;
 }) {
@@ -296,13 +300,31 @@ function VoiceOrb({
           ? 0.22
           : 0.28;
 
+  const orbAccessibilityLabel =
+    state === 'userSpeaking'
+      ? 'Stop speaking'
+      : state === 'userListening' || state === 'error'
+        ? 'Start speaking'
+        : 'Voice activity';
+
   return (
-    <Animated.View
+    <Pressable
       testID="voice-orb"
-      accessibilityElementsHidden
-      importantForAccessibility="no-hide-descendants"
-      style={[
-        styles.orbOuter,
+      accessibilityLabel={orbAccessibilityLabel}
+      accessibilityRole={disabled ? undefined : 'button'}
+      accessibilityState={{ disabled }}
+      disabled={disabled}
+      onPress={onPress}
+      style={({ pressed }) => [
+        styles.orbPressTarget,
+        pressed && !disabled ? styles.orbPressed : null,
+      ]}
+    >
+      <Animated.View
+        accessibilityElementsHidden
+        importantForAccessibility="no-hide-descendants"
+        style={[
+          styles.orbOuter,
         {
           width: size,
           height: size,
@@ -350,7 +372,8 @@ function VoiceOrb({
           <Circle cx="65" cy="211" r="2.6" fill="#FFFFFF" fillOpacity="0.72" />
         </Svg>
       </Animated.View>
-    </Animated.View>
+      </Animated.View>
+    </Pressable>
   );
 }
 
@@ -648,6 +671,13 @@ export default function VoiceConversationExperience({
     state === 'userSpeaking' ||
     state === 'error';
 
+  const orbVoiceEnabled =
+    !textMode &&
+    !micDisabled &&
+    (state === 'userListening' ||
+      state === 'userSpeaking' ||
+      state === 'error');
+
   return (
     <View testID="voice-conversation-root" style={styles.root} {...gestureResponder.panHandlers}>
       <AmbientBackground dark={dark} />
@@ -698,8 +728,18 @@ export default function VoiceConversationExperience({
       ) : null}
 
       {!textMode ? (
-        <View style={styles.orbZone} pointerEvents="none">
-          <VoiceOrb amplitude={amplitude} size={orbSize} state={state} />
+        <View style={styles.orbZone}>
+          <VoiceOrb
+            amplitude={amplitude}
+            disabled={!orbVoiceEnabled}
+            onPress={() => {
+              if (!orbVoiceEnabled) return;
+              onExitTextMode();
+              onMicPress();
+            }}
+            size={orbSize}
+            state={state}
+          />
         </View>
       ) : (
         <View pointerEvents="none" style={styles.textModeSpacer} />
@@ -707,10 +747,19 @@ export default function VoiceConversationExperience({
 
       {userInputExpected && !trayOpen ? (
         <View pointerEvents="none" style={styles.swipeHint}>
-          <Ionicons color={mutedColor} name="chevron-up" size={17} />
-          <Text style={[styles.swipeHintText, { color: mutedColor }]}>
-            Swipe up to speak or type
+          <Text style={[styles.primaryVoiceHint, { color: mutedColor }]}>
+            {state === 'userSpeaking'
+              ? 'Tap the orb again to finish'
+              : 'Tap the orb to speak'}
           </Text>
+          {state !== 'userSpeaking' ? (
+            <View style={styles.typeHintRow}>
+              <Ionicons color={mutedColor} name="chevron-up" size={15} />
+              <Text style={[styles.swipeHintText, { color: mutedColor }]}>
+                Swipe up to type
+              </Text>
+            </View>
+          ) : null}
         </View>
       ) : null}
 
@@ -994,6 +1043,14 @@ const styles = StyleSheet.create({
     position: 'absolute',
     right: 0,
   },
+  orbPressTarget: {
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  orbPressed: {
+    opacity: 0.94,
+    transform: [{ scale: 0.985 }],
+  },
   orbOuter: {
     backgroundColor: 'rgba(255,255,255,0.18)',
     shadowColor: '#9DBBFF',
@@ -1031,6 +1088,18 @@ const styles = StyleSheet.create({
     position: 'absolute',
     right: 0,
     zIndex: 15,
+  },
+  primaryVoiceHint: {
+    fontSize: 14,
+    fontWeight: '600',
+    letterSpacing: 0.1,
+    textAlign: 'center',
+  },
+  typeHintRow: {
+    alignItems: 'center',
+    flexDirection: 'row',
+    justifyContent: 'center',
+    marginTop: 3,
   },
   swipeHintText: {
     fontSize: 12,
