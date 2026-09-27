@@ -127,6 +127,12 @@ class Settings:
     ).strip() or "https://app.kielivalmis.com/auth/reset-password"
     password_reset_email_from: str | None = _get_optional_str("PASSWORD_RESET_EMAIL_FROM")
     password_reset_email_webhook_url: str | None = _get_optional_str("PASSWORD_RESET_EMAIL_WEBHOOK_URL")
+    password_reset_smtp_host: str | None = _get_optional_str("PASSWORD_RESET_SMTP_HOST")
+    password_reset_smtp_port: int = _get_int("PASSWORD_RESET_SMTP_PORT", 587)
+    password_reset_smtp_username: str | None = _get_optional_str("PASSWORD_RESET_SMTP_USERNAME")
+    password_reset_smtp_password: str | None = _get_optional_str("PASSWORD_RESET_SMTP_PASSWORD")
+    password_reset_smtp_use_tls: bool = _get_bool("PASSWORD_RESET_SMTP_USE_TLS", "true")
+    password_reset_smtp_use_ssl: bool = _get_bool("PASSWORD_RESET_SMTP_USE_SSL", "false")
 
     auth_provider_ids: tuple[str, ...] = field(default_factory=lambda: _get_list("AUTH_PROVIDER_IDS"))
     auth_mode: str | None = _get_optional_str("AUTH_MODE")
