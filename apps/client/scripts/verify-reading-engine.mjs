@@ -1,16 +1,10 @@
 import assert from 'node:assert/strict';
-import { execFileSync } from 'node:child_process';
 import { existsSync, readFileSync } from 'node:fs';
 import ts from 'typescript';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../../..');
-// In the integrated release, unrelated /read work exists after the August
-// Wave-1 base. Guard this Phase-7 tranche against changing that legacy surface
-// by diffing from its exact green integration base instead of rewriting history.
-const PROTECTED_READ_PROTECTED_READ_BASE_SHA = '577a2175c4650d4fd40eb8038eef6b67ca7eaa2c';
-
 function transpileTypeScript(source, fileName) {
   return ts.transpileModule(source, {
     fileName,
@@ -411,23 +405,10 @@ test('/read remains separate from the canonical Reading runtime', () => {
   assert.equal(existsSync(path.join(ROOT, 'apps/client/app/learn/reading.tsx')), true);
   assert.equal(existsSync(path.join(ROOT, 'apps/client/app/professional/reading.tsx')), true);
 
-  let hasBaseCommit = false;
-  try {
-    execFileSync('git', ['rev-parse', '--verify', `${PROTECTED_READ_BASE_SHA}^{commit}`], {
-      cwd: ROOT,
-      stdio: 'ignore',
-    });
-    hasBaseCommit = true;
-  } catch {
-    // The standalone source-evidence runner may not have a local Git object database.
-  }
-  if (hasBaseCommit) {
-    execFileSync(
-      'git',
-      ['diff', '--quiet', PROTECTED_READ_BASE_SHA, '--', 'apps/client/app/read', 'apps/client/features/read'],
-      { cwd: ROOT },
-    );
-  }
+  // Floently Read is an active product surface again. The invariant here is
+  // architectural separation from Learn Reading, not byte-for-byte immobility
+  // of apps/client/app/read or apps/client/features/read.
+  assert.equal(existsSync(path.join(ROOT, 'apps/client/app/read/browser.tsx')), true);
 });
 
 console.log(`Reading engine verification passed: ${passed} tests.`);
