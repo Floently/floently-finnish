@@ -200,8 +200,70 @@ export default function ReadLiveBrowserScreen() {
       </View>
 
       <View style={styles.browserArea}>
+        <WebView
+          key={`${user.id}:${reloadKey}`}
+          ref={webViewRef}
+          source={{ uri: browserUrl }}
+          style={styles.webView}
+          originWhitelist={['https://read.floently.com']}
+          javaScriptEnabled
+          domStorageEnabled
+          sharedCookiesEnabled
+          thirdPartyCookiesEnabled
+          cacheEnabled
+          allowsInlineMediaPlayback
+          mediaPlaybackRequiresUserAction={false}
+          allowsBackForwardNavigationGestures
+          setSupportMultipleWindows={false}
+          injectedJavaScriptObject={
+            embeddedAuth ? { flowReaderAuth: embeddedAuth } : {}
+          }
+          injectedJavaScriptBeforeContentLoaded={authBootstrap}
+          injectedJavaScriptBeforeContentLoadedForMainFrameOnly
+          onMessage={() => {
+            // Keep the native bridge active; Browser V2 does not send
+            // credential or remote-page data back through postMessage.
+          }}
+          onLoadStart={() => {
+            setLoading(true);
+            setLoadError(null);
+          }}
+          onLoadEnd={() => setLoading(false)}
+          onNavigationStateChange={handleNavigation}
+          onShouldStartLoadWithRequest={(request) => {
+            if (canStayInsideReadBrowser(request.url)) return true;
+            if (/^https?:\/\//i.test(request.url)) {
+              void Linking.openURL(request.url).catch(() => {});
+            }
+            return false;
+          }}
+          onError={(event) => {
+            setLoading(false);
+            setLoadError(event.nativeEvent.description || 'The live browser could not be loaded.');
+          }}
+          onHttpError={(event) => {
+            if (event.nativeEvent.statusCode >= 500) {
+              setLoading(false);
+              setLoadError(`The Read browser returned ${event.nativeEvent.statusCode}. Try reconnecting.`);
+            }
+          }}
+          onContentProcessDidTerminate={() => {
+            // iOS: only a dead WebKit renderer justifies replacing the view.
+            setLoadError(null);
+            setLoading(true);
+            setReloadKey((value) => value + 1);
+          }}
+          onRenderProcessGone={() => {
+            // Android: preserve normal network failures in-place, but recover
+            // deterministically if the WebView renderer itself has died.
+            setLoadError(null);
+            setLoading(true);
+            setReloadKey((value) => value + 1);
+          }}
+        />
+
         {loadError ? (
-          <View style={styles.centered}>
+          <View style={styles.errorOverlay}>
             <Text style={styles.errorTitle}>Browser connection interrupted</Text>
             <Text style={styles.errorBody}>{loadError}</Text>
             <Pressable
@@ -209,62 +271,13 @@ export default function ReadLiveBrowserScreen() {
               onPress={() => {
                 setLoadError(null);
                 setLoading(true);
-                setReloadKey((value) => value + 1);
+                webViewRef.current?.reload();
               }}
             >
               <Text style={styles.primaryButtonText}>Reconnect</Text>
             </Pressable>
           </View>
-        ) : (
-          <WebView
-            key={`${user.id}:${reloadKey}`}
-            ref={webViewRef}
-            source={{ uri: browserUrl }}
-            style={styles.webView}
-            originWhitelist={['https://read.floently.com']}
-            javaScriptEnabled
-            domStorageEnabled
-            sharedCookiesEnabled
-            thirdPartyCookiesEnabled
-            cacheEnabled
-            allowsInlineMediaPlayback
-            mediaPlaybackRequiresUserAction={false}
-            allowsBackForwardNavigationGestures
-            setSupportMultipleWindows={false}
-            injectedJavaScriptObject={
-              embeddedAuth ? { flowReaderAuth: embeddedAuth } : {}
-            }
-            injectedJavaScriptBeforeContentLoaded={authBootstrap}
-            injectedJavaScriptBeforeContentLoadedForMainFrameOnly
-            onMessage={() => {
-              // Keep the native bridge active; Browser V2 does not send
-              // credential or remote-page data back through postMessage.
-            }}
-            onLoadStart={() => {
-              setLoading(true);
-              setLoadError(null);
-            }}
-            onLoadEnd={() => setLoading(false)}
-            onNavigationStateChange={handleNavigation}
-            onShouldStartLoadWithRequest={(request) => {
-              if (canStayInsideReadBrowser(request.url)) return true;
-              if (/^https?:\/\//i.test(request.url)) {
-                void Linking.openURL(request.url).catch(() => {});
-              }
-              return false;
-            }}
-            onError={(event) => {
-              setLoading(false);
-              setLoadError(event.nativeEvent.description || 'The live browser could not be loaded.');
-            }}
-            onHttpError={(event) => {
-              if (event.nativeEvent.statusCode >= 500) {
-                setLoading(false);
-                setLoadError(`The Read browser returned ${event.nativeEvent.statusCode}. Try reconnecting.`);
-              }
-            }}
-          />
-        )}
+        ) : null}
 
         {loading && !loadError ? (
           <View pointerEvents="none" style={styles.loadingOverlay}>
@@ -316,6 +329,14 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     gap: 12,
     backgroundColor: 'rgba(7,11,22,0.86)',
+  },
+  errorOverlay: {
+    ...StyleSheet.absoluteFillObject,
+    alignItems: 'center',
+    justifyContent: 'center',
+    paddingHorizontal: 28,
+    gap: 12,
+    backgroundColor: 'rgba(7,11,22,0.94)',
   },
   loadingText: { color: '#BAC5D9', fontSize: 13, fontWeight: '800', textAlign: 'center' },
   errorTitle: { color: '#FFFFFF', fontSize: 20, fontWeight: '900', textAlign: 'center' },
