@@ -366,7 +366,7 @@ export const useReadMobileStore = create<ReadMobileState>((set, get) => ({
   },
 
   setPlaybackSpeed: (id, speed) => {
-    const nextSpeed = Math.max(0.5, Math.min(2, speed));
+    const nextSpeed = Math.max(0.5, Math.min(3, speed));
     set((state) => ({
       documents: state.documents.map((document) =>
         document.id === id ? { ...document, playbackSpeed: nextSpeed } : document,
