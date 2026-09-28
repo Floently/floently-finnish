@@ -22,7 +22,7 @@ import {
   type ReadDocument,
   type ReadTheme,
 } from './readMobileStore';
-import { readTtsApi, type ReadTtsResult } from './readTtsApi';
+import { readTtsApi, type ReadTtsResult, type ReadVoice } from './readTtsApi';
 import { readRenderApi } from './readRenderApi';
 import { restoreReadStorePurchases, startReadStorePurchase, type ReadStorePlanId } from '../../billing/services/storeBillingService';
 import { useSubscriptionStore } from '../../../state/subscriptionStore';
@@ -814,16 +814,33 @@ export function ReadReaderScreen() {
   const document = useActiveReadDocument();
   const updateProgress = useReadMobileStore((state) => state.updateProgress);
   const setPlaybackSpeed = useReadMobileStore((state) => state.setPlaybackSpeed);
+  const setVoiceId = useReadMobileStore((state) => state.setVoiceId);
   const player = useAudioPlayer(null, { updateInterval: 500 });
   const playbackStatus = useAudioPlayerStatus(player);
   const [audioState, setAudioState] = useState<AudioPlaybackState>('idle');
   const [audioError, setAudioError] = useState<string | null>(null);
   const [audioResult, setAudioResult] = useState<ReadTtsResult | null>(null);
+  const [voices, setVoices] = useState<ReadVoice[]>([]);
+  const [defaultVoiceId, setDefaultVoiceId] = useState<string | null>(null);
   const theme = useReadMobileStore((state) => state.readTheme);
   const palette = paletteFor(theme);
 
   useEffect(() => {
     void setAudioModeAsync({ playsInSilentMode: true });
+  }, []);
+
+  useEffect(() => {
+    let cancelled = false;
+    void readTtsApi.listVoices().then((catalog) => {
+      if (cancelled) return;
+      setVoices(catalog.voices);
+      setDefaultVoiceId(catalog.defaultVoiceId);
+    }).catch(() => {
+      // The reader can still use the backend default if the catalog is offline.
+    });
+    return () => {
+      cancelled = true;
+    };
   }, []);
 
   useEffect(() => {
@@ -864,6 +881,20 @@ export function ReadReaderScreen() {
       )
     : 0;
 
+  const readerVoices = useMemo(() => {
+    if (!document) return voices;
+    const language = String(document.language || '').toLowerCase();
+    const matching = voices.filter((voice) => voice.language === language);
+    return matching.length ? matching : voices;
+  }, [document, voices]);
+
+  const selectedVoiceId = document?.voiceId || defaultVoiceId;
+  const selectedVoice =
+    readerVoices.find((voice) => voice.id === selectedVoiceId) ||
+    voices.find((voice) => voice.id === selectedVoiceId) ||
+    readerVoices[0] ||
+    null;
+
   const timeLabel = useMemo(() => {
     if (!document) return '00:00 / 00:00';
     const estimatedTotalSeconds = Math.max(30, Math.ceil(document.generatedText.length / 12));
@@ -888,7 +919,11 @@ export function ReadReaderScreen() {
 
     try {
       const ttsText = document.generatedText.slice(0, 4000);
-      const result = await readTtsApi.prerenderReading({ text: ttsText, language: document.language });
+      const result = await readTtsApi.prerenderReading({
+        text: ttsText,
+        language: document.language,
+        voiceId: document.voiceId || selectedVoice?.id || defaultVoiceId,
+      });
       setAudioResult(result);
       player.replace(result.audioUrl);
       setPlayerPlaybackRate(player, document.playbackSpeed);
@@ -903,6 +938,22 @@ export function ReadReaderScreen() {
   function pauseAudio() {
     player.pause();
     setAudioState('paused');
+  }
+
+  function cycleVoice() {
+    if (!document || !readerVoices.length) {
+      navigate('/read/settings');
+      return;
+    }
+    const currentId = document.voiceId || selectedVoice?.id || defaultVoiceId;
+    const currentIndex = readerVoices.findIndex((voice) => voice.id === currentId);
+    const nextVoice = readerVoices[(currentIndex + 1 + readerVoices.length) % readerVoices.length];
+    if (!nextVoice) return;
+    player.pause();
+    setAudioResult(null);
+    setAudioError(null);
+    setAudioState('idle');
+    setVoiceId(document.id, nextVoice.id);
   }
 
   function replayAudio() {
@@ -970,7 +1021,10 @@ export function ReadReaderScreen() {
             </Pressable>
           </View>
           <View style={styles.readerDockBottom}>
-            <SecondaryButton label={`Voice`} onPress={() => navigate('/read/settings')} />
+            <SecondaryButton
+              label={selectedVoice ? `Voice · ${selectedVoice.name}` : 'Voice'}
+              onPress={cycleVoice}
+            />
             <SecondaryButton
               label={`${document.playbackSpeed.toFixed(document.playbackSpeed % 1 === 0 ? 0 : 1)}x`}
               onPress={() => {
