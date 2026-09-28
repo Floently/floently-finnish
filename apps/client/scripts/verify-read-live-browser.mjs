@@ -33,6 +33,8 @@ const browserRoute = read('app/read/browser.tsx');
 const readLandingRoute = read('app/read/index.tsx');
 const readAuth = read('features/read/mobile/ReadAuthScreen.tsx');
 const readStore = read('features/read/mobile/readMobileStore.ts');
+const readTts = read('features/read/mobile/readTtsApi.ts');
+const readRender = read('features/read/mobile/readRenderApi.ts');
 const landingRoute = read('state/LandingRoute.tsx');
 const pkg = JSON.parse(read('package.json'));
 
@@ -107,6 +109,16 @@ assert.ok(home.includes("Math.min(3"),
   'native Read audio player must support rates through 3x');
 assert.ok(readStore.includes("Math.min(3, speed)"),
   'native Read state must persist requested playback rates through 3x');
+assert.ok(readStore.includes('setVoiceId: (id, voiceId) =>'),
+  'native Read state must own persistent per-document voice selection');
+assert.ok(readTts.includes("getReadApi('/api/voices/unified')"),
+  'native Read must use the same unified voice catalog as the web Reader');
+assert.ok(readTts.includes("azure:fi-FI-SelmaNeural"),
+  'native Read must have a Finnish neural default when the document language is Finnish');
+assert.ok(readRender.includes('voice_id: input.voiceId') && readRender.includes('voiceId: input.voiceId'),
+  'native Read progress sync must persist voice selection to the backend');
+assert.ok(home.includes('Voice · ${selectedVoice.name}') && home.includes('onPress={cycleVoice}'),
+  'native Read player must expose real voice selection in the playback controller');
 assert.ok(home.includes("[0.8, 1.0, 1.2, 1.5, 1.8, 2.0, 2.25, 2.5, 2.75, 3.0]"),
   'native Read settings must expose the full speed range through 3x');
 assert.ok(home.includes('NOW READING'),
