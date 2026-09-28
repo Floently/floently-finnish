@@ -84,6 +84,8 @@ jobs:
         run: pnpm install --frozen-lockfile
       - name: TypeScript check
         run: pnpm --dir apps/client exec tsc --noEmit
+      - name: Verify login password visibility invariants
+        run: pnpm --dir apps/client run verify:login-password-visibility
       - name: Verify subscription authority invariants
         run: pnpm --dir apps/client run verify:subscription-authority
       - name: Verify live Read browser invariants
