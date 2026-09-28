@@ -34,6 +34,7 @@ const readLandingRoute = read('app/read/index.tsx');
 const readAuth = read('features/read/mobile/ReadAuthScreen.tsx');
 const readStore = read('features/read/mobile/readMobileStore.ts');
 const readTts = read('features/read/mobile/readTtsApi.ts');
+const readAi = read('features/read/mobile/readAiApi.ts');
 const readRender = read('features/read/mobile/readRenderApi.ts');
 const landingRoute = read('state/LandingRoute.tsx');
 const pkg = JSON.parse(read('package.json'));
@@ -119,6 +120,15 @@ assert.ok(readRender.includes('voice_id: input.voiceId') && readRender.includes(
   'native Read progress sync must persist voice selection to the backend');
 assert.ok(home.includes('Voice · ${selectedVoice.name}') && home.includes('onPress={cycleVoice}'),
   'native Read player must expose real voice selection in the playback controller');
+for (const marker of ['Summary & AI', 'Summary', 'Key points', 'Explain', 'Flashcards', 'Quiz me', 'Exam coach', 'Glossary', 'Ask AI']) {
+  assert.ok(home.includes(marker), `native Read player missing study/AI control: ${marker}`);
+}
+assert.ok(readAi.includes("'/api/ai/generate'"),
+  'native Read study tools must use the canonical Read AI endpoint');
+assert.ok(readAi.includes("action === 'summary'") && readAi.includes("'summarize'"),
+  'native Read Summary must map to the canonical summarize backend action');
+assert.ok(readAi.includes("action === 'key_points'"),
+  'native Read Key points must map to the canonical key_points backend action');
 assert.ok(home.includes("[0.8, 1.0, 1.2, 1.5, 1.8, 2.0, 2.25, 2.5, 2.75, 3.0]"),
   'native Read settings must expose the full speed range through 3x');
 assert.ok(home.includes('NOW READING'),
