@@ -45,6 +45,14 @@ for (const marker of [
   "originWhitelist={['https://read.floently.com']}",
   "hostname === READ_BROWSER_HOST",
   "setSupportMultipleWindows={false}",
+  "domStorageEnabled",
+  "sharedCookiesEnabled",
+  "thirdPartyCookiesEnabled",
+  "cacheEnabled",
+  "allowsInlineMediaPlayback",
+  "mediaPlaybackRequiresUserAction={false}",
+  "injectedJavaScriptBeforeContentLoadedForMainFrameOnly",
+  "onHttpError",
 ]) {
   assert.ok(browser.includes(marker), `Live browser missing security/runtime marker: ${marker}`);
 }
@@ -59,6 +67,10 @@ assert.ok(browser.includes("parsed.searchParams.delete('embed')"),
   'Expo web builds must not impersonate the React Native injected-auth bridge');
 assert.ok(browser.includes('key={`${user.id}:${reloadKey}`}'),
   'React Native Read browser must remount when the signed-in account changes');
+assert.ok(browser.includes("Platform.OS !== 'web'"),
+  'native iOS/Android must retain the WebView path while Expo web redirects to Browser V2');
+assert.ok(browser.includes("webViewRef.current?.reload()"),
+  'native Read must retain in-place WebView reload so same-tab Browser V2 reattach can preserve Chromium');
 
 assert.ok(guard.includes('requireReadAccess = true'),
   'Read content guard must require Read access by default');
