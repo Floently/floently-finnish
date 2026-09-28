@@ -331,7 +331,6 @@ export default function AuthScreen({ initialTab = 'signin' }: Props) {
                     disabled={submitting}
                     accessibilityRole="button"
                     accessibilityLabel={passwordVisible ? 'Hide password' : 'Show password'}
-                    accessibilityState={{ expanded: passwordVisible }}
                     hitSlop={8}
                     style={({ pressed }) => [
                       styles.passwordVisibilityButton,
@@ -342,7 +341,7 @@ export default function AuthScreen({ initialTab = 'signin' }: Props) {
                     <Ionicons
                       name={passwordVisible ? 'eye-off-outline' : 'eye-outline'}
                       size={22}
-                      color={palette.textMuted}
+                      color={passwordVisible ? palette.primary : palette.textMuted}
                     />
                   </Pressable>
                 ) : null}
