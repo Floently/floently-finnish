@@ -120,6 +120,12 @@ assert.ok(readRender.includes('voice_id: input.voiceId') && readRender.includes(
   'native Read progress sync must persist voice selection to the backend');
 assert.ok(home.includes('Voice · ${selectedVoice.name}') && home.includes('onPress={cycleVoice}'),
   'native Read player must expose real voice selection in the playback controller');
+assert.ok(home.includes('function readerAudioChunks') && home.includes('playAudioChunk(nextIndex)'),
+  'native Read must narrate long documents continuously in bounded TTS chunks');
+assert.ok(!home.includes('generatedText.slice(0, 4000)'),
+  'native Read must never silently truncate narration to the first 4000 characters');
+assert.ok(home.includes('completedChars') && home.includes('displayedProgress'),
+  'native Read playback progress must remain document-wide across TTS chunks');
 for (const marker of ['Summary & AI', 'Summary', 'Key points', 'Explain', 'Flashcards', 'Quiz me', 'Exam coach', 'Glossary', 'Ask AI']) {
   assert.ok(home.includes(marker), `native Read player missing study/AI control: ${marker}`);
 }
