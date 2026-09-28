@@ -23,6 +23,7 @@ import {
   type ReadTheme,
 } from './readMobileStore';
 import { readTtsApi, type ReadTtsResult, type ReadVoice } from './readTtsApi';
+import { readAiApi, type ReadAiAction } from './readAiApi';
 import { readRenderApi } from './readRenderApi';
 import { restoreReadStorePurchases, startReadStorePurchase, type ReadStorePlanId } from '../../billing/services/storeBillingService';
 import { useSubscriptionStore } from '../../../state/subscriptionStore';
@@ -822,6 +823,13 @@ export function ReadReaderScreen() {
   const [audioResult, setAudioResult] = useState<ReadTtsResult | null>(null);
   const [voices, setVoices] = useState<ReadVoice[]>([]);
   const [defaultVoiceId, setDefaultVoiceId] = useState<string | null>(null);
+  const [studyOpen, setStudyOpen] = useState(false);
+  const [studyBusy, setStudyBusy] = useState(false);
+  const [studyAction, setStudyAction] = useState<ReadAiAction | null>(null);
+  const [studyTitle, setStudyTitle] = useState('Summary & AI');
+  const [studyResult, setStudyResult] = useState('');
+  const [studyError, setStudyError] = useState<string | null>(null);
+  const [studyQuestion, setStudyQuestion] = useState('');
   const theme = useReadMobileStore((state) => state.readTheme);
   const palette = paletteFor(theme);
 
@@ -963,6 +971,29 @@ export function ReadReaderScreen() {
     setAudioState('playing');
   }
 
+  async function runStudy(action: ReadAiAction, title: string, question?: string) {
+    if (!document || document.status === 'processing' || studyBusy) return;
+    setStudyBusy(true);
+    setStudyAction(action);
+    setStudyTitle(title);
+    setStudyError(null);
+    setStudyResult('');
+    try {
+      const result = await readAiApi.generate({
+        action,
+        text: document.generatedText,
+        title: document.title,
+        language: document.language,
+        question,
+      });
+      setStudyResult(result);
+    } catch (error) {
+      setStudyError(error instanceof Error ? error.message : String(error));
+    } finally {
+      setStudyBusy(false);
+    }
+  }
+
   if (!document) {
     return (
       <AppShell active="reader">
@@ -1035,6 +1066,84 @@ export function ReadReaderScreen() {
             />
             <SecondaryButton label={document.detectedLanguageLabel} onPress={() => navigate('/read/settings')} />
           </View>
+          <Pressable
+            accessibilityRole="button"
+            accessibilityState={{ expanded: studyOpen }}
+            onPress={() => setStudyOpen((value) => !value)}
+            style={[styles.readerStudyToggle, { backgroundColor: palette.surfaceSoft, borderColor: palette.borderStrong }]}
+          >
+            <Text style={[styles.readerStudyToggleText, { color: palette.text }]}>
+              {studyOpen ? 'Hide study tools' : 'Summary & AI'}
+            </Text>
+          </Pressable>
+          {studyOpen ? (
+            <View style={[styles.readerStudyPanel, { backgroundColor: palette.surface, borderColor: palette.border }]}>
+              <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={styles.readerStudyActions}>
+                {([
+                  ['summary', 'Summary'],
+                  ['key_points', 'Key points'],
+                  ['explain', 'Explain'],
+                  ['flashcards', 'Flashcards'],
+                  ['quiz', 'Quiz me'],
+                  ['exam', 'Exam coach'],
+                  ['glossary', 'Glossary'],
+                ] as Array<[ReadAiAction, string]>).map(([action, label]) => (
+                  <Pressable
+                    key={action}
+                    disabled={studyBusy || isProcessing}
+                    onPress={() => { void runStudy(action, label); }}
+                    style={[
+                      styles.readerStudyChip,
+                      { backgroundColor: studyAction === action ? palette.accent : palette.surfaceSoft, borderColor: studyAction === action ? palette.accent : palette.border },
+                      (studyBusy || isProcessing) && styles.disabled,
+                    ]}
+                  >
+                    <Text style={[styles.readerStudyChipText, { color: studyAction === action ? palette.accentText : palette.text }]}>{label}</Text>
+                  </Pressable>
+                ))}
+              </ScrollView>
+              <View style={styles.readerAiRow}>
+                <TextInput
+                  value={studyQuestion}
+                  onChangeText={setStudyQuestion}
+                  placeholder="Ask about this reading…"
+                  placeholderTextColor={palette.faint}
+                  editable={!studyBusy}
+                  maxLength={1200}
+                  style={[styles.readerAiInput, { color: palette.text, backgroundColor: palette.surfaceSoft, borderColor: palette.border }]}
+                  onSubmitEditing={() => {
+                    const question = studyQuestion.trim();
+                    if (question) void runStudy('assistant', 'AI answer', question);
+                  }}
+                />
+                <Pressable
+                  accessibilityRole="button"
+                  disabled={!studyQuestion.trim() || studyBusy}
+                  onPress={() => {
+                    const question = studyQuestion.trim();
+                    if (question) void runStudy('assistant', 'AI answer', question);
+                  }}
+                  style={[styles.readerAiButton, { backgroundColor: palette.accent }, (!studyQuestion.trim() || studyBusy) && styles.disabled]}
+                >
+                  <Text style={[styles.readerAiButtonText, { color: palette.accentText }]}>Ask AI</Text>
+                </Pressable>
+              </View>
+              {(studyBusy || studyResult || studyError) ? (
+                <View style={[styles.readerStudyResult, { backgroundColor: palette.surfaceSoft, borderColor: palette.border }]}>
+                  <Text style={[styles.readerStudyResultTitle, { color: palette.text }]}>
+                    {studyBusy ? 'Working…' : studyTitle}
+                  </Text>
+                  {studyBusy ? <ActivityIndicator color={palette.accent} /> : null}
+                  {studyError ? <Text style={[styles.errorText, { color: palette.danger }]}>{studyError}</Text> : null}
+                  {studyResult ? (
+                    <ScrollView style={styles.readerStudyResultScroll} nestedScrollEnabled>
+                      <Text selectable style={[styles.readerStudyResultText, { color: palette.text }]}>{studyResult}</Text>
+                    </ScrollView>
+                  ) : null}
+                </View>
+              ) : null}
+            </View>
+          ) : null}
           {audioError ? <Text style={[styles.errorText, { color: palette.danger }]}>{audioError}</Text> : null}
         </View>
       </View>
@@ -1394,6 +1503,20 @@ const styles = StyleSheet.create({
   mainPlay: { minWidth: 82, height: 62, borderRadius: 31, alignItems: 'center', justifyContent: 'center', paddingHorizontal: 14 },
   mainPlayText: { fontSize: 15, fontWeight: '900' },
   readerDockBottom: { flexDirection: 'row', gap: 8, justifyContent: 'space-between' },
+  readerStudyToggle: { minHeight: 42, borderRadius: 14, borderWidth: 1, alignItems: 'center', justifyContent: 'center', paddingHorizontal: 14 },
+  readerStudyToggleText: { fontSize: 12, fontWeight: '900' },
+  readerStudyPanel: { borderRadius: 16, borderWidth: 1, padding: 10, gap: 10, maxHeight: 330 },
+  readerStudyActions: { gap: 8, paddingRight: 4 },
+  readerStudyChip: { minHeight: 36, borderRadius: 999, borderWidth: 1, paddingHorizontal: 12, alignItems: 'center', justifyContent: 'center' },
+  readerStudyChipText: { fontSize: 11, fontWeight: '900' },
+  readerAiRow: { flexDirection: 'row', gap: 8, alignItems: 'center' },
+  readerAiInput: { flex: 1, minHeight: 42, borderRadius: 12, borderWidth: 1, paddingHorizontal: 12, fontSize: 13, fontWeight: '600' },
+  readerAiButton: { minHeight: 42, borderRadius: 12, paddingHorizontal: 13, alignItems: 'center', justifyContent: 'center' },
+  readerAiButtonText: { fontSize: 12, fontWeight: '900' },
+  readerStudyResult: { borderRadius: 12, borderWidth: 1, padding: 10, gap: 7 },
+  readerStudyResultTitle: { fontSize: 12, fontWeight: '900' },
+  readerStudyResultScroll: { maxHeight: 150 },
+  readerStudyResultText: { fontSize: 12, lineHeight: 18, fontWeight: '600' },
   ringWrap: { alignItems: 'center', justifyContent: 'center', alignSelf: 'center' },
   ringText: { position: 'absolute', fontSize: 16, fontWeight: '900' },
   analyticsGrid: { flexDirection: 'row', gap: 10 },
