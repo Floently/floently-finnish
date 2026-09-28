@@ -17,6 +17,7 @@ const requiredRoutes = [
   'app/read/analytics.tsx',
   'app/read/subscribe.tsx',
   'app/read/browser.tsx',
+  'app/products.tsx',
 ];
 
 for (const route of requiredRoutes) {
@@ -31,6 +32,8 @@ const appShell = read('state/AppShell.tsx');
 const subscribeRoute = read('app/read/subscribe.tsx');
 const browserRoute = read('app/read/browser.tsx');
 const readLandingRoute = read('app/read/index.tsx');
+const productsRoute = read('app/products.tsx');
+const publicMarketing = read('features/publicMarketing/screens/NativePublicMarketingScreens.tsx');
 const readAuth = read('features/read/mobile/ReadAuthScreen.tsx');
 const readStore = read('features/read/mobile/readMobileStore.ts');
 const readTts = read('features/read/mobile/readTtsApi.ts');
@@ -91,8 +94,25 @@ assert.ok(readLandingRoute.includes('NativeReadPreviewScreen'),
   'native /read must render the public Read landing before authentication');
 assert.ok(readLandingRoute.includes("onOpenLearn={() => router.push('/' as never)}"),
   'Read landing must integrate the existing KieliValmis entry without modifying it');
+assert.ok(readLandingRoute.includes("onOpenGateway={() => router.push('/products' as never)}"),
+  'Read Floently Home must open the separate product gateway instead of masquerading as KieliValmis');
+assert.ok(productsRoute.includes('NativeFloentlyProductGatewayScreen') &&
+  productsRoute.includes("onOpenLearn={() => router.push('/' as never)}") &&
+  productsRoute.includes("onOpenRead={() => router.push('/read' as never)}"),
+  'product gateway must integrate Read and the existing KieliValmis root without replacing either');
 assert.ok(landingRoute.includes('return <KieliValmisLandingScreen />'),
   'KieliValmis direct entry must remain untouched by Read work');
+for (const marker of [
+  'landing_page_picture_1.png',
+  'landing_page_picture_8.png',
+  'People are listening',
+  'Lifelike Voices',
+  'Easy Import',
+  'Customizable',
+  "router.push('/read/subscribe' as never)",
+]) {
+  assert.ok(publicMarketing.includes(marker), `native Read landing missing web-parity marker: ${marker}`);
+}
 
 for (const marker of [
   "authService.login",
