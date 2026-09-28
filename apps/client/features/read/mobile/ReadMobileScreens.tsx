@@ -209,6 +209,13 @@ function readingMinutes(text: string) {
   return Math.max(1, Math.ceil(countWords(text) / 170));
 }
 
+function readerParagraphs(text: string) {
+  return text
+    .split(/\n{2,}|(?<=[.!?])\s+(?=[A-Z])/)
+    .map((value) => value.trim())
+    .filter(Boolean);
+}
+
 function safePct(value: number) {
   return Math.max(0, Math.min(100, Math.round(value * 100)));
 }
@@ -237,7 +244,7 @@ function cardTone(tone: ReadTone, palette: Palette) {
 }
 
 function setPlayerPlaybackRate(player: ReturnType<typeof useAudioPlayer>, rate: number) {
-  const safeRate = Math.max(0.1, Math.min(2, Number.isFinite(rate) ? rate : 1));
+  const safeRate = Math.max(0.1, Math.min(3, Number.isFinite(rate) ? rate : 1));
   const maybePlayer = player as unknown as { setPlaybackRate?: (rate: number) => void; playbackRate?: number };
 
   try {
@@ -770,19 +777,35 @@ export function ReadLibraryScreen() {
   );
 }
 
-function ReaderText({ document }: { document: ReadDocument }) {
+function ReaderText({ document, activeIndex }: { document: ReadDocument; activeIndex: number }) {
   const theme = useReadMobileStore((state) => state.readTheme);
   const palette = paletteFor(theme);
-  const paragraphs = document.generatedText.split(/\n{2,}|(?<=[.!?])\s+(?=[A-Z])/).filter(Boolean);
+  const paragraphs = readerParagraphs(document.generatedText);
   return (
     <View style={[styles.readerPaper, { backgroundColor: palette.readerPaper, borderColor: palette.border }]}>
       <Text style={[styles.readerChapter, { color: palette.readerMuted }]}>Chapter 1</Text>
       <Text style={[styles.readerTitle, { color: palette.readerText }]}>{document.title}</Text>
-      {paragraphs.slice(0, 12).map((paragraph, index) => (
-        <Text key={`${paragraph.slice(0, 16)}-${index}`} style={[styles.readerParagraph, { color: palette.readerText }, index === 0 && { backgroundColor: palette.key === 'dark' ? 'rgba(139,92,246,0.16)' : 'rgba(139,92,246,0.10)', borderColor: palette.borderStrong }]}>
-          {paragraph.trim()}
-        </Text>
-      ))}
+      {paragraphs.slice(0, 24).map((paragraph, index) => {
+        const active=index===activeIndex;
+        return (
+          <Text
+            key={`${paragraph.slice(0, 16)}-${index}`}
+            accessibilityState={{ selected: active }}
+            style={[
+              styles.readerParagraph,
+              { color: palette.readerText },
+              active && {
+                backgroundColor: palette.key === 'dark'
+                  ? 'rgba(139,92,246,0.18)'
+                  : 'rgba(139,92,246,0.10)',
+                borderColor: palette.borderStrong,
+              },
+            ]}
+          >
+            {paragraph}
+          </Text>
+        );
+      })}
     </View>
   );
 }
@@ -829,6 +852,17 @@ export function ReadReaderScreen() {
     if (playbackStatus.duration > 0) return Math.max(0, Math.min(1, playbackStatus.currentTime / playbackStatus.duration));
     return document.readingProgress;
   }, [document, playbackStatus.currentTime, playbackStatus.duration]);
+
+  const readerParagraphList = useMemo(
+    () => document ? readerParagraphs(document.generatedText) : [],
+    [document],
+  );
+  const activeParagraphIndex = readerParagraphList.length
+    ? Math.min(
+        readerParagraphList.length - 1,
+        Math.floor(displayedProgress * readerParagraphList.length),
+      )
+    : 0;
 
   const timeLabel = useMemo(() => {
     if (!document) return '00:00 / 00:00';
@@ -907,10 +941,18 @@ export function ReadReaderScreen() {
               <SecondaryButton label="Open library" onPress={() => navigate('/read/library')} />
             </View>
           ) : (
-            <ReaderText document={document} />
+            <ReaderText document={document} activeIndex={activeParagraphIndex} />
           )}
         </ScrollView>
         <View style={[styles.readerDock, { backgroundColor: palette.nav, borderColor: palette.border, shadowColor: palette.shadow }]}>
+          {readerParagraphList[activeParagraphIndex] ? (
+            <View style={[styles.readerNowReading, { backgroundColor: palette.surfaceSoft, borderColor: palette.borderStrong }]}>
+              <Text style={[styles.readerNowLabel, { color: palette.accent2 }]}>NOW READING</Text>
+              <Text numberOfLines={2} style={[styles.readerNowText, { color: palette.text }]}>
+                {readerParagraphList[activeParagraphIndex]}
+              </Text>
+            </View>
+          ) : null}
           <View style={styles.readerDockTop}>
             <Text style={[styles.readerTime, { color: palette.muted }]}>{timeLabel}</Text>
             <Text style={[styles.readerTime, { color: palette.muted }]}>{safePct(displayedProgress)}%</Text>
@@ -929,7 +971,14 @@ export function ReadReaderScreen() {
           </View>
           <View style={styles.readerDockBottom}>
             <SecondaryButton label={`Voice`} onPress={() => navigate('/read/settings')} />
-            <SecondaryButton label={`${document.playbackSpeed.toFixed(1)}x`} onPress={() => setPlaybackSpeed(document.id, document.playbackSpeed >= 1.5 ? 1 : document.playbackSpeed + 0.1)} />
+            <SecondaryButton
+              label={`${document.playbackSpeed.toFixed(document.playbackSpeed % 1 === 0 ? 0 : 1)}x`}
+              onPress={() => {
+                const speeds=[0.8,1,1.2,1.5,1.8,2,2.25,2.5,2.75,3];
+                const current=speeds.findIndex((value)=>Math.abs(value-document.playbackSpeed)<0.01);
+                setPlaybackSpeed(document.id,speeds[(current+1+speeds.length)%speeds.length]);
+              }}
+            />
             <SecondaryButton label={document.detectedLanguageLabel} onPress={() => navigate('/read/settings')} />
           </View>
           {audioError ? <Text style={[styles.errorText, { color: palette.danger }]}>{audioError}</Text> : null}
@@ -979,7 +1028,7 @@ export function ReadSettingsScreen() {
           </View>
           {activeDocument ? (
             <View style={styles.speedRow}>
-              {[0.8, 1.0, 1.2, 1.5].map((speed) => (
+              {[0.8, 1.0, 1.2, 1.5, 1.8, 2.0, 2.25, 2.5, 2.75, 3.0].map((speed) => (
                 <Pressable key={speed} onPress={() => setPlaybackSpeed(activeDocument.id, speed)} style={[styles.speedChip, { backgroundColor: Math.abs(activeDocument.playbackSpeed - speed) < 0.01 ? palette.accent : palette.surfaceSoft, borderColor: Math.abs(activeDocument.playbackSpeed - speed) < 0.01 ? palette.accent : palette.border }]}>
                   <Text style={[styles.speedChipText, { color: Math.abs(activeDocument.playbackSpeed - speed) < 0.01 ? palette.accentText : palette.text }]}>{speed.toFixed(1)}x</Text>
                 </Pressable>
@@ -1280,6 +1329,9 @@ const styles = StyleSheet.create({
   processingTitle: { fontSize: 22, fontWeight: '900', textAlign: 'center' },
   processingBody: { fontSize: 14, lineHeight: 21, textAlign: 'center', fontWeight: '600' },
   readerDock: { position: 'absolute', left: 14, right: 14, bottom: 16, borderRadius: 30, borderWidth: 1, padding: 14, gap: 10, shadowOpacity: 1, shadowRadius: 26, shadowOffset: { width: 0, height: 14 } },
+  readerNowReading: { borderRadius: 12, borderWidth: 1, paddingHorizontal: 12, paddingVertical: 9, gap: 3 },
+  readerNowLabel: { fontSize: 9, fontWeight: '900', letterSpacing: 1.1 },
+  readerNowText: { fontSize: 12, lineHeight: 17, fontWeight: '700' },
   readerDockTop: { flexDirection: 'row', justifyContent: 'space-between' },
   readerTime: { fontSize: 12, fontWeight: '800' },
   readerControls: { flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 20 },
