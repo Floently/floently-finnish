@@ -19,6 +19,7 @@ export type ReadDocument = {
   createdAtIso: string;
   readingProgress: number;
   playbackSpeed: number;
+  voiceId: string | null;
   status?: ReadDocumentStatus;
   statusMessage?: string | null;
   fileName?: string | null;
@@ -41,6 +42,7 @@ type ReadMobileState = {
   openDocument: (id: string) => void;
   updateProgress: (id: string, progress: number) => void;
   setPlaybackSpeed: (id: string, speed: number) => void;
+  setVoiceId: (id: string, voiceId: string | null) => void;
 };
 
 const LANGUAGE_LABELS: Record<ReadLanguage, string> = {
@@ -128,6 +130,7 @@ function toLocalDocument(remote: ReadRenderDocument): ReadDocument {
     createdAtIso: String(remote.createdAt ?? remote.created_at ?? new Date().toISOString()),
     readingProgress: progressToRatio(remote.progress ?? remote.progressPercent ?? remote.progress_percent),
     playbackSpeed: Number(remote.playbackSpeed ?? remote.playback_speed ?? 1) || 1,
+    voiceId: String(remote.voiceId || remote.voice_id || '').trim() || null,
     status: sourceText ? 'ready' : 'processing',
     statusMessage: sourceText ? null : PROCESSING_COPY,
   };
@@ -188,6 +191,7 @@ export const useReadMobileStore = create<ReadMobileState>((set, get) => ({
       createdAtIso: new Date().toISOString(),
       readingProgress: 0,
       playbackSpeed: 1,
+      voiceId: null,
       status: 'ready',
       statusMessage: null,
     };
@@ -238,6 +242,7 @@ export const useReadMobileStore = create<ReadMobileState>((set, get) => ({
       createdAtIso: new Date().toISOString(),
       readingProgress: 0,
       playbackSpeed: 1,
+      voiceId: null,
       status: 'processing',
       statusMessage: 'Fetching and cleaning the web page in the background.',
     };
@@ -288,6 +293,7 @@ export const useReadMobileStore = create<ReadMobileState>((set, get) => ({
       createdAtIso: new Date().toISOString(),
       readingProgress: 0,
       playbackSpeed: 1,
+      voiceId: null,
       status: 'processing',
       statusMessage: 'Extracting readable text and preparing audio in the background.',
       fileName: safeName,
@@ -367,11 +373,40 @@ export const useReadMobileStore = create<ReadMobileState>((set, get) => ({
 
   setPlaybackSpeed: (id, speed) => {
     const nextSpeed = Math.max(0.5, Math.min(3, speed));
+    const document = get().documents.find((item) => item.id === id);
     set((state) => ({
-      documents: state.documents.map((document) =>
-        document.id === id ? { ...document, playbackSpeed: nextSpeed } : document,
+      documents: state.documents.map((item) =>
+        item.id === id ? { ...item, playbackSpeed: nextSpeed } : item,
       ),
     }));
+    if (document) {
+      void readRenderApi.updateProgress(id, {
+        progress: document.readingProgress,
+        playbackSpeed: nextSpeed,
+        voiceId: document.voiceId,
+      }).catch((error) => {
+        set({ syncStatus: 'offline', syncError: error instanceof Error ? error.message : String(error) });
+      });
+    }
+  },
+
+  setVoiceId: (id, voiceId) => {
+    const nextVoiceId = String(voiceId || '').trim() || null;
+    const document = get().documents.find((item) => item.id === id);
+    set((state) => ({
+      documents: state.documents.map((item) =>
+        item.id === id ? { ...item, voiceId: nextVoiceId } : item,
+      ),
+    }));
+    if (document) {
+      void readRenderApi.updateProgress(id, {
+        progress: document.readingProgress,
+        playbackSpeed: document.playbackSpeed,
+        voiceId: nextVoiceId,
+      }).catch((error) => {
+        set({ syncStatus: 'offline', syncError: error instanceof Error ? error.message : String(error) });
+      });
+    }
   },
 }));
 
