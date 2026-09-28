@@ -123,7 +123,7 @@ assert.ok(home.includes('Voice · ${selectedVoice.name}') && home.includes('onPr
 for (const marker of ['Summary & AI', 'Summary', 'Key points', 'Explain', 'Flashcards', 'Quiz me', 'Exam coach', 'Glossary', 'Ask AI']) {
   assert.ok(home.includes(marker), `native Read player missing study/AI control: ${marker}`);
 }
-assert.ok(readAi.includes("'/api/ai/generate'"),
+assert.ok(readAi.includes('/api/ai/generate'),
   'native Read study tools must use the canonical Read AI endpoint');
 assert.ok(readAi.includes("action === 'summary'") && readAi.includes("'summarize'"),
   'native Read Summary must map to the canonical summarize backend action');
