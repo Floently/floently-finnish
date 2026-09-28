@@ -17,6 +17,22 @@ export type ReadTtsResult = {
   wordTimings?: unknown[];
 };
 
+export type ReadVoice = {
+  id: string;
+  name: string;
+  language: string;
+  locale: string;
+  gender?: string | null;
+  accent?: string | null;
+  description?: string | null;
+  previewUrl?: string | null;
+};
+
+export type ReadVoiceCatalog = {
+  defaultVoiceId: string;
+  voices: ReadVoice[];
+};
+
 type PrerenderReadingInput = {
   text: string;
   language?: string | null;
@@ -109,7 +125,62 @@ async function postReadApi(path: string, body: Record<string, unknown>): Promise
   return payload;
 }
 
+async function getReadApi(path: string): Promise<unknown> {
+  const token = getAuthToken();
+  const headers = new Headers({ Accept: 'application/json' });
+  if (token) headers.set('Authorization', `Bearer ${token}`);
+
+  const response = await fetch(`${getReadApiBaseUrl()}${path}`, { headers });
+  const payload = await readJson(response);
+  if (!response.ok) {
+    const record = asRecord(payload);
+    const message =
+      typeof record.detail === 'string'
+        ? record.detail
+        : typeof record.message === 'string'
+          ? record.message
+          : `Read voice request failed with ${response.status}`;
+    throw new Error(message);
+  }
+  return payload;
+}
+
+function normalizeVoice(value: unknown): ReadVoice | null {
+  const record = asRecord(value);
+  const id = String(record.id || '').trim();
+  const name = String(record.name || record.voiceName || id).trim();
+  const language = String(record.language || '').trim().toLowerCase();
+  const locale = String(record.locale || '').trim();
+  if (!id || !name) return null;
+  return {
+    id,
+    name,
+    language,
+    locale,
+    gender: typeof record.gender === 'string' ? record.gender : null,
+    accent: typeof record.accent === 'string' ? record.accent : null,
+    description: typeof record.description === 'string' ? record.description : null,
+    previewUrl: typeof record.previewUrl === 'string' ? record.previewUrl : null,
+  };
+}
+
 export const readTtsApi = {
+  async listVoices(): Promise<ReadVoiceCatalog> {
+    const payload = asRecord(await getReadApi('/api/voices/unified'));
+    const rawVoices = Array.isArray(payload.voices)
+      ? payload.voices
+      : Array.isArray(payload.available)
+        ? payload.available
+        : [];
+    const voices = rawVoices
+      .map(normalizeVoice)
+      .filter((voice): voice is ReadVoice => Boolean(voice));
+    return {
+      defaultVoiceId: String(payload.default || voices[0]?.id || DEFAULT_TTS_VOICE_ID),
+      voices,
+    };
+  },
+
   async prerenderReading(input: PrerenderReadingInput): Promise<ReadTtsResult> {
     const text = input.text.trim();
     if (!text) {
