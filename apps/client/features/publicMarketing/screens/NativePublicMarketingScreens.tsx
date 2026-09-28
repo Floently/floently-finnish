@@ -603,6 +603,26 @@ export function NativeFloentlyProductGatewayScreen({ onOpenLearn, onOpenRead }: 
 
 export function NativeReadPreviewScreen({ onOpenGateway, onOpenLearn }: FloentlyReadPreviewProps) {
   const showReadAuth = () => router.push('/read/auth' as never);
+  const showReadPlans = () => router.push('/read/subscribe' as never);
+  const [readCarouselIndex, setReadCarouselIndex] = useState(0);
+
+  const readCarouselImages = [
+    'https://read.floently.com/images/new_ui/landing_page_picture_1.png',
+    'https://read.floently.com/images/new_ui/landing_page_picture_2.png',
+    'https://read.floently.com/images/new_ui/landing_page_picture_3.png',
+    'https://read.floently.com/images/new_ui/landing_page_picture_4.png',
+    'https://read.floently.com/images/new_ui/landing_page_picture_5.png',
+    'https://read.floently.com/images/new_ui/landing_page_picture_6.png',
+    'https://read.floently.com/images/new_ui/landing_page_picture_7.png',
+    'https://read.floently.com/images/new_ui/landing_page_picture_8.png',
+  ];
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setReadCarouselIndex((current) => (current + 1) % readCarouselImages.length);
+    }, 3500);
+    return () => clearInterval(timer);
+  }, [readCarouselImages.length]);
 
   const features = [
     ['Lifelike Voices', 'Natural-sounding AI voices that read your content like a human would.'],
@@ -611,6 +631,11 @@ export function NativeReadPreviewScreen({ onOpenGateway, onOpenLearn }: Floently
   ];
 
   const proofDots = ['#a78bfa', '#818cf8', '#60a5fa', '#34d399', '#f472b6'];
+  const testimonials = [
+    ['Sarah K.', 'Medical student', 'I get through twice as many research papers now. Floently is part of my daily routine.'],
+    ['Marcus T.', 'Entrepreneur', 'I listen to articles on my commute. It feels like having a personal narrator.'],
+    ['Aisha N.', 'Language learner', 'Hearing text read aloud at the right pace helps me absorb so much more.'],
+  ];
 
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: '#070A1D' }} edges={['top', 'bottom']}>
@@ -658,7 +683,7 @@ export function NativeReadPreviewScreen({ onOpenGateway, onOpenLearn }: Floently
               <Pressable onPress={showReadAuth} style={{ minHeight: 52, borderRadius: 999, paddingHorizontal: 22, backgroundColor: '#8B5CF6', alignItems: 'center', justifyContent: 'center' }}>
                 <Text style={{ color: '#FFFFFF', fontWeight: '900' }}>Get Started For Free</Text>
               </Pressable>
-              <Pressable onPress={showReadAuth} style={{ minHeight: 52, borderRadius: 999, paddingHorizontal: 22, backgroundColor: 'rgba(167,139,250,0.12)', borderWidth: 1, borderColor: 'rgba(196,181,253,0.22)', alignItems: 'center', justifyContent: 'center' }}>
+              <Pressable onPress={showReadPlans} style={{ minHeight: 52, borderRadius: 999, paddingHorizontal: 22, backgroundColor: 'rgba(167,139,250,0.12)', borderWidth: 1, borderColor: 'rgba(196,181,253,0.22)', alignItems: 'center', justifyContent: 'center' }}>
                 <Text style={{ color: '#FFFFFF', fontWeight: '900' }}>View Plans</Text>
               </Pressable>
             </View>
@@ -673,6 +698,32 @@ export function NativeReadPreviewScreen({ onOpenGateway, onOpenLearn }: Floently
           </View>
         </View>
 
+        <View style={{ borderRadius: 28, overflow: 'hidden', minHeight: 390, borderWidth: 1, borderColor: 'rgba(167,139,250,0.18)', backgroundColor: '#0E1532' }}>
+          <Image
+            key={readCarouselImages[readCarouselIndex]}
+            source={{ uri: readCarouselImages[readCarouselIndex] }}
+            resizeMode="cover"
+            style={{ width: '100%', height: 390 }}
+            accessibilityLabel="Floently Read user"
+          />
+          <View style={{ position: 'absolute', left: 0, right: 0, bottom: 16, flexDirection: 'row', justifyContent: 'center', gap: 6 }}>
+            {readCarouselImages.map((image, index) => (
+              <Pressable
+                key={image}
+                accessibilityRole="button"
+                accessibilityLabel={`Show Read image ${index + 1}`}
+                onPress={() => setReadCarouselIndex(index)}
+                style={{
+                  width: index === readCarouselIndex ? 24 : 7,
+                  height: 7,
+                  borderRadius: 999,
+                  backgroundColor: index === readCarouselIndex ? '#FFFFFF' : 'rgba(255,255,255,0.40)',
+                }}
+              />
+            ))}
+          </View>
+        </View>
+
         <View style={{ gap: 14 }}>
           <View style={{ alignItems: 'center', gap: 8 }}>
             <Text style={{ color: '#FFFFFF', fontSize: 27, fontWeight: '900', textAlign: 'center' }}>Transform text into lifelike speech</Text>
@@ -682,6 +733,20 @@ export function NativeReadPreviewScreen({ onOpenGateway, onOpenLearn }: Floently
             <View key={title} style={{ borderRadius: 22, borderWidth: 1, borderColor: 'rgba(167,139,250,0.18)', backgroundColor: 'rgba(255,255,255,0.055)', padding: 20, gap: 8 }}>
               <Text style={{ color: '#FFFFFF', fontSize: 17, fontWeight: '900' }}>{title}</Text>
               <Text style={{ color: 'rgba(255,255,255,0.58)', lineHeight: 22 }}>{body}</Text>
+            </View>
+          ))}
+        </View>
+
+        <View style={{ gap: 14, borderTopWidth: 1, borderTopColor: 'rgba(255,255,255,0.08)', paddingTop: 34 }}>
+          <Text style={{ color: '#FFFFFF', fontSize: 27, fontWeight: '900', textAlign: 'center' }}>People are listening</Text>
+          {testimonials.map(([name, role, quote]) => (
+            <View key={name} style={{ borderRadius: 22, borderWidth: 1, borderColor: 'rgba(167,139,250,0.16)', backgroundColor: 'rgba(255,255,255,0.045)', padding: 20, gap: 12 }}>
+              <Text style={{ color: '#F59E0B', fontSize: 13, letterSpacing: 2 }}>★★★★★</Text>
+              <Text style={{ color: 'rgba(255,255,255,0.72)', fontSize: 14, lineHeight: 22, fontStyle: 'italic' }}>“{quote}”</Text>
+              <View>
+                <Text style={{ color: '#FFFFFF', fontSize: 13, fontWeight: '900' }}>{name}</Text>
+                <Text style={{ color: 'rgba(255,255,255,0.42)', fontSize: 12 }}>{role}</Text>
+              </View>
             </View>
           ))}
         </View>
