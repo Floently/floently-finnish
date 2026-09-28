@@ -5,7 +5,7 @@ import { NativeReadPreviewScreen } from '../../features/publicMarketing/screens/
 export default function ReadRouteEntry() {
   return (
     <NativeReadPreviewScreen
-      onOpenGateway={() => router.push('/' as never)}
+      onOpenGateway={() => router.push('/products' as never)}
       onOpenLearn={() => router.push('/' as never)}
     />
   );
