@@ -27,6 +27,8 @@ export type ReadRenderDocument = {
   progress_percent?: number | null;
   playbackSpeed?: number | null;
   playback_speed?: number | null;
+  voiceId?: string | null;
+  voice_id?: string | null;
 };
 
 export type CreateReadDocumentInput = {
@@ -51,6 +53,7 @@ export type UploadReadDocumentInput = {
 export type UpdateReadProgressInput = {
   progress: number;
   playbackSpeed?: number;
+  voiceId?: string | null;
 };
 
 export type SyncReadRevenueCatInput = {
@@ -186,6 +189,18 @@ function playbackRateValue(input: ReadRenderDocument): number {
   return value;
 }
 
+function voiceIdValue(input: ReadRenderDocument): string | null {
+  const progressRecord = asRecord(input.progress);
+  const raw =
+    progressRecord.voiceId ??
+    progressRecord.voice_id ??
+    input.voiceId ??
+    input.voice_id ??
+    null;
+  const value = String(raw || '').trim();
+  return value || null;
+}
+
 function normalizeDocument(input: ReadRenderDocument): ReadRenderDocument {
   const rawText = input.rawText ?? input.raw_text ?? input.text ?? input.content ?? '';
 
@@ -202,6 +217,7 @@ function normalizeDocument(input: ReadRenderDocument): ReadRenderDocument {
     progress: progressValue(input),
     progressPercent: progressValue(input),
     playbackSpeed: playbackRateValue(input),
+    voiceId: voiceIdValue(input),
   };
 }
 
@@ -314,6 +330,8 @@ export const readRenderApi = {
         playbackRate: input.playbackSpeed,
         playback_speed: input.playbackSpeed,
         playbackSpeed: input.playbackSpeed,
+        voice_id: input.voiceId,
+        voiceId: input.voiceId,
       }),
     });
   },
