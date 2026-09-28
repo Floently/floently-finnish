@@ -74,6 +74,14 @@ assert.ok(browser.includes("Platform.OS !== 'web'"),
   'native iOS/Android must retain the WebView path while Expo web redirects to Browser V2');
 assert.ok(browser.includes("webViewRef.current?.reload()"),
   'native Read must retain in-place WebView reload so same-tab Browser V2 reattach can preserve Chromium');
+assert.ok(browser.includes('onContentProcessDidTerminate'),
+  'iOS Read must distinguish a dead WebKit renderer from a transient network failure');
+assert.ok(browser.includes('onRenderProcessGone'),
+  'Android Read must distinguish a dead WebView renderer from a transient network failure');
+assert.ok(browser.includes('style={styles.errorOverlay}'),
+  'transient Browser V2 failures must overlay the mounted WebView instead of destroying its session');
+assert.ok(!browser.includes('{loadError ? (\n          <View style={styles.centered}>'),
+  'transient Browser V2 failures must not conditionally unmount the WebView');
 
 assert.ok(readLandingRoute.includes('NativeReadPreviewScreen'),
   'native /read must render the public Read landing before authentication');
