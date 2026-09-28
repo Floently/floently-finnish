@@ -30,6 +30,9 @@ const drawer = read('config/navigation/AppShell_sidebar_sections.ts');
 const appShell = read('state/AppShell.tsx');
 const subscribeRoute = read('app/read/subscribe.tsx');
 const browserRoute = read('app/read/browser.tsx');
+const readLandingRoute = read('app/read/index.tsx');
+const readAuth = read('features/read/mobile/ReadAuthScreen.tsx');
+const landingRoute = read('state/LandingRoute.tsx');
 const pkg = JSON.parse(read('package.json'));
 
 assert.equal(pkg.dependencies?.['react-native-webview'], '13.16.1',
@@ -71,6 +74,34 @@ assert.ok(browser.includes("Platform.OS !== 'web'"),
   'native iOS/Android must retain the WebView path while Expo web redirects to Browser V2');
 assert.ok(browser.includes("webViewRef.current?.reload()"),
   'native Read must retain in-place WebView reload so same-tab Browser V2 reattach can preserve Chromium');
+
+assert.ok(readLandingRoute.includes('NativeReadPreviewScreen'),
+  'native /read must render the public Read landing before authentication');
+assert.ok(readLandingRoute.includes("onOpenLearn={() => router.push('/' as never)}"),
+  'Read landing must integrate the existing KieliValmis entry without modifying it');
+assert.ok(landingRoute.includes('return <KieliValmisLandingScreen />'),
+  'KieliValmis direct entry must remain untouched by Read work');
+
+for (const marker of [
+  "authService.login",
+  "authService.register",
+  "useGoogleSignIn",
+  "secureTextEntry={!showPassword}",
+  "accessibilityLabel={showPassword ? 'Hide password' : 'Show password'}",
+  "router.replace('/read/app' as never)",
+  "Continue with current Floently account",
+]) {
+  assert.ok(readAuth.includes(marker), `Read auth missing web-parity marker: ${marker}`);
+}
+
+assert.ok(home.includes("Math.min(3"),
+  'native Read audio player must support rates through 3x');
+assert.ok(home.includes("[0.8, 1.0, 1.2, 1.5, 1.8, 2.0, 2.25, 2.5, 2.75, 3.0]"),
+  'native Read settings must expose the full speed range through 3x');
+assert.ok(home.includes('NOW READING'),
+  'native Read player must keep the active reading text visible');
+assert.ok(home.includes('activeParagraphIndex'),
+  'native Read document must visually track the active paragraph');
 
 assert.ok(guard.includes('requireReadAccess = true'),
   'Read content guard must require Read access by default');
