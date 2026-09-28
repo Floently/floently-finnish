@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState, type ReactNode } from 'react';
+import { useEffect, useMemo, useRef, useState, type ReactNode } from 'react';
 import {
   ActivityIndicator,
   Image,
@@ -215,6 +215,62 @@ function readerParagraphs(text: string) {
     .split(/\n{2,}|(?<=[.!?])\s+(?=[A-Z])/)
     .map((value) => value.trim())
     .filter(Boolean);
+}
+
+function readerAudioChunks(text: string, maxChars = 3600): string[] {
+  const normalized = text.replace(/\r\n/g, '\n').trim();
+  if (!normalized) return [];
+
+  const units = normalized
+    .split(/(?<=[.!?])\s+|\n{2,}/)
+    .map((value) => value.trim())
+    .filter(Boolean);
+
+  const chunks: string[] = [];
+  let current = '';
+
+  const flush = () => {
+    const value = current.trim();
+    if (value) chunks.push(value);
+    current = '';
+  };
+
+  for (const unit of units) {
+    if (unit.length > maxChars) {
+      flush();
+      let remaining = unit;
+      while (remaining.length > maxChars) {
+        let cut = remaining.lastIndexOf(' ', maxChars);
+        if (cut < Math.floor(maxChars * 0.6)) cut = maxChars;
+        chunks.push(remaining.slice(0, cut).trim());
+        remaining = remaining.slice(cut).trim();
+      }
+      if (remaining) current = remaining;
+      continue;
+    }
+
+    const candidate = current ? `${current} ${unit}` : unit;
+    if (candidate.length > maxChars) {
+      flush();
+      current = unit;
+    } else {
+      current = candidate;
+    }
+  }
+  flush();
+  return chunks;
+}
+
+function chunkIndexForProgress(chunks: string[], progress: number): number {
+  if (!chunks.length) return 0;
+  const total = chunks.reduce((sum, chunk) => sum + chunk.length, 0);
+  const target = Math.max(0, Math.min(1, progress)) * total;
+  let cursor = 0;
+  for (let index = 0; index < chunks.length; index += 1) {
+    cursor += chunks[index].length;
+    if (target < cursor) return index;
+  }
+  return chunks.length - 1;
 }
 
 function safePct(value: number) {
@@ -830,6 +886,9 @@ export function ReadReaderScreen() {
   const [studyResult, setStudyResult] = useState('');
   const [studyError, setStudyError] = useState<string | null>(null);
   const [studyQuestion, setStudyQuestion] = useState('');
+  const [activeAudioChunk, setActiveAudioChunk] = useState(0);
+  const audioChunkCache = useRef(new Map<string, ReadTtsResult>());
+  const handledFinishedChunk = useRef<string | null>(null);
   const theme = useReadMobileStore((state) => state.readTheme);
   const palette = paletteFor(theme);
 
@@ -872,11 +931,24 @@ export function ReadReaderScreen() {
     }
   }, [audioResult, audioState, playbackStatus.playing]);
 
+  const audioChunks = useMemo(
+    () => document ? readerAudioChunks(document.generatedText) : [],
+    [document],
+  );
+
   const displayedProgress = useMemo(() => {
     if (!document) return 0;
-    if (playbackStatus.duration > 0) return Math.max(0, Math.min(1, playbackStatus.currentTime / playbackStatus.duration));
+    if (playbackStatus.duration > 0 && audioChunks.length) {
+      const totalChars = audioChunks.reduce((sum, chunk) => sum + chunk.length, 0);
+      const completedChars = audioChunks
+        .slice(0, activeAudioChunk)
+        .reduce((sum, chunk) => sum + chunk.length, 0);
+      const clipRatio = Math.max(0, Math.min(1, playbackStatus.currentTime / playbackStatus.duration));
+      const currentChars = (audioChunks[activeAudioChunk]?.length || 0) * clipRatio;
+      return totalChars > 0 ? Math.max(0, Math.min(1, (completedChars + currentChars) / totalChars)) : 0;
+    }
     return document.readingProgress;
-  }, [document, playbackStatus.currentTime, playbackStatus.duration]);
+  }, [activeAudioChunk, audioChunks, document, playbackStatus.currentTime, playbackStatus.duration]);
 
   const readerParagraphList = useMemo(
     () => document ? readerParagraphs(document.generatedText) : [],
@@ -903,6 +975,77 @@ export function ReadReaderScreen() {
     readerVoices[0] ||
     null;
 
+  useEffect(() => {
+    if (!document) return;
+    setActiveAudioChunk(chunkIndexForProgress(audioChunks, document.readingProgress));
+    setAudioResult(null);
+    setAudioState('idle');
+    setAudioError(null);
+    audioChunkCache.current.clear();
+    handledFinishedChunk.current = null;
+  }, [document?.id]);
+
+  useEffect(() => {
+    audioChunkCache.current.clear();
+    handledFinishedChunk.current = null;
+  }, [document?.voiceId]);
+
+  const chunkCacheKey = (index: number) =>
+    `${document?.id || 'none'}:${document?.voiceId || selectedVoice?.id || defaultVoiceId || 'default'}:${index}`;
+
+  async function prepareAudioChunk(index: number): Promise<ReadTtsResult> {
+    if (!document || !audioChunks[index]) throw new Error('No readable audio segment is available.');
+    const key = chunkCacheKey(index);
+    const cached = audioChunkCache.current.get(key);
+    if (cached) return cached;
+
+    const result = await readTtsApi.prerenderReading({
+      text: audioChunks[index],
+      language: document.language,
+      voiceId: document.voiceId || selectedVoice?.id || defaultVoiceId,
+    });
+    audioChunkCache.current.set(key, result);
+    return result;
+  }
+
+  async function playAudioChunk(index: number) {
+    if (!document || !audioChunks[index]) return;
+    setAudioState('preparing');
+    setAudioError(null);
+    try {
+      const result = await prepareAudioChunk(index);
+      setActiveAudioChunk(index);
+      handledFinishedChunk.current = null;
+      setAudioResult(result);
+      player.replace(result.audioUrl);
+      setPlayerPlaybackRate(player, document.playbackSpeed);
+      player.play();
+      setAudioState('playing');
+      if (audioChunks[index + 1]) {
+        void prepareAudioChunk(index + 1).catch(() => {});
+      }
+    } catch (error) {
+      setAudioState('error');
+      setAudioError(error instanceof Error ? error.message : String(error));
+    }
+  }
+
+  useEffect(() => {
+    if (!document || !audioResult || !playbackStatus.didJustFinish) return;
+    const finishedKey = `${document.id}:${activeAudioChunk}:${audioResult.cacheKey || audioResult.audioUrl}`;
+    if (handledFinishedChunk.current === finishedKey) return;
+    handledFinishedChunk.current = finishedKey;
+
+    const nextIndex = activeAudioChunk + 1;
+    if (nextIndex < audioChunks.length) {
+      void playAudioChunk(nextIndex);
+      return;
+    }
+
+    updateProgress(document.id, 1);
+    setAudioState('paused');
+  }, [activeAudioChunk, audioChunks.length, audioResult, document, playbackStatus.didJustFinish, updateProgress]);
+
   const timeLabel = useMemo(() => {
     if (!document) return '00:00 / 00:00';
     const estimatedTotalSeconds = Math.max(30, Math.ceil(document.generatedText.length / 12));
@@ -913,34 +1056,19 @@ export function ReadReaderScreen() {
   }, [displayedProgress, document, playbackStatus.currentTime, playbackStatus.duration]);
 
   async function generateAndPlayAudio() {
-    if (!document || document.status === 'processing') return;
+    if (!document || document.status === 'processing' || !audioChunks.length) return;
 
     if (audioResult?.audioUrl) {
       setPlayerPlaybackRate(player, document.playbackSpeed);
       player.play();
       setAudioState('playing');
+      if (audioChunks[activeAudioChunk + 1]) {
+        void prepareAudioChunk(activeAudioChunk + 1).catch(() => {});
+      }
       return;
     }
 
-    setAudioState('preparing');
-    setAudioError(null);
-
-    try {
-      const ttsText = document.generatedText.slice(0, 4000);
-      const result = await readTtsApi.prerenderReading({
-        text: ttsText,
-        language: document.language,
-        voiceId: document.voiceId || selectedVoice?.id || defaultVoiceId,
-      });
-      setAudioResult(result);
-      player.replace(result.audioUrl);
-      setPlayerPlaybackRate(player, document.playbackSpeed);
-      player.play();
-      setAudioState('playing');
-    } catch (error) {
-      setAudioState('error');
-      setAudioError(error instanceof Error ? error.message : String(error));
-    }
+    await playAudioChunk(activeAudioChunk);
   }
 
   function pauseAudio() {
@@ -961,6 +1089,8 @@ export function ReadReaderScreen() {
     setAudioResult(null);
     setAudioError(null);
     setAudioState('idle');
+    audioChunkCache.current.clear();
+    handledFinishedChunk.current = null;
     setVoiceId(document.id, nextVoice.id);
   }
 
@@ -1041,7 +1171,17 @@ export function ReadReaderScreen() {
           </View>
           <ProgressBar progress={displayedProgress} height={4} />
           <View style={styles.readerControls}>
-            <Pressable accessibilityRole="button" onPress={() => updateProgress(document.id, Math.max(0, document.readingProgress - 0.1))} style={[styles.roundControl, { backgroundColor: palette.surfaceSoft, borderColor: palette.border }]}>
+            <Pressable
+              accessibilityRole="button"
+              onPress={() => {
+                if (playbackStatus.duration > 0) {
+                  void player.seekTo(Math.max(0, playbackStatus.currentTime - 10));
+                } else {
+                  updateProgress(document.id, Math.max(0, document.readingProgress - 0.1));
+                }
+              }}
+              style={[styles.roundControl, { backgroundColor: palette.surfaceSoft, borderColor: palette.border }]}
+            >
               <Text style={[styles.roundControlText, { color: palette.text }]}>-10</Text>
             </Pressable>
             <Pressable accessibilityRole="button" onPress={isPlaying ? pauseAudio : generateAndPlayAudio} disabled={isPreparing || isProcessing} style={[styles.mainPlay, { backgroundColor: palette.accent }, (isPreparing || isProcessing) && styles.disabled]}>
