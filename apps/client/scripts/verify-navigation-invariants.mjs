@@ -187,6 +187,25 @@ requireText(
 
 requireText(
   utilityDrawer,
+  'const showVisualHint = depth === 0 && Boolean(item.hint);',
+  'drawer must keep helper copy visually limited to top-level rows',
+);
+
+requireText(
+  utilityDrawer,
+  'accessibilityHint={item.hint}',
+  'nested drawer helper copy must remain available to assistive technology',
+);
+
+requireText(
+  utilityDrawer,
+  '{showVisualHint ? (',
+  'nested rows must not render repeated visible helper paragraphs',
+);
+
+
+requireText(
+  utilityDrawer,
   'return [...current.slice(0, depth), itemId];',
   'opening a drawer branch must collapse any sibling at the same depth',
 );
@@ -372,6 +391,7 @@ console.log('PASS: duplicate global learning-branch state is absent.');
 console.log('PASS: LearningRoute remains URL-driven.');
 console.log('PASS: drawer leaf closes once before navigation.');
 console.log('PASS: progressive drawer branches expose accessible expanded state.');
+console.log('PASS: nested drawer rows stay visually concise while retaining accessibility hints.');
 console.log('PASS: one sibling branch is open per hierarchy depth.');
 console.log('PASS: branch presses expand without navigating.');
 console.log('PASS: drawer leaf shortcuts execute only after entitlement checks.');
