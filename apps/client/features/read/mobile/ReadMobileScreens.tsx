@@ -916,14 +916,6 @@ export function ReadReaderScreen() {
   }, [document, player]);
 
   useEffect(() => {
-    if (!document || !playbackStatus.duration || playbackStatus.duration <= 0) return;
-    const nextProgress = Math.max(0, Math.min(1, playbackStatus.currentTime / playbackStatus.duration));
-    if (Math.abs(nextProgress - document.readingProgress) >= 0.01) {
-      updateProgress(document.id, nextProgress);
-    }
-  }, [document, playbackStatus.currentTime, playbackStatus.duration, updateProgress]);
-
-  useEffect(() => {
     if (playbackStatus.playing) {
       setAudioState('playing');
     } else if (audioResult && audioState === 'playing') {
@@ -949,6 +941,13 @@ export function ReadReaderScreen() {
     }
     return document.readingProgress;
   }, [activeAudioChunk, audioChunks, document, playbackStatus.currentTime, playbackStatus.duration]);
+
+  useEffect(() => {
+    if (!document || !playbackStatus.duration || playbackStatus.duration <= 0) return;
+    if (Math.abs(displayedProgress - document.readingProgress) >= 0.01) {
+      updateProgress(document.id, displayedProgress);
+    }
+  }, [displayedProgress, document, playbackStatus.duration, updateProgress]);
 
   const readerParagraphList = useMemo(
     () => document ? readerParagraphs(document.generatedText) : [],
@@ -1048,12 +1047,18 @@ export function ReadReaderScreen() {
 
   const timeLabel = useMemo(() => {
     if (!document) return '00:00 / 00:00';
-    const estimatedTotalSeconds = Math.max(30, Math.ceil(document.generatedText.length / 12));
-    const totalSeconds = playbackStatus.duration > 0 ? Math.ceil(playbackStatus.duration) : estimatedTotalSeconds;
-    const currentSeconds = playbackStatus.duration > 0 ? Math.floor(playbackStatus.currentTime) : Math.floor(totalSeconds * displayedProgress);
+    const estimatedTotalSeconds = Math.max(
+      30,
+      Math.ceil(document.generatedText.length / Math.max(6, 12 * document.playbackSpeed)),
+    );
+    const singleClip = audioChunks.length <= 1 && playbackStatus.duration > 0;
+    const totalSeconds = singleClip ? Math.ceil(playbackStatus.duration) : estimatedTotalSeconds;
+    const currentSeconds = singleClip
+      ? Math.floor(playbackStatus.currentTime)
+      : Math.floor(totalSeconds * displayedProgress);
     const format = (seconds: number) => `${String(Math.floor(seconds / 60)).padStart(2, '0')}:${String(seconds % 60).padStart(2, '0')}`;
     return `${format(currentSeconds)} / ${format(totalSeconds)}`;
-  }, [displayedProgress, document, playbackStatus.currentTime, playbackStatus.duration]);
+  }, [audioChunks.length, displayedProgress, document, playbackStatus.currentTime, playbackStatus.duration]);
 
   async function generateAndPlayAudio() {
     if (!document || document.status === 'processing' || !audioChunks.length) return;
@@ -1095,10 +1100,13 @@ export function ReadReaderScreen() {
   }
 
   function replayAudio() {
-    void player.seekTo(0);
-    if (document) setPlayerPlaybackRate(player, document.playbackSpeed);
-    player.play();
-    setAudioState('playing');
+    if (!document || !audioChunks.length) return;
+    player.pause();
+    updateProgress(document.id, 0);
+    setActiveAudioChunk(0);
+    setAudioResult(null);
+    handledFinishedChunk.current = null;
+    void playAudioChunk(0);
   }
 
   async function runStudy(action: ReadAiAction, title: string, question?: string) {
