@@ -48,9 +48,12 @@ function asRecord(value: unknown): Record<string, unknown> {
   return value && typeof value === 'object' && !Array.isArray(value) ? value as Record<string, unknown> : {};
 }
 
-function pickVoiceId(input?: string | null): string {
+function pickVoiceId(input?: string | null, language?: string | null): string {
   const value = String(input || '').trim();
-  return value || DEFAULT_TTS_VOICE_ID;
+  if (value) return value;
+  const normalizedLanguage = String(language || '').trim().toLowerCase().split('-')[0];
+  if (normalizedLanguage === 'fi') return 'azure:fi-FI-SelmaNeural';
+  return DEFAULT_TTS_VOICE_ID;
 }
 
 async function readJson(response: Response): Promise<unknown> {
@@ -190,7 +193,7 @@ export const readTtsApi = {
     const payload = await postReadApi('/api/tts/prerender', {
       text,
       language: input.language ?? 'auto',
-      voiceId: pickVoiceId(input.voiceId),
+      voiceId: pickVoiceId(input.voiceId, input.language),
     });
 
     return normalizeTtsResult(payload);
