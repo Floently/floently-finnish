@@ -32,6 +32,7 @@ const subscribeRoute = read('app/read/subscribe.tsx');
 const browserRoute = read('app/read/browser.tsx');
 const readLandingRoute = read('app/read/index.tsx');
 const readAuth = read('features/read/mobile/ReadAuthScreen.tsx');
+const readStore = read('features/read/mobile/readMobileStore.ts');
 const landingRoute = read('state/LandingRoute.tsx');
 const pkg = JSON.parse(read('package.json'));
 
@@ -104,6 +105,8 @@ for (const marker of [
 
 assert.ok(home.includes("Math.min(3"),
   'native Read audio player must support rates through 3x');
+assert.ok(readStore.includes("Math.min(3, speed)"),
+  'native Read state must persist requested playback rates through 3x');
 assert.ok(home.includes("[0.8, 1.0, 1.2, 1.5, 1.8, 2.0, 2.25, 2.5, 2.75, 3.0]"),
   'native Read settings must expose the full speed range through 3x');
 assert.ok(home.includes('NOW READING'),
