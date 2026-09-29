@@ -1203,6 +1203,7 @@ export function ReadReaderScreen() {
 
   function pauseAudio() {
     player.pause();
+    if (document) updateProgress(document.id, displayedProgress);
     setAudioState('paused');
   }
 
