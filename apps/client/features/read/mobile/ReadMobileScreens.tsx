@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useRef, useState, type ReactNode } from 'react';
 import {
   ActivityIndicator,
+  AppState,
   Image,
   Pressable,
   ScrollView,
@@ -1016,6 +1017,15 @@ export function ReadReaderScreen() {
       updateProgress(document.id, displayedProgress);
     }
   }, [displayedProgress, document, playbackStatus.duration, updateProgress]);
+
+  useEffect(() => {
+    const subscription = AppState.addEventListener('change', (nextState) => {
+      if (nextState !== 'active' && document) {
+        updateProgress(document.id, displayedProgress);
+      }
+    });
+    return () => subscription.remove();
+  }, [displayedProgress, document, updateProgress]);
 
   const readerParagraphList = useMemo(
     () => document ? readerParagraphs(document.generatedText) : [],
