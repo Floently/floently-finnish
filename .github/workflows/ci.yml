@@ -86,8 +86,21 @@ jobs:
         run: pnpm --dir apps/client exec tsc --noEmit
       - name: Verify subscription authority invariants
         run: pnpm --dir apps/client run verify:subscription-authority
-      - name: Verify live Read browser invariants
-        run: pnpm --dir apps/client run verify:read-live-browser
+      - name: Verify native Read product invariants
+        run: |
+          grep -F "ReadHomeScreen" apps/client/app/read/app.tsx
+          grep -F "ReadReaderScreen" apps/client/app/read/reader.tsx
+          if grep -Fq "ReadWebWorkspaceScreen" apps/client/app/read/app.tsx apps/client/app/read/reader.tsx; then
+            echo "Main Read product must remain React Native, not a WebView workspace." >&2
+            exit 1
+          fi
+          if grep -Fq "/app/reader?embed=react-native" apps/client/features/read/mobile/ReadLiveBrowserScreen.tsx; then
+            echo "Read Browser must not host the main Reader workspace." >&2
+            exit 1
+          fi
+          grep -F "readerAudioChunks" apps/client/features/read/mobile/ReadMobileScreens.tsx
+          grep -F "navigate('/read/browser')" apps/client/features/read/mobile/ReadMobileScreens.tsx
+          echo "READ_NATIVE_PRODUCT_INVARIANTS=PASS"
       - name: Lint subscription authority hotfix
         run: pnpm --dir apps/client exec eslint state/subscriptionStore.ts scripts/verify-subscription-authority.mjs
       - name: Load production Expo public environment
