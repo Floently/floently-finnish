@@ -73,6 +73,8 @@ assert.ok(!/READ_BROWSER_URL[^\n]*token|[?&](token|apiKey)=/i.test(browser),
 assert.ok(browser.includes("window.location.assign(browserUrl)"),
   'Web builds must enter the canonical Browser V2 web route directly');
 
+assert.ok(browser.includes("parsed.searchParams.set('embed', 'react-native')"),
+  'native Browser V2 URL overrides must preserve the React Native compatibility contract');
 assert.ok(browser.includes("parsed.searchParams.delete('embed')"),
   'Expo web builds must not impersonate the React Native injected-auth bridge');
 assert.ok(browser.includes('key={`${user.id}:${reloadKey}`}'),
