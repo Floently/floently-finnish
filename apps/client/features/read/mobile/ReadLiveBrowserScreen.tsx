@@ -17,11 +17,14 @@ import { useAuthStore } from '../../../state/authStore';
 import { useSubscriptionStore } from '../../../state/subscriptionStore';
 
 const DEFAULT_READ_BROWSER_URL = 'https://read.floently.com/app/browser-v2/live?embed=react-native';
+const DEFAULT_READ_WORKSPACE_URL = 'https://read.floently.com/app/reader?embed=react-native';
+type ReadRemoteSurface = 'browser' | 'workspace';
 const READ_BROWSER_HOST = 'read.floently.com';
 const AUTH_API_KEY_STORAGE_KEY = 'flowReader.auth.apiKey';
 const AUTH_SESSION_STORAGE_KEY = 'flowReader.auth.session';
 
-function getBrowserUrl() {
+function getBrowserUrl(surface: ReadRemoteSurface = 'browser') {
+  if (surface === 'workspace') return DEFAULT_READ_WORKSPACE_URL;
   const configured = process.env.EXPO_PUBLIC_READ_BROWSER_URL?.trim();
   if (!configured) return DEFAULT_READ_BROWSER_URL;
   try {
@@ -72,7 +75,7 @@ function defaultUsage() {
   };
 }
 
-export default function ReadLiveBrowserScreen() {
+export default function ReadLiveBrowserScreen({ surface = 'browser' }: { surface?: ReadRemoteSurface }) {
   const webViewRef = useRef<WebView>(null);
   const token = useAuthStore((state) => state.token);
   const user = useAuthStore((state) => state.user);
@@ -81,7 +84,7 @@ export default function ReadLiveBrowserScreen() {
   const [canGoBack, setCanGoBack] = useState(false);
   const [loading, setLoading] = useState(true);
   const [loadError, setLoadError] = useState<string | null>(null);
-  const browserUrl = useMemo(() => getBrowserUrlForPlatform(getBrowserUrl()), []);
+  const browserUrl = useMemo(() => getBrowserUrlForPlatform(getBrowserUrl(surface)), [surface]);
 
   const embeddedAuth = useMemo(() => {
     if (!token || !user) return null;
@@ -138,17 +141,17 @@ export default function ReadLiveBrowserScreen() {
         webViewRef.current?.goBack();
         return true;
       }
-      router.replace('/read/app' as never);
+      router.replace((surface === 'workspace' ? '/read' : '/read/app') as never);
       return true;
     });
     return () => subscriptionBack.remove();
-  }, [canGoBack]);
+  }, [canGoBack, surface]);
 
   if (Platform.OS === 'web') {
     return (
       <View style={styles.centered}>
         <ActivityIndicator color="#8B5CF6" />
-        <Text style={styles.loadingText}>Opening the live Read browser…</Text>
+        <Text style={styles.loadingText}>{surface === 'workspace' ? 'Opening Floently Read…' : 'Opening the live Read browser…'}</Text>
       </View>
     );
   }
@@ -171,33 +174,35 @@ export default function ReadLiveBrowserScreen() {
 
   return (
     <SafeAreaView style={styles.safeArea} edges={['top', 'bottom']}>
-      <View style={styles.header}>
-        <Pressable
-          accessibilityRole="button"
-          accessibilityLabel="Close live browser"
-          onPress={() => router.replace('/read/app' as never)}
-          style={styles.headerButton}
-        >
-          <Text style={styles.headerButtonText}>‹</Text>
-        </Pressable>
-        <View style={styles.headerText}>
-          <Text numberOfLines={1} style={styles.headerTitle}>Live website</Text>
-          <Text numberOfLines={1} style={styles.headerSubtitle}>
-            Secure remote browser · Reader available
-          </Text>
+      {surface === 'browser' ? (
+        <View style={styles.header}>
+          <Pressable
+            accessibilityRole="button"
+            accessibilityLabel="Close live browser"
+            onPress={() => router.replace('/read/app' as never)}
+            style={styles.headerButton}
+          >
+            <Text style={styles.headerButtonText}>‹</Text>
+          </Pressable>
+          <View style={styles.headerText}>
+            <Text numberOfLines={1} style={styles.headerTitle}>Live website</Text>
+            <Text numberOfLines={1} style={styles.headerSubtitle}>
+              Secure remote browser · Reader available
+            </Text>
+          </View>
+          <Pressable
+            accessibilityRole="button"
+            accessibilityLabel="Reload live browser"
+            onPress={() => {
+              setLoadError(null);
+              webViewRef.current?.reload();
+            }}
+            style={styles.headerButton}
+          >
+            <Text style={styles.reloadText}>↻</Text>
+          </Pressable>
         </View>
-        <Pressable
-          accessibilityRole="button"
-          accessibilityLabel="Reload live browser"
-          onPress={() => {
-            setLoadError(null);
-            webViewRef.current?.reload();
-          }}
-          style={styles.headerButton}
-        >
-          <Text style={styles.reloadText}>↻</Text>
-        </Pressable>
-      </View>
+      ) : null}
 
       <View style={styles.browserArea}>
         <WebView
