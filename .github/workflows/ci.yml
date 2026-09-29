@@ -119,7 +119,7 @@ jobs:
             fs.appendFileSync(process.env.GITHUB_ENV, `${key}<<__ENV__\n${String(value)}\n__ENV__\n`);
           }
           NODE
-      - name: Verify Build 47 OTA runtime identity
+      - name: Verify native audio OTA runtime identity
         run: |
           cd apps/client
           pnpm exec expo config --type public --json > /tmp/kielivalmis-config.json
@@ -129,14 +129,14 @@ jobs:
           const assert = (condition, message) => { if (!condition) throw new Error(message); };
           assert(config.name === 'KieliValmis', `Unexpected app name: ${config.name}`);
           assert(config.ios?.bundleIdentifier === 'com.vitusidi.floently', `Unexpected bundle ID: ${config.ios?.bundleIdentifier}`);
-          assert(config.runtimeVersion === '1.0.3', `Unexpected runtimeVersion: ${config.runtimeVersion}`);
+          assert(config.runtimeVersion === '1.0.4', `Unexpected runtimeVersion: ${config.runtimeVersion}`);
           assert(config.updates?.enabled === true, 'Expo Updates is not enabled');
           assert(
             config.updates?.url === 'https://u.expo.dev/fa02c141-0a3b-4dbc-9122-7c1cf31ba42c',
             `Unexpected update URL: ${config.updates?.url}`,
           );
           assert(config.updates?.checkAutomatically === 'ON_LOAD', `Unexpected update policy: ${config.updates?.checkAutomatically}`);
-          console.log('BUILD47_OTA_RUNTIME_IDENTITY=PASS');
+          console.log('NATIVE_AUDIO_OTA_RUNTIME_IDENTITY=PASS');
           NODE
       - name: Export iOS OTA bundle
         run: |
