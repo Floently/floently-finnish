@@ -42,6 +42,9 @@ const createRoute = read('app/create/index.tsx');
 const learnRoute = read('app/learn/index.tsx');
 const rootRoute = read('app/index.tsx');
 const webParity = read('features/publicMarketing/screens/FloentlyWebParityScreens.tsx');
+const canonicalGateway = read('../main-domain-static/index.html');
+const canonicalReadLanding = read('../main-domain-static/read/index.html');
+const canonicalCreate = read('../main-domain-static/create/index.html');
 const readAuth = read('features/read/mobile/ReadAuthScreen.tsx');
 const readStore = read('features/read/mobile/readMobileStore.ts');
 const readTts = read('features/read/mobile/readTtsApi.ts');
@@ -120,23 +123,24 @@ assert.ok(createRoute.includes('FloentlyCreateComingSoonScreen'),
 assert.ok(landingRoute.includes('return <KieliValmisLandingScreen />'),
   'KieliValmis web-host landing must remain untouched by Read work');
 for (const marker of [
-  'Floently product gateway',
-  'Floently Learn',
-  'Floently Read',
-  'Floently Create',
-  'Choose your Floently product',
-  'Coming soon',
-  'AI-Powered Text to Speech',
-  'landing_page_picture_1.png',
-  'landing_page_picture_8.png',
-  'People are listening',
-  'Lifelike Voices',
-  'Easy Import',
-  'Customizable',
-  "go('/read/auth')",
-  "go('/read/subscribe')",
+  "gateway: 'https://floently.com/'",
+  "read: 'https://read.floently.com/'",
+  "create: 'https://floently.com/create/'",
+  "if (path === '/learn') return '/learn'",
+  "if (path === '/read') return '/read'",
+  "if (path === '/create') return '/create'",
+  "if (path.startsWith('/auth')) return '/read/auth'",
 ]) {
-  assert.ok(webParity.includes(marker), `native web-parity surfaces missing marker: ${marker}`);
+  assert.ok(webParity.includes(marker), `native public web surface missing routing marker: ${marker}`);
+}
+for (const marker of ['Floently product gateway', 'Floently Learn', 'Floently Read', 'Floently Create', 'Choose your Floently product']) {
+  assert.ok(canonicalGateway.includes(marker), `canonical Floently gateway missing marker: ${marker}`);
+}
+for (const marker of ['AI-Powered Text to Speech', 'landing_page_picture_1.png', 'landing_page_picture_8.png', 'People are listening', 'Lifelike Voices', 'Easy Import', 'Customizable']) {
+  assert.ok(canonicalReadLanding.includes(marker), `canonical Read landing missing marker: ${marker}`);
+}
+for (const marker of ['Coming soon', 'Floently Create', 'Explore Floently Learn', 'Back to Floently']) {
+  assert.ok(canonicalCreate.includes(marker), `canonical Create landing missing marker: ${marker}`);
 }
 for (const marker of [
   "authService.login",
