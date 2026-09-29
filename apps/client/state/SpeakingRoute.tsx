@@ -70,9 +70,15 @@ export default function SpeakingRoute({ onBack, onOpenMenu, initialLevelBand = '
   const [profession, setProfession] = useState<RoleplayProfession>(initialProfession);
   const [levelBand, setLevelBand] = useState<RoleplayLevelBand>(initialLevelBand);
   const [scenarioId, setScenarioId] = useState<string | null>(initialScenarioId);
+  const preferencesHydrated = usePreferencesStore((s) => s.hasHydrated);
+  const hydratePreferences = usePreferencesStore((s) => s.hydrate);
   const themeMode = usePreferencesStore((s) => s.themeMode);
   const palette = getFloentlyPalette(themeMode);
   const isDark = themeMode === 'dark';
+
+  useEffect(() => {
+    if (!preferencesHydrated) void hydratePreferences();
+  }, [hydratePreferences, preferencesHydrated]);
 
   useEffect(() => { setLevelBand(initialLevelBand); }, [initialLevelBand]);
 

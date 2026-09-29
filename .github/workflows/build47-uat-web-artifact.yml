@@ -17,6 +17,7 @@ on:
       - 'apps/client/scripts/verify-voice-conversation-ui.mjs'
   pull_request:
     branches:
+      - main
       - integration/build47-source-candidate-20260927
       - docs/build47-device-uat-readiness-20260927
     paths:
@@ -494,7 +495,7 @@ jobs:
             const body = await page.locator('body').innerText();
             const screenshot = `${out}/02-progressive-drawer.png`;
             await page.screenshot({ path: screenshot, fullPage: true });
-            const expectedTexts = ['Guided practice · Speaking', 'Professional'];
+            const expectedTexts = ['Guided practice · Speaking', 'Workplace Finnish'];
             const missing = expectedTexts.filter((text) => !body.toLowerCase().includes(text.toLowerCase()));
             report.push({
               name: '02-progressive-drawer',
@@ -587,7 +588,7 @@ jobs:
             body = await page.locator('body').innerText();
             screenshot = `${out}/05-voice-conversation-user-turn.png`;
             await page.screenshot({ path: screenshot, fullPage: true });
-            missing = ['You', 'Swipe up to speak or type'].filter(
+            missing = ['You', 'Tap the orb to speak', 'Swipe up to type'].filter(
               (text) => !body.toLowerCase().includes(text.toLowerCase()),
             );
             report.push({
@@ -657,24 +658,81 @@ jobs:
             await page.close();
           }
 
-          await capture('08-cards-level-gate', '/cards/', ['A1', 'B1', 'C1', 'Start this level']);
+          {
+            const page = await context.newPage();
+            const pageErrors = [];
+            const consoleErrors = [];
+            page.on('pageerror', (error) => pageErrors.push(String(error)));
+            page.on('console', (message) => {
+              if (message.type() === 'error') consoleErrors.push(message.text());
+            });
+
+            await page.addInitScript(() => {
+              localStorage.setItem(
+                'floently.learn.preferences',
+                JSON.stringify({ themeMode: 'dark' }),
+              );
+            });
+
+            const response = await page.goto(`${appOrigin}/speaking/`, {
+              waitUntil: 'domcontentloaded',
+              timeout: 30000,
+            });
+            await page.waitForTimeout(2200);
+            await page.locator('[data-testid="scenario-practice-entry"]').click();
+            await page.waitForTimeout(4100);
+
+            const body = await page.locator('body').innerText();
+            const screenshot = `${out}/08-voice-conversation-dark-user-turn.png`;
+            await page.screenshot({ path: screenshot, fullPage: true });
+            const missing = ['Daily Conversation', 'Tap the orb to speak', 'Swipe up to type'].filter(
+              (text) => !body.toLowerCase().includes(text.toLowerCase()),
+            );
+
+            if (await page.locator('[data-testid="voice-orb"]').count() !== 1) {
+              missing.push('voice orb');
+            }
+
+            const ambientFill = await page
+              .locator('[data-testid="voice-conversation-root"] svg rect')
+              .first()
+              .getAttribute('fill');
+            if ((ambientFill ?? '').toUpperCase() !== '#09101F') {
+              missing.push(`dark ambient background: ${ambientFill ?? 'missing'}`);
+            }
+
+            report.push({
+              name: '08-voice-conversation-dark-user-turn',
+              path: '/speaking/ → Scenario practice → dark learner turn',
+              status: response?.status() ?? null,
+              missing,
+              pageErrors,
+              consoleErrors,
+              requests: [],
+              bodyPreview: body.slice(0, 2200),
+              screenshot,
+            });
+            await page.close();
+          }
+
+          await capture('09-cards-level-gate', '/cards/', ['A1', 'B1', 'C1', 'Start this level']);
           await capture(
-            '09-professional-mission',
+            '10-professional-mission',
             '/professional/',
             ['Current mission', 'Start mission · Listen', 'Mission path'],
           );
           await capture(
-            '10-professional-listening',
+            '11-professional-listening',
             '/professional/listening?taskId=mission.doctor-follow-up-explanation.listening',
             ['Mission · Listen', 'Hear the workplace message', 'Use transcript support'],
           );
           await capture(
-            '11-everyday-reading',
+            '12-everyday-reading',
             '/learn/reading',
             ['KieliValmis Reading', 'Arjen lukeminen', 'Aloita kysymykset'],
           );
           await capture(
-            '12-everyday-writing',
+            '13-everyday-writing',
             '/learn/writing',
             ['Choose a task', 'Understand', 'Plan my message'],
           );

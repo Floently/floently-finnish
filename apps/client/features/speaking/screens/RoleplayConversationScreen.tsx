@@ -1351,12 +1351,18 @@ export default function RoleplayConversationScreen({
         : conversationUiState;
 
   return (
-    <SafeAreaView style={styles.voiceSafeArea}>
+    <SafeAreaView
+      style={[
+        styles.voiceSafeArea,
+        { backgroundColor: isLight ? '#F8FBFF' : '#09101F' },
+      ]}
+    >
       <VoiceConversationExperience
         amplitude={recorder.amplitude}
         assistantLabel={assistantDisplayName}
         canSendManual={canSendManual}
         completionSummary={feedbackReport?.summary ?? null}
+        dark={!isLight}
         headerSubtitle={`${conversationTopic} · ${levelBand}`}
         headerTitle={scenario?.title ?? 'Speaking practice'}
         manualText={manualText}

@@ -135,6 +135,33 @@ assert.ok(
 );
 
 assert.ok(
+  speakingRoute.includes('const preferencesHydrated = usePreferencesStore') &&
+    speakingRoute.includes('const hydratePreferences = usePreferencesStore') &&
+    speakingRoute.includes('if (!preferencesHydrated) void hydratePreferences();'),
+  'Speaking route must hydrate persisted preferences before relying on the canonical theme',
+);
+
+assert.ok(
+  screen.includes('const themeMode = usePreferencesStore') &&
+    screen.includes('dark={!isLight}') &&
+    screen.includes("{ backgroundColor: isLight ? '#F8FBFF' : '#09101F' }") &&
+    experience.includes('dark: boolean;') &&
+    !experience.includes('const dark = false') &&
+    experience.includes("const textColor = dark ? '#F3F6FF' : '#14213A';"),
+  'voice conversation must follow the canonical app theme instead of forcing the light palette',
+);
+
+assert.ok(
+  experience.includes('const trayMicEnabled =') &&
+    experience.includes('disabled={!trayMicEnabled}') &&
+    experience.includes('if (!trayMicEnabled) return;') &&
+    experience.includes("state === 'userListening'") &&
+    experience.includes("state === 'userSpeaking'") &&
+    experience.includes("state === 'error'"),
+  'alternate tray microphone must preserve the learner-turn gate and must not bypass AI/processing states',
+);
+
+assert.ok(
   experience.includes('Swipe up to type') &&
     experience.includes('accessibilityLabel=') &&
     experience.includes("'Stop speaking'") &&
