@@ -1,0 +1,25 @@
+name: Floently iOS TestFlight release
+
+on:
+  push:
+    branches:
+      - agent/build-48-native-read-release-20260929
+    if: ${{ contains(github.event.head_commit.message, '[testflight]') }}
+
+jobs:
+  build_ios:
+    name: Build native iOS production app
+    type: build
+    params:
+      platform: ios
+      profile: production
+      message: Native Floently Read + KieliValmis TestFlight candidate
+
+  submit_ios:
+    name: Submit build to TestFlight
+    needs:
+      - build_ios
+    type: submit
+    params:
+      build_id: ${{ needs.build_ios.outputs.build_id }}
+      profile: production
