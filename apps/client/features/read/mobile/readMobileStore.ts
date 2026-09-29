@@ -129,7 +129,7 @@ function toLocalDocument(remote: ReadRenderDocument): ReadDocument {
     sourceUrl: remote.sourceUrl ?? remote.source_url ?? null,
     createdAtIso: String(remote.createdAt ?? remote.created_at ?? new Date().toISOString()),
     readingProgress: progressToRatio(remote.progress ?? remote.progressPercent ?? remote.progress_percent),
-    playbackSpeed: Number(remote.playbackSpeed ?? remote.playback_speed ?? 1) || 1,
+    playbackSpeed: Math.max(0.5, Math.min(2, Number(remote.playbackSpeed ?? remote.playback_speed ?? 1) || 1)),
     voiceId: String(remote.voiceId || remote.voice_id || '').trim() || null,
     status: sourceText ? 'ready' : 'processing',
     statusMessage: sourceText ? null : PROCESSING_COPY,
@@ -372,7 +372,7 @@ export const useReadMobileStore = create<ReadMobileState>((set, get) => ({
   },
 
   setPlaybackSpeed: (id, speed) => {
-    const nextSpeed = Math.max(0.5, Math.min(3, speed));
+    const nextSpeed = Math.max(0.5, Math.min(2, speed));
     const document = get().documents.find((item) => item.id === id);
     set((state) => ({
       documents: state.documents.map((item) =>
