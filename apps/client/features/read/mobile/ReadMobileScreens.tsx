@@ -29,7 +29,7 @@ import { restoreReadStorePurchases, startReadStorePurchase, type ReadStorePlanId
 import { useSubscriptionStore } from '../../../state/subscriptionStore';
 
 type ReadTab = 'home' | 'library' | 'import' | 'reader' | 'settings' | 'analytics' | 'subscribe' | 'browser';
-type ImportMode = 'file' | 'paste' | 'url' | 'scan' | 'record';
+type ImportMode = 'file' | 'paste' | 'url';
 type AudioPlaybackState = 'idle' | 'preparing' | 'ready' | 'playing' | 'paused' | 'error';
 type ReadTone = 'blue' | 'purple' | 'teal' | 'amber' | 'rose' | 'neutral';
 
@@ -69,12 +69,10 @@ const bottomTabs: Array<{ key: ReadTab; label: string; route: string; icon: stri
   { key: 'settings', label: 'Settings', route: '/read/settings', icon: 'Set' },
 ];
 
-const importActions: Array<{ mode: ImportMode; label: string; detail: string; icon: string; soon?: boolean }> = [
+const importActions: Array<{ mode: ImportMode; label: string; detail: string; icon: string }> = [
   { mode: 'file', label: 'File', detail: 'PDF, DOCX, TXT, EPUB', icon: 'File' },
-  { mode: 'scan', label: 'Scan', detail: 'Camera scan soon', icon: 'Cam', soon: true },
   { mode: 'url', label: 'Link', detail: 'Paste any URL', icon: 'Link' },
   { mode: 'paste', label: 'Paste', detail: 'Text from clipboard', icon: 'Text' },
-  { mode: 'record', label: 'Record', detail: 'Audio import soon', icon: 'Mic', soon: true },
 ];
 
 const readPlans: Array<{ id: ReadStorePlanId; title: string; priceHint: string; body: string; platformNote?: string }> = [
@@ -587,17 +585,17 @@ export function ReadHomeScreen() {
             <Text style={[styles.homeTitle, { color: palette.text }]}>Read, listen, and understand.</Text>
             <Text style={[styles.homeSubtitle, { color: palette.muted }]}>Import anything, browse live websites, continue instantly, and listen with a calm reader.</Text>
           </View>
-          <MetricPill label="Day streak" value="7" tone="amber" />
+          <MetricPill label="Library" value={String(documents.length)} tone="blue" />
         </View>
 
         <SyncBanner />
 
         <View style={[styles.sectionCard, { backgroundColor: palette.surfaceRaised, borderColor: palette.borderStrong }]}>
           <View>
-            <Text style={[styles.kicker, { color: palette.accent2 }]}>Live web Reader</Text>
-            <Text style={[styles.sectionTitle, { color: palette.text, marginTop: 6 }]}>Browse the real website</Text>
+            <Text style={[styles.kicker, { color: palette.accent2 }]}>Browser Reader</Text>
+            <Text style={[styles.sectionTitle, { color: palette.text, marginTop: 6 }]}>Read websites without leaving Floently</Text>
             <Text style={[styles.cardBody, { color: palette.muted, marginTop: 6 }]}>
-              Open a site in the secure remote browser, sign in when needed, interact normally, and use Reader without converting the website into a static document.
+              Open articles and websites in the dedicated Browser Reader, interact normally, and keep the native Read experience around the page.
             </Text>
           </View>
           <PrimaryButton label="Open live browser" onPress={() => navigate('/read/browser')} />
@@ -759,10 +757,10 @@ export function ReadImportScreen() {
               onPress={() => setMode(action.mode)}
               style={[styles.importOption, { backgroundColor: palette.surfaceRaised, borderColor: mode === action.mode ? palette.borderStrong : palette.border }]}
             >
-              <Text style={[styles.importOptionIcon, { color: action.soon ? palette.warning : palette.accent }]}>{action.icon}</Text>
+              <Text style={[styles.importOptionIcon, { color: palette.accent }]}>{action.icon}</Text>
               <View style={styles.importOptionText}>
                 <Text style={[styles.importOptionTitle, { color: palette.text }]}>{action.label}</Text>
-                <Text style={[styles.importOptionBody, { color: palette.muted }]}>{action.soon ? 'Coming soon' : action.detail}</Text>
+                <Text style={[styles.importOptionBody, { color: palette.muted }]}>{action.detail}</Text>
               </View>
             </Pressable>
           ))}
@@ -790,12 +788,6 @@ export function ReadImportScreen() {
           </View>
         ) : null}
 
-        {(mode === 'scan' || mode === 'record') ? (
-          <View style={[styles.panel, cardTone('amber', palette)]}>
-            <Text style={[styles.cardTitle, { color: palette.text }]}>{mode === 'scan' ? 'Scan document' : 'Record audio'}</Text>
-            <Text style={[styles.cardBody, { color: palette.muted }]}>This entry is designed into the app now and will be connected after the reader/import foundation is stable.</Text>
-          </View>
-        ) : null}
 
         {importError ? <Text style={[styles.errorText, { color: palette.danger }]}>{importError}</Text> : null}
       </ScrollView>
