@@ -58,6 +58,24 @@ const LANGUAGE_LABELS: Record<ReadLanguage, string> = {
 
 const PROCESSING_COPY = 'Floently is extracting readable text and preparing this document. You can continue using the app while it finishes.';
 
+const progressSyncChains = new Map<string, Promise<void>>();
+
+function queueProgressSync(
+  id: string,
+  input: { progress: number; playbackSpeed?: number; voiceId?: string | null },
+  onError: (error: unknown) => void,
+) {
+  const previous = progressSyncChains.get(id) ?? Promise.resolve();
+  const next = previous
+    .catch(() => {})
+    .then(() => readRenderApi.updateProgress(id, input))
+    .catch(onError)
+    .finally(() => {
+      if (progressSyncChains.get(id) === next) progressSyncChains.delete(id);
+    });
+  progressSyncChains.set(id, next);
+}
+
 function normalizeReadLanguage(value: unknown): ReadLanguage {
   const normalized = String(value || 'auto').trim().toLowerCase();
   if (
@@ -362,10 +380,11 @@ export const useReadMobileStore = create<ReadMobileState>((set, get) => ({
       ),
     }));
 
-    void readRenderApi.updateProgress(id, {
+    queueProgressSync(id, {
       progress: nextProgress,
       playbackSpeed: document?.playbackSpeed,
-    }).catch((error) => {
+      voiceId: document?.voiceId,
+    }, (error) => {
       const message = error instanceof Error ? error.message : String(error);
       set({ syncStatus: 'offline', syncError: message });
     });
@@ -380,11 +399,11 @@ export const useReadMobileStore = create<ReadMobileState>((set, get) => ({
       ),
     }));
     if (document) {
-      void readRenderApi.updateProgress(id, {
+      queueProgressSync(id, {
         progress: document.readingProgress,
         playbackSpeed: nextSpeed,
         voiceId: document.voiceId,
-      }).catch((error) => {
+      }, (error) => {
         set({ syncStatus: 'offline', syncError: error instanceof Error ? error.message : String(error) });
       });
     }
@@ -399,11 +418,11 @@ export const useReadMobileStore = create<ReadMobileState>((set, get) => ({
       ),
     }));
     if (document) {
-      void readRenderApi.updateProgress(id, {
+      queueProgressSync(id, {
         progress: document.readingProgress,
         playbackSpeed: document.playbackSpeed,
         voiceId: nextVoiceId,
-      }).catch((error) => {
+      }, (error) => {
         set({ syncStatus: 'offline', syncError: error instanceof Error ? error.message : String(error) });
       });
     }
