@@ -41,6 +41,7 @@ const readAi = read('features/read/mobile/readAiApi.ts');
 const readRender = read('features/read/mobile/readRenderApi.ts');
 const landingRoute = read('state/LandingRoute.tsx');
 const pkg = JSON.parse(read('package.json'));
+const appBase = JSON.parse(read('app.base.json'));
 
 assert.equal(pkg.dependencies?.['react-native-webview'], '13.16.1',
   'Read live browser must use the Expo-compatible WebView dependency');
@@ -128,10 +129,10 @@ for (const marker of [
   assert.ok(readAuth.includes(marker), `Read auth missing web-parity marker: ${marker}`);
 }
 
-assert.ok(home.includes("Math.min(3"),
-  'native Read audio player must support rates through 3x');
-assert.ok(readStore.includes("Math.min(3, speed)"),
-  'native Read state must persist requested playback rates through 3x');
+assert.ok(home.includes("Math.min(2"),
+  'native Read audio player must clamp playback to the Expo-supported mobile 2x maximum');
+assert.ok(readStore.includes("Math.min(2, speed)"),
+  'native Read state must persist only playback rates supported by native iOS/Android');
 assert.ok(readStore.includes('setVoiceId: (id, voiceId) =>'),
   'native Read state must own persistent per-document voice selection');
 assert.ok(readTts.includes("getReadApi('/api/voices/unified')"),
@@ -148,6 +149,21 @@ assert.ok(!home.includes('generatedText.slice(0, 4000)'),
   'native Read must never silently truncate narration to the first 4000 characters');
 assert.ok(home.includes('completedChars') && home.includes('displayedProgress'),
   'native Read playback progress must remain document-wide across TTS chunks');
+assert.ok(home.includes('updateInterval: 100'),
+  'native Read must use smooth high-frequency playback status updates');
+assert.ok(home.includes('preload(result.audioUrl'),
+  'native Read must preload upcoming narration audio before chunk handoff');
+assert.ok(home.includes('preferredForwardBufferDuration: 30'),
+  'native Read must keep a forward buffer for stable long-form playback');
+assert.ok(home.includes('chunkPositionForProgress') && home.includes('resumeFractionRef') && home.includes('player.seekTo'),
+  'native Read must resume inside the saved chunk instead of restarting it');
+assert.ok(home.includes('shouldPlayInBackground: true') && home.includes('setActiveForLockScreen'),
+  'native Read must configure sustained background and lock-screen playback');
+assert.ok(appBase.expo?.plugins?.some((plugin) =>
+  Array.isArray(plugin) && plugin[0] === 'expo-audio' && plugin[1]?.enableBackgroundPlayback === true),
+  'Expo native config must enable background playback for the final binary');
+assert.ok(readStore.includes('progressSyncChains') && readStore.includes('queueProgressSync'),
+  'native Read progress writes must be serialized to prevent stale resume overwrites');
 for (const marker of ['Summary & AI', 'Summary', 'Key points', 'Explain', 'Flashcards', 'Quiz me', 'Exam coach', 'Glossary', 'Ask AI']) {
   assert.ok(home.includes(marker), `native Read player missing study/AI control: ${marker}`);
 }
@@ -157,8 +173,10 @@ assert.ok(readAi.includes("action === 'summary'") && readAi.includes("'summarize
   'native Read Summary must map to the canonical summarize backend action');
 assert.ok(readAi.includes("action === 'key_points'"),
   'native Read Key points must map to the canonical key_points backend action');
-assert.ok(home.includes("[0.8, 1.0, 1.2, 1.5, 1.8, 2.0, 2.25, 2.5, 2.75, 3.0]"),
-  'native Read settings must expose the full speed range through 3x');
+assert.ok(home.includes("[0.8, 1.0, 1.2, 1.5, 1.8, 2.0]"),
+  'native Read settings must expose the supported mobile speed range through 2x');
+assert.ok(!home.includes("2.25,2.5,2.75,3") && !home.includes("2.25, 2.5, 2.75, 3.0"),
+  'native Read must not advertise unsupported playback rates above 2x');
 assert.ok(home.includes('NOW READING'),
   'native Read player must keep the active reading text visible');
 assert.ok(home.includes('activeParagraphIndex'),
