@@ -181,6 +181,8 @@ assert.ok(home.includes('NOW READING'),
   'native Read player must keep the active reading text visible');
 assert.ok(home.includes('activeParagraphIndex'),
   'native Read document must visually track the active paragraph');
+assert.ok(!home.includes('paragraphs.slice(0, 24)'),
+  'native Read must render the complete document instead of truncating after 24 paragraphs');
 
 assert.ok(guard.includes('requireReadAccess = true'),
   'Read content guard must require Read access by default');
