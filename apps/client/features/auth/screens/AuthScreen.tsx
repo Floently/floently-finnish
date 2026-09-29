@@ -18,6 +18,7 @@
 import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { ActivityIndicator, Animated, Easing, KeyboardAvoidingView, Platform, Pressable, ScrollView, StyleSheet, Text, TextInput, useWindowDimensions, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import { Ionicons } from '@expo/vector-icons';
 import { router, useLocalSearchParams } from 'expo-router';
 import { spacing } from '@ui/theme';
 import { getFloentlyPalette } from '@ui/theme/floentlyPalette';
@@ -72,6 +73,7 @@ export default function AuthScreen({ initialTab = 'signin' }: Props) {
   const [tab, setTab] = useState<AuthTab>(initialTab);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [passwordVisible, setPasswordVisible] = useState(false);
   const [name, setName] = useState('');
   const [submitting, setSubmitting] = useState(false);
   const [formError, setFormError] = useState<string | null>(null);
@@ -98,6 +100,7 @@ export default function AuthScreen({ initialTab = 'signin' }: Props) {
 
   const onSwitchTab = useCallback((next: AuthTab) => {
     setTab(next);
+    setPasswordVisible(false);
     setFormError(null);
   }, []);
 
@@ -309,18 +312,40 @@ export default function AuthScreen({ initialTab = 'signin' }: Props) {
 
             <View style={styles.field}>
               <Text style={styles.label}>{t('authPassword')}</Text>
-              <TextInput
-                style={styles.input}
-                value={password}
-                onChangeText={setPassword}
-                placeholder={t('authPasswordPlaceholder')}
-                placeholderTextColor={palette.textMuted}
-                secureTextEntry
-                autoComplete={tab === 'signin' ? 'current-password' : 'new-password'}
-                textContentType={tab === 'signin' ? 'password' : 'newPassword'}
-                importantForAutofill="yes"
-                editable={!submitting}
-              />
+              <View style={styles.passwordInputWrap}>
+                <TextInput
+                  style={[styles.input, styles.passwordInput]}
+                  value={password}
+                  onChangeText={setPassword}
+                  placeholder={t('authPasswordPlaceholder')}
+                  placeholderTextColor={palette.textMuted}
+                  secureTextEntry={tab === 'signin' ? !passwordVisible : true}
+                  autoComplete={tab === 'signin' ? 'current-password' : 'new-password'}
+                  textContentType={tab === 'signin' ? 'password' : 'newPassword'}
+                  importantForAutofill="yes"
+                  editable={!submitting}
+                />
+                {tab === 'signin' ? (
+                  <Pressable
+                    onPress={() => setPasswordVisible((current) => !current)}
+                    disabled={submitting}
+                    accessibilityRole="button"
+                    accessibilityLabel={passwordVisible ? 'Hide password' : 'Show password'}
+                    hitSlop={8}
+                    style={({ pressed }) => [
+                      styles.passwordVisibilityButton,
+                      pressed && styles.passwordVisibilityButtonPressed,
+                      submitting && styles.btnDisabled,
+                    ]}
+                  >
+                    <Ionicons
+                      name={passwordVisible ? 'eye-off-outline' : 'eye-outline'}
+                      size={22}
+                      color={passwordVisible ? palette.primary : palette.textMuted}
+                    />
+                  </Pressable>
+                ) : null}
+              </View>
             </View>
 
             {formError ? (
@@ -457,6 +482,25 @@ function buildStyles(palette: ReturnType<typeof getFloentlyPalette>, isDark: boo
       fontSize: 16,
       color: palette.text,
       backgroundColor: isDark ? palette.surface : '#FFFFFF',
+    },
+    passwordInputWrap: {
+      position: 'relative',
+      justifyContent: 'center',
+    },
+    passwordInput: {
+      paddingRight: 52,
+    },
+    passwordVisibilityButton: {
+      position: 'absolute',
+      right: 4,
+      width: 44,
+      height: 44,
+      borderRadius: 22,
+      alignItems: 'center',
+      justifyContent: 'center',
+    },
+    passwordVisibilityButtonPressed: {
+      opacity: 0.7,
     },
     errorBox: {
       borderRadius: 10,
