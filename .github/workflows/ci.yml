@@ -84,6 +84,12 @@ jobs:
         run: pnpm install --frozen-lockfile
       - name: TypeScript check
         run: pnpm --dir apps/client exec tsc --noEmit
+
+      - name: Validate EAS release workflows
+        working-directory: apps/client
+        run: |
+          npx --yes eas-cli@latest workflow:validate .eas/workflows/ios-testflight-release.yml --non-interactive
+          npx --yes eas-cli@latest workflow:validate .eas/workflows/production-ota.yml --non-interactive
       - name: Verify subscription authority invariants
         run: pnpm --dir apps/client run verify:subscription-authority
       - name: Verify native Read product invariants
