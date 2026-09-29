@@ -124,8 +124,10 @@ assert.ok(landingRoute.includes('return <KieliValmisLandingScreen />'),
   'KieliValmis web-host landing must remain untouched by Read work');
 for (const marker of [
   "gateway: 'https://floently.com/'",
-  "read: 'https://read.floently.com/'",
+  "read: 'https://floently.com/read'",
   "create: 'https://floently.com/create/'",
+  "if (path.startsWith('/auth')) return '/auth/login'",
+  "if (host === 'create.floently.com') return '/create'",
   "if (path === '/learn') return '/learn'",
   "if (path === '/read') return '/read'",
   "if (path === '/create') return '/create'",
