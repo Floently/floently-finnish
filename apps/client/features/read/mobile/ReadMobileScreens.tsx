@@ -12,7 +12,7 @@ import {
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import * as DocumentPicker from 'expo-document-picker';
-import { setAudioModeAsync, useAudioPlayer, useAudioPlayerStatus } from 'expo-audio';
+import { clearPreloadedSource, preload, setAudioModeAsync, useAudioPlayer, useAudioPlayerStatus } from 'expo-audio';
 import Svg, { Circle } from 'react-native-svg';
 import { router } from 'expo-router';
 
@@ -259,16 +259,42 @@ function readerAudioChunks(text: string, maxChars = 3600): string[] {
   return chunks;
 }
 
-function chunkIndexForProgress(chunks: string[], progress: number): number {
-  if (!chunks.length) return 0;
+function chunkPositionForProgress(chunks: string[], progress: number): { index: number; fraction: number } {
+  if (!chunks.length) return { index: 0, fraction: 0 };
   const total = chunks.reduce((sum, chunk) => sum + chunk.length, 0);
+  if (total <= 0) return { index: 0, fraction: 0 };
+
+  const boundedProgress = Math.max(0, Math.min(1, progress));
+  const target = boundedProgress * total;
+  let cursor = 0;
+
+  for (let index = 0; index < chunks.length; index += 1) {
+    const length = Math.max(1, chunks[index].length);
+    const end = cursor + length;
+    if (target < end || index === chunks.length - 1) {
+      return {
+        index,
+        fraction: Math.max(0, Math.min(1, (target - cursor) / length)),
+      };
+    }
+    cursor = end;
+  }
+
+  return { index: chunks.length - 1, fraction: 1 };
+}
+
+function paragraphIndexForProgress(paragraphs: string[], progress: number): number {
+  if (!paragraphs.length) return 0;
+  const total = paragraphs.reduce((sum, paragraph) => sum + paragraph.length, 0);
+  if (total <= 0) return 0;
+
   const target = Math.max(0, Math.min(1, progress)) * total;
   let cursor = 0;
-  for (let index = 0; index < chunks.length; index += 1) {
-    cursor += chunks[index].length;
+  for (let index = 0; index < paragraphs.length; index += 1) {
+    cursor += Math.max(1, paragraphs[index].length);
     if (target < cursor) return index;
   }
-  return chunks.length - 1;
+  return paragraphs.length - 1;
 }
 
 function safePct(value: number) {
@@ -299,7 +325,9 @@ function cardTone(tone: ReadTone, palette: Palette) {
 }
 
 function setPlayerPlaybackRate(player: ReturnType<typeof useAudioPlayer>, rate: number) {
-  const safeRate = Math.max(0.1, Math.min(3, Number.isFinite(rate) ? rate : 1));
+  // Expo Audio supports up to 2x on native iOS/Android. Never expose a rate the
+  // native player may clamp or reject differently across platforms.
+  const safeRate = Math.max(0.1, Math.min(2, Number.isFinite(rate) ? rate : 1));
   const maybePlayer = player as unknown as { setPlaybackRate?: (rate: number) => void; playbackRate?: number };
 
   try {
