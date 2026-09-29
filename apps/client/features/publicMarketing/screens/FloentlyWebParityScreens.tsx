@@ -635,7 +635,7 @@ const styles = StyleSheet.create({
   sectionHead: { alignItems: 'center', marginBottom: 42 },
   sectionHeadTitle: { color: '#FFFFFF', fontSize: 34, lineHeight: 40, fontWeight: '900', letterSpacing: -0.8, textAlign: 'center', marginBottom: 12 },
   sectionHeadBody: { color: 'rgba(255,255,255,0.45)', fontSize: 16, textAlign: 'center' },
-  threeGrid: { gap: 16 },
+  threeGrid: { flexDirection: 'row', gap: 16 },
   threeGridCompact: { flexDirection: 'column' },
   featureCard: {
     flex: 1,
@@ -678,7 +678,3 @@ const styles = StyleSheet.create({
   readFooterLinks: { flexDirection: 'row', flexWrap: 'wrap', gap: 20 },
   readFooterLink: { color: 'rgba(255,255,255,0.40)', fontSize: 13 },
 });
-
-if (typeof styles.threeGrid === 'object') {
-  Object.assign(styles.threeGrid, { flexDirection: 'row' });
-}
