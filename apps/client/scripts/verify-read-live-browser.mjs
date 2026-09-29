@@ -33,6 +33,9 @@ const drawer = read('config/navigation/AppShell_sidebar_sections.ts');
 const appShell = read('state/AppShell.tsx');
 const subscribeRoute = read('app/read/subscribe.tsx');
 const browserRoute = read('app/read/browser.tsx');
+const readReaderRoute = read('app/read/reader.tsx');
+const readAppRoute = read('app/read/app.tsx');
+const readWorkspace = read('features/read/mobile/ReadWebWorkspaceScreen.tsx');
 const readLandingRoute = read('app/read/index.tsx');
 const productsRoute = read('app/products.tsx');
 const createRoute = read('app/create/index.tsx');
@@ -90,6 +93,15 @@ assert.ok(browser.includes('onContentProcessDidTerminate'),
   'iOS Read must distinguish a dead WebKit renderer from a transient network failure');
 assert.ok(browser.includes('onRenderProcessGone'),
   'Android Read must distinguish a dead WebView renderer from a transient network failure');
+assert.ok(browser.includes("DEFAULT_READ_WORKSPACE_URL = 'https://read.floently.com/app/reader?embed=react-native'"),
+  'native signed-in Read must use the canonical web Reader workspace');
+assert.ok(browser.includes("type ReadRemoteSurface = 'browser' | 'workspace'") &&
+  browser.includes("surface === 'browser'"),
+  'the audited Read WebView bridge must support browser and full workspace surfaces without duplicating auth');
+assert.ok(readWorkspace.includes('surface="workspace"'),
+  'Read workspace wrapper must select the canonical workspace surface');
+assert.ok(readReaderRoute.includes('ReadWebWorkspaceScreen') && readAppRoute.includes('ReadWebWorkspaceScreen'),
+  'both canonical and legacy signed-in Read entries must land in the same web-parity workspace');
 assert.ok(browser.includes('style={styles.errorOverlay}'),
   'transient Browser V2 failures must overlay the mounted WebView instead of destroying its session');
 assert.ok(!browser.includes('{loadError ? (\n          <View style={styles.centered}>'),
