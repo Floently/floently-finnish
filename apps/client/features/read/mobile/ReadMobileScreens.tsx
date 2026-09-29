@@ -331,6 +331,18 @@ function timedChunkProgress(
   return Math.max(0, Math.min(1, (startChar + wordLength * withinWord) / Math.max(1, text.length)));
 }
 
+async function resolveLoadedAudioDuration(
+  player: ReturnType<typeof useAudioPlayer>,
+  fallbackSeconds: number,
+): Promise<number> {
+  for (let attempt = 0; attempt < 12; attempt += 1) {
+    const duration = Number(player.duration || 0);
+    if (Number.isFinite(duration) && duration > 0) return duration;
+    await new Promise((resolve) => setTimeout(resolve, 50));
+  }
+  return Math.max(0, fallbackSeconds);
+}
+
 function safePct(value: number) {
   return Math.max(0, Math.min(100, Math.round(value * 100)));
 }
@@ -1137,9 +1149,15 @@ export function ReadReaderScreen() {
       setPlayerPlaybackRate(player, document.playbackSpeed);
 
       const resumeFraction = Math.max(0, Math.min(0.995, resumeFractionRef.current));
-      const knownDuration = Number(result.duration || 0);
-      if (resumeFraction > 0 && knownDuration > 0) {
-        await player.seekTo(knownDuration * resumeFraction);
+      if (resumeFraction > 0) {
+        const estimatedSourceDuration = Math.max(0.6, (countWords(audioChunks[index]) / 170) * 60);
+        const loadedDuration = await resolveLoadedAudioDuration(
+          player,
+          Number(result.duration || 0) || estimatedSourceDuration,
+        );
+        if (loadedDuration > 0) {
+          await player.seekTo(loadedDuration * resumeFraction);
+        }
       }
       resumeFractionRef.current = 0;
 
