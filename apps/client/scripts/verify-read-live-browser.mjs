@@ -18,6 +18,8 @@ const requiredRoutes = [
   'app/read/subscribe.tsx',
   'app/read/browser.tsx',
   'app/products.tsx',
+  'app/create/index.tsx',
+  'app/learn/index.tsx',
 ];
 
 for (const route of requiredRoutes) {
@@ -33,7 +35,10 @@ const subscribeRoute = read('app/read/subscribe.tsx');
 const browserRoute = read('app/read/browser.tsx');
 const readLandingRoute = read('app/read/index.tsx');
 const productsRoute = read('app/products.tsx');
-const publicMarketing = read('features/publicMarketing/screens/NativePublicMarketingScreens.tsx');
+const createRoute = read('app/create/index.tsx');
+const learnRoute = read('app/learn/index.tsx');
+const rootRoute = read('app/index.tsx');
+const webParity = read('features/publicMarketing/screens/FloentlyWebParityScreens.tsx');
 const readAuth = read('features/read/mobile/ReadAuthScreen.tsx');
 const readStore = read('features/read/mobile/readMobileStore.ts');
 const readTts = read('features/read/mobile/readTtsApi.ts');
@@ -90,37 +95,44 @@ assert.ok(browser.includes('style={styles.errorOverlay}'),
 assert.ok(!browser.includes('{loadError ? (\n          <View style={styles.centered}>'),
   'transient Browser V2 failures must not conditionally unmount the WebView');
 
-assert.ok(readLandingRoute.includes('NativeReadPreviewScreen'),
-  'native /read must render the public Read landing before authentication');
-assert.ok(readLandingRoute.includes("onOpenLearn={() => router.push('/' as never)}"),
-  'Read landing must integrate the existing KieliValmis entry without modifying it');
-assert.ok(readLandingRoute.includes("onOpenGateway={() => router.push('/products' as never)}"),
-  'Read Floently Home must open the separate product gateway instead of masquerading as KieliValmis');
-assert.ok(productsRoute.includes('NativeFloentlyProductGatewayScreen') &&
-  productsRoute.includes("onOpenLearn={() => router.push('/' as never)}") &&
-  productsRoute.includes("onOpenRead={() => router.push('/read' as never)}"),
-  'product gateway must integrate Read and the existing KieliValmis root without replacing either');
+assert.ok(rootRoute.includes('FloentlyGatewayScreen') && rootRoute.includes("Platform.OS !== 'web'"),
+  'native root must render the Floently product gateway while leaving web-host routing intact');
+assert.ok(learnRoute.includes('KieliValmisLandingScreen') && learnRoute.includes("Platform.OS === 'web'"),
+  'native /learn must open the existing KieliValmis landing while preserving web Learn routing');
+assert.ok(readLandingRoute.includes('FloentlyReadLandingScreen'),
+  'native /read must render the canonical web-parity Read landing before authentication');
+assert.ok(productsRoute.includes('FloentlyGatewayScreen'),
+  'products route must use the same canonical Floently gateway as native root');
+assert.ok(createRoute.includes('FloentlyCreateComingSoonScreen'),
+  'native /create must render the dedicated Floently Create coming-soon page');
 assert.ok(landingRoute.includes('return <KieliValmisLandingScreen />'),
-  'KieliValmis direct entry must remain untouched by Read work');
+  'KieliValmis web-host landing must remain untouched by Read work');
 for (const marker of [
+  'Floently product gateway',
+  'Floently Learn',
+  'Floently Read',
+  'Floently Create',
+  'Choose your Floently product',
+  'Coming soon',
+  'AI-Powered Text to Speech',
   'landing_page_picture_1.png',
   'landing_page_picture_8.png',
   'People are listening',
   'Lifelike Voices',
   'Easy Import',
   'Customizable',
-  "router.push('/read/subscribe' as never)",
+  "go('/read/auth')",
+  "go('/read/subscribe')",
 ]) {
-  assert.ok(publicMarketing.includes(marker), `native Read landing missing web-parity marker: ${marker}`);
+  assert.ok(webParity.includes(marker), `native web-parity surfaces missing marker: ${marker}`);
 }
-
 for (const marker of [
   "authService.login",
   "authService.register",
   "useGoogleSignIn",
   "secureTextEntry={!showPassword}",
   "accessibilityLabel={showPassword ? 'Hide password' : 'Show password'}",
-  "router.replace('/read/app' as never)",
+  "router.replace('/read/reader' as never)",
   "Continue with current Floently account",
 ]) {
   assert.ok(readAuth.includes(marker), `Read auth missing web-parity marker: ${marker}`);
