@@ -22,7 +22,7 @@ import {
   type ReadDocument,
   type ReadTheme,
 } from './readMobileStore';
-import { readTtsApi, type ReadTtsResult, type ReadVoice } from './readTtsApi';
+import { readTtsApi, type ReadTtsResult, type ReadVoice, type ReadWordTiming } from './readTtsApi';
 import { readAiApi, type ReadAiAction } from './readAiApi';
 import { readRenderApi } from './readRenderApi';
 import { restoreReadStorePurchases, startReadStorePurchase, type ReadStorePlanId } from '../../billing/services/storeBillingService';
@@ -295,6 +295,39 @@ function paragraphIndexForProgress(paragraphs: string[], progress: number): numb
     if (target < cursor) return index;
   }
   return paragraphs.length - 1;
+}
+
+function timedChunkProgress(
+  text: string,
+  timings: ReadWordTiming[],
+  currentTime: number,
+  duration: number,
+): number {
+  const fallback = duration > 0
+    ? Math.max(0, Math.min(1, currentTime / duration))
+    : 0;
+  if (!text || !timings.length) return fallback;
+
+  const words = [...text.matchAll(/[\p{L}\p{N}]+(?:['’\-][\p{L}\p{N}]+)*/gu)];
+  if (!words.length) return fallback;
+
+  const lastTiming = timings[timings.length - 1];
+  if (currentTime >= lastTiming.end) return 1;
+
+  let timingIndex = -1;
+  for (let index = 0; index < timings.length; index += 1) {
+    if (currentTime < timings[index].start) break;
+    timingIndex = index;
+  }
+  if (timingIndex < 0) return 0;
+
+  const timing = timings[timingIndex];
+  const word = words[Math.min(timingIndex, words.length - 1)];
+  const startChar = word.index ?? 0;
+  const wordLength = word[0]?.length ?? 0;
+  const timingSpan = Math.max(0.001, timing.end - timing.start);
+  const withinWord = Math.max(0, Math.min(1, (currentTime - timing.start) / timingSpan));
+  return Math.max(0, Math.min(1, (startChar + wordLength * withinWord) / Math.max(1, text.length)));
 }
 
 function safePct(value: number) {
@@ -964,12 +997,18 @@ export function ReadReaderScreen() {
       const completedChars = audioChunks
         .slice(0, activeAudioChunk)
         .reduce((sum, chunk) => sum + chunk.length, 0);
-      const clipRatio = Math.max(0, Math.min(1, playbackStatus.currentTime / playbackStatus.duration));
-      const currentChars = (audioChunks[activeAudioChunk]?.length || 0) * clipRatio;
+      const activeChunkText = audioChunks[activeAudioChunk] || '';
+      const clipRatio = timedChunkProgress(
+        activeChunkText,
+        audioResult?.wordTimings ?? [],
+        playbackStatus.currentTime,
+        playbackStatus.duration,
+      );
+      const currentChars = activeChunkText.length * clipRatio;
       return totalChars > 0 ? Math.max(0, Math.min(1, (completedChars + currentChars) / totalChars)) : 0;
     }
     return document.readingProgress;
-  }, [activeAudioChunk, audioChunks, document, playbackStatus.currentTime, playbackStatus.duration]);
+  }, [activeAudioChunk, audioChunks, audioResult, document, playbackStatus.currentTime, playbackStatus.duration]);
 
   useEffect(() => {
     if (!document || !playbackStatus.duration || playbackStatus.duration <= 0) return;
@@ -1000,6 +1039,8 @@ export function ReadReaderScreen() {
 
   useEffect(() => {
     if (!document) return;
+    player.pause();
+    try { player.clearLockScreenControls(); } catch {}
     const savedPosition = chunkPositionForProgress(audioChunks, document.readingProgress);
     setActiveAudioChunk(savedPosition.index);
     resumeFractionRef.current = savedPosition.fraction;
