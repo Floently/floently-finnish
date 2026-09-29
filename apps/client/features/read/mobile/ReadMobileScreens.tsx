@@ -862,7 +862,7 @@ function ReaderText({ document, activeIndex }: { document: ReadDocument; activeI
     <View style={[styles.readerPaper, { backgroundColor: palette.readerPaper, borderColor: palette.border }]}>
       <Text style={[styles.readerChapter, { color: palette.readerMuted }]}>Chapter 1</Text>
       <Text style={[styles.readerTitle, { color: palette.readerText }]}>{document.title}</Text>
-      {paragraphs.slice(0, 24).map((paragraph, index) => {
+      {paragraphs.map((paragraph, index) => {
         const active=index===activeIndex;
         return (
           <Text
