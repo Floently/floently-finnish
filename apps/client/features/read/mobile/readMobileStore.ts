@@ -58,6 +58,24 @@ const LANGUAGE_LABELS: Record<ReadLanguage, string> = {
 
 const PROCESSING_COPY = 'Floently is extracting readable text and preparing this document. You can continue using the app while it finishes.';
 
+const progressSyncChains = new Map<string, Promise<void>>();
+
+function queueProgressSync(
+  id: string,
+  input: { progress: number; playbackSpeed?: number; voiceId?: string | null },
+  onError: (error: unknown) => void,
+) {
+  const previous = progressSyncChains.get(id) ?? Promise.resolve();
+  const next = previous
+    .catch(() => {})
+    .then(() => readRenderApi.updateProgress(id, input))
+    .catch(onError)
+    .finally(() => {
+      if (progressSyncChains.get(id) === next) progressSyncChains.delete(id);
+    });
+  progressSyncChains.set(id, next);
+}
+
 function normalizeReadLanguage(value: unknown): ReadLanguage {
   const normalized = String(value || 'auto').trim().toLowerCase();
   if (
@@ -129,7 +147,7 @@ function toLocalDocument(remote: ReadRenderDocument): ReadDocument {
     sourceUrl: remote.sourceUrl ?? remote.source_url ?? null,
     createdAtIso: String(remote.createdAt ?? remote.created_at ?? new Date().toISOString()),
     readingProgress: progressToRatio(remote.progress ?? remote.progressPercent ?? remote.progress_percent),
-    playbackSpeed: Number(remote.playbackSpeed ?? remote.playback_speed ?? 1) || 1,
+    playbackSpeed: Math.max(0.5, Math.min(2, Number(remote.playbackSpeed ?? remote.playback_speed ?? 1) || 1)),
     voiceId: String(remote.voiceId || remote.voice_id || '').trim() || null,
     status: sourceText ? 'ready' : 'processing',
     statusMessage: sourceText ? null : PROCESSING_COPY,
@@ -362,17 +380,18 @@ export const useReadMobileStore = create<ReadMobileState>((set, get) => ({
       ),
     }));
 
-    void readRenderApi.updateProgress(id, {
+    queueProgressSync(id, {
       progress: nextProgress,
       playbackSpeed: document?.playbackSpeed,
-    }).catch((error) => {
+      voiceId: document?.voiceId,
+    }, (error) => {
       const message = error instanceof Error ? error.message : String(error);
       set({ syncStatus: 'offline', syncError: message });
     });
   },
 
   setPlaybackSpeed: (id, speed) => {
-    const nextSpeed = Math.max(0.5, Math.min(3, speed));
+    const nextSpeed = Math.max(0.5, Math.min(2, speed));
     const document = get().documents.find((item) => item.id === id);
     set((state) => ({
       documents: state.documents.map((item) =>
@@ -380,11 +399,11 @@ export const useReadMobileStore = create<ReadMobileState>((set, get) => ({
       ),
     }));
     if (document) {
-      void readRenderApi.updateProgress(id, {
+      queueProgressSync(id, {
         progress: document.readingProgress,
         playbackSpeed: nextSpeed,
         voiceId: document.voiceId,
-      }).catch((error) => {
+      }, (error) => {
         set({ syncStatus: 'offline', syncError: error instanceof Error ? error.message : String(error) });
       });
     }
@@ -399,11 +418,11 @@ export const useReadMobileStore = create<ReadMobileState>((set, get) => ({
       ),
     }));
     if (document) {
-      void readRenderApi.updateProgress(id, {
+      queueProgressSync(id, {
         progress: document.readingProgress,
         playbackSpeed: document.playbackSpeed,
         voiceId: nextVoiceId,
-      }).catch((error) => {
+      }, (error) => {
         set({ syncStatus: 'offline', syncError: error instanceof Error ? error.message : String(error) });
       });
     }

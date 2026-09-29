@@ -85,7 +85,7 @@ jobs:
           const config = JSON.parse(fs.readFileSync('/tmp/floently-expo-config.json', 'utf8'));
           const assert = (ok, msg) => { if (!ok) throw new Error(msg); };
           assert(config.ios?.bundleIdentifier === 'com.vitusidi.floently', 'Unexpected iOS bundle identifier');
-          assert(config.runtimeVersion === '1.0.3', `Unexpected runtimeVersion: ${config.runtimeVersion}`);
+          assert(config.runtimeVersion === '1.0.4', `Unexpected runtimeVersion: ${config.runtimeVersion}`);
           assert(config.updates?.enabled === true, 'Expo Updates must be enabled');
           assert(config.updates?.url === 'https://u.expo.dev/fa02c141-0a3b-4dbc-9122-7c1cf31ba42c', 'Unexpected Expo Updates URL');
           assert(config.updates?.checkAutomatically === 'ON_LOAD', 'OTA must check on app load');

@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useRef, useState, type ReactNode } from 'react';
 import {
   ActivityIndicator,
+  AppState,
   Image,
   Pressable,
   ScrollView,
@@ -12,7 +13,7 @@ import {
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import * as DocumentPicker from 'expo-document-picker';
-import { setAudioModeAsync, useAudioPlayer, useAudioPlayerStatus } from 'expo-audio';
+import { clearPreloadedSource, preload, setAudioModeAsync, useAudioPlayer, useAudioPlayerStatus } from 'expo-audio';
 import Svg, { Circle } from 'react-native-svg';
 import { router } from 'expo-router';
 
@@ -22,7 +23,7 @@ import {
   type ReadDocument,
   type ReadTheme,
 } from './readMobileStore';
-import { readTtsApi, type ReadTtsResult, type ReadVoice } from './readTtsApi';
+import { readTtsApi, type ReadTtsResult, type ReadVoice, type ReadWordTiming } from './readTtsApi';
 import { readAiApi, type ReadAiAction } from './readAiApi';
 import { readRenderApi } from './readRenderApi';
 import { restoreReadStorePurchases, startReadStorePurchase, type ReadStorePlanId } from '../../billing/services/storeBillingService';
@@ -259,16 +260,87 @@ function readerAudioChunks(text: string, maxChars = 3600): string[] {
   return chunks;
 }
 
-function chunkIndexForProgress(chunks: string[], progress: number): number {
-  if (!chunks.length) return 0;
+function chunkPositionForProgress(chunks: string[], progress: number): { index: number; fraction: number } {
+  if (!chunks.length) return { index: 0, fraction: 0 };
   const total = chunks.reduce((sum, chunk) => sum + chunk.length, 0);
+  if (total <= 0) return { index: 0, fraction: 0 };
+
+  const boundedProgress = Math.max(0, Math.min(1, progress));
+  const target = boundedProgress * total;
+  let cursor = 0;
+
+  for (let index = 0; index < chunks.length; index += 1) {
+    const length = Math.max(1, chunks[index].length);
+    const end = cursor + length;
+    if (target < end || index === chunks.length - 1) {
+      return {
+        index,
+        fraction: Math.max(0, Math.min(1, (target - cursor) / length)),
+      };
+    }
+    cursor = end;
+  }
+
+  return { index: chunks.length - 1, fraction: 1 };
+}
+
+function paragraphIndexForProgress(paragraphs: string[], progress: number): number {
+  if (!paragraphs.length) return 0;
+  const total = paragraphs.reduce((sum, paragraph) => sum + paragraph.length, 0);
+  if (total <= 0) return 0;
+
   const target = Math.max(0, Math.min(1, progress)) * total;
   let cursor = 0;
-  for (let index = 0; index < chunks.length; index += 1) {
-    cursor += chunks[index].length;
+  for (let index = 0; index < paragraphs.length; index += 1) {
+    cursor += Math.max(1, paragraphs[index].length);
     if (target < cursor) return index;
   }
-  return chunks.length - 1;
+  return paragraphs.length - 1;
+}
+
+function timedChunkProgress(
+  text: string,
+  timings: ReadWordTiming[],
+  currentTime: number,
+  duration: number,
+): number {
+  const fallback = duration > 0
+    ? Math.max(0, Math.min(1, currentTime / duration))
+    : 0;
+  if (!text || !timings.length) return fallback;
+
+  const words = [...text.matchAll(/[\p{L}\p{N}]+(?:['’\-][\p{L}\p{N}]+)*/gu)];
+  if (!words.length) return fallback;
+
+  const lastTiming = timings[timings.length - 1];
+  if (currentTime >= lastTiming.end) return 1;
+
+  let timingIndex = -1;
+  for (let index = 0; index < timings.length; index += 1) {
+    if (currentTime < timings[index].start) break;
+    timingIndex = index;
+  }
+  if (timingIndex < 0) return 0;
+
+  const timing = timings[timingIndex];
+  const word = words[Math.min(timingIndex, words.length - 1)];
+  const startChar = word.index ?? 0;
+  const wordLength = word[0]?.length ?? 0;
+  const timingSpan = Math.max(0.001, timing.end - timing.start);
+  const withinWord = Math.max(0, Math.min(1, (currentTime - timing.start) / timingSpan));
+  return Math.max(0, Math.min(1, (startChar + wordLength * withinWord) / Math.max(1, text.length)));
+}
+
+async function resolveLoadedAudioDuration(
+  player: ReturnType<typeof useAudioPlayer>,
+  fallbackSeconds: number,
+): Promise<number> {
+  for (let attempt = 0; attempt < 12; attempt += 1) {
+    const duration = Number(player.duration || 0);
+    if (Number.isFinite(duration) && duration > 0) return duration;
+    await new Promise((resolve) => setTimeout(resolve, 50));
+  }
+  return Math.max(0, fallbackSeconds);
 }
 
 function safePct(value: number) {
@@ -299,7 +371,9 @@ function cardTone(tone: ReadTone, palette: Palette) {
 }
 
 function setPlayerPlaybackRate(player: ReturnType<typeof useAudioPlayer>, rate: number) {
-  const safeRate = Math.max(0.1, Math.min(3, Number.isFinite(rate) ? rate : 1));
+  // Expo Audio supports up to 2x on native iOS/Android. Never expose a rate the
+  // native player may clamp or reject differently across platforms.
+  const safeRate = Math.max(0.1, Math.min(2, Number.isFinite(rate) ? rate : 1));
   const maybePlayer = player as unknown as { setPlaybackRate?: (rate: number) => void; playbackRate?: number };
 
   try {
@@ -834,7 +908,7 @@ function ReaderText({ document, activeIndex }: { document: ReadDocument; activeI
     <View style={[styles.readerPaper, { backgroundColor: palette.readerPaper, borderColor: palette.border }]}>
       <Text style={[styles.readerChapter, { color: palette.readerMuted }]}>Chapter 1</Text>
       <Text style={[styles.readerTitle, { color: palette.readerText }]}>{document.title}</Text>
-      {paragraphs.slice(0, 24).map((paragraph, index) => {
+      {paragraphs.map((paragraph, index) => {
         const active=index===activeIndex;
         return (
           <Text
@@ -864,7 +938,11 @@ export function ReadReaderScreen() {
   const updateProgress = useReadMobileStore((state) => state.updateProgress);
   const setPlaybackSpeed = useReadMobileStore((state) => state.setPlaybackSpeed);
   const setVoiceId = useReadMobileStore((state) => state.setVoiceId);
-  const player = useAudioPlayer(null, { updateInterval: 500 });
+  const player = useAudioPlayer(null, {
+    updateInterval: 100,
+    downloadFirst: true,
+    preferredForwardBufferDuration: 30,
+  });
   const playbackStatus = useAudioPlayerStatus(player);
   const [audioState, setAudioState] = useState<AudioPlaybackState>('idle');
   const [audioError, setAudioError] = useState<string | null>(null);
@@ -880,12 +958,17 @@ export function ReadReaderScreen() {
   const [studyQuestion, setStudyQuestion] = useState('');
   const [activeAudioChunk, setActiveAudioChunk] = useState(0);
   const audioChunkCache = useRef(new Map<string, ReadTtsResult>());
+  const audioPreloadCache = useRef(new Map<string, Promise<void>>());
+  const resumeFractionRef = useRef(0);
   const handledFinishedChunk = useRef<string | null>(null);
   const theme = useReadMobileStore((state) => state.readTheme);
   const palette = paletteFor(theme);
 
   useEffect(() => {
-    void setAudioModeAsync({ playsInSilentMode: true });
+    void setAudioModeAsync({
+      playsInSilentMode: true,
+      shouldPlayInBackground: true,
+    });
   }, []);
 
   useEffect(() => {
@@ -927,12 +1010,18 @@ export function ReadReaderScreen() {
       const completedChars = audioChunks
         .slice(0, activeAudioChunk)
         .reduce((sum, chunk) => sum + chunk.length, 0);
-      const clipRatio = Math.max(0, Math.min(1, playbackStatus.currentTime / playbackStatus.duration));
-      const currentChars = (audioChunks[activeAudioChunk]?.length || 0) * clipRatio;
+      const activeChunkText = audioChunks[activeAudioChunk] || '';
+      const clipRatio = timedChunkProgress(
+        activeChunkText,
+        audioResult?.wordTimings ?? [],
+        playbackStatus.currentTime,
+        playbackStatus.duration,
+      );
+      const currentChars = activeChunkText.length * clipRatio;
       return totalChars > 0 ? Math.max(0, Math.min(1, (completedChars + currentChars) / totalChars)) : 0;
     }
     return document.readingProgress;
-  }, [activeAudioChunk, audioChunks, document, playbackStatus.currentTime, playbackStatus.duration]);
+  }, [activeAudioChunk, audioChunks, audioResult, document, playbackStatus.currentTime, playbackStatus.duration]);
 
   useEffect(() => {
     if (!document || !playbackStatus.duration || playbackStatus.duration <= 0) return;
@@ -941,16 +1030,20 @@ export function ReadReaderScreen() {
     }
   }, [displayedProgress, document, playbackStatus.duration, updateProgress]);
 
+  useEffect(() => {
+    const subscription = AppState.addEventListener('change', (nextState) => {
+      if (nextState !== 'active' && document) {
+        updateProgress(document.id, displayedProgress);
+      }
+    });
+    return () => subscription.remove();
+  }, [displayedProgress, document, updateProgress]);
+
   const readerParagraphList = useMemo(
     () => document ? readerParagraphs(document.generatedText) : [],
     [document],
   );
-  const activeParagraphIndex = readerParagraphList.length
-    ? Math.min(
-        readerParagraphList.length - 1,
-        Math.floor(displayedProgress * readerParagraphList.length),
-      )
-    : 0;
+  const activeParagraphIndex = paragraphIndexForProgress(readerParagraphList, displayedProgress);
 
   const readerVoices = useMemo(() => {
     if (!document) return voices;
@@ -968,18 +1061,38 @@ export function ReadReaderScreen() {
 
   useEffect(() => {
     if (!document) return;
-    setActiveAudioChunk(chunkIndexForProgress(audioChunks, document.readingProgress));
+    player.pause();
+    try { player.clearLockScreenControls(); } catch {}
+    const savedPosition = chunkPositionForProgress(audioChunks, document.readingProgress);
+    setActiveAudioChunk(savedPosition.index);
+    resumeFractionRef.current = savedPosition.fraction;
     setAudioResult(null);
     setAudioState('idle');
     setAudioError(null);
     audioChunkCache.current.clear();
+    for (const url of audioPreloadCache.current.keys()) {
+      void clearPreloadedSource(url).catch(() => {});
+    }
+    audioPreloadCache.current.clear();
     handledFinishedChunk.current = null;
   }, [document?.id]);
 
   useEffect(() => {
     audioChunkCache.current.clear();
+    for (const url of audioPreloadCache.current.keys()) {
+      void clearPreloadedSource(url).catch(() => {});
+    }
+    audioPreloadCache.current.clear();
     handledFinishedChunk.current = null;
   }, [document?.voiceId]);
+
+  useEffect(() => () => {
+    try { player.clearLockScreenControls(); } catch {}
+    for (const url of audioPreloadCache.current.keys()) {
+      void clearPreloadedSource(url).catch(() => {});
+    }
+    audioPreloadCache.current.clear();
+  }, [player]);
 
   const chunkCacheKey = (index: number) =>
     `${document?.id || 'none'}:${document?.voiceId || selectedVoice?.id || defaultVoiceId || 'default'}:${index}`;
@@ -999,21 +1112,64 @@ export function ReadReaderScreen() {
     return result;
   }
 
+  async function preloadAudioChunk(index: number): Promise<ReadTtsResult> {
+    const result = await prepareAudioChunk(index);
+    let pending = audioPreloadCache.current.get(result.audioUrl);
+    if (!pending) {
+      pending = preload(result.audioUrl, { preferredForwardBufferDuration: 30 }).catch(() => {});
+      audioPreloadCache.current.set(result.audioUrl, pending);
+    }
+    await pending;
+    return result;
+  }
+
+  function enableLockScreenControls() {
+    if (!document) return;
+    try {
+      player.setActiveForLockScreen(true, {
+        title: document.title,
+        artist: 'Floently Read',
+        albumTitle: document.detectedLanguageLabel,
+      });
+    } catch {
+      // Playback remains functional if lock-screen metadata is unavailable.
+    }
+  }
+
   async function playAudioChunk(index: number) {
     if (!document || !audioChunks[index]) return;
     setAudioState('preparing');
     setAudioError(null);
     try {
-      const result = await prepareAudioChunk(index);
+      const result = await preloadAudioChunk(index);
       setActiveAudioChunk(index);
       handledFinishedChunk.current = null;
       setAudioResult(result);
       player.replace(result.audioUrl);
       setPlayerPlaybackRate(player, document.playbackSpeed);
+
+      const resumeFraction = Math.max(0, Math.min(0.995, resumeFractionRef.current));
+      if (resumeFraction > 0) {
+        const estimatedSourceDuration = Math.max(0.6, (countWords(audioChunks[index]) / 170) * 60);
+        const loadedDuration = await resolveLoadedAudioDuration(
+          player,
+          Number(result.duration || 0) || estimatedSourceDuration,
+        );
+        if (loadedDuration > 0) {
+          await player.seekTo(loadedDuration * resumeFraction);
+        }
+      }
+      resumeFractionRef.current = 0;
+
+      enableLockScreenControls();
       player.play();
       setAudioState('playing');
+
       if (audioChunks[index + 1]) {
-        void prepareAudioChunk(index + 1).catch(() => {});
+        void preloadAudioChunk(index + 1).catch(() => {});
+      }
+      if (audioChunks[index + 2]) {
+        void preloadAudioChunk(index + 2).catch(() => {});
       }
     } catch (error) {
       setAudioState('error');
@@ -1034,6 +1190,7 @@ export function ReadReaderScreen() {
     }
 
     updateProgress(document.id, 1);
+    try { player.clearLockScreenControls(); } catch {}
     setAudioState('paused');
   }, [activeAudioChunk, audioChunks.length, audioResult, document, playbackStatus.didJustFinish, updateProgress]);
 
@@ -1057,10 +1214,14 @@ export function ReadReaderScreen() {
 
     if (audioResult?.audioUrl) {
       setPlayerPlaybackRate(player, document.playbackSpeed);
+      enableLockScreenControls();
       player.play();
       setAudioState('playing');
       if (audioChunks[activeAudioChunk + 1]) {
-        void prepareAudioChunk(activeAudioChunk + 1).catch(() => {});
+        void preloadAudioChunk(activeAudioChunk + 1).catch(() => {});
+      }
+      if (audioChunks[activeAudioChunk + 2]) {
+        void preloadAudioChunk(activeAudioChunk + 2).catch(() => {});
       }
       return;
     }
@@ -1070,6 +1231,7 @@ export function ReadReaderScreen() {
 
   function pauseAudio() {
     player.pause();
+    if (document) updateProgress(document.id, displayedProgress);
     setAudioState('paused');
   }
 
@@ -1087,6 +1249,11 @@ export function ReadReaderScreen() {
     setAudioError(null);
     setAudioState('idle');
     audioChunkCache.current.clear();
+    for (const url of audioPreloadCache.current.keys()) {
+      void clearPreloadedSource(url).catch(() => {});
+    }
+    audioPreloadCache.current.clear();
+    resumeFractionRef.current = 0;
     handledFinishedChunk.current = null;
     setVoiceId(document.id, nextVoice.id);
   }
@@ -1097,6 +1264,7 @@ export function ReadReaderScreen() {
     updateProgress(document.id, 0);
     setActiveAudioChunk(0);
     setAudioResult(null);
+    resumeFractionRef.current = 0;
     handledFinishedChunk.current = null;
     void playAudioChunk(0);
   }
@@ -1199,7 +1367,7 @@ export function ReadReaderScreen() {
             <SecondaryButton
               label={`${document.playbackSpeed.toFixed(document.playbackSpeed % 1 === 0 ? 0 : 1)}x`}
               onPress={() => {
-                const speeds=[0.8,1,1.2,1.5,1.8,2,2.25,2.5,2.75,3];
+                const speeds=[0.8,1,1.2,1.5,1.8,2];
                 const current=speeds.findIndex((value)=>Math.abs(value-document.playbackSpeed)<0.01);
                 setPlaybackSpeed(document.id,speeds[(current+1+speeds.length)%speeds.length]);
               }}
@@ -1331,7 +1499,7 @@ export function ReadSettingsScreen() {
           </View>
           {activeDocument ? (
             <View style={styles.speedRow}>
-              {[0.8, 1.0, 1.2, 1.5, 1.8, 2.0, 2.25, 2.5, 2.75, 3.0].map((speed) => (
+              {[0.8, 1.0, 1.2, 1.5, 1.8, 2.0].map((speed) => (
                 <Pressable key={speed} onPress={() => setPlaybackSpeed(activeDocument.id, speed)} style={[styles.speedChip, { backgroundColor: Math.abs(activeDocument.playbackSpeed - speed) < 0.01 ? palette.accent : palette.surfaceSoft, borderColor: Math.abs(activeDocument.playbackSpeed - speed) < 0.01 ? palette.accent : palette.border }]}>
                   <Text style={[styles.speedChipText, { color: Math.abs(activeDocument.playbackSpeed - speed) < 0.01 ? palette.accentText : palette.text }]}>{speed.toFixed(1)}x</Text>
                 </Pressable>

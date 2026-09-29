@@ -29,6 +29,11 @@ function getBrowserUrl() {
     if (parsed.protocol !== 'https:' || parsed.hostname !== READ_BROWSER_HOST) {
       return DEFAULT_READ_BROWSER_URL;
     }
+    // Browser V2 uses this explicit embed contract for both deterministic
+    // React Native auth and the touch/IME owner-channel input path. Never let
+    // an EAS/environment override silently downgrade the app to desktop VNC
+    // input semantics inside WKWebView/Android WebView.
+    parsed.searchParams.set('embed', 'react-native');
     return parsed.toString();
   } catch {
     return DEFAULT_READ_BROWSER_URL;
