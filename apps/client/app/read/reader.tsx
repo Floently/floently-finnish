@@ -1,10 +1,10 @@
 import ReadProtectedRoute from '../../features/read/mobile/ReadProtectedRoute';
-import { ReadReaderScreen } from '../../features/read/mobile/ReadMobileScreens';
+import ReadWebWorkspaceScreen from '../../features/read/mobile/ReadWebWorkspaceScreen';
 
-export default function ReadReaderRouteEntry() {
+export default function ReadWorkspaceRouteEntry() {
   return (
     <ReadProtectedRoute>
-      <ReadReaderScreen />
+      <ReadWebWorkspaceScreen />
     </ReadProtectedRoute>
   );
 }
