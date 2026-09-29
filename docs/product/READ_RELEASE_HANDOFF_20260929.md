@@ -1,0 +1,189 @@
+# Floently Read / KieliValmis release and reading-quality handoff — 2026-09-29
+
+> **Mandatory first read for any AI or human continuing this work.**
+>
+> Before changing code, report the current state using the reporting template at the end of this file. After changing code, update this ledger with the new status, commit SHA, validation performed, and release/deployment state.
+
+## Authoritative product architecture
+
+Floently mobile is a **native React Native application**.
+
+- KieliValmis / Learn remains the existing native Learn product.
+- Floently Read Home, Library, Import, Reader, Settings, AI/study tools, account/subscription surfaces remain native React Native.
+- The dedicated Browser Reader may use a WebView because browsing/rendering websites is the feature itself.
+- The main Read application must **never** become a WebView/web-workspace shell.
+- The web product is a visual/product reference, not the mobile runtime.
+- The native Browser Reader previously provided a better mobile experience than the ordinary web Reader; preserve and improve that behavior instead of replacing it for visual parity.
+
+## Active release candidate
+
+- Repository: `Floently/floently-finnish`
+- Release branch: `agent/build-48-native-read-release-20260929`
+- Current release SHA: `00c9d6d34a773ca5d0b8ffeb3c71b2bc55c9d119`
+- Main release PR: #75 — `Build 48 native Read release candidate`
+- Expo OTA runtime: **1.0.4**
+- Expo Updates: enabled; checks on app load.
+- Latest release-branch CI run: **36607738539 — PASS**
+- iOS TestFlight workflow run: **36607732079**
+- As of 2026-09-29 21:58 Europe/Helsinki: release preflight steps passed and `Build and auto-submit to TestFlight` was in progress.
+- Android testing build: **not yet qualified in this stabilization pass**.
+
+## Native Reader defect ledger
+
+| ID | Finding / defect | Severity | Status | Fix / evidence |
+|---|---|---:|---|---|
+| NR-01 | TTS URL was prefetched, but upcoming audio was not truly preloaded/decoded, allowing audible chunk gaps. | High | **FIXED in release branch** | Upcoming chunks now use Expo Audio `preload`, `downloadFirst`, and a 30s preferred forward buffer. |
+| NR-02 | Saved document progress selected the correct large chunk but restarted that chunk at 0:00, repeating narration. | High | **FIXED in release branch** | `chunkPositionForProgress` reconstructs the fraction inside the chunk; playback seeks inside the loaded clip before starting. |
+| NR-03 | Resume depended on TTS duration metadata being present. | High | **FIXED in release branch** | Reader waits for loaded player duration and has a safe speech-rate duration fallback before seeking. |
+| NR-04 | Native UI exposed 2.25x–3x although Expo Audio mobile playback support is capped at 2x. | High | **FIXED in release branch** | Native player/store/settings clamp and expose supported rates only through 2x. |
+| NR-05 | Background playback was disabled in Expo native configuration. | High | **FIXED; requires new binary** | `expo-audio.enableBackgroundPlayback=true`; audio session enables `shouldPlayInBackground`; lock-screen controls/metadata enabled. |
+| NR-06 | Background-audio native capability changed while old OTA runtime identity was 1.0.3. | High | **FIXED** | Runtime bumped to **1.0.4** so old binaries cannot receive updates that assume the new native capability. |
+| NR-07 | Progress/highlighting polled every 500 ms and used coarse character/paragraph estimates. | Medium | **FIXED / improved** | Playback status now updates every 100 ms; native TTS timing metadata is normalized and used for chunk progress; paragraph selection is length-weighted. |
+| NR-08 | Parallel progress requests could finish out of order and persist an older resume point after a newer one. | Medium | **FIXED** | Per-document `progressSyncChains` serialize progress/speed/voice persistence. |
+| NR-09 | Exact progress might not be persisted at pause/background transition. | Medium | **FIXED** | Progress is persisted on Pause and when AppState leaves active state. |
+| NR-10 | Reader visually rendered only the first 24 paragraphs while narration continued through the whole document. | High | **FIXED** | 24-paragraph display truncation removed; complete document is rendered. |
+| NR-11 | Browser V2 URL could lose `?embed=react-native` when an EAS/environment URL override was supplied. | High | **FIXED** | Native URL normalization always restores `embed=react-native`. |
+| NR-12 | React Native Browser Reader could be misclassified into desktop native-RFB input because Browser V2 relied on pointer media-query inference. | High | **WEB-SIDE FIX PREPARED; see flowreader handoff** | Browser V2 treats React Native embed as authoritative mobile touch/IME owner-channel mode. |
+| NR-13 | Transient Browser V2 load errors could destroy WebView/session state in older implementations. | High | **FIXED in release branch** | WebView stays mounted; transient failure is an overlay; in-place reload/recovery retained. |
+| NR-14 | Device-only audio continuity, interruption handling, lock-screen behavior, and actual perceived gaplessness require physical-device listening. | High | **OPEN VALIDATION** | Must be verified on the new TestFlight binary before declaring listening quality production-ready. |
+| NR-15 | Android install/playback/background behavior has not been qualified in this pass. | Medium | **OPEN VALIDATION** | Produce Android test build after iOS release qualification or in parallel if credentials/build capacity allow. |
+
+## Native playback defaults after stabilization
+
+These are intentional defaults/contracts until explicitly revised:
+
+- Reader audio status update interval: **100 ms while player is active**.
+- Preferred forward buffer: **30 seconds**.
+- Upcoming narration: preload at least the next chunk; current implementation also warms another lookahead chunk when available.
+- Native speed choices: **0.8x, 1.0x, 1.2x, 1.5x, 1.8x, 2.0x**.
+- Native maximum playback speed: **2.0x**.
+- Progress: document-wide and serialized to backend.
+- Resume: restore inside the active TTS chunk, not just at chunk boundary.
+- Background audio: enabled in native binary.
+- Lock-screen controls: enabled while Read narration owns playback.
+- OTA runtime for this binary family: **1.0.4**.
+
+## OTA rules — do not break these
+
+1. **JS/TS/UI/logic-only changes** that do not alter native modules/capabilities/config may be delivered by EAS Update to binaries on runtime 1.0.4.
+2. **Native capability/config/plugin/dependency changes** require a new binary and normally a new compatible runtime identity before using OTA features that depend on them.
+3. Never publish an OTA that assumes native capability absent from the installed runtime.
+4. The production OTA workflow must continue verifying runtime, update URL, and check-on-load behavior before publish.
+
+## What still needs physical release validation
+
+On the new TestFlight build, explicitly test:
+
+1. 20+ minute document narration with several TTS chunk transitions.
+2. Listen for gaps, repeated words/sentences, skipped words/sentences, or unexpected 1x resets.
+3. Pause mid-chunk, close/reopen Reader, confirm resume is near the exact point.
+4. Background the app and lock the iPhone for several minutes; audio should continue.
+5. Use lock-screen pause/resume and return to the app; position should remain coherent.
+6. Switch 0.8x → 1x → 1.5x → 2x across multiple chunks; rate must persist.
+7. Change voice mid-document; position must remain stable and new voice applies safely.
+8. Confirm full long document remains visible beyond paragraph 24.
+9. Confirm highlight/progress stays plausibly synchronized at 1x and 2x.
+10. Open Browser Reader inside app; test touch, scroll, keyboard input, narration, speed changes, reconnect, background/resume.
+
+## CI/release evidence
+
+The exact native stabilization head `7eb830d5e333be4f4e0f86a927636f0a4edfe98c` passed app CI before promotion.
+
+After promotion, release SHA `00c9d6d34a773ca5d0b8ffeb3c71b2bc55c9d119` passed:
+
+- TypeScript
+- backend deployable test suite
+- EAS workflow validation
+- native Read architecture invariants
+- OTA runtime identity
+- iOS OTA export
+- navigation invariants
+- account deletion invariants
+- RevenueCat identity
+- store-billing preflight
+- iOS release identity
+
+Do not infer device audio quality solely from these source/build gates.
+
+## Known external/web dependency
+
+The dedicated Browser Reader loads Browser V2 from the separate private repository `Floently/flowreader`.
+
+Current web work:
+- branch: `agent/browser-reader-controller-continuity-20260929`
+- PR: #165
+- web handoff: `docs/browser-v2/READING_QUALITY_HANDOFF_20260929.md`
+- PR remains draft until the web frontend receives a meaningful build/test gate.
+
+The app-side React Native embed fix is already in Build 48; the corresponding Browser V2 web fix must be deployed before the app can benefit from the full input-mode correction.
+
+## Mandatory continuation protocol
+
+Every AI or human continuing this release must do all of the following:
+
+1. **Read this file first.**
+2. Fetch current branch heads, PR states, CI runs, TestFlight/EAS status, and web Reader PR status. Do not rely on stale chat summaries.
+3. Before changing code, publish a short status report using the template below.
+4. Do not mark a defect FIXED merely because code was written. Record:
+   - commit/PR,
+   - validation performed,
+   - whether it is merged,
+   - whether it is deployed/built,
+   - whether physical-device validation is still pending.
+5. After every meaningful stabilization change, update this ledger.
+6. Preserve the native architecture. WebView is allowed only for the Browser Reader feature.
+7. If changing native capabilities/config/plugins, review OTA runtime compatibility before release.
+8. If changing Reader playback, explicitly test continuity across chunk/sentence boundaries and pause/resume.
+9. If a CI system is failing before tests execute, report it as infrastructure failure; do not describe the code as CI-verified.
+10. Before handing off or stopping, leave a final report in the active PR/issue or update this file.
+
+## Required status report template
+
+```text
+FLOENTLY READ HANDOFF REPORT
+Date/time:
+Operator/AI:
+Repository + branch:
+Current SHA:
+Release/TestFlight/OTA state:
+
+VERIFIED FIXED
+- [ID] change — evidence (commit/test/build/device)
+
+PARTIALLY FIXED / NEEDS VALIDATION
+- [ID] current state — exact remaining validation
+
+OPEN FAULTS
+- [ID] symptom — next concrete action
+
+CHANGES THIS SESSION
+- commit/PR — what changed
+
+TESTS / BUILDS
+- command/workflow/run — PASS/FAIL/BLOCKED
+- if blocked: exact infrastructure reason
+
+DEPLOYMENT STATE
+- merged to release branch? yes/no
+- web deployed? yes/no
+- TestFlight submitted? yes/no
+- Android test build? yes/no
+- OTA published? channel/runtime/message or no
+
+NEXT ACTIONS
+1.
+2.
+3.
+```
+
+## Definition of done for this stabilization
+
+Do not call the reading-quality stabilization complete until:
+
+- native release CI is green;
+- new native binary containing runtime 1.0.4/background audio is available to test;
+- TestFlight device listening validates continuity/resume/background behavior;
+- Browser V2 web changes have a real frontend build/test validation and are deployed;
+- Browser Reader is tested inside the native app against that deployed Browser V2;
+- remaining open ledger entries are either fixed or explicitly accepted with rationale;
+- this handoff document and tracking issue are updated with final evidence.
