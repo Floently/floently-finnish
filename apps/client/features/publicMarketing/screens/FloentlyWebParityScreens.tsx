@@ -16,7 +16,7 @@ type PublicSurface = 'gateway' | 'read' | 'create';
 
 const SURFACE_URL: Record<PublicSurface, string> = {
   gateway: 'https://floently.com/',
-  read: 'https://read.floently.com/',
+  read: 'https://floently.com/read',
   create: 'https://floently.com/create/',
 };
 
@@ -26,9 +26,16 @@ function appRouteFor(surface: PublicSurface, url: string): string | null {
     const host = parsed.hostname.toLowerCase();
     const path = parsed.pathname.replace(/\/+$/, '') || '/';
 
-    if (host === 'learn.floently.com') return '/learn';
+    if (host === 'learn.floently.com') {
+      if (path.startsWith('/auth')) return '/auth/login';
+      return '/learn';
+    }
+
+    if (host === 'create.floently.com') return '/create';
 
     if (host === 'floently.com' || host === 'www.floently.com') {
+      if (surface === 'read' && path === '/read') return null;
+      if (surface === 'create' && path === '/create') return null;
       if (path === '/learn') return '/learn';
       if (path === '/read') return '/read';
       if (path === '/create') return '/create';
@@ -57,7 +64,6 @@ function canStayOnSurface(surface: PublicSurface, url: string): boolean {
     if (parsed.protocol !== 'https:') return false;
     const host = parsed.hostname.toLowerCase();
 
-    if (surface === 'read') return host === 'read.floently.com';
     return host === 'floently.com' || host === 'www.floently.com';
   } catch {
     return false;
