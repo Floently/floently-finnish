@@ -892,7 +892,11 @@ export function ReadReaderScreen() {
   const updateProgress = useReadMobileStore((state) => state.updateProgress);
   const setPlaybackSpeed = useReadMobileStore((state) => state.setPlaybackSpeed);
   const setVoiceId = useReadMobileStore((state) => state.setVoiceId);
-  const player = useAudioPlayer(null, { updateInterval: 500 });
+  const player = useAudioPlayer(null, {
+    updateInterval: 100,
+    downloadFirst: true,
+    preferredForwardBufferDuration: 30,
+  });
   const playbackStatus = useAudioPlayerStatus(player);
   const [audioState, setAudioState] = useState<AudioPlaybackState>('idle');
   const [audioError, setAudioError] = useState<string | null>(null);
@@ -908,12 +912,17 @@ export function ReadReaderScreen() {
   const [studyQuestion, setStudyQuestion] = useState('');
   const [activeAudioChunk, setActiveAudioChunk] = useState(0);
   const audioChunkCache = useRef(new Map<string, ReadTtsResult>());
+  const audioPreloadCache = useRef(new Map<string, Promise<void>>());
+  const resumeFractionRef = useRef(0);
   const handledFinishedChunk = useRef<string | null>(null);
   const theme = useReadMobileStore((state) => state.readTheme);
   const palette = paletteFor(theme);
 
   useEffect(() => {
-    void setAudioModeAsync({ playsInSilentMode: true });
+    void setAudioModeAsync({
+      playsInSilentMode: true,
+      shouldPlayInBackground: true,
+    });
   }, []);
 
   useEffect(() => {
@@ -973,12 +982,7 @@ export function ReadReaderScreen() {
     () => document ? readerParagraphs(document.generatedText) : [],
     [document],
   );
-  const activeParagraphIndex = readerParagraphList.length
-    ? Math.min(
-        readerParagraphList.length - 1,
-        Math.floor(displayedProgress * readerParagraphList.length),
-      )
-    : 0;
+  const activeParagraphIndex = paragraphIndexForProgress(readerParagraphList, displayedProgress);
 
   const readerVoices = useMemo(() => {
     if (!document) return voices;
@@ -996,18 +1000,36 @@ export function ReadReaderScreen() {
 
   useEffect(() => {
     if (!document) return;
-    setActiveAudioChunk(chunkIndexForProgress(audioChunks, document.readingProgress));
+    const savedPosition = chunkPositionForProgress(audioChunks, document.readingProgress);
+    setActiveAudioChunk(savedPosition.index);
+    resumeFractionRef.current = savedPosition.fraction;
     setAudioResult(null);
     setAudioState('idle');
     setAudioError(null);
     audioChunkCache.current.clear();
+    for (const url of audioPreloadCache.current.keys()) {
+      void clearPreloadedSource(url).catch(() => {});
+    }
+    audioPreloadCache.current.clear();
     handledFinishedChunk.current = null;
   }, [document?.id]);
 
   useEffect(() => {
     audioChunkCache.current.clear();
+    for (const url of audioPreloadCache.current.keys()) {
+      void clearPreloadedSource(url).catch(() => {});
+    }
+    audioPreloadCache.current.clear();
     handledFinishedChunk.current = null;
   }, [document?.voiceId]);
+
+  useEffect(() => () => {
+    try { player.clearLockScreenControls(); } catch {}
+    for (const url of audioPreloadCache.current.keys()) {
+      void clearPreloadedSource(url).catch(() => {});
+    }
+    audioPreloadCache.current.clear();
+  }, [player]);
 
   const chunkCacheKey = (index: number) =>
     `${document?.id || 'none'}:${document?.voiceId || selectedVoice?.id || defaultVoiceId || 'default'}:${index}`;
@@ -1027,21 +1049,58 @@ export function ReadReaderScreen() {
     return result;
   }
 
+  async function preloadAudioChunk(index: number): Promise<ReadTtsResult> {
+    const result = await prepareAudioChunk(index);
+    let pending = audioPreloadCache.current.get(result.audioUrl);
+    if (!pending) {
+      pending = preload(result.audioUrl, { preferredForwardBufferDuration: 30 }).catch(() => {});
+      audioPreloadCache.current.set(result.audioUrl, pending);
+    }
+    await pending;
+    return result;
+  }
+
+  function enableLockScreenControls() {
+    if (!document) return;
+    try {
+      player.setActiveForLockScreen(true, {
+        title: document.title,
+        artist: 'Floently Read',
+        albumTitle: document.detectedLanguageLabel,
+      });
+    } catch {
+      // Playback remains functional if lock-screen metadata is unavailable.
+    }
+  }
+
   async function playAudioChunk(index: number) {
     if (!document || !audioChunks[index]) return;
     setAudioState('preparing');
     setAudioError(null);
     try {
-      const result = await prepareAudioChunk(index);
+      const result = await preloadAudioChunk(index);
       setActiveAudioChunk(index);
       handledFinishedChunk.current = null;
       setAudioResult(result);
       player.replace(result.audioUrl);
       setPlayerPlaybackRate(player, document.playbackSpeed);
+
+      const resumeFraction = Math.max(0, Math.min(0.995, resumeFractionRef.current));
+      const knownDuration = Number(result.duration || 0);
+      if (resumeFraction > 0 && knownDuration > 0) {
+        await player.seekTo(knownDuration * resumeFraction);
+      }
+      resumeFractionRef.current = 0;
+
+      enableLockScreenControls();
       player.play();
       setAudioState('playing');
+
       if (audioChunks[index + 1]) {
-        void prepareAudioChunk(index + 1).catch(() => {});
+        void preloadAudioChunk(index + 1).catch(() => {});
+      }
+      if (audioChunks[index + 2]) {
+        void preloadAudioChunk(index + 2).catch(() => {});
       }
     } catch (error) {
       setAudioState('error');
@@ -1062,6 +1121,7 @@ export function ReadReaderScreen() {
     }
 
     updateProgress(document.id, 1);
+    try { player.clearLockScreenControls(); } catch {}
     setAudioState('paused');
   }, [activeAudioChunk, audioChunks.length, audioResult, document, playbackStatus.didJustFinish, updateProgress]);
 
@@ -1085,10 +1145,14 @@ export function ReadReaderScreen() {
 
     if (audioResult?.audioUrl) {
       setPlayerPlaybackRate(player, document.playbackSpeed);
+      enableLockScreenControls();
       player.play();
       setAudioState('playing');
       if (audioChunks[activeAudioChunk + 1]) {
-        void prepareAudioChunk(activeAudioChunk + 1).catch(() => {});
+        void preloadAudioChunk(activeAudioChunk + 1).catch(() => {});
+      }
+      if (audioChunks[activeAudioChunk + 2]) {
+        void preloadAudioChunk(activeAudioChunk + 2).catch(() => {});
       }
       return;
     }
@@ -1115,6 +1179,11 @@ export function ReadReaderScreen() {
     setAudioError(null);
     setAudioState('idle');
     audioChunkCache.current.clear();
+    for (const url of audioPreloadCache.current.keys()) {
+      void clearPreloadedSource(url).catch(() => {});
+    }
+    audioPreloadCache.current.clear();
+    resumeFractionRef.current = 0;
     handledFinishedChunk.current = null;
     setVoiceId(document.id, nextVoice.id);
   }
@@ -1125,6 +1194,7 @@ export function ReadReaderScreen() {
     updateProgress(document.id, 0);
     setActiveAudioChunk(0);
     setAudioResult(null);
+    resumeFractionRef.current = 0;
     handledFinishedChunk.current = null;
     void playAudioChunk(0);
   }
@@ -1227,7 +1297,7 @@ export function ReadReaderScreen() {
             <SecondaryButton
               label={`${document.playbackSpeed.toFixed(document.playbackSpeed % 1 === 0 ? 0 : 1)}x`}
               onPress={() => {
-                const speeds=[0.8,1,1.2,1.5,1.8,2,2.25,2.5,2.75,3];
+                const speeds=[0.8,1,1.2,1.5,1.8,2];
                 const current=speeds.findIndex((value)=>Math.abs(value-document.playbackSpeed)<0.01);
                 setPlaybackSpeed(document.id,speeds[(current+1+speeds.length)%speeds.length]);
               }}
@@ -1359,7 +1429,7 @@ export function ReadSettingsScreen() {
           </View>
           {activeDocument ? (
             <View style={styles.speedRow}>
-              {[0.8, 1.0, 1.2, 1.5, 1.8, 2.0, 2.25, 2.5, 2.75, 3.0].map((speed) => (
+              {[0.8, 1.0, 1.2, 1.5, 1.8, 2.0].map((speed) => (
                 <Pressable key={speed} onPress={() => setPlaybackSpeed(activeDocument.id, speed)} style={[styles.speedChip, { backgroundColor: Math.abs(activeDocument.playbackSpeed - speed) < 0.01 ? palette.accent : palette.surfaceSoft, borderColor: Math.abs(activeDocument.playbackSpeed - speed) < 0.01 ? palette.accent : palette.border }]}>
                   <Text style={[styles.speedChipText, { color: Math.abs(activeDocument.playbackSpeed - speed) < 0.01 ? palette.accentText : palette.text }]}>{speed.toFixed(1)}x</Text>
                 </Pressable>
