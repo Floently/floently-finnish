@@ -67,9 +67,10 @@ if (legacyProjectSource.includes('PRODUCT_BUNDLE_IDENTIFIER = "com.vitusidi.floe
   console.log('INFO: legacy root iOS project still carries its historical bundle ID and is explicitly non-authoritative for App Store releases.');
 }
 
-// KieliValmis remains the App Store identity/root product, while Floently Read
-// is now an explicitly routed product inside the same React Native application.
-// Create remains excluded until its release is deliberately reactivated.
+// KieliValmis remains the App Store identity while Floently Read is an explicitly
+// routed product inside the same React Native application. Build 48 may expose
+// Floently Create only as a non-product "Coming soon" surface; activating a real
+// Create workspace remains a separate release decision.
 assertTrue(
   fs.existsSync(path.join(clientRoot, 'app', 'read', 'browser.tsx')),
   'React Native release must include the protected Floently Read browser route',
@@ -78,9 +79,16 @@ assertTrue(
   fs.existsSync(path.join(clientRoot, 'app', 'read', 'app.tsx')),
   'React Native release must include the Floently Read app route',
 );
+const createRoutePath = path.join(clientRoot, 'app', 'create', 'index.tsx');
 assertTrue(
-  !fs.existsSync(path.join(clientRoot, 'app', 'create')),
-  'KieliValmis iOS release must still exclude unfinished /create routes',
+  fs.existsSync(createRoutePath),
+  'Build 48 candidate must include the Floently Create route',
+);
+const createRouteSource = readText(createRoutePath);
+assertTrue(
+  createRouteSource.includes('FloentlyCreateComingSoonScreen') &&
+    !/CreateWorkspace|CreateDashboard|CreateEditor/.test(createRouteSource),
+  'Floently Create must remain a Coming soon surface until Create is deliberately released',
 );
 for (const [profileName, profile] of Object.entries(eas.build ?? {})) {
   assertTrue(
@@ -89,9 +97,12 @@ for (const [profileName, profile] of Object.entries(eas.build ?? {})) {
   );
 }
 const nativeRootSource = readText(path.join(clientRoot, 'app', 'index.tsx'));
-assertTrue(nativeRootSource.includes('KieliValmisLandingScreen'), 'mobile app must retain KieliValmis entry');
-assertTrue(!/NativeFloentlyProductGatewayScreen|NativeReadPreviewScreen/.test(nativeRootSource), 'root route must retain KieliValmis entry instead of silently replacing it with a second product shell');
-console.log('PASS: KieliValmis release identity is preserved while protected Floently Read routes are enabled.');
+assertTrue(nativeRootSource.includes('KieliValmisLandingScreen'), 'mobile app must retain the existing KieliValmis entry');
+assertTrue(
+  nativeRootSource.includes('FloentlyGatewayScreen') && nativeRootSource.includes("Platform.OS !== 'web'"),
+  'Build 48 candidate must expose the Floently product gateway only in the native root path without replacing existing web-host routing',
+);
+console.log('PASS: KieliValmis release identity is preserved while Floently Read and the gated Create coming-soon surface are enabled.');
 
 console.log(`PASS: App Store release identity is ${identity.bundleIdentifier} / ASC ${identity.appStoreConnectAppId}.`);
 console.log('PASS: apps/client + Expo prebuild is the only recorded iOS App Store release authority.');
