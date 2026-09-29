@@ -3,6 +3,7 @@ from app.services.device_guard import enforce_client_device_access
 
 import hashlib
 import json
+import logging
 import secrets
 from datetime import timedelta
 from typing import Any
@@ -16,7 +17,14 @@ from ..core.paths import RUNTIME_DIR
 from ..core.state_store import STORE
 from ..core.utils import PasswordHashError, hash_password, iso_now, new_id, normalize_email, parse_iso, utc_now, verify_password
 from ..db import auth_repository
-from .password_reset_email_service import build_password_reset_links, send_password_reset_email
+from .password_reset_email_service import (
+    build_password_reset_links,
+    get_password_reset_delivery_status,
+    send_password_reset_email,
+)
+
+
+password_reset_logger = logging.getLogger("floently.auth.password_reset")
 
 
 AUTH_GUARD_KEY = "__auth__"
@@ -639,14 +647,32 @@ def request_password_reset(*, email: str, request_ip: str | None = None) -> dict
     _record_password_reset_token(user=user, token_hash=token_hash, request_ip=request_ip)
     links = build_password_reset_links(token=token)
     try:
-        send_password_reset_email(
+        delivery_accepted = send_password_reset_email(
             email=normalized,
             links=links,
             expires_in_minutes=max(1, SETTINGS.password_reset_token_ttl_minutes),
         )
     except Exception:
-        # Keep reset response neutral and avoid leaking delivery internals to clients.
-        pass
+        # Keep reset response neutral and never echo provider exception details,
+        # recipient identity, reset links, or tokens into logs.
+        delivery_status = get_password_reset_delivery_status()
+        password_reset_logger.error(
+            "Password reset delivery provider error provider=%s.",
+            delivery_status.provider,
+        )
+    else:
+        delivery_status = get_password_reset_delivery_status()
+        if delivery_accepted:
+            password_reset_logger.info(
+                "Password reset delivery accepted provider=%s.",
+                delivery_status.provider,
+            )
+        else:
+            password_reset_logger.error(
+                "Password reset delivery unavailable provider=%s reason=%s.",
+                delivery_status.provider,
+                delivery_status.reason,
+            )
     _persist_auth_state()
     return {"message": PASSWORD_RESET_NEUTRAL_MESSAGE}
 

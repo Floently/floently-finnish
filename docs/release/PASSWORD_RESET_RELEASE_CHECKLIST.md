@@ -4,8 +4,12 @@ Date: 2026-04-24
 
 ## Backend Configuration
 
-- [ ] Set `PASSWORD_RESET_EMAIL_WEBHOOK_URL` to a production email dispatch endpoint.
-- [ ] Set `PASSWORD_RESET_EMAIL_FROM` to verified sender address.
+- [ ] Set `PASSWORD_RESET_EMAIL_FROM` to a verified sender address.
+- [ ] Configure **one** real production delivery path:
+  - [ ] Existing webhook: set `PASSWORD_RESET_EMAIL_WEBHOOK_URL` to the production email dispatch endpoint; **or**
+  - [ ] SMTP: set `PASSWORD_RESET_SMTP_HOST`, `PASSWORD_RESET_SMTP_PORT`, and optional username/password required by the provider.
+  - [ ] For SMTP, use exactly one transport mode: STARTTLS (`PASSWORD_RESET_SMTP_USE_TLS=true`) or implicit SSL (`PASSWORD_RESET_SMTP_USE_SSL=true`), not both.
+- [ ] Confirm `GET /api/v1/health/password-reset-delivery` returns HTTP 200 with `ready=true` and the expected non-secret provider name.
 - [ ] Confirm `PASSWORD_RESET_WEB_BASE_URL` points to hosted app reset page.
 - [ ] Confirm `PASSWORD_RESET_DEEP_LINK_BASE` matches app scheme/path (`floently://auth/reset-password`).
 - [ ] Review/adjust rate limits:
@@ -42,6 +46,8 @@ Date: 2026-04-24
 
 ## End-to-End Test Plan
 
+0. Check delivery readiness:
+   - Expected: HTTP 200, `ready=true`, and no credential/provider-secret material in the response.
 1. Request reset for existing email:
    - Expected: neutral success copy.
 2. Request reset for non-existing email:
@@ -60,6 +66,8 @@ Date: 2026-04-24
 ## Release Sign-off
 
 - [ ] Backend deployed with config above.
+- [ ] Password-reset delivery readiness gate is green in the deployed environment.
+- [ ] A real reset email has been received from the configured production provider.
 - [ ] App build includes new auth routes/screens.
 - [ ] QA pass complete.
 - [ ] Product/support copy approved.
