@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { Platform } from 'react-native';
 import AppShell from '../state/AppShell';
 import KieliValmisLandingScreen from '../features/kielivalmis/KieliValmisLandingScreen';
+import { FloentlyGatewayScreen } from '../features/publicMarketing/screens/FloentlyWebParityScreens';
 import { isLearnHost } from '../state/learnRouting';
 import { useAuthStore } from '../state/authStore';
 import { completeGoogleOAuthResult } from '@core/api/auth';
@@ -50,6 +51,10 @@ export default function IndexRoute() {
       return <AppShell requestedScreen="root" />;
     }
     return <KieliValmisLandingScreen />;
+  }
+
+  if (Platform.OS !== 'web') {
+    return <FloentlyGatewayScreen />;
   }
 
   return <AppShell />;
