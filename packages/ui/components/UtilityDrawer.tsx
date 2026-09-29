@@ -155,6 +155,7 @@ export default function UtilityDrawer({
     const hasChildren = Boolean(item.children?.length);
     const expanded = hasChildren && expandedPath[depth] === itemId;
     const active = activeItemId === itemId;
+    const showVisualHint = depth === 0 && Boolean(item.hint);
 
     return (
       <View key={itemId}>
@@ -185,7 +186,7 @@ export default function UtilityDrawer({
           </View>
           <View style={styles.navItemContent}>
             <Text style={[styles.navLabel, { color: textCol }]}>{item.label}</Text>
-            {item.hint ? (
+            {showVisualHint ? (
               <Text style={[styles.navHint, { color: mutedCol }]}>{item.hint}</Text>
             ) : null}
           </View>
