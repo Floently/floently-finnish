@@ -125,7 +125,7 @@ for (const marker of [
   "useGoogleSignIn",
   "secureTextEntry={!showPassword}",
   "accessibilityLabel={showPassword ? 'Hide password' : 'Show password'}",
-  "router.replace('/read/app' as never)",
+  "router.replace('/read/reader' as never)",
   "Continue with current Floently account",
 ]) {
   assert.ok(readAuth.includes(marker), `Read auth missing web-parity marker: ${marker}`);
