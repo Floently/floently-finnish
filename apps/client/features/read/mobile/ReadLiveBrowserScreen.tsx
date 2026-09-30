@@ -88,6 +88,15 @@ export default function ReadLiveBrowserScreen() {
   const [loadError, setLoadError] = useState<string | null>(null);
   const browserUrl = useMemo(() => getBrowserUrlForPlatform(getBrowserUrl()), []);
 
+  const restartBrowserView = () => {
+    // A hard WebView remount is deliberately stronger than reload(). It
+    // recreates the outer Browser V2 client/auth bridge while the private
+    // remote Chromium profile remains persistent on the server.
+    setLoadError(null);
+    setLoading(true);
+    setReloadKey((value) => value + 1);
+  };
+
   const embeddedAuth = useMemo(() => {
     if (!token || !user) return null;
     const plan = String(user.subscriptionTier || subscription?.tier || 'free').trim() || 'free';
@@ -194,10 +203,7 @@ export default function ReadLiveBrowserScreen() {
           <Pressable
             accessibilityRole="button"
             accessibilityLabel="Reload live browser"
-            onPress={() => {
-              setLoadError(null);
-              webViewRef.current?.reload();
-            }}
+            onPress={restartBrowserView}
             style={styles.headerButton}
           >
             <Text style={styles.reloadText}>↻</Text>
@@ -273,11 +279,7 @@ export default function ReadLiveBrowserScreen() {
             <Text style={styles.errorBody}>{loadError}</Text>
             <Pressable
               style={styles.primaryButton}
-              onPress={() => {
-                setLoadError(null);
-                setLoading(true);
-                webViewRef.current?.reload();
-              }}
+              onPress={restartBrowserView}
             >
               <Text style={styles.primaryButtonText}>Reconnect</Text>
             </Pressable>
