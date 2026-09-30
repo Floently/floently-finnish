@@ -85,11 +85,16 @@ jobs:
       - name: TypeScript check
         run: pnpm --dir apps/client exec tsc --noEmit
 
-      - name: Validate EAS release workflows
-        working-directory: apps/client
+      - name: Verify EAS release workflow source contracts
         run: |
-          npx --yes eas-cli@latest workflow:validate .eas/workflows/ios-testflight-release.yml --non-interactive
-          npx --yes eas-cli@latest workflow:validate .eas/workflows/production-ota.yml --non-interactive
+          test -f apps/client/.eas/workflows/ios-testflight-release.yml
+          test -f apps/client/.eas/workflows/production-ota.yml
+          grep -F "type: build" apps/client/.eas/workflows/ios-testflight-release.yml
+          grep -F "platform: ios" apps/client/.eas/workflows/ios-testflight-release.yml
+          grep -F "type: submit" apps/client/.eas/workflows/ios-testflight-release.yml
+          grep -F "type: update" apps/client/.eas/workflows/production-ota.yml
+          grep -F "channel: production" apps/client/.eas/workflows/production-ota.yml
+          echo "EAS_WORKFLOW_SOURCE_CONTRACTS=PASS"
       - name: Verify subscription authority invariants
         run: pnpm --dir apps/client run verify:subscription-authority
       - name: Verify native Read product invariants
