@@ -187,3 +187,25 @@ Do not call the reading-quality stabilization complete until:
 - Browser Reader is tested inside the native app against that deployed Browser V2;
 - remaining open ledger entries are either fixed or explicitly accepted with rationale;
 - this handoff document and tracking issue are updated with final evidence.
+
+## 2026-09-30 iPhone/TestFlight playback architecture update
+
+Fresh iPhone screenshots and screen recordings added NR-16 through NR-19 to issue #77.
+
+### Corrected release state
+
+- iOS TestFlight workflow run `36607732079` is **completed / cancelled**, not still building. Its preflight steps passed, but step **Build and auto-submit to TestFlight** was cancelled. A new successful submission is still required before any new-binary device claim.
+
+### New device-proven defects
+
+- **NR-16 — wrong lock-screen timeline:** the iPhone Now Playing surface shows the duration of the current short TTS clip rather than the logical document. The supplied screenshot showed a roughly 21-second media timeline for a reading that is materially longer.
+- **NR-17 — chunk model leaks into product behavior:** current `ReadReaderScreen` splits text with `readerAudioChunks(..., 3600)`, swaps the source on one Expo `AudioPlayer`, and advances only after `didJustFinish`. Preloading upcoming sources reduces stalls but does not turn those clips into one logical reading session.
+- **NR-19 — document-wide media session required:** the app must expose one document elapsed/remaining timeline and one resume cursor to the UI and iOS Now Playing layer. Segment index/current-clip duration are implementation details only.
+
+### Architecture direction
+
+Create a complete `ReadingManifest` from the extracted text immediately. It should contain document identity/revision, word/character counts, an estimated whole-document duration, ordered hidden TTS segments with logical start/end offsets, and a document cursor. Start narration as soon as the first segment is ready while a time-horizon queue prepares later segments.
+
+Expo Audio SDK 55 provides `AudioPlaylist` with gapless-playback support, so it is worth using for segment handoff experiments. However, SDK 55 documents playlist `duration` as the **current track duration** and exposes lock-screen activation on `AudioPlayer`, not a document-wide virtual duration. Therefore a gapless playlist alone does not satisfy NR-16/NR-19. The final iOS media session must explicitly publish logical document duration/elapsed time and map remote seek commands back into manifest segment + offset; that may require a native iOS bridge or a later Expo runtime with sufficient playlist lock-screen control.
+
+Do not “fix” the screenshot by merely hiding the lock-screen progress bar. The product requirement is accurate whole-reading progress with working pause/resume/seek.
