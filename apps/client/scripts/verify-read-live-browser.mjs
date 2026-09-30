@@ -172,8 +172,8 @@ assert.ok(home.includes('readingPositionForProgress') && home.includes('resumeFr
   'native Read must map the saved logical document cursor back into its hidden audio segment');
 assert.ok(home.includes('async function seekDocumentBySeconds(deltaSeconds: number)') &&
   home.includes('displayedProgress + deltaSeconds / totalSeconds') &&
-  home.includes("accessibilityLabel="Back 10 seconds"") &&
-  home.includes("accessibilityLabel="Forward 10 seconds""),
+  home.includes('accessibilityLabel="Back 10 seconds"') &&
+  home.includes('accessibilityLabel="Forward 10 seconds"'),
   'native Read skip controls must seek on the logical document timeline across hidden segment boundaries');
 assert.ok(!home.includes('playbackStatus.currentTime - 10'),
   'native Read must not implement back-10 as a current-clip-only seek');
