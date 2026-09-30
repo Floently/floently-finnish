@@ -1225,17 +1225,6 @@ export function ReadReaderScreen() {
     setVoiceId(document.id, nextVoice.id);
   }
 
-  function replayAudio() {
-    if (!document || !audioChunks.length) return;
-    player.pause();
-    updateProgress(document.id, 0);
-    setActiveAudioChunk(0);
-    setAudioResult(null);
-    resumeFractionRef.current = 0;
-    handledFinishedChunk.current = null;
-    void playAudioChunk(0);
-  }
-
   async function runStudy(action: ReadAiAction, title: string, question?: string) {
     if (!document || document.status === 'processing' || studyBusy) return;
     setStudyBusy(true);
