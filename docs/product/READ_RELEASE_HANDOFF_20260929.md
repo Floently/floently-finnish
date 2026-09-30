@@ -297,3 +297,23 @@ The immediate acceptance test for build 52 is:
 5. complete login;
 6. use Reload after cancellation/failure and verify the page still works;
 7. close/reopen Browser and confirm site state is recoverable.
+
+
+## 2026-09-30 build-freeze and browser-reader correction
+
+**Build freeze:** the product owner has only two mobile builds remaining for the month. Do **not** queue, dispatch, or trigger another EAS/TestFlight/App Store build without the product owner's explicit agreement in chat. Source edits and CI are allowed. Build 52 had already been queued before this instruction.
+
+### Browser Reader behavior correction from device screenshots
+
+The current React Native app remains the stabilization/release lane. The separate Swift/iOS and Kotlin/Android native-app work continues independently in `Floently/floently-native`.
+
+Device screenshots showed that pressing **Read** converted the website into the separate text Reader. That behavior is now rejected. Browser reading must remain on the original rendered page.
+
+Implemented source-only after the build freeze:
+- `31f69de`: native browser Reader now extracts readable text only as a hidden narration source; it does **not** navigate away from the website. TTS, whole-document duration/progress, voice, speed, ±10 second seek, and a compact overlay player now run over the unchanged webpage.
+- `d5df756`: standalone React Native Reader no longer waits for a full active audio download before playback; active TTS streams as soon as its URL is ready, while later hidden segments remain preloaded.
+- `d27b695`: source verifier now rejects webpage-to-text conversion and verifies in-place browser narration plus fast active-audio startup.
+- `b75a0d8`: standalone Reader player now starts compact and hides secondary controls/study tools until explicitly expanded.
+- `88e86b0`: in-page Browser Reader startup/seek path hardened for sources that are not immediately seekable.
+
+No TestFlight/EAS build was triggered by these source-only commits. Normal source CI may run.
