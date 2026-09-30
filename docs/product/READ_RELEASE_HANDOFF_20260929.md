@@ -209,3 +209,13 @@ Create a complete `ReadingManifest` from the extracted text immediately. It shou
 Expo Audio SDK 55 provides `AudioPlaylist` with gapless-playback support, so it is worth using for segment handoff experiments. However, SDK 55 documents playlist `duration` as the **current track duration** and exposes lock-screen activation on `AudioPlayer`, not a document-wide virtual duration. Therefore a gapless playlist alone does not satisfy NR-16/NR-19. The final iOS media session must explicitly publish logical document duration/elapsed time and map remote seek commands back into manifest segment + offset; that may require a native iOS bridge or a later Expo runtime with sufficient playlist lock-screen control.
 
 Do not “fix” the screenshot by merely hiding the lock-screen progress bar. The product requirement is accurate whole-reading progress with working pause/resume/seek.
+
+### 2026-09-30 implementation progress
+
+- Added `readingPlaybackManifest.ts` (`c78cfcc`) to index the complete reading immediately, calculate word/character counts, produce ordered hidden segment offsets, estimate whole-document source/playback duration, map document progress ↔ segment position, format multi-hour clocks, and choose a time-horizon prefetch queue.
+- Integrated the manifest into `ReadMobileScreens.tsx` (`69bc208`): the Reader time display is now based on whole-document estimated playback duration, resume/progress use logical manifest mapping, and prefetch now targets roughly 120 seconds ahead (up to four hidden segments) instead of a hard-coded next-two-chunk policy.
+- Updated native Read verification (`2e5f40e`) so the logical manifest and document-wide duration/progress contract are explicit source invariants.
+- CI run `36653722128` then failed only because `.github/workflows/ci.yml` still grepped for the removed legacy `readerAudioChunks` function. TypeScript passed and backend passed. The stale CI invariant was replaced with logical-manifest checks and the full `verify:read-live-browser` script in commit `1ada3b5`.
+
+**Important:** this is the document-timeline foundation, not the complete NR-16/NR-19 fix. The physical native player still swaps bounded audio sources. Whole-document iOS Now Playing duration/elapsed/seek and truly seamless native segment handoff remain open and require the media-session/queue phase.
+
