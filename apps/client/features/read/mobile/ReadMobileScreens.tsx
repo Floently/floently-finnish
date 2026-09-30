@@ -879,7 +879,9 @@ export function ReadReaderScreen() {
   const setVoiceId = useReadMobileStore((state) => state.setVoiceId);
   const player = useAudioPlayer(null, {
     updateInterval: 100,
-    downloadFirst: true,
+    // Start streaming the active narration as soon as its URL is ready.
+    // Future hidden segments are still preloaded ahead of the cursor.
+    downloadFirst: false,
     preferredForwardBufferDuration: 30,
   });
   const playbackStatus = useAudioPlayerStatus(player);
@@ -941,6 +943,7 @@ export function ReadReaderScreen() {
     () => createReadingPlaybackManifest(
       document?.generatedText ?? '',
       document?.playbackSpeed ?? 1,
+      900,
     ),
     [document?.generatedText, document?.playbackSpeed],
   );
@@ -1088,7 +1091,10 @@ export function ReadReaderScreen() {
     setAudioState('preparing');
     setAudioError(null);
     try {
-      const result = await preloadAudioChunk(index);
+      // The active clip must not wait for a full local pre-download. Prepare
+      // the TTS URL, stream it immediately, and reserve preload() for the
+      // upcoming hidden segments.
+      const result = await prepareAudioChunk(index);
       setActiveAudioChunk(index);
       handledFinishedChunk.current = null;
       setAudioResult(result);
