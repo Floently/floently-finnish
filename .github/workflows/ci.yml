@@ -109,6 +109,15 @@ jobs:
             echo "Read Browser must not host the main Reader workspace." >&2
             exit 1
           fi
+          grep -F "ReadDeviceBrowserScreen" apps/client/app/read/browser.tsx
+          if grep -Fq "ReadLiveBrowserScreen" apps/client/app/read/browser.tsx; then
+            echo "Native Read Browser must not route through remote Browser V2." >&2
+            exit 1
+          fi
+          grep -F "source={{ uri: currentUrl }}" apps/client/features/read/mobile/ReadDeviceBrowserScreen.tsx
+          grep -F "sharedCookiesEnabled" apps/client/features/read/mobile/ReadDeviceBrowserScreen.tsx
+          grep -F "onContentProcessDidTerminate" apps/client/features/read/mobile/ReadDeviceBrowserScreen.tsx
+          grep -F "onRenderProcessGone" apps/client/features/read/mobile/ReadDeviceBrowserScreen.tsx
           grep -F "createReadingPlaybackManifest" apps/client/features/read/mobile/ReadMobileScreens.tsx
           grep -F "readingProgressForSegment" apps/client/features/read/mobile/ReadMobileScreens.tsx
           grep -F "navigate('/read/browser')" apps/client/features/read/mobile/ReadMobileScreens.tsx
