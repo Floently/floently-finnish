@@ -256,3 +256,44 @@ Do not “fix” the screenshot by merely hiding the lock-screen progress bar. T
 
 - The React Native UI now has one logical document duration/progress/seek model, but Expo Audio still swaps bounded physical audio sources. iOS Now Playing can therefore still expose the current physical source duration. The separate Swift/Kotlin native-app lane owns the deeper OS-level media-session/queue architecture; do not destabilize this RN release lane by folding that rewrite into PR #75.
 - Browser V2 production deployment and physical iPhone Browser Reader validation are still required before WR-15/16/17 can be called device-fixed.
+
+
+## 2026-09-30 mobile browser architecture correction after physical iPhone failure
+
+A fresh-install iPhone report invalidated the remote Browser V2 embed as the primary native mobile browser. During site sign-in, a passkey/login-key prompt appeared outside the controllable remote page surface and could not be dismissed to choose password. Refresh/close/reopen then failed to recover the browser.
+
+### Decision
+
+Native `/read/browser` now routes to `ReadDeviceBrowserScreen`, which loads websites directly in the phone's local WKWebView/Android WebView through `react-native-webview`.
+
+The previous topology:
+
+`React Native -> local WebView -> Browser V2 web shell -> remote Chromium/framebuffer`
+
+is no longer the primary mobile browser.
+
+Web builds may still use Browser V2. The long-term native replacement is tracked separately in `Floently/floently-native` PR #21.
+
+### Current React Native transition implementation
+
+- `0e3aca1`: added direct local device browser with local URL/search navigation, persistent platform cookie/site storage, explicit page-to-Reader extraction, protected-auth-page injection guard, popup handling, and hard renderer remount.
+- `572d9d2`: native Read Browser route switched from `ReadLiveBrowserScreen` to `ReadDeviceBrowserScreen`.
+- `9dc5278`: release verifier now rejects the remote Browser V2 embed as the native route and verifies local renderer/auth ownership.
+- `39da95b` + `7377f04`: normal CI and TestFlight release gates now enforce the local device browser architecture.
+- Full CI run `36722386047` PASS.
+- TestFlight release workflow run `36722380940` PASS and queued iOS build **52**, EAS build id `6dfa9d68-8555-4079-9157-7e3ba3c4c05a`, submission `3dcccd1c-97a0-4663-a3f3-73d89513ffb7`.
+
+Build 52 still requires EAS/Apple processing and physical iPhone validation before this incident is considered fixed.
+
+### Credential boundary
+
+Local WKWebView removes the remote Chromium/input ownership split, but Floently must not claim universal arbitrary-site passkey compatibility merely from this transition. Browser-grade passkey access requires the appropriate Apple browser credential capability/approval; provider-specific OAuth may also require an approved system authentication flow.
+
+The immediate acceptance test for build 52 is:
+1. open the reported website;
+2. trigger the same login-key/passkey flow;
+3. cancel it;
+4. choose password;
+5. complete login;
+6. use Reload after cancellation/failure and verify the page still works;
+7. close/reopen Browser and confirm site state is recoverable.
