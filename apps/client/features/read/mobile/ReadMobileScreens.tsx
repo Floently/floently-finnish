@@ -891,6 +891,7 @@ export function ReadReaderScreen() {
   const [voices, setVoices] = useState<ReadVoice[]>([]);
   const [defaultVoiceId, setDefaultVoiceId] = useState<string | null>(null);
   const [studyOpen, setStudyOpen] = useState(false);
+  const [playerExpanded, setPlayerExpanded] = useState(false);
   const [studyBusy, setStudyBusy] = useState(false);
   const [studyAction, setStudyAction] = useState<ReadAiAction | null>(null);
   const [studyTitle, setStudyTitle] = useState('Summary & AI');
@@ -1118,6 +1119,7 @@ export function ReadReaderScreen() {
       enableLockScreenControls();
       player.play();
       setAudioState('playing');
+      setPlayerExpanded(false);
 
       prefetchReadingHorizon(index);
     } catch (error) {
@@ -1158,6 +1160,7 @@ export function ReadReaderScreen() {
       enableLockScreenControls();
       player.play();
       setAudioState('playing');
+      setPlayerExpanded(false);
       prefetchReadingHorizon(activeAudioChunk);
       return;
     }
@@ -1288,12 +1291,21 @@ export function ReadReaderScreen() {
         </ScrollView>
         <View style={[styles.readerDock, { backgroundColor: palette.nav, borderColor: palette.border, shadowColor: palette.shadow }]}>
           {readerParagraphList[activeParagraphIndex] ? (
-            <View style={[styles.readerNowReading, { backgroundColor: palette.surfaceSoft, borderColor: palette.borderStrong }]}>
-              <Text style={[styles.readerNowLabel, { color: palette.accent2 }]}>NOW READING</Text>
-              <Text numberOfLines={2} style={[styles.readerNowText, { color: palette.text }]}>
-                {readerParagraphList[activeParagraphIndex]}
-              </Text>
-            </View>
+            <Pressable
+              accessibilityRole="button"
+              accessibilityState={{ expanded: playerExpanded }}
+              accessibilityLabel={playerExpanded ? 'Minimize player' : 'Expand player'}
+              onPress={() => setPlayerExpanded((value) => !value)}
+              style={[styles.readerNowReading, { backgroundColor: palette.surfaceSoft, borderColor: palette.borderStrong }]}
+            >
+              <View style={styles.readerNowBody}>
+                <Text style={[styles.readerNowLabel, { color: palette.accent2 }]}>NOW READING</Text>
+                <Text numberOfLines={playerExpanded ? 2 : 1} style={[styles.readerNowText, { color: palette.text }]}>
+                  {readerParagraphList[activeParagraphIndex]}
+                </Text>
+              </View>
+              <Text style={[styles.readerExpandGlyph, { color: palette.muted }]}>{playerExpanded ? '⌄' : '⌃'}</Text>
+            </Pressable>
           ) : null}
           <View style={styles.readerDockTop}>
             <Text style={[styles.readerTime, { color: palette.muted }]}>{timeLabel}</Text>
@@ -1301,15 +1313,17 @@ export function ReadReaderScreen() {
           </View>
           <ProgressBar progress={displayedProgress} height={4} />
           <View style={styles.readerControls}>
-            <Pressable
-              accessibilityRole="button"
-              accessibilityLabel="Back 10 seconds"
-              disabled={isPreparing || isProcessing}
-              onPress={() => { void seekDocumentBySeconds(-10); }}
-              style={[styles.roundControl, { backgroundColor: palette.surfaceSoft, borderColor: palette.border }, (isPreparing || isProcessing) && styles.disabled]}
-            >
-              <Text style={[styles.roundControlText, { color: palette.text }]}>-10s</Text>
-            </Pressable>
+            {playerExpanded ? (
+              <Pressable
+                accessibilityRole="button"
+                accessibilityLabel="Back 10 seconds"
+                disabled={isPreparing || isProcessing}
+                onPress={() => { void seekDocumentBySeconds(-10); }}
+                style={[styles.roundControl, { backgroundColor: palette.surfaceSoft, borderColor: palette.border }, (isPreparing || isProcessing) && styles.disabled]}
+              >
+                <Text style={[styles.roundControlText, { color: palette.text }]}>-10s</Text>
+              </Pressable>
+            ) : null}
             <Pressable
               accessibilityRole="button"
               accessibilityLabel={isPlaying ? 'Pause reading' : 'Play reading'}
@@ -1317,44 +1331,58 @@ export function ReadReaderScreen() {
               disabled={isPreparing || isProcessing}
               style={[styles.mainPlay, { backgroundColor: palette.accent }, (isPreparing || isProcessing) && styles.disabled]}
             >
-              <Text style={[styles.mainPlayText, { color: palette.accentText }]}>{isPreparing ? '...' : isPlaying ? 'Pause' : 'Play'}</Text>
+              {isPreparing ? (
+                <ActivityIndicator color={palette.accentText} />
+              ) : (
+                <Text style={[styles.mainPlayText, { color: palette.accentText }]}>{isPlaying ? 'Ⅱ' : '▶'}</Text>
+              )}
             </Pressable>
-            <Pressable
-              accessibilityRole="button"
-              accessibilityLabel="Forward 10 seconds"
-              disabled={isPreparing || isProcessing || displayedProgress >= 1}
-              onPress={() => { void seekDocumentBySeconds(10); }}
-              style={[styles.roundControl, { backgroundColor: palette.surfaceSoft, borderColor: palette.border }, (isPreparing || isProcessing || displayedProgress >= 1) && styles.disabled]}
-            >
-              <Text style={[styles.roundControlText, { color: palette.text }]}>+10s</Text>
-            </Pressable>
+            {playerExpanded ? (
+              <Pressable
+                accessibilityRole="button"
+                accessibilityLabel="Forward 10 seconds"
+                disabled={isPreparing || isProcessing || displayedProgress >= 1}
+                onPress={() => { void seekDocumentBySeconds(10); }}
+                style={[styles.roundControl, { backgroundColor: palette.surfaceSoft, borderColor: palette.border }, (isPreparing || isProcessing || displayedProgress >= 1) && styles.disabled]}
+              >
+                <Text style={[styles.roundControlText, { color: palette.text }]}>+10s</Text>
+              </Pressable>
+            ) : (
+              <Text style={[styles.readerCompactRemaining, { color: palette.muted }]}>
+                {formatReadingClock(Math.max(0, readingManifest.estimatedPlaybackDurationSeconds * (1 - displayedProgress)))} left
+              </Text>
+            )}
           </View>
-          <View style={styles.readerDockBottom}>
-            <SecondaryButton
-              label={selectedVoice ? `Voice · ${selectedVoice.name}` : 'Voice'}
-              onPress={cycleVoice}
-            />
-            <SecondaryButton
-              label={`${document.playbackSpeed.toFixed(document.playbackSpeed % 1 === 0 ? 0 : 1)}x`}
-              onPress={() => {
-                const speeds=[0.8,1,1.2,1.5,1.8,2];
-                const current=speeds.findIndex((value)=>Math.abs(value-document.playbackSpeed)<0.01);
-                setPlaybackSpeed(document.id,speeds[(current+1+speeds.length)%speeds.length]);
-              }}
-            />
-            <SecondaryButton label={document.detectedLanguageLabel} onPress={() => navigate('/read/settings')} />
-          </View>
-          <Pressable
-            accessibilityRole="button"
-            accessibilityState={{ expanded: studyOpen }}
-            onPress={() => setStudyOpen((value) => !value)}
-            style={[styles.readerStudyToggle, { backgroundColor: palette.surfaceSoft, borderColor: palette.borderStrong }]}
-          >
-            <Text style={[styles.readerStudyToggleText, { color: palette.text }]}>
-              {studyOpen ? 'Hide study tools' : 'Summary & AI'}
-            </Text>
-          </Pressable>
-          {studyOpen ? (
+          {playerExpanded ? (
+            <>
+              <View style={styles.readerDockBottom}>
+                <SecondaryButton
+                  label={selectedVoice ? `Voice · ${selectedVoice.name}` : 'Voice'}
+                  onPress={cycleVoice}
+                />
+                <SecondaryButton
+                  label={`${document.playbackSpeed.toFixed(document.playbackSpeed % 1 === 0 ? 0 : 1)}x`}
+                  onPress={() => {
+                    const speeds=[0.8,1,1.2,1.5,1.8,2];
+                    const current=speeds.findIndex((value)=>Math.abs(value-document.playbackSpeed)<0.01);
+                    setPlaybackSpeed(document.id,speeds[(current+1+speeds.length)%speeds.length]);
+                  }}
+                />
+                <SecondaryButton label={document.detectedLanguageLabel} onPress={() => navigate('/read/settings')} />
+              </View>
+              <Pressable
+                accessibilityRole="button"
+                accessibilityState={{ expanded: studyOpen }}
+                onPress={() => setStudyOpen((value) => !value)}
+                style={[styles.readerStudyToggle, { backgroundColor: palette.surfaceSoft, borderColor: palette.borderStrong }]}
+              >
+                <Text style={[styles.readerStudyToggleText, { color: palette.text }]}>
+                  {studyOpen ? 'Hide study tools' : 'Summary & AI'}
+                </Text>
+              </Pressable>
+            </>
+          ) : null}
+          {playerExpanded && studyOpen ? (
             <View style={[styles.readerStudyPanel, { backgroundColor: palette.surface, borderColor: palette.border }]}>
               <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={styles.readerStudyActions}>
                 {([
@@ -1769,17 +1797,20 @@ const styles = StyleSheet.create({
   processingReader: { borderRadius: 28, borderWidth: 1, padding: 26, gap: 14, alignItems: 'center' },
   processingTitle: { fontSize: 22, fontWeight: '900', textAlign: 'center' },
   processingBody: { fontSize: 14, lineHeight: 21, textAlign: 'center', fontWeight: '600' },
-  readerDock: { position: 'absolute', left: 14, right: 14, bottom: 16, borderRadius: 30, borderWidth: 1, padding: 14, gap: 10, shadowOpacity: 1, shadowRadius: 26, shadowOffset: { width: 0, height: 14 } },
-  readerNowReading: { borderRadius: 12, borderWidth: 1, paddingHorizontal: 12, paddingVertical: 9, gap: 3 },
+  readerDock: { position: 'absolute', left: 12, right: 12, bottom: 10, borderRadius: 22, borderWidth: 1, padding: 11, gap: 8, shadowOpacity: 1, shadowRadius: 20, shadowOffset: { width: 0, height: 10 } },
+  readerNowReading: { borderRadius: 14, borderWidth: 1, paddingHorizontal: 12, paddingVertical: 9, gap: 8, flexDirection: 'row', alignItems: 'center' },
+  readerNowBody: { flex: 1, gap: 3 },
+  readerExpandGlyph: { width: 30, textAlign: 'center', fontSize: 22, fontWeight: '900' },
   readerNowLabel: { fontSize: 9, fontWeight: '900', letterSpacing: 1.1 },
   readerNowText: { fontSize: 12, lineHeight: 17, fontWeight: '700' },
   readerDockTop: { flexDirection: 'row', justifyContent: 'space-between' },
-  readerTime: { fontSize: 12, fontWeight: '800' },
-  readerControls: { flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 20 },
-  roundControl: { minWidth: 56, height: 48, borderRadius: 24, borderWidth: 1, alignItems: 'center', justifyContent: 'center', paddingHorizontal: 8 },
+  readerTime: { fontSize: 11, fontWeight: '800' },
+  readerControls: { minHeight: 54, flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 18 },
+  readerCompactRemaining: { minWidth: 74, fontSize: 11, fontWeight: '800' },
+  roundControl: { minWidth: 56, height: 44, borderRadius: 22, borderWidth: 1, alignItems: 'center', justifyContent: 'center', paddingHorizontal: 8 },
   roundControlText: { fontSize: 12, fontWeight: '900' },
-  mainPlay: { minWidth: 82, height: 62, borderRadius: 31, alignItems: 'center', justifyContent: 'center', paddingHorizontal: 14 },
-  mainPlayText: { fontSize: 15, fontWeight: '900' },
+  mainPlay: { width: 50, minWidth: 50, height: 50, borderRadius: 25, alignItems: 'center', justifyContent: 'center' },
+  mainPlayText: { fontSize: 18, fontWeight: '900' },
   readerDockBottom: { flexDirection: 'row', gap: 8, justifyContent: 'space-between' },
   readerStudyToggle: { minHeight: 42, borderRadius: 14, borderWidth: 1, alignItems: 'center', justifyContent: 'center', paddingHorizontal: 14 },
   readerStudyToggleText: { fontSize: 12, fontWeight: '900' },
