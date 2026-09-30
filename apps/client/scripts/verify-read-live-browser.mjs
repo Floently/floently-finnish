@@ -79,12 +79,16 @@ assert.ok(!deviceBrowser.includes('flowReader.auth.apiKey') &&
   'app authentication secrets must never be injected into arbitrary websites');
 assert.ok(deviceBrowser.includes('PROTECTED_AUTH_HOSTS') &&
   deviceBrowser.includes("isProtectedAuthenticationUrl(currentUrl)") &&
-  deviceBrowser.includes('Reader injection is paused'),
+  deviceBrowser.includes('Reader stays out of authentication'),
   'Reader extraction must stay out of protected authentication pages');
 assert.ok(deviceBrowser.includes('injectJavaScript(EXTRACT_READABLE_PAGE)') &&
-  deviceBrowser.includes("sourceType: 'browser'") &&
-  deviceBrowser.includes("router.push('/read/reader' as never)"),
-  'local website content must hand off to the native Read document pipeline');
+  deviceBrowser.includes('createReadingPlaybackManifest(payload.text, speed, 700)') &&
+  deviceBrowser.includes('readTtsApi.prerenderReading') &&
+  deviceBrowser.includes('player.replace(result.audioUrl)'),
+  'native website Read must narrate the extracted content while staying on the original webpage');
+assert.ok(!deviceBrowser.includes("router.push('/read/reader' as never)") &&
+  !deviceBrowser.includes("sourceType: 'browser'"),
+  'pressing Read in the native browser must not convert/navigate the webpage into a separate text Reader');
 assert.ok(deviceBrowser.includes("Browse on this device") &&
   deviceBrowser.includes("Website rendering, touch, cookies and sign-in now stay in the phone's native browser engine"),
   'native Browser UI must truthfully describe local device ownership');
@@ -155,8 +159,9 @@ assert.ok(home.includes('updateInterval: 100'),
   'native Read must use smooth high-frequency playback status updates');
 assert.ok(home.includes('preload(result.audioUrl'),
   'native Read must preload upcoming narration audio before chunk handoff');
-assert.ok(home.includes('preferredForwardBufferDuration: 30'),
-  'native Read must keep a forward buffer for stable long-form playback');
+assert.ok(home.includes('preferredForwardBufferDuration: 30') &&
+  home.includes('downloadFirst: false'),
+  'native Read must stream the active clip immediately while keeping a forward buffer for future hidden segments');
 assert.ok(home.includes('readingPrefetchIndexes(readingManifest, index, 120, 4)'),
   'native Read must preload by a time horizon instead of exposing a fixed chunk cadence');
 assert.ok(playbackManifest.includes('estimatedPlaybackDurationSeconds') &&
