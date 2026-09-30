@@ -1165,6 +1165,43 @@ export function ReadReaderScreen() {
     setAudioState('paused');
   }
 
+  async function seekDocumentBySeconds(deltaSeconds: number) {
+    if (!document || !readingManifest.segments.length) return;
+
+    const totalSeconds = Math.max(1, readingManifest.estimatedPlaybackDurationSeconds);
+    const targetProgress = Math.max(
+      0,
+      Math.min(1, displayedProgress + deltaSeconds / totalSeconds),
+    );
+    const target = readingPositionForProgress(readingManifest, targetProgress);
+    const wasPlaying = playbackStatus.playing || audioState === 'playing';
+
+    updateProgress(document.id, targetProgress);
+    handledFinishedChunk.current = null;
+
+    if (
+      target.index === activeAudioChunk &&
+      audioResult?.audioUrl &&
+      playbackStatus.duration > 0
+    ) {
+      resumeFractionRef.current = 0;
+      await player.seekTo(playbackStatus.duration * target.fraction);
+      return;
+    }
+
+    player.pause();
+    setActiveAudioChunk(target.index);
+    setAudioResult(null);
+    resumeFractionRef.current = target.fraction;
+
+    if (wasPlaying) {
+      await playAudioChunk(target.index);
+    } else {
+      setAudioState('paused');
+      void preloadAudioChunk(target.index).catch(() => {});
+    }
+  }
+
   function cycleVoice() {
     if (!document || !readerVoices.length) {
       navigate('/read/settings');
@@ -1271,22 +1308,30 @@ export function ReadReaderScreen() {
           <View style={styles.readerControls}>
             <Pressable
               accessibilityRole="button"
-              onPress={() => {
-                if (playbackStatus.duration > 0) {
-                  void player.seekTo(Math.max(0, playbackStatus.currentTime - 10));
-                } else {
-                  updateProgress(document.id, Math.max(0, document.readingProgress - 0.1));
-                }
-              }}
-              style={[styles.roundControl, { backgroundColor: palette.surfaceSoft, borderColor: palette.border }]}
+              accessibilityLabel="Back 10 seconds"
+              disabled={isPreparing || isProcessing}
+              onPress={() => { void seekDocumentBySeconds(-10); }}
+              style={[styles.roundControl, { backgroundColor: palette.surfaceSoft, borderColor: palette.border }, (isPreparing || isProcessing) && styles.disabled]}
             >
-              <Text style={[styles.roundControlText, { color: palette.text }]}>-10</Text>
+              <Text style={[styles.roundControlText, { color: palette.text }]}>-10s</Text>
             </Pressable>
-            <Pressable accessibilityRole="button" onPress={isPlaying ? pauseAudio : generateAndPlayAudio} disabled={isPreparing || isProcessing} style={[styles.mainPlay, { backgroundColor: palette.accent }, (isPreparing || isProcessing) && styles.disabled]}>
+            <Pressable
+              accessibilityRole="button"
+              accessibilityLabel={isPlaying ? 'Pause reading' : 'Play reading'}
+              onPress={isPlaying ? pauseAudio : generateAndPlayAudio}
+              disabled={isPreparing || isProcessing}
+              style={[styles.mainPlay, { backgroundColor: palette.accent }, (isPreparing || isProcessing) && styles.disabled]}
+            >
               <Text style={[styles.mainPlayText, { color: palette.accentText }]}>{isPreparing ? '...' : isPlaying ? 'Pause' : 'Play'}</Text>
             </Pressable>
-            <Pressable accessibilityRole="button" onPress={replayAudio} disabled={!audioResult || isPreparing || isProcessing} style={[styles.roundControl, { backgroundColor: palette.surfaceSoft, borderColor: palette.border }, (!audioResult || isPreparing || isProcessing) && styles.disabled]}>
-              <Text style={[styles.roundControlText, { color: palette.text }]}>Replay</Text>
+            <Pressable
+              accessibilityRole="button"
+              accessibilityLabel="Forward 10 seconds"
+              disabled={isPreparing || isProcessing || displayedProgress >= 1}
+              onPress={() => { void seekDocumentBySeconds(10); }}
+              style={[styles.roundControl, { backgroundColor: palette.surfaceSoft, borderColor: palette.border }, (isPreparing || isProcessing || displayedProgress >= 1) && styles.disabled]}
+            >
+              <Text style={[styles.roundControlText, { color: palette.text }]}>+10s</Text>
             </Pressable>
           </View>
           <View style={styles.readerDockBottom}>
