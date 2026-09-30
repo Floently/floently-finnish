@@ -104,8 +104,10 @@ jobs:
             echo "Read Browser must not host the main Reader workspace." >&2
             exit 1
           fi
-          grep -F "readerAudioChunks" apps/client/features/read/mobile/ReadMobileScreens.tsx
+          grep -F "createReadingPlaybackManifest" apps/client/features/read/mobile/ReadMobileScreens.tsx
+          grep -F "readingProgressForSegment" apps/client/features/read/mobile/ReadMobileScreens.tsx
           grep -F "navigate('/read/browser')" apps/client/features/read/mobile/ReadMobileScreens.tsx
+          pnpm --dir apps/client run verify:read-live-browser
           echo "READ_NATIVE_PRODUCT_INVARIANTS=PASS"
       - name: Lint subscription authority hotfix
         run: pnpm --dir apps/client exec eslint state/subscriptionStore.ts scripts/verify-subscription-authority.mjs
