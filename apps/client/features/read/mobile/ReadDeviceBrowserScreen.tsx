@@ -385,7 +385,12 @@ export default function ReadDeviceBrowserScreen() {
           manifest.segments[index]?.estimatedSourceDurationSeconds ||
           0;
         if (sourceDuration > 0) {
-          await player.seekTo(sourceDuration * resumeFraction);
+          try {
+            await player.seekTo(sourceDuration * resumeFraction);
+          } catch {
+            // Some WebKit/AVPlayer sources are not seekable until their first
+            // status update. Playback still starts; a later explicit seek works.
+          }
         }
       }
       resumeFractionRef.current = 0;
@@ -1104,7 +1109,7 @@ const styles = StyleSheet.create({
     borderColor: 'rgba(255,255,255,0.14)',
   },
   optionVoice: { flex: 1, alignItems: 'flex-start' },
-  optionText: { color: '#FFFFFF', fontSize: 13, fontWeight: '850' },
+  optionText: { color: '#FFFFFF', fontSize: 13, fontWeight: '800' },
   playerError: {
     marginTop: 8,
     color: '#FF9EA8',
