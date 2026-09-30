@@ -26,6 +26,13 @@ import {
 import { readTtsApi, type ReadTtsResult, type ReadVoice, type ReadWordTiming } from './readTtsApi';
 import { readAiApi, type ReadAiAction } from './readAiApi';
 import { readRenderApi } from './readRenderApi';
+import {
+  createReadingPlaybackManifest,
+  formatReadingClock,
+  readingPositionForProgress,
+  readingPrefetchIndexes,
+  readingProgressForSegment,
+} from './readingPlaybackManifest';
 import { restoreReadStorePurchases, startReadStorePurchase, type ReadStorePlanId } from '../../billing/services/storeBillingService';
 import { useSubscriptionStore } from '../../../state/subscriptionStore';
 
@@ -214,74 +221,6 @@ function readerParagraphs(text: string) {
     .split(/\n{2,}|(?<=[.!?])\s+(?=[A-Z])/)
     .map((value) => value.trim())
     .filter(Boolean);
-}
-
-function readerAudioChunks(text: string, maxChars = 3600): string[] {
-  const normalized = text.replace(/\r\n/g, '\n').trim();
-  if (!normalized) return [];
-
-  const units = normalized
-    .split(/(?<=[.!?])\s+|\n{2,}/)
-    .map((value) => value.trim())
-    .filter(Boolean);
-
-  const chunks: string[] = [];
-  let current = '';
-
-  const flush = () => {
-    const value = current.trim();
-    if (value) chunks.push(value);
-    current = '';
-  };
-
-  for (const unit of units) {
-    if (unit.length > maxChars) {
-      flush();
-      let remaining = unit;
-      while (remaining.length > maxChars) {
-        let cut = remaining.lastIndexOf(' ', maxChars);
-        if (cut < Math.floor(maxChars * 0.6)) cut = maxChars;
-        chunks.push(remaining.slice(0, cut).trim());
-        remaining = remaining.slice(cut).trim();
-      }
-      if (remaining) current = remaining;
-      continue;
-    }
-
-    const candidate = current ? `${current} ${unit}` : unit;
-    if (candidate.length > maxChars) {
-      flush();
-      current = unit;
-    } else {
-      current = candidate;
-    }
-  }
-  flush();
-  return chunks;
-}
-
-function chunkPositionForProgress(chunks: string[], progress: number): { index: number; fraction: number } {
-  if (!chunks.length) return { index: 0, fraction: 0 };
-  const total = chunks.reduce((sum, chunk) => sum + chunk.length, 0);
-  if (total <= 0) return { index: 0, fraction: 0 };
-
-  const boundedProgress = Math.max(0, Math.min(1, progress));
-  const target = boundedProgress * total;
-  let cursor = 0;
-
-  for (let index = 0; index < chunks.length; index += 1) {
-    const length = Math.max(1, chunks[index].length);
-    const end = cursor + length;
-    if (target < end || index === chunks.length - 1) {
-      return {
-        index,
-        fraction: Math.max(0, Math.min(1, (target - cursor) / length)),
-      };
-    }
-    cursor = end;
-  }
-
-  return { index: chunks.length - 1, fraction: 1 };
 }
 
 function paragraphIndexForProgress(paragraphs: string[], progress: number): number {
@@ -998,18 +937,21 @@ export function ReadReaderScreen() {
     }
   }, [audioResult, audioState, playbackStatus.playing]);
 
+  const readingManifest = useMemo(
+    () => createReadingPlaybackManifest(
+      document?.generatedText ?? '',
+      document?.playbackSpeed ?? 1,
+    ),
+    [document?.generatedText, document?.playbackSpeed],
+  );
   const audioChunks = useMemo(
-    () => document ? readerAudioChunks(document.generatedText) : [],
-    [document],
+    () => readingManifest.segments.map((segment) => segment.text),
+    [readingManifest],
   );
 
   const displayedProgress = useMemo(() => {
     if (!document) return 0;
     if (playbackStatus.duration > 0 && audioChunks.length) {
-      const totalChars = audioChunks.reduce((sum, chunk) => sum + chunk.length, 0);
-      const completedChars = audioChunks
-        .slice(0, activeAudioChunk)
-        .reduce((sum, chunk) => sum + chunk.length, 0);
       const activeChunkText = audioChunks[activeAudioChunk] || '';
       const clipRatio = timedChunkProgress(
         activeChunkText,
@@ -1017,11 +959,10 @@ export function ReadReaderScreen() {
         playbackStatus.currentTime,
         playbackStatus.duration,
       );
-      const currentChars = activeChunkText.length * clipRatio;
-      return totalChars > 0 ? Math.max(0, Math.min(1, (completedChars + currentChars) / totalChars)) : 0;
+      return readingProgressForSegment(readingManifest, activeAudioChunk, clipRatio);
     }
     return document.readingProgress;
-  }, [activeAudioChunk, audioChunks, audioResult, document, playbackStatus.currentTime, playbackStatus.duration]);
+  }, [activeAudioChunk, audioChunks, audioResult, document, playbackStatus.currentTime, playbackStatus.duration, readingManifest]);
 
   useEffect(() => {
     if (!document || !playbackStatus.duration || playbackStatus.duration <= 0) return;
@@ -1063,7 +1004,7 @@ export function ReadReaderScreen() {
     if (!document) return;
     player.pause();
     try { player.clearLockScreenControls(); } catch {}
-    const savedPosition = chunkPositionForProgress(audioChunks, document.readingProgress);
+    const savedPosition = readingPositionForProgress(readingManifest, document.readingProgress);
     setActiveAudioChunk(savedPosition.index);
     resumeFractionRef.current = savedPosition.fraction;
     setAudioResult(null);
@@ -1123,6 +1064,12 @@ export function ReadReaderScreen() {
     return result;
   }
 
+  function prefetchReadingHorizon(index: number) {
+    for (const nextIndex of readingPrefetchIndexes(readingManifest, index, 120, 4)) {
+      void preloadAudioChunk(nextIndex).catch(() => {});
+    }
+  }
+
   function enableLockScreenControls() {
     if (!document) return;
     try {
@@ -1150,7 +1097,8 @@ export function ReadReaderScreen() {
 
       const resumeFraction = Math.max(0, Math.min(0.995, resumeFractionRef.current));
       if (resumeFraction > 0) {
-        const estimatedSourceDuration = Math.max(0.6, (countWords(audioChunks[index]) / 170) * 60);
+        const estimatedSourceDuration =
+          readingManifest.segments[index]?.estimatedSourceDurationSeconds ?? 0.6;
         const loadedDuration = await resolveLoadedAudioDuration(
           player,
           Number(result.duration || 0) || estimatedSourceDuration,
@@ -1165,12 +1113,7 @@ export function ReadReaderScreen() {
       player.play();
       setAudioState('playing');
 
-      if (audioChunks[index + 1]) {
-        void preloadAudioChunk(index + 1).catch(() => {});
-      }
-      if (audioChunks[index + 2]) {
-        void preloadAudioChunk(index + 2).catch(() => {});
-      }
+      prefetchReadingHorizon(index);
     } catch (error) {
       setAudioState('error');
       setAudioError(error instanceof Error ? error.message : String(error));
@@ -1196,18 +1139,10 @@ export function ReadReaderScreen() {
 
   const timeLabel = useMemo(() => {
     if (!document) return '00:00 / 00:00';
-    const estimatedTotalSeconds = Math.max(
-      30,
-      Math.ceil(document.generatedText.length / Math.max(6, 12 * document.playbackSpeed)),
-    );
-    const singleClip = audioChunks.length <= 1 && playbackStatus.duration > 0;
-    const totalSeconds = singleClip ? Math.ceil(playbackStatus.duration) : estimatedTotalSeconds;
-    const currentSeconds = singleClip
-      ? Math.floor(playbackStatus.currentTime)
-      : Math.floor(totalSeconds * displayedProgress);
-    const format = (seconds: number) => `${String(Math.floor(seconds / 60)).padStart(2, '0')}:${String(seconds % 60).padStart(2, '0')}`;
-    return `${format(currentSeconds)} / ${format(totalSeconds)}`;
-  }, [audioChunks.length, displayedProgress, document, playbackStatus.currentTime, playbackStatus.duration]);
+    const totalSeconds = Math.max(1, readingManifest.estimatedPlaybackDurationSeconds);
+    const currentSeconds = totalSeconds * displayedProgress;
+    return `${formatReadingClock(currentSeconds)} / ${formatReadingClock(totalSeconds)}`;
+  }, [displayedProgress, document, readingManifest]);
 
   async function generateAndPlayAudio() {
     if (!document || document.status === 'processing' || !audioChunks.length) return;
@@ -1217,12 +1152,7 @@ export function ReadReaderScreen() {
       enableLockScreenControls();
       player.play();
       setAudioState('playing');
-      if (audioChunks[activeAudioChunk + 1]) {
-        void preloadAudioChunk(activeAudioChunk + 1).catch(() => {});
-      }
-      if (audioChunks[activeAudioChunk + 2]) {
-        void preloadAudioChunk(activeAudioChunk + 2).catch(() => {});
-      }
+      prefetchReadingHorizon(activeAudioChunk);
       return;
     }
 
