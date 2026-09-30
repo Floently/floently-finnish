@@ -39,6 +39,7 @@ const readStore = read('features/read/mobile/readMobileStore.ts');
 const readTts = read('features/read/mobile/readTtsApi.ts');
 const readAi = read('features/read/mobile/readAiApi.ts');
 const readRender = read('features/read/mobile/readRenderApi.ts');
+const playbackManifest = read('features/read/mobile/readingPlaybackManifest.ts');
 const landingRoute = read('state/LandingRoute.tsx');
 const pkg = JSON.parse(read('package.json'));
 const appBase = JSON.parse(read('app.base.json'));
@@ -143,20 +144,31 @@ assert.ok(readRender.includes('voice_id: input.voiceId') && readRender.includes(
   'native Read progress sync must persist voice selection to the backend');
 assert.ok(home.includes('Voice · ${selectedVoice.name}') && home.includes('onPress={cycleVoice}'),
   'native Read player must expose real voice selection in the playback controller');
-assert.ok(home.includes('function readerAudioChunks') && home.includes('playAudioChunk(nextIndex)'),
-  'native Read must narrate long documents continuously in bounded TTS chunks');
+assert.ok(home.includes('createReadingPlaybackManifest') && home.includes('playAudioChunk(nextIndex)'),
+  'native Read must narrate long documents through a document-wide logical playback manifest');
 assert.ok(!home.includes('generatedText.slice(0, 4000)'),
   'native Read must never silently truncate narration to the first 4000 characters');
-assert.ok(home.includes('completedChars') && home.includes('displayedProgress'),
-  'native Read playback progress must remain document-wide across TTS chunks');
+assert.ok(home.includes('readingProgressForSegment') && home.includes('displayedProgress'),
+  'native Read playback progress must remain document-wide across hidden TTS segments');
 assert.ok(home.includes('updateInterval: 100'),
   'native Read must use smooth high-frequency playback status updates');
 assert.ok(home.includes('preload(result.audioUrl'),
   'native Read must preload upcoming narration audio before chunk handoff');
 assert.ok(home.includes('preferredForwardBufferDuration: 30'),
   'native Read must keep a forward buffer for stable long-form playback');
-assert.ok(home.includes('chunkPositionForProgress') && home.includes('resumeFractionRef') && home.includes('player.seekTo'),
-  'native Read must resume inside the saved chunk instead of restarting it');
+assert.ok(home.includes('readingPrefetchIndexes(readingManifest, index, 120, 4)'),
+  'native Read must preload by a time horizon instead of exposing a fixed chunk cadence');
+assert.ok(playbackManifest.includes('estimatedPlaybackDurationSeconds') &&
+  playbackManifest.includes('BASE_WORDS_PER_MINUTE = 170'),
+  'native Read must estimate the complete reading duration immediately from the full document manifest');
+assert.ok(playbackManifest.includes('formatReadingClock') &&
+  home.includes('formatReadingClock(totalSeconds)'),
+  'native Read must display multi-hour whole-document time rather than current-clip duration');
+assert.ok(playbackManifest.includes('readingPositionForProgress') &&
+  playbackManifest.includes('readingProgressForSegment'),
+  'logical document progress must map both directions across hidden media segments');
+assert.ok(home.includes('readingPositionForProgress') && home.includes('resumeFractionRef') && home.includes('player.seekTo'),
+  'native Read must map the saved logical document cursor back into its hidden audio segment');
 assert.ok(home.includes('shouldPlayInBackground: true') && home.includes('setActiveForLockScreen'),
   'native Read must configure sustained background and lock-screen playback');
 assert.ok(appBase.expo?.plugins?.some((plugin) =>
