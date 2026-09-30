@@ -18,7 +18,7 @@ concurrency:
 jobs:
   build-and-submit:
     runs-on: ubuntu-latest
-    timeout-minutes: 120
+    timeout-minutes: 30
     env:
       EXPO_TOKEN: ${{ secrets.EXPO_TOKEN }}
 
@@ -65,6 +65,9 @@ jobs:
             echo "Browser Reader must not host the main Reader workspace." >&2
             exit 1
           fi
+          grep -F "createReadingPlaybackManifest" apps/client/features/read/mobile/ReadMobileScreens.tsx
+          grep -F "seekDocumentBySeconds" apps/client/features/read/mobile/ReadMobileScreens.tsx
+          pnpm --dir apps/client run verify:read-live-browser
           echo "NATIVE_READ_RELEASE_GATE=PASS"
 
       - name: Verify release and billing invariants
@@ -92,6 +95,13 @@ jobs:
           console.log('IOS_RELEASE_OTA_CONFIG=PASS');
           NODE
 
-      - name: Build and auto-submit to TestFlight
+      - name: Queue build and auto-submit to TestFlight
         working-directory: apps/client
-        run: npx --yes eas-cli@latest build --platform ios --profile production --non-interactive --auto-submit-with-profile production
+        run: >
+          npx --yes eas-cli@latest build
+          --platform ios
+          --profile production
+          --non-interactive
+          --auto-submit-with-profile production
+          --what-to-test "React Native Reader stabilization: Browser Reader recovery, document timeline, background audio"
+          --no-wait
