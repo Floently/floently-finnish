@@ -33,7 +33,7 @@ const subscribeRoute = read('app/read/subscribe.tsx');
 const browserRoute = read('app/read/browser.tsx');
 const readLandingRoute = read('app/read/index.tsx');
 const productsRoute = read('app/products.tsx');
-const publicMarketing = read('features/publicMarketing/screens/NativePublicMarketingScreens.tsx');
+const publicMarketing = read('features/publicMarketing/screens/FloentlyWebParityScreens.tsx');
 const readAuth = read('features/read/mobile/ReadAuthScreen.tsx');
 const readStore = read('features/read/mobile/readMobileStore.ts');
 const readTts = read('features/read/mobile/readTtsApi.ts');
@@ -94,28 +94,29 @@ assert.ok(browser.includes('style={styles.errorOverlay}'),
 assert.ok(!browser.includes('{loadError ? (\n          <View style={styles.centered}>'),
   'transient Browser V2 failures must not conditionally unmount the WebView');
 
-assert.ok(readLandingRoute.includes('NativeReadPreviewScreen'),
-  'native /read must render the public Read landing before authentication');
-assert.ok(readLandingRoute.includes("onOpenLearn={() => router.push('/' as never)}"),
-  'Read landing must integrate the existing KieliValmis entry without modifying it');
-assert.ok(readLandingRoute.includes("onOpenGateway={() => router.push('/products' as never)}"),
-  'Read Floently Home must open the separate product gateway instead of masquerading as KieliValmis');
-assert.ok(productsRoute.includes('NativeFloentlyProductGatewayScreen') &&
-  productsRoute.includes("onOpenLearn={() => router.push('/' as never)}") &&
-  productsRoute.includes("onOpenRead={() => router.push('/read' as never)}"),
-  'product gateway must integrate Read and the existing KieliValmis root without replacing either');
+assert.ok(readLandingRoute.includes('FloentlyReadLandingScreen') &&
+  readLandingRoute.includes('return <FloentlyReadLandingScreen />'),
+  'native /read must render the current public Floently Read landing before authentication');
+assert.ok(productsRoute.includes('FloentlyGatewayScreen') &&
+  productsRoute.includes('return <FloentlyGatewayScreen />'),
+  'product gateway must render the current Floently cross-product gateway');
 assert.ok(landingRoute.includes('return <KieliValmisLandingScreen />'),
   'KieliValmis direct entry must remain untouched by Read work');
 for (const marker of [
-  'landing_page_picture_1.png',
-  'landing_page_picture_8.png',
-  'People are listening',
-  'Lifelike Voices',
-  'Easy Import',
-  'Customizable',
-  "router.push('/read/subscribe' as never)",
+  "read: 'https://floently.com/read'",
+  "gateway: 'https://floently.com/'",
+  "surface === 'read' && path === '/read'",
+  "if (host === 'learn.floently.com')",
+  "if (host === 'read.floently.com')",
+  "Platform.OS !== 'web'",
+  "originWhitelist={['https://*']}",
+  "setSupportMultipleWindows={false}",
+  "sharedCookiesEnabled",
+  "thirdPartyCookiesEnabled",
+  "allowsInlineMediaPlayback",
+  "mediaPlaybackRequiresUserAction={false}",
 ]) {
-  assert.ok(publicMarketing.includes(marker), `native Read landing missing web-parity marker: ${marker}`);
+  assert.ok(publicMarketing.includes(marker), `public Floently surface missing web-parity marker: ${marker}`);
 }
 
 for (const marker of [
