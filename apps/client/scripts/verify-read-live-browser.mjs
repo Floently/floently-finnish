@@ -83,8 +83,9 @@ assert.ok(browser.includes('key={`${user.id}:${reloadKey}`}'),
   'React Native Read browser must remount when the signed-in account changes');
 assert.ok(browser.includes("Platform.OS !== 'web'"),
   'native iOS/Android must retain the WebView path while Expo web redirects to Browser V2');
-assert.ok(browser.includes("webViewRef.current?.reload()"),
-  'native Read must retain in-place WebView reload so same-tab Browser V2 reattach can preserve Chromium');
+assert.ok(browser.includes('const restartBrowserView = () =>') &&
+  browser.includes('setReloadKey((value) => value + 1)'),
+  'native Read reconnect must hard-remount the outer WebView while preserving the server-side Chromium profile');
 assert.ok(browser.includes('onContentProcessDidTerminate'),
   'iOS Read must distinguish a dead WebKit renderer from a transient network failure');
 assert.ok(browser.includes('onRenderProcessGone'),
