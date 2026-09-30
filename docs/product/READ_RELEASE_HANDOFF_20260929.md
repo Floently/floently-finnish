@@ -250,7 +250,7 @@ Do not “fix” the screenshot by merely hiding the lock-screen progress bar. T
 - The old 120-minute cancellation was diagnosed: build 49 had actually completed, but GitHub waited for the App Store submission until the job timeout.
 - `0e42b5a` changed the release job to queue EAS build + auto-submit with `--no-wait` so GitHub does not remain attached to a long Apple-processing wait.
 - Run `36689287138` passed every release gate and created EAS build **50**, build ID `7d241869-c2a3-413f-adc1-257eb86f9081`, but auto-submit scheduling failed because `--what-to-test` maps to an Enterprise-only changelog submission parameter.
-- `ba72ab4` removed that Enterprise-only flag while retaining `--no-wait` + auto-submit. Replacement TestFlight run `36689786344` was queued from that exact head and must be checked before claiming TestFlight availability.
+- `ba72ab4` removed that Enterprise-only flag while retaining `--no-wait` + auto-submit. Replacement TestFlight run `36689786344` **PASS**: all release gates passed, EAS build **51** was queued with build ID `f7b1c882-27c6-4bbe-8174-0d9a7a4d6651`, and iOS submission `98b2e827-1fb6-464e-96bc-3d7641770ab6` was successfully scheduled. Because the workflow now uses `--no-wait`, this proves server-side build/submission scheduling, not that Apple processing/TestFlight availability has already completed.
 
 ### Remaining React Native limitations
 
