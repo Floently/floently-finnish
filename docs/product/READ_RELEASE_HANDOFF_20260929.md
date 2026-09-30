@@ -234,3 +234,25 @@ Do not “fix” the screenshot by merely hiding the lock-screen progress bar. T
 
 **Important:** this is the document-timeline foundation, not the complete NR-16/NR-19 fix. The physical native player still swaps bounded audio sources. Whole-document iOS Now Playing duration/elapsed/seek and truly seamless native segment handoff remain open and require the media-session/queue phase.
 
+
+## 2026-09-30 React Native release stabilization continuation
+
+### Verified source progress
+
+- `48988c8`: verifier aligned with the current `/read/reader` authentication destination. CI run `36688317776` PASS.
+- `222a012` + `4b4bce7`: Reader ±10 second controls now seek on the logical whole-document timeline and can cross hidden TTS segment boundaries; obsolete segment-level Replay control removed. CI runs `36688498983` and `36688527741` PASS.
+- `575fddb` + `c858335`: Browser Reader reconnect/reload now hard-remounts the outer React Native WebView/auth bridge while preserving the private server-side Chromium profile. CI run `36689009989` PASS.
+- `f63a6ef`: CI no longer invokes authenticated EAS workflow validation without credentials; it checks deterministic release-workflow source contracts instead. CI run `36689065942` PASS.
+- Exact release-candidate source head `0e42b5a` passed complete CI in run `36689294460` (client + backend).
+
+### TestFlight workflow repair
+
+- The old 120-minute cancellation was diagnosed: build 49 had actually completed, but GitHub waited for the App Store submission until the job timeout.
+- `0e42b5a` changed the release job to queue EAS build + auto-submit with `--no-wait` so GitHub does not remain attached to a long Apple-processing wait.
+- Run `36689287138` passed every release gate and created EAS build **50**, build ID `7d241869-c2a3-413f-adc1-257eb86f9081`, but auto-submit scheduling failed because `--what-to-test` maps to an Enterprise-only changelog submission parameter.
+- `ba72ab4` removed that Enterprise-only flag while retaining `--no-wait` + auto-submit. Replacement TestFlight run `36689786344` was queued from that exact head and must be checked before claiming TestFlight availability.
+
+### Remaining React Native limitations
+
+- The React Native UI now has one logical document duration/progress/seek model, but Expo Audio still swaps bounded physical audio sources. iOS Now Playing can therefore still expose the current physical source duration. The separate Swift/Kotlin native-app lane owns the deeper OS-level media-session/queue architecture; do not destabilize this RN release lane by folding that rewrite into PR #75.
+- Browser V2 production deployment and physical iPhone Browser Reader validation are still required before WR-15/16/17 can be called device-fixed.
