@@ -25,6 +25,7 @@ for (const route of requiredRoutes) {
 }
 
 const browser = read('features/read/mobile/ReadLiveBrowserScreen.tsx');
+const deviceBrowser = read('features/read/mobile/ReadDeviceBrowserScreen.tsx');
 const guard = read('features/read/mobile/ReadProtectedRoute.tsx');
 const home = read('features/read/mobile/ReadMobileScreens.tsx');
 const drawer = read('config/navigation/AppShell_sidebar_sections.ts');
@@ -45,55 +46,53 @@ const pkg = JSON.parse(read('package.json'));
 const appBase = JSON.parse(read('app.base.json'));
 
 assert.equal(pkg.dependencies?.['react-native-webview'], '13.16.1',
-  'Read live browser must use the Expo-compatible WebView dependency');
+  'Read device browser must use the Expo-compatible native WebView dependency');
 
 for (const marker of [
-  "https://read.floently.com/app/browser-v2/live?embed=react-native",
-  "flowReader.auth.apiKey",
-  "flowReader.auth.session",
-  "injectedJavaScriptObject={",
-  "flowReaderAuth: embeddedAuth",
-  "injectedJavaScriptBeforeContentLoaded={authBootstrap}",
-  "originWhitelist={['https://read.floently.com']}",
-  "hostname === READ_BROWSER_HOST",
+  "source={{ uri: currentUrl }}",
+  "originWhitelist={['http://*', 'https://*', 'about:*', 'data:*', 'blob:*']}",
   "setSupportMultipleWindows={false}",
   "domStorageEnabled",
   "sharedCookiesEnabled",
   "thirdPartyCookiesEnabled",
   "cacheEnabled",
   "allowsInlineMediaPlayback",
-  "mediaPlaybackRequiresUserAction={false}",
-  "injectedJavaScriptBeforeContentLoadedForMainFrameOnly",
-  "onHttpError",
+  "onShouldStartLoadWithRequest",
+  "onOpenWindow",
+  "onContentProcessDidTerminate",
+  "onRenderProcessGone",
+  "setReloadKey((value) => value + 1)",
 ]) {
-  assert.ok(browser.includes(marker), `Live browser missing security/runtime marker: ${marker}`);
+  assert.ok(deviceBrowser.includes(marker), `Device browser missing native/runtime marker: ${marker}`);
 }
 
-assert.ok(!/READ_BROWSER_URL[^\n]*token|[?&](token|apiKey)=/i.test(browser),
-  'Authentication secrets must never be placed in the live-browser URL');
-
-assert.ok(browser.includes("window.location.assign(browserUrl)"),
-  'Web builds must enter the canonical Browser V2 web route directly');
-
-assert.ok(browser.includes("parsed.searchParams.set('embed', 'react-native')"),
-  'native Browser V2 URL overrides must preserve the React Native compatibility contract');
-assert.ok(browser.includes("parsed.searchParams.delete('embed')"),
-  'Expo web builds must not impersonate the React Native injected-auth bridge');
-assert.ok(browser.includes('key={`${user.id}:${reloadKey}`}'),
-  'React Native Read browser must remount when the signed-in account changes');
-assert.ok(browser.includes("Platform.OS !== 'web'"),
-  'native iOS/Android must retain the WebView path while Expo web redirects to Browser V2');
-assert.ok(browser.includes('const restartBrowserView = () =>') &&
-  browser.includes('setReloadKey((value) => value + 1)'),
-  'native Read reconnect must hard-remount the outer WebView while preserving the server-side Chromium profile');
-assert.ok(browser.includes('onContentProcessDidTerminate'),
-  'iOS Read must distinguish a dead WebKit renderer from a transient network failure');
-assert.ok(browser.includes('onRenderProcessGone'),
-  'Android Read must distinguish a dead WebView renderer from a transient network failure');
-assert.ok(browser.includes('style={styles.errorOverlay}'),
-  'transient Browser V2 failures must overlay the mounted WebView instead of destroying its session');
-assert.ok(!browser.includes('{loadError ? (\n          <View style={styles.centered}>'),
-  'transient Browser V2 failures must not conditionally unmount the WebView');
+assert.ok(deviceBrowser.includes("window.location.assign(WEB_BROWSER_URL)"),
+  'Expo web may continue into Browser V2, while native must remain local');
+assert.ok(deviceBrowser.includes("Platform.OS !== 'web'"),
+  'native iOS/Android must retain the local WebView path');
+assert.ok(browserRoute.includes('ReadDeviceBrowserScreen') &&
+  !browserRoute.includes('ReadLiveBrowserScreen'),
+  'native /read/browser must route to the local device browser, not the remote Browser V2 framebuffer');
+assert.ok(!deviceBrowser.includes('flowReader.auth.apiKey') &&
+  !deviceBrowser.includes('flowReader.auth.session') &&
+  !deviceBrowser.includes('injectedJavaScriptObject'),
+  'app authentication secrets must never be injected into arbitrary websites');
+assert.ok(deviceBrowser.includes('PROTECTED_AUTH_HOSTS') &&
+  deviceBrowser.includes("isProtectedAuthenticationUrl(currentUrl)") &&
+  deviceBrowser.includes('Reader injection is paused'),
+  'Reader extraction must stay out of protected authentication pages');
+assert.ok(deviceBrowser.includes('injectJavaScript(EXTRACT_READABLE_PAGE)') &&
+  deviceBrowser.includes("sourceType: 'browser'") &&
+  deviceBrowser.includes("router.push('/read/reader' as never)"),
+  'local website content must hand off to the native Read document pipeline');
+assert.ok(deviceBrowser.includes("Browse on this device") &&
+  deviceBrowser.includes("Website rendering, touch, cookies and sign-in now stay in the phone's native browser engine"),
+  'native Browser UI must truthfully describe local device ownership');
+assert.ok(deviceBrowser.includes("hardRestart('The website process stopped. Restoring it in a fresh browser…')"),
+  'renderer death must replace the native browser surface rather than reattach a stale remote browser');
+assert.ok(!deviceBrowser.includes('embed=react-native') &&
+  !deviceBrowser.includes('Secure remote browser'),
+  'the native browser must not depend on the remote Browser V2 embed topology');
 
 assert.ok(readLandingRoute.includes('FloentlyReadLandingScreen') &&
   readLandingRoute.includes('return <FloentlyReadLandingScreen />'),
