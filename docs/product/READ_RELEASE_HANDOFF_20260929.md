@@ -117,6 +117,20 @@ Current web work:
 
 The app-side React Native embed fix is already in Build 48; the corresponding Browser V2 web fix must be deployed before the app can benefit from the full input-mode correction.
 
+## Parallel development lane rule
+
+This branch is now the **React Native stabilization/release lane**. A separate AI is developing fully native Swift/iOS and Kotlin/Android implementations in parallel.
+
+For this branch:
+- continue React Native product stabilization, Browser Reader integration, CI repair, TestFlight readiness, and production bug fixes;
+- do not refactor the React Native release candidate around unfinished Swift/Kotlin architecture;
+- do not delete, replace, or rewrite the separate native implementations;
+- keep shared API/data contracts backward compatible so React Native, Swift, and Kotlin can coexist;
+- only touch native platform files when required by the existing React Native/Expo release itself (for example current Expo configuration/runtime capability), not to advance the separate rewrite;
+- report any shared-contract change that the native-app AI must know about in this handoff/issue before handing off.
+
+The goal of this lane is a usable, stable React Native app while the separate native apps continue independently.
+
 ## Mandatory continuation protocol
 
 Every AI or human continuing this release must do all of the following:
@@ -216,6 +230,7 @@ Do not “fix” the screenshot by merely hiding the lock-screen progress bar. T
 - Integrated the manifest into `ReadMobileScreens.tsx` (`69bc208`): the Reader time display is now based on whole-document estimated playback duration, resume/progress use logical manifest mapping, and prefetch now targets roughly 120 seconds ahead (up to four hidden segments) instead of a hard-coded next-two-chunk policy.
 - Updated native Read verification (`2e5f40e`) so the logical manifest and document-wide duration/progress contract are explicit source invariants.
 - CI run `36653722128` then failed only because `.github/workflows/ci.yml` still grepped for the removed legacy `readerAudioChunks` function. TypeScript passed and backend passed. The stale CI invariant was replaced with logical-manifest checks and the full `verify:read-live-browser` script in commit `1ada3b5`.
+- A later CI run `36653966716` exposed a second stale verifier: `verify-read-live-browser.mjs` still expected the removed `NativeReadPreviewScreen` landing even though the current route intentionally renders `FloentlyReadLandingScreen`. The verifier was aligned to the current public Floently web-parity surfaces in commit `72d318f`. CI run `36686539309` was queued from that head and must be checked before release claims.
 
 **Important:** this is the document-timeline foundation, not the complete NR-16/NR-19 fix. The physical native player still swaps bounded audio sources. Whole-document iOS Now Playing duration/elapsed/seek and truly seamless native segment handoff remain open and require the media-session/queue phase.
 
