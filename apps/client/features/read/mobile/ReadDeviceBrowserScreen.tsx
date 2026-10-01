@@ -56,6 +56,7 @@ type BrowserReading = {
   title: string;
   url: string;
   text: string;
+  language: string;
 };
 
 type BrowserAudioState =
@@ -335,6 +336,7 @@ const EXTRACT_READABLE_PAGE = `
       type: 'FLOENTLY_DEVICE_BROWSER_READ_PAGE',
       title: normalizeBlock(document.title) || location.hostname,
       url: location.href,
+      language: String(document.documentElement.lang || navigator.language || 'auto'),
       text
     }));
   } catch (error) {
@@ -538,9 +540,23 @@ export default function ReadDeviceBrowserScreen() {
     startedPlaybackKeyRef.current = null;
   };
 
+  const readingLanguage = String(reading?.language || 'auto')
+    .trim()
+    .toLowerCase()
+    .split('-')[0];
+  const browserVoices = useMemo(() => {
+    if (!voices.length || !readingLanguage || readingLanguage === 'auto') return voices;
+    const matching = voices.filter((voice) => {
+      const voiceLanguage = String(voice.language || '').toLowerCase().split('-')[0];
+      const voiceLocale = String(voice.locale || '').toLowerCase().split('-')[0];
+      return voiceLanguage === readingLanguage || voiceLocale === readingLanguage;
+    });
+    return matching.length ? matching : voices;
+  }, [readingLanguage, voices]);
   const selectedVoice =
-    voices.find((voice) => voice.id === selectedVoiceId) ||
-    voices.find((voice) => voice.id === defaultVoiceId) ||
+    browserVoices.find((voice) => voice.id === selectedVoiceId) ||
+    browserVoices.find((voice) => voice.id === defaultVoiceId) ||
+    browserVoices[0] ||
     voices[0] ||
     null;
   const effectiveVoiceId = selectedVoice?.id || defaultVoiceId || selectedVoiceId;
@@ -660,7 +676,7 @@ export default function ReadDeviceBrowserScreen() {
 
     const result = await readTtsApi.prerenderReading({
       text: segment.text,
-      language: 'auto',
+      language: reading?.language || 'auto',
       voiceId: effectiveVoiceId,
     });
     audioCache.current.set(key, result);
@@ -1023,9 +1039,10 @@ export default function ReadDeviceBrowserScreen() {
   };
 
   const cycleVoice = () => {
-    if (!voices.length) return;
-    const current = voices.findIndex((voice) => voice.id === selectedVoiceId);
-    const next = voices[(current + 1 + voices.length) % voices.length];
+    if (!browserVoices.length) return;
+    const wasPlaying = isPlaying;
+    const current = browserVoices.findIndex((voice) => voice.id === selectedVoice?.id);
+    const next = browserVoices[(current + 1 + browserVoices.length) % browserVoices.length];
     if (!next) return;
 
     const progress = displayedProgress;
@@ -1038,7 +1055,11 @@ export default function ReadDeviceBrowserScreen() {
     const position = readingPositionForProgress(manifest, progress);
     setActiveSegment(position.index);
     resumeFractionRef.current = position.fraction;
-    setAudioState('paused');
+    setControlsHidden(false);
+    // React commits the new voice id before the preparing effect runs, so a
+    // voice change during playback resumes at the same logical cursor using
+    // the new voice instead of silently stopping the reading.
+    setAudioState(wasPlaying ? 'preparing' : 'paused');
   };
 
   if (Platform.OS === 'web') {
@@ -1192,6 +1213,7 @@ export default function ReadDeviceBrowserScreen() {
                   url?: string;
                   text?: string;
                   message?: string;
+                  language?: string;
                 };
                 if (payload.type === 'FLOENTLY_DEVICE_BROWSER_READ_ERROR') {
                   setAudioState('error');
@@ -1210,6 +1232,7 @@ export default function ReadDeviceBrowserScreen() {
                 void startReadingPage({
                   title: String(payload.title || 'Web reading'),
                   url: String(payload.url || currentUrl || ''),
+                  language: String(payload.language || 'auto'),
                   text,
                 });
               } catch {
