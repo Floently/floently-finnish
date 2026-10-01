@@ -1008,12 +1008,23 @@ export function ReadReaderScreen() {
     return document.readingProgress;
   }, [activeAudioChunk, audioChunks, audioResult, document, playbackStatus.currentTime, playbackStatus.duration, readingManifest]);
 
+  const progressSyncThreshold = Math.min(
+    0.01,
+    15 / Math.max(15, readingManifest.estimatedPlaybackDurationSeconds),
+  );
+
   useEffect(() => {
     if (!document || !playbackStatus.duration || playbackStatus.duration <= 0) return;
-    if (Math.abs(displayedProgress - document.readingProgress) >= 0.01) {
+    if (Math.abs(displayedProgress - document.readingProgress) >= progressSyncThreshold) {
       updateProgress(document.id, displayedProgress);
     }
-  }, [displayedProgress, document, playbackStatus.duration, updateProgress]);
+  }, [
+    displayedProgress,
+    document,
+    playbackStatus.duration,
+    progressSyncThreshold,
+    updateProgress,
+  ]);
 
   useEffect(() => {
     const subscription = AppState.addEventListener('change', (nextState) => {
