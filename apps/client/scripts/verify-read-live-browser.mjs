@@ -158,6 +158,10 @@ assert.ok(readRender.includes('voice_id: input.voiceId') && readRender.includes(
   'native Read progress sync must persist voice selection to the backend');
 assert.ok(home.includes('Voice · ${selectedVoice.name}') && home.includes('onPress={cycleVoice}'),
   'native Read player must expose real voice selection in the playback controller');
+assert.ok(home.includes('const progress = displayedProgress;') &&
+  home.includes('resumeFractionRef.current = position.fraction;') &&
+  home.includes('setVoiceId(document.id, nextVoice.id)'),
+  'changing voice must preserve the exact logical reading cursor');
 assert.ok(home.includes('createReadingPlaybackManifest') && home.includes('playAudioChunk(nextIndex)'),
   'native Read must narrate long documents through a document-wide logical playback manifest');
 assert.ok(!home.includes('generatedText.slice(0, 4000)'),
@@ -196,6 +200,9 @@ assert.ok(home.includes('async function seekDocumentBySeconds(deltaSeconds: numb
   home.includes('accessibilityLabel="Back 10 seconds"') &&
   home.includes('accessibilityLabel="Forward 10 seconds"'),
   'native Read skip controls must seek on the logical document timeline across hidden segment boundaries');
+assert.ok(home.includes('If the active AVPlayer item is not seekable yet') &&
+  deviceBrowser.includes('the ±10 second control appear dead'),
+  'native and browser Reader seek controls must recover if the active media item is temporarily unseekable');
 assert.ok(!home.includes('playbackStatus.currentTime - 10'),
   'native Read must not implement back-10 as a current-clip-only seek');
 assert.ok(home.includes('shouldPlayInBackground: true') && home.includes('setActiveForLockScreen'),
