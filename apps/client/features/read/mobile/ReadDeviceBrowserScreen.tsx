@@ -367,6 +367,7 @@ export default function ReadDeviceBrowserScreen() {
   const activePlaybackKeyRef = useRef<string | null>(null);
   const startedPlaybackKeyRef = useRef<string | null>(null);
   const lastSavedProgressRef = useRef(0);
+  const prefetchGenerationRef = useRef(0);
   const playAttemptRef = useRef(0);
   const playbackHealthRef = useRef({
     playing: false,
@@ -512,6 +513,7 @@ export default function ReadDeviceBrowserScreen() {
   }, [canGoBack]);
 
   useEffect(() => () => {
+    prefetchGenerationRef.current += 1;
     player.pause();
     try { player.clearLockScreenControls(); } catch {}
     for (const url of preloadCache.current.keys()) {
@@ -522,6 +524,7 @@ export default function ReadDeviceBrowserScreen() {
 
   const clearPreparedAudio = () => {
     playAttemptRef.current += 1;
+    prefetchGenerationRef.current += 1;
     player.pause();
     webViewRef.current?.injectJavaScript(buildClearReadingFocusScript());
     setAudioResult(null);
@@ -677,9 +680,23 @@ export default function ReadDeviceBrowserScreen() {
   };
 
   const prefetchAhead = (index: number) => {
-    for (const nextIndex of readingPrefetchIndexes(manifest, index, 90, 4)) {
-      void preloadSegment(nextIndex).catch(() => {});
-    }
+    const indexes = readingPrefetchIndexes(manifest, index, 90, 4);
+    const generation = ++prefetchGenerationRef.current;
+
+    // Prioritize the immediately upcoming hidden segment. Firing four neural
+    // synthesis requests at once can delay the one clip that must be ready
+    // first on constrained/mobile networks and on a warming TTS backend.
+    void (async () => {
+      for (const nextIndex of indexes) {
+        if (prefetchGenerationRef.current !== generation) return;
+        try {
+          await preloadSegment(nextIndex);
+        } catch {
+          // A failed speculative preload must never stop the active reading.
+          // playSegment() will make a fresh request if that segment is reached.
+        }
+      }
+    })();
   };
 
   const enableLockScreen = () => {
