@@ -1221,9 +1221,6 @@ export function ReadReaderScreen() {
     const wasPlaying = playbackStatus.playing || audioState === 'playing';
 
     updateProgress(document.id, targetProgress);
-    handledFinishedChunk.current = null;
-    activePlaybackKeyRef.current = null;
-    startedPlaybackKeyRef.current = null;
 
     if (
       target.index === activeAudioChunk &&
@@ -1231,6 +1228,7 @@ export function ReadReaderScreen() {
       playbackStatus.duration > 0
     ) {
       resumeFractionRef.current = 0;
+      handledFinishedChunk.current = null;
       try {
         await player.seekTo(playbackStatus.duration * target.fraction);
       } catch {
@@ -1238,12 +1236,17 @@ export function ReadReaderScreen() {
         // clean source reload at the requested logical document position.
         player.pause();
         setAudioResult(null);
+        activePlaybackKeyRef.current = null;
+        startedPlaybackKeyRef.current = null;
         resumeFractionRef.current = target.fraction;
         if (wasPlaying) await playAudioChunk(target.index);
       }
       return;
     }
 
+    handledFinishedChunk.current = null;
+    activePlaybackKeyRef.current = null;
+    startedPlaybackKeyRef.current = null;
     player.pause();
     setActiveAudioChunk(target.index);
     setAudioResult(null);
