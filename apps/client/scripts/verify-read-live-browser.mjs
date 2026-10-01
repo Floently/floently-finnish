@@ -93,6 +93,10 @@ assert.ok(deviceBrowser.includes('prefetchGenerationRef') &&
   deviceBrowser.includes('await preloadSegment(nextIndex)') &&
   deviceBrowser.includes('Prioritize the immediately upcoming hidden segment'),
   'browser Read lookahead must prioritize the nearest hidden segment instead of stampeding TTS with parallel future requests');
+assert.ok(deviceBrowser.includes('audioPrepareCache') &&
+  deviceBrowser.includes('const inFlight = audioPrepareCache.current.get(key)') &&
+  deviceBrowser.includes('audioPrepareCache.current.set(key, request)'),
+  'browser Read must deduplicate overlapping active/lookahead neural TTS requests for the same hidden segment');
 assert.ok(deviceBrowser.includes('activePlaybackKeyRef') &&
   deviceBrowser.includes('startedPlaybackKeyRef') &&
   deviceBrowser.includes('playbackStatus.didJustFinish') &&
@@ -258,6 +262,10 @@ assert.ok(home.includes('prefetchGenerationRef') &&
   home.includes('await preloadAudioChunk(nextIndex)') &&
   home.includes('Warm the next hidden segment before later lookahead'),
   'native Read lookahead must prepare the nearest hidden segment first and cancel stale speculative runs');
+assert.ok(home.includes('audioChunkPrepareCache') &&
+  home.includes('const inFlight = audioChunkPrepareCache.current.get(key)') &&
+  home.includes('audioChunkPrepareCache.current.set(key, request)'),
+  'native Read must reuse in-flight TTS preparation instead of issuing duplicate synthesis for one hidden segment');
 assert.ok(playbackManifest.includes('estimatedPlaybackDurationSeconds') &&
   playbackManifest.includes('BASE_WORDS_PER_MINUTE = 170'),
   'native Read must estimate the complete reading duration immediately from the full document manifest');
