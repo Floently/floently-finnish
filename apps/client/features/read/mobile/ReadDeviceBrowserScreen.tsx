@@ -316,14 +316,22 @@ function buildClearReadingFocusScript() {
 const WATCH_LIVE_AUTH_STATE = `
 (function () {
   try {
-    const selector = [
+    const credentialSelector = [
       'input[type="password"]',
       'input[autocomplete~="current-password"]',
       'input[autocomplete~="one-time-code"]',
       'input[autocomplete~="webauthn"]'
     ].join(',');
+    const accountSelector = [
+      'input[autocomplete~="username"]',
+      'input[type="email"]',
+      'input[name*="user" i]',
+      'input[id*="user" i]',
+      'input[name*="login" i]',
+      'input[id*="login" i]'
+    ].join(',');
 
-    const isVisibleCredentialField = (element) => {
+    const isVisible = (element) => {
       if (!element || element.disabled || element.hidden) return false;
       if (element.getAttribute('aria-hidden') === 'true') return false;
       const style = window.getComputedStyle(element);
@@ -331,9 +339,28 @@ const WATCH_LIVE_AUTH_STATE = `
       return element.getClientRects().length > 0;
     };
 
+    const hasVisibleAuthAction = () => Array.from(document.querySelectorAll(
+      'button,input[type="submit"],a,[role="button"]'
+    )).some((element) => {
+      if (!isVisible(element)) return false;
+      const label = String(
+        element.innerText ||
+        element.value ||
+        element.getAttribute('aria-label') ||
+        element.getAttribute('title') ||
+        ''
+      ).trim().toLowerCase();
+      return /(?:sign\s*in|log\s*in|passkey|login\s*key|security\s*key|continue)/.test(label);
+    });
+
     const report = () => {
-      const active = Array.from(document.querySelectorAll(selector))
-        .some(isVisibleCredentialField);
+      const visibleCredential = Array.from(
+        document.querySelectorAll(credentialSelector)
+      ).some(isVisible);
+      const visibleAccount = Array.from(
+        document.querySelectorAll(accountSelector)
+      ).some(isVisible);
+      const active = visibleCredential || (visibleAccount && hasVisibleAuthAction());
       if (window.__floentlyLastAuthState === active) return;
       window.__floentlyLastAuthState = active;
       window.ReactNativeWebView.postMessage(JSON.stringify({
@@ -386,17 +413,42 @@ const EXTRACT_READABLE_PAGE = `
       'input[autocomplete~="one-time-code"]',
       'input[autocomplete~="webauthn"]'
     ].join(',');
-    const hasVisibleCredentialField = Array.from(
-      document.querySelectorAll(credentialSelector)
-    ).some((element) => {
+    const accountSelector = [
+      'input[autocomplete~="username"]',
+      'input[type="email"]',
+      'input[name*="user" i]',
+      'input[id*="user" i]',
+      'input[name*="login" i]',
+      'input[id*="login" i]'
+    ].join(',');
+    const isVisibleAuthElement = (element) => {
       if (!element || element.disabled || element.hidden) return false;
       if (element.getAttribute('aria-hidden') === 'true') return false;
       const style = window.getComputedStyle(element);
       return style.display !== 'none' &&
         style.visibility !== 'hidden' &&
         element.getClientRects().length > 0;
+    };
+    const hasVisibleCredentialField = Array.from(
+      document.querySelectorAll(credentialSelector)
+    ).some(isVisibleAuthElement);
+    const hasVisibleAccountField = Array.from(
+      document.querySelectorAll(accountSelector)
+    ).some(isVisibleAuthElement);
+    const hasVisibleAuthAction = Array.from(document.querySelectorAll(
+      'button,input[type="submit"],a,[role="button"]'
+    )).some((element) => {
+      if (!isVisibleAuthElement(element)) return false;
+      const label = String(
+        element.innerText ||
+        element.value ||
+        element.getAttribute('aria-label') ||
+        element.getAttribute('title') ||
+        ''
+      ).trim().toLowerCase();
+      return /(?:sign\s*in|log\s*in|passkey|login\s*key|security\s*key|continue)/.test(label);
     });
-    if (hasVisibleCredentialField) {
+    if (hasVisibleCredentialField || (hasVisibleAccountField && hasVisibleAuthAction)) {
       window.ReactNativeWebView.postMessage(JSON.stringify({
         type: 'FLOENTLY_DEVICE_BROWSER_READ_ERROR',
         message: 'Finish signing in before starting Reader on this page.'
