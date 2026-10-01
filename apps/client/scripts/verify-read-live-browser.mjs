@@ -1,10 +1,24 @@
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import path from 'node:path';
+import ts from 'typescript';
 
 const root = process.cwd();
 const read = (relative) => fs.readFileSync(path.join(root, relative), 'utf8');
 const exists = (relative) => fs.existsSync(path.join(root, relative));
+
+async function importTypeScript(relative) {
+  const source = read(relative);
+  const javascript = ts.transpileModule(source, {
+    fileName: relative,
+    compilerOptions: {
+      module: ts.ModuleKind.ESNext,
+      target: ts.ScriptTarget.ES2022,
+      importsNotUsedAsValues: ts.ImportsNotUsedAsValues.Remove,
+    },
+  }).outputText;
+  return import(`data:text/javascript;base64,${Buffer.from(javascript).toString('base64')}`);
+}
 
 const requiredRoutes = [
   'app/read/index.tsx',
@@ -41,6 +55,7 @@ const readTts = read('features/read/mobile/readTtsApi.ts');
 const readAi = read('features/read/mobile/readAiApi.ts');
 const readRender = read('features/read/mobile/readRenderApi.ts');
 const playbackManifest = read('features/read/mobile/readingPlaybackManifest.ts');
+const playbackRuntime = await importTypeScript('features/read/mobile/readingPlaybackManifest.ts');
 const landingRoute = read('state/LandingRoute.tsx');
 const pkg = JSON.parse(read('package.json'));
 const appBase = JSON.parse(read('app.base.json'));
@@ -336,6 +351,38 @@ assert.ok(playbackManifest.includes('formatReadingClock') &&
 assert.ok(playbackManifest.includes('readingPositionForProgress') &&
   playbackManifest.includes('readingProgressForSegment'),
   'logical document progress must map both directions across hidden media segments');
+
+{
+  const longBookText = 'database systems improve reliable decisions. '.repeat(60_000).trim();
+  const oneX = playbackRuntime.createReadingPlaybackManifest(longBookText, 1, 1800, 240);
+  const twoX = playbackRuntime.createReadingPlaybackManifest(longBookText, 2, 1800, 240);
+
+  assert.ok(oneX.estimatedPlaybackDurationSeconds > 5 * 60 * 60,
+    'full-book duration must be known immediately even when it spans multiple hours');
+  assert.ok(Math.abs(twoX.estimatedPlaybackDurationSeconds * 2 - oneX.estimatedPlaybackDurationSeconds) < 1,
+    'whole-document duration must respond deterministically to playback speed');
+  assert.ok(oneX.segments.length > 20 &&
+    oneX.segments[0].text.length <= 240 &&
+    oneX.segments.slice(1).some((segment) => segment.text.length > 700),
+    'manifest must use a fast startup segment without degrading the entire book into tiny clips');
+
+  for (const progress of [0, 0.1, 0.5, 0.9, 0.99]) {
+    const position = playbackRuntime.readingPositionForProgress(oneX, progress);
+    const roundTrip = playbackRuntime.readingProgressForSegment(
+      oneX,
+      position.index,
+      position.fraction,
+    );
+    assert.ok(Math.abs(roundTrip - progress) < 0.0001,
+      `logical seek/progress round-trip drifted at ${progress}`);
+  }
+
+  const lookahead = playbackRuntime.readingPrefetchIndexes(oneX, 1, 120, 4);
+  assert.ok(lookahead.length >= 2 && lookahead.length <= 4,
+    'prefetch plan must keep several future hidden segments warm without expanding without bound');
+  assert.equal(playbackRuntime.formatReadingClock(3661), '1:01:01',
+    'multi-hour readings must keep an hours-aware logical clock');
+}
 assert.ok(home.includes('readingPositionForProgress') && home.includes('resumeFractionRef') && home.includes('player.seekTo'),
   'native Read must map the saved logical document cursor back into its hidden audio segment');
 assert.ok(home.includes('async function seekDocumentBySeconds(deltaSeconds: number)') &&
