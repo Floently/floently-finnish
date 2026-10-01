@@ -82,7 +82,7 @@ assert.ok(deviceBrowser.includes('PROTECTED_AUTH_HOSTS') &&
   deviceBrowser.includes('Reader stays out of authentication'),
   'Reader extraction must stay out of protected authentication pages');
 assert.ok(deviceBrowser.includes('injectJavaScript(EXTRACT_READABLE_PAGE)') &&
-  deviceBrowser.includes('createReadingPlaybackManifest(payload.text, speed, 700)') &&
+  deviceBrowser.includes('createReadingPlaybackManifest(payload.text, speed, 1400, 320)') &&
   deviceBrowser.includes('readTtsApi.prerenderReading') &&
   deviceBrowser.includes('player.replace(result.audioUrl)'),
   'native website Read must narrate the extracted content while staying on the original webpage');
@@ -167,6 +167,13 @@ assert.ok(home.includes('readingPrefetchIndexes(readingManifest, index, 120, 4)'
 assert.ok(playbackManifest.includes('estimatedPlaybackDurationSeconds') &&
   playbackManifest.includes('BASE_WORDS_PER_MINUTE = 170'),
   'native Read must estimate the complete reading duration immediately from the full document manifest');
+assert.ok(playbackManifest.includes('startupMaxChars') &&
+  playbackManifest.includes('The first narration request controls perceived start latency'),
+  'native Read must use a small hidden startup segment without turning the whole document into tiny clips');
+assert.ok(deviceBrowser.includes("createReadingPlaybackManifest(payload.text, speed, 1400, 320)"),
+  'browser Read must use a fast startup segment followed by longer hidden narration segments');
+assert.ok(home.includes('1800') && home.includes('360'),
+  'standalone native Reader must use a fast startup segment followed by long-form hidden narration segments');
 assert.ok(playbackManifest.includes('formatReadingClock') &&
   home.includes('formatReadingClock(totalSeconds)'),
   'native Read must display multi-hour whole-document time rather than current-clip duration');
