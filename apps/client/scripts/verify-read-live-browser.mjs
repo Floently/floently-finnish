@@ -132,6 +132,10 @@ assert.ok(deviceBrowser.includes('browserReadingFingerprint') &&
   deviceBrowser.includes('Math.imul(hash, 16777619)') &&
   deviceBrowser.includes('browserReadingFingerprint(reading.text)'),
   'browser progress/TTS cache identity must include page content so dynamic same-URL lessons cannot reuse stale narration');
+assert.ok(deviceBrowser.includes('function browserPageIdentity(value: string)') &&
+  deviceBrowser.includes("parsed.hash = '';") &&
+  deviceBrowser.includes('isSameBrowserReadingPage(navigation.url, reading!.url)'),
+  'hash-only SPA navigation must not tear down active Browser Reader narration');
 assert.ok(deviceBrowser.includes('styles.compactBar') &&
   deviceBrowser.includes('accessibilityLabel="Expand reader controls"') &&
   deviceBrowser.includes('compactRemaining') &&
