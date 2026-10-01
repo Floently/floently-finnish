@@ -273,6 +273,9 @@ assert.ok(home.includes('const progress = displayedProgress;') &&
   home.includes('resumeFractionRef.current = position.fraction;') &&
   home.includes('setVoiceId(document.id, nextVoice.id)'),
   'changing voice must preserve the exact logical reading cursor');
+assert.ok(home.includes('audioGenerationRef.current += 1;') &&
+  home.includes('prefetchGenerationRef.current += 1;'),
+  'standalone voice changes must invalidate old active/lookahead audio before the new voice request can start');
 assert.ok(home.includes('voiceChangeResumeRef') &&
   home.includes('autoplay: wasPlaying') &&
   home.includes('void playAudioChunk(resume.index)'),
