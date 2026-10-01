@@ -363,6 +363,7 @@ export default function ReadDeviceBrowserScreen() {
   const playbackStatus = useAudioPlayerStatus(player);
 
   const audioCache = useRef(new Map<string, ReadTtsResult>());
+  const audioPrepareCache = useRef(new Map<string, Promise<ReadTtsResult>>());
   const preloadCache = useRef(new Map<string, Promise<void>>());
   const resumeFractionRef = useRef(0);
   const handledFinishedRef = useRef<string | null>(null);
@@ -531,6 +532,7 @@ export default function ReadDeviceBrowserScreen() {
     webViewRef.current?.injectJavaScript(buildClearReadingFocusScript());
     setAudioResult(null);
     audioCache.current.clear();
+    audioPrepareCache.current.clear();
     for (const url of preloadCache.current.keys()) {
       void clearPreloadedSource(url).catch(() => {});
     }
@@ -674,13 +676,27 @@ export default function ReadDeviceBrowserScreen() {
     const cached = audioCache.current.get(key);
     if (cached) return cached;
 
-    const result = await readTtsApi.prerenderReading({
+    const inFlight = audioPrepareCache.current.get(key);
+    if (inFlight) return inFlight;
+
+    // A seek, resume, or handoff can arrive while lookahead is already
+    // synthesizing this hidden segment. Reuse that exact request instead of
+    // issuing duplicate neural TTS work and delaying the nearest clip.
+    const request = readTtsApi.prerenderReading({
       text: segment.text,
       language: reading?.language || 'auto',
       voiceId: effectiveVoiceId,
+    }).then((result) => {
+      audioCache.current.set(key, result);
+      return result;
+    }).finally(() => {
+      if (audioPrepareCache.current.get(key) === request) {
+        audioPrepareCache.current.delete(key);
+      }
     });
-    audioCache.current.set(key, result);
-    return result;
+
+    audioPrepareCache.current.set(key, request);
+    return request;
   };
 
   const preloadSegment = async (index: number) => {
