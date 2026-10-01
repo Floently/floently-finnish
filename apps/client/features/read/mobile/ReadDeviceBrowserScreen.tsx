@@ -313,6 +313,57 @@ function buildClearReadingFocusScript() {
 `;
 }
 
+const WATCH_LIVE_AUTH_STATE = `
+(function () {
+  try {
+    const selector = [
+      'input[type="password"]',
+      'input[autocomplete~="current-password"]',
+      'input[autocomplete~="one-time-code"]',
+      'input[autocomplete~="webauthn"]'
+    ].join(',');
+
+    const isVisibleCredentialField = (element) => {
+      if (!element || element.disabled || element.hidden) return false;
+      if (element.getAttribute('aria-hidden') === 'true') return false;
+      const style = window.getComputedStyle(element);
+      if (style.display === 'none' || style.visibility === 'hidden') return false;
+      return element.getClientRects().length > 0;
+    };
+
+    const report = () => {
+      const active = Array.from(document.querySelectorAll(selector))
+        .some(isVisibleCredentialField);
+      if (window.__floentlyLastAuthState === active) return;
+      window.__floentlyLastAuthState = active;
+      window.ReactNativeWebView.postMessage(JSON.stringify({
+        type: 'FLOENTLY_DEVICE_BROWSER_AUTH_STATE',
+        active
+      }));
+    };
+
+    if (!window.__floentlyAuthObserver) {
+      let timer = null;
+      const schedule = () => {
+        if (timer) window.clearTimeout(timer);
+        timer = window.setTimeout(report, 80);
+      };
+      const observer = new MutationObserver(schedule);
+      observer.observe(document.documentElement, {
+        childList: true,
+        subtree: true,
+        attributes: true,
+        attributeFilter: ['type', 'autocomplete', 'hidden', 'aria-hidden', 'class', 'style']
+      });
+      window.__floentlyAuthObserver = observer;
+    }
+
+    report();
+  } catch (_) {}
+  true;
+})();
+`;
+
 const EXTRACT_READABLE_PAGE = `
 (function () {
   try {
@@ -326,11 +377,26 @@ const EXTRACT_READABLE_PAGE = `
       .replace(/\\s+/g, ' ')
       .trim();
 
-    // Never turn a live sign-in form into narration input. Authentication
-    // remains owned by the local browser/OS until the user finishes signing in.
-    if (document.querySelector(
-      'input[type="password"], input[autocomplete="current-password"], input[autocomplete="one-time-code"]'
-    )) {
+    // Never turn an actually visible credential/passkey form into narration.
+    // Hidden login drawers are common on article/course pages, so presence in
+    // the DOM alone must not disable Reader.
+    const credentialSelector = [
+      'input[type="password"]',
+      'input[autocomplete~="current-password"]',
+      'input[autocomplete~="one-time-code"]',
+      'input[autocomplete~="webauthn"]'
+    ].join(',');
+    const hasVisibleCredentialField = Array.from(
+      document.querySelectorAll(credentialSelector)
+    ).some((element) => {
+      if (!element || element.disabled || element.hidden) return false;
+      if (element.getAttribute('aria-hidden') === 'true') return false;
+      const style = window.getComputedStyle(element);
+      return style.display !== 'none' &&
+        style.visibility !== 'hidden' &&
+        element.getClientRects().length > 0;
+    });
+    if (hasVisibleCredentialField) {
       window.ReactNativeWebView.postMessage(JSON.stringify({
         type: 'FLOENTLY_DEVICE_BROWSER_READ_ERROR',
         message: 'Finish signing in before starting Reader on this page.'
@@ -477,6 +543,7 @@ export default function ReadDeviceBrowserScreen() {
   const [selectedVoiceId, setSelectedVoiceId] = useState<string | null>(null);
   const [playerExpanded, setPlayerExpanded] = useState(false);
   const [controlsHidden, setControlsHidden] = useState(false);
+  const [pageAuthActive, setPageAuthActive] = useState(false);
 
   useEffect(() => {
     latestUrlRef.current = currentUrl;
@@ -729,6 +796,24 @@ export default function ReadDeviceBrowserScreen() {
     audioState === 'extracting' ||
     audioState === 'preparing' ||
     playbackStatus.isBuffering;
+
+  useEffect(() => {
+    if (!pageAuthActive) return;
+
+    // Authentication owns the screen while a live credential/passkey form is
+    // visible. Pause narration without throwing away the reading snapshot, so
+    // cancelling/signing in returns to the same logical reading position.
+    if (reading) {
+      playAttemptRef.current += 1;
+      player.pause();
+      persistBrowserProgress(displayedProgress);
+      setAudioState('paused');
+      setControlsHidden(false);
+      try { player.clearLockScreenControls(); } catch {}
+      webViewRef.current?.injectJavaScript(buildClearReadingFocusScript());
+    }
+    setStatus('Sign-in active · Reader paused');
+  }, [pageAuthActive]);
 
   useEffect(() => {
     if (!reading || !isPlaying || !activeVisualPhrase) return;
@@ -1038,7 +1123,10 @@ export default function ReadDeviceBrowserScreen() {
   };
 
   const beginReadingExtraction = () => {
-    if (!currentUrl || isProtectedAuthenticationUrl(currentUrl)) return;
+    if (!currentUrl || isProtectedAuthenticationUrl(currentUrl) || pageAuthActive) {
+      setStatus('Finish signing in before starting Reader on this page.');
+      return;
+    }
     pageReadingGenerationRef.current += 1;
     latestUrlRef.current = currentUrl;
     setAudioError(null);
@@ -1327,7 +1415,7 @@ export default function ReadDeviceBrowserScreen() {
         </Pressable>
       </View>
 
-      {!reading || loading || audioState === 'extracting' || loadError ? (
+      {!reading || loading || audioState === 'extracting' || loadError || pageAuthActive ? (
         <View style={styles.statusBar}>
           {loading || audioState === 'extracting' ? (
             <ActivityIndicator size="small" color="#8B5CF6" />
@@ -1335,7 +1423,7 @@ export default function ReadDeviceBrowserScreen() {
           <Text numberOfLines={1} style={styles.statusText}>
             {loadError ?? status}
           </Text>
-          {!reading && currentUrl && !isProtectedAuthenticationUrl(currentUrl) ? (
+          {!reading && currentUrl && !isProtectedAuthenticationUrl(currentUrl) && !pageAuthActive ? (
             <Pressable
               accessibilityRole="button"
               accessibilityLabel="Read this page in place"
@@ -1378,6 +1466,7 @@ export default function ReadDeviceBrowserScreen() {
               // reload (same raw URL) or a different document still resets the
               // reading snapshot because the page contents may have changed.
               if (!hashOnlyNavigation) {
+                setPageAuthActive(false);
                 pageReadingGenerationRef.current += 1;
                 if (reading) {
                   persistBrowserProgress(displayedProgress);
@@ -1395,6 +1484,7 @@ export default function ReadDeviceBrowserScreen() {
             }}
             onLoadEnd={() => {
               setLoading(false);
+              webViewRef.current?.injectJavaScript(WATCH_LIVE_AUTH_STATE);
               setStatus(
                 isProtectedAuthenticationUrl(currentUrl)
                   ? 'Sign-in page · Reader stays out of authentication'
@@ -1444,7 +1534,16 @@ export default function ReadDeviceBrowserScreen() {
                   text?: string;
                   message?: string;
                   language?: string;
+                  active?: boolean;
                 };
+                if (payload.type === 'FLOENTLY_DEVICE_BROWSER_AUTH_STATE') {
+                  const active = Boolean((payload as { active?: boolean }).active);
+                  setPageAuthActive(active);
+                  if (!active) {
+                    setStatus(reading ? 'Reader ready on this page' : 'Ready');
+                  }
+                  return;
+                }
                 if (payload.type === 'FLOENTLY_DEVICE_BROWSER_READ_ERROR') {
                   setAudioState('error');
                   setAudioError(payload.message || 'This page could not be prepared for reading.');
@@ -1498,7 +1597,7 @@ export default function ReadDeviceBrowserScreen() {
           </View>
         )}
 
-        {reading ? (
+        {reading && !pageAuthActive ? (
           controlsHidden && isPlaying ? (
             <Pressable
               accessibilityRole="button"
