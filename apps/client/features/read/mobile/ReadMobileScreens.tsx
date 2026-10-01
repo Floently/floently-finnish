@@ -1077,9 +1077,11 @@ export function ReadReaderScreen() {
       setControlsHidden(false);
       return;
     }
+    if (controlsHidden) return;
+
     const timer = setTimeout(() => setControlsHidden(true), 3_500);
     return () => clearTimeout(timer);
-  }, [audioError, document?.id, playbackIsPlaying, playerExpanded]);
+  }, [audioError, controlsHidden, document?.id, playbackIsPlaying, playerExpanded]);
 
   useEffect(() => {
     if (!document) return;
