@@ -1,12 +1,16 @@
 name: iOS TestFlight release candidate
 
 on:
-  push:
-    branches:
-      - agent/build-48-native-read-release-20260929
-    paths:
-      - .github/workflows/ios-testflight-release.yml
   workflow_dispatch:
+    inputs:
+      product_owner_approval:
+        description: "Type APPROVE_IOS_BUILD only after the product owner explicitly approves consuming one monthly build"
+        required: true
+        type: string
+      known_blockers:
+        description: "Type ZERO_KNOWN_BLOCKERS only after the release ledger has no known blocking defect"
+        required: true
+        type: string
 
 permissions:
   contents: read
@@ -23,6 +27,18 @@ jobs:
       EXPO_TOKEN: ${{ secrets.EXPO_TOKEN }}
 
     steps:
+      - name: Enforce explicit build approval
+        run: |
+          test "${{ inputs.product_owner_approval }}" = "APPROVE_IOS_BUILD" || {
+            echo "iOS build blocked: explicit product-owner approval is required." >&2
+            exit 1
+          }
+          test "${{ inputs.known_blockers }}" = "ZERO_KNOWN_BLOCKERS" || {
+            echo "iOS build blocked: release ledger still has known blockers or was not explicitly cleared." >&2
+            exit 1
+          }
+          echo "IOS_BUILD_APPROVAL_GATE=PASS"
+
       - name: Check out exact candidate
         uses: actions/checkout@v4
 
