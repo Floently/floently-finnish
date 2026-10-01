@@ -1432,11 +1432,11 @@ export function ReadReaderScreen() {
         {controlsHidden && isPlaying ? (
           <Pressable
             accessibilityRole="button"
-            accessibilityLabel="Pause reading and show controls"
-            onPress={pauseAudio}
+            accessibilityLabel="Show reader controls"
+            onPress={() => setControlsHidden(false)}
             style={[styles.readerHiddenPill, { backgroundColor: palette.nav, borderColor: palette.border, shadowColor: palette.shadow }]}
           >
-            <Text style={[styles.readerHiddenPillText, { color: palette.text }]}>Ⅱ</Text>
+            <Text style={[styles.readerHiddenPillText, { color: palette.text }]}>⌃</Text>
           </Pressable>
         ) : (
         <View style={[styles.readerDock, { backgroundColor: palette.nav, borderColor: palette.border, shadowColor: palette.shadow }]}>
