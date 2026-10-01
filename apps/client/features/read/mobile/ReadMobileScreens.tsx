@@ -999,7 +999,7 @@ export function ReadReaderScreen() {
       document?.generatedText ?? '',
       document?.playbackSpeed ?? 1,
       1800,
-      360,
+      240,
     ),
     [document?.generatedText, document?.playbackSpeed],
   );
