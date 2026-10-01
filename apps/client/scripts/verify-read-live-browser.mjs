@@ -89,6 +89,10 @@ assert.ok(deviceBrowser.includes('injectJavaScript(EXTRACT_READABLE_PAGE)') &&
 assert.ok(deviceBrowser.includes('downloadFirst: false') &&
   deviceBrowser.includes("setPlayerExpanded(false)"),
   'browser Read must stream the active voice promptly and auto-minimize the player when narration starts');
+assert.ok(deviceBrowser.includes('prefetchGenerationRef') &&
+  deviceBrowser.includes('await preloadSegment(nextIndex)') &&
+  deviceBrowser.includes('Prioritize the immediately upcoming hidden segment'),
+  'browser Read lookahead must prioritize the nearest hidden segment instead of stampeding TTS with parallel future requests');
 assert.ok(deviceBrowser.includes('activePlaybackKeyRef') &&
   deviceBrowser.includes('startedPlaybackKeyRef') &&
   deviceBrowser.includes('playbackStatus.didJustFinish') &&
@@ -240,6 +244,10 @@ assert.ok(home.includes('preferredForwardBufferDuration: 30') &&
   'native Read must stream the active clip immediately while keeping a forward buffer for future hidden segments');
 assert.ok(home.includes('readingPrefetchIndexes(readingManifest, index, 120, 4)'),
   'native Read must preload by a time horizon instead of exposing a fixed chunk cadence');
+assert.ok(home.includes('prefetchGenerationRef') &&
+  home.includes('await preloadAudioChunk(nextIndex)') &&
+  home.includes('Warm the next hidden segment before later lookahead'),
+  'native Read lookahead must prepare the nearest hidden segment first and cancel stale speculative runs');
 assert.ok(playbackManifest.includes('estimatedPlaybackDurationSeconds') &&
   playbackManifest.includes('BASE_WORDS_PER_MINUTE = 170'),
   'native Read must estimate the complete reading duration immediately from the full document manifest');
