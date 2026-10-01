@@ -148,11 +148,11 @@ function browserVisualPhrase(
   currentTime: number,
   duration: number,
 ) {
-  const sourceWords = text.match(/[^\s]+/g) ?? [];
+  const sourceWords: string[] = text.match(/[^\s]+/g) ?? [];
   if (!sourceWords.length) return '';
 
   let activeIndex = 0;
-  let words = sourceWords;
+  let words: string[] = sourceWords;
 
   if (timings.length) {
     words = timings.map((timing) => timing.word).filter(Boolean);
