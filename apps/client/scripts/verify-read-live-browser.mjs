@@ -313,9 +313,11 @@ assert.ok(subscribeRoute.includes('requireReadAccess={false}'),
 assert.ok(browserRoute.includes('<ReadProtectedRoute>'),
   'Live browser route must be protected by the Read content gate');
 assert.ok(home.includes("navigate('/read/browser')"),
-  'Read home must expose the live web Reader');
+  'Read home must expose the local Browser Reader');
+assert.ok(home.includes('label="Open browser"') && !home.includes('Open live browser'),
+  'Read home must describe the current local browser instead of the retired remote/live topology');
 assert.ok(home.includes("{ key: 'browser', label: 'Browser', route: '/read/browser'"),
-  'Read bottom navigation must expose the live Browser');
+  'Read bottom navigation must expose the Browser');
 assert.ok(drawer.includes("onPress: () => void navigateTo('read')"),
   'Signed-in Floently drawer must expose guarded Read navigation');
 assert.ok(appShell.includes("if (screen === 'read')"),
