@@ -93,9 +93,11 @@ assert.ok(deviceBrowser.includes('BROWSER_READER_PREFS_KEY') &&
   deviceBrowser.includes('AsyncStorage.getItem(BROWSER_READER_PREFS_KEY)') &&
   deviceBrowser.includes('AsyncStorage.setItem('),
   'browser Read speed and voice must persist across page changes/reopens instead of resetting per page');
-assert.ok(deviceBrowser.includes("accessibilityLabel={playerExpanded ? 'Minimize reader controls' : 'Expand reader controls'}") &&
-  deviceBrowser.includes('compactRemaining'),
-  'browser Read must expose a compact default player with optional expanded controls');
+assert.ok(deviceBrowser.includes('styles.compactBar') &&
+  deviceBrowser.includes("accessibilityLabel="Expand reader controls"") &&
+  deviceBrowser.includes('compactRemaining') &&
+  deviceBrowser.includes('compactProgressTrack'),
+  'browser Read must expose a single-row compact default player with optional expanded controls');
 assert.ok(!deviceBrowser.includes("router.push('/read/reader' as never)") &&
   !deviceBrowser.includes("sourceType: 'browser'"),
   'pressing Read in the native browser must not convert/navigate the webpage into a separate text Reader');
