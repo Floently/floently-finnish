@@ -108,6 +108,9 @@ assert.ok(deviceBrowser.includes('styles.compactBar') &&
   deviceBrowser.includes('compactRemaining') &&
   deviceBrowser.includes('compactProgressTrack'),
   'browser Read must expose a single-row compact default player with optional expanded controls');
+assert.ok(deviceBrowser.includes('const stopReadingPage = () =>') &&
+  deviceBrowser.includes('accessibilityLabel="Stop reading this page"'),
+  'browser Read must let the user stop/remove narration without navigating away from the webpage');
 assert.ok(!deviceBrowser.includes("router.push('/read/reader' as never)") &&
   !deviceBrowser.includes("sourceType: 'browser'"),
   'pressing Read in the native browser must not convert/navigate the webpage into a separate text Reader');
