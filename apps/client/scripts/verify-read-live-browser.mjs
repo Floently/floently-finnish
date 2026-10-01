@@ -86,6 +86,12 @@ assert.ok(deviceBrowser.includes('injectJavaScript(EXTRACT_READABLE_PAGE)') &&
   deviceBrowser.includes('readTtsApi.prerenderReading') &&
   deviceBrowser.includes('player.replace(result.audioUrl)'),
   'native website Read must narrate the extracted content while staying on the original webpage');
+assert.ok(deviceBrowser.includes('downloadFirst: false') &&
+  deviceBrowser.includes("setPlayerExpanded(false)"),
+  'browser Read must stream the active voice promptly and auto-minimize the player when narration starts');
+assert.ok(deviceBrowser.includes("accessibilityLabel={playerExpanded ? 'Minimize reader controls' : 'Expand reader controls'}") &&
+  deviceBrowser.includes('compactRemaining'),
+  'browser Read must expose a compact default player with optional expanded controls');
 assert.ok(!deviceBrowser.includes("router.push('/read/reader' as never)") &&
   !deviceBrowser.includes("sourceType: 'browser'"),
   'pressing Read in the native browser must not convert/navigate the webpage into a separate text Reader');
@@ -143,6 +149,9 @@ assert.ok(readStore.includes('setVoiceId: (id, voiceId) =>'),
   'native Read state must own persistent per-document voice selection');
 assert.ok(readTts.includes("getReadApi('/api/voices/unified')"),
   'native Read must use the same unified voice catalog as the web Reader');
+assert.ok(readTts.includes("20_000") &&
+  readTts.includes("Voice generation took too long. Tap Play to retry."),
+  'native Read TTS startup must fail visibly instead of leaving the player spinning indefinitely');
 assert.ok(readTts.includes("azure:fi-FI-SelmaNeural"),
   'native Read must have a Finnish neural default when the document language is Finnish');
 assert.ok(readRender.includes('voice_id: input.voiceId') && readRender.includes('voiceId: input.voiceId'),
