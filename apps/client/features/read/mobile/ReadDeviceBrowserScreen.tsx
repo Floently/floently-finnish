@@ -128,6 +128,94 @@ function setPlayerPlaybackRate(player: ReturnType<typeof useAudioPlayer>, rate: 
   }
 }
 
+function buildReadingFocusScript(text: string) {
+  const needle = text
+    .replace(/\s+/g, ' ')
+    .trim()
+    .split(' ')
+    .slice(0, 10)
+    .join(' ');
+
+  return `
+(function () {
+  try {
+    const normalize = (value) => String(value || '').replace(/\\s+/g, ' ').trim();
+    const marker = 'data-floently-reading-focus';
+    const previous = document.querySelector('[' + marker + '="true"]');
+    if (previous) previous.removeAttribute(marker);
+
+    if (!document.getElementById('floently-reading-focus-style')) {
+      const style = document.createElement('style');
+      style.id = 'floently-reading-focus-style';
+      style.textContent =
+        '[data-floently-reading-focus="true"]{' +
+        'outline:2px solid rgba(118,87,232,.65)!important;' +
+        'outline-offset:4px!important;' +
+        'border-radius:6px!important;' +
+        'animation:floentlyReadingPulse 1.25s ease-out 1!important;' +
+        '}' +
+        '@keyframes floentlyReadingPulse{' +
+        '0%{background-color:rgba(118,87,232,.18)}' +
+        '100%{background-color:rgba(118,87,232,0)}' +
+        '}';
+      (document.head || document.documentElement).appendChild(style);
+    }
+
+    const needle = normalize(${JSON.stringify(needle)}).toLowerCase();
+    if (!needle) return;
+
+    const needleWords = needle.split(' ').filter(Boolean).slice(0, 8);
+    const candidates = Array.from(document.querySelectorAll(
+      'p,li,blockquote,h1,h2,h3,h4,h5,h6,td,th,article,section,div'
+    )).slice(0, 2500);
+
+    let target = null;
+    let targetScore = -1;
+
+    for (const element of candidates) {
+      const value = normalize(element.innerText || element.textContent || '');
+      if (!value || value.length > 7000) continue;
+      const lower = value.toLowerCase();
+
+      let score = 0;
+      if (lower.includes(needle)) score += 100;
+      for (const word of needleWords) {
+        if (word.length >= 3 && lower.includes(word)) score += 4;
+      }
+      if (value.length < 1800) score += 2;
+      if (score > targetScore) {
+        target = element;
+        targetScore = score;
+      }
+      if (score >= 100) break;
+    }
+
+    if (!target || targetScore < Math.max(8, needleWords.length * 2)) return;
+    target.setAttribute(marker, 'true');
+
+    const rect = target.getBoundingClientRect();
+    const viewportHeight = window.innerHeight || document.documentElement.clientHeight || 0;
+    if (viewportHeight > 0 && (rect.top < viewportHeight * .15 || rect.bottom > viewportHeight * .82)) {
+      target.scrollIntoView({ block: 'center', behavior: 'smooth' });
+    }
+  } catch (_) {}
+  true;
+})();
+`;
+}
+
+function buildClearReadingFocusScript() {
+  return `
+(function () {
+  try {
+    const current = document.querySelector('[data-floently-reading-focus="true"]');
+    if (current) current.removeAttribute('data-floently-reading-focus');
+  } catch (_) {}
+  true;
+})();
+`;
+}
+
 const EXTRACT_READABLE_PAGE = `
 (function () {
   try {
@@ -268,6 +356,7 @@ export default function ReadDeviceBrowserScreen() {
 
   const clearPreparedAudio = () => {
     player.pause();
+    webViewRef.current?.injectJavaScript(buildClearReadingFocusScript());
     setAudioResult(null);
     audioCache.current.clear();
     for (const url of preloadCache.current.keys()) {
@@ -375,6 +464,7 @@ export default function ReadDeviceBrowserScreen() {
       setActiveSegment(index);
       setAudioResult(result);
       handledFinishedRef.current = null;
+      webViewRef.current?.injectJavaScript(buildReadingFocusScript(segment.text));
       player.replace(result.audioUrl);
       setPlayerPlaybackRate(player, speed);
 
@@ -420,6 +510,7 @@ export default function ReadDeviceBrowserScreen() {
     }
 
     setAudioState('paused');
+    webViewRef.current?.injectJavaScript(buildClearReadingFocusScript());
     try { player.clearLockScreenControls(); } catch {}
   }, [
     activeSegment,
