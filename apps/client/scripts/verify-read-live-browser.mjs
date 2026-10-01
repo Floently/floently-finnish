@@ -97,6 +97,9 @@ assert.ok(deviceBrowser.includes('audioPrepareCache') &&
   deviceBrowser.includes('const inFlight = audioPrepareCache.current.get(key)') &&
   deviceBrowser.includes('audioPrepareCache.current.set(key, request)'),
   'browser Read must deduplicate overlapping active/lookahead neural TTS requests for the same hidden segment');
+assert.ok(deviceBrowser.includes('audioGenerationRef') &&
+  deviceBrowser.includes('if (audioGenerationRef.current !== generation) return;'),
+  'browser Read must ignore TTS completions that return after navigation, stop, reload, or voice reset');
 assert.ok(deviceBrowser.includes('activePlaybackKeyRef') &&
   deviceBrowser.includes('startedPlaybackKeyRef') &&
   deviceBrowser.includes('playbackStatus.didJustFinish') &&
@@ -278,6 +281,9 @@ assert.ok(home.includes('audioChunkPrepareCache') &&
   home.includes('const inFlight = audioChunkPrepareCache.current.get(key)') &&
   home.includes('audioChunkPrepareCache.current.set(key, request)'),
   'native Read must reuse in-flight TTS preparation instead of issuing duplicate synthesis for one hidden segment');
+assert.ok(home.includes('audioGenerationRef') &&
+  home.includes('if (audioGenerationRef.current !== generation) return;'),
+  'native Read must ignore old TTS completions after the active document or voice changes');
 assert.ok(playbackManifest.includes('estimatedPlaybackDurationSeconds') &&
   playbackManifest.includes('BASE_WORDS_PER_MINUTE = 170'),
   'native Read must estimate the complete reading duration immediately from the full document manifest');
