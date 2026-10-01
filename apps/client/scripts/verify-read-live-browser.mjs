@@ -100,7 +100,7 @@ assert.ok(deviceBrowser.includes('BROWSER_READER_PREFS_KEY') &&
   deviceBrowser.includes('AsyncStorage.setItem('),
   'browser Read speed and voice must persist across page changes/reopens instead of resetting per page');
 assert.ok(deviceBrowser.includes('styles.compactBar') &&
-  deviceBrowser.includes("accessibilityLabel="Expand reader controls"") &&
+  deviceBrowser.includes('accessibilityLabel="Expand reader controls"') &&
   deviceBrowser.includes('compactRemaining') &&
   deviceBrowser.includes('compactProgressTrack'),
   'browser Read must expose a single-row compact default player with optional expanded controls');
