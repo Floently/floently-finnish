@@ -97,7 +97,7 @@ assert.ok(deviceBrowser.includes('PROTECTED_AUTH_HOSTS') &&
   deviceBrowser.includes('Reader stays out of authentication'),
   'Reader extraction must stay out of protected authentication pages');
 assert.ok(deviceBrowser.includes('injectJavaScript(EXTRACT_READABLE_PAGE)') &&
-  deviceBrowser.includes('createReadingPlaybackManifest(payload.text, speed, 1400, 220)') &&
+  deviceBrowser.includes('createReadingPlaybackManifest(pageReading.text, speed, 1400, 220)') &&
   deviceBrowser.includes('readTtsApi.prerenderReading') &&
   deviceBrowser.includes('player.replace(result.audioUrl)'),
   'native website Read must narrate the extracted content while staying on the original webpage');
