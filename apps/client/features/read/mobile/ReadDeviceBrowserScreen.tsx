@@ -590,6 +590,7 @@ export default function ReadDeviceBrowserScreen() {
     audioGenerationRef.current += 1;
     prefetchGenerationRef.current += 1;
     player.pause();
+    try { player.clearLockScreenControls(); } catch {}
     webViewRef.current?.injectJavaScript(buildClearReadingFocusScript());
     setAudioResult(null);
     audioCache.current.clear();
