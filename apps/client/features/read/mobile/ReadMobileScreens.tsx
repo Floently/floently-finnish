@@ -907,6 +907,7 @@ export function ReadReaderScreen() {
   const handledFinishedChunk = useRef<string | null>(null);
   const activePlaybackKeyRef = useRef<string | null>(null);
   const startedPlaybackKeyRef = useRef<string | null>(null);
+  const audioGenerationRef = useRef(0);
   const prefetchGenerationRef = useRef(0);
   const voiceChangeResumeRef = useRef<{ index: number; autoplay: boolean } | null>(null);
   const playAttemptRef = useRef(0);
@@ -1101,6 +1102,7 @@ export function ReadReaderScreen() {
     setAudioResult(null);
     setAudioState('idle');
     setAudioError(null);
+    audioGenerationRef.current += 1;
     prefetchGenerationRef.current += 1;
     audioChunkCache.current.clear();
     audioChunkPrepareCache.current.clear();
@@ -1114,6 +1116,7 @@ export function ReadReaderScreen() {
   }, [document?.id]);
 
   useEffect(() => {
+    audioGenerationRef.current += 1;
     prefetchGenerationRef.current += 1;
     audioChunkCache.current.clear();
     audioChunkPrepareCache.current.clear();
@@ -1140,6 +1143,7 @@ export function ReadReaderScreen() {
   }, [document?.voiceId]);
 
   useEffect(() => () => {
+    audioGenerationRef.current += 1;
     prefetchGenerationRef.current += 1;
     try { player.clearLockScreenControls(); } catch {}
     for (const url of audioPreloadCache.current.keys()) {
@@ -1163,12 +1167,15 @@ export function ReadReaderScreen() {
     // Reuse speculative lookahead when this segment becomes active. This
     // avoids duplicate TTS calls during seeks/handoffs and keeps the nearest
     // required audio ahead of distant speculative work.
+    const generation = audioGenerationRef.current;
     const request = readTtsApi.prerenderReading({
       text: audioChunks[index],
       language: document.language,
       voiceId: selectedVoice?.id || defaultVoiceId || document.voiceId,
     }).then((result) => {
-      audioChunkCache.current.set(key, result);
+      if (audioGenerationRef.current === generation) {
+        audioChunkCache.current.set(key, result);
+      }
       return result;
     }).finally(() => {
       if (audioChunkPrepareCache.current.get(key) === request) {
@@ -1226,6 +1233,7 @@ export function ReadReaderScreen() {
 
   async function playAudioChunk(index: number) {
     if (!document || !audioChunks[index]) return;
+    const generation = audioGenerationRef.current;
     setAudioState('preparing');
     setAudioError(null);
     try {
@@ -1233,6 +1241,7 @@ export function ReadReaderScreen() {
       // the TTS URL, stream it immediately, and reserve preload() for the
       // upcoming hidden segments.
       const result = await prepareAudioChunk(index);
+      if (audioGenerationRef.current !== generation) return;
       setActiveAudioChunk(index);
       handledFinishedChunk.current = null;
       const playbackKey = `${document.id}:${index}:${result.cacheKey || result.audioUrl}`;
@@ -1254,6 +1263,7 @@ export function ReadReaderScreen() {
           await player.seekTo(loadedDuration * resumeFraction);
         }
       }
+      if (audioGenerationRef.current !== generation) return;
       resumeFractionRef.current = 0;
 
       enableLockScreenControls();
