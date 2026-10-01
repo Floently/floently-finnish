@@ -950,100 +950,147 @@ export default function ReadDeviceBrowserScreen() {
 
         {reading ? (
           <View style={[styles.player, playerExpanded && styles.playerExpanded]}>
-            <Pressable
-              accessibilityRole="button"
-              accessibilityLabel={playerExpanded ? 'Minimize reader controls' : 'Expand reader controls'}
-              onPress={() => setPlayerExpanded((value) => !value)}
-              style={styles.playerTop}
-            >
-              <View style={styles.nowReading}>
-                <Text style={styles.nowLabel}>NOW READING</Text>
-                <Text numberOfLines={playerExpanded ? 2 : 1} style={styles.nowText}>
-                  {activeText || reading.title}
-                </Text>
-              </View>
-              <Text style={styles.expandGlyph}>{playerExpanded ? '⌄' : '⌃'}</Text>
-            </Pressable>
+            {!playerExpanded ? (
+              <>
+                <View style={styles.compactBar}>
+                  <Pressable
+                    accessibilityRole="button"
+                    accessibilityLabel={isPlaying ? 'Pause reading' : 'Play reading'}
+                    disabled={isPreparing}
+                    onPress={togglePlayback}
+                    style={[styles.compactPlay, isPreparing && styles.disabled]}
+                  >
+                    {isPreparing ? (
+                      <ActivityIndicator color="#FFFFFF" size="small" />
+                    ) : (
+                      <Text style={styles.compactPlayText}>{isPlaying ? 'Ⅱ' : '▶'}</Text>
+                    )}
+                  </Pressable>
 
-            <View style={styles.progressRow}>
-              <Text style={styles.progressText}>
-                {formatReadingClock(currentSeconds)} / {formatReadingClock(totalSeconds)}
-              </Text>
-              <Text style={styles.progressText}>{Math.round(displayedProgress * 100)}%</Text>
-            </View>
-            <View style={styles.progressTrack}>
-              <View
-                style={[
-                  styles.progressFill,
-                  { width: `${Math.max(0, Math.min(100, displayedProgress * 100))}%` },
-                ]}
-              />
-            </View>
+                  <Pressable
+                    accessibilityRole="button"
+                    accessibilityLabel="Expand reader controls"
+                    accessibilityState={{ expanded: false }}
+                    onPress={() => setPlayerExpanded(true)}
+                    style={styles.compactNow}
+                  >
+                    <Text style={styles.nowLabel}>NOW READING</Text>
+                    <Text numberOfLines={1} style={styles.compactNowText}>
+                      {activeText || reading.title}
+                    </Text>
+                  </Pressable>
 
-            <View style={styles.transport}>
-              {playerExpanded ? (
-                <Pressable
-                  accessibilityRole="button"
-                  accessibilityLabel="Back 10 seconds"
-                  onPress={() => { void seekBySeconds(-10); }}
-                  style={styles.transportSecondary}
-                >
-                  <Text style={styles.transportSecondaryText}>-10s</Text>
-                </Pressable>
-              ) : null}
-
-              <Pressable
-                accessibilityRole="button"
-                accessibilityLabel={isPlaying ? 'Pause reading' : 'Play reading'}
-                disabled={isPreparing}
-                onPress={togglePlayback}
-                style={[styles.transportPrimary, isPreparing && styles.disabled]}
-              >
-                {isPreparing ? (
-                  <ActivityIndicator color="#FFFFFF" />
-                ) : (
-                  <Text style={styles.transportPrimaryText}>{isPlaying ? 'Ⅱ' : '▶'}</Text>
-                )}
-              </Pressable>
-
-              {playerExpanded ? (
-                <Pressable
-                  accessibilityRole="button"
-                  accessibilityLabel="Forward 10 seconds"
-                  onPress={() => { void seekBySeconds(10); }}
-                  style={styles.transportSecondary}
-                >
-                  <Text style={styles.transportSecondaryText}>+10s</Text>
-                </Pressable>
-              ) : (
-                <Text style={styles.compactRemaining}>
-                  {formatReadingClock(Math.max(0, totalSeconds - currentSeconds))} left
-                </Text>
-              )}
-            </View>
-
-            {playerExpanded ? (
-              <View style={styles.optionRow}>
-                <Pressable
-                  accessibilityRole="button"
-                  accessibilityLabel="Change voice"
-                  onPress={cycleVoice}
-                  style={[styles.optionChip, styles.optionVoice]}
-                >
-                  <Text numberOfLines={1} style={styles.optionText}>
-                    {selectedVoice ? selectedVoice.name : 'Voice'}
+                  <Text style={styles.compactRemaining}>
+                    {formatReadingClock(Math.max(0, totalSeconds - currentSeconds))}
                   </Text>
-                </Pressable>
+
+                  <Pressable
+                    accessibilityRole="button"
+                    accessibilityLabel="Expand reader controls"
+                    onPress={() => setPlayerExpanded(true)}
+                    style={styles.compactExpand}
+                  >
+                    <Text style={styles.expandGlyph}>⌃</Text>
+                  </Pressable>
+                </View>
+                <View style={[styles.progressTrack, styles.compactProgressTrack]}>
+                  <View
+                    style={[
+                      styles.progressFill,
+                      { width: `${Math.max(0, Math.min(100, displayedProgress * 100))}%` },
+                    ]}
+                  />
+                </View>
+              </>
+            ) : (
+              <>
                 <Pressable
                   accessibilityRole="button"
-                  accessibilityLabel="Change speed"
-                  onPress={cycleSpeed}
-                  style={styles.optionChip}
+                  accessibilityLabel="Minimize reader controls"
+                  accessibilityState={{ expanded: true }}
+                  onPress={() => setPlayerExpanded(false)}
+                  style={styles.playerTop}
                 >
-                  <Text style={styles.optionText}>{speed}x</Text>
+                  <View style={styles.nowReading}>
+                    <Text style={styles.nowLabel}>NOW READING</Text>
+                    <Text numberOfLines={2} style={styles.nowText}>
+                      {activeText || reading.title}
+                    </Text>
+                  </View>
+                  <Text style={styles.expandGlyph}>⌄</Text>
                 </Pressable>
-              </View>
-            ) : null}
+
+                <View style={styles.progressRow}>
+                  <Text style={styles.progressText}>
+                    {formatReadingClock(currentSeconds)} / {formatReadingClock(totalSeconds)}
+                  </Text>
+                  <Text style={styles.progressText}>{Math.round(displayedProgress * 100)}%</Text>
+                </View>
+                <View style={styles.progressTrack}>
+                  <View
+                    style={[
+                      styles.progressFill,
+                      { width: `${Math.max(0, Math.min(100, displayedProgress * 100))}%` },
+                    ]}
+                  />
+                </View>
+
+                <View style={styles.transport}>
+                  <Pressable
+                    accessibilityRole="button"
+                    accessibilityLabel="Back 10 seconds"
+                    onPress={() => { void seekBySeconds(-10); }}
+                    style={styles.transportSecondary}
+                  >
+                    <Text style={styles.transportSecondaryText}>-10s</Text>
+                  </Pressable>
+
+                  <Pressable
+                    accessibilityRole="button"
+                    accessibilityLabel={isPlaying ? 'Pause reading' : 'Play reading'}
+                    disabled={isPreparing}
+                    onPress={togglePlayback}
+                    style={[styles.transportPrimary, isPreparing && styles.disabled]}
+                  >
+                    {isPreparing ? (
+                      <ActivityIndicator color="#FFFFFF" />
+                    ) : (
+                      <Text style={styles.transportPrimaryText}>{isPlaying ? 'Ⅱ' : '▶'}</Text>
+                    )}
+                  </Pressable>
+
+                  <Pressable
+                    accessibilityRole="button"
+                    accessibilityLabel="Forward 10 seconds"
+                    onPress={() => { void seekBySeconds(10); }}
+                    style={styles.transportSecondary}
+                  >
+                    <Text style={styles.transportSecondaryText}>+10s</Text>
+                  </Pressable>
+                </View>
+
+                <View style={styles.optionRow}>
+                  <Pressable
+                    accessibilityRole="button"
+                    accessibilityLabel="Change voice"
+                    onPress={cycleVoice}
+                    style={[styles.optionChip, styles.optionVoice]}
+                  >
+                    <Text numberOfLines={1} style={styles.optionText}>
+                      {selectedVoice ? selectedVoice.name : 'Voice'}
+                    </Text>
+                  </Pressable>
+                  <Pressable
+                    accessibilityRole="button"
+                    accessibilityLabel="Change speed"
+                    onPress={cycleSpeed}
+                    style={styles.optionChip}
+                  >
+                    <Text style={styles.optionText}>{speed}x</Text>
+                  </Pressable>
+                </View>
+              </>
+            )}
 
             {audioError ? <Text style={styles.playerError}>{audioError}</Text> : null}
           </View>
@@ -1155,6 +1202,38 @@ const styles = StyleSheet.create({
   playerExpanded: {
     paddingVertical: 14,
   },
+  compactBar: {
+    minHeight: 50,
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 9,
+  },
+  compactPlay: {
+    width: 44,
+    height: 44,
+    borderRadius: 22,
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: '#7657E8',
+  },
+  compactPlayText: { color: '#FFFFFF', fontSize: 17, fontWeight: '900' },
+  compactNow: {
+    flex: 1,
+    minWidth: 0,
+    justifyContent: 'center',
+  },
+  compactNowText: {
+    color: '#FFFFFF',
+    fontSize: 12,
+    lineHeight: 16,
+    fontWeight: '800',
+  },
+  compactExpand: {
+    width: 36,
+    height: 44,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
   playerTop: {
     minHeight: 44,
     flexDirection: 'row',
@@ -1195,6 +1274,9 @@ const styles = StyleSheet.create({
     overflow: 'hidden',
     backgroundColor: 'rgba(255,255,255,0.10)',
   },
+  compactProgressTrack: {
+    marginTop: 4,
+  },
   progressFill: {
     height: '100%',
     borderRadius: 999,
@@ -1229,10 +1311,11 @@ const styles = StyleSheet.create({
   },
   transportSecondaryText: { color: '#D9E0EE', fontSize: 13, fontWeight: '900' },
   compactRemaining: {
-    minWidth: 76,
+    minWidth: 58,
     color: '#AEB7CB',
     fontSize: 11,
     fontWeight: '800',
+    textAlign: 'right',
   },
   optionRow: {
     flexDirection: 'row',
