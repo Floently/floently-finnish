@@ -755,6 +755,11 @@ export default function ReadDeviceBrowserScreen() {
     }).then((result) => {
       if (audioGenerationRef.current === generation) {
         audioCache.current.set(key, result);
+        while (audioCache.current.size > 16) {
+          const oldest = audioCache.current.keys().next().value as string | undefined;
+          if (!oldest || oldest === key) break;
+          audioCache.current.delete(oldest);
+        }
       }
       return result;
     }).finally(() => {
@@ -775,6 +780,12 @@ export default function ReadDeviceBrowserScreen() {
         preferredForwardBufferDuration: 20,
       }).catch(() => {});
       preloadCache.current.set(result.audioUrl, pending);
+      while (preloadCache.current.size > 12) {
+        const oldestUrl = preloadCache.current.keys().next().value as string | undefined;
+        if (!oldestUrl || oldestUrl === result.audioUrl) break;
+        preloadCache.current.delete(oldestUrl);
+        void clearPreloadedSource(oldestUrl).catch(() => {});
+      }
     }
     await pending;
   };
