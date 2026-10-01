@@ -110,10 +110,12 @@ assert.ok(deviceBrowser.includes('BROWSER_READER_PREFS_KEY') &&
   deviceBrowser.includes('AsyncStorage.getItem(BROWSER_READER_PREFS_KEY)') &&
   deviceBrowser.includes('AsyncStorage.setItem('),
   'browser Read speed and voice must persist across page changes/reopens instead of resetting per page');
-assert.ok(deviceBrowser.includes("language: String(document.documentElement.lang || navigator.language || 'auto')") &&
+assert.ok(deviceBrowser.includes('inferBrowserReadingLanguage') &&
+  deviceBrowser.includes("document.querySelector('meta[http-equiv="content-language"]')") &&
+  !deviceBrowser.includes('navigator.language ||') &&
   deviceBrowser.includes('const browserVoices = useMemo(() =>') &&
   deviceBrowser.includes("language: reading?.language || 'auto'"),
-  'browser Read must use the webpage language to avoid sending an incompatible saved voice to TTS');
+  'browser Read must prefer declared/content-detected language instead of assuming the device locale for TTS');
 assert.ok(deviceBrowser.includes("setAudioState(wasPlaying ? 'preparing' : 'paused')"),
   'changing Browser Reader voice during playback must continue from the same logical cursor');
 assert.ok(deviceBrowser.includes('BROWSER_READER_PROGRESS_PREFIX') &&
@@ -135,8 +137,10 @@ assert.ok(deviceBrowser.includes('styles.compactBar') &&
 assert.ok(deviceBrowser.includes('setControlsHidden(true)') &&
   deviceBrowser.includes('accessibilityLabel="Show reader controls"') &&
   deviceBrowser.includes('hiddenPlayerPill') &&
+  deviceBrowser.includes('hiddenPlayerTime') &&
+  deviceBrowser.includes('hiddenPlayerLiveDot') &&
   deviceBrowser.includes('const playbackHasStarted ='),
-  'browser Read must auto-hide only after real playback starts, not while audio is still preparing');
+  'browser Read must auto-hide only after real playback starts and keep a small active-reading/time capsule');
 assert.ok(deviceBrowser.includes('const stopReadingPage = () =>') &&
   deviceBrowser.includes('accessibilityLabel="Stop reading this page"'),
   'browser Read must let the user stop/remove narration without navigating away from the webpage');
@@ -257,9 +261,11 @@ assert.ok(home.includes('styles.readerCompactBar') &&
   'standalone native Reader must start as a single-row compact player instead of covering the page');
 assert.ok(home.includes('setControlsHidden(true)') &&
   home.includes('readerHiddenPill') &&
+  home.includes('readerHiddenPillTime') &&
+  home.includes('readerHiddenLiveDot') &&
   home.includes('accessibilityLabel="Show reader controls"') &&
   home.includes('const playbackHasStarted ='),
-  'standalone Reader must auto-hide only after real playback begins');
+  'standalone Reader must auto-hide only after real playback begins and preserve a minimal active-reading/time capsule');
 assert.ok(!home.includes('generatedText.slice(0, 4000)'),
   'native Read must never silently truncate narration to the first 4000 characters');
 assert.ok(home.includes('readingProgressForSegment') && home.includes('displayedProgress'),
