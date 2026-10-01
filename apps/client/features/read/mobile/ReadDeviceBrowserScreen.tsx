@@ -1131,6 +1131,9 @@ export default function ReadDeviceBrowserScreen() {
     }
 
     player.pause();
+    if (!wasPlaying) {
+      try { player.clearLockScreenControls(); } catch {}
+    }
     setActiveSegment(target.index);
     setAudioResult(null);
     resumeFractionRef.current = target.fraction;
