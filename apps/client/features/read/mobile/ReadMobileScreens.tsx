@@ -940,6 +940,7 @@ export function ReadReaderScreen() {
 
   const monitorPlaybackStart = () => {
     const attempt = ++playAttemptRef.current;
+
     setTimeout(() => {
       if (playAttemptRef.current !== attempt) return;
       const health = playbackHealthRef.current;
@@ -951,6 +952,19 @@ export function ReadReaderScreen() {
       );
       setPlayerExpanded(true);
     }, 5_000);
+
+    setTimeout(() => {
+      if (playAttemptRef.current !== attempt) return;
+      const health = playbackHealthRef.current;
+      if (health.playing || health.currentTime > 0.05) return;
+
+      player.pause();
+      setAudioState('paused');
+      setAudioError(
+        'Audio is still buffering. Check the connection, then tap Play to retry.',
+      );
+      setPlayerExpanded(true);
+    }, 12_000);
   };
 
   useEffect(() => {
