@@ -185,6 +185,10 @@ assert.ok(deviceBrowser.includes('styles.compactBar') &&
   deviceBrowser.includes('compactRemaining') &&
   deviceBrowser.includes('compactProgressTrack'),
   'browser Read must expose a single-row compact default player with optional expanded controls');
+assert.ok(deviceBrowser.includes('accessibilityLabel="Seek through reading"') &&
+  deviceBrowser.includes('progressTrackWidth') &&
+  deviceBrowser.includes('event.nativeEvent.locationX / progressTrackWidth'),
+  'expanded Browser Reader timeline must be tappable as a whole-document seek control');
 assert.ok(deviceBrowser.includes("browserArea: { flex: 1, position: 'relative'") &&
   deviceBrowser.includes('zIndex: 100') &&
   deviceBrowser.includes('elevation: 20') &&
@@ -454,6 +458,10 @@ assert.ok(home.includes('async function seekDocumentBySeconds(deltaSeconds: numb
   home.includes('accessibilityLabel="Back 10 seconds"') &&
   home.includes('accessibilityLabel="Forward 10 seconds"'),
   'native Read skip controls must seek on the logical document timeline across hidden segment boundaries');
+assert.ok(home.includes('readerProgressTrackWidth') &&
+  home.includes('accessibilityLabel="Seek through reading"') &&
+  home.includes('event.nativeEvent.locationX / readerProgressTrackWidth'),
+  'expanded native Reader timeline must be directly tappable for whole-document seeking');
 assert.ok(home.includes('If the active AVPlayer item is not seekable yet') &&
   deviceBrowser.includes('the ±10 second control appear dead'),
   'native and browser Reader seek controls must recover if the active media item is temporarily unseekable');
