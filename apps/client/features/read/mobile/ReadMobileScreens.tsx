@@ -893,6 +893,7 @@ export function ReadReaderScreen() {
   const [studyOpen, setStudyOpen] = useState(false);
   const [playerExpanded, setPlayerExpanded] = useState(false);
   const [controlsHidden, setControlsHidden] = useState(false);
+  const [readerProgressTrackWidth, setReaderProgressTrackWidth] = useState(0);
   const [studyBusy, setStudyBusy] = useState(false);
   const [studyAction, setStudyAction] = useState<ReadAiAction | null>(null);
   const [studyTitle, setStudyTitle] = useState('Summary & AI');
@@ -1616,7 +1617,24 @@ export function ReadReaderScreen() {
                 <Text style={[styles.readerTime, { color: palette.muted }]}>{timeLabel}</Text>
                 <Text style={[styles.readerTime, { color: palette.muted }]}>{safePct(displayedProgress)}%</Text>
               </View>
-              <ProgressBar progress={displayedProgress} height={4} />
+              <Pressable
+                accessibilityRole="adjustable"
+                accessibilityLabel="Seek through reading"
+                accessibilityValue={{ now: Math.round(displayedProgress * 100), min: 0, max: 100 }}
+                onLayout={(event) => setReaderProgressTrackWidth(event.nativeEvent.layout.width)}
+                onPress={(event) => {
+                  if (!readerProgressTrackWidth) return;
+                  const targetProgress = Math.max(
+                    0,
+                    Math.min(1, event.nativeEvent.locationX / readerProgressTrackWidth),
+                  );
+                  const total = Math.max(1, readingManifest.estimatedPlaybackDurationSeconds);
+                  void seekDocumentBySeconds((targetProgress - displayedProgress) * total);
+                }}
+                style={styles.readerSeekTrack}
+              >
+                <ProgressBar progress={displayedProgress} height={4} />
+              </Pressable>
 
               <View style={styles.readerControls}>
                 <Pressable
@@ -2116,6 +2134,7 @@ const styles = StyleSheet.create({
   readerNowText: { fontSize: 12, lineHeight: 17, fontWeight: '700' },
   readerDockTop: { flexDirection: 'row', justifyContent: 'space-between' },
   readerTime: { fontSize: 11, fontWeight: '800' },
+  readerSeekTrack: { minHeight: 18, justifyContent: 'center', paddingVertical: 6 },
   readerControls: { minHeight: 54, flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 18 },
   readerCompactRemaining: { minWidth: 74, fontSize: 11, fontWeight: '800' },
   roundControl: { minWidth: 56, height: 44, borderRadius: 22, borderWidth: 1, alignItems: 'center', justifyContent: 'center', paddingHorizontal: 8 },
