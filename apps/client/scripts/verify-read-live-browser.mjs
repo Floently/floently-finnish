@@ -94,8 +94,10 @@ assert.ok(!deviceBrowser.includes('flowReader.auth.apiKey') &&
   'app authentication secrets must never be injected into arbitrary websites');
 assert.ok(deviceBrowser.includes('PROTECTED_AUTH_HOSTS') &&
   deviceBrowser.includes("isProtectedAuthenticationUrl(currentUrl)") &&
-  deviceBrowser.includes('Reader stays out of authentication'),
-  'Reader extraction must stay out of protected authentication pages');
+  deviceBrowser.includes('Reader stays out of authentication') &&
+  deviceBrowser.includes('input[autocomplete="current-password"]') &&
+  deviceBrowser.includes('Finish signing in before starting Reader on this page.'),
+  'Reader extraction must stay out of protected authentication hosts and live sign-in forms');
 assert.ok(deviceBrowser.includes('injectJavaScript(EXTRACT_READABLE_PAGE)') &&
   deviceBrowser.includes('createReadingPlaybackManifest(pageReading.text, speed, 1400, 220)') &&
   deviceBrowser.includes('readTtsApi.prerenderReading') &&
