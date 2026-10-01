@@ -67,6 +67,23 @@ type BrowserAudioState =
   | 'paused'
   | 'error';
 
+function browserPageIdentity(value: string) {
+  try {
+    const parsed = new URL(value);
+    // Hash-only navigation is a position/UI state change inside the same page,
+    // not a new document. Keeping narration alive here matters on course/SPAs
+    // that update anchors while the learner moves around the rendered lesson.
+    parsed.hash = '';
+    return parsed.toString();
+  } catch {
+    return String(value || '').split('#')[0];
+  }
+}
+
+function isSameBrowserReadingPage(left: string, right: string) {
+  return browserPageIdentity(left) === browserPageIdentity(right);
+}
+
 function browserReadingFingerprint(text: string) {
   // Dynamic course/article routes frequently reuse the same URL. Include a
   // deterministic content fingerprint so progress and prepared TTS from an
@@ -80,7 +97,7 @@ function browserReadingFingerprint(text: string) {
 }
 
 function browserReadingProgressKey(reading: BrowserReading) {
-  const stableUrl = reading.url.slice(0, 480);
+  const stableUrl = browserPageIdentity(reading.url).slice(0, 480);
   return `${BROWSER_READER_PROGRESS_PREFIX}${stableUrl}:${browserReadingFingerprint(reading.text)}`;
 }
 
@@ -712,7 +729,7 @@ export default function ReadDeviceBrowserScreen() {
 
   const chunkKey = (index: number) => {
     const pageIdentity = reading
-      ? `${reading.url}:${browserReadingFingerprint(reading.text)}`
+      ? `${browserPageIdentity(reading.url)}:${browserReadingFingerprint(reading.text)}`
       : currentUrl || 'page';
     return `${pageIdentity}:${effectiveVoiceId || 'default'}:${index}`;
   };
@@ -818,7 +835,7 @@ export default function ReadDeviceBrowserScreen() {
       // matters when resuming near the end of a segment.
       prefetchAhead(index);
       const playbackIdentity = reading
-        ? `${reading.url}:${browserReadingFingerprint(reading.text)}`
+        ? `${browserPageIdentity(reading.url)}:${browserReadingFingerprint(reading.text)}`
         : currentUrl || 'page';
       const playbackKey = `${playbackIdentity}:${index}:${result.cacheKey || result.audioUrl}`;
       activePlaybackKeyRef.current = playbackKey;
@@ -954,12 +971,18 @@ export default function ReadDeviceBrowserScreen() {
     setCanGoBack(navigation.canGoBack);
     setCanGoForward(navigation.canGoForward);
     if (/^https?:\/\//i.test(navigation.url)) {
-      if (navigation.url !== currentUrl && reading?.url && navigation.url !== reading.url) {
+      const movedToDifferentReadingPage =
+        Boolean(reading?.url) &&
+        !isSameBrowserReadingPage(navigation.url, reading!.url);
+
+      if (movedToDifferentReadingPage) {
         persistBrowserProgress(displayedProgress);
         clearPreparedAudio();
         setReading(null);
         setManifest(EMPTY_MANIFEST);
         setAudioState('idle');
+        setControlsHidden(false);
+        setStatus('Ready');
       }
       setCurrentUrl(navigation.url);
       setAddressText(navigation.url);
