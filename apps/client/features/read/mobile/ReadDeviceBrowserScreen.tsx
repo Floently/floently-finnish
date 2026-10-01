@@ -620,6 +620,10 @@ export default function ReadDeviceBrowserScreen() {
   }, [displayedProgress, reading]);
 
   const isPlaying = audioState === 'playing' || playbackStatus.playing;
+  const playbackHasStarted =
+    playbackStatus.playing &&
+    !playbackStatus.isBuffering &&
+    playbackStatus.currentTime > 0.05;
   const isPreparing =
     audioState === 'extracting' ||
     audioState === 'preparing' ||
@@ -631,7 +635,7 @@ export default function ReadDeviceBrowserScreen() {
   }, [activeVisualPhrase, isPlaying, reading?.url]);
 
   useEffect(() => {
-    if (!reading || !isPlaying || playerExpanded || audioError) {
+    if (!reading || !playbackHasStarted || playerExpanded || audioError) {
       setControlsHidden(false);
       return;
     }
@@ -639,7 +643,7 @@ export default function ReadDeviceBrowserScreen() {
 
     const timer = setTimeout(() => setControlsHidden(true), 3_500);
     return () => clearTimeout(timer);
-  }, [audioError, controlsHidden, isPlaying, playerExpanded, reading?.url]);
+  }, [audioError, controlsHidden, playbackHasStarted, playerExpanded, reading?.url]);
 
   const chunkKey = (index: number) =>
     `${reading?.url || currentUrl || 'page'}:${effectiveVoiceId || 'default'}:${index}`;
