@@ -1122,7 +1122,7 @@ export function ReadReaderScreen() {
   }, [player]);
 
   const chunkCacheKey = (index: number) =>
-    `${document?.id || 'none'}:${document?.voiceId || selectedVoice?.id || defaultVoiceId || 'default'}:${index}`;
+    `${document?.id || 'none'}:${selectedVoice?.id || defaultVoiceId || document?.voiceId || 'default'}:${index}`;
 
   async function prepareAudioChunk(index: number): Promise<ReadTtsResult> {
     if (!document || !audioChunks[index]) throw new Error('No readable audio segment is available.');
@@ -1133,7 +1133,7 @@ export function ReadReaderScreen() {
     const result = await readTtsApi.prerenderReading({
       text: audioChunks[index],
       language: document.language,
-      voiceId: document.voiceId || selectedVoice?.id || defaultVoiceId,
+      voiceId: selectedVoice?.id || defaultVoiceId || document.voiceId,
     });
     audioChunkCache.current.set(key, result);
     return result;
