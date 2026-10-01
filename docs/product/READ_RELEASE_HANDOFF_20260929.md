@@ -317,3 +317,38 @@ Implemented source-only after the build freeze:
 - `88e86b0`: in-page Browser Reader startup/seek path hardened for sources that are not immediately seekable.
 
 No TestFlight/EAS build was triggered by these source-only commits. Normal source CI may run.
+
+
+## 2026-10-01 next-iOS-build zero-known-blocker gate
+
+The product owner explicitly requires the next iOS build to be treated as a scarce release-candidate build. There are only two monthly mobile builds remaining.
+
+**Hard rule:** do not queue EAS, TestFlight, or App Store iOS build work until the product owner explicitly approves the build in chat **and** the release ledger has zero known blocking defects.
+
+The GitHub TestFlight workflow is now manual-only and requires both typed inputs:
+
+- `APPROVE_IOS_BUILD`
+- `ZERO_KNOWN_BLOCKERS`
+
+Normal source CI checks that this build lock remains in place.
+
+### Entry criteria before asking for build approval
+
+All of the following must be true on the exact candidate SHA:
+
+1. Full client + backend CI is green.
+2. Browser Reader remains on the original webpage; pressing Read never converts/navigates to a separate text view.
+3. Website login/passkey/password interaction remains locally owned and usable; Reader yields to visible sign-in UI.
+4. Browser reload, close/reopen, renderer termination, popup/new-window navigation, and stale-navigation cancellation have no known source defect.
+5. Narration starts without an indefinite spinner; TTS startup has a bounded failure path and retry.
+6. Whole-document duration/progress/seek/resume is coherent across hidden TTS boundaries.
+7. Speed and voice changes preserve the logical reading position and settings do not reset per paragraph/page.
+8. Compact player UI is the default and secondary controls are hidden until expanded; duplicate transport surfaces are absent.
+9. In-page narration focus/highlight follows the original webpage without replacing its DOM/content.
+10. Background/lock-screen ownership is coherent and stale lock-screen state is cleared on stop/navigation/auth/voice changes.
+11. Long-session lookahead, TTS request deduplication, stale-completion cancellation, bounded caches, and nearest-handoff retry all pass source verification.
+12. **NR-16 / NR-19 must no longer be knowingly unresolved:** iOS Now Playing must not expose the short physical hidden-clip timeline as though it were the entire reading. A source-level document-wide media-session solution must exist before consuming the next scarce build.
+13. No other open HIGH/BLOCKER item remains in issue #77 without explicit product-owner acceptance.
+14. The exact candidate SHA's CI result and the zero-known-blocker checklist are recorded in issue #77 before build approval is requested.
+
+A new build is for **physical validation of a source candidate believed complete**, not for discovering already-known source defects.
