@@ -411,8 +411,12 @@ assert.ok(playbackManifest.includes('readingPositionForProgress') &&
   }
 
   const lookahead = playbackRuntime.readingPrefetchIndexes(oneX, 1, 120, 4);
-  assert.ok(lookahead.length >= 2 && lookahead.length <= 4,
-    'prefetch plan must keep several future hidden segments warm without expanding without bound');
+  const lookaheadSeconds = lookahead.reduce(
+    (total, index) => total + (oneX.segments[index]?.estimatedPlaybackDurationSeconds || 0),
+    0,
+  );
+  assert.ok(lookahead.length >= 1 && lookahead.length <= 4 && lookaheadSeconds >= 120,
+    'prefetch plan must cover the requested listening horizon without expanding without bound');
   assert.equal(playbackRuntime.formatReadingClock(3661), '1:01:01',
     'multi-hour readings must keep an hours-aware logical clock');
 }
