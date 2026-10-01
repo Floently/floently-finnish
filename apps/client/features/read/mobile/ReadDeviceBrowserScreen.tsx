@@ -67,9 +67,21 @@ type BrowserAudioState =
   | 'paused'
   | 'error';
 
+function browserReadingFingerprint(text: string) {
+  // Dynamic course/article routes frequently reuse the same URL. Include a
+  // deterministic content fingerprint so progress and prepared TTS from an
+  // older page body can never leak into newly rendered content.
+  let hash = 2166136261;
+  for (let index = 0; index < text.length; index += 1) {
+    hash ^= text.charCodeAt(index);
+    hash = Math.imul(hash, 16777619);
+  }
+  return `${text.length.toString(36)}-${(hash >>> 0).toString(36)}`;
+}
+
 function browserReadingProgressKey(reading: BrowserReading) {
   const stableUrl = reading.url.slice(0, 480);
-  return `${BROWSER_READER_PROGRESS_PREFIX}${stableUrl}:${reading.text.length}`;
+  return `${BROWSER_READER_PROGRESS_PREFIX}${stableUrl}:${browserReadingFingerprint(reading.text)}`;
 }
 
 function isProtectedAuthenticationUrl(value: string | null) {
@@ -667,8 +679,12 @@ export default function ReadDeviceBrowserScreen() {
     return () => clearTimeout(timer);
   }, [audioError, controlsHidden, playbackHasStarted, playerExpanded, reading?.url]);
 
-  const chunkKey = (index: number) =>
-    `${reading?.url || currentUrl || 'page'}:${effectiveVoiceId || 'default'}:${index}`;
+  const chunkKey = (index: number) => {
+    const pageIdentity = reading
+      ? `${reading.url}:${browserReadingFingerprint(reading.text)}`
+      : currentUrl || 'page';
+    return `${pageIdentity}:${effectiveVoiceId || 'default'}:${index}`;
+  };
 
   const prepareSegment = async (index: number) => {
     const segment = manifest.segments[index];
