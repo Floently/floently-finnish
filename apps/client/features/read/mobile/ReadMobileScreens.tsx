@@ -596,7 +596,7 @@ export function ReadHomeScreen() {
           <View style={styles.homeHeroText}>
             <Text style={[styles.kicker, { color: palette.accent2 }]}>Floently Read</Text>
             <Text style={[styles.homeTitle, { color: palette.text }]}>Read, listen, and understand.</Text>
-            <Text style={[styles.homeSubtitle, { color: palette.muted }]}>Import anything, browse live websites, continue instantly, and listen with a calm reader.</Text>
+            <Text style={[styles.homeSubtitle, { color: palette.muted }]}>Import anything, browse websites on this device, continue instantly, and listen with a calm reader.</Text>
           </View>
           <MetricPill label="Library" value={String(documents.length)} tone="blue" />
         </View>
@@ -611,7 +611,7 @@ export function ReadHomeScreen() {
               Open articles and websites in the dedicated Browser Reader, interact normally, and keep the native Read experience around the page.
             </Text>
           </View>
-          <PrimaryButton label="Open live browser" onPress={() => navigate('/read/browser')} />
+          <PrimaryButton label="Open browser" onPress={() => navigate('/read/browser')} />
         </View>
 
         <View style={[styles.sectionCard, { backgroundColor: palette.surface, borderColor: palette.border }]}>
