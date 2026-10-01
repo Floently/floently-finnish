@@ -122,6 +122,11 @@ assert.ok(deviceBrowser.includes('buildReadingFocusScript') &&
   deviceBrowser.includes('data-floently-reading-focus') &&
   deviceBrowser.includes("scrollIntoView({ block: 'center', behavior: 'smooth' })"),
   'browser narration must follow/highlight the original webpage without replacing its content');
+assert.ok(deviceBrowser.includes('browserVisualPhrase') &&
+  deviceBrowser.includes('const bucketSize = 7') &&
+  deviceBrowser.includes('audioResult?.wordTimings') &&
+  deviceBrowser.includes('buildReadingFocusScript(activeVisualPhrase)'),
+  'in-page focus must advance throughout a long hidden audio segment instead of blinking only at segment boundaries');
 assert.ok(deviceBrowser.includes("const paragraphs = [];") &&
   deviceBrowser.includes("paragraphs.join('\\\\n\\\\n')") &&
   deviceBrowser.includes("replace(/([.!?])([A-ZÀ-ÖØ-Þ])/g, '$1 $2')"),
