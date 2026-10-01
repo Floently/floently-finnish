@@ -366,6 +366,7 @@ export default function ReadDeviceBrowserScreen() {
   const [defaultVoiceId, setDefaultVoiceId] = useState<string | null>(null);
   const [selectedVoiceId, setSelectedVoiceId] = useState<string | null>(null);
   const [playerExpanded, setPlayerExpanded] = useState(false);
+  const [controlsHidden, setControlsHidden] = useState(false);
 
   useEffect(() => {
     if (Platform.OS !== 'web') return;
@@ -557,6 +558,16 @@ export default function ReadDeviceBrowserScreen() {
     audioState === 'preparing' ||
     playbackStatus.isBuffering;
 
+  useEffect(() => {
+    if (!reading || !isPlaying || playerExpanded || audioError) {
+      setControlsHidden(false);
+      return;
+    }
+
+    const timer = setTimeout(() => setControlsHidden(true), 3_500);
+    return () => clearTimeout(timer);
+  }, [audioError, isPlaying, playerExpanded, reading?.url]);
+
   const chunkKey = (index: number) =>
     `${reading?.url || currentUrl || 'page'}:${selectedVoiceId || defaultVoiceId || 'default'}:${index}`;
 
@@ -646,6 +657,7 @@ export default function ReadDeviceBrowserScreen() {
       monitorPlaybackStart();
       setAudioState('playing');
       setPlayerExpanded(false);
+      setControlsHidden(false);
       prefetchAhead(index);
     } catch (error) {
       setAudioState('error');
@@ -722,6 +734,7 @@ export default function ReadDeviceBrowserScreen() {
     setAudioState('idle');
     setAudioError(null);
     setPlayerExpanded(false);
+    setControlsHidden(false);
     setStatus('Ready');
   };
 
@@ -830,6 +843,7 @@ export default function ReadDeviceBrowserScreen() {
       monitorPlaybackStart();
       setAudioState('playing');
       setPlayerExpanded(false);
+      setControlsHidden(false);
       prefetchAhead(activeSegment);
       return;
     }
@@ -1136,6 +1150,22 @@ export default function ReadDeviceBrowserScreen() {
         )}
 
         {reading ? (
+          controlsHidden && isPlaying ? (
+            <Pressable
+              accessibilityRole="button"
+              accessibilityLabel="Pause reading and show controls"
+              onPress={() => {
+                playAttemptRef.current += 1;
+                player.pause();
+                persistBrowserProgress(displayedProgress);
+                setAudioState('paused');
+                setControlsHidden(false);
+              }}
+              style={styles.hiddenPlayerPill}
+            >
+              <Text style={styles.hiddenPlayerIcon}>Ⅱ</Text>
+            </Pressable>
+          ) : (
           <View style={[styles.player, playerExpanded && styles.playerExpanded]}>
             {!playerExpanded ? (
               <>
@@ -1289,6 +1319,7 @@ export default function ReadDeviceBrowserScreen() {
 
             {audioError ? <Text style={styles.playerError}>{audioError}</Text> : null}
           </View>
+          )
         ) : null}
       </View>
     </SafeAreaView>
@@ -1377,6 +1408,29 @@ const styles = StyleSheet.create({
     maxWidth: 420,
   },
 
+  hiddenPlayerPill: {
+    position: 'absolute',
+    right: 16,
+    bottom: 14,
+    width: 50,
+    height: 50,
+    borderRadius: 25,
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: 'rgba(12,18,32,0.94)',
+    borderWidth: StyleSheet.hairlineWidth,
+    borderColor: 'rgba(132,111,255,0.55)',
+    shadowColor: '#000000',
+    shadowOpacity: 0.28,
+    shadowRadius: 12,
+    shadowOffset: { width: 0, height: 6 },
+    elevation: 12,
+  },
+  hiddenPlayerIcon: {
+    color: '#FFFFFF',
+    fontSize: 17,
+    fontWeight: '900',
+  },
   player: {
     position: 'absolute',
     left: 12,
