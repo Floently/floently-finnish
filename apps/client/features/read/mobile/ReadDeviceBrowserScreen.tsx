@@ -898,7 +898,7 @@ export default function ReadDeviceBrowserScreen() {
 
   useEffect(() => {
     if (!reading || !audioResult) return;
-    const currentKey = `${reading.url}:${browserReadingFingerprint(reading.text)}:${activeSegment}:${audioResult.cacheKey || audioResult.audioUrl}`;
+    const currentKey = `${browserPageIdentity(reading.url)}:${browserReadingFingerprint(reading.text)}:${activeSegment}:${audioResult.cacheKey || audioResult.audioUrl}`;
     if (
       activePlaybackKeyRef.current === currentKey &&
       (playbackStatus.playing || playbackStatus.currentTime > 0)
@@ -915,7 +915,7 @@ export default function ReadDeviceBrowserScreen() {
 
   useEffect(() => {
     if (!reading || !audioResult || !playbackStatus.didJustFinish) return;
-    const key = `${reading.url}:${browserReadingFingerprint(reading.text)}:${activeSegment}:${audioResult.cacheKey || audioResult.audioUrl}`;
+    const key = `${browserPageIdentity(reading.url)}:${browserReadingFingerprint(reading.text)}:${activeSegment}:${audioResult.cacheKey || audioResult.audioUrl}`;
     if (
       activePlaybackKeyRef.current !== key ||
       startedPlaybackKeyRef.current !== key ||
