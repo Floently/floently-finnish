@@ -1456,6 +1456,8 @@ export function ReadReaderScreen() {
     const position = readingPositionForProgress(readingManifest, progress);
     updateProgress(document.id, progress);
     playAttemptRef.current += 1;
+    audioGenerationRef.current += 1;
+    prefetchGenerationRef.current += 1;
     player.pause();
     setActiveAudioChunk(position.index);
     setAudioResult(null);
