@@ -190,6 +190,11 @@ assert.ok(home.includes('monitorPlaybackStart') &&
   home.includes('Audio did not start. If a call or another app is using audio') &&
   deviceBrowser.includes('Audio did not start. If a call or another app is using audio'),
   'native Readers must surface blocked audio-session startup instead of leaving an endless loading state');
+assert.ok(home.includes("Audio is still buffering. Check the connection") &&
+  deviceBrowser.includes("Audio is still buffering. Check the connection") &&
+  home.includes('12_000') &&
+  deviceBrowser.includes('12_000'),
+  'native Readers must bound prolonged media buffering and remain retryable');
 assert.ok(readTts.includes("azure:fi-FI-SelmaNeural"),
   'native Read must have a Finnish neural default when the document language is Finnish');
 assert.ok(readRender.includes('voice_id: input.voiceId') && readRender.includes('voiceId: input.voiceId'),
