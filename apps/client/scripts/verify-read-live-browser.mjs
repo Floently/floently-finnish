@@ -130,6 +130,8 @@ assert.ok(deviceBrowser.includes("hardRestart('The website process stopped. Rest
 assert.ok(!deviceBrowser.includes('embed=react-native') &&
   !deviceBrowser.includes('Secure remote browser'),
   'the native browser must not depend on the remote Browser V2 embed topology');
+assert.ok(!deviceBrowser.includes('Blocked an unsupported external-app link.'),
+  'background custom-scheme probes must not appear as a false browser failure');
 
 assert.ok(readLandingRoute.includes('FloentlyReadLandingScreen') &&
   readLandingRoute.includes('return <FloentlyReadLandingScreen />'),
@@ -252,6 +254,10 @@ assert.ok(appBase.expo?.plugins?.some((plugin) =>
   'Expo native config must enable background playback for the final binary');
 assert.ok(readStore.includes('progressSyncChains') && readStore.includes('queueProgressSync'),
   'native Read progress writes must be serialized to prevent stale resume overwrites');
+assert.ok(home.includes('15 / Math.max(15, readingManifest.estimatedPlaybackDurationSeconds)') &&
+  deviceBrowser.includes('15 / totalSeconds') &&
+  deviceBrowser.includes("AppState.addEventListener('change'"),
+  'long readings must save progress by listening time and on background instead of waiting for a one-percent jump');
 for (const marker of ['Summary & AI', 'Summary', 'Key points', 'Explain', 'Flashcards', 'Quiz me', 'Exam coach', 'Glossary', 'Ask AI']) {
   assert.ok(home.includes(marker), `native Read player missing study/AI control: ${marker}`);
 }
