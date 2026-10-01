@@ -636,10 +636,11 @@ export default function ReadDeviceBrowserScreen() {
       setControlsHidden(false);
       return;
     }
+    if (controlsHidden) return;
 
     const timer = setTimeout(() => setControlsHidden(true), 3_500);
     return () => clearTimeout(timer);
-  }, [audioError, isPlaying, playerExpanded, reading?.url]);
+  }, [audioError, controlsHidden, isPlaying, playerExpanded, reading?.url]);
 
   const chunkKey = (index: number) =>
     `${reading?.url || currentUrl || 'page'}:${effectiveVoiceId || 'default'}:${index}`;
