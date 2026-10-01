@@ -326,6 +326,18 @@ const EXTRACT_READABLE_PAGE = `
       .replace(/\\s+/g, ' ')
       .trim();
 
+    // Never turn a live sign-in form into narration input. Authentication
+    // remains owned by the local browser/OS until the user finishes signing in.
+    if (document.querySelector(
+      'input[type="password"], input[autocomplete="current-password"], input[autocomplete="one-time-code"]'
+    )) {
+      window.ReactNativeWebView.postMessage(JSON.stringify({
+        type: 'FLOENTLY_DEVICE_BROWSER_READ_ERROR',
+        message: 'Finish signing in before starting Reader on this page.'
+      }));
+      return true;
+    }
+
     const excludedSelector = [
       'script', 'style', 'noscript', 'template', 'nav', 'footer', 'aside',
       '[role="navigation"]', '[role="dialog"]', '[role="menu"]',
