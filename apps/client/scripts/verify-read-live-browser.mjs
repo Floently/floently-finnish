@@ -185,6 +185,11 @@ assert.ok(deviceBrowser.includes('buildReadingFocusScript') &&
   deviceBrowser.includes('data-floently-reading-focus') &&
   deviceBrowser.includes("scrollIntoView({ block: 'center', behavior: 'smooth' })"),
   'browser narration must follow/highlight the original webpage without replacing its content');
+assert.ok(deviceBrowser.includes('pageReadingGenerationRef') &&
+  deviceBrowser.includes('latestUrlRef') &&
+  deviceBrowser.includes('pageReadingGenerationRef.current !== generation') &&
+  deviceBrowser.includes('isSameBrowserReadingPage(pageReading.url, currentLatestUrl)'),
+  'late extraction/resume work from a previous page must never start narration after browser navigation');
 assert.ok(deviceBrowser.includes('browserVisualPhrase') &&
   deviceBrowser.includes('const bucketSize = 7') &&
   deviceBrowser.includes('audioResult?.wordTimings') &&
