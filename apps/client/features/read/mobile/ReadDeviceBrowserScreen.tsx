@@ -1820,7 +1820,7 @@ const styles = StyleSheet.create({
   },
   statusText: { flex: 1, color: '#9CA8BF', fontSize: 11, fontWeight: '700' },
   readButton: {
-    minHeight: 34,
+    minHeight: 44,
     minWidth: 68,
     paddingHorizontal: 16,
     borderRadius: 999,
@@ -1829,8 +1829,8 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   readButtonText: { color: '#FFFFFF', fontSize: 13, fontWeight: '900' },
-  browserArea: { flex: 1, backgroundColor: '#030712' },
-  webView: { flex: 1, backgroundColor: '#FFFFFF' },
+  browserArea: { flex: 1, position: 'relative', backgroundColor: '#030712' },
+  webView: { flex: 1, zIndex: 0, backgroundColor: '#FFFFFF' },
   centered: {
     flex: 1,
     backgroundColor: '#070B16',
@@ -1875,7 +1875,8 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.28,
     shadowRadius: 12,
     shadowOffset: { width: 0, height: 6 },
-    elevation: 12,
+    elevation: 20,
+    zIndex: 100,
   },
   hiddenPlayerLiveDot: {
     width: 7,
@@ -1909,7 +1910,8 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.30,
     shadowRadius: 16,
     shadowOffset: { width: 0, height: 8 },
-    elevation: 12,
+    elevation: 20,
+    zIndex: 100,
   },
   playerExpanded: {
     paddingVertical: 14,
@@ -1941,7 +1943,7 @@ const styles = StyleSheet.create({
     fontWeight: '800',
   },
   compactExpand: {
-    width: 36,
+    width: 44,
     height: 44,
     alignItems: 'center',
     justifyContent: 'center',
@@ -2035,7 +2037,7 @@ const styles = StyleSheet.create({
     marginTop: 4,
   },
   optionChip: {
-    minHeight: 42,
+    minHeight: 44,
     minWidth: 72,
     paddingHorizontal: 14,
     borderRadius: 21,
