@@ -905,6 +905,12 @@ export function ReadReaderScreen() {
   const handledFinishedChunk = useRef<string | null>(null);
   const activePlaybackKeyRef = useRef<string | null>(null);
   const startedPlaybackKeyRef = useRef<string | null>(null);
+  const playAttemptRef = useRef(0);
+  const playbackHealthRef = useRef({
+    playing: false,
+    isBuffering: false,
+    currentTime: 0,
+  });
   const theme = useReadMobileStore((state) => state.readTheme);
   const palette = paletteFor(theme);
 
@@ -914,6 +920,33 @@ export function ReadReaderScreen() {
       shouldPlayInBackground: true,
     });
   }, []);
+
+  useEffect(() => {
+    playbackHealthRef.current = {
+      playing: playbackStatus.playing,
+      isBuffering: playbackStatus.isBuffering,
+      currentTime: playbackStatus.currentTime,
+    };
+  }, [
+    playbackStatus.currentTime,
+    playbackStatus.isBuffering,
+    playbackStatus.playing,
+  ]);
+
+  const monitorPlaybackStart = () => {
+    const attempt = ++playAttemptRef.current;
+    setTimeout(() => {
+      if (playAttemptRef.current !== attempt) return;
+      const health = playbackHealthRef.current;
+      if (health.playing || health.isBuffering || health.currentTime > 0.05) return;
+
+      setAudioState('paused');
+      setAudioError(
+        'Audio did not start. If a call or another app is using audio, end or pause it and tap Play again.',
+      );
+      setPlayerExpanded(true);
+    }, 5_000);
+  };
 
   useEffect(() => {
     let cancelled = false;
@@ -1009,6 +1042,7 @@ export function ReadReaderScreen() {
 
   useEffect(() => {
     if (!document) return;
+    playAttemptRef.current += 1;
     player.pause();
     try { player.clearLockScreenControls(); } catch {}
     const savedPosition = readingPositionForProgress(readingManifest, document.readingProgress);
@@ -1128,6 +1162,7 @@ export function ReadReaderScreen() {
 
       enableLockScreenControls();
       player.play();
+      monitorPlaybackStart();
       setAudioState('playing');
       setPlayerExpanded(false);
 
@@ -1194,6 +1229,7 @@ export function ReadReaderScreen() {
       setPlayerPlaybackRate(player, document.playbackSpeed);
       enableLockScreenControls();
       player.play();
+      monitorPlaybackStart();
       setAudioState('playing');
       setPlayerExpanded(false);
       prefetchReadingHorizon(activeAudioChunk);
@@ -1204,6 +1240,7 @@ export function ReadReaderScreen() {
   }
 
   function pauseAudio() {
+    playAttemptRef.current += 1;
     player.pause();
     if (document) updateProgress(document.id, displayedProgress);
     setAudioState('paused');
@@ -1275,6 +1312,7 @@ export function ReadReaderScreen() {
     const progress = displayedProgress;
     const position = readingPositionForProgress(readingManifest, progress);
     updateProgress(document.id, progress);
+    playAttemptRef.current += 1;
     player.pause();
     setActiveAudioChunk(position.index);
     setAudioResult(null);
