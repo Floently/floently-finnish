@@ -90,7 +90,7 @@ assert.ok(!deviceBrowser.includes("router.push('/read/reader' as never)") &&
   !deviceBrowser.includes("sourceType: 'browser'"),
   'pressing Read in the native browser must not convert/navigate the webpage into a separate text Reader');
 assert.ok(deviceBrowser.includes("Browse on this device") &&
-  deviceBrowser.includes("Website rendering, touch, cookies and sign-in now stay in the phone's native browser engine"),
+  deviceBrowser.includes("Website rendering, touch, cookies and sign-in stay in the phone's native browser engine"),
   'native Browser UI must truthfully describe local device ownership');
 assert.ok(deviceBrowser.includes("hardRestart('The website process stopped. Restoring it in a fresh browser…')"),
   'renderer death must replace the native browser surface rather than reattach a stale remote browser');
