@@ -903,6 +903,8 @@ export function ReadReaderScreen() {
   const audioPreloadCache = useRef(new Map<string, Promise<void>>());
   const resumeFractionRef = useRef(0);
   const handledFinishedChunk = useRef<string | null>(null);
+  const activePlaybackKeyRef = useRef<string | null>(null);
+  const startedPlaybackKeyRef = useRef<string | null>(null);
   const theme = useReadMobileStore((state) => state.readTheme);
   const palette = paletteFor(theme);
 
@@ -1021,6 +1023,8 @@ export function ReadReaderScreen() {
     }
     audioPreloadCache.current.clear();
     handledFinishedChunk.current = null;
+    activePlaybackKeyRef.current = null;
+    startedPlaybackKeyRef.current = null;
   }, [document?.id]);
 
   useEffect(() => {
@@ -1030,6 +1034,8 @@ export function ReadReaderScreen() {
     }
     audioPreloadCache.current.clear();
     handledFinishedChunk.current = null;
+    activePlaybackKeyRef.current = null;
+    startedPlaybackKeyRef.current = null;
   }, [document?.voiceId]);
 
   useEffect(() => () => {
@@ -1099,6 +1105,9 @@ export function ReadReaderScreen() {
       const result = await prepareAudioChunk(index);
       setActiveAudioChunk(index);
       handledFinishedChunk.current = null;
+      const playbackKey = `${document.id}:${index}:${result.cacheKey || result.audioUrl}`;
+      activePlaybackKeyRef.current = playbackKey;
+      startedPlaybackKeyRef.current = null;
       setAudioResult(result);
       player.replace(result.audioUrl);
       setPlayerPlaybackRate(player, document.playbackSpeed);
@@ -1130,10 +1139,35 @@ export function ReadReaderScreen() {
   }
 
   useEffect(() => {
+    if (!document || !audioResult) return;
+    const currentKey = `${document.id}:${activeAudioChunk}:${audioResult.cacheKey || audioResult.audioUrl}`;
+    if (
+      activePlaybackKeyRef.current === currentKey &&
+      (playbackStatus.playing || playbackStatus.currentTime > 0)
+    ) {
+      startedPlaybackKeyRef.current = currentKey;
+    }
+  }, [
+    activeAudioChunk,
+    audioResult,
+    document,
+    playbackStatus.currentTime,
+    playbackStatus.playing,
+  ]);
+
+  useEffect(() => {
     if (!document || !audioResult || !playbackStatus.didJustFinish) return;
     const finishedKey = `${document.id}:${activeAudioChunk}:${audioResult.cacheKey || audioResult.audioUrl}`;
-    if (handledFinishedChunk.current === finishedKey) return;
+    // Expo Audio can leave didJustFinish=true for one status tick after
+    // replace(). Never let that stale event instantly skip the newly loaded
+    // hidden segment before it has actually started.
+    if (
+      activePlaybackKeyRef.current !== finishedKey ||
+      startedPlaybackKeyRef.current !== finishedKey ||
+      handledFinishedChunk.current === finishedKey
+    ) return;
     handledFinishedChunk.current = finishedKey;
+    startedPlaybackKeyRef.current = null;
 
     const nextIndex = activeAudioChunk + 1;
     if (nextIndex < audioChunks.length) {
@@ -1188,6 +1222,8 @@ export function ReadReaderScreen() {
 
     updateProgress(document.id, targetProgress);
     handledFinishedChunk.current = null;
+    activePlaybackKeyRef.current = null;
+    startedPlaybackKeyRef.current = null;
 
     if (
       target.index === activeAudioChunk &&
@@ -1248,6 +1284,8 @@ export function ReadReaderScreen() {
     audioPreloadCache.current.clear();
     resumeFractionRef.current = position.fraction;
     handledFinishedChunk.current = null;
+    activePlaybackKeyRef.current = null;
+    startedPlaybackKeyRef.current = null;
     setVoiceId(document.id, nextVoice.id);
   }
 
