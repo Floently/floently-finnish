@@ -1337,6 +1337,11 @@ export function ReadReaderScreen() {
     }
 
     updateProgress(document.id, 1);
+    setAudioResult(null);
+    resumeFractionRef.current = 1;
+    activePlaybackKeyRef.current = null;
+    startedPlaybackKeyRef.current = null;
+    setControlsHidden(false);
     try { player.clearLockScreenControls(); } catch {}
     setAudioState('paused');
   }, [activeAudioChunk, audioChunks.length, audioResult, document, playbackStatus.didJustFinish, updateProgress]);
@@ -1350,6 +1355,15 @@ export function ReadReaderScreen() {
 
   async function generateAndPlayAudio() {
     if (!document || document.status === 'processing' || !audioChunks.length) return;
+
+    if (displayedProgress >= 0.999) {
+      setActiveAudioChunk(0);
+      setAudioResult(null);
+      resumeFractionRef.current = 0;
+      updateProgress(document.id, 0);
+      await playAudioChunk(0);
+      return;
+    }
 
     if (audioResult?.audioUrl) {
       setPlayerPlaybackRate(player, document.playbackSpeed);
