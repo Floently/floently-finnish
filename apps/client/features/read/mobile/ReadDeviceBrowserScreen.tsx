@@ -1218,27 +1218,27 @@ export default function ReadDeviceBrowserScreen() {
         </Pressable>
       </View>
 
-      <View style={styles.statusBar}>
-        {loading || audioState === 'extracting' ? (
-          <ActivityIndicator size="small" color="#8B5CF6" />
-        ) : null}
-        <Text numberOfLines={1} style={styles.statusText}>
-          {loadError ?? audioError ?? status}
-        </Text>
-        {currentUrl && !isProtectedAuthenticationUrl(currentUrl) ? (
-          <Pressable
-            accessibilityRole="button"
-            accessibilityLabel="Read this page in place"
-            disabled={audioState === 'extracting'}
-            onPress={reading ? togglePlayback : beginReadingExtraction}
-            style={[styles.readButton, audioState === 'extracting' && styles.disabled]}
-          >
-            <Text style={styles.readButtonText}>
-              {reading && isPlaying ? 'Pause' : reading ? 'Play' : 'Read'}
-            </Text>
-          </Pressable>
-        ) : null}
-      </View>
+      {!reading || loading || audioState === 'extracting' || loadError ? (
+        <View style={styles.statusBar}>
+          {loading || audioState === 'extracting' ? (
+            <ActivityIndicator size="small" color="#8B5CF6" />
+          ) : null}
+          <Text numberOfLines={1} style={styles.statusText}>
+            {loadError ?? status}
+          </Text>
+          {!reading && currentUrl && !isProtectedAuthenticationUrl(currentUrl) ? (
+            <Pressable
+              accessibilityRole="button"
+              accessibilityLabel="Read this page in place"
+              disabled={audioState === 'extracting'}
+              onPress={beginReadingExtraction}
+              style={[styles.readButton, audioState === 'extracting' && styles.disabled]}
+            >
+              <Text style={styles.readButtonText}>Read</Text>
+            </Pressable>
+          ) : null}
+        </View>
+      ) : null}
 
       <View style={styles.browserArea}>
         {currentUrl ? (
