@@ -84,6 +84,30 @@ function browserReadingProgressKey(reading: BrowserReading) {
   return `${BROWSER_READER_PROGRESS_PREFIX}${stableUrl}:${browserReadingFingerprint(reading.text)}`;
 }
 
+function inferBrowserReadingLanguage(declaredLanguage: string, text: string) {
+  const declared = String(declaredLanguage || '')
+    .trim()
+    .toLowerCase()
+    .split('-')[0];
+  if (declared && declared !== 'auto' && /^[a-z]{2,3}$/.test(declared)) return declared;
+
+  const lower = ` ${text.toLowerCase().replace(/\s+/g, ' ')} `;
+  const score = (signals: string[]) =>
+    signals.reduce((total, signal) => total + (lower.includes(signal) ? 1 : 0), 0);
+  const candidates: Array<[string, number]> = [
+    ['fi', score([' ja ', ' että ', ' tämä ', ' kanssa ', ' mutta ', ' myös ', ' ovat ', ' sinun '])],
+    ['sv', score([' och ', ' att ', ' detta ', ' med ', ' men ', ' också ', ' inte ', ' är '])],
+    ['en', score([' the ', ' and ', ' this ', ' with ', ' from ', ' your ', ' you ', ' are '])],
+    ['de', score([' der ', ' die ', ' und ', ' das ', ' mit ', ' nicht ', ' ist ', ' sind '])],
+    ['fr', score([' le ', ' les ', ' et ', ' cette ', ' avec ', ' pour ', ' est ', ' sont '])],
+    ['es', score([' el ', ' los ', ' y ', ' esta ', ' con ', ' para ', ' es ', ' son '])],
+  ];
+  candidates.sort((a, b) => b[1] - a[1]);
+  const [bestLanguage, bestScore] = candidates[0];
+  const secondScore = candidates[1]?.[1] ?? 0;
+  return bestScore >= 2 && bestScore > secondScore ? bestLanguage : 'auto';
+}
+
 function isProtectedAuthenticationUrl(value: string | null) {
   if (!value) return false;
   try {
@@ -348,7 +372,11 @@ const EXTRACT_READABLE_PAGE = `
       type: 'FLOENTLY_DEVICE_BROWSER_READ_PAGE',
       title: normalizeBlock(document.title) || location.hostname,
       url: location.href,
-      language: String(document.documentElement.lang || navigator.language || 'auto'),
+      language: String(
+        document.documentElement.lang ||
+        document.querySelector('meta[http-equiv="content-language"]')?.getAttribute('content') ||
+        'auto'
+      ),
       text
     }));
   } catch (error) {
@@ -939,7 +967,11 @@ export default function ReadDeviceBrowserScreen() {
   };
 
   const startReadingPage = async (payload: BrowserReading) => {
-    const nextManifest = createReadingPlaybackManifest(payload.text, speed, 1400, 220);
+    const pageReading: BrowserReading = {
+      ...payload,
+      language: inferBrowserReadingLanguage(payload.language, payload.text),
+    };
+    const nextManifest = createReadingPlaybackManifest(pageReading.text, speed, 1400, 220);
     if (!nextManifest.segments.length) {
       setAudioState('error');
       setAudioError('No readable text was found on this page.');
@@ -948,7 +980,7 @@ export default function ReadDeviceBrowserScreen() {
 
     let savedProgress = 0;
     try {
-      const raw = await AsyncStorage.getItem(browserReadingProgressKey(payload));
+      const raw = await AsyncStorage.getItem(browserReadingProgressKey(pageReading));
       const parsed = Number(raw);
       if (Number.isFinite(parsed) && parsed > 0 && parsed < 0.995) {
         savedProgress = parsed;
@@ -957,7 +989,7 @@ export default function ReadDeviceBrowserScreen() {
 
     const savedPosition = readingPositionForProgress(nextManifest, savedProgress);
     clearPreparedAudio();
-    setReading(payload);
+    setReading(pageReading);
     setManifest(nextManifest);
     setActiveSegment(savedPosition.index);
     setAudioResult(null);
