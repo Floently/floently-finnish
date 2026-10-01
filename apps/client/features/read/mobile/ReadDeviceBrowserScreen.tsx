@@ -375,6 +375,10 @@ export default function ReadDeviceBrowserScreen() {
     void setAudioModeAsync({
       playsInSilentMode: true,
       shouldPlayInBackground: true,
+      // Expo Audio requires exclusive focus for reliable lock-screen controls.
+      // It also lets the OS deliver interruption/focus behavior consistently
+      // instead of silently mixing a long-form Reader behind another session.
+      interruptionMode: 'doNotMix',
     });
   }, []);
 
