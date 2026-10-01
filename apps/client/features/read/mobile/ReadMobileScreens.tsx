@@ -1489,7 +1489,11 @@ export function ReadReaderScreen() {
             onPress={() => setControlsHidden(false)}
             style={[styles.readerHiddenPill, { backgroundColor: palette.nav, borderColor: palette.border, shadowColor: palette.shadow }]}
           >
-            <Text style={[styles.readerHiddenPillText, { color: palette.text }]}>⌃</Text>
+            <View style={[styles.readerHiddenLiveDot, { backgroundColor: palette.accent2 }]} />
+            <Text style={[styles.readerHiddenPillTime, { color: palette.text }]}>
+              {formatReadingClock(Math.max(0, readingManifest.estimatedPlaybackDurationSeconds * (1 - displayedProgress)))}
+            </Text>
+            <Text style={[styles.readerHiddenPillText, { color: palette.muted }]}>⌃</Text>
           </Pressable>
         ) : (
         <View style={[styles.readerDock, { backgroundColor: palette.nav, borderColor: palette.border, shadowColor: palette.shadow }]}>
@@ -2044,8 +2048,10 @@ const styles = StyleSheet.create({
   processingReader: { borderRadius: 28, borderWidth: 1, padding: 26, gap: 14, alignItems: 'center' },
   processingTitle: { fontSize: 22, fontWeight: '900', textAlign: 'center' },
   processingBody: { fontSize: 14, lineHeight: 21, textAlign: 'center', fontWeight: '600' },
-  readerHiddenPill: { position: 'absolute', right: 16, bottom: 14, width: 50, height: 50, borderRadius: 25, borderWidth: 1, alignItems: 'center', justifyContent: 'center', shadowOpacity: 1, shadowRadius: 14, shadowOffset: { width: 0, height: 7 } },
-  readerHiddenPillText: { fontSize: 17, fontWeight: '900' },
+  readerHiddenPill: { position: 'absolute', right: 14, bottom: 12, minWidth: 96, height: 42, borderRadius: 21, borderWidth: 1, paddingHorizontal: 11, flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 7, shadowOpacity: 1, shadowRadius: 14, shadowOffset: { width: 0, height: 7 } },
+  readerHiddenLiveDot: { width: 7, height: 7, borderRadius: 4 },
+  readerHiddenPillTime: { fontSize: 11, fontWeight: '800', fontVariant: ['tabular-nums'] },
+  readerHiddenPillText: { fontSize: 15, fontWeight: '900' },
   readerDock: { position: 'absolute', left: 12, right: 12, bottom: 10, borderRadius: 22, borderWidth: 1, padding: 10, gap: 8, shadowOpacity: 1, shadowRadius: 20, shadowOffset: { width: 0, height: 10 } },
   readerCompactBar: { minHeight: 50, flexDirection: 'row', alignItems: 'center', gap: 9 },
   readerCompactPlay: { width: 44, height: 44, borderRadius: 22, alignItems: 'center', justifyContent: 'center' },
