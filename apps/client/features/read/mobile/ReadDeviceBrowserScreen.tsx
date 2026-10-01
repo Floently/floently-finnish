@@ -1456,9 +1456,11 @@ export default function ReadDeviceBrowserScreen() {
             setSupportMultipleWindows={false}
             onLoadStart={(event) => {
               const nextUrl = String(event.nativeEvent.url || '');
+              const previousUrl = latestUrlRef.current;
               const hashOnlyNavigation =
-                Boolean(reading?.url) &&
-                nextUrl !== reading!.url &&
+                Boolean(reading?.url && previousUrl) &&
+                nextUrl !== previousUrl &&
+                isSameBrowserReadingPage(nextUrl, previousUrl!) &&
                 isSameBrowserReadingPage(nextUrl, reading!.url);
 
               // Hash-only SPA navigation changes the visible position/state of
