@@ -103,6 +103,12 @@ assert.ok(deviceBrowser.includes('BROWSER_READER_PREFS_KEY') &&
   deviceBrowser.includes('AsyncStorage.getItem(BROWSER_READER_PREFS_KEY)') &&
   deviceBrowser.includes('AsyncStorage.setItem('),
   'browser Read speed and voice must persist across page changes/reopens instead of resetting per page');
+assert.ok(deviceBrowser.includes("language: String(document.documentElement.lang || navigator.language || 'auto')") &&
+  deviceBrowser.includes('const browserVoices = useMemo(() =>') &&
+  deviceBrowser.includes("language: reading?.language || 'auto'"),
+  'browser Read must use the webpage language to avoid sending an incompatible saved voice to TTS');
+assert.ok(deviceBrowser.includes("setAudioState(wasPlaying ? 'preparing' : 'paused')"),
+  'changing Browser Reader voice during playback must continue from the same logical cursor');
 assert.ok(deviceBrowser.includes('BROWSER_READER_PROGRESS_PREFIX') &&
   deviceBrowser.includes('browserReadingProgressKey') &&
   deviceBrowser.includes("setStatus(savedProgress > 0 ? 'Resuming this page'"),
@@ -215,6 +221,10 @@ assert.ok(home.includes('const progress = displayedProgress;') &&
   home.includes('resumeFractionRef.current = position.fraction;') &&
   home.includes('setVoiceId(document.id, nextVoice.id)'),
   'changing voice must preserve the exact logical reading cursor');
+assert.ok(home.includes('voiceChangeResumeRef') &&
+  home.includes('autoplay: wasPlaying') &&
+  home.includes('void playAudioChunk(resume.index)'),
+  'standalone native Reader must continue narration after a voice change made during playback');
 assert.ok(deviceBrowser.includes('effectiveVoiceId') &&
   deviceBrowser.includes('catalog.voices.some((voice) => voice.id === current)') &&
   home.includes("selectedVoice?.id || defaultVoiceId || document.voiceId"),
