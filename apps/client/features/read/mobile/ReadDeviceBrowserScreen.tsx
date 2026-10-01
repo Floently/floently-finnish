@@ -700,6 +700,7 @@ export default function ReadDeviceBrowserScreen() {
   ]);
 
   const hardRestart = (message = 'Reloading with a fresh browser process…') => {
+    persistBrowserProgress(displayedProgress);
     setLoadError(null);
     setStatus(message);
     setLoading(Boolean(currentUrl));
@@ -730,6 +731,7 @@ export default function ReadDeviceBrowserScreen() {
       setLoadError('Enter a website address or search term.');
       return;
     }
+    persistBrowserProgress(displayedProgress);
     clearPreparedAudio();
     setReading(null);
     setManifest(EMPTY_MANIFEST);
@@ -746,6 +748,7 @@ export default function ReadDeviceBrowserScreen() {
     setCanGoForward(navigation.canGoForward);
     if (/^https?:\/\//i.test(navigation.url)) {
       if (navigation.url !== currentUrl && reading?.url && navigation.url !== reading.url) {
+        persistBrowserProgress(displayedProgress);
         clearPreparedAudio();
         setReading(null);
         setManifest(EMPTY_MANIFEST);
@@ -1058,6 +1061,7 @@ export default function ReadDeviceBrowserScreen() {
             onOpenWindow={(event) => {
               const target = event.nativeEvent.targetUrl;
               if (/^https?:\/\//i.test(target)) {
+                persistBrowserProgress(displayedProgress);
                 clearPreparedAudio();
                 setReading(null);
                 setManifest(EMPTY_MANIFEST);
