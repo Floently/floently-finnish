@@ -889,6 +889,7 @@ export default function ReadDeviceBrowserScreen() {
       setPlayerExpanded(false);
       setControlsHidden(false);
     } catch (error) {
+      if (audioGenerationRef.current !== generation) return;
       setAudioState('error');
       setAudioError(error instanceof Error ? error.message : String(error));
       setPlayerExpanded(true);
