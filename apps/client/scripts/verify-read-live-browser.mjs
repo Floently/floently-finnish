@@ -175,6 +175,11 @@ assert.ok(readTts.includes("getReadApi('/api/voices/unified')"),
 assert.ok(readTts.includes("20_000") &&
   readTts.includes("Voice generation took too long. Tap Play to retry."),
   'native Read TTS startup must fail visibly instead of leaving the player spinning indefinitely');
+assert.ok(home.includes('monitorPlaybackStart') &&
+  deviceBrowser.includes('monitorPlaybackStart') &&
+  home.includes('Audio did not start. If a call or another app is using audio') &&
+  deviceBrowser.includes('Audio did not start. If a call or another app is using audio'),
+  'native Readers must surface blocked audio-session startup instead of leaving an endless loading state');
 assert.ok(readTts.includes("azure:fi-FI-SelmaNeural"),
   'native Read must have a Finnish neural default when the document language is Finnish');
 assert.ok(readRender.includes('voice_id: input.voiceId') && readRender.includes('voiceId: input.voiceId'),
