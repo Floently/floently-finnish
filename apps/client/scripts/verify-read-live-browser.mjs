@@ -99,6 +99,10 @@ assert.ok(deviceBrowser.includes('BROWSER_READER_PREFS_KEY') &&
   deviceBrowser.includes('AsyncStorage.getItem(BROWSER_READER_PREFS_KEY)') &&
   deviceBrowser.includes('AsyncStorage.setItem('),
   'browser Read speed and voice must persist across page changes/reopens instead of resetting per page');
+assert.ok(deviceBrowser.includes('BROWSER_READER_PROGRESS_PREFIX') &&
+  deviceBrowser.includes('browserReadingProgressKey') &&
+  deviceBrowser.includes("setStatus(savedProgress > 0 ? 'Resuming this page'"),
+  'browser Read must resume the same page at its saved logical position without converting it to a library document');
 assert.ok(deviceBrowser.includes('styles.compactBar') &&
   deviceBrowser.includes('accessibilityLabel="Expand reader controls"') &&
   deviceBrowser.includes('compactRemaining') &&
