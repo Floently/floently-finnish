@@ -105,6 +105,11 @@ assert.ok(deviceBrowser.includes('WATCH_LIVE_AUTH_STATE') &&
   deviceBrowser.includes('setPageAuthActive(active)') &&
   deviceBrowser.includes("setStatus('Sign-in active · Reader paused')"),
   'Browser Reader must detect dynamically opened credential forms and yield the screen/audio session to sign-in');
+assert.ok(deviceBrowser.includes('accountSelector') &&
+  deviceBrowser.includes('hasVisibleAuthAction') &&
+  deviceBrowser.includes('passkey|login\\s*key|security\\s*key') &&
+  deviceBrowser.includes('visibleAccount && hasVisibleAuthAction()'),
+  'Browser Reader must also recognize username-first/passkey-first login surfaces before a password field exists');
 assert.ok(deviceBrowser.includes('getClientRects().length > 0') &&
   deviceBrowser.includes("style.display !== 'none'") &&
   deviceBrowser.includes("style.visibility !== 'hidden'"),
