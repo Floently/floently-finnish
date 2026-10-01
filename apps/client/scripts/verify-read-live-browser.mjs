@@ -289,6 +289,11 @@ assert.ok(home.includes('preferredForwardBufferDuration: 30') &&
   'native Read must stream the active clip immediately while keeping a forward buffer for future hidden segments');
 assert.ok(home.includes('readingPrefetchIndexes(readingManifest, index, 120, 4)'),
   'native Read must preload by a time horizon instead of exposing a fixed chunk cadence');
+assert.ok(deviceBrowser.indexOf('prefetchAhead(index);') <
+    deviceBrowser.indexOf('player.replace(result.audioUrl)') &&
+  home.indexOf('prefetchReadingHorizon(index);') <
+    home.indexOf('player.replace(result.audioUrl)'),
+  'both Reader surfaces must start future-audio preparation before active source startup/seek work');
 assert.ok(home.includes('prefetchGenerationRef') &&
   home.includes('await preloadAudioChunk(nextIndex)') &&
   home.includes('Warm the next hidden segment before later lookahead'),
