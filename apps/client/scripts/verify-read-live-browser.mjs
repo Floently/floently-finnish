@@ -251,6 +251,9 @@ assert.ok(deviceBrowser.includes('effectiveVoiceId') &&
   deviceBrowser.includes('catalog.voices.some((voice) => voice.id === current)') &&
   home.includes("selectedVoice?.id || defaultVoiceId || document.voiceId"),
   'native Readers must fall back to an available voice instead of sending a stale saved voice id to TTS');
+assert.ok(deviceBrowser.includes('if (!browserVoices.length) return;') &&
+  deviceBrowser.includes('browserVoices.findIndex((voice) => voice.id === effectiveVoiceId)'),
+  'browser voice cycling must stay within voices compatible with the detected page language');
 assert.ok(deviceBrowser.includes('voiceChangeResumeRef') &&
   deviceBrowser.includes('autoplay: wasPlaying') &&
   deviceBrowser.includes('if (resume.autoplay)') &&
