@@ -1167,17 +1167,11 @@ export default function ReadDeviceBrowserScreen() {
           controlsHidden && isPlaying ? (
             <Pressable
               accessibilityRole="button"
-              accessibilityLabel="Pause reading and show controls"
-              onPress={() => {
-                playAttemptRef.current += 1;
-                player.pause();
-                persistBrowserProgress(displayedProgress);
-                setAudioState('paused');
-                setControlsHidden(false);
-              }}
+              accessibilityLabel="Show reader controls"
+              onPress={() => setControlsHidden(false)}
               style={styles.hiddenPlayerPill}
             >
-              <Text style={styles.hiddenPlayerIcon}>Ⅱ</Text>
+              <Text style={styles.hiddenPlayerIcon}>⌃</Text>
             </Pressable>
           ) : (
           <View style={[styles.player, playerExpanded && styles.playerExpanded]}>
