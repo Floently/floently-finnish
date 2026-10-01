@@ -428,6 +428,8 @@ export default function ReadDeviceBrowserScreen() {
   const startedPlaybackKeyRef = useRef<string | null>(null);
   const lastSavedProgressRef = useRef(0);
   const audioGenerationRef = useRef(0);
+  const pageReadingGenerationRef = useRef(0);
+  const latestUrlRef = useRef<string | null>(null);
   const prefetchGenerationRef = useRef(0);
   const voiceChangeResumeRef = useRef<{ index: number; autoplay: boolean } | null>(null);
   const playAttemptRef = useRef(0);
@@ -463,6 +465,10 @@ export default function ReadDeviceBrowserScreen() {
   const [selectedVoiceId, setSelectedVoiceId] = useState<string | null>(null);
   const [playerExpanded, setPlayerExpanded] = useState(false);
   const [controlsHidden, setControlsHidden] = useState(false);
+
+  useEffect(() => {
+    latestUrlRef.current = currentUrl;
+  }, [currentUrl]);
 
   useEffect(() => {
     if (Platform.OS !== 'web') return;
@@ -942,6 +948,7 @@ export default function ReadDeviceBrowserScreen() {
   ]);
 
   const hardRestart = (message = 'Reloading with a fresh browser process…') => {
+    pageReadingGenerationRef.current += 1;
     persistBrowserProgress(displayedProgress);
     setLoadError(null);
     setStatus(message);
@@ -974,6 +981,8 @@ export default function ReadDeviceBrowserScreen() {
       setLoadError('Enter a website address or search term.');
       return;
     }
+    pageReadingGenerationRef.current += 1;
+    latestUrlRef.current = target;
     persistBrowserProgress(displayedProgress);
     clearPreparedAudio();
     setReading(null);
@@ -990,6 +999,12 @@ export default function ReadDeviceBrowserScreen() {
     setCanGoBack(navigation.canGoBack);
     setCanGoForward(navigation.canGoForward);
     if (/^https?:\/\//i.test(navigation.url)) {
+      const previousUrl = latestUrlRef.current;
+      if (previousUrl && !isSameBrowserReadingPage(navigation.url, previousUrl)) {
+        pageReadingGenerationRef.current += 1;
+      }
+      latestUrlRef.current = navigation.url;
+
       const movedToDifferentReadingPage =
         Boolean(reading?.url) &&
         !isSameBrowserReadingPage(navigation.url, reading!.url);
@@ -1011,6 +1026,8 @@ export default function ReadDeviceBrowserScreen() {
 
   const beginReadingExtraction = () => {
     if (!currentUrl || isProtectedAuthenticationUrl(currentUrl)) return;
+    pageReadingGenerationRef.current += 1;
+    latestUrlRef.current = currentUrl;
     setAudioError(null);
     setAudioState('extracting');
     setStatus('Preparing this page for continuous reading…');
@@ -1018,6 +1035,10 @@ export default function ReadDeviceBrowserScreen() {
   };
 
   const startReadingPage = async (payload: BrowserReading) => {
+    const generation = pageReadingGenerationRef.current;
+    const latestUrl = latestUrlRef.current;
+    if (latestUrl && payload.url && !isSameBrowserReadingPage(payload.url, latestUrl)) return;
+
     const pageReading: BrowserReading = {
       ...payload,
       language: inferBrowserReadingLanguage(payload.language, payload.text),
@@ -1037,6 +1058,16 @@ export default function ReadDeviceBrowserScreen() {
         savedProgress = parsed;
       }
     } catch {}
+
+    const currentLatestUrl = latestUrlRef.current;
+    if (
+      pageReadingGenerationRef.current !== generation ||
+      (
+        currentLatestUrl &&
+        pageReading.url &&
+        !isSameBrowserReadingPage(pageReading.url, currentLatestUrl)
+      )
+    ) return;
 
     const savedPosition = readingPositionForProgress(nextManifest, savedProgress);
     clearPreparedAudio();
@@ -1354,6 +1385,8 @@ export default function ReadDeviceBrowserScreen() {
             onOpenWindow={(event) => {
               const target = event.nativeEvent.targetUrl;
               if (/^https?:\/\//i.test(target)) {
+                pageReadingGenerationRef.current += 1;
+                latestUrlRef.current = target;
                 persistBrowserProgress(displayedProgress);
                 clearPreparedAudio();
                 setReading(null);
