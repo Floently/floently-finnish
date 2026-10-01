@@ -180,6 +180,17 @@ assert.ok(deviceBrowser.includes('styles.compactBar') &&
   deviceBrowser.includes('compactRemaining') &&
   deviceBrowser.includes('compactProgressTrack'),
   'browser Read must expose a single-row compact default player with optional expanded controls');
+assert.ok(deviceBrowser.includes("browserArea: { flex: 1, position: 'relative'") &&
+  deviceBrowser.includes('zIndex: 100') &&
+  deviceBrowser.includes('elevation: 20') &&
+  deviceBrowser.includes('width: 44') &&
+  deviceBrowser.includes('minHeight: 44'),
+  'browser Reader transport must stay above the WebView hit-test surface with phone-sized touch targets');
+assert.ok(home.includes('readerDock: { position: \'absolute\'') &&
+  home.includes('zIndex: 100') &&
+  home.includes('elevation: 20') &&
+  home.includes('readerCompactExpand: { width: 44, height: 44'),
+  'standalone Reader transport must stay above content with minimum 44-point expansion controls');
 assert.ok(deviceBrowser.includes("!reading || loading || audioState === 'extracting' || loadError || pageAuthActive") &&
   deviceBrowser.includes('onPress={beginReadingExtraction}') &&
   !deviceBrowser.includes('onPress={reading ? togglePlayback : beginReadingExtraction}'),
