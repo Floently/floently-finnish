@@ -155,8 +155,10 @@ assert.ok(deviceBrowser.includes('browserReadingFingerprint') &&
 assert.ok(deviceBrowser.includes('function browserPageIdentity(value: string)') &&
   deviceBrowser.includes("parsed.hash = '';") &&
   deviceBrowser.includes('isSameBrowserReadingPage(navigation.url, reading!.url)') &&
-  deviceBrowser.includes('${browserPageIdentity(reading.url)}:${browserReadingFingerprint(reading.text)}:${activeSegment}'),
-  'hash-only SPA navigation must keep narration and its hidden-segment playback guards on one canonical page identity');
+  deviceBrowser.includes('${browserPageIdentity(reading.url)}:${browserReadingFingerprint(reading.text)}:${activeSegment}') &&
+  deviceBrowser.includes('const hashOnlyNavigation =') &&
+  deviceBrowser.includes("setStatus(hashOnlyNavigation && reading ? 'Reading this page'"),
+  'hash-only SPA navigation/load events must keep narration and hidden-segment playback guards on one canonical page identity');
 assert.ok(deviceBrowser.includes('styles.compactBar') &&
   deviceBrowser.includes('accessibilityLabel="Expand reader controls"') &&
   deviceBrowser.includes('compactRemaining') &&
