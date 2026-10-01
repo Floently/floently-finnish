@@ -1251,6 +1251,9 @@ export function ReadReaderScreen() {
       if (audioGenerationRef.current !== generation) return;
       setActiveAudioChunk(index);
       handledFinishedChunk.current = null;
+      // Begin next-segment preparation before seek/player startup work so
+      // resumes near a segment boundary still have a warm handoff.
+      prefetchReadingHorizon(index);
       const playbackKey = `${document.id}:${index}:${result.cacheKey || result.audioUrl}`;
       activePlaybackKeyRef.current = playbackKey;
       startedPlaybackKeyRef.current = null;
@@ -1279,8 +1282,6 @@ export function ReadReaderScreen() {
       setAudioState('playing');
       setPlayerExpanded(false);
       setControlsHidden(false);
-
-      prefetchReadingHorizon(index);
     } catch (error) {
       setAudioState('error');
       setAudioError(error instanceof Error ? error.message : String(error));
