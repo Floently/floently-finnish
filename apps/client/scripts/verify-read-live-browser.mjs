@@ -89,6 +89,12 @@ assert.ok(deviceBrowser.includes('injectJavaScript(EXTRACT_READABLE_PAGE)') &&
 assert.ok(deviceBrowser.includes('downloadFirst: false') &&
   deviceBrowser.includes("setPlayerExpanded(false)"),
   'browser Read must stream the active voice promptly and auto-minimize the player when narration starts');
+assert.ok(deviceBrowser.includes('activePlaybackKeyRef') &&
+  deviceBrowser.includes('startedPlaybackKeyRef') &&
+  deviceBrowser.includes('playbackStatus.didJustFinish') &&
+  home.includes('activePlaybackKeyRef') &&
+  home.includes('startedPlaybackKeyRef'),
+  'native Readers must ignore stale didJustFinish ticks after replacing a hidden audio segment');
 assert.ok(deviceBrowser.includes('BROWSER_READER_PREFS_KEY') &&
   deviceBrowser.includes('AsyncStorage.getItem(BROWSER_READER_PREFS_KEY)') &&
   deviceBrowser.includes('AsyncStorage.setItem('),
