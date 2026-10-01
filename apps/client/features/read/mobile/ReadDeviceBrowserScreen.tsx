@@ -227,37 +227,79 @@ function buildClearReadingFocusScript() {
 const EXTRACT_READABLE_PAGE = `
 (function () {
   try {
-    const normalize = (value) => String(value || '').replace(/\\s+/g, ' ').trim();
+    const normalizeInline = (value) => String(value || '')
+      .replace(/\\u00a0/g, ' ')
+      .replace(/[\\t ]+/g, ' ')
+      .replace(/ *\\n */g, '\\n')
+      .trim();
+    const normalizeBlock = (value) => normalizeInline(value)
+      .replace(/\\n{2,}/g, '\\n')
+      .replace(/\\s+/g, ' ')
+      .trim();
+
     const excludedSelector = [
       'script', 'style', 'noscript', 'template', 'nav', 'footer', 'aside',
       '[role="navigation"]', '[role="dialog"]', '[role="menu"]',
       '[aria-modal="true"]', '[aria-hidden="true"]', '[hidden]',
       '.cookie', '.cookies', '.modal', '.drawer', '.sidebar', '.side-nav',
-      '.sidenav', '.toolbar', '.menu'
+      '.sidenav', '.toolbar', '.menu', '.advertisement', '.ads'
     ].join(',');
 
-    const candidates = Array.from(document.querySelectorAll(
+    const rootCandidates = Array.from(document.querySelectorAll(
       'main,article,[role="main"],section,body'
     )).map((element) => {
       const clone = element.cloneNode(true);
       if (clone.querySelectorAll) {
         clone.querySelectorAll(excludedSelector).forEach((node) => node.remove());
       }
-      const text = normalize(clone.innerText || clone.textContent || '');
+      const text = normalizeBlock(clone.innerText || clone.textContent || '');
       const links = element.querySelectorAll
         ? Array.from(element.querySelectorAll('a')).reduce(
-            (sum, link) => sum + normalize(link.innerText).length, 0
+            (sum, link) => sum + normalizeBlock(link.innerText).length, 0
           )
         : 0;
       const density = Math.min(1, links / Math.max(1, text.length));
       const semantic = element.matches && element.matches('main,article,[role="main"]') ? 1800 : 0;
-      return { text, score: Math.min(text.length, 40000) + semantic - density * 7000 };
-    }).filter((entry) => entry.text.length >= 80).sort((a, b) => b.score - a.score);
+      return {
+        element,
+        text,
+        score: Math.min(text.length, 40000) + semantic - density * 7000
+      };
+    }).filter((entry) => entry.text.length >= 80)
+      .sort((a, b) => b.score - a.score);
 
-    const text = candidates[0] ? candidates[0].text : normalize(document.body?.innerText || '');
+    const root = rootCandidates[0]?.element || document.body;
+    const blocks = Array.from(root.querySelectorAll(
+      'h1,h2,h3,h4,h5,h6,p,li,blockquote,figcaption,td,th'
+    )).filter((element) => !element.closest(excludedSelector));
+
+    const paragraphs = [];
+    let previous = '';
+    for (const element of blocks) {
+      const value = normalizeBlock(element.innerText || element.textContent || '');
+      if (!value || value.length < 2 || value === previous) continue;
+      // Avoid a parent/table cell echoing exactly the same text as a nested
+      // semantic block while preserving the actual reading order.
+      if (previous && value.startsWith(previous) && value.length < previous.length + 12) continue;
+      paragraphs.push(value);
+      previous = value;
+    }
+
+    let text = paragraphs.join('\\n\\n').trim();
+    if (text.length < 80) {
+      text = rootCandidates[0]?.text || normalizeBlock(document.body?.innerText || '');
+    }
+
+    // Repair the most common DOM-boundary artifact before TTS, e.g.
+    // "experts.Most" or "DataAI Notice", without changing the rendered page.
+    text = text
+      .replace(/([.!?])([A-ZÀ-ÖØ-Þ])/g, '$1 $2')
+      .replace(/([a-zà-öø-ÿ])([A-ZÀ-ÖØ-Þ][a-zà-öø-ÿ])/g, '$1 $2')
+      .trim();
+
     window.ReactNativeWebView.postMessage(JSON.stringify({
       type: 'FLOENTLY_DEVICE_BROWSER_READ_PAGE',
-      title: normalize(document.title) || location.hostname,
+      title: normalizeBlock(document.title) || location.hostname,
       url: location.href,
       text
     }));
@@ -978,11 +1020,10 @@ export default function ReadDeviceBrowserScreen() {
                 void Linking.openURL(request.url).catch(() => {
                   setStatus('The external app for this link is unavailable.');
                 });
-              } else if (request.isTopFrame) {
-                // Do not turn background/custom-scheme probes into a persistent
-                // browser error while the actual https page remains usable.
-                setStatus('Blocked an unsupported external-app link.');
               }
+              // Sites frequently probe custom app schemes in the background.
+              // Ignore unsupported probes silently; they are not a page-load
+              // failure and must never replace the browser's Ready state.
               return false;
             }}
             onOpenWindow={(event) => {
