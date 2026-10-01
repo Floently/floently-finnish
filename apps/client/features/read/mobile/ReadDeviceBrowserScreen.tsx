@@ -382,6 +382,7 @@ export default function ReadDeviceBrowserScreen() {
   const activePlaybackKeyRef = useRef<string | null>(null);
   const startedPlaybackKeyRef = useRef<string | null>(null);
   const lastSavedProgressRef = useRef(0);
+  const audioGenerationRef = useRef(0);
   const prefetchGenerationRef = useRef(0);
   const voiceChangeResumeRef = useRef<{ index: number; autoplay: boolean } | null>(null);
   const playAttemptRef = useRef(0);
@@ -529,6 +530,7 @@ export default function ReadDeviceBrowserScreen() {
   }, [canGoBack]);
 
   useEffect(() => () => {
+    audioGenerationRef.current += 1;
     prefetchGenerationRef.current += 1;
     player.pause();
     try { player.clearLockScreenControls(); } catch {}
@@ -540,6 +542,7 @@ export default function ReadDeviceBrowserScreen() {
 
   const clearPreparedAudio = () => {
     playAttemptRef.current += 1;
+    audioGenerationRef.current += 1;
     prefetchGenerationRef.current += 1;
     player.pause();
     webViewRef.current?.injectJavaScript(buildClearReadingFocusScript());
@@ -699,12 +702,15 @@ export default function ReadDeviceBrowserScreen() {
     // A seek, resume, or handoff can arrive while lookahead is already
     // synthesizing this hidden segment. Reuse that exact request instead of
     // issuing duplicate neural TTS work and delaying the nearest clip.
+    const generation = audioGenerationRef.current;
     const request = readTtsApi.prerenderReading({
       text: segment.text,
       language: reading?.language || 'auto',
       voiceId: effectiveVoiceId,
     }).then((result) => {
-      audioCache.current.set(key, result);
+      if (audioGenerationRef.current === generation) {
+        audioCache.current.set(key, result);
+      }
       return result;
     }).finally(() => {
       if (audioPrepareCache.current.get(key) === request) {
@@ -763,11 +769,13 @@ export default function ReadDeviceBrowserScreen() {
     const segment = manifest.segments[index];
     if (!segment?.text) return;
 
+    const generation = audioGenerationRef.current;
     setAudioState('preparing');
     setAudioError(null);
     try {
       // Do not await a complete local download for the active segment.
       const result = await prepareSegment(index);
+      if (audioGenerationRef.current !== generation) return;
       setActiveSegment(index);
       setAudioResult(result);
       handledFinishedRef.current = null;
@@ -798,6 +806,7 @@ export default function ReadDeviceBrowserScreen() {
           }
         }
       }
+      if (audioGenerationRef.current !== generation) return;
       resumeFractionRef.current = 0;
 
       enableLockScreen();
