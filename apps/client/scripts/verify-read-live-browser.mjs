@@ -120,8 +120,9 @@ assert.ok(deviceBrowser.includes('audioCache.current.size > 16') &&
   deviceBrowser.includes('clearPreloadedSource(oldestUrl)'),
   'browser Read must keep long-session prepared/preloaded audio caches bounded');
 assert.ok(deviceBrowser.includes('audioGenerationRef') &&
-  deviceBrowser.includes('if (audioGenerationRef.current !== generation) return;'),
-  'browser Read must ignore TTS completions that return after navigation, stop, reload, or voice reset');
+  deviceBrowser.includes('if (audioGenerationRef.current !== generation) return;') &&
+  home.includes('if (audioGenerationRef.current !== generation) return;'),
+  'native Readers must ignore stale TTS completions/errors after navigation, document changes, stop, reload, or voice reset');
 assert.ok(deviceBrowser.includes('activePlaybackKeyRef') &&
   deviceBrowser.includes('startedPlaybackKeyRef') &&
   deviceBrowser.includes('playbackStatus.didJustFinish') &&
