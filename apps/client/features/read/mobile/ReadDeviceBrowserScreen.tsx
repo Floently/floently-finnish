@@ -1116,9 +1116,11 @@ export default function ReadDeviceBrowserScreen() {
   };
 
   const cycleVoice = () => {
-    if (!voices.length) return;
-    const current = voices.findIndex((voice) => voice.id === selectedVoiceId);
-    const next = voices[(current + 1 + voices.length) % voices.length];
+    if (!browserVoices.length) return;
+    const current = browserVoices.findIndex((voice) => voice.id === effectiveVoiceId);
+    const next = browserVoices[
+      (current + 1 + browserVoices.length) % browserVoices.length
+    ];
     if (!next) return;
 
     const progress = displayedProgress;
