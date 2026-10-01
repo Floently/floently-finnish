@@ -117,6 +117,10 @@ assert.ok(deviceBrowser.includes('BROWSER_READER_PROGRESS_PREFIX') &&
   deviceBrowser.includes('browserReadingProgressKey') &&
   deviceBrowser.includes("setStatus(savedProgress > 0 ? 'Resuming this page'"),
   'browser Read must resume the same page at its saved logical position without converting it to a library document');
+assert.ok(deviceBrowser.includes('browserReadingFingerprint') &&
+  deviceBrowser.includes('Math.imul(hash, 16777619)') &&
+  deviceBrowser.includes('browserReadingFingerprint(reading.text)'),
+  'browser progress/TTS cache identity must include page content so dynamic same-URL lessons cannot reuse stale narration');
 assert.ok(deviceBrowser.includes('styles.compactBar') &&
   deviceBrowser.includes('accessibilityLabel="Expand reader controls"') &&
   deviceBrowser.includes('compactRemaining') &&
