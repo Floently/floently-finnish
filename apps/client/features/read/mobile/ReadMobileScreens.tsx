@@ -1071,9 +1071,13 @@ export function ReadReaderScreen() {
     null;
 
   const playbackIsPlaying = audioState === 'playing' || playbackStatus.playing;
+  const playbackHasStarted =
+    playbackStatus.playing &&
+    !playbackStatus.isBuffering &&
+    playbackStatus.currentTime > 0.05;
 
   useEffect(() => {
-    if (!document || !playbackIsPlaying || playerExpanded || audioError) {
+    if (!document || !playbackHasStarted || playerExpanded || audioError) {
       setControlsHidden(false);
       return;
     }
@@ -1081,7 +1085,7 @@ export function ReadReaderScreen() {
 
     const timer = setTimeout(() => setControlsHidden(true), 3_500);
     return () => clearTimeout(timer);
-  }, [audioError, controlsHidden, document?.id, playbackIsPlaying, playerExpanded]);
+  }, [audioError, controlsHidden, document?.id, playbackHasStarted, playerExpanded]);
 
   useEffect(() => {
     if (!document) return;
