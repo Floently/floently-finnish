@@ -174,6 +174,11 @@ assert.ok(home.includes('const progress = displayedProgress;') &&
   'changing voice must preserve the exact logical reading cursor');
 assert.ok(home.includes('createReadingPlaybackManifest') && home.includes('playAudioChunk(nextIndex)'),
   'native Read must narrate long documents through a document-wide logical playback manifest');
+assert.ok(home.includes('styles.readerCompactBar') &&
+  home.includes('accessibilityLabel="Expand player"') &&
+  home.includes('readerCompactPlay') &&
+  home.includes('readerCompactNow'),
+  'standalone native Reader must start as a single-row compact player instead of covering the page');
 assert.ok(!home.includes('generatedText.slice(0, 4000)'),
   'native Read must never silently truncate narration to the first 4000 characters');
 assert.ok(home.includes('readingProgressForSegment') && home.includes('displayedProgress'),
