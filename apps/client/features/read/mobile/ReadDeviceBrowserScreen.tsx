@@ -596,6 +596,7 @@ export default function ReadDeviceBrowserScreen() {
   const [playerExpanded, setPlayerExpanded] = useState(false);
   const [controlsHidden, setControlsHidden] = useState(false);
   const [pageAuthActive, setPageAuthActive] = useState(false);
+  const [progressTrackWidth, setProgressTrackWidth] = useState(0);
 
   useEffect(() => {
     latestUrlRef.current = currentUrl;
@@ -1743,14 +1744,28 @@ export default function ReadDeviceBrowserScreen() {
                   </Text>
                   <Text style={styles.progressText}>{Math.round(displayedProgress * 100)}%</Text>
                 </View>
-                <View style={styles.progressTrack}>
+                <Pressable
+                  accessibilityRole="adjustable"
+                  accessibilityLabel="Seek through reading"
+                  accessibilityValue={{ now: Math.round(displayedProgress * 100), min: 0, max: 100 }}
+                  onLayout={(event) => setProgressTrackWidth(event.nativeEvent.layout.width)}
+                  onPress={(event) => {
+                    if (!progressTrackWidth || totalSeconds <= 0) return;
+                    const targetProgress = Math.max(
+                      0,
+                      Math.min(1, event.nativeEvent.locationX / progressTrackWidth),
+                    );
+                    void seekBySeconds((targetProgress - displayedProgress) * totalSeconds);
+                  }}
+                  style={[styles.progressTrack, styles.seekableProgressTrack]}
+                >
                   <View
                     style={[
                       styles.progressFill,
                       { width: `${Math.max(0, Math.min(100, displayedProgress * 100))}%` },
                     ]}
                   />
-                </View>
+                </Pressable>
 
                 <View style={styles.transport}>
                   <Pressable
@@ -2042,6 +2057,12 @@ const styles = StyleSheet.create({
   },
   compactProgressTrack: {
     marginTop: 4,
+  },
+  seekableProgressTrack: {
+    minHeight: 16,
+    justifyContent: 'center',
+    paddingVertical: 6,
+    backgroundColor: 'transparent',
   },
   progressFill: {
     height: '100%',
