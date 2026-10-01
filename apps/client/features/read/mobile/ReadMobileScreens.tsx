@@ -1195,7 +1195,16 @@ export function ReadReaderScreen() {
       playbackStatus.duration > 0
     ) {
       resumeFractionRef.current = 0;
-      await player.seekTo(playbackStatus.duration * target.fraction);
+      try {
+        await player.seekTo(playbackStatus.duration * target.fraction);
+      } catch {
+        // If the active AVPlayer item is not seekable yet, fall through to a
+        // clean source reload at the requested logical document position.
+        player.pause();
+        setAudioResult(null);
+        resumeFractionRef.current = target.fraction;
+        if (wasPlaying) await playAudioChunk(target.index);
+      }
       return;
     }
 
@@ -1221,16 +1230,23 @@ export function ReadReaderScreen() {
     const currentIndex = readerVoices.findIndex((voice) => voice.id === currentId);
     const nextVoice = readerVoices[(currentIndex + 1 + readerVoices.length) % readerVoices.length];
     if (!nextVoice) return;
+
+    // Voice is a document-wide setting. Preserve the exact logical cursor
+    // rather than restarting the current hidden segment when the voice changes.
+    const progress = displayedProgress;
+    const position = readingPositionForProgress(readingManifest, progress);
+    updateProgress(document.id, progress);
     player.pause();
+    setActiveAudioChunk(position.index);
     setAudioResult(null);
     setAudioError(null);
-    setAudioState('idle');
+    setAudioState('paused');
     audioChunkCache.current.clear();
     for (const url of audioPreloadCache.current.keys()) {
       void clearPreloadedSource(url).catch(() => {});
     }
     audioPreloadCache.current.clear();
-    resumeFractionRef.current = 0;
+    resumeFractionRef.current = position.fraction;
     handledFinishedChunk.current = null;
     setVoiceId(document.id, nextVoice.id);
   }
