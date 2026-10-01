@@ -607,6 +607,18 @@ export default function ReadDeviceBrowserScreen() {
     setReloadKey((value) => value + 1);
   };
 
+  const stopReadingPage = () => {
+    clearPreparedAudio();
+    setReading(null);
+    setManifest(EMPTY_MANIFEST);
+    setActiveSegment(0);
+    resumeFractionRef.current = 0;
+    setAudioState('idle');
+    setAudioError(null);
+    setPlayerExpanded(false);
+    setStatus('Ready');
+  };
+
   const openAddress = () => {
     const target = normalizeAddress(addressText);
     if (!target) {
@@ -1152,6 +1164,14 @@ export default function ReadDeviceBrowserScreen() {
                   >
                     <Text style={styles.optionText}>{speed}x</Text>
                   </Pressable>
+                  <Pressable
+                    accessibilityRole="button"
+                    accessibilityLabel="Stop reading this page"
+                    onPress={stopReadingPage}
+                    style={[styles.optionChip, styles.stopChip]}
+                  >
+                    <Text style={styles.stopChipText}>Stop</Text>
+                  </Pressable>
                 </View>
               </>
             )}
@@ -1399,6 +1419,8 @@ const styles = StyleSheet.create({
   },
   optionVoice: { flex: 1, alignItems: 'flex-start' },
   optionText: { color: '#FFFFFF', fontSize: 13, fontWeight: '800' },
+  stopChip: { minWidth: 64, backgroundColor: 'rgba(255,94,108,0.10)' },
+  stopChipText: { color: '#FF9EA8', fontSize: 12, fontWeight: '900' },
   playerError: {
     marginTop: 8,
     color: '#FF9EA8',
