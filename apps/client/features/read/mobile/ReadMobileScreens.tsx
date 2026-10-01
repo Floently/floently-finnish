@@ -1211,8 +1211,15 @@ export function ReadReaderScreen() {
         try {
           await preloadAudioChunk(nextIndex);
         } catch {
-          // Speculative lookahead is best-effort; active playback remains the
-          // authority and can retry when this segment actually becomes active.
+          // Give only the immediately upcoming handoff one bounded retry.
+          // Distant lookahead stays best-effort and cannot block the reader.
+          if (nextIndex === indexes[0] && prefetchGenerationRef.current === generation) {
+            await new Promise((resolve) => setTimeout(resolve, 450));
+            if (prefetchGenerationRef.current !== generation) return;
+            try {
+              await preloadAudioChunk(nextIndex);
+            } catch {}
+          }
         }
       }
     })();
