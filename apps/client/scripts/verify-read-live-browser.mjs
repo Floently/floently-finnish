@@ -93,6 +93,9 @@ assert.ok(deviceBrowser.includes('prefetchGenerationRef') &&
   deviceBrowser.includes('await preloadSegment(nextIndex)') &&
   deviceBrowser.includes('Prioritize the immediately upcoming hidden segment'),
   'browser Read lookahead must prioritize the nearest hidden segment instead of stampeding TTS with parallel future requests');
+assert.ok(deviceBrowser.includes('nextIndex === indexes[0]') &&
+  deviceBrowser.includes('setTimeout(resolve, 450)'),
+  'browser Read must give the immediately upcoming hidden handoff one bounded preload retry');
 assert.ok(deviceBrowser.includes('audioPrepareCache') &&
   deviceBrowser.includes('const inFlight = audioPrepareCache.current.get(key)') &&
   deviceBrowser.includes('audioPrepareCache.current.set(key, request)'),
@@ -290,6 +293,9 @@ assert.ok(home.includes('prefetchGenerationRef') &&
   home.includes('await preloadAudioChunk(nextIndex)') &&
   home.includes('Warm the next hidden segment before later lookahead'),
   'native Read lookahead must prepare the nearest hidden segment first and cancel stale speculative runs');
+assert.ok(home.includes('nextIndex === indexes[0]') &&
+  home.includes('setTimeout(resolve, 450)'),
+  'native Read must give the immediately upcoming hidden handoff one bounded preload retry');
 assert.ok(home.includes('audioChunkPrepareCache') &&
   home.includes('const inFlight = audioChunkPrepareCache.current.get(key)') &&
   home.includes('audioChunkPrepareCache.current.set(key, request)'),
