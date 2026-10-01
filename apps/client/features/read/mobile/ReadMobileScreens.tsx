@@ -901,6 +901,7 @@ export function ReadReaderScreen() {
   const [studyQuestion, setStudyQuestion] = useState('');
   const [activeAudioChunk, setActiveAudioChunk] = useState(0);
   const audioChunkCache = useRef(new Map<string, ReadTtsResult>());
+  const audioChunkPrepareCache = useRef(new Map<string, Promise<ReadTtsResult>>());
   const audioPreloadCache = useRef(new Map<string, Promise<void>>());
   const resumeFractionRef = useRef(0);
   const handledFinishedChunk = useRef<string | null>(null);
@@ -1102,6 +1103,7 @@ export function ReadReaderScreen() {
     setAudioError(null);
     prefetchGenerationRef.current += 1;
     audioChunkCache.current.clear();
+    audioChunkPrepareCache.current.clear();
     for (const url of audioPreloadCache.current.keys()) {
       void clearPreloadedSource(url).catch(() => {});
     }
@@ -1114,6 +1116,7 @@ export function ReadReaderScreen() {
   useEffect(() => {
     prefetchGenerationRef.current += 1;
     audioChunkCache.current.clear();
+    audioChunkPrepareCache.current.clear();
     for (const url of audioPreloadCache.current.keys()) {
       void clearPreloadedSource(url).catch(() => {});
     }
@@ -1154,13 +1157,27 @@ export function ReadReaderScreen() {
     const cached = audioChunkCache.current.get(key);
     if (cached) return cached;
 
-    const result = await readTtsApi.prerenderReading({
+    const inFlight = audioChunkPrepareCache.current.get(key);
+    if (inFlight) return inFlight;
+
+    // Reuse speculative lookahead when this segment becomes active. This
+    // avoids duplicate TTS calls during seeks/handoffs and keeps the nearest
+    // required audio ahead of distant speculative work.
+    const request = readTtsApi.prerenderReading({
       text: audioChunks[index],
       language: document.language,
       voiceId: selectedVoice?.id || defaultVoiceId || document.voiceId,
+    }).then((result) => {
+      audioChunkCache.current.set(key, result);
+      return result;
+    }).finally(() => {
+      if (audioChunkPrepareCache.current.get(key) === request) {
+        audioChunkPrepareCache.current.delete(key);
+      }
     });
-    audioChunkCache.current.set(key, result);
-    return result;
+
+    audioChunkPrepareCache.current.set(key, request);
+    return request;
   }
 
   async function preloadAudioChunk(index: number): Promise<ReadTtsResult> {
