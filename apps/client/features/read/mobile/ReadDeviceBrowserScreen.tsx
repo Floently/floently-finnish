@@ -553,7 +553,17 @@ export default function ReadDeviceBrowserScreen() {
       audioResult?.audioUrl &&
       playbackStatus.duration > 0
     ) {
-      await player.seekTo(playbackStatus.duration * target.fraction);
+      try {
+        await player.seekTo(playbackStatus.duration * target.fraction);
+      } catch {
+        // A freshly replaced iOS media item can briefly reject seek. Reload
+        // that same hidden segment at the logical target rather than making
+        // the ±10 second control appear dead.
+        player.pause();
+        setAudioResult(null);
+        resumeFractionRef.current = target.fraction;
+        if (wasPlaying) await playSegment(target.index);
+      }
       return;
     }
 
