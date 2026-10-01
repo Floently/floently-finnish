@@ -291,6 +291,12 @@ export default function ReadDeviceBrowserScreen() {
   const activePlaybackKeyRef = useRef<string | null>(null);
   const startedPlaybackKeyRef = useRef<string | null>(null);
   const lastSavedProgressRef = useRef(0);
+  const playAttemptRef = useRef(0);
+  const playbackHealthRef = useRef({
+    playing: false,
+    isBuffering: false,
+    currentTime: 0,
+  });
 
   const initialUrl = useMemo(() => {
     const value = Array.isArray(params.url) ? params.url[0] : params.url;
@@ -353,6 +359,33 @@ export default function ReadDeviceBrowserScreen() {
   }, []);
 
   useEffect(() => {
+    playbackHealthRef.current = {
+      playing: playbackStatus.playing,
+      isBuffering: playbackStatus.isBuffering,
+      currentTime: playbackStatus.currentTime,
+    };
+  }, [
+    playbackStatus.currentTime,
+    playbackStatus.isBuffering,
+    playbackStatus.playing,
+  ]);
+
+  const monitorPlaybackStart = () => {
+    const attempt = ++playAttemptRef.current;
+    setTimeout(() => {
+      if (playAttemptRef.current !== attempt) return;
+      const health = playbackHealthRef.current;
+      if (health.playing || health.isBuffering || health.currentTime > 0.05) return;
+
+      setAudioState('paused');
+      setAudioError(
+        'Audio did not start. If a call or another app is using audio, end or pause it and tap Play again.',
+      );
+      setPlayerExpanded(true);
+    }, 5_000);
+  };
+
+  useEffect(() => {
     let cancelled = false;
     void readTtsApi.listVoices().then((catalog) => {
       if (cancelled) return;
@@ -388,6 +421,7 @@ export default function ReadDeviceBrowserScreen() {
   }, [player]);
 
   const clearPreparedAudio = () => {
+    playAttemptRef.current += 1;
     player.pause();
     webViewRef.current?.injectJavaScript(buildClearReadingFocusScript());
     setAudioResult(null);
@@ -540,6 +574,7 @@ export default function ReadDeviceBrowserScreen() {
 
       enableLockScreen();
       player.play();
+      monitorPlaybackStart();
       setAudioState('playing');
       setPlayerExpanded(false);
       prefetchAhead(index);
@@ -708,6 +743,7 @@ export default function ReadDeviceBrowserScreen() {
     }
 
     if (isPlaying) {
+      playAttemptRef.current += 1;
       player.pause();
       setAudioState('paused');
       return;
@@ -717,6 +753,7 @@ export default function ReadDeviceBrowserScreen() {
       setPlayerPlaybackRate(player, speed);
       enableLockScreen();
       player.play();
+      monitorPlaybackStart();
       setAudioState('playing');
       setPlayerExpanded(false);
       prefetchAhead(activeSegment);
