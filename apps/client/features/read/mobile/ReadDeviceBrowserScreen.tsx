@@ -282,6 +282,8 @@ export default function ReadDeviceBrowserScreen() {
   const preloadCache = useRef(new Map<string, Promise<void>>());
   const resumeFractionRef = useRef(0);
   const handledFinishedRef = useRef<string | null>(null);
+  const activePlaybackKeyRef = useRef<string | null>(null);
+  const startedPlaybackKeyRef = useRef<string | null>(null);
 
   const initialUrl = useMemo(() => {
     const value = Array.isArray(params.url) ? params.url[0] : params.url;
@@ -388,6 +390,8 @@ export default function ReadDeviceBrowserScreen() {
     }
     preloadCache.current.clear();
     handledFinishedRef.current = null;
+    activePlaybackKeyRef.current = null;
+    startedPlaybackKeyRef.current = null;
   };
 
   const selectedVoice =
@@ -488,6 +492,9 @@ export default function ReadDeviceBrowserScreen() {
       setActiveSegment(index);
       setAudioResult(result);
       handledFinishedRef.current = null;
+      const playbackKey = `${reading?.url || currentUrl || 'page'}:${index}:${result.cacheKey || result.audioUrl}`;
+      activePlaybackKeyRef.current = playbackKey;
+      startedPlaybackKeyRef.current = null;
       webViewRef.current?.injectJavaScript(buildReadingFocusScript(segment.text));
       player.replace(result.audioUrl);
       setPlayerPlaybackRate(player, speed);
@@ -522,10 +529,32 @@ export default function ReadDeviceBrowserScreen() {
   };
 
   useEffect(() => {
+    if (!reading || !audioResult) return;
+    const currentKey = `${reading.url}:${activeSegment}:${audioResult.cacheKey || audioResult.audioUrl}`;
+    if (
+      activePlaybackKeyRef.current === currentKey &&
+      (playbackStatus.playing || playbackStatus.currentTime > 0)
+    ) {
+      startedPlaybackKeyRef.current = currentKey;
+    }
+  }, [
+    activeSegment,
+    audioResult,
+    playbackStatus.currentTime,
+    playbackStatus.playing,
+    reading,
+  ]);
+
+  useEffect(() => {
     if (!reading || !audioResult || !playbackStatus.didJustFinish) return;
     const key = `${reading.url}:${activeSegment}:${audioResult.cacheKey || audioResult.audioUrl}`;
-    if (handledFinishedRef.current === key) return;
+    if (
+      activePlaybackKeyRef.current !== key ||
+      startedPlaybackKeyRef.current !== key ||
+      handledFinishedRef.current === key
+    ) return;
     handledFinishedRef.current = key;
+    startedPlaybackKeyRef.current = null;
 
     const next = activeSegment + 1;
     if (next < manifest.segments.length) {
@@ -676,6 +705,8 @@ export default function ReadDeviceBrowserScreen() {
         // the ±10 second control appear dead.
         player.pause();
         setAudioResult(null);
+        activePlaybackKeyRef.current = null;
+        startedPlaybackKeyRef.current = null;
         resumeFractionRef.current = target.fraction;
         if (wasPlaying) await playSegment(target.index);
       }
@@ -687,6 +718,8 @@ export default function ReadDeviceBrowserScreen() {
     setAudioResult(null);
     resumeFractionRef.current = target.fraction;
     handledFinishedRef.current = null;
+    activePlaybackKeyRef.current = null;
+    startedPlaybackKeyRef.current = null;
 
     if (wasPlaying) {
       await playSegment(target.index);
