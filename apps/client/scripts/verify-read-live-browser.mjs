@@ -174,6 +174,10 @@ assert.ok(deviceBrowser.includes('setControlsHidden(true)') &&
 assert.ok(deviceBrowser.includes('const stopReadingPage = () =>') &&
   deviceBrowser.includes('accessibilityLabel="Stop reading this page"'),
   'browser Read must let the user stop/remove narration without navigating away from the webpage');
+assert.ok(deviceBrowser.includes('persistBrowserProgress(1)') &&
+  deviceBrowser.includes('if (!isPlaying && displayedProgress >= 0.999)') &&
+  deviceBrowser.includes('void playSegment(0)'),
+  'completed browser readings must stay at 100% and restart the whole page from the beginning on Play');
 assert.ok(!deviceBrowser.includes("router.push('/read/reader' as never)") &&
   !deviceBrowser.includes("sourceType: 'browser'"),
   'pressing Read in the native browser must not convert/navigate the webpage into a separate text Reader');
@@ -303,6 +307,10 @@ assert.ok(!home.includes('generatedText.slice(0, 4000)'),
   'native Read must never silently truncate narration to the first 4000 characters');
 assert.ok(home.includes('readingProgressForSegment') && home.includes('displayedProgress'),
   'native Read playback progress must remain document-wide across hidden TTS segments');
+assert.ok(home.includes('if (displayedProgress >= 0.999)') &&
+  home.includes('setActiveAudioChunk(0)') &&
+  home.includes('await playAudioChunk(0)'),
+  'completed native readings must replay from document start instead of replaying only the final hidden clip');
 assert.ok(home.includes('updateInterval: 100'),
   'native Read must use smooth high-frequency playback status updates');
 assert.ok(home.includes('preload(result.audioUrl'),
