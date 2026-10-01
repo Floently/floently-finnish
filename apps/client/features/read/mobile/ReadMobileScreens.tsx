@@ -1307,71 +1307,113 @@ export function ReadReaderScreen() {
           )}
         </ScrollView>
         <View style={[styles.readerDock, { backgroundColor: palette.nav, borderColor: palette.border, shadowColor: palette.shadow }]}>
-          {readerParagraphList[activeParagraphIndex] ? (
-            <Pressable
-              accessibilityRole="button"
-              accessibilityState={{ expanded: playerExpanded }}
-              accessibilityLabel={playerExpanded ? 'Minimize player' : 'Expand player'}
-              onPress={() => setPlayerExpanded((value) => !value)}
-              style={[styles.readerNowReading, { backgroundColor: palette.surfaceSoft, borderColor: palette.borderStrong }]}
-            >
-              <View style={styles.readerNowBody}>
-                <Text style={[styles.readerNowLabel, { color: palette.accent2 }]}>NOW READING</Text>
-                <Text numberOfLines={playerExpanded ? 2 : 1} style={[styles.readerNowText, { color: palette.text }]}>
-                  {readerParagraphList[activeParagraphIndex]}
-                </Text>
-              </View>
-              <Text style={[styles.readerExpandGlyph, { color: palette.muted }]}>{playerExpanded ? '⌄' : '⌃'}</Text>
-            </Pressable>
-          ) : null}
-          <View style={styles.readerDockTop}>
-            <Text style={[styles.readerTime, { color: palette.muted }]}>{timeLabel}</Text>
-            <Text style={[styles.readerTime, { color: palette.muted }]}>{safePct(displayedProgress)}%</Text>
-          </View>
-          <ProgressBar progress={displayedProgress} height={4} />
-          <View style={styles.readerControls}>
-            {playerExpanded ? (
-              <Pressable
-                accessibilityRole="button"
-                accessibilityLabel="Back 10 seconds"
-                disabled={isPreparing || isProcessing}
-                onPress={() => { void seekDocumentBySeconds(-10); }}
-                style={[styles.roundControl, { backgroundColor: palette.surfaceSoft, borderColor: palette.border }, (isPreparing || isProcessing) && styles.disabled]}
-              >
-                <Text style={[styles.roundControlText, { color: palette.text }]}>-10s</Text>
-              </Pressable>
-            ) : null}
-            <Pressable
-              accessibilityRole="button"
-              accessibilityLabel={isPlaying ? 'Pause reading' : 'Play reading'}
-              onPress={isPlaying ? pauseAudio : generateAndPlayAudio}
-              disabled={isPreparing || isProcessing}
-              style={[styles.mainPlay, { backgroundColor: palette.accent }, (isPreparing || isProcessing) && styles.disabled]}
-            >
-              {isPreparing ? (
-                <ActivityIndicator color={palette.accentText} />
-              ) : (
-                <Text style={[styles.mainPlayText, { color: palette.accentText }]}>{isPlaying ? 'Ⅱ' : '▶'}</Text>
-              )}
-            </Pressable>
-            {playerExpanded ? (
-              <Pressable
-                accessibilityRole="button"
-                accessibilityLabel="Forward 10 seconds"
-                disabled={isPreparing || isProcessing || displayedProgress >= 1}
-                onPress={() => { void seekDocumentBySeconds(10); }}
-                style={[styles.roundControl, { backgroundColor: palette.surfaceSoft, borderColor: palette.border }, (isPreparing || isProcessing || displayedProgress >= 1) && styles.disabled]}
-              >
-                <Text style={[styles.roundControlText, { color: palette.text }]}>+10s</Text>
-              </Pressable>
-            ) : (
-              <Text style={[styles.readerCompactRemaining, { color: palette.muted }]}>
-                {formatReadingClock(Math.max(0, readingManifest.estimatedPlaybackDurationSeconds * (1 - displayedProgress)))} left
-              </Text>
-            )}
-          </View>
-          {playerExpanded ? (
+          {!playerExpanded ? (
             <>
+              <View style={styles.readerCompactBar}>
+                <Pressable
+                  accessibilityRole="button"
+                  accessibilityLabel={isPlaying ? 'Pause reading' : 'Play reading'}
+                  onPress={isPlaying ? pauseAudio : generateAndPlayAudio}
+                  disabled={isPreparing || isProcessing}
+                  style={[styles.readerCompactPlay, { backgroundColor: palette.accent }, (isPreparing || isProcessing) && styles.disabled]}
+                >
+                  {isPreparing ? (
+                    <ActivityIndicator color={palette.accentText} size="small" />
+                  ) : (
+                    <Text style={[styles.readerCompactPlayText, { color: palette.accentText }]}>{isPlaying ? 'Ⅱ' : '▶'}</Text>
+                  )}
+                </Pressable>
+
+                <Pressable
+                  accessibilityRole="button"
+                  accessibilityLabel="Expand player"
+                  accessibilityState={{ expanded: false }}
+                  onPress={() => setPlayerExpanded(true)}
+                  style={styles.readerCompactNow}
+                >
+                  <Text style={[styles.readerNowLabel, { color: palette.accent2 }]}>NOW READING</Text>
+                  <Text numberOfLines={1} style={[styles.readerCompactNowText, { color: palette.text }]}>
+                    {readerParagraphList[activeParagraphIndex] || document.title}
+                  </Text>
+                </Pressable>
+
+                <Text style={[styles.readerCompactRemaining, { color: palette.muted }]}>
+                  {formatReadingClock(Math.max(0, readingManifest.estimatedPlaybackDurationSeconds * (1 - displayedProgress)))}
+                </Text>
+
+                <Pressable
+                  accessibilityRole="button"
+                  accessibilityLabel="Expand player"
+                  onPress={() => setPlayerExpanded(true)}
+                  style={styles.readerCompactExpand}
+                >
+                  <Text style={[styles.readerExpandGlyph, { color: palette.muted }]}>⌃</Text>
+                </Pressable>
+              </View>
+              <ProgressBar progress={displayedProgress} height={3} />
+            </>
+          ) : (
+            <>
+              {readerParagraphList[activeParagraphIndex] ? (
+                <Pressable
+                  accessibilityRole="button"
+                  accessibilityState={{ expanded: true }}
+                  accessibilityLabel="Minimize player"
+                  onPress={() => setPlayerExpanded(false)}
+                  style={[styles.readerNowReading, { backgroundColor: palette.surfaceSoft, borderColor: palette.borderStrong }]}
+                >
+                  <View style={styles.readerNowBody}>
+                    <Text style={[styles.readerNowLabel, { color: palette.accent2 }]}>NOW READING</Text>
+                    <Text numberOfLines={2} style={[styles.readerNowText, { color: palette.text }]}>
+                      {readerParagraphList[activeParagraphIndex]}
+                    </Text>
+                  </View>
+                  <Text style={[styles.readerExpandGlyph, { color: palette.muted }]}>⌄</Text>
+                </Pressable>
+              ) : null}
+
+              <View style={styles.readerDockTop}>
+                <Text style={[styles.readerTime, { color: palette.muted }]}>{timeLabel}</Text>
+                <Text style={[styles.readerTime, { color: palette.muted }]}>{safePct(displayedProgress)}%</Text>
+              </View>
+              <ProgressBar progress={displayedProgress} height={4} />
+
+              <View style={styles.readerControls}>
+                <Pressable
+                  accessibilityRole="button"
+                  accessibilityLabel="Back 10 seconds"
+                  disabled={isPreparing || isProcessing}
+                  onPress={() => { void seekDocumentBySeconds(-10); }}
+                  style={[styles.roundControl, { backgroundColor: palette.surfaceSoft, borderColor: palette.border }, (isPreparing || isProcessing) && styles.disabled]}
+                >
+                  <Text style={[styles.roundControlText, { color: palette.text }]}>-10s</Text>
+                </Pressable>
+
+                <Pressable
+                  accessibilityRole="button"
+                  accessibilityLabel={isPlaying ? 'Pause reading' : 'Play reading'}
+                  onPress={isPlaying ? pauseAudio : generateAndPlayAudio}
+                  disabled={isPreparing || isProcessing}
+                  style={[styles.mainPlay, { backgroundColor: palette.accent }, (isPreparing || isProcessing) && styles.disabled]}
+                >
+                  {isPreparing ? (
+                    <ActivityIndicator color={palette.accentText} />
+                  ) : (
+                    <Text style={[styles.mainPlayText, { color: palette.accentText }]}>{isPlaying ? 'Ⅱ' : '▶'}</Text>
+                  )}
+                </Pressable>
+
+                <Pressable
+                  accessibilityRole="button"
+                  accessibilityLabel="Forward 10 seconds"
+                  disabled={isPreparing || isProcessing || displayedProgress >= 1}
+                  onPress={() => { void seekDocumentBySeconds(10); }}
+                  style={[styles.roundControl, { backgroundColor: palette.surfaceSoft, borderColor: palette.border }, (isPreparing || isProcessing || displayedProgress >= 1) && styles.disabled]}
+                >
+                  <Text style={[styles.roundControlText, { color: palette.text }]}>+10s</Text>
+                </Pressable>
+              </View>
+
               <View style={styles.readerDockBottom}>
                 <SecondaryButton
                   label={selectedVoice ? `Voice · ${selectedVoice.name}` : 'Voice'}
@@ -1387,6 +1429,7 @@ export function ReadReaderScreen() {
                 />
                 <SecondaryButton label={document.detectedLanguageLabel} onPress={() => navigate('/read/settings')} />
               </View>
+
               <Pressable
                 accessibilityRole="button"
                 accessibilityState={{ expanded: studyOpen }}
@@ -1398,7 +1441,7 @@ export function ReadReaderScreen() {
                 </Text>
               </Pressable>
             </>
-          ) : null}
+          )}
           {playerExpanded && studyOpen ? (
             <View style={[styles.readerStudyPanel, { backgroundColor: palette.surface, borderColor: palette.border }]}>
               <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={styles.readerStudyActions}>
@@ -1814,7 +1857,13 @@ const styles = StyleSheet.create({
   processingReader: { borderRadius: 28, borderWidth: 1, padding: 26, gap: 14, alignItems: 'center' },
   processingTitle: { fontSize: 22, fontWeight: '900', textAlign: 'center' },
   processingBody: { fontSize: 14, lineHeight: 21, textAlign: 'center', fontWeight: '600' },
-  readerDock: { position: 'absolute', left: 12, right: 12, bottom: 10, borderRadius: 22, borderWidth: 1, padding: 11, gap: 8, shadowOpacity: 1, shadowRadius: 20, shadowOffset: { width: 0, height: 10 } },
+  readerDock: { position: 'absolute', left: 12, right: 12, bottom: 10, borderRadius: 22, borderWidth: 1, padding: 10, gap: 8, shadowOpacity: 1, shadowRadius: 20, shadowOffset: { width: 0, height: 10 } },
+  readerCompactBar: { minHeight: 50, flexDirection: 'row', alignItems: 'center', gap: 9 },
+  readerCompactPlay: { width: 44, height: 44, borderRadius: 22, alignItems: 'center', justifyContent: 'center' },
+  readerCompactPlayText: { fontSize: 17, fontWeight: '900' },
+  readerCompactNow: { flex: 1, minWidth: 0, justifyContent: 'center' },
+  readerCompactNowText: { fontSize: 12, lineHeight: 16, fontWeight: '800' },
+  readerCompactExpand: { width: 34, height: 44, alignItems: 'center', justifyContent: 'center' },
   readerNowReading: { borderRadius: 14, borderWidth: 1, paddingHorizontal: 12, paddingVertical: 9, gap: 8, flexDirection: 'row', alignItems: 'center' },
   readerNowBody: { flex: 1, gap: 3 },
   readerExpandGlyph: { width: 30, textAlign: 'center', fontSize: 22, fontWeight: '900' },
