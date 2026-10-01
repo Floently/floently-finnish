@@ -1175,6 +1175,11 @@ export function ReadReaderScreen() {
     }).then((result) => {
       if (audioGenerationRef.current === generation) {
         audioChunkCache.current.set(key, result);
+        while (audioChunkCache.current.size > 16) {
+          const oldest = audioChunkCache.current.keys().next().value as string | undefined;
+          if (!oldest || oldest === key) break;
+          audioChunkCache.current.delete(oldest);
+        }
       }
       return result;
     }).finally(() => {
@@ -1193,6 +1198,12 @@ export function ReadReaderScreen() {
     if (!pending) {
       pending = preload(result.audioUrl, { preferredForwardBufferDuration: 30 }).catch(() => {});
       audioPreloadCache.current.set(result.audioUrl, pending);
+      while (audioPreloadCache.current.size > 12) {
+        const oldestUrl = audioPreloadCache.current.keys().next().value as string | undefined;
+        if (!oldestUrl || oldestUrl === result.audioUrl) break;
+        audioPreloadCache.current.delete(oldestUrl);
+        void clearPreloadedSource(oldestUrl).catch(() => {});
+      }
     }
     await pending;
     return result;
