@@ -1354,6 +1354,15 @@ export default function ReadDeviceBrowserScreen() {
             allowsBackForwardNavigationGestures
             setSupportMultipleWindows={false}
             onLoadStart={() => {
+              pageReadingGenerationRef.current += 1;
+              if (reading) {
+                persistBrowserProgress(displayedProgress);
+                clearPreparedAudio();
+                setReading(null);
+                setManifest(EMPTY_MANIFEST);
+                setAudioState('idle');
+                setControlsHidden(false);
+              }
               setLoading(true);
               setLoadError(null);
               setStatus('Loading on this device…');
