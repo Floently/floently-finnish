@@ -906,6 +906,7 @@ export function ReadReaderScreen() {
   const handledFinishedChunk = useRef<string | null>(null);
   const activePlaybackKeyRef = useRef<string | null>(null);
   const startedPlaybackKeyRef = useRef<string | null>(null);
+  const prefetchGenerationRef = useRef(0);
   const playAttemptRef = useRef(0);
   const playbackHealthRef = useRef({
     playing: false,
@@ -1098,6 +1099,7 @@ export function ReadReaderScreen() {
     setAudioResult(null);
     setAudioState('idle');
     setAudioError(null);
+    prefetchGenerationRef.current += 1;
     audioChunkCache.current.clear();
     for (const url of audioPreloadCache.current.keys()) {
       void clearPreloadedSource(url).catch(() => {});
@@ -1109,6 +1111,7 @@ export function ReadReaderScreen() {
   }, [document?.id]);
 
   useEffect(() => {
+    prefetchGenerationRef.current += 1;
     audioChunkCache.current.clear();
     for (const url of audioPreloadCache.current.keys()) {
       void clearPreloadedSource(url).catch(() => {});
@@ -1120,6 +1123,7 @@ export function ReadReaderScreen() {
   }, [document?.voiceId]);
 
   useEffect(() => () => {
+    prefetchGenerationRef.current += 1;
     try { player.clearLockScreenControls(); } catch {}
     for (const url of audioPreloadCache.current.keys()) {
       void clearPreloadedSource(url).catch(() => {});
@@ -1157,9 +1161,23 @@ export function ReadReaderScreen() {
   }
 
   function prefetchReadingHorizon(index: number) {
-    for (const nextIndex of readingPrefetchIndexes(readingManifest, index, 120, 4)) {
-      void preloadAudioChunk(nextIndex).catch(() => {});
-    }
+    const indexes = readingPrefetchIndexes(readingManifest, index, 120, 4);
+    const generation = ++prefetchGenerationRef.current;
+
+    // Warm the next hidden segment before later lookahead. Sequential
+    // preparation avoids a TTS request stampede that can make the nearest
+    // handoff less reliable even though several distant clips are in flight.
+    void (async () => {
+      for (const nextIndex of indexes) {
+        if (prefetchGenerationRef.current !== generation) return;
+        try {
+          await preloadAudioChunk(nextIndex);
+        } catch {
+          // Speculative lookahead is best-effort; active playback remains the
+          // authority and can retry when this segment actually becomes active.
+        }
+      }
+    })();
   }
 
   function enableLockScreenControls() {
