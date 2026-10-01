@@ -41,7 +41,7 @@ import {
 const WEB_BROWSER_URL = 'https://read.floently.com/app/browser-v2/live';
 const BROWSER_READER_PREFS_KEY = 'floently.read.browser.reader-prefs.v1';
 const BROWSER_READER_PROGRESS_PREFIX = 'floently.read.browser.progress.v1:';
-const EMPTY_MANIFEST = createReadingPlaybackManifest('', 1, 1400, 320);
+const EMPTY_MANIFEST = createReadingPlaybackManifest('', 1, 1400, 220);
 
 const PROTECTED_AUTH_HOSTS = new Set([
   'accounts.google.com',
@@ -857,7 +857,7 @@ export default function ReadDeviceBrowserScreen() {
   };
 
   const startReadingPage = async (payload: BrowserReading) => {
-    const nextManifest = createReadingPlaybackManifest(payload.text, speed, 1400, 320);
+    const nextManifest = createReadingPlaybackManifest(payload.text, speed, 1400, 220);
     if (!nextManifest.segments.length) {
       setAudioState('error');
       setAudioError('No readable text was found on this page.');
@@ -985,7 +985,7 @@ export default function ReadDeviceBrowserScreen() {
     ).catch(() => {});
 
     if (!reading) return;
-    const nextManifest = createReadingPlaybackManifest(reading.text, next, 1400, 320);
+    const nextManifest = createReadingPlaybackManifest(reading.text, next, 1400, 220);
     setManifest(nextManifest);
 
     // Segment boundaries do not change with speed. When a clip is already
