@@ -280,6 +280,9 @@ assert.ok(home.includes('voiceChangeResumeRef') &&
   home.includes('autoplay: wasPlaying') &&
   home.includes('void playAudioChunk(resume.index)'),
   'standalone native Reader must continue narration after a voice change made during playback');
+assert.ok(home.includes('try { player.clearLockScreenControls(); } catch {}') &&
+  home.includes('voiceChangeResumeRef.current = { index: position.index, autoplay: wasPlaying }'),
+  'voice replacement must not leave the previous physical clip exposed through OS controls');
 assert.ok(deviceBrowser.includes('effectiveVoiceId') &&
   deviceBrowser.includes('catalog.voices.some((voice) => voice.id === current)') &&
   home.includes("selectedVoice?.id || defaultVoiceId || document.voiceId"),
@@ -404,6 +407,12 @@ assert.ok(home.includes('async function seekDocumentBySeconds(deltaSeconds: numb
 assert.ok(home.includes('If the active AVPlayer item is not seekable yet') &&
   deviceBrowser.includes('the ±10 second control appear dead'),
   'native and browser Reader seek controls must recover if the active media item is temporarily unseekable');
+assert.ok(deviceBrowser.includes('if (!wasPlaying) {\n      try { player.clearLockScreenControls(); } catch {}') &&
+  home.includes('if (!wasPlaying) {\n      try { player.clearLockScreenControls(); } catch {}'),
+  'paused cross-segment seeks must not leave OS media controls attached to an obsolete hidden clip');
+assert.ok(deviceBrowser.includes('const clearPreparedAudio = () => {') &&
+  deviceBrowser.includes('try { player.clearLockScreenControls(); } catch {}'),
+  'stopping/reloading Browser Reader must remove stale OS media controls');
 assert.ok(!home.includes('playbackStatus.currentTime - 10'),
   'native Read must not implement back-10 as a current-clip-only seek');
 assert.ok(home.includes('shouldPlayInBackground: true') && home.includes('setActiveForLockScreen'),
