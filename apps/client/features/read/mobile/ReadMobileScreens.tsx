@@ -1427,6 +1427,9 @@ export function ReadReaderScreen() {
     activePlaybackKeyRef.current = null;
     startedPlaybackKeyRef.current = null;
     player.pause();
+    if (!wasPlaying) {
+      try { player.clearLockScreenControls(); } catch {}
+    }
     setActiveAudioChunk(target.index);
     setAudioResult(null);
     resumeFractionRef.current = target.fraction;
@@ -1459,6 +1462,7 @@ export function ReadReaderScreen() {
     audioGenerationRef.current += 1;
     prefetchGenerationRef.current += 1;
     player.pause();
+    try { player.clearLockScreenControls(); } catch {}
     setActiveAudioChunk(position.index);
     setAudioResult(null);
     setAudioError(null);
