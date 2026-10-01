@@ -233,6 +233,11 @@ assert.ok(deviceBrowser.includes('effectiveVoiceId') &&
   deviceBrowser.includes('catalog.voices.some((voice) => voice.id === current)') &&
   home.includes("selectedVoice?.id || defaultVoiceId || document.voiceId"),
   'native Readers must fall back to an available voice instead of sending a stale saved voice id to TTS');
+assert.ok(deviceBrowser.includes('voiceChangeResumeRef') &&
+  deviceBrowser.includes('autoplay: wasPlaying') &&
+  deviceBrowser.includes('if (resume.autoplay)') &&
+  deviceBrowser.includes('void playSegment(resume.index)'),
+  'changing Browser Reader voice during playback must preserve the logical cursor and continue automatically');
 assert.ok(home.includes('createReadingPlaybackManifest') && home.includes('playAudioChunk(nextIndex)'),
   'native Read must narrate long documents through a document-wide logical playback manifest');
 assert.ok(home.includes('styles.readerCompactBar') &&
