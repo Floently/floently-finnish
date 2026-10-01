@@ -95,6 +95,10 @@ assert.ok(deviceBrowser.includes("accessibilityLabel={playerExpanded ? 'Minimize
 assert.ok(!deviceBrowser.includes("router.push('/read/reader' as never)") &&
   !deviceBrowser.includes("sourceType: 'browser'"),
   'pressing Read in the native browser must not convert/navigate the webpage into a separate text Reader');
+assert.ok(deviceBrowser.includes('buildReadingFocusScript') &&
+  deviceBrowser.includes('data-floently-reading-focus') &&
+  deviceBrowser.includes("scrollIntoView({ block: 'center', behavior: 'smooth' })"),
+  'browser narration must follow/highlight the original webpage without replacing its content');
 assert.ok(deviceBrowser.includes("Browse on this device") &&
   deviceBrowser.includes("Website rendering, touch, cookies and sign-in stay in the phone's native browser engine"),
   'native Browser UI must truthfully describe local device ownership');
