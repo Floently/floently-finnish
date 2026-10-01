@@ -775,8 +775,15 @@ export default function ReadDeviceBrowserScreen() {
         try {
           await preloadSegment(nextIndex);
         } catch {
-          // A failed speculative preload must never stop the active reading.
-          // playSegment() will make a fresh request if that segment is reached.
+          // The nearest handoff gets one bounded retry. Later speculative
+          // failures stay best-effort so lookahead can never stall playback.
+          if (nextIndex === indexes[0] && prefetchGenerationRef.current === generation) {
+            await new Promise((resolve) => setTimeout(resolve, 450));
+            if (prefetchGenerationRef.current !== generation) return;
+            try {
+              await preloadSegment(nextIndex);
+            } catch {}
+          }
         }
       }
     })();
