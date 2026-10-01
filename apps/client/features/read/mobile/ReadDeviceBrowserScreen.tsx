@@ -487,7 +487,12 @@ export default function ReadDeviceBrowserScreen() {
       if (cancelled) return;
       setVoices(catalog.voices);
       setDefaultVoiceId(catalog.defaultVoiceId);
-      setSelectedVoiceId((current) => current || catalog.defaultVoiceId);
+      setSelectedVoiceId((current) => {
+        if (current && catalog.voices.some((voice) => voice.id === current)) {
+          return current;
+        }
+        return catalog.defaultVoiceId;
+      });
     }).catch(() => {});
     return () => {
       cancelled = true;
@@ -536,6 +541,7 @@ export default function ReadDeviceBrowserScreen() {
     voices.find((voice) => voice.id === defaultVoiceId) ||
     voices[0] ||
     null;
+  const effectiveVoiceId = selectedVoice?.id || defaultVoiceId || selectedVoiceId;
 
   const activeText = manifest.segments[activeSegment]?.text || '';
   const activeVisualPhrase = useMemo(
@@ -636,7 +642,7 @@ export default function ReadDeviceBrowserScreen() {
   }, [audioError, isPlaying, playerExpanded, reading?.url]);
 
   const chunkKey = (index: number) =>
-    `${reading?.url || currentUrl || 'page'}:${selectedVoiceId || defaultVoiceId || 'default'}:${index}`;
+    `${reading?.url || currentUrl || 'page'}:${effectiveVoiceId || 'default'}:${index}`;
 
   const prepareSegment = async (index: number) => {
     const segment = manifest.segments[index];
@@ -648,7 +654,7 @@ export default function ReadDeviceBrowserScreen() {
     const result = await readTtsApi.prerenderReading({
       text: segment.text,
       language: 'auto',
-      voiceId: selectedVoiceId || defaultVoiceId,
+      voiceId: effectiveVoiceId,
     });
     audioCache.current.set(key, result);
     return result;
