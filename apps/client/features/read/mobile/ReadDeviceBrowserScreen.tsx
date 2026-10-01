@@ -1354,19 +1354,32 @@ export default function ReadDeviceBrowserScreen() {
             mediaPlaybackRequiresUserAction={false}
             allowsBackForwardNavigationGestures
             setSupportMultipleWindows={false}
-            onLoadStart={() => {
-              pageReadingGenerationRef.current += 1;
-              if (reading) {
-                persistBrowserProgress(displayedProgress);
-                clearPreparedAudio();
-                setReading(null);
-                setManifest(EMPTY_MANIFEST);
-                setAudioState('idle');
-                setControlsHidden(false);
+            onLoadStart={(event) => {
+              const nextUrl = String(event.nativeEvent.url || '');
+              const hashOnlyNavigation =
+                Boolean(reading?.url) &&
+                nextUrl !== reading!.url &&
+                isSameBrowserReadingPage(nextUrl, reading!.url);
+
+              // Hash-only SPA navigation changes the visible position/state of
+              // the same lesson. Do not tear down narration for that. A real
+              // reload (same raw URL) or a different document still resets the
+              // reading snapshot because the page contents may have changed.
+              if (!hashOnlyNavigation) {
+                pageReadingGenerationRef.current += 1;
+                if (reading) {
+                  persistBrowserProgress(displayedProgress);
+                  clearPreparedAudio();
+                  setReading(null);
+                  setManifest(EMPTY_MANIFEST);
+                  setAudioState('idle');
+                  setControlsHidden(false);
+                }
               }
+              if (/^https?:\/\//i.test(nextUrl)) latestUrlRef.current = nextUrl;
               setLoading(true);
               setLoadError(null);
-              setStatus('Loading on this device…');
+              setStatus(hashOnlyNavigation && reading ? 'Reading this page' : 'Loading on this device…');
             }}
             onLoadEnd={() => {
               setLoading(false);
