@@ -396,7 +396,7 @@ assert.ok(playbackManifest.includes('estimatedPlaybackDurationSeconds') &&
 assert.ok(playbackManifest.includes('startupMaxChars') &&
   playbackManifest.includes('The first narration request controls perceived start latency'),
   'native Read must use a small hidden startup segment without turning the whole document into tiny clips');
-assert.ok(deviceBrowser.includes("createReadingPlaybackManifest(payload.text, speed, 1400, 220)"),
+assert.ok(deviceBrowser.includes("createReadingPlaybackManifest(pageReading.text, speed, 1400, 220)"),
   'browser Read must use a fast startup segment followed by longer hidden narration segments');
 assert.ok(home.includes('1800') && home.includes('240'),
   'standalone native Reader must use a fast startup segment followed by long-form hidden narration segments');
