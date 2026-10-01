@@ -139,8 +139,11 @@ assert.ok(deviceBrowser.includes('inferBrowserReadingLanguage') &&
   deviceBrowser.includes('const browserVoices = useMemo(() =>') &&
   deviceBrowser.includes("language: reading?.language || 'auto'"),
   'browser Read must prefer declared/content-detected language instead of assuming the device locale for TTS');
-assert.ok(deviceBrowser.includes("setAudioState(wasPlaying ? 'preparing' : 'paused')"),
-  'changing Browser Reader voice during playback must continue from the same logical cursor');
+assert.ok(deviceBrowser.includes('voiceChangeResumeRef.current = {') &&
+  deviceBrowser.includes('autoplay: wasPlaying') &&
+  deviceBrowser.includes('void playSegment(resume.index)') &&
+  deviceBrowser.includes('void preloadSegment(resume.index).catch(() => {})'),
+  'changing Browser Reader voice must preserve the logical cursor and continue automatically when it was already playing');
 assert.ok(deviceBrowser.includes('BROWSER_READER_PROGRESS_PREFIX') &&
   deviceBrowser.includes('browserReadingProgressKey') &&
   deviceBrowser.includes("setStatus(savedProgress > 0 ? 'Resuming this page'"),
