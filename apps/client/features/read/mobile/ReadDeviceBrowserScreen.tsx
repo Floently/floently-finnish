@@ -34,6 +34,7 @@ import {
 
 const WEB_BROWSER_URL = 'https://read.floently.com/app/browser-v2/live';
 const BROWSER_READER_PREFS_KEY = 'floently.read.browser.reader-prefs.v1';
+const BROWSER_READER_PROGRESS_PREFIX = 'floently.read.browser.progress.v1:';
 const EMPTY_MANIFEST = createReadingPlaybackManifest('', 1, 1400, 320);
 
 const PROTECTED_AUTH_HOSTS = new Set([
@@ -58,6 +59,11 @@ type BrowserAudioState =
   | 'playing'
   | 'paused'
   | 'error';
+
+function browserReadingProgressKey(reading: BrowserReading) {
+  const stableUrl = reading.url.slice(0, 480);
+  return `${BROWSER_READER_PROGRESS_PREFIX}${stableUrl}:${reading.text.length}`;
+}
 
 function isProtectedAuthenticationUrl(value: string | null) {
   if (!value) return false;
@@ -284,6 +290,7 @@ export default function ReadDeviceBrowserScreen() {
   const handledFinishedRef = useRef<string | null>(null);
   const activePlaybackKeyRef = useRef<string | null>(null);
   const startedPlaybackKeyRef = useRef<string | null>(null);
+  const lastSavedProgressRef = useRef(0);
 
   const initialUrl = useMemo(() => {
     const value = Array.isArray(params.url) ? params.url[0] : params.url;
@@ -426,6 +433,21 @@ export default function ReadDeviceBrowserScreen() {
 
   const totalSeconds = Math.max(0, manifest.estimatedPlaybackDurationSeconds);
   const currentSeconds = totalSeconds * displayedProgress;
+
+  useEffect(() => {
+    if (!reading || !manifest.segments.length) return;
+    if (
+      displayedProgress < 1 &&
+      Math.abs(displayedProgress - lastSavedProgressRef.current) < 0.01
+    ) return;
+
+    lastSavedProgressRef.current = displayedProgress;
+    void AsyncStorage.setItem(
+      browserReadingProgressKey(reading),
+      String(displayedProgress),
+    ).catch(() => {});
+  }, [displayedProgress, manifest.segments.length, reading]);
+
   const isPlaying = audioState === 'playing' || playbackStatus.playing;
   const isPreparing =
     audioState === 'extracting' ||
@@ -626,7 +648,7 @@ export default function ReadDeviceBrowserScreen() {
     webViewRef.current?.injectJavaScript(EXTRACT_READABLE_PAGE);
   };
 
-  const startReadingPage = (payload: BrowserReading) => {
+  const startReadingPage = async (payload: BrowserReading) => {
     const nextManifest = createReadingPlaybackManifest(payload.text, speed, 1400, 320);
     if (!nextManifest.segments.length) {
       setAudioState('error');
@@ -634,21 +656,30 @@ export default function ReadDeviceBrowserScreen() {
       return;
     }
 
+    let savedProgress = 0;
+    try {
+      const raw = await AsyncStorage.getItem(browserReadingProgressKey(payload));
+      const parsed = Number(raw);
+      if (Number.isFinite(parsed) && parsed > 0 && parsed < 0.995) {
+        savedProgress = parsed;
+      }
+    } catch {}
+
+    const savedPosition = readingPositionForProgress(nextManifest, savedProgress);
     clearPreparedAudio();
     setReading(payload);
     setManifest(nextManifest);
-    setActiveSegment(0);
+    setActiveSegment(savedPosition.index);
     setAudioResult(null);
-    resumeFractionRef.current = 0;
+    resumeFractionRef.current = savedPosition.fraction;
+    lastSavedProgressRef.current = savedProgress;
     setAudioState('paused');
     setAudioError(null);
-    setStatus('Reader ready on this page');
+    setStatus(savedProgress > 0 ? 'Resuming this page' : 'Reader ready on this page');
 
     // Start only after React has committed the new manifest. A zero-delay task
     // avoids racing playSegment against the previous empty manifest.
     setTimeout(() => {
-      // The play button remains authoritative if the platform cancels this
-      // optimistic start for any reason.
       setAudioState((state) => state === 'paused' ? 'preparing' : state);
     }, 0);
   };
@@ -943,7 +974,7 @@ export default function ReadDeviceBrowserScreen() {
                   return;
                 }
 
-                startReadingPage({
+                void startReadingPage({
                   title: String(payload.title || 'Web reading'),
                   url: String(payload.url || currentUrl || ''),
                   text,
