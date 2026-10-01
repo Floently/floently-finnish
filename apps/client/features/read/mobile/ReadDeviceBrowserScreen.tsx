@@ -814,6 +814,9 @@ export default function ReadDeviceBrowserScreen() {
       setActiveSegment(index);
       setAudioResult(result);
       handledFinishedRef.current = null;
+      // Start the nearest hidden handoff before seek/player startup work. This
+      // matters when resuming near the end of a segment.
+      prefetchAhead(index);
       const playbackIdentity = reading
         ? `${reading.url}:${browserReadingFingerprint(reading.text)}`
         : currentUrl || 'page';
@@ -850,7 +853,6 @@ export default function ReadDeviceBrowserScreen() {
       setAudioState('playing');
       setPlayerExpanded(false);
       setControlsHidden(false);
-      prefetchAhead(index);
     } catch (error) {
       setAudioState('error');
       setAudioError(error instanceof Error ? error.message : String(error));
