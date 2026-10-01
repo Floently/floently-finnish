@@ -578,13 +578,22 @@ export default function ReadDeviceBrowserScreen() {
     const progress = displayedProgress;
     setSpeed(next);
     setPlayerPlaybackRate(player, next);
-    if (reading) {
-      const nextManifest = createReadingPlaybackManifest(reading.text, next, 1400, 320);
-      setManifest(nextManifest);
-      const position = readingPositionForProgress(nextManifest, progress);
-      setActiveSegment(position.index);
-      resumeFractionRef.current = position.fraction;
+
+    if (!reading) return;
+    const nextManifest = createReadingPlaybackManifest(reading.text, next, 1400, 320);
+    setManifest(nextManifest);
+
+    // Segment boundaries do not change with speed. When a clip is already
+    // loaded, keep its real currentTime as the authority; carrying the old
+    // fraction into the next clip would incorrectly skip part of that clip.
+    if (audioResult?.audioUrl) {
+      resumeFractionRef.current = 0;
+      return;
     }
+
+    const position = readingPositionForProgress(nextManifest, progress);
+    setActiveSegment(position.index);
+    resumeFractionRef.current = position.fraction;
   };
 
   const cycleVoice = () => {
