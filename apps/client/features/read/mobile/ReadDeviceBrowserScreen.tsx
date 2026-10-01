@@ -922,7 +922,14 @@ export default function ReadDeviceBrowserScreen() {
       return;
     }
 
+    persistBrowserProgress(1);
+    setAudioResult(null);
+    resumeFractionRef.current = 1;
+    activePlaybackKeyRef.current = null;
+    startedPlaybackKeyRef.current = null;
     setAudioState('paused');
+    setControlsHidden(false);
+    setStatus('Finished');
     webViewRef.current?.injectJavaScript(buildClearReadingFocusScript());
     try { player.clearLockScreenControls(); } catch {}
   }, [
@@ -1057,6 +1064,15 @@ export default function ReadDeviceBrowserScreen() {
   const togglePlayback = () => {
     if (!reading) {
       beginReadingExtraction();
+      return;
+    }
+
+    if (!isPlaying && displayedProgress >= 0.999) {
+      setActiveSegment(0);
+      setAudioResult(null);
+      resumeFractionRef.current = 0;
+      persistBrowserProgress(0);
+      void playSegment(0);
       return;
     }
 
