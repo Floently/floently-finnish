@@ -95,9 +95,20 @@ assert.ok(!deviceBrowser.includes('flowReader.auth.apiKey') &&
 assert.ok(deviceBrowser.includes('PROTECTED_AUTH_HOSTS') &&
   deviceBrowser.includes("isProtectedAuthenticationUrl(currentUrl)") &&
   deviceBrowser.includes('Reader stays out of authentication') &&
-  deviceBrowser.includes('input[autocomplete="current-password"]') &&
+  deviceBrowser.includes('input[autocomplete~="current-password"]') &&
+  deviceBrowser.includes('input[autocomplete~="webauthn"]') &&
   deviceBrowser.includes('Finish signing in before starting Reader on this page.'),
-  'Reader extraction must stay out of protected authentication hosts and live sign-in forms');
+  'Reader extraction must stay out of protected authentication hosts and visible password/passkey forms');
+assert.ok(deviceBrowser.includes('WATCH_LIVE_AUTH_STATE') &&
+  deviceBrowser.includes('FLOENTLY_DEVICE_BROWSER_AUTH_STATE') &&
+  deviceBrowser.includes('MutationObserver') &&
+  deviceBrowser.includes('setPageAuthActive(active)') &&
+  deviceBrowser.includes("setStatus('Sign-in active · Reader paused')"),
+  'Browser Reader must detect dynamically opened credential forms and yield the screen/audio session to sign-in');
+assert.ok(deviceBrowser.includes('getClientRects().length > 0') &&
+  deviceBrowser.includes("style.display !== 'none'") &&
+  deviceBrowser.includes("style.visibility !== 'hidden'"),
+  'hidden login drawers must not falsely disable Reader on otherwise readable pages');
 assert.ok(deviceBrowser.includes('injectJavaScript(EXTRACT_READABLE_PAGE)') &&
   deviceBrowser.includes('createReadingPlaybackManifest(pageReading.text, speed, 1400, 220)') &&
   deviceBrowser.includes('readTtsApi.prerenderReading') &&
@@ -169,10 +180,10 @@ assert.ok(deviceBrowser.includes('styles.compactBar') &&
   deviceBrowser.includes('compactRemaining') &&
   deviceBrowser.includes('compactProgressTrack'),
   'browser Read must expose a single-row compact default player with optional expanded controls');
-assert.ok(deviceBrowser.includes("!reading || loading || audioState === 'extracting' || loadError") &&
+assert.ok(deviceBrowser.includes("!reading || loading || audioState === 'extracting' || loadError || pageAuthActive") &&
   deviceBrowser.includes('onPress={beginReadingExtraction}') &&
   !deviceBrowser.includes('onPress={reading ? togglePlayback : beginReadingExtraction}'),
-  'once in-page reading exists, transport must live in one player surface instead of being duplicated in the browser status bar');
+  'once in-page reading exists, transport must live in one player surface, except the sign-in status surface while authentication owns the page');
 assert.ok(deviceBrowser.includes('setControlsHidden(true)') &&
   deviceBrowser.includes('accessibilityLabel="Show reader controls"') &&
   deviceBrowser.includes('hiddenPlayerPill') &&
