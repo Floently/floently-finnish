@@ -210,6 +210,10 @@ assert.ok(home.includes('const progress = displayedProgress;') &&
   home.includes('resumeFractionRef.current = position.fraction;') &&
   home.includes('setVoiceId(document.id, nextVoice.id)'),
   'changing voice must preserve the exact logical reading cursor');
+assert.ok(deviceBrowser.includes('effectiveVoiceId') &&
+  deviceBrowser.includes('catalog.voices.some((voice) => voice.id === current)') &&
+  home.includes("selectedVoice?.id || defaultVoiceId || document.voiceId"),
+  'native Readers must fall back to an available voice instead of sending a stale saved voice id to TTS');
 assert.ok(home.includes('createReadingPlaybackManifest') && home.includes('playAudioChunk(nextIndex)'),
   'native Read must narrate long documents through a document-wide logical playback manifest');
 assert.ok(home.includes('styles.readerCompactBar') &&
