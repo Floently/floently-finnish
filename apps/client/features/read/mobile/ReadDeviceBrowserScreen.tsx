@@ -32,7 +32,7 @@ import {
 } from './readingPlaybackManifest';
 
 const WEB_BROWSER_URL = 'https://read.floently.com/app/browser-v2/live';
-const EMPTY_MANIFEST = createReadingPlaybackManifest('', 1, 700);
+const EMPTY_MANIFEST = createReadingPlaybackManifest('', 1, 1400, 320);
 
 const PROTECTED_AUTH_HOSTS = new Set([
   'accounts.google.com',
@@ -483,7 +483,7 @@ export default function ReadDeviceBrowserScreen() {
   };
 
   const startReadingPage = (payload: BrowserReading) => {
-    const nextManifest = createReadingPlaybackManifest(payload.text, speed, 700);
+    const nextManifest = createReadingPlaybackManifest(payload.text, speed, 1400, 320);
     if (!nextManifest.segments.length) {
       setAudioState('error');
       setAudioError('No readable text was found on this page.');
@@ -579,7 +579,7 @@ export default function ReadDeviceBrowserScreen() {
     setSpeed(next);
     setPlayerPlaybackRate(player, next);
     if (reading) {
-      const nextManifest = createReadingPlaybackManifest(reading.text, next, 700);
+      const nextManifest = createReadingPlaybackManifest(reading.text, next, 1400, 320);
       setManifest(nextManifest);
       const position = readingPositionForProgress(nextManifest, progress);
       setActiveSegment(position.index);
