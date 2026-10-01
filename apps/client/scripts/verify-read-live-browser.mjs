@@ -154,8 +154,9 @@ assert.ok(deviceBrowser.includes('browserReadingFingerprint') &&
   'browser progress/TTS cache identity must include page content so dynamic same-URL lessons cannot reuse stale narration');
 assert.ok(deviceBrowser.includes('function browserPageIdentity(value: string)') &&
   deviceBrowser.includes("parsed.hash = '';") &&
-  deviceBrowser.includes('isSameBrowserReadingPage(navigation.url, reading!.url)'),
-  'hash-only SPA navigation must not tear down active Browser Reader narration');
+  deviceBrowser.includes('isSameBrowserReadingPage(navigation.url, reading!.url)') &&
+  deviceBrowser.includes('${browserPageIdentity(reading.url)}:${browserReadingFingerprint(reading.text)}:${activeSegment}'),
+  'hash-only SPA navigation must keep narration and its hidden-segment playback guards on one canonical page identity');
 assert.ok(deviceBrowser.includes('styles.compactBar') &&
   deviceBrowser.includes('accessibilityLabel="Expand reader controls"') &&
   deviceBrowser.includes('compactRemaining') &&
