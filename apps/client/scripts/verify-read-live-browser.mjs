@@ -100,6 +100,10 @@ assert.ok(deviceBrowser.includes('audioPrepareCache') &&
   deviceBrowser.includes('const inFlight = audioPrepareCache.current.get(key)') &&
   deviceBrowser.includes('audioPrepareCache.current.set(key, request)'),
   'browser Read must deduplicate overlapping active/lookahead neural TTS requests for the same hidden segment');
+assert.ok(deviceBrowser.includes('audioCache.current.size > 16') &&
+  deviceBrowser.includes('preloadCache.current.size > 12') &&
+  deviceBrowser.includes('clearPreloadedSource(oldestUrl)'),
+  'browser Read must keep long-session prepared/preloaded audio caches bounded');
 assert.ok(deviceBrowser.includes('audioGenerationRef') &&
   deviceBrowser.includes('if (audioGenerationRef.current !== generation) return;'),
   'browser Read must ignore TTS completions that return after navigation, stop, reload, or voice reset');
@@ -309,6 +313,10 @@ assert.ok(home.includes('audioChunkPrepareCache') &&
   home.includes('const inFlight = audioChunkPrepareCache.current.get(key)') &&
   home.includes('audioChunkPrepareCache.current.set(key, request)'),
   'native Read must reuse in-flight TTS preparation instead of issuing duplicate synthesis for one hidden segment');
+assert.ok(home.includes('audioChunkCache.current.size > 16') &&
+  home.includes('audioPreloadCache.current.size > 12') &&
+  home.includes('clearPreloadedSource(oldestUrl)'),
+  'native Read must bound long-session hidden audio memory instead of retaining an entire book worth of clips');
 assert.ok(home.includes('audioGenerationRef') &&
   home.includes('if (audioGenerationRef.current !== generation) return;'),
   'native Read must ignore old TTS completions after the active document or voice changes');
