@@ -329,7 +329,6 @@ const EXTRACT_READABLE_PAGE = `
     // "experts.Most" or "DataAI Notice", without changing the rendered page.
     text = text
       .replace(/([.!?])([A-ZÀ-ÖØ-Þ])/g, '$1 $2')
-      .replace(/([a-zà-öø-ÿ])([A-ZÀ-ÖØ-Þ][a-zà-öø-ÿ])/g, '$1 $2')
       .trim();
 
     window.ReactNativeWebView.postMessage(JSON.stringify({
