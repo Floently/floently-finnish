@@ -118,6 +118,10 @@ assert.ok(deviceBrowser.includes('buildReadingFocusScript') &&
   deviceBrowser.includes('data-floently-reading-focus') &&
   deviceBrowser.includes("scrollIntoView({ block: 'center', behavior: 'smooth' })"),
   'browser narration must follow/highlight the original webpage without replacing its content');
+assert.ok(deviceBrowser.includes("const paragraphs = [];") &&
+  deviceBrowser.includes("paragraphs.join('\\\\n\\\\n')") &&
+  deviceBrowser.includes("replace(/([.!?])([A-ZÀ-ÖØ-Þ])/g, '$1 $2')"),
+  'browser extraction must preserve semantic block boundaries and repair DOM-boundary joins for narration');
 assert.ok(deviceBrowser.includes("Browse on this device") &&
   deviceBrowser.includes("Website rendering, touch, cookies and sign-in stay in the phone's native browser engine"),
   'native Browser UI must truthfully describe local device ownership');
@@ -240,6 +244,9 @@ assert.ok(!home.includes('playbackStatus.currentTime - 10'),
   'native Read must not implement back-10 as a current-clip-only seek');
 assert.ok(home.includes('shouldPlayInBackground: true') && home.includes('setActiveForLockScreen'),
   'native Read must configure sustained background and lock-screen playback');
+assert.ok(home.includes("interruptionMode: 'doNotMix'") &&
+  deviceBrowser.includes("interruptionMode: 'doNotMix'"),
+  'both native Reader surfaces must request the audio focus mode required by Expo lock-screen controls');
 assert.ok(appBase.expo?.plugins?.some((plugin) =>
   Array.isArray(plugin) && plugin[0] === 'expo-audio' && plugin[1]?.enableBackgroundPlayback === true),
   'Expo native config must enable background playback for the final binary');
