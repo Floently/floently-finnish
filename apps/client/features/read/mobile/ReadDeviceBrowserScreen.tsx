@@ -23,7 +23,12 @@ import {
 } from 'expo-audio';
 import WebView, { type WebViewNavigation } from 'react-native-webview';
 
-import { readTtsApi, type ReadTtsResult, type ReadVoice } from './readTtsApi';
+import {
+  readTtsApi,
+  type ReadTtsResult,
+  type ReadVoice,
+  type ReadWordTiming,
+} from './readTtsApi';
 import {
   createReadingPlaybackManifest,
   formatReadingClock,
@@ -135,6 +140,35 @@ function setPlayerPlaybackRate(player: ReturnType<typeof useAudioPlayer>, rate: 
   } catch {
     // Playback remains available at the player's default rate.
   }
+}
+
+function browserVisualPhrase(
+  text: string,
+  timings: ReadWordTiming[],
+  currentTime: number,
+  duration: number,
+) {
+  const sourceWords = text.match(/[^\s]+/g) ?? [];
+  if (!sourceWords.length) return '';
+
+  let activeIndex = 0;
+  let words = sourceWords;
+
+  if (timings.length) {
+    words = timings.map((timing) => timing.word).filter(Boolean);
+    const found = timings.findIndex((timing) => currentTime <= timing.end);
+    activeIndex = found >= 0 ? found : Math.max(0, timings.length - 1);
+  } else if (duration > 0) {
+    const ratio = Math.max(0, Math.min(0.999, currentTime / duration));
+    activeIndex = Math.floor(ratio * sourceWords.length);
+  }
+
+  const bucketSize = 7;
+  const start = Math.max(
+    0,
+    Math.min(words.length - 1, Math.floor(activeIndex / bucketSize) * bucketSize),
+  );
+  return words.slice(start, start + 10).join(' ');
 }
 
 function buildReadingFocusScript(text: string) {
@@ -504,6 +538,20 @@ export default function ReadDeviceBrowserScreen() {
     null;
 
   const activeText = manifest.segments[activeSegment]?.text || '';
+  const activeVisualPhrase = useMemo(
+    () => browserVisualPhrase(
+      activeText,
+      audioResult?.wordTimings ?? [],
+      playbackStatus.currentTime,
+      playbackStatus.duration,
+    ),
+    [
+      activeText,
+      audioResult?.wordTimings,
+      playbackStatus.currentTime,
+      playbackStatus.duration,
+    ],
+  );
 
   const displayedProgress = useMemo(() => {
     if (!manifest.segments.length) return 0;
@@ -571,6 +619,11 @@ export default function ReadDeviceBrowserScreen() {
     audioState === 'extracting' ||
     audioState === 'preparing' ||
     playbackStatus.isBuffering;
+
+  useEffect(() => {
+    if (!reading || !isPlaying || !activeVisualPhrase) return;
+    webViewRef.current?.injectJavaScript(buildReadingFocusScript(activeVisualPhrase));
+  }, [activeVisualPhrase, isPlaying, reading?.url]);
 
   useEffect(() => {
     if (!reading || !isPlaying || playerExpanded || audioError) {
@@ -645,7 +698,9 @@ export default function ReadDeviceBrowserScreen() {
       const playbackKey = `${reading?.url || currentUrl || 'page'}:${index}:${result.cacheKey || result.audioUrl}`;
       activePlaybackKeyRef.current = playbackKey;
       startedPlaybackKeyRef.current = null;
-      webViewRef.current?.injectJavaScript(buildReadingFocusScript(segment.text));
+      webViewRef.current?.injectJavaScript(
+        buildReadingFocusScript(browserVisualPhrase(segment.text, result.wordTimings, 0, Number(result.duration || 0))),
+      );
       player.replace(result.audioUrl);
       setPlayerPlaybackRate(player, speed);
 
