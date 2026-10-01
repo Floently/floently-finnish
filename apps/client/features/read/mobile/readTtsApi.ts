@@ -110,7 +110,11 @@ function normalizeTtsResult(payload: unknown): ReadTtsResult {
   };
 }
 
-async function postReadApi(path: string, body: Record<string, unknown>): Promise<unknown> {
+async function postReadApi(
+  path: string,
+  body: Record<string, unknown>,
+  timeoutMs = 0,
+): Promise<unknown> {
   const token = getAuthToken();
   const headers = new Headers({
     Accept: 'application/json',
@@ -121,11 +125,27 @@ async function postReadApi(path: string, body: Record<string, unknown>): Promise
     headers.set('Authorization', `Bearer ${token}`);
   }
 
-  const response = await fetch(`${getReadApiBaseUrl()}${path}`, {
-    method: 'POST',
-    headers,
-    body: JSON.stringify(body),
-  });
+  const controller = timeoutMs > 0 ? new AbortController() : null;
+  const timeout = controller
+    ? setTimeout(() => controller.abort(), timeoutMs)
+    : null;
+
+  let response: Response;
+  try {
+    response = await fetch(`${getReadApiBaseUrl()}${path}`, {
+      method: 'POST',
+      headers,
+      body: JSON.stringify(body),
+      signal: controller?.signal,
+    });
+  } catch (error) {
+    if (controller?.signal.aborted) {
+      throw new Error('Voice generation took too long. Tap Play to retry.');
+    }
+    throw error;
+  } finally {
+    if (timeout) clearTimeout(timeout);
+  }
 
   const payload = await readJson(response);
 
@@ -212,7 +232,7 @@ export const readTtsApi = {
       text,
       language: input.language ?? 'auto',
       voiceId: pickVoiceId(input.voiceId, input.language),
-    });
+    }, 20_000);
 
     return normalizeTtsResult(payload);
   },
