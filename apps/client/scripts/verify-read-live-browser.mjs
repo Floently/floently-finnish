@@ -134,6 +134,10 @@ assert.ok(deviceBrowser.includes('styles.compactBar') &&
   deviceBrowser.includes('compactRemaining') &&
   deviceBrowser.includes('compactProgressTrack'),
   'browser Read must expose a single-row compact default player with optional expanded controls');
+assert.ok(deviceBrowser.includes("!reading || loading || audioState === 'extracting' || loadError") &&
+  deviceBrowser.includes('onPress={beginReadingExtraction}') &&
+  !deviceBrowser.includes('onPress={reading ? togglePlayback : beginReadingExtraction}'),
+  'once in-page reading exists, transport must live in one player surface instead of being duplicated in the browser status bar');
 assert.ok(deviceBrowser.includes('setControlsHidden(true)') &&
   deviceBrowser.includes('accessibilityLabel="Show reader controls"') &&
   deviceBrowser.includes('hiddenPlayerPill') &&
