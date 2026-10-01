@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import {
   ActivityIndicator,
+  AppState,
   BackHandler,
   Linking,
   Platform,
@@ -513,20 +514,42 @@ export default function ReadDeviceBrowserScreen() {
 
   const totalSeconds = Math.max(0, manifest.estimatedPlaybackDurationSeconds);
   const currentSeconds = totalSeconds * displayedProgress;
+  const progressSaveThreshold =
+    totalSeconds > 0 ? Math.min(0.01, 15 / totalSeconds) : 0.01;
+
+  const persistBrowserProgress = (value = displayedProgress) => {
+    if (!reading) return;
+    const next = Math.max(0, Math.min(1, value));
+    lastSavedProgressRef.current = next;
+    void AsyncStorage.setItem(
+      browserReadingProgressKey(reading),
+      String(next),
+    ).catch(() => {});
+  };
 
   useEffect(() => {
     if (!reading || !manifest.segments.length) return;
     if (
       displayedProgress < 1 &&
-      Math.abs(displayedProgress - lastSavedProgressRef.current) < 0.01
+      Math.abs(displayedProgress - lastSavedProgressRef.current) < progressSaveThreshold
     ) return;
 
-    lastSavedProgressRef.current = displayedProgress;
-    void AsyncStorage.setItem(
-      browserReadingProgressKey(reading),
-      String(displayedProgress),
-    ).catch(() => {});
-  }, [displayedProgress, manifest.segments.length, reading]);
+    persistBrowserProgress(displayedProgress);
+  }, [
+    displayedProgress,
+    manifest.segments.length,
+    progressSaveThreshold,
+    reading,
+  ]);
+
+  useEffect(() => {
+    const subscription = AppState.addEventListener('change', (nextState) => {
+      if (nextState !== 'active' && reading) {
+        persistBrowserProgress(displayedProgress);
+      }
+    });
+    return () => subscription.remove();
+  }, [displayedProgress, reading]);
 
   const isPlaying = audioState === 'playing' || playbackStatus.playing;
   const isPreparing =
@@ -689,6 +712,7 @@ export default function ReadDeviceBrowserScreen() {
   };
 
   const stopReadingPage = () => {
+    persistBrowserProgress(displayedProgress);
     clearPreparedAudio();
     setReading(null);
     setManifest(EMPTY_MANIFEST);
@@ -791,6 +815,7 @@ export default function ReadDeviceBrowserScreen() {
     if (isPlaying) {
       playAttemptRef.current += 1;
       player.pause();
+      persistBrowserProgress(displayedProgress);
       setAudioState('paused');
       return;
     }
