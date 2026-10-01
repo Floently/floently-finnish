@@ -771,7 +771,10 @@ export default function ReadDeviceBrowserScreen() {
       setActiveSegment(index);
       setAudioResult(result);
       handledFinishedRef.current = null;
-      const playbackKey = `${reading?.url || currentUrl || 'page'}:${index}:${result.cacheKey || result.audioUrl}`;
+      const playbackIdentity = reading
+        ? `${reading.url}:${browserReadingFingerprint(reading.text)}`
+        : currentUrl || 'page';
+      const playbackKey = `${playbackIdentity}:${index}:${result.cacheKey || result.audioUrl}`;
       activePlaybackKeyRef.current = playbackKey;
       startedPlaybackKeyRef.current = null;
       webViewRef.current?.injectJavaScript(
@@ -813,7 +816,7 @@ export default function ReadDeviceBrowserScreen() {
 
   useEffect(() => {
     if (!reading || !audioResult) return;
-    const currentKey = `${reading.url}:${activeSegment}:${audioResult.cacheKey || audioResult.audioUrl}`;
+    const currentKey = `${reading.url}:${browserReadingFingerprint(reading.text)}:${activeSegment}:${audioResult.cacheKey || audioResult.audioUrl}`;
     if (
       activePlaybackKeyRef.current === currentKey &&
       (playbackStatus.playing || playbackStatus.currentTime > 0)
@@ -830,7 +833,7 @@ export default function ReadDeviceBrowserScreen() {
 
   useEffect(() => {
     if (!reading || !audioResult || !playbackStatus.didJustFinish) return;
-    const key = `${reading.url}:${activeSegment}:${audioResult.cacheKey || audioResult.audioUrl}`;
+    const key = `${reading.url}:${browserReadingFingerprint(reading.text)}:${activeSegment}:${audioResult.cacheKey || audioResult.audioUrl}`;
     if (
       activePlaybackKeyRef.current !== key ||
       startedPlaybackKeyRef.current !== key ||
