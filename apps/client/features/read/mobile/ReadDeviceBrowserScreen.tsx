@@ -1757,14 +1757,16 @@ export default function ReadDeviceBrowserScreen() {
                     );
                     void seekBySeconds((targetProgress - displayedProgress) * totalSeconds);
                   }}
-                  style={[styles.progressTrack, styles.seekableProgressTrack]}
+                  style={styles.seekableProgressTrack}
                 >
-                  <View
-                    style={[
-                      styles.progressFill,
-                      { width: `${Math.max(0, Math.min(100, displayedProgress * 100))}%` },
-                    ]}
-                  />
+                  <View style={styles.progressTrack}>
+                    <View
+                      style={[
+                        styles.progressFill,
+                        { width: `${Math.max(0, Math.min(100, displayedProgress * 100))}%` },
+                      ]}
+                    />
+                  </View>
                 </Pressable>
 
                 <View style={styles.transport}>
@@ -2059,10 +2061,9 @@ const styles = StyleSheet.create({
     marginTop: 4,
   },
   seekableProgressTrack: {
-    minHeight: 16,
+    minHeight: 20,
     justifyContent: 'center',
     paddingVertical: 6,
-    backgroundColor: 'transparent',
   },
   progressFill: {
     height: '100%',
