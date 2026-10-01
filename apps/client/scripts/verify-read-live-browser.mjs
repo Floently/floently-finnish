@@ -89,6 +89,10 @@ assert.ok(deviceBrowser.includes('injectJavaScript(EXTRACT_READABLE_PAGE)') &&
 assert.ok(deviceBrowser.includes('downloadFirst: false') &&
   deviceBrowser.includes("setPlayerExpanded(false)"),
   'browser Read must stream the active voice promptly and auto-minimize the player when narration starts');
+assert.ok(deviceBrowser.includes('BROWSER_READER_PREFS_KEY') &&
+  deviceBrowser.includes('AsyncStorage.getItem(BROWSER_READER_PREFS_KEY)') &&
+  deviceBrowser.includes('AsyncStorage.setItem('),
+  'browser Read speed and voice must persist across page changes/reopens instead of resetting per page');
 assert.ok(deviceBrowser.includes("accessibilityLabel={playerExpanded ? 'Minimize reader controls' : 'Expand reader controls'}") &&
   deviceBrowser.includes('compactRemaining'),
   'browser Read must expose a compact default player with optional expanded controls');
