@@ -16,17 +16,45 @@ export default function CardPracticeScreen() {
     };
   }, []);
 
+  const preferencesHydrated = usePreferencesStore((state) => state.hasHydrated);
+  const hydratePreferences = usePreferencesStore((state) => state.hydrate);
   const themeMode = usePreferencesStore((state) => state.themeMode);
   const palette = getFloentlyPalette(themeMode);
   const isDark = themeMode === 'dark';
   const { t } = useTranslator();
 
+  useEffect(() => {
+    if (!preferencesHydrated) void hydratePreferences();
+  }, [hydratePreferences, preferencesHydrated]);
+
   return (
     <SafeAreaView style={[styles.safeArea, { backgroundColor: isDark ? palette.background : '#F4F7FB' }]}>
       <View style={[styles.backBar, { backgroundColor: isDark ? palette.background : '#F4F7FB' }]}>
         <View style={styles.topNavRow}>
-        <Pressable onPress={() => router.back()} style={[styles.backButton, isDark && { backgroundColor: palette.primarySurface }]}>
-          <Text style={[styles.backButtonText, isDark && { color: palette.primary }]}>{t('commonBack')}</Text>
+        <Pressable
+          onPress={() => router.back()}
+          accessibilityRole="button"
+          style={[
+            styles.backButton,
+            isDark
+              ? {
+                  backgroundColor: palette.primarySurface,
+                  borderColor: palette.border,
+                }
+              : {
+                  backgroundColor: '#FFFFFF',
+                  borderColor: 'rgba(52,94,195,0.28)',
+                },
+          ]}
+        >
+          <Text
+            style={[
+              styles.backButtonText,
+              { color: isDark ? palette.primary : '#2D4FA5' },
+            ]}
+          >
+            {t('commonBack')}
+          </Text>
         </Pressable>
         <Pressable
           onPress={() => router.replace('/?openMenu=1' as never)}
@@ -79,7 +107,14 @@ const styles = StyleSheet.create({
   },
 
   safeArea: { flex: 1 },
-  backBar: { flexDirection: 'row', paddingHorizontal: 16, paddingVertical: 8 },
+  backBar: {
+    flexDirection: 'row',
+    paddingHorizontal: 16,
+    paddingVertical: 8,
+    position: 'relative',
+    zIndex: 100,
+    elevation: 12,
+  },
   backButton: {
     minHeight: 36,
     paddingHorizontal: 14,
