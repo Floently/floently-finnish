@@ -907,6 +907,7 @@ export function ReadReaderScreen() {
   const activePlaybackKeyRef = useRef<string | null>(null);
   const startedPlaybackKeyRef = useRef<string | null>(null);
   const prefetchGenerationRef = useRef(0);
+  const voiceChangeResumeRef = useRef<{ index: number; autoplay: boolean } | null>(null);
   const playAttemptRef = useRef(0);
   const playbackHealthRef = useRef({
     playing: false,
@@ -1120,6 +1121,19 @@ export function ReadReaderScreen() {
     handledFinishedChunk.current = null;
     activePlaybackKeyRef.current = null;
     startedPlaybackKeyRef.current = null;
+
+    const resume = voiceChangeResumeRef.current;
+    voiceChangeResumeRef.current = null;
+    if (!resume) return;
+
+    const timer = setTimeout(() => {
+      if (resume.autoplay) {
+        void playAudioChunk(resume.index);
+      } else {
+        void preloadAudioChunk(resume.index).catch(() => {});
+      }
+    }, 0);
+    return () => clearTimeout(timer);
   }, [document?.voiceId]);
 
   useEffect(() => () => {
@@ -1375,8 +1389,9 @@ export function ReadReaderScreen() {
     const nextVoice = readerVoices[(currentIndex + 1 + readerVoices.length) % readerVoices.length];
     if (!nextVoice) return;
 
-    // Voice is a document-wide setting. Preserve the exact logical cursor
-    // rather than restarting the current hidden segment when the voice changes.
+    // Voice is a document-wide setting. Preserve the exact logical cursor and
+    // continue automatically when the user changes voice during playback.
+    const wasPlaying = playbackStatus.playing || audioState === 'playing';
     const progress = displayedProgress;
     const position = readingPositionForProgress(readingManifest, progress);
     updateProgress(document.id, progress);
@@ -1386,15 +1401,12 @@ export function ReadReaderScreen() {
     setAudioResult(null);
     setAudioError(null);
     setAudioState('paused');
-    audioChunkCache.current.clear();
-    for (const url of audioPreloadCache.current.keys()) {
-      void clearPreloadedSource(url).catch(() => {});
-    }
-    audioPreloadCache.current.clear();
+    setControlsHidden(false);
     resumeFractionRef.current = position.fraction;
     handledFinishedChunk.current = null;
     activePlaybackKeyRef.current = null;
     startedPlaybackKeyRef.current = null;
+    voiceChangeResumeRef.current = { index: position.index, autoplay: wasPlaying };
     setVoiceId(document.id, nextVoice.id);
   }
 
