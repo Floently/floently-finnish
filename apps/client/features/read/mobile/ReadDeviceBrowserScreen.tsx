@@ -371,6 +371,7 @@ export default function ReadDeviceBrowserScreen() {
   const startedPlaybackKeyRef = useRef<string | null>(null);
   const lastSavedProgressRef = useRef(0);
   const prefetchGenerationRef = useRef(0);
+  const voiceChangeResumeRef = useRef<{ index: number; autoplay: boolean } | null>(null);
   const playAttemptRef = useRef(0);
   const playbackHealthRef = useRef({
     playing: false,
@@ -1055,28 +1056,48 @@ export default function ReadDeviceBrowserScreen() {
   };
 
   const cycleVoice = () => {
-    if (!browserVoices.length) return;
-    const wasPlaying = isPlaying;
-    const current = browserVoices.findIndex((voice) => voice.id === selectedVoice?.id);
-    const next = browserVoices[(current + 1 + browserVoices.length) % browserVoices.length];
+    if (!voices.length) return;
+    const current = voices.findIndex((voice) => voice.id === selectedVoiceId);
+    const next = voices[(current + 1 + voices.length) % voices.length];
     if (!next) return;
 
     const progress = displayedProgress;
+    const wasPlaying = isPlaying;
+    const position = readingPositionForProgress(manifest, progress);
+    persistBrowserProgress(progress);
+    voiceChangeResumeRef.current = {
+      index: position.index,
+      autoplay: wasPlaying,
+    };
+
     clearPreparedAudio();
     setSelectedVoiceId(next.id);
     void AsyncStorage.setItem(
       BROWSER_READER_PREFS_KEY,
       JSON.stringify({ speed, voiceId: next.id }),
     ).catch(() => {});
-    const position = readingPositionForProgress(manifest, progress);
     setActiveSegment(position.index);
     resumeFractionRef.current = position.fraction;
-    setControlsHidden(false);
-    // React commits the new voice id before the preparing effect runs, so a
-    // voice change during playback resumes at the same logical cursor using
-    // the new voice instead of silently stopping the reading.
-    setAudioState(wasPlaying ? 'preparing' : 'paused');
+    setAudioState('paused');
   };
+
+  useEffect(() => {
+    const resume = voiceChangeResumeRef.current;
+    voiceChangeResumeRef.current = null;
+    if (!resume || !reading) return;
+
+    // Wait for the selected voice state to commit so playSegment() builds its
+    // cache key and TTS request with the new voice, not the previous one.
+    const timer = setTimeout(() => {
+      if (resume.autoplay) {
+        void playSegment(resume.index);
+      } else {
+        void preloadSegment(resume.index).catch(() => {});
+      }
+    }, 0);
+
+    return () => clearTimeout(timer);
+  }, [selectedVoiceId]);
 
   if (Platform.OS === 'web') {
     return (
