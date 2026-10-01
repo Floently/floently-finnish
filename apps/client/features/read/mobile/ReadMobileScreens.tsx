@@ -892,6 +892,7 @@ export function ReadReaderScreen() {
   const [defaultVoiceId, setDefaultVoiceId] = useState<string | null>(null);
   const [studyOpen, setStudyOpen] = useState(false);
   const [playerExpanded, setPlayerExpanded] = useState(false);
+  const [controlsHidden, setControlsHidden] = useState(false);
   const [studyBusy, setStudyBusy] = useState(false);
   const [studyAction, setStudyAction] = useState<ReadAiAction | null>(null);
   const [studyTitle, setStudyTitle] = useState('Summary & AI');
@@ -1055,6 +1056,17 @@ export function ReadReaderScreen() {
     readerVoices[0] ||
     null;
 
+  const playbackIsPlaying = audioState === 'playing' || playbackStatus.playing;
+
+  useEffect(() => {
+    if (!document || !playbackIsPlaying || playerExpanded || audioError) {
+      setControlsHidden(false);
+      return;
+    }
+    const timer = setTimeout(() => setControlsHidden(true), 3_500);
+    return () => clearTimeout(timer);
+  }, [audioError, document?.id, playbackIsPlaying, playerExpanded]);
+
   useEffect(() => {
     if (!document) return;
     playAttemptRef.current += 1;
@@ -1180,6 +1192,7 @@ export function ReadReaderScreen() {
       monitorPlaybackStart();
       setAudioState('playing');
       setPlayerExpanded(false);
+      setControlsHidden(false);
 
       prefetchReadingHorizon(index);
     } catch (error) {
@@ -1247,6 +1260,7 @@ export function ReadReaderScreen() {
       monitorPlaybackStart();
       setAudioState('playing');
       setPlayerExpanded(false);
+      setControlsHidden(false);
       prefetchReadingHorizon(activeAudioChunk);
       return;
     }
@@ -1259,6 +1273,7 @@ export function ReadReaderScreen() {
     player.pause();
     if (document) updateProgress(document.id, displayedProgress);
     setAudioState('paused');
+    setControlsHidden(false);
   }
 
   async function seekDocumentBySeconds(deltaSeconds: number) {
@@ -1380,7 +1395,7 @@ export function ReadReaderScreen() {
   }
 
   const isPreparing = audioState === 'preparing' || playbackStatus.isBuffering;
-  const isPlaying = audioState === 'playing' || playbackStatus.playing;
+  const isPlaying = playbackIsPlaying;
   const isProcessing = document.status === 'processing';
 
   return (
@@ -1400,6 +1415,16 @@ export function ReadReaderScreen() {
             <ReaderText document={document} activeIndex={activeParagraphIndex} />
           )}
         </ScrollView>
+        {controlsHidden && isPlaying ? (
+          <Pressable
+            accessibilityRole="button"
+            accessibilityLabel="Pause reading and show controls"
+            onPress={pauseAudio}
+            style={[styles.readerHiddenPill, { backgroundColor: palette.nav, borderColor: palette.border, shadowColor: palette.shadow }]}
+          >
+            <Text style={[styles.readerHiddenPillText, { color: palette.text }]}>Ⅱ</Text>
+          </Pressable>
+        ) : (
         <View style={[styles.readerDock, { backgroundColor: palette.nav, borderColor: palette.border, shadowColor: palette.shadow }]}>
           {!playerExpanded ? (
             <>
@@ -1606,6 +1631,7 @@ export function ReadReaderScreen() {
           ) : null}
           {audioError ? <Text style={[styles.errorText, { color: palette.danger }]}>{audioError}</Text> : null}
         </View>
+        )}
       </View>
     </AppShell>
   );
@@ -1951,6 +1977,8 @@ const styles = StyleSheet.create({
   processingReader: { borderRadius: 28, borderWidth: 1, padding: 26, gap: 14, alignItems: 'center' },
   processingTitle: { fontSize: 22, fontWeight: '900', textAlign: 'center' },
   processingBody: { fontSize: 14, lineHeight: 21, textAlign: 'center', fontWeight: '600' },
+  readerHiddenPill: { position: 'absolute', right: 16, bottom: 14, width: 50, height: 50, borderRadius: 25, borderWidth: 1, alignItems: 'center', justifyContent: 'center', shadowOpacity: 1, shadowRadius: 14, shadowOffset: { width: 0, height: 7 } },
+  readerHiddenPillText: { fontSize: 17, fontWeight: '900' },
   readerDock: { position: 'absolute', left: 12, right: 12, bottom: 10, borderRadius: 22, borderWidth: 1, padding: 10, gap: 8, shadowOpacity: 1, shadowRadius: 20, shadowOffset: { width: 0, height: 10 } },
   readerCompactBar: { minHeight: 50, flexDirection: 'row', alignItems: 'center', gap: 9 },
   readerCompactPlay: { width: 44, height: 44, borderRadius: 22, alignItems: 'center', justifyContent: 'center' },
