@@ -85,6 +85,19 @@ jobs:
       - name: TypeScript check
         run: pnpm --dir apps/client exec tsc --noEmit
 
+      - name: Verify iOS build freeze contract
+        run: |
+          test -f .github/workflows/ios-testflight-release.yml
+          if grep -Eq '^[[:space:]]*push:' .github/workflows/ios-testflight-release.yml; then
+            echo "TestFlight workflow must never auto-trigger from push while monthly builds are constrained." >&2
+            exit 1
+          fi
+          grep -F "product_owner_approval:" .github/workflows/ios-testflight-release.yml
+          grep -F "known_blockers:" .github/workflows/ios-testflight-release.yml
+          grep -F "APPROVE_IOS_BUILD" .github/workflows/ios-testflight-release.yml
+          grep -F "ZERO_KNOWN_BLOCKERS" .github/workflows/ios-testflight-release.yml
+          echo "IOS_BUILD_FREEZE_CONTRACT=PASS"
+
       - name: Verify EAS release workflow source contracts
         run: |
           test -f apps/client/.eas/workflows/ios-testflight-release.yml
