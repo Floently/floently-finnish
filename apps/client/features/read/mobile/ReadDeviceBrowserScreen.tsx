@@ -11,6 +11,7 @@ import {
   View,
 } from 'react-native';
 import { router, useLocalSearchParams } from 'expo-router';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import {
   clearPreloadedSource,
@@ -32,6 +33,7 @@ import {
 } from './readingPlaybackManifest';
 
 const WEB_BROWSER_URL = 'https://read.floently.com/app/browser-v2/live';
+const BROWSER_READER_PREFS_KEY = 'floently.read.browser.reader-prefs.v1';
 const EMPTY_MANIFEST = createReadingPlaybackManifest('', 1, 1400, 320);
 
 const PROTECTED_AUTH_HOSTS = new Set([
@@ -317,6 +319,28 @@ export default function ReadDeviceBrowserScreen() {
       playsInSilentMode: true,
       shouldPlayInBackground: true,
     });
+  }, []);
+
+  useEffect(() => {
+    let cancelled = false;
+    void AsyncStorage.getItem(BROWSER_READER_PREFS_KEY).then((raw) => {
+      if (cancelled || !raw) return;
+      try {
+        const stored = JSON.parse(raw) as { speed?: number; voiceId?: string | null };
+        const storedSpeed = Number(stored.speed);
+        if (Number.isFinite(storedSpeed)) {
+          setSpeed(Math.max(0.8, Math.min(2, storedSpeed)));
+        }
+        if (typeof stored.voiceId === 'string' && stored.voiceId.trim()) {
+          setSelectedVoiceId(stored.voiceId.trim());
+        }
+      } catch {
+        // Corrupt local preferences must never block Browser Reader startup.
+      }
+    }).catch(() => {});
+    return () => {
+      cancelled = true;
+    };
   }, []);
 
   useEffect(() => {
@@ -679,6 +703,10 @@ export default function ReadDeviceBrowserScreen() {
     const progress = displayedProgress;
     setSpeed(next);
     setPlayerPlaybackRate(player, next);
+    void AsyncStorage.setItem(
+      BROWSER_READER_PREFS_KEY,
+      JSON.stringify({ speed: next, voiceId: selectedVoiceId || null }),
+    ).catch(() => {});
 
     if (!reading) return;
     const nextManifest = createReadingPlaybackManifest(reading.text, next, 1400, 320);
@@ -706,6 +734,10 @@ export default function ReadDeviceBrowserScreen() {
     const progress = displayedProgress;
     clearPreparedAudio();
     setSelectedVoiceId(next.id);
+    void AsyncStorage.setItem(
+      BROWSER_READER_PREFS_KEY,
+      JSON.stringify({ speed, voiceId: next.id }),
+    ).catch(() => {});
     const position = readingPositionForProgress(manifest, progress);
     setActiveSegment(position.index);
     resumeFractionRef.current = position.fraction;
