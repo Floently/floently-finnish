@@ -1332,6 +1332,10 @@ export default function ReadDeviceBrowserScreen() {
               onPress={() => setControlsHidden(false)}
               style={styles.hiddenPlayerPill}
             >
+              <View style={styles.hiddenPlayerLiveDot} />
+              <Text style={styles.hiddenPlayerTime}>
+                {formatReadingClock(Math.max(0, totalSeconds - currentSeconds))}
+              </Text>
               <Text style={styles.hiddenPlayerIcon}>⌃</Text>
             </Pressable>
           ) : (
@@ -1579,13 +1583,16 @@ const styles = StyleSheet.create({
 
   hiddenPlayerPill: {
     position: 'absolute',
-    right: 16,
-    bottom: 14,
-    width: 50,
-    height: 50,
-    borderRadius: 25,
+    right: 14,
+    bottom: 12,
+    minWidth: 96,
+    height: 42,
+    borderRadius: 21,
+    paddingHorizontal: 11,
+    flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
+    gap: 7,
     backgroundColor: 'rgba(12,18,32,0.94)',
     borderWidth: StyleSheet.hairlineWidth,
     borderColor: 'rgba(132,111,255,0.55)',
@@ -1595,9 +1602,21 @@ const styles = StyleSheet.create({
     shadowOffset: { width: 0, height: 6 },
     elevation: 12,
   },
-  hiddenPlayerIcon: {
+  hiddenPlayerLiveDot: {
+    width: 7,
+    height: 7,
+    borderRadius: 4,
+    backgroundColor: '#64E1D2',
+  },
+  hiddenPlayerTime: {
     color: '#FFFFFF',
-    fontSize: 17,
+    fontSize: 11,
+    fontWeight: '800',
+    fontVariant: ['tabular-nums'],
+  },
+  hiddenPlayerIcon: {
+    color: '#AEB7CB',
+    fontSize: 15,
     fontWeight: '900',
   },
   player: {
