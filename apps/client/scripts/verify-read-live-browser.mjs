@@ -108,6 +108,10 @@ assert.ok(deviceBrowser.includes('styles.compactBar') &&
   deviceBrowser.includes('compactRemaining') &&
   deviceBrowser.includes('compactProgressTrack'),
   'browser Read must expose a single-row compact default player with optional expanded controls');
+assert.ok(deviceBrowser.includes('setControlsHidden(true)') &&
+  deviceBrowser.includes('accessibilityLabel="Pause reading and show controls"') &&
+  deviceBrowser.includes('hiddenPlayerPill'),
+  'browser Read must auto-hide to a minimal pause control during uninterrupted playback');
 assert.ok(deviceBrowser.includes('const stopReadingPage = () =>') &&
   deviceBrowser.includes('accessibilityLabel="Stop reading this page"'),
   'browser Read must let the user stop/remove narration without navigating away from the webpage');
@@ -203,6 +207,10 @@ assert.ok(home.includes('styles.readerCompactBar') &&
   home.includes('readerCompactPlay') &&
   home.includes('readerCompactNow'),
   'standalone native Reader must start as a single-row compact player instead of covering the page');
+assert.ok(home.includes('setControlsHidden(true)') &&
+  home.includes('readerHiddenPill') &&
+  home.includes('accessibilityLabel="Pause reading and show controls"'),
+  'standalone Reader must auto-hide to a minimal control after playback begins');
 assert.ok(!home.includes('generatedText.slice(0, 4000)'),
   'native Read must never silently truncate narration to the first 4000 characters');
 assert.ok(home.includes('readingProgressForSegment') && home.includes('displayedProgress'),
