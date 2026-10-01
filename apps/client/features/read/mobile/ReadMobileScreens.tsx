@@ -944,7 +944,8 @@ export function ReadReaderScreen() {
     () => createReadingPlaybackManifest(
       document?.generatedText ?? '',
       document?.playbackSpeed ?? 1,
-      900,
+      1800,
+      360,
     ),
     [document?.generatedText, document?.playbackSpeed],
   );
