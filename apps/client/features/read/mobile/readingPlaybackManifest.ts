@@ -30,7 +30,11 @@ function countWords(value: string): number {
   return value.match(WORD_PATTERN)?.length ?? 0;
 }
 
-function splitReadingSegments(text: string, maxChars: number): string[] {
+function splitReadingSegments(
+  text: string,
+  maxChars: number,
+  startupMaxChars = maxChars,
+): string[] {
   const normalized = text.replace(/\r\n/g, '\n').trim();
   if (!normalized) return [];
 
@@ -72,6 +76,32 @@ function splitReadingSegments(text: string, maxChars: number): string[] {
   }
 
   flush();
+
+  // The first narration request controls perceived start latency. Keep only
+  // that first hidden segment small, then return to long segments so a long
+  // book/page does not degrade into a visible stream of tiny media clips.
+  const startupLimit = Math.max(180, Math.min(maxChars, startupMaxChars));
+  if (segments[0] && segments[0].length > startupLimit) {
+    const first = segments.shift()!;
+    const prefix = first.slice(0, startupLimit);
+    const punctuationCandidates = [
+      prefix.lastIndexOf('. '),
+      prefix.lastIndexOf('? '),
+      prefix.lastIndexOf('! '),
+    ];
+    const punctuationCut = Math.max(...punctuationCandidates);
+    let cut = punctuationCut >= Math.floor(startupLimit * 0.45)
+      ? punctuationCut + 1
+      : first.lastIndexOf(' ', startupLimit);
+
+    if (cut < Math.floor(startupLimit * 0.6)) cut = startupLimit;
+
+    const startup = first.slice(0, cut).trim();
+    const remainder = first.slice(cut).trim();
+    if (startup) segments.unshift(startup);
+    if (remainder) segments.splice(1, 0, remainder);
+  }
+
   return segments;
 }
 
@@ -79,9 +109,15 @@ export function createReadingPlaybackManifest(
   text: string,
   playbackSpeed = 1,
   maxChars = 3600,
+  startupMaxChars = maxChars,
 ): ReadingPlaybackManifest {
   const speed = boundedSpeed(playbackSpeed);
-  const pieces = splitReadingSegments(text, Math.max(600, maxChars));
+  const segmentLimit = Math.max(600, maxChars);
+  const pieces = splitReadingSegments(
+    text,
+    segmentLimit,
+    Math.max(180, Math.min(segmentLimit, startupMaxChars)),
+  );
   const segments: ReadingPlaybackSegment[] = [];
 
   let charCursor = 0;
