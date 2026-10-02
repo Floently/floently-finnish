@@ -1611,6 +1611,11 @@ export default function ReadDeviceBrowserScreen() {
     if (!reading) return;
     const nextManifest = createReadingPlaybackManifest(reading.text, next, 1400, 220);
     setManifest(nextManifest);
+    syncReadDocumentMediaTimeline(player, {
+      durationSeconds: nextManifest.estimatedPlaybackDurationSeconds,
+      elapsedSeconds: nextManifest.estimatedPlaybackDurationSeconds * progress,
+      playbackSpeed: next,
+    });
 
     // Segment boundaries do not change with speed. When a clip is already
     // loaded, keep its real currentTime as the authority; carrying the old
