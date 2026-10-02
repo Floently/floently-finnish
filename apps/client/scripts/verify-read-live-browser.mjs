@@ -55,6 +55,7 @@ const readTts = read('features/read/mobile/readTtsApi.ts');
 const readAi = read('features/read/mobile/readAiApi.ts');
 const readRender = read('features/read/mobile/readRenderApi.ts');
 const playbackManifest = read('features/read/mobile/readingPlaybackManifest.ts');
+const mediaSession = read('features/read/mobile/readDocumentMediaSession.ts');
 const playbackRuntime = await importTypeScript('features/read/mobile/readingPlaybackManifest.ts');
 const landingRoute = read('state/LandingRoute.tsx');
 const pkg = JSON.parse(read('package.json'));
@@ -330,9 +331,9 @@ assert.ok(home.includes('voiceChangeResumeRef') &&
   home.includes('autoplay: wasPlaying') &&
   home.includes('void playAudioChunk(resume.index)'),
   'standalone native Reader must continue narration after a voice change made during playback');
-assert.ok(home.includes('try { player.clearLockScreenControls(); } catch {}') &&
+assert.ok(home.includes('clearReadDocumentMediaSession(player)') &&
   home.includes('voiceChangeResumeRef.current = { index: position.index, autoplay: wasPlaying }'),
-  'voice replacement must not leave the previous physical clip exposed through OS controls');
+  'voice replacement must clear the prior logical/physical OS media session before resuming at the same cursor');
 assert.ok(deviceBrowser.includes('effectiveVoiceId') &&
   deviceBrowser.includes('catalog.voices.some((voice) => voice.id === current)') &&
   home.includes("selectedVoice?.id || defaultVoiceId || document.voiceId"),
@@ -465,19 +466,38 @@ assert.ok(home.includes('readerProgressTrackWidth') &&
 assert.ok(home.includes('If the active AVPlayer item is not seekable yet') &&
   deviceBrowser.includes('the ±10 second control appear dead'),
   'native and browser Reader seek controls must recover if the active media item is temporarily unseekable');
-assert.ok(deviceBrowser.includes('if (!wasPlaying) {\n      try { player.clearLockScreenControls(); } catch {}') &&
-  home.includes('if (!wasPlaying) {\n      try { player.clearLockScreenControls(); } catch {}'),
-  'paused cross-segment seeks must not leave OS media controls attached to an obsolete hidden clip');
+assert.ok(deviceBrowser.includes('await prepareSegment(target.index)') &&
+  deviceBrowser.includes('player.replace(result.audioUrl)') &&
+  deviceBrowser.includes('enableLockScreen(totalSeconds * targetProgress)') &&
+  home.includes('await prepareAudioChunk(target.index)') &&
+  home.includes('enableLockScreenControls(totalSeconds * targetProgress)'),
+  'paused cross-segment seeks must load the target hidden source so lock-screen Play resumes at the requested whole-document position');
 assert.ok(deviceBrowser.includes('const clearPreparedAudio = () => {') &&
-  deviceBrowser.includes('try { player.clearLockScreenControls(); } catch {}'),
-  'stopping/reloading Browser Reader must remove stale OS media controls');
+  deviceBrowser.includes('clearReadDocumentMediaSession(player)'),
+  'stopping/reloading Browser Reader must remove the logical and physical OS media session');
 assert.ok(!home.includes('playbackStatus.currentTime - 10'),
   'native Read must not implement back-10 as a current-clip-only seek');
-assert.ok(home.includes('shouldPlayInBackground: true') && home.includes('setActiveForLockScreen'),
-  'native Read must configure sustained background and lock-screen playback');
+assert.ok(home.includes('shouldPlayInBackground: true') &&
+  home.includes('keepAudioSessionActive: true') &&
+  deviceBrowser.includes('keepAudioSessionActive: true') &&
+  mediaSession.includes('setActiveForLockScreen') &&
+  mediaSession.includes('showSeekBackward: true') &&
+  mediaSession.includes('showSeekForward: true'),
+  'Reader surfaces must keep the native audio session resumable and expose document-level lock-screen transport');
 assert.ok(home.includes("interruptionMode: 'doNotMix'") &&
   deviceBrowser.includes("interruptionMode: 'doNotMix'"),
   'both native Reader surfaces must request the audio focus mode required by Expo lock-screen controls');
+assert.ok(home.includes('activateReadDocumentMediaSession') &&
+  home.includes('syncReadDocumentMediaTimeline') &&
+  home.includes('subscribeReadDocumentMediaSeek') &&
+  deviceBrowser.includes('activateReadDocumentMediaSession') &&
+  deviceBrowser.includes('syncReadDocumentMediaTimeline') &&
+  deviceBrowser.includes('subscribeReadDocumentMediaSeek'),
+  'both Reader surfaces must publish and consume the whole-document iOS media timeline');
+assert.ok(mediaSession.includes('setLogicalLockScreenTimeline') &&
+  mediaSession.includes("'logicalSeekRequested'") &&
+  mediaSession.includes("Platform.OS === 'ios'"),
+  'logical iOS Now Playing duration/elapsed/seek must be bridged explicitly instead of inheriting hidden clip metadata');
 assert.ok(appBase.expo?.plugins?.some((plugin) =>
   Array.isArray(plugin) && plugin[0] === 'expo-audio' && plugin[1]?.enableBackgroundPlayback === true),
   'Expo native config must enable background playback for the final binary');
