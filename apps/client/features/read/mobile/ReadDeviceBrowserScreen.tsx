@@ -957,6 +957,23 @@ export default function ReadDeviceBrowserScreen() {
     return request;
   };
 
+  const prepareActiveSegment = async (
+    index: number,
+    generation: number,
+  ): Promise<ReadTtsResult> => {
+    try {
+      return await prepareSegment(index);
+    } catch (firstError) {
+      if (audioGenerationRef.current !== generation) throw firstError;
+      await new Promise((resolve) => setTimeout(resolve, 350));
+      if (audioGenerationRef.current !== generation) throw firstError;
+
+      // One bounded active retry prevents a transient TTS/CDN miss from
+      // terminating an otherwise continuous page reading.
+      return prepareSegment(index);
+    }
+  };
+
   const preloadSegment = async (index: number) => {
     const generation = audioGenerationRef.current;
     const result = await prepareSegment(index);
@@ -1046,7 +1063,7 @@ export default function ReadDeviceBrowserScreen() {
       // Do not await a complete local download for the active segment.
       // After a short priority window, warm the next hidden source in parallel.
       staggerImmediateHandoffWarmup(index, generation);
-      const result = await prepareSegment(index);
+      const result = await prepareActiveSegment(index, generation);
       if (audioGenerationRef.current !== generation) return;
       setActiveSegment(index);
       setAudioResult(result);
