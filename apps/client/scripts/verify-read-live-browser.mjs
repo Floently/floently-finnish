@@ -570,6 +570,8 @@ assert.ok(readAi.includes("action === 'key_points'"),
   'native Read Key points must map to the canonical key_points backend action');
 assert.ok(home.includes("[0.8, 1.0, 1.2, 1.5, 1.8, 2.0]"),
   'native Read settings must expose the supported mobile speed range through 2x');
+assert.ok(readStore.includes('Math.max(0.8, Math.min(2,'),
+  'persisted/remote Reader speeds must be clamped to the same supported 0.8x–2x range exposed by the UI');
 assert.ok(!home.includes("2.25,2.5,2.75,3") && !home.includes("2.25, 2.5, 2.75, 3.0"),
   'native Read must not advertise unsupported playback rates above 2x');
 assert.ok(home.includes('NOW READING'),
