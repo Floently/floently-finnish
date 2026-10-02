@@ -36,7 +36,8 @@
         "NSSpeechRecognitionUsageDescription": "KieliValmis uses speech recognition to transcribe your Finnish speaking practice so you can review and improve your answers."
       },
       "icon": "./assets/images/kielivalmis-app-icon.png",
-      "buildNumber": "11"
+      "buildNumber": "11",
+      "runtimeVersion": "1.0.5"
     },
     "android": {
       "adaptiveIcon": {
@@ -67,7 +68,8 @@
           ]
         }
       ],
-      "icon": "./assets/images/kielivalmis-app-icon.png"
+      "icon": "./assets/images/kielivalmis-app-icon.png",
+      "runtimeVersion": "1.0.4"
     },
     "web": {
       "output": "static",
@@ -124,7 +126,7 @@
       }
     },
     "owner": "vitus-idi",
-    "runtimeVersion": "1.0.5",
+    "runtimeVersion": "1.0.4",
     "updates": {
       "enabled": true,
       "url": "https://u.expo.dev/fa02c141-0a3b-4dbc-9122-7c1cf31ba42c",
