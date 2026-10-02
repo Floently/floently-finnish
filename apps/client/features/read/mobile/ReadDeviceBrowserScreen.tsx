@@ -739,6 +739,7 @@ export default function ReadDeviceBrowserScreen() {
   }, [canGoBack]);
 
   useEffect(() => () => {
+    seekGenerationRef.current += 1;
     audioGenerationRef.current += 1;
     prefetchGenerationRef.current += 1;
     player.pause();
@@ -751,6 +752,7 @@ export default function ReadDeviceBrowserScreen() {
 
   const clearPreparedAudio = () => {
     playAttemptRef.current += 1;
+    seekGenerationRef.current += 1;
     audioGenerationRef.current += 1;
     prefetchGenerationRef.current += 1;
     player.pause();
@@ -1353,6 +1355,10 @@ export default function ReadDeviceBrowserScreen() {
         // A freshly replaced iOS media item can briefly reject seek. Reload
         // that same hidden segment at the logical target rather than making
         // the ±10 second control appear dead.
+        if (seekGenerationRef.current !== seekGeneration) return;
+        audioGenerationRef.current += 1;
+        prefetchGenerationRef.current += 1;
+        playAttemptRef.current += 1;
         player.pause();
         setAudioResult(null);
         activePlaybackKeyRef.current = null;
@@ -1379,9 +1385,13 @@ export default function ReadDeviceBrowserScreen() {
     if (wasPlaying) {
       await playSegment(target.index);
     } else {
+      const seekAudioGeneration = audioGenerationRef.current;
       try {
         const result = await prepareSegment(target.index);
-        if (seekGenerationRef.current !== seekGeneration) return;
+        if (
+          seekGenerationRef.current !== seekGeneration ||
+          audioGenerationRef.current !== seekAudioGeneration
+        ) return;
         setAudioResult(result);
 
         const playbackIdentity = reading
@@ -1401,7 +1411,10 @@ export default function ReadDeviceBrowserScreen() {
         if (sourceDuration > 0 && target.fraction > 0) {
           await player.seekTo(sourceDuration * target.fraction);
         }
-        if (seekGenerationRef.current !== seekGeneration) return;
+        if (
+          seekGenerationRef.current !== seekGeneration ||
+          audioGenerationRef.current !== seekAudioGeneration
+        ) return;
 
         resumeFractionRef.current = 0;
         enableLockScreen(totalSeconds * targetProgress);
