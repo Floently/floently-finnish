@@ -126,12 +126,18 @@ export function syncReadDocumentMediaTimeline(
 export function clearReadDocumentMediaSession(player: unknown) {
   const nativePlayer = patchedPlayer(player);
 
-  try {
-    nativePlayer.clearLogicalLockScreenTimeline?.();
-  } catch {}
-
+  // Clear Now Playing first. Clearing only the virtual timeline while the
+  // player is still active would briefly expose the hidden physical clip's
+  // short duration on the lock screen — the exact leak NR-16 forbids.
   try {
     nativePlayer.clearLockScreenControls();
+  } catch {}
+
+  // Current runtime 1.0.5 clears the logical timeline inside
+  // clearLockScreenControls(). Keep this best-effort call for safety and for
+  // any future platform implementation that separates those responsibilities.
+  try {
+    nativePlayer.clearLogicalLockScreenTimeline?.();
   } catch {}
 }
 
