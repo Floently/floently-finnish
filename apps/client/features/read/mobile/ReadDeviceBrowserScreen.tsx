@@ -1869,6 +1869,7 @@ export default function ReadDeviceBrowserScreen() {
                   const active = Boolean((payload as { active?: boolean }).active);
                   setPageAuthActive(active);
                   if (!active) {
+                    setPasskeyDeferred(false);
                     setStatus(reading ? 'Reader ready on this page' : 'Ready');
                   }
                   return;
