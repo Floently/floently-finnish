@@ -339,21 +339,36 @@ const IOS_PASSKEY_PASSWORD_FALLBACK = `
     const wrap = (name) => {
       const original = credentials[name];
       if (typeof original !== 'function') return;
-      const bound = original.bind(credentials);
+
+      const wrapped = function (options) {
+        if (options && options.publicKey) {
+          reportDeferredPasskey();
+          return Promise.reject(new DOMException(
+            'Passkeys are deferred in Floently embedded browsing. Choose password or open in Safari.',
+            'NotAllowedError'
+          ));
+        }
+        return original.call(this, options);
+      };
+
       try {
         Object.defineProperty(credentials, name, {
           configurable: true,
-          value: function (options) {
-            if (options && options.publicKey) {
-              reportDeferredPasskey();
-              return Promise.reject(new DOMException(
-                'Passkeys are deferred in Floently embedded browsing. Choose password or open in Safari.',
-                'NotAllowedError'
-              ));
-            }
-            return bound(options);
-          }
+          value: wrapped
         });
+        return;
+      } catch (_) {}
+
+      // Some WebKit builds expose CredentialsContainer methods as non-own
+      // properties. Patch the per-frame prototype as a compatibility fallback.
+      try {
+        const prototype = Object.getPrototypeOf(credentials);
+        if (prototype) {
+          Object.defineProperty(prototype, name, {
+            configurable: true,
+            value: wrapped
+          });
+        }
       } catch (_) {}
     };
 
