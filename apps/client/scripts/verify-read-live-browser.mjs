@@ -587,6 +587,12 @@ assert.ok(home.includes('FlatList') &&
   home.includes('scrollToIndex({') &&
   home.includes('followActive={isPlaying}'),
   'very long books must virtualize paragraph rendering and keep the active narration in view without truncating document content');
+assert.ok(home.includes("document.status !== 'processing'") &&
+  home.includes('await refreshDocument(document.id)') &&
+  home.includes('attempt < 5 ? 900') &&
+  readStore.includes('refreshDocument: (id: string) => Promise<void>') &&
+  readStore.includes('readRenderApi.getDocument(id)'),
+  'fresh imports must poll their single processing document and become readable automatically when extraction completes');
 assert.ok(home.includes('buildReaderParagraphIndex') &&
   home.includes('while (low < high)') &&
   home.includes('Math.floor((low + high) / 2)'),
