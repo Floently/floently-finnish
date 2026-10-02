@@ -922,6 +922,7 @@ export function ReadReaderScreen() {
   const prefetchGenerationRef = useRef(0);
   const voiceChangeResumeRef = useRef<{ index: number; autoplay: boolean } | null>(null);
   const playAttemptRef = useRef(0);
+  const seekGenerationRef = useRef(0);
   const logicalMediaSeekRef = useRef<(positionSeconds: number) => void>(() => {});
   const playbackHealthRef = useRef({
     playing: false,
@@ -1436,6 +1437,7 @@ export function ReadReaderScreen() {
   async function seekDocumentBySeconds(deltaSeconds: number) {
     if (!document || !readingManifest.segments.length) return;
 
+    const seekGeneration = ++seekGenerationRef.current;
     const totalSeconds = Math.max(1, readingManifest.estimatedPlaybackDurationSeconds);
     const targetProgress = Math.max(
       0,
@@ -1455,6 +1457,7 @@ export function ReadReaderScreen() {
       handledFinishedChunk.current = null;
       try {
         await player.seekTo(playbackStatus.duration * target.fraction);
+        if (seekGenerationRef.current !== seekGeneration) return;
         syncReadDocumentMediaTimeline(player, {
           durationSeconds: totalSeconds,
           elapsedSeconds: totalSeconds * targetProgress,
@@ -1473,6 +1476,11 @@ export function ReadReaderScreen() {
       return;
     }
 
+    // Crossing a hidden-source boundary is a new playback generation. Any
+    // older seek/TTS completion must be unable to overwrite the newest cursor.
+    audioGenerationRef.current += 1;
+    prefetchGenerationRef.current += 1;
+    playAttemptRef.current += 1;
     handledFinishedChunk.current = null;
     activePlaybackKeyRef.current = null;
     startedPlaybackKeyRef.current = null;
@@ -1486,6 +1494,7 @@ export function ReadReaderScreen() {
     } else {
       try {
         const result = await prepareAudioChunk(target.index);
+        if (seekGenerationRef.current !== seekGeneration) return;
         setAudioResult(result);
         const playbackKey =
           `${document.id}:${target.index}:${result.cacheKey || result.audioUrl}`;
@@ -1503,6 +1512,7 @@ export function ReadReaderScreen() {
         if (loadedDuration > 0 && target.fraction > 0) {
           await player.seekTo(loadedDuration * target.fraction);
         }
+        if (seekGenerationRef.current !== seekGeneration) return;
 
         resumeFractionRef.current = 0;
         enableLockScreenControls(totalSeconds * targetProgress);
