@@ -544,11 +544,16 @@ const EXTRACT_READABLE_PAGE = `
           )
         : 0;
       const density = Math.min(1, links / Math.max(1, text.length));
-      const semantic = element.matches && element.matches('main,article,[role="main"]') ? 1800 : 0;
+      const semantic =
+        element.matches && element.matches('main,article,[role="main"]') ? 5000 : 0;
+      const wholePage = element === document.body ? 1200 : 0;
       return {
         element,
         text,
-        score: Math.min(text.length, 40000) + semantic - density * 7000
+        // Do not cap candidate length. On book/course pages made from many
+        // large sections, a 40k cap made the first section tie the full body
+        // and could silently narrate only part of a multi-hour document.
+        score: text.length + semantic + wholePage - density * 7000
       };
     }).filter((entry) => entry.text.length >= 80)
       .sort((a, b) => b.score - a.score);
