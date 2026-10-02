@@ -230,18 +230,36 @@ function readerParagraphs(text: string) {
     .filter(Boolean);
 }
 
-function paragraphIndexForProgress(paragraphs: string[], progress: number): number {
-  if (!paragraphs.length) return 0;
-  const total = paragraphs.reduce((sum, paragraph) => sum + paragraph.length, 0);
-  if (total <= 0) return 0;
+type ReaderParagraphIndex = {
+  ends: number[];
+  total: number;
+};
 
-  const target = Math.max(0, Math.min(1, progress)) * total;
-  let cursor = 0;
-  for (let index = 0; index < paragraphs.length; index += 1) {
-    cursor += Math.max(1, paragraphs[index].length);
-    if (target < cursor) return index;
+function buildReaderParagraphIndex(paragraphs: string[]): ReaderParagraphIndex {
+  const ends: number[] = [];
+  let total = 0;
+  for (const paragraph of paragraphs) {
+    total += Math.max(1, paragraph.length);
+    ends.push(total);
   }
-  return paragraphs.length - 1;
+  return { ends, total };
+}
+
+function paragraphIndexForProgress(
+  index: ReaderParagraphIndex,
+  progress: number,
+): number {
+  if (!index.ends.length || index.total <= 0) return 0;
+
+  const target = Math.max(0, Math.min(1, progress)) * index.total;
+  let low = 0;
+  let high = index.ends.length - 1;
+  while (low < high) {
+    const middle = Math.floor((low + high) / 2);
+    if (target < index.ends[middle]) high = middle;
+    else low = middle + 1;
+  }
+  return low;
 }
 
 function timedChunkProgress(
@@ -1129,9 +1147,16 @@ export function ReadReaderScreen() {
 
   const readerParagraphList = useMemo(
     () => document ? readerParagraphs(document.generatedText) : [],
-    [document],
+    [document?.generatedText],
   );
-  const activeParagraphIndex = paragraphIndexForProgress(readerParagraphList, displayedProgress);
+  const readerParagraphIndex = useMemo(
+    () => buildReaderParagraphIndex(readerParagraphList),
+    [readerParagraphList],
+  );
+  const activeParagraphIndex = paragraphIndexForProgress(
+    readerParagraphIndex,
+    displayedProgress,
+  );
 
   const readerVoices = useMemo(() => {
     if (!document) return voices;
