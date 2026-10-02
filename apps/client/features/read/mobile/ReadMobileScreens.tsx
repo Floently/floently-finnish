@@ -1212,7 +1212,9 @@ export function ReadReaderScreen() {
   }
 
   async function preloadAudioChunk(index: number): Promise<ReadTtsResult> {
+    const generation = audioGenerationRef.current;
     const result = await prepareAudioChunk(index);
+    if (audioGenerationRef.current !== generation) return result;
     let pending = audioPreloadCache.current.get(result.audioUrl);
     if (!pending) {
       pending = preload(result.audioUrl, { preferredForwardBufferDuration: 30 }).catch(() => {});
@@ -1226,6 +1228,19 @@ export function ReadReaderScreen() {
     }
     await pending;
     return result;
+  }
+
+  function staggerImmediateHandoffWarmup(index: number, generation: number) {
+    const nextIndex = index + 1;
+    if (!audioChunks[nextIndex]) return;
+
+    // Give the active synthesis a short exclusive head start, then begin only
+    // the immediately upcoming hidden segment while the first one is still
+    // being prepared. This buys continuity time without stampeding TTS.
+    setTimeout(() => {
+      if (audioGenerationRef.current !== generation) return;
+      void preloadAudioChunk(nextIndex).catch(() => {});
+    }, 700);
   }
 
   function prefetchReadingHorizon(index: number) {
@@ -1281,9 +1296,10 @@ export function ReadReaderScreen() {
     setAudioState('preparing');
     setAudioError(null);
     try {
-      // The active clip must not wait for a full local pre-download. Prepare
-      // the TTS URL, stream it immediately, and reserve preload() for the
-      // upcoming hidden segments.
+      // The active clip must not wait for a full local pre-download. Give it
+      // a short priority window, then begin warming exactly the next hidden
+      // segment while synthesis is still in flight.
+      staggerImmediateHandoffWarmup(index, generation);
       const result = await prepareAudioChunk(index);
       if (audioGenerationRef.current !== generation) return;
       setActiveAudioChunk(index);
