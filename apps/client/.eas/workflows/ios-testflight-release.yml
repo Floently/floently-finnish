@@ -1,14 +1,21 @@
 name: Floently iOS TestFlight release
 
 on:
-  push:
-    branches:
-      - agent/build-48-native-read-release-20260929
-    if: ${{ contains(github.event.head_commit.message, '[testflight]') }}
+  workflow_dispatch:
+    inputs:
+      product_owner_approval:
+        type: string
+        required: true
+        description: Type APPROVE_IOS_BUILD only after explicit product-owner approval
+      known_blockers:
+        type: string
+        required: true
+        description: Type ZERO_KNOWN_BLOCKERS only after the release ledger is clear
 
 jobs:
   build_ios:
     name: Build native iOS production app
+    if: ${{ inputs.product_owner_approval == 'APPROVE_IOS_BUILD' && inputs.known_blockers == 'ZERO_KNOWN_BLOCKERS' }}
     type: build
     params:
       platform: ios
