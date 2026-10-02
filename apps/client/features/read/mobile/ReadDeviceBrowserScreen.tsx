@@ -573,6 +573,7 @@ export default function ReadDeviceBrowserScreen() {
   const prefetchGenerationRef = useRef(0);
   const voiceChangeResumeRef = useRef<{ index: number; autoplay: boolean } | null>(null);
   const playAttemptRef = useRef(0);
+  const logicalMediaSeekRef = useRef<(positionSeconds: number) => void>(() => {});
   const playbackHealthRef = useRef({
     playing: false,
     isBuffering: false,
@@ -662,6 +663,15 @@ export default function ReadDeviceBrowserScreen() {
     playbackStatus.playing,
   ]);
 
+  useEffect(() => {
+    if (playbackStatus.playing) {
+      setAudioState('playing');
+    } else if (audioResult && audioState === 'playing') {
+      setAudioState('paused');
+      setControlsHidden(false);
+    }
+  }, [audioResult, audioState, playbackStatus.playing]);
+
   const monitorPlaybackStart = () => {
     const attempt = ++playAttemptRef.current;
 
@@ -726,7 +736,7 @@ export default function ReadDeviceBrowserScreen() {
     audioGenerationRef.current += 1;
     prefetchGenerationRef.current += 1;
     player.pause();
-    try { player.clearLockScreenControls(); } catch {}
+    clearReadDocumentMediaSession(player)
     for (const url of preloadCache.current.keys()) {
       void clearPreloadedSource(url).catch(() => {});
     }
@@ -738,7 +748,7 @@ export default function ReadDeviceBrowserScreen() {
     audioGenerationRef.current += 1;
     prefetchGenerationRef.current += 1;
     player.pause();
-    try { player.clearLockScreenControls(); } catch {}
+    clearReadDocumentMediaSession(player)
     webViewRef.current?.injectJavaScript(buildClearReadingFocusScript());
     setAudioResult(null);
     audioCache.current.clear();
@@ -872,7 +882,7 @@ export default function ReadDeviceBrowserScreen() {
       persistBrowserProgress(displayedProgress);
       setAudioState('paused');
       setControlsHidden(false);
-      try { player.clearLockScreenControls(); } catch {}
+      clearReadDocumentMediaSession(player)
       webViewRef.current?.injectJavaScript(buildClearReadingFocusScript());
     }
     setStatus('Sign-in active · Reader paused');
@@ -984,13 +994,20 @@ export default function ReadDeviceBrowserScreen() {
     })();
   };
 
-  const enableLockScreen = () => {
+  const enableLockScreen = (
+    elapsedSeconds = manifest.estimatedPlaybackDurationSeconds * displayedProgress,
+  ) => {
     if (!reading) return;
     try {
-      player.setActiveForLockScreen(true, {
-        title: reading.title,
-        artist: 'Floently Read',
-        albumTitle: 'Website',
+      activateReadDocumentMediaSession(player, {
+        durationSeconds: manifest.estimatedPlaybackDurationSeconds,
+        elapsedSeconds,
+        playbackSpeed: speed,
+        metadata: {
+          title: reading.title,
+          artist: 'Floently Read',
+          albumTitle: 'Website',
+        },
       });
     } catch {}
   };
@@ -1040,9 +1057,16 @@ export default function ReadDeviceBrowserScreen() {
         }
       }
       if (audioGenerationRef.current !== generation) return;
+      const logicalStartProgress = readingProgressForSegment(
+        manifest,
+        index,
+        resumeFraction,
+      );
       resumeFractionRef.current = 0;
 
-      enableLockScreen();
+      enableLockScreen(
+        manifest.estimatedPlaybackDurationSeconds * logicalStartProgress,
+      );
       player.play();
       monitorPlaybackStart();
       setAudioState('playing');
@@ -1099,7 +1123,7 @@ export default function ReadDeviceBrowserScreen() {
     setControlsHidden(false);
     setStatus('Finished');
     webViewRef.current?.injectJavaScript(buildClearReadingFocusScript());
-    try { player.clearLockScreenControls(); } catch {}
+    clearReadDocumentMediaSession(player)
   }, [
     activeSegment,
     audioResult,
@@ -1282,7 +1306,7 @@ export default function ReadDeviceBrowserScreen() {
 
     if (audioResult?.audioUrl) {
       setPlayerPlaybackRate(player, speed);
-      enableLockScreen();
+      enableLockScreen(totalSeconds * displayedProgress);
       player.play();
       monitorPlaybackStart();
       setAudioState('playing');
@@ -1311,6 +1335,11 @@ export default function ReadDeviceBrowserScreen() {
     ) {
       try {
         await player.seekTo(playbackStatus.duration * target.fraction);
+        syncReadDocumentMediaTimeline(player, {
+          durationSeconds: totalSeconds,
+          elapsedSeconds: totalSeconds * targetProgress,
+          playbackSpeed: speed,
+        });
       } catch {
         // A freshly replaced iOS media item can briefly reject seek. Reload
         // that same hidden segment at the logical target rather than making
@@ -1326,9 +1355,6 @@ export default function ReadDeviceBrowserScreen() {
     }
 
     player.pause();
-    if (!wasPlaying) {
-      try { player.clearLockScreenControls(); } catch {}
-    }
     setActiveSegment(target.index);
     setAudioResult(null);
     resumeFractionRef.current = target.fraction;
@@ -1339,8 +1365,47 @@ export default function ReadDeviceBrowserScreen() {
     if (wasPlaying) {
       await playSegment(target.index);
     } else {
-      setAudioState('paused');
-      void preloadSegment(target.index).catch(() => {});
+      try {
+        const result = await prepareSegment(target.index);
+        setAudioResult(result);
+
+        const playbackIdentity = reading
+          ? `${browserPageIdentity(reading.url)}:${browserReadingFingerprint(reading.text)}`
+          : currentUrl || 'page';
+        const playbackKey =
+          `${playbackIdentity}:${target.index}:${result.cacheKey || result.audioUrl}`;
+        activePlaybackKeyRef.current = playbackKey;
+        startedPlaybackKeyRef.current = null;
+
+        player.replace(result.audioUrl);
+        setPlayerPlaybackRate(player, speed);
+        const sourceDuration =
+          Number(result.duration || 0) ||
+          manifest.segments[target.index]?.estimatedSourceDurationSeconds ||
+          0;
+        if (sourceDuration > 0 && target.fraction > 0) {
+          await player.seekTo(sourceDuration * target.fraction);
+        }
+
+        resumeFractionRef.current = 0;
+        enableLockScreen(totalSeconds * targetProgress);
+        setAudioState('paused');
+        prefetchAhead(target.index);
+        webViewRef.current?.injectJavaScript(
+          buildReadingFocusScript(
+            browserVisualPhrase(
+              manifest.segments[target.index]?.text || '',
+              result.wordTimings,
+              sourceDuration * target.fraction,
+              sourceDuration,
+            ),
+          ),
+        );
+      } catch (error) {
+        clearReadDocumentMediaSession(player);
+        setAudioState('error');
+        setAudioError(error instanceof Error ? error.message : String(error));
+      }
     }
   };
 
@@ -1365,6 +1430,12 @@ export default function ReadDeviceBrowserScreen() {
     // fraction into the next clip would incorrectly skip part of that clip.
     if (audioResult?.audioUrl) {
       resumeFractionRef.current = 0;
+      syncReadDocumentMediaTimeline(player, {
+        durationSeconds: nextManifest.estimatedPlaybackDurationSeconds,
+        elapsedSeconds:
+          nextManifest.estimatedPlaybackDurationSeconds * progress,
+        playbackSpeed: next,
+      });
       return;
     }
 
@@ -1372,6 +1443,20 @@ export default function ReadDeviceBrowserScreen() {
     setActiveSegment(position.index);
     resumeFractionRef.current = position.fraction;
   };
+
+  logicalMediaSeekRef.current = (positionSeconds: number) => {
+    if (!reading || totalSeconds <= 0) return;
+    const currentSeconds = totalSeconds * displayedProgress;
+    void seekBySeconds(positionSeconds - currentSeconds);
+  };
+
+  useEffect(() => {
+    const subscription = subscribeReadDocumentMediaSeek(
+      player,
+      (positionSeconds) => logicalMediaSeekRef.current(positionSeconds),
+    );
+    return () => subscription.remove();
+  }, [player]);
 
   const cycleVoice = () => {
     if (!browserVoices.length) return;
