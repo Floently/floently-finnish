@@ -162,6 +162,9 @@ assert.ok(deviceBrowser.includes('BROWSER_READER_PREFS_KEY') &&
   deviceBrowser.includes('AsyncStorage.getItem(BROWSER_READER_PREFS_KEY)') &&
   deviceBrowser.includes('AsyncStorage.setItem('),
   'browser Read speed and voice must persist across page changes/reopens instead of resetting per page');
+assert.ok(deviceBrowser.includes('durationSeconds: nextManifest.estimatedPlaybackDurationSeconds') &&
+  deviceBrowser.includes('playbackSpeed: next'),
+  'changing Browser Reader speed must immediately re-anchor the whole-document iOS media-session duration instead of leaving stale lock-screen time');
 assert.ok(deviceBrowser.includes('BROWSER_LAST_URL_KEY') &&
   deviceBrowser.includes('AsyncStorage.getItem(BROWSER_LAST_URL_KEY)') &&
   deviceBrowser.includes("setStatus('Restoring your last page…')") &&
