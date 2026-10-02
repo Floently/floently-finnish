@@ -46,6 +46,7 @@ import {
 
 const WEB_BROWSER_URL = 'https://read.floently.com/app/browser-v2/live';
 const BROWSER_READER_PREFS_KEY = 'floently.read.browser.reader-prefs.v1';
+const BROWSER_LAST_URL_KEY = 'floently.read.browser.last-url.v1';
 const BROWSER_READER_PROGRESS_PREFIX = 'floently.read.browser.progress.v1:';
 const EMPTY_MANIFEST = createReadingPlaybackManifest('', 1, 1400, 220);
 
@@ -720,6 +721,24 @@ export default function ReadDeviceBrowserScreen() {
   }, []);
 
   useEffect(() => {
+    if (initialUrl) return;
+    let cancelled = false;
+    void AsyncStorage.getItem(BROWSER_LAST_URL_KEY).then((raw) => {
+      if (cancelled || !raw) return;
+      const restored = normalizeAddress(raw);
+      if (!restored || !/^https?:\/\//i.test(restored)) return;
+      latestUrlRef.current = restored;
+      setAddressText(restored);
+      setCurrentUrl(restored);
+      setLoading(true);
+      setStatus('Restoring your last page…');
+    }).catch(() => {});
+    return () => {
+      cancelled = true;
+    };
+  }, [initialUrl]);
+
+  useEffect(() => {
     playbackHealthRef.current = {
       playing: playbackStatus.playing,
       isBuffering: playbackStatus.isBuffering,
@@ -1303,6 +1322,9 @@ export default function ReadDeviceBrowserScreen() {
     pageReadingGenerationRef.current += 1;
     setPasskeyDeferred(false);
     latestUrlRef.current = target;
+    if (!isProtectedAuthenticationUrl(target)) {
+      void AsyncStorage.setItem(BROWSER_LAST_URL_KEY, target).catch(() => {});
+    }
     persistBrowserProgress(displayedProgress);
     clearPreparedAudio();
     setReading(null);
@@ -1324,6 +1346,9 @@ export default function ReadDeviceBrowserScreen() {
         pageReadingGenerationRef.current += 1;
       }
       latestUrlRef.current = navigation.url;
+      if (!isProtectedAuthenticationUrl(navigation.url)) {
+        void AsyncStorage.setItem(BROWSER_LAST_URL_KEY, navigation.url).catch(() => {});
+      }
 
       const movedToDifferentReadingPage =
         Boolean(reading?.url) &&
@@ -1835,6 +1860,9 @@ export default function ReadDeviceBrowserScreen() {
               if (/^https?:\/\//i.test(target)) {
                 pageReadingGenerationRef.current += 1;
                 latestUrlRef.current = target;
+                if (!isProtectedAuthenticationUrl(target)) {
+                  void AsyncStorage.setItem(BROWSER_LAST_URL_KEY, target).catch(() => {});
+                }
                 persistBrowserProgress(displayedProgress);
                 clearPreparedAudio();
                 setReading(null);
