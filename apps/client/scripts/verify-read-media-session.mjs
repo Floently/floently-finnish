@@ -116,8 +116,18 @@ assert.equal(
 );
 assert.equal(
   appBase.expo?.runtimeVersion,
+  '1.0.4',
+  'Android/general runtime must remain compatible with the existing 1.0.4 binary family',
+);
+assert.equal(
+  appBase.expo?.ios?.runtimeVersion,
   '1.0.5',
-  'native media-session capability requires OTA runtime 1.0.5',
+  'native iOS media-session capability requires iOS OTA runtime 1.0.5',
+);
+assert.equal(
+  appBase.expo?.android?.runtimeVersion,
+  '1.0.4',
+  'iOS media-session work must not unnecessarily strand existing Android OTA compatibility',
 );
 
 console.log('READ_DOCUMENT_MEDIA_SESSION_SOURCE_GATE=PASS');
