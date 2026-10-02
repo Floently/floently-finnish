@@ -962,6 +962,9 @@ export function ReadReaderScreen() {
       const health = playbackHealthRef.current;
       if (health.playing || health.isBuffering || health.currentTime > 0.05) return;
 
+      player.pause();
+      clearReadDocumentMediaSession(player);
+      playAttemptRef.current += 1;
       setAudioState('paused');
       setAudioError(
         'Audio did not start. If a call or another app is using audio, end or pause it and tap Play again.',
@@ -975,6 +978,8 @@ export function ReadReaderScreen() {
       if (health.playing || health.currentTime > 0.05) return;
 
       player.pause();
+      clearReadDocumentMediaSession(player);
+      playAttemptRef.current += 1;
       setAudioState('paused');
       setAudioError(
         'Audio is still buffering. Check the connection, then tap Play to retry.',
@@ -1321,6 +1326,7 @@ export function ReadReaderScreen() {
       setControlsHidden(false);
     } catch (error) {
       if (audioGenerationRef.current !== generation) return;
+      clearReadDocumentMediaSession(player);
       setAudioState('error');
       setAudioError(error instanceof Error ? error.message : String(error));
     }
