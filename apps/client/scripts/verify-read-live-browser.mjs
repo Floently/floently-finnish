@@ -398,6 +398,11 @@ assert.ok(home.includes('staggerImmediateHandoffWarmup') &&
   home.includes('}, 700);') &&
   deviceBrowser.includes('}, 700);'),
   'both Reader surfaces must give the next hidden segment a controlled head start while preserving active-start priority');
+assert.ok(home.includes('prepareActiveAudioChunk') &&
+  deviceBrowser.includes('prepareActiveSegment') &&
+  home.includes('setTimeout(resolve, 350)') &&
+  deviceBrowser.includes('setTimeout(resolve, 350)'),
+  'active narration must recover once from a transient TTS/CDN failure instead of terminating a long reading immediately');
 assert.ok(home.includes('const generation = audioGenerationRef.current;\n    const result = await prepareAudioChunk(index);\n    if (audioGenerationRef.current !== generation) return result;') &&
   deviceBrowser.includes('const generation = audioGenerationRef.current;\n    const result = await prepareSegment(index);\n    if (audioGenerationRef.current !== generation) return;'),
   'stale speculative TTS completions must not repopulate preloaded audio after a voice/page/document reset');
