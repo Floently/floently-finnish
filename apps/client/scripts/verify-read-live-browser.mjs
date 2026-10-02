@@ -106,6 +106,14 @@ assert.ok(deviceBrowser.includes('WATCH_LIVE_AUTH_STATE') &&
   deviceBrowser.includes('setPageAuthActive(active)') &&
   deviceBrowser.includes("setStatus('Sign-in active · Reader paused')"),
   'Browser Reader must detect dynamically opened credential forms and yield the screen/audio session to sign-in');
+assert.ok(deviceBrowser.includes('IOS_PASSKEY_PASSWORD_FALLBACK') &&
+  deviceBrowser.includes('FLOENTLY_DEVICE_BROWSER_PASSKEY_DEFERRED') &&
+  deviceBrowser.includes("options && options.publicKey") &&
+  deviceBrowser.includes("'NotAllowedError'") &&
+  deviceBrowser.includes("Platform.OS === 'ios' ? IOS_PASSKEY_PASSWORD_FALLBACK : undefined") &&
+  deviceBrowser.includes('injectedJavaScriptBeforeContentLoadedForMainFrameOnly={false}') &&
+  deviceBrowser.includes('accessibilityLabel="Open this sign-in in Safari"'),
+  'iOS embedded browsing must prevent an unusable WebAuthn/passkey sheet from trapping the user and provide password/Safari fallback');
 assert.ok(deviceBrowser.includes('accountSelector') &&
   deviceBrowser.includes('hasVisibleAuthAction') &&
   deviceBrowser.includes('passkey|login\\s*key|security\\s*key') &&
