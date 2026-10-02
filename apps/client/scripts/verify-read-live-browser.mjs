@@ -464,6 +464,13 @@ assert.ok(home.includes('async function seekDocumentBySeconds(deltaSeconds: numb
   home.includes('accessibilityLabel="Back 10 seconds"') &&
   home.includes('accessibilityLabel="Forward 10 seconds"'),
   'native Read skip controls must seek on the logical document timeline across hidden segment boundaries');
+assert.ok(home.includes('seekGenerationRef') &&
+  deviceBrowser.includes('seekGenerationRef') &&
+  home.includes('seekGenerationRef.current !== seekGeneration') &&
+  deviceBrowser.includes('seekGenerationRef.current !== seekGeneration') &&
+  home.includes('audioGenerationRef.current !== seekAudioGeneration') &&
+  deviceBrowser.includes('audioGenerationRef.current !== seekAudioGeneration'),
+  'rapid whole-document scrubbing must cancel stale seek/TTS completions instead of snapping back to an older hidden source');
 assert.ok(home.includes('readerProgressTrackWidth') &&
   home.includes('accessibilityLabel="Seek through reading"') &&
   home.includes('event.nativeEvent.locationX / readerProgressTrackWidth'),
