@@ -595,6 +595,11 @@ assert.ok(home.includes("document.status !== 'processing'") &&
   readStore.includes('refreshDocument: (id: string) => Promise<void>') &&
   readStore.includes('readRenderApi.getDocument(id)'),
   'fresh imports must poll their single processing document and become readable automatically when extraction completes');
+assert.ok(home.includes('const canPlayDocument = !isProcessing && hasReadableDocument') &&
+  home.includes('This reading is not ready yet') &&
+  home.includes('label="Retry"') &&
+  home.includes('{canPlayDocument ? (controlsHidden && isPlaying ? ('),
+  'failed/empty imports must not expose dead playback controls and must offer an explicit targeted retry');
 assert.ok(home.includes('buildReaderParagraphIndex') &&
   home.includes('while (low < high)') &&
   home.includes('Math.floor((low + high) / 2)'),
