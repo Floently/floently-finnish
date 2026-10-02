@@ -30,6 +30,12 @@ import {
   type ReadWordTiming,
 } from './readTtsApi';
 import {
+  activateReadDocumentMediaSession,
+  clearReadDocumentMediaSession,
+  subscribeReadDocumentMediaSeek,
+  syncReadDocumentMediaTimeline,
+} from './readDocumentMediaSession';
+import {
   createReadingPlaybackManifest,
   formatReadingClock,
   readingPositionForProgress,
