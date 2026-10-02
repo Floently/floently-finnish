@@ -269,9 +269,16 @@ function buildReadingFocusScript(text: string) {
     if (!needle) return;
 
     const needleWords = needle.split(' ').filter(Boolean).slice(0, 8);
-    const candidates = Array.from(document.querySelectorAll(
-      'p,li,blockquote,h1,h2,h3,h4,h5,h6,td,th,article,section,div'
-    )).slice(0, 2500);
+    const semanticCandidates = Array.from(document.querySelectorAll(
+      'p,li,blockquote,h1,h2,h3,h4,h5,h6,td,th'
+    ));
+    // Never truncate semantic text nodes: a multi-hour web book can easily
+    // contain more than 2,500 paragraphs. Add a bounded container fallback
+    // only for sites that render readable text directly in div/section nodes.
+    const fallbackContainers = Array.from(document.querySelectorAll(
+      'article,section,div'
+    )).slice(0, 1800);
+    const candidates = [...semanticCandidates, ...fallbackContainers];
 
     let target = null;
     let targetScore = -1;
