@@ -2,6 +2,7 @@ import { useEffect, useMemo, useRef, useState, type ReactNode } from 'react';
 import {
   ActivityIndicator,
   AppState,
+  FlatList,
   Image,
   Pressable,
   ScrollView,
@@ -845,19 +846,60 @@ export function ReadLibraryScreen() {
   );
 }
 
-function ReaderText({ document, activeIndex }: { document: ReadDocument; activeIndex: number }) {
+function ReaderText({
+  document,
+  activeIndex,
+  followActive,
+}: {
+  document: ReadDocument;
+  activeIndex: number;
+  followActive: boolean;
+}) {
   const theme = useReadMobileStore((state) => state.readTheme);
   const palette = paletteFor(theme);
-  const paragraphs = readerParagraphs(document.generatedText);
+  const listRef = useRef<FlatList<string>>(null);
+  const paragraphs = useMemo(
+    () => readerParagraphs(document.generatedText),
+    [document.generatedText],
+  );
+
+  useEffect(() => {
+    if (!followActive || activeIndex < 0 || activeIndex >= paragraphs.length) return;
+    const timer = setTimeout(() => {
+      listRef.current?.scrollToIndex({
+        index: activeIndex,
+        animated: true,
+        viewPosition: 0.35,
+      });
+    }, 80);
+    return () => clearTimeout(timer);
+  }, [activeIndex, followActive, paragraphs.length]);
+
   return (
-    <View style={[styles.readerPaper, { backgroundColor: palette.readerPaper, borderColor: palette.border }]}>
-      <Text style={[styles.readerChapter, { color: palette.readerMuted }]}>Chapter 1</Text>
-      <Text style={[styles.readerTitle, { color: palette.readerText }]}>{document.title}</Text>
-      {paragraphs.map((paragraph, index) => {
-        const active=index===activeIndex;
+    <FlatList
+      ref={listRef}
+      data={paragraphs}
+      keyExtractor={(paragraph, index) => `${paragraph.slice(0, 24)}-${index}`}
+      style={[
+        styles.readerVirtualList,
+        { backgroundColor: palette.readerPaper, borderColor: palette.border },
+      ]}
+      contentContainerStyle={styles.readerVirtualContent}
+      showsVerticalScrollIndicator={false}
+      initialNumToRender={14}
+      maxToRenderPerBatch={10}
+      windowSize={9}
+      updateCellsBatchingPeriod={40}
+      ListHeaderComponent={
+        <View style={styles.readerVirtualHeader}>
+          <Text style={[styles.readerChapter, { color: palette.readerMuted }]}>Chapter 1</Text>
+          <Text style={[styles.readerTitle, { color: palette.readerText }]}>{document.title}</Text>
+        </View>
+      }
+      renderItem={({ item: paragraph, index }) => {
+        const active = index === activeIndex;
         return (
           <Text
-            key={`${paragraph.slice(0, 16)}-${index}`}
             accessibilityState={{ selected: active }}
             style={[
               styles.readerParagraph,
@@ -873,8 +915,21 @@ function ReaderText({ document, activeIndex }: { document: ReadDocument; activeI
             {paragraph}
           </Text>
         );
-      })}
-    </View>
+      }}
+      onScrollToIndexFailed={({ index, averageItemLength }) => {
+        listRef.current?.scrollToOffset({
+          offset: Math.max(0, averageItemLength * Math.max(0, index - 2)),
+          animated: true,
+        });
+        setTimeout(() => {
+          listRef.current?.scrollToIndex({
+            index,
+            animated: true,
+            viewPosition: 0.35,
+          });
+        }, 180);
+      }}
+    />
   );
 }
 
@@ -1667,8 +1722,8 @@ export function ReadReaderScreen() {
     <AppShell active="reader" showBottomNav={false}>
       <View style={[styles.readerScreen, { backgroundColor: palette.background }]}>
         <Header showBack title={document.title} subtitle={`${sourceLabel(document)} • ${document.detectedLanguageLabel}`} right={<Pressable accessibilityRole="button" onPress={() => navigate('/read/settings')} style={[styles.iconButton, { backgroundColor: palette.surfaceSoft, borderColor: palette.border }]}><Text style={[styles.iconMini, { color: palette.text }]}>Aa</Text></Pressable>} />
-        <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={styles.readerScroll}>
-          {isProcessing ? (
+        {isProcessing ? (
+          <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={styles.readerScroll}>
             <View style={[styles.processingReader, { backgroundColor: palette.surface, borderColor: palette.borderStrong }]}>
               <ActivityIndicator color={palette.accent} />
               <Text style={[styles.processingTitle, { color: palette.text }]}>Preparing your reading</Text>
@@ -1676,10 +1731,14 @@ export function ReadReaderScreen() {
               <ProgressBar progress={0.62} />
               <SecondaryButton label="Open library" onPress={() => navigate('/read/library')} />
             </View>
-          ) : (
-            <ReaderText document={document} activeIndex={activeParagraphIndex} />
-          )}
-        </ScrollView>
+          </ScrollView>
+        ) : (
+          <ReaderText
+            document={document}
+            activeIndex={activeParagraphIndex}
+            followActive={isPlaying}
+          />
+        )}
         {controlsHidden && isPlaying ? (
           <Pressable
             accessibilityRole="button"
@@ -2257,6 +2316,9 @@ const styles = StyleSheet.create({
   readerScreen: { flex: 1 },
   readerScroll: { paddingHorizontal: 18, paddingBottom: 250, gap: 18 },
   readerPaper: { borderRadius: 28, borderWidth: 1, paddingHorizontal: 22, paddingTop: 24, paddingBottom: 30, gap: 14 },
+  readerVirtualList: { flex: 1, marginHorizontal: 18, borderRadius: 28, borderWidth: 1 },
+  readerVirtualContent: { paddingHorizontal: 22, paddingTop: 24, paddingBottom: 280, gap: 14 },
+  readerVirtualHeader: { gap: 10, marginBottom: 2 },
   readerChapter: { textAlign: 'center', fontSize: 13, fontWeight: '800', textTransform: 'uppercase', letterSpacing: 1.4 },
   readerTitle: { textAlign: 'center', fontSize: 24, lineHeight: 30, fontWeight: '900', marginBottom: 8 },
   readerParagraph: { fontSize: 18, lineHeight: 31, padding: 10, borderRadius: 14, borderWidth: 0, fontFamily: 'serif' },
