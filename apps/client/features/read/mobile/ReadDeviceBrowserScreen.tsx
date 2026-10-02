@@ -319,6 +319,51 @@ function buildClearReadingFocusScript() {
 `;
 }
 
+const IOS_PASSKEY_PASSWORD_FALLBACK = `
+(function () {
+  try {
+    if (window.__floentlyPasskeyCompatibilityInstalled) return true;
+    window.__floentlyPasskeyCompatibilityInstalled = true;
+
+    const credentials = navigator.credentials;
+    if (!credentials) return true;
+
+    const reportDeferredPasskey = () => {
+      try {
+        window.ReactNativeWebView.postMessage(JSON.stringify({
+          type: 'FLOENTLY_DEVICE_BROWSER_PASSKEY_DEFERRED'
+        }));
+      } catch (_) {}
+    };
+
+    const wrap = (name) => {
+      const original = credentials[name];
+      if (typeof original !== 'function') return;
+      const bound = original.bind(credentials);
+      try {
+        Object.defineProperty(credentials, name, {
+          configurable: true,
+          value: function (options) {
+            if (options && options.publicKey) {
+              reportDeferredPasskey();
+              return Promise.reject(new DOMException(
+                'Passkeys are deferred in Floently embedded browsing. Choose password or open in Safari.',
+                'NotAllowedError'
+              ));
+            }
+            return bound(options);
+          }
+        });
+      } catch (_) {}
+    };
+
+    wrap('get');
+    wrap('create');
+  } catch (_) {}
+  true;
+})();
+`;
+
 const WATCH_LIVE_AUTH_STATE = `
 (function () {
   try {
@@ -608,6 +653,7 @@ export default function ReadDeviceBrowserScreen() {
   const [playerExpanded, setPlayerExpanded] = useState(false);
   const [controlsHidden, setControlsHidden] = useState(false);
   const [pageAuthActive, setPageAuthActive] = useState(false);
+  const [passkeyDeferred, setPasskeyDeferred] = useState(false);
   const [progressTrackWidth, setProgressTrackWidth] = useState(0);
 
   useEffect(() => {
@@ -1177,6 +1223,7 @@ export default function ReadDeviceBrowserScreen() {
 
   const hardRestart = (message = 'Reloading with a fresh browser process…') => {
     pageReadingGenerationRef.current += 1;
+    setPasskeyDeferred(false);
     persistBrowserProgress(displayedProgress);
     setLoadError(null);
     setStatus(message);
@@ -1210,6 +1257,7 @@ export default function ReadDeviceBrowserScreen() {
       return;
     }
     pageReadingGenerationRef.current += 1;
+    setPasskeyDeferred(false);
     latestUrlRef.current = target;
     persistBrowserProgress(displayedProgress);
     clearPreparedAudio();
@@ -1626,7 +1674,7 @@ export default function ReadDeviceBrowserScreen() {
         </Pressable>
       </View>
 
-      {!reading || loading || audioState === 'extracting' || loadError || pageAuthActive ? (
+      {!reading || loading || audioState === 'extracting' || loadError || pageAuthActive || passkeyDeferred ? (
         <View style={styles.statusBar}>
           {loading || audioState === 'extracting' ? (
             <ActivityIndicator size="small" color="#8B5CF6" />
@@ -1634,7 +1682,20 @@ export default function ReadDeviceBrowserScreen() {
           <Text numberOfLines={1} style={styles.statusText}>
             {loadError ?? status}
           </Text>
-          {!reading && currentUrl && !isProtectedAuthenticationUrl(currentUrl) && !pageAuthActive ? (
+          {passkeyDeferred && currentUrl ? (
+            <Pressable
+              accessibilityRole="button"
+              accessibilityLabel="Open this sign-in in Safari"
+              onPress={() => {
+                void Linking.openURL(currentUrl).catch(() => {
+                  setStatus('Safari could not be opened for this sign-in.');
+                });
+              }}
+              style={styles.safariButton}
+            >
+              <Text style={styles.safariButtonText}>Safari</Text>
+            </Pressable>
+          ) : !reading && currentUrl && !isProtectedAuthenticationUrl(currentUrl) && !pageAuthActive ? (
             <Pressable
               accessibilityRole="button"
               accessibilityLabel="Read this page in place"
@@ -1657,6 +1718,10 @@ export default function ReadDeviceBrowserScreen() {
             style={styles.webView}
             originWhitelist={['http://*', 'https://*', 'about:*', 'data:*', 'blob:*']}
             javaScriptEnabled
+            injectedJavaScriptBeforeContentLoaded={
+              Platform.OS === 'ios' ? IOS_PASSKEY_PASSWORD_FALLBACK : undefined
+            }
+            injectedJavaScriptBeforeContentLoadedForMainFrameOnly={false}
             domStorageEnabled
             sharedCookiesEnabled
             thirdPartyCookiesEnabled
@@ -1680,6 +1745,7 @@ export default function ReadDeviceBrowserScreen() {
               // reading snapshot because the page contents may have changed.
               if (!hashOnlyNavigation) {
                 setPageAuthActive(false);
+                setPasskeyDeferred(false);
                 pageReadingGenerationRef.current += 1;
                 if (reading) {
                   persistBrowserProgress(displayedProgress);
@@ -1749,6 +1815,12 @@ export default function ReadDeviceBrowserScreen() {
                   language?: string;
                   active?: boolean;
                 };
+                if (payload.type === 'FLOENTLY_DEVICE_BROWSER_PASSKEY_DEFERRED') {
+                  setPasskeyDeferred(true);
+                  setPageAuthActive(true);
+                  setStatus('Passkey deferred here · choose password, or open in Safari');
+                  return;
+                }
                 if (payload.type === 'FLOENTLY_DEVICE_BROWSER_AUTH_STATE') {
                   const active = Boolean((payload as { active?: boolean }).active);
                   setPageAuthActive(active);
@@ -2056,6 +2128,17 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   readButtonText: { color: '#FFFFFF', fontSize: 13, fontWeight: '900' },
+  safariButton: {
+    minHeight: 40,
+    paddingHorizontal: 14,
+    borderRadius: 999,
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: '#16223A',
+    borderWidth: StyleSheet.hairlineWidth,
+    borderColor: 'rgba(255,255,255,0.18)',
+  },
+  safariButtonText: { color: '#FFFFFF', fontSize: 12, fontWeight: '900' },
   browserArea: { flex: 1, position: 'relative', backgroundColor: '#030712' },
   webView: { flex: 1, zIndex: 0, backgroundColor: '#FFFFFF' },
   centered: {
