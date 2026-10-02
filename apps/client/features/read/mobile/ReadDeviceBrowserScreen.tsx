@@ -958,7 +958,9 @@ export default function ReadDeviceBrowserScreen() {
   };
 
   const preloadSegment = async (index: number) => {
+    const generation = audioGenerationRef.current;
     const result = await prepareSegment(index);
+    if (audioGenerationRef.current !== generation) return;
     let pending = preloadCache.current.get(result.audioUrl);
     if (!pending) {
       pending = preload(result.audioUrl, {
@@ -973,6 +975,19 @@ export default function ReadDeviceBrowserScreen() {
       }
     }
     await pending;
+  };
+
+  const staggerImmediateHandoffWarmup = (index: number, generation: number) => {
+    const nextIndex = index + 1;
+    if (!manifest.segments[nextIndex]) return;
+
+    // Preserve fast first sound while giving the next hidden segment a head
+    // start if active TTS preparation is taking more than a fraction of a
+    // second. Deduplication collapses this with normal lookahead later.
+    setTimeout(() => {
+      if (audioGenerationRef.current !== generation) return;
+      void preloadSegment(nextIndex).catch(() => {});
+    }, 700);
   };
 
   const prefetchAhead = (index: number) => {
@@ -1029,6 +1044,8 @@ export default function ReadDeviceBrowserScreen() {
     setAudioError(null);
     try {
       // Do not await a complete local download for the active segment.
+      // After a short priority window, warm the next hidden source in parallel.
+      staggerImmediateHandoffWarmup(index, generation);
       const result = await prepareSegment(index);
       if (audioGenerationRef.current !== generation) return;
       setActiveSegment(index);
