@@ -64,6 +64,58 @@ jobs:
           FLOENTLY_ENV: development
           SIGNED_SESSION_SECRET: ci-test-secret
 
+  ios-native-source:
+    if: github.event_name == 'pull_request' && github.head_ref == 'agent/build-48-native-read-release-20260929'
+    runs-on: macos-15
+    timeout-minutes: 50
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Pin pnpm
+        uses: pnpm/action-setup@v6
+        with:
+          version: '10.34.0'
+          run_install: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: pnpm
+          cache-dependency-path: pnpm-lock.yaml
+      - name: Install frozen workspace dependencies
+        run: pnpm install --frozen-lockfile
+      - name: Verify document media-session source patch
+        run: pnpm --dir apps/client run verify:read-media-session
+      - name: Generate exact native iOS project
+        working-directory: apps/client
+        run: pnpm exec expo prebuild --platform ios --clean --no-install
+      - name: Verify expo-audio was patched by prebuild
+        run: |
+          grep -F "FLOENTLY_LOGICAL_NOW_PLAYING_V1" node_modules/expo-audio/ios/AudioPlayer.swift
+          grep -F "logicalSeekRequested" node_modules/expo-audio/ios/AudioPlayer.swift
+          grep -F "MPMediaItemPropertyPlaybackDuration] = logical.duration" node_modules/expo-audio/ios/MediaController.swift
+          grep -F "player.requestLogicalSeek(to: event.positionTime)" node_modules/expo-audio/ios/MediaController.swift
+          echo "IOS_LOGICAL_MEDIA_PATCH_APPLIED=PASS"
+      - name: Install iOS pods
+        working-directory: apps/client/ios
+        run: pod install
+      - name: Compile generated iOS simulator app
+        working-directory: apps/client
+        run: |
+          workspace="$(find ios -maxdepth 1 -name '*.xcworkspace' -print -quit)"
+          test -n "$workspace"
+          scheme="$(xcodebuild -workspace "$workspace" -list -json | python3 -c 'import json,sys; print(json.load(sys.stdin)["workspace"]["schemes"][0])')"
+          test -n "$scheme"
+          echo "workspace=$workspace scheme=$scheme"
+          xcodebuild \
+            -workspace "$workspace" \
+            -scheme "$scheme" \
+            -configuration Debug \
+            -destination 'generic/platform=iOS Simulator' \
+            -derivedDataPath /tmp/floently-read-derived \
+            CODE_SIGNING_ALLOWED=NO \
+            build
+
   client:
     runs-on: ubuntu-latest
     steps:
