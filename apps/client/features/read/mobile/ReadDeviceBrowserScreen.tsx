@@ -815,6 +815,7 @@ export default function ReadDeviceBrowserScreen() {
   const clearPreparedAudio = () => {
     playAttemptRef.current += 1;
     seekGenerationRef.current += 1;
+    previousSystemPlayingRef.current = false;
     audioGenerationRef.current += 1;
     prefetchGenerationRef.current += 1;
     player.pause();
