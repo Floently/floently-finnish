@@ -560,6 +560,13 @@ assert.ok(readTts.includes('normalizeWordTimings') && home.includes('timedChunkP
   'native Read must use TTS timing metadata for smoother visual progress');
 assert.ok(!home.includes('paragraphs.slice(0, 24)'),
   'native Read must render the complete document instead of truncating after 24 paragraphs');
+assert.ok(home.includes('FlatList') &&
+  home.includes('initialNumToRender={14}') &&
+  home.includes('maxToRenderPerBatch={10}') &&
+  home.includes('windowSize={9}') &&
+  home.includes('scrollToIndex({') &&
+  home.includes('followActive={isPlaying}'),
+  'very long books must virtualize paragraph rendering and keep the active narration in view without truncating document content');
 
 assert.ok(guard.includes('requireReadAccess = true'),
   'Read content guard must require Read access by default');
