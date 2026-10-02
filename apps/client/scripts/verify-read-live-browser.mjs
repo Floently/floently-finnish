@@ -162,6 +162,11 @@ assert.ok(deviceBrowser.includes('BROWSER_READER_PREFS_KEY') &&
   deviceBrowser.includes('AsyncStorage.getItem(BROWSER_READER_PREFS_KEY)') &&
   deviceBrowser.includes('AsyncStorage.setItem('),
   'browser Read speed and voice must persist across page changes/reopens instead of resetting per page');
+assert.ok(deviceBrowser.includes('BROWSER_LAST_URL_KEY') &&
+  deviceBrowser.includes('AsyncStorage.getItem(BROWSER_LAST_URL_KEY)') &&
+  deviceBrowser.includes("setStatus('Restoring your last page…')") &&
+  deviceBrowser.includes('!isProtectedAuthenticationUrl(navigation.url)'),
+  'closing/reopening Browser Reader must restore the last non-auth page instead of losing the working site after the first session');
 assert.ok(deviceBrowser.includes('inferBrowserReadingLanguage') &&
   deviceBrowser.includes('document.querySelector(\'meta[http-equiv="content-language"]\')') &&
   !deviceBrowser.includes('navigator.language ||') &&
