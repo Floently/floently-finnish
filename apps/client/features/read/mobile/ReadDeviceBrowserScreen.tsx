@@ -573,6 +573,7 @@ export default function ReadDeviceBrowserScreen() {
   const prefetchGenerationRef = useRef(0);
   const voiceChangeResumeRef = useRef<{ index: number; autoplay: boolean } | null>(null);
   const playAttemptRef = useRef(0);
+  const seekGenerationRef = useRef(0);
   const logicalMediaSeekRef = useRef<(positionSeconds: number) => void>(() => {});
   const playbackHealthRef = useRef({
     playing: false,
@@ -1327,6 +1328,7 @@ export default function ReadDeviceBrowserScreen() {
 
   const seekBySeconds = async (deltaSeconds: number) => {
     if (!reading || !manifest.segments.length || totalSeconds <= 0) return;
+    const seekGeneration = ++seekGenerationRef.current;
     const targetProgress = Math.max(
       0,
       Math.min(1, displayedProgress + deltaSeconds / totalSeconds),
@@ -1341,6 +1343,7 @@ export default function ReadDeviceBrowserScreen() {
     ) {
       try {
         await player.seekTo(playbackStatus.duration * target.fraction);
+        if (seekGenerationRef.current !== seekGeneration) return;
         syncReadDocumentMediaTimeline(player, {
           durationSeconds: totalSeconds,
           elapsedSeconds: totalSeconds * targetProgress,
@@ -1360,6 +1363,11 @@ export default function ReadDeviceBrowserScreen() {
       return;
     }
 
+    // A cross-segment seek invalidates older TTS/playback work so rapid
+    // scrubbing can never snap back to an earlier hidden source.
+    audioGenerationRef.current += 1;
+    prefetchGenerationRef.current += 1;
+    playAttemptRef.current += 1;
     player.pause();
     setActiveSegment(target.index);
     setAudioResult(null);
@@ -1373,6 +1381,7 @@ export default function ReadDeviceBrowserScreen() {
     } else {
       try {
         const result = await prepareSegment(target.index);
+        if (seekGenerationRef.current !== seekGeneration) return;
         setAudioResult(result);
 
         const playbackIdentity = reading
@@ -1392,6 +1401,7 @@ export default function ReadDeviceBrowserScreen() {
         if (sourceDuration > 0 && target.fraction > 0) {
           await player.seekTo(sourceDuration * target.fraction);
         }
+        if (seekGenerationRef.current !== seekGeneration) return;
 
         resumeFractionRef.current = 0;
         enableLockScreen(totalSeconds * targetProgress);
