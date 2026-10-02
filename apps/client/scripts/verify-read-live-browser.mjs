@@ -114,6 +114,8 @@ assert.ok(deviceBrowser.includes('IOS_PASSKEY_PASSWORD_FALLBACK') &&
   deviceBrowser.includes('injectedJavaScriptBeforeContentLoadedForMainFrameOnly={false}') &&
   deviceBrowser.includes('accessibilityLabel="Open this sign-in in Safari"'),
   'iOS embedded browsing must prevent an unusable WebAuthn/passkey sheet from trapping the user and provide password/Safari fallback');
+assert.ok(deviceBrowser.includes('Object.getPrototypeOf(credentials)'),
+  'iOS passkey compatibility must also cover WebKit builds that expose CredentialsContainer methods on the prototype');
 assert.ok(deviceBrowser.includes('accountSelector') &&
   deviceBrowser.includes('hasVisibleAuthAction') &&
   deviceBrowser.includes('passkey|login\\s*key|security\\s*key') &&
@@ -547,6 +549,13 @@ assert.ok(home.includes('15 / Math.max(15, readingManifest.estimatedPlaybackDura
   deviceBrowser.includes('15 / totalSeconds') &&
   deviceBrowser.includes("AppState.addEventListener('change'"),
   'long readings must save progress by listening time and on background instead of waiting for a one-percent jump');
+assert.ok(home.includes('previousSystemPlayingRef') &&
+  deviceBrowser.includes('previousSystemPlayingRef') &&
+  home.includes('!wasPlaying || playbackStatus.playing') &&
+  deviceBrowser.includes('!wasPlaying || playbackStatus.playing') &&
+  home.includes('updateProgress(document.id, displayedProgress)') &&
+  deviceBrowser.includes('persistBrowserProgress(displayedProgress)'),
+  'lock-screen pause, route change and interruption transitions must persist the current logical cursor even when the in-app Pause handler is bypassed');
 for (const marker of ['Summary & AI', 'Summary', 'Key points', 'Explain', 'Flashcards', 'Quiz me', 'Exam coach', 'Glossary', 'Ask AI']) {
   assert.ok(home.includes(marker), `native Read player missing study/AI control: ${marker}`);
 }
@@ -575,6 +584,10 @@ assert.ok(home.includes('FlatList') &&
   home.includes('scrollToIndex({') &&
   home.includes('followActive={isPlaying}'),
   'very long books must virtualize paragraph rendering and keep the active narration in view without truncating document content');
+assert.ok(home.includes('buildReaderParagraphIndex') &&
+  home.includes('while (low < high)') &&
+  home.includes('Math.floor((low + high) / 2)'),
+  'very long books must map high-frequency document progress to the active paragraph with a pre-indexed binary search instead of rescanning the book every status tick');
 
 assert.ok(guard.includes('requireReadAccess = true'),
   'Read content guard must require Read access by default');
