@@ -640,6 +640,7 @@ export default function ReadDeviceBrowserScreen() {
     isBuffering: false,
     currentTime: 0,
   });
+  const previousSystemPlayingRef = useRef(false);
 
   const initialUrl = useMemo(() => {
     const value = Array.isArray(params.url) ? params.url[0] : params.url;
@@ -904,6 +905,28 @@ export default function ReadDeviceBrowserScreen() {
       String(next),
     ).catch(() => {});
   };
+
+  useEffect(() => {
+    const wasPlaying = previousSystemPlayingRef.current;
+    previousSystemPlayingRef.current = playbackStatus.playing;
+    if (!reading || !wasPlaying || playbackStatus.playing) return;
+
+    // Persist remote/system pauses too — lock-screen Pause and audio
+    // interruptions do not travel through the in-app toggle handler.
+    persistBrowserProgress(displayedProgress);
+    syncReadDocumentMediaTimeline(player, {
+      durationSeconds: totalSeconds,
+      elapsedSeconds: totalSeconds * displayedProgress,
+      playbackSpeed: speed,
+    });
+  }, [
+    displayedProgress,
+    playbackStatus.playing,
+    player,
+    reading,
+    speed,
+    totalSeconds,
+  ]);
 
   useEffect(() => {
     if (!reading || !manifest.segments.length) return;
