@@ -27,6 +27,12 @@ import { readTtsApi, type ReadTtsResult, type ReadVoice, type ReadWordTiming } f
 import { readAiApi, type ReadAiAction } from './readAiApi';
 import { readRenderApi } from './readRenderApi';
 import {
+  activateReadDocumentMediaSession,
+  clearReadDocumentMediaSession,
+  subscribeReadDocumentMediaSeek,
+  syncReadDocumentMediaTimeline,
+} from './readDocumentMediaSession';
+import {
   createReadingPlaybackManifest,
   formatReadingClock,
   readingPositionForProgress,
