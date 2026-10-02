@@ -1002,6 +1002,7 @@ export function ReadReaderScreen() {
     isBuffering: false,
     currentTime: 0,
   });
+  const previousSystemPlayingRef = useRef(false);
   const theme = useReadMobileStore((state) => state.readTheme);
   const palette = paletteFor(theme);
 
@@ -1122,6 +1123,29 @@ export function ReadReaderScreen() {
     0.01,
     15 / Math.max(15, readingManifest.estimatedPlaybackDurationSeconds),
   );
+
+  useEffect(() => {
+    const wasPlaying = previousSystemPlayingRef.current;
+    previousSystemPlayingRef.current = playbackStatus.playing;
+    if (!document || !wasPlaying || playbackStatus.playing) return;
+
+    // This transition also fires for lock-screen Pause, headphones unplugging,
+    // and audio-session interruptions — paths that do not call pauseAudio().
+    updateProgress(document.id, displayedProgress);
+    syncReadDocumentMediaTimeline(player, {
+      durationSeconds: readingManifest.estimatedPlaybackDurationSeconds,
+      elapsedSeconds:
+        readingManifest.estimatedPlaybackDurationSeconds * displayedProgress,
+      playbackSpeed: document.playbackSpeed,
+    });
+  }, [
+    displayedProgress,
+    document,
+    playbackStatus.playing,
+    player,
+    readingManifest.estimatedPlaybackDurationSeconds,
+    updateProgress,
+  ]);
 
   useEffect(() => {
     if (!document || !playbackStatus.duration || playbackStatus.duration <= 0) return;
