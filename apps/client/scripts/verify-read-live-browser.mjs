@@ -236,6 +236,9 @@ assert.ok(deviceBrowser.includes('buildReadingFocusScript') &&
   deviceBrowser.includes('data-floently-reading-focus') &&
   deviceBrowser.includes("scrollIntoView({ block: 'center', behavior: 'smooth' })"),
   'browser narration must follow/highlight the original webpage without replacing its content');
+assert.ok(deviceBrowser.includes('score: text.length + semantic + wholePage - density * 7000') &&
+  !deviceBrowser.includes('Math.min(text.length, 40000)'),
+  'browser extraction must prefer the complete multi-section book/page instead of tying/truncating candidates at a fixed text-length cap');
 assert.ok(deviceBrowser.includes('pageReadingGenerationRef') &&
   deviceBrowser.includes('latestUrlRef') &&
   deviceBrowser.includes('pageReadingGenerationRef.current !== generation') &&
