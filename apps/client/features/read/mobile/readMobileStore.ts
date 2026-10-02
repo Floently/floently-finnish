@@ -29,6 +29,7 @@ type ReadMobileState = {
   syncStatus: 'idle' | 'loading' | 'syncing' | 'offline' | 'error';
   syncError: string | null;
   refreshLibrary: () => Promise<void>;
+  refreshDocument: (id: string) => Promise<void>;
   readAutomatically: boolean;
   readTheme: ReadTheme;
   documents: ReadDocument[];
@@ -186,6 +187,29 @@ export const useReadMobileStore = create<ReadMobileState>((set, get) => ({
       const documents = remoteDocuments.map(toLocalDocument);
       set({ documents, syncStatus: 'idle', syncError: null });
     } catch (error) {
+      const message = error instanceof Error ? error.message : String(error);
+      set({ syncStatus: 'offline', syncError: message });
+    }
+  },
+
+  async refreshDocument(id) {
+    if (!id) return;
+    try {
+      const remoteDocument = await readRenderApi.getDocument(id);
+      const syncedDocument = toLocalDocument(remoteDocument);
+      set((state) => ({
+        documents: state.documents.map((item) =>
+          item.id === id ? syncedDocument : item,
+        ),
+        activeDocumentId:
+          state.activeDocumentId === id ? syncedDocument.id : state.activeDocumentId,
+        syncStatus: 'idle',
+        syncError: null,
+      }));
+    } catch (error) {
+      // Processing documents are polled by the Reader. A transient backend
+      // miss must not throw the user out of the reading screen; retain the
+      // optimistic/local document and let the next bounded poll retry.
       const message = error instanceof Error ? error.message : String(error);
       set({ syncStatus: 'offline', syncError: message });
     }
