@@ -1217,6 +1217,7 @@ export function ReadReaderScreen() {
     if (!document) return;
     playAttemptRef.current += 1;
     seekGenerationRef.current += 1;
+    previousSystemPlayingRef.current = false;
     player.pause();
     clearReadDocumentMediaSession(player)
     const savedPosition = readingPositionForProgress(readingManifest, document.readingProgress);
