@@ -2245,7 +2245,7 @@ const styles = StyleSheet.create({
   processingReader: { borderRadius: 28, borderWidth: 1, padding: 26, gap: 14, alignItems: 'center' },
   processingTitle: { fontSize: 22, fontWeight: '900', textAlign: 'center' },
   processingBody: { fontSize: 14, lineHeight: 21, textAlign: 'center', fontWeight: '600' },
-  readerHiddenPill: { position: 'absolute', right: 14, bottom: 12, minWidth: 96, height: 42, borderRadius: 21, borderWidth: 1, paddingHorizontal: 11, flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 7, shadowOpacity: 1, shadowRadius: 14, shadowOffset: { width: 0, height: 7 } },
+  readerHiddenPill: { position: 'absolute', right: 14, bottom: 12, zIndex: 100, elevation: 20, minWidth: 96, height: 42, borderRadius: 21, borderWidth: 1, paddingHorizontal: 11, flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 7, shadowOpacity: 1, shadowRadius: 14, shadowOffset: { width: 0, height: 7 } },
   readerHiddenLiveDot: { width: 7, height: 7, borderRadius: 4 },
   readerHiddenPillTime: { fontSize: 11, fontWeight: '800', fontVariant: ['tabular-nums'] },
   readerHiddenPillText: { fontSize: 15, fontWeight: '900' },
