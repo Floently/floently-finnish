@@ -1795,6 +1795,8 @@ export function ReadReaderScreen() {
   const isPreparing = audioState === 'preparing' || playbackStatus.isBuffering;
   const isPlaying = playbackIsPlaying;
   const isProcessing = document.status === 'processing';
+  const hasReadableDocument = audioChunks.length > 0 && document.generatedText.trim().length > 0;
+  const canPlayDocument = !isProcessing && hasReadableDocument;
 
   return (
     <AppShell active="reader" showBottomNav={false}>
@@ -1810,14 +1812,28 @@ export function ReadReaderScreen() {
               <SecondaryButton label="Open library" onPress={() => navigate('/read/library')} />
             </View>
           </ScrollView>
-        ) : (
+        ) : hasReadableDocument ? (
           <ReaderText
             document={document}
             activeIndex={activeParagraphIndex}
             followActive={isPlaying}
           />
+        ) : (
+          <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={styles.readerScroll}>
+            <View style={[styles.processingReader, { backgroundColor: palette.surface, borderColor: palette.borderStrong }]}>
+              <Text style={[styles.processingTitle, { color: palette.text }]}>This reading is not ready yet</Text>
+              <Text style={[styles.processingBody, { color: palette.muted }]}>
+                {document.statusMessage || 'Floently could not load readable text for this item yet.'}
+              </Text>
+              <PrimaryButton
+                label="Retry"
+                onPress={() => { void refreshDocument(document.id); }}
+              />
+              <SecondaryButton label="Open library" onPress={() => navigate('/read/library')} />
+            </View>
+          </ScrollView>
         )}
-        {controlsHidden && isPlaying ? (
+        {canPlayDocument ? (controlsHidden && isPlaying ? (
           <Pressable
             accessibilityRole="button"
             accessibilityLabel="Show reader controls"
@@ -2054,7 +2070,7 @@ export function ReadReaderScreen() {
           ) : null}
           {audioError ? <Text style={[styles.errorText, { color: palette.danger }]}>{audioError}</Text> : null}
         </View>
-        )}
+        )) : null}
       </View>
     </AppShell>
   );
