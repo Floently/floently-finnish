@@ -241,6 +241,10 @@ assert.ok(deviceBrowser.includes('buildReadingFocusScript') &&
   deviceBrowser.includes('data-floently-reading-focus') &&
   deviceBrowser.includes("scrollIntoView({ block: 'center', behavior: 'smooth' })"),
   'browser narration must follow/highlight the original webpage without replacing its content');
+assert.ok(deviceBrowser.includes('semanticCandidates') &&
+  deviceBrowser.includes('fallbackContainers') &&
+  !deviceBrowser.includes("p,li,blockquote,h1,h2,h3,h4,h5,h6,td,th,article,section,div'\n    )).slice(0, 2500)"),
+  'in-page narration focus must not stop following long web books after an arbitrary 2,500-node cutoff');
 assert.ok(deviceBrowser.includes('score: text.length + semantic + wholePage - density * 7000') &&
   !deviceBrowser.includes('Math.min(text.length, 40000)'),
   'browser extraction must prefer the complete multi-section book/page instead of tying/truncating candidates at a fixed text-length cap');
