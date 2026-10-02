@@ -882,6 +882,10 @@ export function ReadReaderScreen() {
     // Start streaming the active narration as soon as its URL is ready.
     // Future hidden segments are still preloaded ahead of the cursor.
     downloadFirst: false,
+    // A paused long-form reading must remain resumable from iOS/Android system
+    // media controls; deactivating the audio session would make remote Play
+    // depend on a fresh in-app gesture.
+    keepAudioSessionActive: true,
     preferredForwardBufferDuration: 30,
   });
   const playbackStatus = useAudioPlayerStatus(player);
