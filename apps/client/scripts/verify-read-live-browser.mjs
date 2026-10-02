@@ -365,6 +365,8 @@ assert.ok(home.includes('setControlsHidden(true)') &&
   home.includes('accessibilityLabel="Show reader controls"') &&
   home.includes('const playbackHasStarted ='),
   'standalone Reader must auto-hide only after real playback begins and preserve a minimal active-reading/time capsule');
+assert.ok(home.includes("readerHiddenPill: { position: 'absolute', right: 14, bottom: 12, zIndex: 100, elevation: 20"),
+  'auto-hidden Reader capsule must remain above document content and keep receiving taps');
 assert.ok(!home.includes('generatedText.slice(0, 4000)'),
   'native Read must never silently truncate narration to the first 4000 characters');
 assert.ok(home.includes('readingProgressForSegment') && home.includes('displayedProgress'),
@@ -391,6 +393,14 @@ assert.ok(home.includes('prefetchGenerationRef') &&
   home.includes('await preloadAudioChunk(nextIndex)') &&
   home.includes('Warm the next hidden segment before later lookahead'),
   'native Read lookahead must prepare the nearest hidden segment first and cancel stale speculative runs');
+assert.ok(home.includes('staggerImmediateHandoffWarmup') &&
+  deviceBrowser.includes('staggerImmediateHandoffWarmup') &&
+  home.includes('}, 700);') &&
+  deviceBrowser.includes('}, 700);'),
+  'both Reader surfaces must give the next hidden segment a controlled head start while preserving active-start priority');
+assert.ok(home.includes('const generation = audioGenerationRef.current;\n    const result = await prepareAudioChunk(index);\n    if (audioGenerationRef.current !== generation) return result;') &&
+  deviceBrowser.includes('const generation = audioGenerationRef.current;\n    const result = await prepareSegment(index);\n    if (audioGenerationRef.current !== generation) return;'),
+  'stale speculative TTS completions must not repopulate preloaded audio after a voice/page/document reset');
 assert.ok(home.includes('nextIndex === indexes[0]') &&
   home.includes('setTimeout(resolve, 450)'),
   'native Read must give the immediately upcoming hidden handoff one bounded preload retry');
