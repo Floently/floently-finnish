@@ -545,6 +545,10 @@ export default function ReadDeviceBrowserScreen() {
     // entire active audio file before playback made the browser Reader feel
     // frozen even though the document timeline was already known.
     downloadFirst: false,
+    // A paused long-form reading must remain resumable from iOS/Android system
+    // media controls; deactivating the audio session would make remote Play
+    // depend on a fresh in-app gesture.
+    keepAudioSessionActive: true,
     preferredForwardBufferDuration: 20,
   });
   const playbackStatus = useAudioPlayerStatus(player);
