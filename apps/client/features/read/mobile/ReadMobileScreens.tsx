@@ -954,6 +954,8 @@ function ReaderText({
 export function ReadReaderScreen() {
   const document = useActiveReadDocument();
   const updateProgress = useReadMobileStore((state) => state.updateProgress);
+  const refreshDocument = useReadMobileStore((state) => state.refreshDocument);
+  const syncStatus = useReadMobileStore((state) => state.syncStatus);
   const setPlaybackSpeed = useReadMobileStore((state) => state.setPlaybackSpeed);
   const setVoiceId = useReadMobileStore((state) => state.setVoiceId);
   const player = useAudioPlayer(null, {
@@ -1028,6 +1030,32 @@ export function ReadReaderScreen() {
     playbackStatus.isBuffering,
     playbackStatus.playing,
   ]);
+
+  useEffect(() => {
+    if (!document || document.status !== 'processing' || syncStatus === 'syncing') return;
+
+    let cancelled = false;
+    let timer: ReturnType<typeof setTimeout> | null = null;
+    let attempt = 0;
+
+    const poll = async () => {
+      if (cancelled || !document.id) return;
+      await refreshDocument(document.id);
+      if (cancelled) return;
+      attempt += 1;
+      // Fast early polling makes a freshly imported book become readable as
+      // soon as extraction finishes; back off so genuinely large files do not
+      // hammer the document service.
+      const delay = attempt < 5 ? 900 : Math.min(4_000, 1_500 + attempt * 250);
+      timer = setTimeout(() => { void poll(); }, delay);
+    };
+
+    timer = setTimeout(() => { void poll(); }, 500);
+    return () => {
+      cancelled = true;
+      if (timer) clearTimeout(timer);
+    };
+  }, [document?.id, document?.status, refreshDocument, syncStatus]);
 
   const monitorPlaybackStart = () => {
     const attempt = ++playAttemptRef.current;
