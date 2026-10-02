@@ -309,6 +309,11 @@ assert.ok(home.includes('monitorPlaybackStart') &&
   home.includes('Audio did not start. If a call or another app is using audio') &&
   deviceBrowser.includes('Audio did not start. If a call or another app is using audio'),
   'native Readers must surface blocked audio-session startup instead of leaving an endless loading state');
+assert.ok(home.includes('clearReadDocumentMediaSession(player)') &&
+  deviceBrowser.includes('clearReadDocumentMediaSession(player)') &&
+  home.includes('playAttemptRef.current += 1;') &&
+  deviceBrowser.includes('playAttemptRef.current += 1;'),
+  'startup/buffering failures must stop stale OS media-session state before the user retries');
 assert.ok(home.includes("Audio is still buffering. Check the connection") &&
   deviceBrowser.includes("Audio is still buffering. Check the connection") &&
   home.includes('12_000') &&
@@ -498,6 +503,11 @@ assert.ok(mediaSession.includes('setLogicalLockScreenTimeline') &&
   mediaSession.includes("'logicalSeekRequested'") &&
   mediaSession.includes("Platform.OS === 'ios'"),
   'logical iOS Now Playing duration/elapsed/seek must be bridged explicitly instead of inheriting hidden clip metadata');
+assert.ok(
+  mediaSession.indexOf('nativePlayer.clearLockScreenControls()') <
+    mediaSession.indexOf('nativePlayer.clearLogicalLockScreenTimeline?.()'),
+  'clearing the media session must remove Now Playing before dropping the virtual timeline so the hidden clip duration can never flash through',
+);
 assert.ok(appBase.expo?.plugins?.some((plugin) =>
   Array.isArray(plugin) && plugin[0] === 'expo-audio' && plugin[1]?.enableBackgroundPlayback === true),
   'Expo native config must enable background playback for the final binary');
