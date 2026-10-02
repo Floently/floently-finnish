@@ -1112,6 +1112,7 @@ export function ReadReaderScreen() {
   useEffect(() => {
     if (!document) return;
     playAttemptRef.current += 1;
+    seekGenerationRef.current += 1;
     player.pause();
     clearReadDocumentMediaSession(player)
     const savedPosition = readingPositionForProgress(readingManifest, document.readingProgress);
@@ -1466,6 +1467,10 @@ export function ReadReaderScreen() {
       } catch {
         // If the active AVPlayer item is not seekable yet, fall through to a
         // clean source reload at the requested logical document position.
+        if (seekGenerationRef.current !== seekGeneration) return;
+        audioGenerationRef.current += 1;
+        prefetchGenerationRef.current += 1;
+        playAttemptRef.current += 1;
         player.pause();
         setAudioResult(null);
         activePlaybackKeyRef.current = null;
@@ -1492,9 +1497,13 @@ export function ReadReaderScreen() {
     if (wasPlaying) {
       await playAudioChunk(target.index);
     } else {
+      const seekAudioGeneration = audioGenerationRef.current;
       try {
         const result = await prepareAudioChunk(target.index);
-        if (seekGenerationRef.current !== seekGeneration) return;
+        if (
+          seekGenerationRef.current !== seekGeneration ||
+          audioGenerationRef.current !== seekAudioGeneration
+        ) return;
         setAudioResult(result);
         const playbackKey =
           `${document.id}:${target.index}:${result.cacheKey || result.audioUrl}`;
@@ -1512,7 +1521,10 @@ export function ReadReaderScreen() {
         if (loadedDuration > 0 && target.fraction > 0) {
           await player.seekTo(loadedDuration * target.fraction);
         }
-        if (seekGenerationRef.current !== seekGeneration) return;
+        if (
+          seekGenerationRef.current !== seekGeneration ||
+          audioGenerationRef.current !== seekAudioGeneration
+        ) return;
 
         resumeFractionRef.current = 0;
         enableLockScreenControls(totalSeconds * targetProgress);
@@ -1561,6 +1573,7 @@ export function ReadReaderScreen() {
     const position = readingPositionForProgress(readingManifest, progress);
     updateProgress(document.id, progress);
     playAttemptRef.current += 1;
+    seekGenerationRef.current += 1;
     audioGenerationRef.current += 1;
     prefetchGenerationRef.current += 1;
     player.pause();
