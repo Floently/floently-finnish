@@ -1211,6 +1211,24 @@ export function ReadReaderScreen() {
     return request;
   }
 
+  async function prepareActiveAudioChunk(
+    index: number,
+    generation: number,
+  ): Promise<ReadTtsResult> {
+    try {
+      return await prepareAudioChunk(index);
+    } catch (firstError) {
+      if (audioGenerationRef.current !== generation) throw firstError;
+      await new Promise((resolve) => setTimeout(resolve, 350));
+      if (audioGenerationRef.current !== generation) throw firstError;
+
+      // Active narration gets one bounded recovery attempt. This protects a
+      // long reading from a single transient TTS/CDN failure without creating
+      // an unbounded retry loop or freezing the player.
+      return prepareAudioChunk(index);
+    }
+  }
+
   async function preloadAudioChunk(index: number): Promise<ReadTtsResult> {
     const generation = audioGenerationRef.current;
     const result = await prepareAudioChunk(index);
@@ -1300,7 +1318,7 @@ export function ReadReaderScreen() {
       // a short priority window, then begin warming exactly the next hidden
       // segment while synthesis is still in flight.
       staggerImmediateHandoffWarmup(index, generation);
-      const result = await prepareAudioChunk(index);
+      const result = await prepareActiveAudioChunk(index, generation);
       if (audioGenerationRef.current !== generation) return;
       setActiveAudioChunk(index);
       handledFinishedChunk.current = null;
