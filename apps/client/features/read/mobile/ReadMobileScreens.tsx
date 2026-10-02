@@ -922,6 +922,7 @@ export function ReadReaderScreen() {
   const prefetchGenerationRef = useRef(0);
   const voiceChangeResumeRef = useRef<{ index: number; autoplay: boolean } | null>(null);
   const playAttemptRef = useRef(0);
+  const logicalMediaSeekRef = useRef<(positionSeconds: number) => void>(() => {});
   const playbackHealthRef = useRef({
     playing: false,
     isBuffering: false,
@@ -1106,7 +1107,7 @@ export function ReadReaderScreen() {
     if (!document) return;
     playAttemptRef.current += 1;
     player.pause();
-    try { player.clearLockScreenControls(); } catch {}
+    clearReadDocumentMediaSession(player)
     const savedPosition = readingPositionForProgress(readingManifest, document.readingProgress);
     setActiveAudioChunk(savedPosition.index);
     resumeFractionRef.current = savedPosition.fraction;
@@ -1156,7 +1157,7 @@ export function ReadReaderScreen() {
   useEffect(() => () => {
     audioGenerationRef.current += 1;
     prefetchGenerationRef.current += 1;
-    try { player.clearLockScreenControls(); } catch {}
+    clearReadDocumentMediaSession(player)
     for (const url of audioPreloadCache.current.keys()) {
       void clearPreloadedSource(url).catch(() => {});
     }
@@ -1247,16 +1248,23 @@ export function ReadReaderScreen() {
     })();
   }
 
-  function enableLockScreenControls() {
+  function enableLockScreenControls(
+    elapsedSeconds = readingManifest.estimatedPlaybackDurationSeconds * displayedProgress,
+  ) {
     if (!document) return;
     try {
-      player.setActiveForLockScreen(true, {
-        title: document.title,
-        artist: 'Floently Read',
-        albumTitle: document.detectedLanguageLabel,
+      activateReadDocumentMediaSession(player, {
+        durationSeconds: readingManifest.estimatedPlaybackDurationSeconds,
+        elapsedSeconds,
+        playbackSpeed: document.playbackSpeed,
+        metadata: {
+          title: document.title,
+          artist: 'Floently Read',
+          albumTitle: document.detectedLanguageLabel,
+        },
       });
     } catch {
-      // Playback remains functional if lock-screen metadata is unavailable.
+      // Playback remains functional if system media controls are unavailable.
     }
   }
 
@@ -1296,9 +1304,16 @@ export function ReadReaderScreen() {
         }
       }
       if (audioGenerationRef.current !== generation) return;
+      const logicalStartProgress = readingProgressForSegment(
+        readingManifest,
+        index,
+        resumeFraction,
+      );
       resumeFractionRef.current = 0;
 
-      enableLockScreenControls();
+      enableLockScreenControls(
+        readingManifest.estimatedPlaybackDurationSeconds * logicalStartProgress,
+      );
       player.play();
       monitorPlaybackStart();
       setAudioState('playing');
@@ -1354,9 +1369,19 @@ export function ReadReaderScreen() {
     activePlaybackKeyRef.current = null;
     startedPlaybackKeyRef.current = null;
     setControlsHidden(false);
-    try { player.clearLockScreenControls(); } catch {}
+    clearReadDocumentMediaSession(player)
     setAudioState('paused');
   }, [activeAudioChunk, audioChunks.length, audioResult, document, playbackStatus.didJustFinish, updateProgress]);
+
+  useEffect(() => {
+    if (!document || !audioResult) return;
+    syncReadDocumentMediaTimeline(player, {
+      durationSeconds: readingManifest.estimatedPlaybackDurationSeconds,
+      elapsedSeconds:
+        readingManifest.estimatedPlaybackDurationSeconds * displayedProgress,
+      playbackSpeed: document.playbackSpeed,
+    });
+  }, [document?.playbackSpeed]);
 
   const timeLabel = useMemo(() => {
     if (!document) return '00:00 / 00:00';
@@ -1379,7 +1404,9 @@ export function ReadReaderScreen() {
 
     if (audioResult?.audioUrl) {
       setPlayerPlaybackRate(player, document.playbackSpeed);
-      enableLockScreenControls();
+      enableLockScreenControls(
+        readingManifest.estimatedPlaybackDurationSeconds * displayedProgress,
+      );
       player.play();
       monitorPlaybackStart();
       setAudioState('playing');
@@ -1422,6 +1449,11 @@ export function ReadReaderScreen() {
       handledFinishedChunk.current = null;
       try {
         await player.seekTo(playbackStatus.duration * target.fraction);
+        syncReadDocumentMediaTimeline(player, {
+          durationSeconds: totalSeconds,
+          elapsedSeconds: totalSeconds * targetProgress,
+          playbackSpeed: document.playbackSpeed,
+        });
       } catch {
         // If the active AVPlayer item is not seekable yet, fall through to a
         // clean source reload at the requested logical document position.
@@ -1439,9 +1471,6 @@ export function ReadReaderScreen() {
     activePlaybackKeyRef.current = null;
     startedPlaybackKeyRef.current = null;
     player.pause();
-    if (!wasPlaying) {
-      try { player.clearLockScreenControls(); } catch {}
-    }
     setActiveAudioChunk(target.index);
     setAudioResult(null);
     resumeFractionRef.current = target.fraction;
@@ -1449,10 +1478,55 @@ export function ReadReaderScreen() {
     if (wasPlaying) {
       await playAudioChunk(target.index);
     } else {
-      setAudioState('paused');
-      void preloadAudioChunk(target.index).catch(() => {});
+      try {
+        const result = await prepareAudioChunk(target.index);
+        setAudioResult(result);
+        const playbackKey =
+          `${document.id}:${target.index}:${result.cacheKey || result.audioUrl}`;
+        activePlaybackKeyRef.current = playbackKey;
+        startedPlaybackKeyRef.current = null;
+        player.replace(result.audioUrl);
+        setPlayerPlaybackRate(player, document.playbackSpeed);
+
+        const estimatedSourceDuration =
+          readingManifest.segments[target.index]?.estimatedSourceDurationSeconds ?? 0.6;
+        const loadedDuration = await resolveLoadedAudioDuration(
+          player,
+          Number(result.duration || 0) || estimatedSourceDuration,
+        );
+        if (loadedDuration > 0 && target.fraction > 0) {
+          await player.seekTo(loadedDuration * target.fraction);
+        }
+
+        resumeFractionRef.current = 0;
+        enableLockScreenControls(totalSeconds * targetProgress);
+        setAudioState('paused');
+        prefetchReadingHorizon(target.index);
+      } catch (error) {
+        clearReadDocumentMediaSession(player);
+        setAudioState('error');
+        setAudioError(error instanceof Error ? error.message : String(error));
+      }
     }
   }
+
+  logicalMediaSeekRef.current = (positionSeconds: number) => {
+    if (!document) return;
+    const totalSeconds = Math.max(
+      1,
+      readingManifest.estimatedPlaybackDurationSeconds,
+    );
+    const currentSeconds = totalSeconds * displayedProgress;
+    void seekDocumentBySeconds(positionSeconds - currentSeconds);
+  };
+
+  useEffect(() => {
+    const subscription = subscribeReadDocumentMediaSeek(
+      player,
+      (positionSeconds) => logicalMediaSeekRef.current(positionSeconds),
+    );
+    return () => subscription.remove();
+  }, [player]);
 
   function cycleVoice() {
     if (!document || !readerVoices.length) {
@@ -1474,7 +1548,7 @@ export function ReadReaderScreen() {
     audioGenerationRef.current += 1;
     prefetchGenerationRef.current += 1;
     player.pause();
-    try { player.clearLockScreenControls(); } catch {}
+    clearReadDocumentMediaSession(player)
     setActiveAudioChunk(position.index);
     setAudioResult(null);
     setAudioError(null);
