@@ -352,3 +352,23 @@ All of the following must be true on the exact candidate SHA:
 14. The exact candidate SHA's CI result and the zero-known-blocker checklist are recorded in issue #77 before build approval is requested.
 
 A new build is for **physical validation of a source candidate believed complete**, not for discovering already-known source defects.
+
+
+## 2026-10-03 App Review rejection remediation
+
+Apple rejected App Store submission `cc16af90-8fce-4651-ae20-08c85d204a8d` (reviewed version `1.0 (47)`) on 2026-10-02 for two submission-package issues:
+
+1. **Guideline 2.3.10:** App Store screenshots include non-iOS status-bar imagery. The supplied rejected marketing image visibly contains Android-style notification/status icons inside an iPhone-style frame. The Messenger-like/other notification icons are **not** references to reproduce; they must be removed by replacing the embedded screen with a genuine iOS capture and auditing every applicable Media Manager size/localization.
+2. **Guideline 2.1(b):** subscriptions referenced by the app were not all submitted for review. The release package must include the nine KieliValmis Apple Product IDs listed in `docs/release/IOS_APP_STORE_REJECTION_2026-10-02_REMEDIATION.md`, each with required review information/screenshot, in the draft submission with the replacement app version (and group if required).
+
+Apple explicitly requested a new binary. **No new EAS/TestFlight/App Store build was triggered by this remediation.** The scarce-build/manual approval and zero-known-blocker policy remains in force. First complete the Media Manager + IAP package, then consume one replacement build from the exact approved release SHA.
+
+Durable resubmission runbook:
+`docs/release/IOS_APP_STORE_REJECTION_2026-10-02_REMEDIATION.md`
+
+Updated release files:
+- `docs/release/APP_STORE_SUBMISSION_CHECKLIST.md`
+- `docs/release/STORE_REVIEWER_NOTES_DRAFT.md`
+- `docs/release/STORE_METADATA_DRAFTS.md`
+
+External App Store Connect gates remain PENDING until directly verified there.

@@ -1,7 +1,7 @@
 # KieliValmis Store Metadata
 
-Last updated: 2026-08-13
-Status: App Store metadata prepared for replacement iOS submission.
+Last updated: 2026-10-03
+Status: metadata copy is prepared; the 2026-10-02 App Review media/IAP remediation is still externally gated in App Store Connect.
 
 ## App Identity
 
@@ -86,23 +86,53 @@ https://www.kielivalmis.com/
 
 ## Screenshot Package
 
-Primary App Store screenshot set:
+Project marketing set:
 - format: PNG
-- count: 8
-- iPhone 6.5-inch slot: 1284 x 2778
+- planned count: 8
 
-Alternative supported set:
-- format: PNG
-- count: 8
-- iPhone 6.9-inch slot: 1290 x 2796
+Accepted example portrait sizes used by the project:
+- iPhone 6.9-inch slot: `1290 x 2796`
+- iPhone 6.5-inch slot: `1284 x 2778`
 
-Do not upload the 1290 x 2796 set into the App Store Connect 6.5-inch slot.
+Use Apple's current screenshot specification for the exact target slot; other accepted dimensions exist.
+
+### Mandatory capture rule after 2026-10-02 rejection
+
+The embedded app image in every marketing screenshot must originate from a genuine iOS app capture.
+
+Do **not**:
+- reuse an Android capture inside an iPhone frame;
+- reproduce Android notification/status icons such as the Messenger-like icon visible in the rejected screenshot;
+- transplant Android Wi-Fi/battery/time chrome into the iOS device image;
+- assume the default screenshot well is the only one Apple reviews.
+
+Before resubmission, inspect **View All Sizes in Media Manager** for every applicable device size and every localization.
+
+Marketing framing, typography, gradients, and decorative artwork may surround the genuine iOS capture, but the screen shown inside the device must accurately represent KieliValmis/Floently running on iOS.
+
+## Subscription review package
+
+The app's KieliValmis subscription surface maps to:
+
+- `floently_yki_monthly`
+- `floently_yki_3months`
+- `floently_yki_yearly`
+- `floently_prof_monthly`
+- `floently_prof_3months`
+- `floently_prof_yearly`
+- `floently_combo_monthly`
+- `floently_combo_3months`
+- `floently_combo_yearly`
+
+Every applicable product must be added to the App Review submission with its required App Review screenshot and complete review metadata.
 
 ## Release Safety
 
 - customer-facing app name: KieliValmis
 - endorsement: by Floently
 - legal operator: Komplyint Oy
-- iOS bundle identifier remains com.vitusidi.floently
-- do not resubmit iOS build 31
-- replacement binary must contain the 2026-08-13 Apple compliance fixes
+- authoritative iOS bundle identifier: `com.vitusidi.floently`
+- App Review rejected version/build `1.0 (47)` on 2026-10-02
+- submission ID: `cc16af90-8fce-4651-ae20-08c85d204a8d`
+- App Review requires a replacement binary for the next submission
+- do not trigger the scarce replacement iOS build until the release branch is zero-known-blocker and the App Store media/IAP package is ready

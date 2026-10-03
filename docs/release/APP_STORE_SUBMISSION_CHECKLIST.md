@@ -1,50 +1,114 @@
 # Apple App Store Submission Checklist
 
-Last updated: 2026-04-23
+Last updated: 2026-10-03
+Current rejection: App Review 2026-10-02, submission `cc16af90-8fce-4651-ae20-08c85d204a8d`, version `1.0 (47)`.
 
-## App Setup
+This is a release gate, not a historical checklist. Do not submit while any item marked **BLOCKING** remains unchecked.
 
-- [ ] App created in App Store Connect for bundle ID `com.vitusidi.floentlyfinnish`
-- [ ] App name/subtitle/final category set
-- [ ] Privacy Policy URL set (required)
-- [ ] App Privacy questionnaire completed and accurate
-- [ ] Export compliance answered for encryption usage
-- [ ] App Review contact/test account info completed
+## App identity and App Review information
 
-## Binary and Build
+- [x] Authoritative iOS bundle identifier in source is `com.vitusidi.floently`.
+- [x] Customer-facing app name is KieliValmis.
+- [ ] **BLOCKING** App Review contact information is current in App Store Connect.
+- [ ] **BLOCKING** Dedicated reviewer account/credentials are current and tested.
+- [ ] Privacy Policy, Terms, Support, and account-deletion URLs are live and match the metadata.
+- [ ] App Privacy answers and export-compliance answers are current for the replacement binary.
 
-- [ ] Production iOS build generated with EAS (`eas build --platform ios --profile production`)
-- [ ] Build has unique build number and version
-- [ ] Build uploaded to App Store Connect / TestFlight
-- [ ] No startup crash/regression in smoke tests
+## Guideline 2.3.10 — screenshot/media repair
 
-## Policy/Compliance
+The rejected screenshot contained Android/non-iOS status-bar and notification imagery inside an iPhone-style frame. Those Android icons must be removed, not reproduced.
 
-- [ ] Account deletion can be initiated in-app (required when account creation exists)
-- [ ] Subscription purchase model compliant with App Review Guideline 3.1.1 (IAP for digital features unless specific entitlement path applies)
-- [ ] Permission usage descriptions are clear and user-facing (microphone)
-- [ ] Privacy/legal/support links are valid and public
+- [ ] **BLOCKING** Recreate each affected marketing screenshot using a genuine capture from the iOS app.
+- [ ] **BLOCKING** No Android notification icon, Android Wi-Fi/battery glyph, Android time/status presentation, Messenger-like notification icon, or other non-iOS status chrome remains.
+- [ ] **BLOCKING** Screenshots accurately show the submitted app in use; the majority highlight main app features.
+- [ ] **BLOCKING** In App Store Connect, open **View All Sizes in Media Manager** and inspect every applicable device-size set.
+- [ ] **BLOCKING** Inspect every localization, not only the default language.
+- [ ] Confirm each uploaded file uses an Apple-accepted screenshot dimension for its target slot.
+- [ ] If using the repository's eight-image marketing set, verify all eight embedded screen captures came from iOS before upload.
 
-## Listing Assets
+Accepted examples used by this project:
+- iPhone 6.9-inch: `1290 x 2796` portrait is accepted.
+- iPhone 6.5-inch: `1284 x 2778` portrait is accepted.
 
-- [ ] iPhone screenshots (required sizes for current devices)
-- [ ] App description, keywords, promotional text
-- [ ] “What’s New” release notes
-- [ ] Review notes explain microphone/speech workflow and fallback paths
+Apple supports additional current dimensions. Follow the current App Store Connect screenshot specification for the exact device slot; do not resize a wrong-platform capture merely to match dimensions.
 
-## Current Status (Repo Reality)
+## Guideline 2.1(b) — subscriptions/IAP package
 
-- Blocked:
-  - in-app account deletion not implemented
-  - current subscription checkout flow points to external URL for digital access
-  - final privacy/support/legal URLs not finalized
-- Prepared:
-  - bundle identifier configured
-  - EAS production profile exists
+Current source maps the KieliValmis subscription surface to these nine Apple products:
 
-Official references:
+- [ ] `floently_yki_monthly`
+- [ ] `floently_yki_3months`
+- [ ] `floently_yki_yearly`
+- [ ] `floently_prof_monthly`
+- [ ] `floently_prof_3months`
+- [ ] `floently_prof_yearly`
+- [ ] `floently_combo_monthly`
+- [ ] `floently_combo_3months`
+- [ ] `floently_combo_yearly`
+
+For **each** checked product above, verify all of the following before marking it complete:
+
+- localization/display metadata complete;
+- pricing and availability configured;
+- App Review screenshot present;
+- review notes/information complete;
+- product added to the draft App Review submission.
+
+Additional package gates:
+
+- [ ] **BLOCKING** Current App Store Connect state of the KieliValmis Premium subscription group has been reverified.
+- [ ] **BLOCKING** If the subscription group is not already approved, the group is in the same draft submission.
+- [ ] **BLOCKING** The draft App Review submission visibly contains every subscription exposed by the submitted app.
+- [ ] **BLOCKING** No subscription is left only in App Store Connect inventory without being added for review.
+
+Historical evidence records KieliValmis Premium group ID `22077944`, but current App Store Connect state must be checked again rather than inferred from August evidence.
+
+## Source/runtime billing verification
+
+These repository-side protections are already implemented and must stay green:
+
+- [x] iOS bundle ID authority is `com.vitusidi.floently`.
+- [x] RevenueCat/StoreKit package aliases exist for YKI, Professional, and Combined plans.
+- [x] The paywall preflights store availability and requires a real product identifier and localized store price.
+- [x] Purchase and Restore Purchases paths exist.
+- [x] Raw store failures are converted to user-safe messages.
+
+The 2026-10-02 rejection does not identify a new runtime billing-code defect. It identifies an incomplete App Store submission package. Do not churn working purchase code merely to address a dashboard-submission omission.
+
+## Replacement binary
+
+Apple explicitly requested a new binary.
+
+- [x] Active React Native release lane is PR #75 / `agent/build-48-native-read-release-20260929`.
+- [x] iOS build workflow is manual/approval-gated; ordinary source pushes must not consume a mobile build.
+- [ ] **BLOCKING** Media Manager repair is ready before consuming the scarce replacement build.
+- [ ] **BLOCKING** All nine subscription review packages are ready to add/are added to the draft submission before consuming the scarce replacement build.
+- [ ] **BLOCKING** Exact candidate SHA has green client/backend/native-source CI and zero known release blockers.
+- [ ] **BLOCKING** Product owner has explicitly approved the iOS build from the exact candidate.
+- [ ] Generate one replacement production iOS binary from the approved exact SHA.
+- [ ] Record EAS build ID, Git SHA, iOS build number, bundle ID, and runtime version.
+- [ ] Confirm Apple processing completed.
+- [ ] Perform physical iPhone smoke/acceptance on the exact candidate.
+- [ ] Select the replacement build in App Store Connect.
+
+## Final draft-submission audit
+
+Before clicking **Submit for Review**:
+
+- [ ] App version/build is present in the draft.
+- [ ] KieliValmis Premium subscription group is present if required.
+- [ ] All nine required subscriptions are present.
+- [ ] Every subscription has an App Review screenshot.
+- [ ] Corrected screenshots are present in every applicable size/localization.
+- [ ] No non-iOS status bar/device chrome is visible.
+- [ ] Reviewer credentials work.
+- [ ] Reviewer notes match the exact new build and do not claim unfinished work.
+- [ ] Draft submission reviewed item-by-item, then submitted.
+
+## Official references
+
 - App Review Guidelines: https://developer.apple.com/appstore/resources/approval/guidelines.html
-- Account deletion guidance: https://developer.apple.com/support/offering-account-deletion-in-your-app/
-- App privacy in App Store Connect: https://developer.apple.com/help/app-store-connect/manage-app-information/manage-app-privacy
-- Export compliance overview: https://developer.apple.com/help/app-store-connect/manage-app-information/overview-of-export-compliance/
-
+- Submit an In-App Purchase: https://developer.apple.com/help/app-store-connect/manage-submissions-to-app-review/submit-an-in-app-purchase
+- In-App Purchase information: https://developer.apple.com/help/app-store-connect/reference/in-app-purchases-and-subscriptions/in-app-purchase-information
+- Upload app previews and screenshots: https://developer.apple.com/help/app-store-connect/manage-app-information/upload-app-previews-and-screenshots
+- Screenshot specifications: https://developer.apple.com/help/app-store-connect/reference/app-information/screenshot-specifications
