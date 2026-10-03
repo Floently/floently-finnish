@@ -1,0 +1,75 @@
+name: Expo OTA update
+
+on:
+  workflow_dispatch:
+    inputs:
+      channel:
+        description: EAS Update channel
+        required: true
+        type: choice
+        default: preview
+        options:
+          - preview
+          - production
+      message:
+        description: Update message
+        required: true
+        default: Floently OTA update
+
+permissions:
+  contents: read
+
+concurrency:
+  group: expo-ota-${{ inputs.channel }}
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      EXPO_TOKEN: ${{ secrets.EXPO_TOKEN }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up pnpm
+        uses: pnpm/action-setup@v6
+        with:
+          version: "10.34.0"
+          run_install: false
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: pnpm
+          cache-dependency-path: pnpm-lock.yaml
+
+      - name: Install frozen workspace dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Verify Expo authentication
+        run: |
+          if [ -z "$EXPO_TOKEN" ]; then
+            echo "Missing GitHub Actions secret EXPO_TOKEN." >&2
+            exit 1
+          fi
+          npx --yes eas-cli@latest whoami
+
+      - name: Verify OTA runtime identity
+        working-directory: apps/client
+        run: |
+          pnpm exec expo config --type public --json > /tmp/floently-expo-config.json
+          node - <<'NODE'
+          const fs = require('fs');
+          const config = JSON.parse(fs.readFileSync('/tmp/floently-expo-config.json', 'utf8'));
+          const assert = (ok, msg) => { if (!ok) throw new Error(msg); };
+          assert(config.runtimeVersion === '1.0.4', `Unexpected runtimeVersion: ${config.runtimeVersion}`);
+          assert(config.updates?.enabled === true, 'Expo Updates must be enabled');
+          assert(config.updates?.url === 'https://u.expo.dev/fa02c141-0a3b-4dbc-9122-7c1cf31ba42c', 'Unexpected Expo Updates URL');
+          assert(config.updates?.checkAutomatically === 'ON_LOAD', 'OTA must check on app load');
+          console.log('OTA_RUNTIME_IDENTITY=PASS');
+          NODE
+
+      - name: Publish OTA update
+        working-directory: apps/client
+        run: npx --yes eas-cli@latest update --channel "${{ inputs.channel }}" --message "${{ inputs.message }}" --non-interactive

@@ -1,0 +1,32 @@
+name: Floently iOS TestFlight release
+
+on:
+  workflow_dispatch:
+    inputs:
+      product_owner_approval:
+        type: string
+        required: true
+        description: Type APPROVE_IOS_BUILD only after explicit product-owner approval
+      known_blockers:
+        type: string
+        required: true
+        description: Type ZERO_KNOWN_BLOCKERS only after the release ledger is clear
+
+jobs:
+  build_ios:
+    name: Build native iOS production app
+    if: ${{ inputs.product_owner_approval == 'APPROVE_IOS_BUILD' && inputs.known_blockers == 'ZERO_KNOWN_BLOCKERS' }}
+    type: build
+    params:
+      platform: ios
+      profile: production
+      message: Native Floently Read + KieliValmis TestFlight candidate
+
+  submit_ios:
+    name: Submit build to TestFlight
+    needs:
+      - build_ios
+    type: submit
+    params:
+      build_id: ${{ needs.build_ios.outputs.build_id }}
+      profile: production

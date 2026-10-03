@@ -29,6 +29,11 @@ function getBrowserUrl() {
     if (parsed.protocol !== 'https:' || parsed.hostname !== READ_BROWSER_HOST) {
       return DEFAULT_READ_BROWSER_URL;
     }
+    // Browser V2 uses this explicit embed contract for both deterministic
+    // React Native auth and the touch/IME owner-channel input path. Never let
+    // an EAS/environment override silently downgrade the app to desktop VNC
+    // input semantics inside WKWebView/Android WebView.
+    parsed.searchParams.set('embed', 'react-native');
     return parsed.toString();
   } catch {
     return DEFAULT_READ_BROWSER_URL;
@@ -82,6 +87,15 @@ export default function ReadLiveBrowserScreen() {
   const [loading, setLoading] = useState(true);
   const [loadError, setLoadError] = useState<string | null>(null);
   const browserUrl = useMemo(() => getBrowserUrlForPlatform(getBrowserUrl()), []);
+
+  const restartBrowserView = () => {
+    // A hard WebView remount is deliberately stronger than reload(). It
+    // recreates the outer Browser V2 client/auth bridge while the private
+    // remote Chromium profile remains persistent on the server.
+    setLoadError(null);
+    setLoading(true);
+    setReloadKey((value) => value + 1);
+  };
 
   const embeddedAuth = useMemo(() => {
     if (!token || !user) return null;
@@ -148,7 +162,7 @@ export default function ReadLiveBrowserScreen() {
     return (
       <View style={styles.centered}>
         <ActivityIndicator color="#8B5CF6" />
-        <Text style={styles.loadingText}>Opening the live Read browser…</Text>
+        <Text style={styles.loadingText}>Opening the Read browser…</Text>
       </View>
     );
   }
@@ -172,31 +186,28 @@ export default function ReadLiveBrowserScreen() {
   return (
     <SafeAreaView style={styles.safeArea} edges={['top', 'bottom']}>
       <View style={styles.header}>
-        <Pressable
-          accessibilityRole="button"
-          accessibilityLabel="Close live browser"
-          onPress={() => router.replace('/read/app' as never)}
-          style={styles.headerButton}
-        >
-          <Text style={styles.headerButtonText}>‹</Text>
-        </Pressable>
-        <View style={styles.headerText}>
-          <Text numberOfLines={1} style={styles.headerTitle}>Live website</Text>
-          <Text numberOfLines={1} style={styles.headerSubtitle}>
-            Secure remote browser · Reader available
-          </Text>
-        </View>
-        <Pressable
-          accessibilityRole="button"
-          accessibilityLabel="Reload live browser"
-          onPress={() => {
-            setLoadError(null);
-            webViewRef.current?.reload();
-          }}
-          style={styles.headerButton}
-        >
-          <Text style={styles.reloadText}>↻</Text>
-        </Pressable>
+          <Pressable
+            accessibilityRole="button"
+            accessibilityLabel="Close live browser"
+            onPress={() => router.replace('/read/app' as never)}
+            style={styles.headerButton}
+          >
+            <Text style={styles.headerButtonText}>‹</Text>
+          </Pressable>
+          <View style={styles.headerText}>
+            <Text numberOfLines={1} style={styles.headerTitle}>Live website</Text>
+            <Text numberOfLines={1} style={styles.headerSubtitle}>
+              Secure remote browser · Reader available
+            </Text>
+          </View>
+          <Pressable
+            accessibilityRole="button"
+            accessibilityLabel="Reload live browser"
+            onPress={restartBrowserView}
+            style={styles.headerButton}
+          >
+            <Text style={styles.reloadText}>↻</Text>
+          </Pressable>
       </View>
 
       <View style={styles.browserArea}>
@@ -268,11 +279,7 @@ export default function ReadLiveBrowserScreen() {
             <Text style={styles.errorBody}>{loadError}</Text>
             <Pressable
               style={styles.primaryButton}
-              onPress={() => {
-                setLoadError(null);
-                setLoading(true);
-                webViewRef.current?.reload();
-              }}
+              onPress={restartBrowserView}
             >
               <Text style={styles.primaryButtonText}>Reconnect</Text>
             </Pressable>
