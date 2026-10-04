@@ -18,21 +18,45 @@ assert.equal(
   'whole-document media-session patch must stay pinned to the installed expo-audio source',
 );
 
-const sourceFor = (name) =>
+const iosSourceFor = (name) =>
   fs.readFileSync(path.join(packageRoot, 'ios', name), 'utf8');
+const androidSourceFor = (...parts) =>
+  fs.readFileSync(
+    path.join(
+      packageRoot,
+      'android',
+      'src',
+      'main',
+      'java',
+      'expo',
+      'modules',
+      'audio',
+      ...parts,
+    ),
+    'utf8',
+  );
 
-const audioPlayerSource = sourceFor('AudioPlayer.swift');
-const audioModuleSource = sourceFor('AudioModule.swift');
-const mediaControllerSource = sourceFor('MediaController.swift');
+const audioPlayerSource = iosSourceFor('AudioPlayer.swift');
+const audioModuleSource = iosSourceFor('AudioModule.swift');
+const mediaControllerSource = iosSourceFor('MediaController.swift');
+const androidAudioPlayerSource = androidSourceFor('AudioPlayer.kt');
+const androidAudioModuleSource = androidSourceFor('AudioModule.kt');
+const androidControlsSource = androidSourceFor('service', 'AudioControlsService.kt');
 
 const patchedPlayer = plugin.patchAudioPlayerSwift(audioPlayerSource);
 const patchedModule = plugin.patchAudioModuleSwift(audioModuleSource);
 const patchedController = plugin.patchMediaControllerSwift(mediaControllerSource);
+const patchedAndroidPlayer = plugin.patchAudioPlayerKotlin(androidAudioPlayerSource);
+const patchedAndroidModule = plugin.patchAudioModuleKotlin(androidAudioModuleSource);
+const patchedAndroidControls = plugin.patchAudioControlsServiceKotlin(androidControlsSource);
 
 for (const [name, patched] of [
   ['AudioPlayer.swift', patchedPlayer],
   ['AudioModule.swift', patchedModule],
   ['MediaController.swift', patchedController],
+  ['AudioPlayer.kt', patchedAndroidPlayer],
+  ['AudioModule.kt', patchedAndroidModule],
+  ['AudioControlsService.kt', patchedAndroidControls],
 ]) {
   assert.ok(
     patched.includes(plugin.PATCH_MARKER),
@@ -83,6 +107,46 @@ for (const marker of [
   );
 }
 
+for (const marker of [
+  'LogicalLockScreenTimeline',
+  'setLogicalLockScreenTimeline',
+  'logicalCurrentPositionMs',
+  'mediaDeltaMs / timeline.playbackSpeed',
+  'requestLogicalSeek',
+  '"logicalSeekRequested"',
+]) {
+  assert.ok(
+    patchedAndroidPlayer.includes(marker),
+    `Android AudioPlayer logical-document contract missing: ${marker}`,
+  );
+}
+
+for (const marker of [
+  'Function("setLogicalLockScreenTimeline")',
+  'Function("clearLogicalLockScreenTimeline")',
+]) {
+  assert.ok(
+    patchedAndroidModule.includes(marker),
+    `Android AudioModule logical-document bridge missing: ${marker}`,
+  );
+}
+
+for (const marker of [
+  'class LogicalTimelinePlayer',
+  'ForwardingPlayer(audioPlayer.ref)',
+  'override fun getDuration(): Long = audioPlayer.logicalDurationMs()',
+  'override fun getCurrentPosition(): Long = audioPlayer.logicalCurrentPositionMs()',
+  'audioPlayer.requestLogicalSeek(positionMs)',
+  'MediaSession.Builder(context, sessionPlayer)',
+  'fun refreshLogicalTimeline(player: AudioPlayer)',
+  'session.setPlayer(sessionPlayer)',
+]) {
+  assert.ok(
+    patchedAndroidControls.includes(marker),
+    `Android MediaSession logical-document contract missing: ${marker}`,
+  );
+}
+
 assert.equal(
   plugin.patchAudioPlayerSwift(patchedPlayer),
   patchedPlayer,
@@ -99,6 +163,22 @@ assert.equal(
   'MediaController patch must be idempotent',
 );
 
+assert.equal(
+  plugin.patchAudioPlayerKotlin(patchedAndroidPlayer),
+  patchedAndroidPlayer,
+  'Android AudioPlayer patch must be idempotent',
+);
+assert.equal(
+  plugin.patchAudioModuleKotlin(patchedAndroidModule),
+  patchedAndroidModule,
+  'Android AudioModule patch must be idempotent',
+);
+assert.equal(
+  plugin.patchAudioControlsServiceKotlin(patchedAndroidControls),
+  patchedAndroidControls,
+  'Android AudioControlsService patch must be idempotent',
+);
+
 const appConfig = fs.readFileSync(path.join(clientRoot, 'app.config.ts'), 'utf8');
 const appBase = JSON.parse(fs.readFileSync(path.join(clientRoot, 'app.base.json'), 'utf8'));
 const packageManifest = JSON.parse(
@@ -107,12 +187,12 @@ const packageManifest = JSON.parse(
 
 assert.ok(
   appConfig.includes("'./plugins/withReadDocumentMediaSession'"),
-  'iOS prebuild must install the logical document media-session patch',
+  'native prebuild must install the logical document media-session patch',
 );
 assert.equal(
   packageManifest.dependencies?.['expo-audio'],
   plugin.SUPPORTED_EXPO_AUDIO_VERSION,
-  'expo-audio must be exactly pinned while native Swift source is patched',
+  'expo-audio must be exactly pinned while native iOS/Android source is patched',
 );
 assert.equal(
   appBase.expo?.runtimeVersion,
@@ -126,8 +206,8 @@ assert.equal(
 );
 assert.equal(
   appBase.expo?.android?.runtimeVersion,
-  '1.0.4',
-  'iOS media-session work must not unnecessarily strand existing Android OTA compatibility',
+  '1.0.5',
+  'native Android logical media-session capability requires Android OTA runtime 1.0.5',
 );
 
 console.log('READ_DOCUMENT_MEDIA_SESSION_SOURCE_GATE=PASS');
