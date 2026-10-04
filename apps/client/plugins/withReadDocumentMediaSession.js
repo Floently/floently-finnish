@@ -520,6 +520,18 @@ import androidx.media3.common.util.UnstableApi`,
     );
   }
 
+  if (!next.includes('import androidx.media3.common.PlaybackParameters')) {
+    next = replaceRequired(
+      next,
+      `import androidx.media3.common.Player
+import androidx.media3.common.util.UnstableApi`,
+      `import androidx.media3.common.PlaybackParameters
+import androidx.media3.common.Player
+import androidx.media3.common.util.UnstableApi`,
+      'Android AudioControlsService PlaybackParameters import'
+    );
+  }
+
   next = replaceRequired(
     next,
     `@OptIn(UnstableApi::class)
@@ -544,6 +556,11 @@ private class LogicalTimelinePlayer(
   override fun getContentBufferedPosition(): Long = audioPlayer.logicalCurrentPositionMs()
 
   override fun getTotalBufferedDuration(): Long = 0L
+
+  // Floently's document duration is already speed-normalized. Exposing the
+  // hidden ExoPlayer's 1.5x/2x rate would make Android system UI extrapolate
+  // this logical elapsed time too quickly between position updates.
+  override fun getPlaybackParameters(): PlaybackParameters = PlaybackParameters(1.0f)
 
   override fun seekToDefaultPosition() {
     audioPlayer.requestLogicalSeek(0L)
