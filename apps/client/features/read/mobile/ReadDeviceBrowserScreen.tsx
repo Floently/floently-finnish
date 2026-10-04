@@ -77,13 +77,26 @@ type BrowserAudioState =
 function browserPageIdentity(value: string) {
   try {
     const parsed = new URL(value);
-    // Hash-only navigation is a position/UI state change inside the same page,
-    // not a new document. Keeping narration alive here matters on course/SPAs
-    // that update anchors while the learner moves around the rendered lesson.
-    parsed.hash = '';
+    // Plain fragments such as #chapter-2 are usually positions inside the same
+    // document, so narration can continue. Hash routers are different:
+    // React/Angular-style #/..., #!/... and #?... values can identify an
+    // entirely different lesson/article while the origin/path stay unchanged.
+    // Preserve those routing hashes so stale narration is torn down correctly.
+    const hash = parsed.hash;
+    const routedHash =
+      hash.startsWith('#/') || hash.startsWith('#!/') || hash.startsWith('#?')
+        ? hash
+        : '';
+    parsed.hash = routedHash;
     return parsed.toString();
   } catch {
-    return String(value || '').split('#')[0];
+    const raw = String(value || '');
+    const hashIndex = raw.indexOf('#');
+    if (hashIndex < 0) return raw;
+    const hash = raw.slice(hashIndex);
+    return hash.startsWith('#/') || hash.startsWith('#!/') || hash.startsWith('#?')
+      ? raw
+      : raw.slice(0, hashIndex);
   }
 }
 
@@ -1824,17 +1837,18 @@ export default function ReadDeviceBrowserScreen() {
             onLoadStart={(event) => {
               const nextUrl = String(event.nativeEvent.url || '');
               const previousUrl = latestUrlRef.current;
-              const hashOnlyNavigation =
+              const samePageAnchorNavigation =
                 Boolean(reading?.url && previousUrl) &&
                 nextUrl !== previousUrl &&
                 isSameBrowserReadingPage(nextUrl, previousUrl!) &&
                 isSameBrowserReadingPage(nextUrl, reading!.url);
 
-              // Hash-only SPA navigation changes the visible position/state of
-              // the same lesson. Do not tear down narration for that. A real
-              // reload (same raw URL) or a different document still resets the
-              // reading snapshot because the page contents may have changed.
-              if (!hashOnlyNavigation) {
+              // Plain anchor movement changes only the visible position/state
+              // of the same lesson. Hash-router transitions such as #/lesson/2
+              // are a different page identity and must tear down old narration.
+              // A real reload (same raw URL) also resets the reading snapshot
+              // because the rendered contents may have changed.
+              if (!samePageAnchorNavigation) {
                 extractionRequestRef.current += 1;
                 setPageAuthActive(false);
                 setPasskeyDeferred(false);
@@ -1851,7 +1865,7 @@ export default function ReadDeviceBrowserScreen() {
               if (/^https?:\/\//i.test(nextUrl)) latestUrlRef.current = nextUrl;
               setLoading(true);
               setLoadError(null);
-              setStatus(hashOnlyNavigation && reading ? 'Reading this page' : 'Loading on this device…');
+              setStatus(samePageAnchorNavigation && reading ? 'Reading this page' : 'Loading on this device…');
             }}
             onLoadEnd={() => {
               setLoading(false);
