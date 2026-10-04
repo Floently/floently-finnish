@@ -104,6 +104,8 @@ That head contains the later Reader/browser/media-session stabilization work and
 
 Because Apple specifically asked for a new binary, the final resubmission needs a replacement build. However, do not spend that scarce build merely to repair metadata. First make the screenshot and IAP submission package ready; then build the exact approved release SHA once.
 
+Before that build, production FlowReader must also be ready for the Read subscription surface now present in the binary. The release workflow probes `https://flowreader-api.onrender.com/api/v1/read/billing-readiness` and requires the server-authoritative capability version `revenuecat-server-authoritative-v1` with both readiness booleans true. This probe contains no secret material.
+
 ## 5. Current gate state
 
 ```text
@@ -118,6 +120,12 @@ ALL_ELEVEN_CURRENT_SUBSCRIPTION_REVIEW_SCREENSHOTS=PENDING
 ALL_ELEVEN_CURRENT_SUBSCRIPTIONS_ADDED_FOR_REVIEW=PENDING
 SUBSCRIPTION_GROUP_CURRENT_STATUS_REVERIFIED=PENDING
 DRAFT_SUBMISSION_PACKAGE_COMPLETE=PENDING
+FLOWREADER_SERVER_AUTHORITY_SOURCE=PASS
+FLOWREADER_PRODUCTION_DEPLOYED=PENDING
+FLOWREADER_REVENUECAT_SECRET_CONFIGURED=PENDING
+PRODUCTION_READ_BILLING_READINESS_200=PENDING
+CROSS_PRODUCT_ACCOUNT_DELETION_SOURCE=PASS
+CROSS_PRODUCT_ACCOUNT_DELETION_DEPLOYED=PENDING
 REPLACEMENT_IOS_BINARY_BUILT=PENDING
 REPLACEMENT_BINARY_PHYSICAL_ACCEPTANCE=PENDING
 REPLACEMENT_BUILD_SELECTED_IN_APP_STORE_CONNECT=PENDING
@@ -134,6 +142,8 @@ Resubmission is authorized only when:
 - all eleven subscriptions currently purchasable in the exact candidate have complete review information and App Review screenshots;
 - all required subscriptions (and the group if required) are present in the same draft submission as the replacement app version;
 - the exact replacement source SHA has green release gates and no known blocking defect;
+- FlowReader server-authoritative Read billing is deployed, its RevenueCat server secret is configured, and the public readiness endpoint returns the expected ready state;
+- account deletion from the app removes the associated Floently Read identity/library/media before the main KieliValmis identity is invalidated;
 - one new iOS binary has been produced from that SHA;
 - the exact new binary passes physical iPhone smoke/acceptance;
 - the new build is selected in App Store Connect;
