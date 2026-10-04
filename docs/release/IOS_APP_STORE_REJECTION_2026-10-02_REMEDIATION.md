@@ -41,7 +41,7 @@ The app source currently sets `ios.supportsTablet=false`. The fact that Apple re
 
 ## 2. Subscription submission finding
 
-The current source expects the following KieliValmis Apple Product IDs:
+The current React Native candidate exposes **eleven purchasable iOS subscriptions**: nine KieliValmis plans plus two Floently Read Reader plans.
 
 | Product family | Apple Product ID |
 |---|---|
@@ -54,22 +54,26 @@ The current source expects the following KieliValmis Apple Product IDs:
 | Combined monthly | `floently_combo_monthly` |
 | Combined 3 months | `floently_combo_3months` |
 | Combined yearly | `floently_combo_yearly` |
+| Floently Read Reader monthly | `floently_read_reader_monthly` |
+| Floently Read Reader yearly | `floently_read_reader_yearly` |
 
-Repository history records the KieliValmis Premium subscription group as group ID `22077944`, but that is historical evidence. Current status must be reverified in App Store Connect.
+RevenueCat also contains Creator package mappings, but Create Studio is not a purchasable surface in the current release candidate. Re-audit the visible paywalls on the exact final SHA; if any additional subscription becomes purchasable, add it to the App Review package before submission.
+
+Repository history records the KieliValmis Premium subscription group as group ID `22077944`, but that is historical evidence. The current status of that group **and the group containing the Floently Read Reader subscriptions** must be reverified in App Store Connect.
 
 ### Required App Store Connect sequence
 
 1. Open **Monetization -> Subscriptions**.
-2. Open the KieliValmis Premium group and inspect each subscription.
+2. Open the KieliValmis Premium group and the group containing the Floently Read Reader subscriptions; inspect every currently purchasable subscription.
 3. For every subscription used by the submitted app, complete localization, pricing/availability, Review Information, and the required **App Review screenshot**.
 4. Add every required subscription for review.
-5. If the subscription group is not already approved, include the group in the submission.
+5. If either required subscription group is not already approved, include the required group(s) in the submission.
 6. Create/use the draft App Review submission for the replacement iOS app version.
 7. Add the replacement app version/build.
 8. Before submitting, verify the draft visibly contains:
    - the iOS app version;
-   - the subscription group when required;
-   - all nine subscriptions exposed by the app.
+   - every required subscription group when applicable;
+   - all eleven subscriptions currently exposed for purchase by this candidate.
 9. Only then click **Submit for Review**.
 
 For a first auto-renewable subscription submission, Apple requires the new subscription(s), group when applicable, and app version to be in the same draft submission.
@@ -80,7 +84,7 @@ The repository already said subscriptions should be added to the review submissi
 
 - it still contained the obsolete bundle identifier `com.vitusidi.floentlyfinnish`;
 - it still described account deletion and external checkout as current blockers even though those were already remediated;
-- it did not enumerate all nine subscription Product IDs as a required same-submission gate;
+- it did not enumerate every subscription exposed by the combined KieliValmis + Floently Read candidate as a required same-submission gate;
 - it did not require auditing all Media Manager sizes/localizations for non-iOS status imagery;
 - App Store listing screenshots are not currently versioned as release artifacts, so CI could not inspect the rejected image.
 
@@ -110,8 +114,8 @@ REPOSITORY_SUBMISSION_CHECKLIST_REFRESHED=PASS
 NON_IOS_SCREENSHOTS_REPLACED_IN_APP_STORE_CONNECT=PENDING
 ALL_MEDIA_MANAGER_SIZES_AUDITED=PENDING
 ALL_LOCALIZATIONS_AUDITED=PENDING
-ALL_NINE_SUBSCRIPTION_REVIEW_SCREENSHOTS=PENDING
-ALL_NINE_SUBSCRIPTIONS_ADDED_FOR_REVIEW=PENDING
+ALL_ELEVEN_CURRENT_SUBSCRIPTION_REVIEW_SCREENSHOTS=PENDING
+ALL_ELEVEN_CURRENT_SUBSCRIPTIONS_ADDED_FOR_REVIEW=PENDING
 SUBSCRIPTION_GROUP_CURRENT_STATUS_REVERIFIED=PENDING
 DRAFT_SUBMISSION_PACKAGE_COMPLETE=PENDING
 REPLACEMENT_IOS_BINARY_BUILT=PENDING
@@ -127,7 +131,7 @@ Resubmission is authorized only when:
 
 - every affected App Store screenshot uses a genuine iOS app capture;
 - no Android/non-iOS status-bar image survives in any applicable Media Manager slot/localization;
-- all nine required subscriptions have complete review information and App Review screenshots;
+- all eleven subscriptions currently purchasable in the exact candidate have complete review information and App Review screenshots;
 - all required subscriptions (and the group if required) are present in the same draft submission as the replacement app version;
 - the exact replacement source SHA has green release gates and no known blocking defect;
 - one new iOS binary has been produced from that SHA;
