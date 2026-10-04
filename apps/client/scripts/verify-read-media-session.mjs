@@ -145,6 +145,9 @@ for (const marker of [
   'MediaSession.Builder(context, sessionPlayer)',
   'fun refreshLogicalTimeline(player: AudioPlayer)',
   'session.setPlayer(resolveSessionPlayer(player, currentOptions))',
+  'if (player.logicalLockScreenTimeline != null) {',
+  'mediaSession?.setPlayer(resolveSessionPlayer(player, options))',
+  'Keep the existing Android MediaSession alive',
   'val player = currentPlayer',
   'player?.assignBasicMediaSession()',
 ]) {
