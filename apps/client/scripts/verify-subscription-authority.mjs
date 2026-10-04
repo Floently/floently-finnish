@@ -82,8 +82,38 @@ requireText(
   'remote backend status must continue to drive normalized client state',
 );
 
+requireText(
+  'const requestRevision = ++subscriptionRefreshRevision;',
+  'subscription refreshes must have a shared monotonic revision so stale concurrent responses cannot win',
+);
+requireText(
+  'if (requestRevision !== subscriptionRefreshRevision) return;',
+  'stale Learn subscription responses must be discarded',
+);
+requireText(
+  'const readRevisionAtStart = verifiedReadRevision;',
+  'Learn refresh must snapshot the FlowReader authority revision before network work',
+);
+requireText(
+  'if (verifiedReadRevision !== readRevisionAtStart) {',
+  'late Learn responses must detect a newer verified FlowReader grant or revocation',
+);
+requireText(
+  'effectiveRemote = withVerifiedReadAccess(effectiveRemote, {',
+  'late Learn responses must overlay the newer verified Read authority before committing state',
+);
+requireText(
+  'subscriptionRefreshRevision += 1;',
+  'clearing subscription state must invalidate in-flight Learn refreshes',
+);
+requireText(
+  'verifiedReadRevision += 1;',
+  'every verified FlowReader reconciliation must advance the Read authority revision',
+);
+
 console.log('PASS: client email access overrides are development-only.');
 console.log('PASS: production subscription state remains backend-authoritative.');
+console.log('PASS: concurrent Learn/FlowReader hydration cannot overwrite newer verified Read authority.');
 
 function readFunctionBlock(startMarker, endMarker) {
   const start = readMobileSource.indexOf(startMarker);
