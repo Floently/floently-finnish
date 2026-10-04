@@ -703,6 +703,10 @@ export const useSubscriptionStore = create<SubscriptionState>((set, get) => ({
   async hydrate(input) {
     const user = toUserLike(input);
     if (!user) {
+      // Null-user hydration is an authority boundary just like explicit clear:
+      // any authenticated subscription response already in flight belongs to a
+      // previous session and must not repopulate state afterward.
+      subscriptionRefreshRevision += 1;
       const previewPath = get().previewPath;
       const fallback = previewPath ? buildPreviewStatus(previewPath) : fallbackForUser(null);
       set({ hasLoaded: true, isLoading: false, status: fallback, activeContext: previewPath ?? 'none' });
