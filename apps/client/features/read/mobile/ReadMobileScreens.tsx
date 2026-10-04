@@ -40,7 +40,15 @@ import {
   readingPrefetchIndexes,
   readingProgressForSegment,
 } from './readingPlaybackManifest';
-import { restoreReadStorePurchases, startReadStorePurchase, type ReadStorePlanId } from '../../billing/services/storeBillingService';
+import {
+  preflightReadStoreBillingPlans,
+  restoreReadStorePurchases,
+  startReadStorePurchase,
+  supportsStoreBilling,
+  type ReadStorePlanId,
+  type StoreBillingCatalog,
+} from '../../billing/services/storeBillingService';
+import { useAuthStore } from '../../../state/authStore';
 import { useSubscriptionStore } from '../../../state/subscriptionStore';
 
 type ReadTab = 'home' | 'library' | 'import' | 'reader' | 'settings' | 'analytics' | 'subscribe' | 'browser';
@@ -90,9 +98,9 @@ const importActions: Array<{ mode: ImportMode; label: string; detail: string; ic
   { mode: 'paste', label: 'Paste', detail: 'Text from clipboard', icon: 'Text' },
 ];
 
-const readPlans: Array<{ id: ReadStorePlanId; title: string; priceHint: string; body: string; platformNote?: string }> = [
-  { id: 'reader_monthly', title: 'Reader Monthly', priceHint: '11.99 EUR / month', body: 'Read, listen, import text, and continue your library across sessions.' },
-  { id: 'reader_yearly', title: 'Reader Yearly', priceHint: '119.90 EUR / year', body: 'Annual Reader access for reading, listening, and document practice.', platformNote: 'Android yearly can be enabled after RevenueCat compatibility is clear; iOS yearly is ready.' },
+const readPlans: Array<{ id: ReadStorePlanId; title: string; body: string }> = [
+  { id: 'reader_monthly', title: 'Reader Monthly', body: 'Read, listen, import text, and continue your library across sessions.' },
+  { id: 'reader_yearly', title: 'Reader Yearly', body: 'Annual Reader access for reading, listening, and document practice.' },
 ];
 
 function paletteFor(theme: ReadTheme): Palette {
@@ -2192,6 +2200,7 @@ async function syncReadPurchaseToBackend(result: ReadRevenueCatSyncSource, planI
 }
 
 export function ReadSubscriptionScreen() {
+  const user = useAuthStore((state) => state.user);
   const subscriptionState = useSubscriptionStore((state) => state);
   const subscriptionAny = subscriptionState as unknown as {
     status?: {
@@ -2234,14 +2243,58 @@ export function ReadSubscriptionScreen() {
   );
   const [busyPlan, setBusyPlan] = useState<ReadStorePlanId | 'restore' | null>(null);
   const [message, setMessage] = useState<string | null>(null);
+  const [storeCatalog, setStoreCatalog] = useState<StoreBillingCatalog | null>(null);
+  const [storeCatalogLoading, setStoreCatalogLoading] = useState(false);
   const theme = useReadMobileStore((state) => state.readTheme);
   const palette = paletteFor(theme);
+  const isMobileStoreBilling = supportsStoreBilling();
+  const storeUserId = user?.id ?? null;
+  const visibleReadPlanIds = useMemo(
+    () => readPlans.map((plan) => plan.id),
+    [],
+  );
+
+  useEffect(() => {
+    if (!isMobileStoreBilling || !storeUserId) {
+      setStoreCatalog(null);
+      setStoreCatalogLoading(false);
+      return;
+    }
+
+    let cancelled = false;
+    setStoreCatalogLoading(true);
+
+    void preflightReadStoreBillingPlans(visibleReadPlanIds, storeUserId)
+      .then((catalog) => {
+        if (!cancelled) setStoreCatalog(catalog);
+      })
+      .catch(() => {
+        if (!cancelled) setStoreCatalog(null);
+      })
+      .finally(() => {
+        if (!cancelled) setStoreCatalogLoading(false);
+      });
+
+    return () => {
+      cancelled = true;
+    };
+  }, [isMobileStoreBilling, storeUserId, visibleReadPlanIds]);
 
   async function purchase(planId: ReadStorePlanId) {
+    const availability = storeCatalog?.plans.find((item) => item.planId === planId);
+    if (!storeUserId) {
+      setMessage('Sign in before purchasing Floently Read.');
+      return;
+    }
+    if (!isMobileStoreBilling || !availability?.available) {
+      setMessage('This Floently Read plan is not available from your device store right now.');
+      return;
+    }
+
     setBusyPlan(planId);
     setMessage(null);
     try {
-      const result = await startReadStorePurchase(planId);
+      const result = await startReadStorePurchase(planId, storeUserId);
       const accessResult = result as unknown as { readAccess?: boolean; creatorAccess?: boolean };
       if (typeof applyStoreReadAccess === 'function') {
         applyStoreReadAccess({
@@ -2262,10 +2315,19 @@ export function ReadSubscriptionScreen() {
   }
 
   async function restore() {
+    if (!storeUserId) {
+      setMessage('Sign in before restoring Floently Read purchases.');
+      return;
+    }
+    if (!isMobileStoreBilling) {
+      setMessage('Restore purchases is available in the iOS or Android app.');
+      return;
+    }
+
     setBusyPlan('restore');
     setMessage(null);
     try {
-      const result = await restoreReadStorePurchases();
+      const result = await restoreReadStorePurchases(storeUserId);
       const accessResult = result as unknown as { readAccess?: boolean; creatorAccess?: boolean };
       if (typeof applyStoreReadAccess === 'function') {
         applyStoreReadAccess({
@@ -2293,16 +2355,39 @@ export function ReadSubscriptionScreen() {
           <Text style={[styles.cardTitle, { color: palette.text }]}>{readAccess || creatorAccess ? 'Access active' : 'Upgrade Read'}</Text>
           <Text style={[styles.cardBody, { color: palette.muted }]}>Read, listen, import, and continue your library across sessions.</Text>
         </View>
-        {readPlans.map((plan) => (
-          <View key={plan.id} style={[styles.planCard, { backgroundColor: palette.surfaceRaised, borderColor: palette.border }]}>
-            <Text style={[styles.cardTitle, { color: palette.text }]}>{plan.title}</Text>
-            <Text style={[styles.priceText, { color: palette.accent }]}>{plan.priceHint}</Text>
-            <Text style={[styles.cardBody, { color: palette.muted }]}>{plan.body}</Text>
-            {plan.platformNote ? <Text style={[styles.noteText, { color: palette.warning }]}>{plan.platformNote}</Text> : null}
-            <PrimaryButton label={busyPlan === plan.id ? 'Processing...' : 'Choose plan'} onPress={() => void purchase(plan.id)} disabled={Boolean(busyPlan)} />
-          </View>
-        ))}
-        <SecondaryButton label={busyPlan === 'restore' ? 'Restoring...' : 'Restore purchases'} onPress={() => void restore()} disabled={Boolean(busyPlan)} />
+        {readPlans.map((plan) => {
+          const availability = storeCatalog?.plans.find((item) => item.planId === plan.id);
+          const purchaseUnavailable =
+            !isMobileStoreBilling ||
+            !storeUserId ||
+            storeCatalogLoading ||
+            !availability?.available;
+          const priceLabel = storeCatalogLoading
+            ? 'Loading store price…'
+            : availability?.priceString ||
+              (!storeUserId
+                ? 'Sign in to load store price'
+                : 'Unavailable in your store');
+
+          return (
+            <View key={plan.id} style={[styles.planCard, { backgroundColor: palette.surfaceRaised, borderColor: palette.border }]}>
+              <Text style={[styles.cardTitle, { color: palette.text }]}>{plan.title}</Text>
+              <Text style={[styles.priceText, { color: availability?.available ? palette.accent : palette.muted }]}>{priceLabel}</Text>
+              <Text style={[styles.cardBody, { color: palette.muted }]}>{plan.body}</Text>
+              {storeCatalogLoading ? <ActivityIndicator size="small" color={palette.accent} /> : null}
+              <PrimaryButton
+                label={busyPlan === plan.id ? 'Processing...' : availability?.available ? 'Choose plan' : 'Unavailable'}
+                onPress={() => void purchase(plan.id)}
+                disabled={Boolean(busyPlan) || purchaseUnavailable}
+              />
+            </View>
+          );
+        })}
+        <SecondaryButton
+          label={busyPlan === 'restore' ? 'Restoring...' : 'Restore purchases'}
+          onPress={() => void restore()}
+          disabled={Boolean(busyPlan) || !isMobileStoreBilling || !storeUserId}
+        />
         {message ? <Text style={[styles.messageText, { color: palette.muted }]}>{message}</Text> : null}
       </ScrollView>
     </AppShell>
