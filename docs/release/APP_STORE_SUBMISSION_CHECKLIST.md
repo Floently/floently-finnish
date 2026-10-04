@@ -67,15 +67,26 @@ Historical evidence records KieliValmis Premium group ID `22077944`, but current
 
 ## Source/runtime billing verification
 
-These repository-side protections are already implemented and must stay green:
+The 2026-10-02 Apple rejection itself was a submission-package defect, but the later release audit found and repaired an independent Floently Read billing-authority defect. Both the client and FlowReader server changes must therefore be present before the replacement binary is approved.
+
+Repository-side protections that must stay green:
 
 - [x] iOS bundle ID authority is `com.vitusidi.floently`.
-- [x] RevenueCat/StoreKit package aliases exist for YKI, Professional, and Combined plans.
-- [x] The paywall preflights store availability and requires a real product identifier and localized store price.
+- [x] RevenueCat/StoreKit package aliases exist for the nine KieliValmis plans and the visible Floently Read Reader plans.
+- [x] The paywall preflights the named RevenueCat offering, exact product identifier, and localized store price.
 - [x] Purchase and Restore Purchases paths exist.
 - [x] Raw store failures are converted to user-safe messages.
+- [x] React Native Read purchase/restore does not grant SDK-reported entitlement claims directly; only backend-verified Read access can elevate local access.
+- [x] FlowReader PR #167 implements server-authoritative RevenueCat verification with provider-scoped grant/revocation and startup revalidation.
+- [x] FlowReader exposes a non-secret readiness endpoint at `/api/v1/read/billing-readiness`.
+- [ ] **BLOCKING** FlowReader PR #167 is merged/deployed to the production `flowreader-api` service.
+- [ ] **BLOCKING** Production secret `REVENUECAT_SECRET_API_KEY` is configured on FlowReader.
+- [ ] **BLOCKING** Production `GET https://flowreader-api.onrender.com/api/v1/read/billing-readiness` returns HTTP 200 with:
+  - `authorityVersion = revenuecat-server-authoritative-v1`;
+  - `serverVerificationConfigured = true`;
+  - `readyForStorePurchases = true`.
 
-The 2026-10-02 rejection does not identify a new runtime billing-code defect. It identifies an incomplete App Store submission package. Do not churn working purchase code merely to address a dashboard-submission omission.
+The iOS release workflow now probes this production endpoint before EAS can be reached, and direct EAS execution additionally requires the typed `READ_BILLING_READY` gate.
 
 ## Replacement binary
 
@@ -86,6 +97,8 @@ Apple explicitly requested a new binary.
 - [ ] **BLOCKING** Media Manager repair is ready before consuming the scarce replacement build.
 - [ ] **BLOCKING** All eleven currently purchasable subscription review packages are ready to add/are added to the draft submission before consuming the scarce replacement build.
 - [ ] **BLOCKING** Exact candidate SHA has green client/backend/native-source CI and zero known release blockers.
+- [ ] **BLOCKING** Production Read billing readiness endpoint passes the server-authority checks above.
+- [ ] **BLOCKING** In-app account deletion cascades through the deployed FlowReader backend and the public deletion disclosure reflects Floently Read library/media deletion.
 - [ ] **BLOCKING** Product owner has explicitly approved the iOS build from the exact candidate.
 - [ ] Generate one replacement production iOS binary from the approved exact SHA.
 - [ ] Record EAS build ID, Git SHA, iOS build number, bundle ID, and runtime version.
