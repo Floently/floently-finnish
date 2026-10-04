@@ -112,7 +112,7 @@ Marketing framing, typography, gradients, and decorative artwork may surround th
 
 ## Subscription review package
 
-The app's KieliValmis subscription surface maps to:
+The current iOS candidate exposes these purchasable subscription products:
 
 - `floently_yki_monthly`
 - `floently_yki_3months`
@@ -123,8 +123,10 @@ The app's KieliValmis subscription surface maps to:
 - `floently_combo_monthly`
 - `floently_combo_3months`
 - `floently_combo_yearly`
+- `floently_read_reader_monthly`
+- `floently_read_reader_yearly`
 
-Every applicable product must be added to the App Review submission with its required App Review screenshot and complete review metadata.
+Every applicable product must be added to the App Review submission with its required App Review screenshot and complete review metadata. Re-audit the exact final SHA before submission; this list must grow if another subscription becomes purchasable.
 
 ## Release Safety
 
