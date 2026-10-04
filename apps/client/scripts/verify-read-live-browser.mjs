@@ -648,6 +648,14 @@ assert.ok(!home.includes('11.99 EUR / month') &&
 assert.ok(home.includes("availability?.available ? 'Choose plan' : 'Unavailable'") &&
   home.includes('disabled={Boolean(busyPlan) || purchaseUnavailable}'),
   'Floently Read paywall must disable checkout for missing/unverified store products');
+assert.ok(home.includes("import { LEGAL_URLS } from '../../../config/legalUrls';") &&
+  home.includes('accessibilityLabel="Open Privacy Policy"') &&
+  home.includes('accessibilityLabel="Open Terms of Use"') &&
+  home.includes('Subscriptions renew automatically unless canceled before renewal'),
+  'Floently Read purchase screen must expose privacy/terms links and clear recurring-subscription disclosure');
+assert.ok(!home.includes('Native plans, RevenueCat, and backend entitlements') &&
+  !home.includes('Backend access is synced.'),
+  'reviewer-facing Floently Read subscription UI must not expose internal billing/backend implementation language');
 
 assert.ok(guard.includes('requireReadAccess = true'),
   'Read content guard must require Read access by default');
