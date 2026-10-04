@@ -138,6 +138,7 @@ for (const marker of [
   'override fun getCurrentPosition(): Long = audioPlayer.logicalCurrentPositionMs()',
   'override fun getBufferedPosition(): Long = audioPlayer.logicalCurrentPositionMs()',
   'override fun getTotalBufferedDuration(): Long = 0L',
+  'override fun getPlaybackParameters(): PlaybackParameters = PlaybackParameters(1.0f)',
   'override fun seekToDefaultPosition()',
   'audioPlayer.requestLogicalSeek(positionMs)',
   'if (player.logicalLockScreenTimeline != null)',
