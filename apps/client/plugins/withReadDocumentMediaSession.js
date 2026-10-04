@@ -631,38 +631,69 @@ class AudioControlsService : MediaSessionService() {`,
     'Android legacy notification logical seek'
   );
 
-  next = replaceRequiredRegex(
-    next,
-    /([ \t]*private fun resolveSessionPlayer\(([^)]*)\)\s*:\s*Player\s*\{\r?\n)/,
-    (signature, parameters) => {
-      const playable = String(parameters).match(
-        /\b([A-Za-z_][A-Za-z0-9_]*):\s*(AudioPlayer|LockScreenPlayable)\b/
+  {
+    const resolverToken = 'resolveSessionPlayer';
+    const resolverName = next.indexOf(`private fun ${resolverToken}`) >= 0
+      ? `private fun ${resolverToken}`
+      : `fun ${resolverToken}`;
+    const resolverStart = next.indexOf(resolverName);
+    if (resolverStart < 0) {
+      throw new Error(
+        `Floently Read media-session patch could not find Android MediaSession logical player function. ` +
+        `expo-audio ${SUPPORTED_EXPO_AUDIO_VERSION} source may have changed.`
       );
-      if (!playable) {
-        throw new Error(
-          `Floently Read media-session patch found an unsupported resolveSessionPlayer signature: ${parameters}`
-        );
-      }
+    }
 
-      const variable = playable[1];
-      const type = playable[2];
-      const guard = type === 'AudioPlayer'
-        ? `if (${variable}.logicalLockScreenTimeline != null) {
+    const parametersStart = next.indexOf('(', resolverStart + resolverName.length);
+    const parametersEnd = parametersStart >= 0 ? next.indexOf(')', parametersStart + 1) : -1;
+    const bodyStart = parametersEnd >= 0 ? next.indexOf('{', parametersEnd + 1) : -1;
+    if (
+      parametersStart < 0 ||
+      parametersEnd < 0 ||
+      bodyStart < 0 ||
+      bodyStart - resolverStart > 1000
+    ) {
+      throw new Error(
+        `Floently Read media-session patch found an unsupported ${resolverToken} declaration near: ` +
+        next.slice(resolverStart, Math.min(next.length, resolverStart + 320)).replace(/\s+/g, ' ')
+      );
+    }
+
+    const parameters = next.slice(parametersStart + 1, parametersEnd);
+    const playable = parameters.match(
+      /\b([A-Za-z_][A-Za-z0-9_]*):\s*(AudioPlayer|LockScreenPlayable)\b/
+    );
+    if (!playable) {
+      throw new Error(
+        `Floently Read media-session patch found an unsupported ${resolverToken} signature: ` +
+        parameters.replace(/\s+/g, ' ')
+      );
+    }
+
+    const variable = playable[1];
+    const type = playable[2];
+    const guard = type === 'AudioPlayer'
+      ? `if (${variable}.logicalLockScreenTimeline != null) {
       return LogicalTimelinePlayer(${variable})
     }`
-        : `if (${variable} is AudioPlayer && ${variable}.logicalLockScreenTimeline != null) {
+      : `if (${variable} is AudioPlayer && ${variable}.logicalLockScreenTimeline != null) {
       return LogicalTimelinePlayer(${variable})
     }`;
 
-      return `${signature}    // Floently's hidden TTS segment must never become the public system-media
+    const bodyLineBreak = next.startsWith('\r\n', bodyStart + 1)
+      ? '\r\n'
+      : next.startsWith('\n', bodyStart + 1)
+        ? '\n'
+        : '';
+    const insertAt = bodyStart + 1 + bodyLineBreak.length;
+    const block = `    // Floently's hidden TTS segment must never become the public system-media
     // timeline. Prefer the logical document wrapper before applying Expo's
     // live-stream seek restrictions.
     ${guard}
 
 `;
-    },
-    'Android MediaSession logical player function'
-  );
+    next = next.slice(0, insertAt) + block + next.slice(insertAt);
+  }
 
   next = replaceRequired(
     next,
