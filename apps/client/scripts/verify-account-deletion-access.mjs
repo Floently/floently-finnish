@@ -30,6 +30,10 @@ const deleteAccountPage = fs.readFileSync(
   path.join(clientRoot, '..', 'kielivalmis-domain-static', 'delete-account', 'index.html'),
   'utf8',
 );
+const deleteAccountLocales = fs.readFileSync(
+  path.join(clientRoot, '..', 'kielivalmis-domain-static', 'shared', 'page-locales-1.js'),
+  'utf8',
+);
 
 const accountManagementHelper = appShell.match(
   /function isAccountManagementScreen\([\s\S]*?\n}\n/,
@@ -142,6 +146,26 @@ requireText(
   deleteAccountPage,
   'open Settings and choose Delete account',
   'public deletion disclosure must document the in-app deletion path',
+);
+requireText(
+  deleteAccountLocales,
+  'Avaa mobiilisovelluksessa Asetukset ja valitse Poista tili',
+  'Finnish deletion disclosure must document the in-app deletion path',
+);
+requireText(
+  deleteAccountLocales,
+  'Floently Read -kirjaston ja lukemisen edistymisen',
+  'Finnish deletion disclosure must cover Read library/progress data',
+);
+requireText(
+  deleteAccountLocales,
+  'Öppna Inställningar i mobilappen och välj Radera konto',
+  'Swedish deletion disclosure must document the in-app deletion path',
+);
+requireText(
+  deleteAccountLocales,
+  'Floently Read-biblioteket och läsframsteg',
+  'Swedish deletion disclosure must cover Read library/progress data',
 );
 
 console.log('PASS: authenticated free users can reach account-management routes.');
