@@ -68,7 +68,12 @@ jobs:
 
       - name: Verify production Read billing authority
         run: |
-          readiness_url="https://flowreader-api.onrender.com/api/v1/read/billing-readiness"
+          read_api_base="$(node -e "const e=require('./apps/client/eas.json'); process.stdout.write(String(e?.build?.production?.env?.EXPO_PUBLIC_READ_API_BASE_URL || ''))")"
+          test -n "$read_api_base" || {
+            echo "iOS build blocked: production EXPO_PUBLIC_READ_API_BASE_URL is not configured." >&2
+            exit 1
+          }
+          readiness_url="${read_api_base%/}/api/v1/read/billing-readiness"
           body_file="/tmp/read-billing-readiness.json"
           status="$(curl --silent --show-error --location --max-time 20 --output "$body_file" --write-out '%{http_code}' "$readiness_url")"
           if [ "$status" != "200" ]; then
