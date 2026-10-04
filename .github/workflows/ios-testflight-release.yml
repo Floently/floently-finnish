@@ -11,6 +11,10 @@ on:
         description: "Type ZERO_KNOWN_BLOCKERS only after the release ledger has no known blocking defect"
         required: true
         type: string
+      read_billing_ready:
+        description: "Type READ_BILLING_READY only after production FlowReader server verification reports ready"
+        required: true
+        type: string
 
 permissions:
   contents: read
@@ -37,6 +41,10 @@ jobs:
             echo "iOS build blocked: release ledger still has known blockers or was not explicitly cleared." >&2
             exit 1
           }
+          test "${{ inputs.read_billing_ready }}" = "READ_BILLING_READY" || {
+            echo "iOS build blocked: production Read billing authority has not been explicitly cleared." >&2
+            exit 1
+          }
           echo "IOS_BUILD_APPROVAL_GATE=PASS"
 
       - name: Check out exact candidate
@@ -57,6 +65,32 @@ jobs:
 
       - name: Install frozen workspace dependencies
         run: pnpm install --frozen-lockfile
+
+      - name: Verify production Read billing authority
+        run: |
+          readiness_url="https://flowreader-api.onrender.com/api/v1/read/billing-readiness"
+          body_file="/tmp/read-billing-readiness.json"
+          status="$(curl --silent --show-error --location --max-time 20 --output "$body_file" --write-out '%{http_code}' "$readiness_url")"
+          if [ "$status" != "200" ]; then
+            echo "iOS build blocked: production FlowReader billing readiness returned HTTP $status." >&2
+            cat "$body_file" >&2 || true
+            exit 1
+          fi
+          node - "$body_file" <<'NODE'
+          const fs = require('fs');
+          const file = process.argv[2];
+          const payload = JSON.parse(fs.readFileSync(file, 'utf8'));
+          const readiness = payload?.data ?? {};
+          if (
+            payload?.ok !== true ||
+            readiness.authorityVersion !== 'revenuecat-server-authoritative-v1' ||
+            readiness.serverVerificationConfigured !== true ||
+            readiness.readyForStorePurchases !== true
+          ) {
+            throw new Error('Production FlowReader is not ready for server-authoritative Read purchases.');
+          }
+          console.log('PRODUCTION_READ_BILLING_READINESS=PASS');
+          NODE
 
       - name: Verify Expo authentication
         run: |
