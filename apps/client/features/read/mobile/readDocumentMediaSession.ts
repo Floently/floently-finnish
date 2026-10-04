@@ -1,5 +1,3 @@
-import { Platform } from 'react-native';
-
 type LockScreenMetadata = {
   title: string;
   artist?: string;
@@ -65,10 +63,10 @@ function boundedTimeline(input: ReadDocumentMediaSessionInput) {
 /**
  * Activates one logical Read document as the operating-system media item.
  *
- * On iOS runtime 1.0.5+, the config-plugin-patched expo-audio player publishes
- * the whole document duration/elapsed position while AVPlayer continues to
- * consume hidden TTS segments. Android retains expo-audio's native lock-screen
- * controls; its platform media-session implementation can evolve separately.
+ * On native runtime 1.0.5+, the config-plugin-patched expo-audio player publishes
+ * the whole document duration/elapsed position while AVPlayer/ExoPlayer continue
+ * to consume hidden TTS segments. System seeks are emitted back to JavaScript
+ * and mapped onto Floently's logical document manifest on both iOS and Android.
  */
 export function activateReadDocumentMediaSession(
   player: unknown,
@@ -79,10 +77,7 @@ export function activateReadDocumentMediaSession(
 
   // Establish the virtual timeline before activating Now Playing so iOS never
   // briefly advertises the duration of the current hidden physical segment.
-  if (
-    Platform.OS === 'ios' &&
-    typeof nativePlayer.setLogicalLockScreenTimeline === 'function'
-  ) {
+  if (typeof nativePlayer.setLogicalLockScreenTimeline === 'function') {
     nativePlayer.setLogicalLockScreenTimeline(
       timeline.duration,
       timeline.elapsed,
@@ -108,7 +103,6 @@ export function syncReadDocumentMediaTimeline(
   player: unknown,
   input: Omit<ReadDocumentMediaSessionInput, 'metadata'>,
 ) {
-  if (Platform.OS !== 'ios') return;
   const nativePlayer = patchedPlayer(player);
   if (typeof nativePlayer.setLogicalLockScreenTimeline !== 'function') return;
 
@@ -142,16 +136,14 @@ export function clearReadDocumentMediaSession(player: unknown) {
 }
 
 /**
- * Maps iOS lock-screen scrubbing / ±10 second commands back to Floently's
- * logical document timeline. Older runtime binaries simply never emit this
- * event, so the subscription is safe while runtime 1.0.5 is staged.
+ * Maps iOS/Android system-media scrubbing and ±10 second commands back to
+ * Floently's logical document timeline. Older runtime binaries simply never
+ * emit this event, so the subscription remains safe while runtime 1.0.5 is staged.
  */
 export function subscribeReadDocumentMediaSeek(
   player: unknown,
   onSeekToSeconds: (positionSeconds: number) => void,
 ): Subscription {
-  if (Platform.OS !== 'ios') return { remove() {} };
-
   const nativePlayer = patchedPlayer(player);
   if (typeof nativePlayer.addListener !== 'function') {
     return { remove() {} };
