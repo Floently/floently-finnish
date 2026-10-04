@@ -45,9 +45,11 @@ export default function ReadProtectedRoute({
     setReadAccessCheckComplete(false);
 
     void (async () => {
-      if (!subscriptionLoaded && !subscriptionLoading) {
-        await hydrateSubscription(user);
-      }
+      // Serialize authorities: the Learn subscription response is normalized
+      // first, then the FlowReader snapshot overlays only the Read fields.
+      // Running these concurrently can let the Learn response erase a verified
+      // Read grant that arrived a moment earlier.
+      await hydrateSubscription(user);
 
       try {
         const verifiedRead = await readRenderApi.getAccessStatus();
@@ -73,8 +75,6 @@ export default function ReadProtectedRoute({
     hasToken,
     hydrateSubscription,
     reconcileVerifiedReadAccess,
-    subscriptionLoaded,
-    subscriptionLoading,
     user,
   ]);
 
