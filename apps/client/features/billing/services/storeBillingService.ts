@@ -303,15 +303,64 @@ export async function restoreStorePurchases(
 
 export type ReadStorePlanId = 'reader_monthly' | 'reader_yearly' | 'creator_monthly' | 'creator_yearly';
 
+const READ_PLAN_PLATFORM_SUPPORT: Record<ReadStorePlanId, readonly BillingPlatform[]> = {
+  reader_monthly: ['ios', 'android'],
+  reader_yearly: ['ios'],
+  creator_monthly: ['ios', 'android'],
+  creator_yearly: ['ios'],
+};
+
 export function revenueCatPackageForReadPlan(planId: ReadStorePlanId): string {
   return planId;
+}
+
+export function isReadStorePlanSupported(planId: ReadStorePlanId): boolean {
+  const platform = mobilePlatform();
+  return Boolean(platform && READ_PLAN_PLATFORM_SUPPORT[planId].includes(platform));
 }
 
 export async function preflightReadStoreBillingPlans(
   planIds: ReadStorePlanId[],
   userId?: string | null,
 ): Promise<StoreBillingCatalog> {
-  return preflightStoreBillingPlansForOffering(planIds, userId, READ_OFFERING_ID);
+  const platform = mobilePlatform();
+  if (!platform) {
+    throw new StoreBillingUnavailableError();
+  }
+
+  const supportedPlanIds = planIds.filter((planId) =>
+    READ_PLAN_PLATFORM_SUPPORT[planId].includes(platform),
+  );
+  const unsupportedPlanIds = planIds.filter(
+    (planId) => !READ_PLAN_PLATFORM_SUPPORT[planId].includes(platform),
+  );
+  const catalog = await preflightStoreBillingPlansForOffering(
+    supportedPlanIds,
+    userId,
+    READ_OFFERING_ID,
+  );
+
+  if (!unsupportedPlanIds.length) return catalog;
+
+  return {
+    ...catalog,
+    ready: false,
+    plans: [
+      ...catalog.plans,
+      ...unsupportedPlanIds.map<StorePlanAvailability>((planId) => ({
+        planId,
+        packageId: revenueCatPackageForReadPlan(planId),
+        available: false,
+        productIdentifier: null,
+        expectedProductIdentifier: null,
+        priceString: null,
+        trialEligible: false,
+      })),
+    ],
+    missingPlanIds: Array.from(
+      new Set([...catalog.missingPlanIds, ...unsupportedPlanIds]),
+    ),
+  };
 }
 
 function activeEntitlementSet(result: RevenueCatPurchaseResult): Set<string> {
@@ -337,6 +386,16 @@ export async function startReadStorePurchase(
 }> {
   const platform = mobilePlatform();
   if (!platform) {
+    throw new StoreBillingUnavailableError();
+  }
+
+  if (!READ_PLAN_PLATFORM_SUPPORT[planId].includes(platform)) {
+    logger.error('Floently Read purchase blocked for unsupported store plan.', {
+      actionType: 'STORE_BILLING_PREFLIGHT_BLOCKED',
+      operation: 'read_purchase',
+      planId,
+      platform,
+    });
     throw new StoreBillingUnavailableError();
   }
 
