@@ -14,6 +14,18 @@ const readMobileSource = fs.readFileSync(
   path.join(clientRoot, 'features/read/mobile/ReadMobileScreens.tsx'),
   'utf8',
 );
+const appShellSource = fs.readFileSync(
+  path.join(clientRoot, 'state/AppShell.tsx'),
+  'utf8',
+);
+const readProtectedRouteSource = fs.readFileSync(
+  path.join(clientRoot, 'features/read/mobile/ReadProtectedRoute.tsx'),
+  'utf8',
+);
+const readRenderApiSource = fs.readFileSync(
+  path.join(clientRoot, 'features/read/mobile/readRenderApi.ts'),
+  'utf8',
+);
 
 function requireText(text, label) {
   if (!source.includes(text)) {
@@ -104,8 +116,8 @@ for (const [label, block] of [
   requireReadOrder(
     block,
     'const syncResult = await syncReadPurchaseToBackend',
-    'applyStoreReadAccess(verifiedAccess)',
-    `${label} must verify with FlowReader before elevating local access`,
+    'reconcileVerifiedReadAccess(verifiedSnapshot)',
+    `${label} must verify with FlowReader before reconciling local access`,
   );
   if (block.includes('applyStoreReadAccess({\n          readAccess: Boolean(accessResult.readAccess)')) {
     throw new Error(
@@ -128,6 +140,58 @@ if (!readMobileSource.includes('if (syncResult?.readAccess !== true) return null
   );
 }
 
-console.log('PASS: Read purchase/restore elevation follows backend verification.');
+if (!readMobileSource.includes(
+  "if (typeof syncResult?.readAccess !== 'boolean') return null;",
+)) {
+  throw new Error(
+    'Subscription authority invariant failed: store reconciliation must ignore malformed/non-authoritative sync shapes',
+  );
+}
+
+requireText(
+  'reconcileVerifiedReadAccess: (input: { readAccess?: boolean; creatorAccess?: boolean }) => void;',
+  'subscription store must expose verified Read reconciliation',
+);
+requireText(
+  'reconcileVerifiedReadAccess(input) {',
+  'subscription store must implement verified Read reconciliation',
+);
+requireText(
+  'readAccess,\n        createAccess,',
+  'verified Read reconciliation must be able to write false as well as true',
+);
+
+const appHydrateIndex = appShellSource.indexOf('await hydrateSubscription(user);');
+const appReadIndex = appShellSource.indexOf('await readRenderApi.getAccessStatus();');
+if (appHydrateIndex < 0 || appReadIndex < 0 || appHydrateIndex >= appReadIndex) {
+  throw new Error(
+    'Subscription authority invariant failed: AppShell must hydrate KieliValmis first, then reconcile persisted FlowReader access',
+  );
+}
+if (!appShellSource.includes('reconcileVerifiedReadAccess(verifiedRead);')) {
+  throw new Error(
+    'Subscription authority invariant failed: AppShell must reconcile the verified FlowReader snapshot',
+  );
+}
+
+if (!readProtectedRouteSource.includes('await readRenderApi.getAccessStatus();')) {
+  throw new Error(
+    'Subscription authority invariant failed: direct Read routes must refresh persisted FlowReader access',
+  );
+}
+if (!readProtectedRouteSource.includes('!readAccessCheckComplete')) {
+  throw new Error(
+    'Subscription authority invariant failed: protected Read routes must wait for the persisted-access check',
+  );
+}
+
+if (!readRenderApiSource.includes("requestReadApi<unknown>('/api/v1/read/access')")) {
+  throw new Error(
+    'Subscription authority invariant failed: persisted Read access must come from the authenticated FlowReader access endpoint',
+  );
+}
+
+console.log('PASS: Read purchase/restore reconciliation follows backend verification.');
+console.log('PASS: persisted Read access is rehydrated from FlowReader on startup and direct route entry.');
 
 console.log('SUBSCRIPTION_AUTHORITY_INVARIANTS=PASS');
