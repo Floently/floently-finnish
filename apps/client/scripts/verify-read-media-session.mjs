@@ -140,9 +140,11 @@ for (const marker of [
   'override fun getTotalBufferedDuration(): Long = 0L',
   'override fun seekToDefaultPosition()',
   'audioPlayer.requestLogicalSeek(positionMs)',
+  'if (player.logicalLockScreenTimeline != null)',
+  'return LogicalTimelinePlayer(player)',
   'MediaSession.Builder(context, sessionPlayer)',
   'fun refreshLogicalTimeline(player: AudioPlayer)',
-  'session.setPlayer(sessionPlayer)',
+  'session.setPlayer(resolveSessionPlayer(player, currentOptions))',
   'val player = currentPlayer',
   'player?.assignBasicMediaSession()',
 ]) {
