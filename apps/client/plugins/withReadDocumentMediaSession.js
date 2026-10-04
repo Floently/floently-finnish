@@ -508,15 +508,17 @@ function patchAudioControlsServiceKotlin(source) {
 
   let next = source;
 
-  next = replaceRequired(
-    next,
-    `import androidx.media3.common.Player
+  if (!next.includes('import androidx.media3.common.ForwardingPlayer')) {
+    next = replaceRequired(
+      next,
+      `import androidx.media3.common.Player
 import androidx.media3.common.util.UnstableApi`,
-    `import androidx.media3.common.ForwardingPlayer
+      `import androidx.media3.common.ForwardingPlayer
 import androidx.media3.common.Player
 import androidx.media3.common.util.UnstableApi`,
-    'Android AudioControlsService ForwardingPlayer import'
-  );
+      'Android AudioControlsService ForwardingPlayer import'
+    );
+  }
 
   next = replaceRequired(
     next,
@@ -602,18 +604,24 @@ class AudioControlsService : MediaSessionService() {`,
 
   next = replaceRequired(
     next,
-    `        val session = MediaSession.Builder(context, player.ref)
-          .setCallback(AudioMediaSessionCallback())
-          .build()`,
-    `        val sessionPlayer: Player = if (player.logicalLockScreenTimeline != null) {
-          LogicalTimelinePlayer(player)
-        } else {
-          player.ref
-        }
-        val session = MediaSession.Builder(context, sessionPlayer)
-          .setCallback(AudioMediaSessionCallback())
-          .build()`,
-    'Android MediaSession logical player binding'
+    `  private fun resolveSessionPlayer(player: AudioPlayer, options: AudioLockScreenOptions?): Player {
+    val isLive = options?.isLiveStream ?: player.isLive
+    if (!isLive) {
+      return player.ref
+    }`,
+    `  private fun resolveSessionPlayer(player: AudioPlayer, options: AudioLockScreenOptions?): Player {
+    // Floently's hidden TTS segment must never become the public system-media
+    // timeline. Prefer the logical document wrapper before applying Expo's
+    // live-stream seek restrictions.
+    if (player.logicalLockScreenTimeline != null) {
+      return LogicalTimelinePlayer(player)
+    }
+
+    val isLive = options?.isLiveStream ?: player.isLive
+    if (!isLive) {
+      return player.ref
+    }`,
+    'Android MediaSession logical player resolution'
   );
 
   next = replaceRequired(
@@ -662,12 +670,7 @@ class AudioControlsService : MediaSessionService() {`,
 
     appContext?.mainQueue?.launch {
       val session = mediaSession ?: return@launch
-      val sessionPlayer: Player = if (player.logicalLockScreenTimeline != null) {
-        LogicalTimelinePlayer(player)
-      } else {
-        player.ref
-      }
-      session.setPlayer(sessionPlayer)
+      session.setPlayer(resolveSessionPlayer(player, currentOptions))
       updateSessionCustomLayout(player.ref.isPlaying)
       postOrStartForegroundNotification(startInForeground = false)
     }
