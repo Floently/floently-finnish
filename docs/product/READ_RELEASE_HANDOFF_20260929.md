@@ -372,3 +372,20 @@ Updated release files:
 - `docs/release/STORE_METADATA_DRAFTS.md`
 
 External App Store Connect gates remain PENDING until directly verified there.
+
+
+## 2026-10-04 stale Browser Reader extraction hardening
+
+Current source head before this handoff note: `01a3facd0b5cf3b29bd81632ad4633eff49e36cd`.
+
+A same-URL reload / SPA content refresh could previously allow an older WebView extraction message to arrive after the rendered page had changed. URL checks alone do not protect against this because many course/article SPAs reuse the same URL while replacing the readable body.
+
+Implemented:
+- `06ab1b9`: Browser Reader extraction now carries a monotonically increasing request token from React Native into the injected extraction script and back through both success and error messages. Navigation, reload, stop, popup navigation, passkey deferral, and active authentication invalidate the current token. Stale extraction results/errors are ignored before they can replace or start narration.
+- `01a3fac`: release verifier now requires this request-token contract and the generated extraction script; it no longer accepts the older unversioned static extraction injection.
+
+Release meaning:
+- This closes a source race where the user could press Read and hear text from the prior same-URL render after a fast reload/navigation.
+- It does **not** consume an EAS/TestFlight/App Store build.
+- Exact-head CI run `37210187795` was queued from `01a3facd0b5cf3b29bd81632ad4633eff49e36cd`; record the final result before declaring this head green.
+- Physical iPhone validation is still required for the newest native media-session and Browser Reader source. The next iOS build remains blocked pending explicit product-owner approval and zero-known-blocker entry criteria.
