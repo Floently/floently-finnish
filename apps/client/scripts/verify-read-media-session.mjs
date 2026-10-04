@@ -48,7 +48,21 @@ const patchedModule = plugin.patchAudioModuleSwift(audioModuleSource);
 const patchedController = plugin.patchMediaControllerSwift(mediaControllerSource);
 const patchedAndroidPlayer = plugin.patchAudioPlayerKotlin(androidAudioPlayerSource);
 const patchedAndroidModule = plugin.patchAudioModuleKotlin(androidAudioModuleSource);
-const patchedAndroidControls = plugin.patchAudioControlsServiceKotlin(androidControlsSource);
+let patchedAndroidControls;
+try {
+  patchedAndroidControls = plugin.patchAudioControlsServiceKotlin(androidControlsSource);
+} catch (error) {
+  const shape = androidControlsSource
+    .split(/\r?\n/)
+    .filter((line) =>
+      /\bfun\b|MediaSession|currentPlayer|currentPlayable|LockScreen|register|setPlayer|seek/i.test(line),
+    )
+    .slice(0, 180)
+    .join('\n');
+  console.error('EXPO_AUDIO_55_0_14_ANDROID_CONTROLS_SHAPE');
+  console.error(shape);
+  throw error;
+}
 
 for (const [name, patched] of [
   ['AudioPlayer.swift', patchedPlayer],
