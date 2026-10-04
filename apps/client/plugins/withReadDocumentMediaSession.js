@@ -15,6 +15,18 @@ function replaceRequired(source, needle, replacement, label) {
   return source.replace(needle, replacement);
 }
 
+function replaceRequiredRegex(source, pattern, replacement, label) {
+  pattern.lastIndex = 0;
+  if (!pattern.test(source)) {
+    throw new Error(
+      `Floently Read media-session patch could not find ${label}. ` +
+      `expo-audio ${SUPPORTED_EXPO_AUDIO_VERSION} source may have changed.`
+    );
+  }
+  pattern.lastIndex = 0;
+  return source.replace(pattern, replacement);
+}
+
 function patchAudioPlayerSwift(source) {
   if (source.includes(PATCH_MARKER)) return source;
 
@@ -619,26 +631,18 @@ class AudioControlsService : MediaSessionService() {`,
     'Android legacy notification logical seek'
   );
 
-  next = replaceRequired(
+  next = replaceRequiredRegex(
     next,
-    `  private fun resolveSessionPlayer(player: AudioPlayer, options: AudioLockScreenOptions?): Player {
-    val isLive = options?.isLiveStream ?: player.isLive
-    if (!isLive) {
-      return player.ref
-    }`,
-    `  private fun resolveSessionPlayer(player: AudioPlayer, options: AudioLockScreenOptions?): Player {
-    // Floently's hidden TTS segment must never become the public system-media
+    /  private fun resolveSessionPlayer\(player: AudioPlayer, options: AudioLockScreenOptions\?\): Player \{\r?\n/,
+    (signature) => `${signature}    // Floently's hidden TTS segment must never become the public system-media
     // timeline. Prefer the logical document wrapper before applying Expo's
     // live-stream seek restrictions.
     if (player.logicalLockScreenTimeline != null) {
       return LogicalTimelinePlayer(player)
     }
 
-    val isLive = options?.isLiveStream ?: player.isLive
-    if (!isLive) {
-      return player.ref
-    }`,
-    'Android MediaSession logical player resolution'
+`,
+    'Android MediaSession logical player function'
   );
 
   next = replaceRequired(
