@@ -65,7 +65,7 @@ jobs:
           const assert = (ok, msg) => { if (!ok) throw new Error(msg); };
           assert(config.runtimeVersion === '1.0.4', `Unexpected root runtimeVersion: ${config.runtimeVersion}`);
           assert(config.ios?.runtimeVersion === '1.0.5', `Unexpected iOS runtimeVersion: ${config.ios?.runtimeVersion}`);
-          assert(config.android?.runtimeVersion === '1.0.4', `Unexpected Android runtimeVersion: ${config.android?.runtimeVersion}`);
+          assert(config.android?.runtimeVersion === '1.0.5', `Unexpected Android runtimeVersion: ${config.android?.runtimeVersion}`);
           assert(config.updates?.enabled === true, 'Expo Updates must be enabled');
           assert(config.updates?.url === 'https://u.expo.dev/fa02c141-0a3b-4dbc-9122-7c1cf31ba42c', 'Unexpected Expo Updates URL');
           assert(config.updates?.checkAutomatically === 'ON_LOAD', 'OTA must check on app load');
