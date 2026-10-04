@@ -626,6 +626,60 @@ class AudioControlsService : MediaSessionService() {`,
 
   next = replaceRequired(
     next,
+    `      mediaSession?.release()
+      appContext?.mainQueue?.launch {
+        val context = appContext?.reactContext ?: return@launch
+        val sessionPlayer = resolveSessionPlayer(player, options)
+        val session = MediaSession.Builder(context, sessionPlayer)
+          .setCallback(AudioMediaSessionCallback())
+          .build()
+
+        player.mediaSession.release()
+        player.mediaSession = session
+
+        addSession(session)
+        mediaSession = session
+
+        updateSessionCustomLayout(player.ref.isPlaying)
+        postOrStartForegroundNotification(startInForeground = false)
+      }
+
+      // Reload artwork if metadata has changed`,
+    `      if (player.logicalLockScreenTimeline != null) {
+        // Floently re-anchors the logical document timeline at hidden segment
+        // boundaries. Keep the existing Android MediaSession alive instead of
+        // tearing it down/recreating it for every segment.
+        appContext?.mainQueue?.launch {
+          mediaSession?.setPlayer(resolveSessionPlayer(player, options))
+          updateSessionCustomLayout(player.ref.isPlaying)
+          postOrStartForegroundNotification(startInForeground = false)
+        }
+      } else {
+        mediaSession?.release()
+        appContext?.mainQueue?.launch {
+          val context = appContext?.reactContext ?: return@launch
+          val sessionPlayer = resolveSessionPlayer(player, options)
+          val session = MediaSession.Builder(context, sessionPlayer)
+            .setCallback(AudioMediaSessionCallback())
+            .build()
+
+          player.mediaSession.release()
+          player.mediaSession = session
+
+          addSession(session)
+          mediaSession = session
+
+          updateSessionCustomLayout(player.ref.isPlaying)
+          postOrStartForegroundNotification(startInForeground = false)
+        }
+      }
+
+      // Reload artwork if metadata has changed`,
+    'Android logical media-session in-place option refresh'
+  );
+
+  next = replaceRequired(
+    next,
     `  private fun clearSessionInternal() {
     currentPlayer?.isActiveForLockScreen = false
     removePlayerListener()
