@@ -54,7 +54,7 @@ The application does not request camera permission for this profile-picture work
 
 Digital subscriptions visible in the iOS application use Apple's in-app purchase flow through the app's StoreKit/RevenueCat integration.
 
-The KieliValmis Premium submission package currently expects these Apple Product IDs:
+The current iOS release candidate exposes these purchasable Apple Product IDs:
 
 - `floently_yki_monthly`
 - `floently_yki_3months`
@@ -65,15 +65,17 @@ The KieliValmis Premium submission package currently expects these Apple Product
 - `floently_combo_monthly`
 - `floently_combo_3months`
 - `floently_combo_yearly`
+- `floently_read_reader_monthly`
+- `floently_read_reader_yearly`
 
 Before the replacement app version is submitted:
 
 - verify every subscription's localization, pricing, availability, and review information in App Store Connect;
 - provide the required App Review screenshot for every subscription;
 - add every subscription used by the submitted app to the draft App Review submission;
-- if the KieliValmis Premium subscription group is not already approved, add the group to the same submission;
+- if either required subscription group is not already approved, add the required KieliValmis and/or Floently Read group to the same submission;
 - add the replacement iOS app version/build to that same draft submission;
-- inspect the final draft and verify the app version, group when required, and all nine subscriptions are present before clicking Submit for Review.
+- inspect the final draft and verify the app version, every required group, and all eleven subscriptions currently purchasable in the candidate are present before clicking Submit for Review.
 
 ## 2026-10-02 rejection remediation
 
@@ -113,7 +115,8 @@ For the resubmission:
 8. Open Settings and verify legal links and Delete Account visibility.
 9. Open the subscription surface and verify the Apple-native purchase flow / localized store pricing.
 10. Use Restore Purchases if the reviewer wishes to test restoration.
-11. Open Floently Read, start narration, and verify the user-controlled reading/player experience if reviewing that surface.
+11. Open Floently Read and open the Read access screen; verify Reader Monthly/Yearly use Apple-native localized store pricing and unavailable products cannot be purchased.
+12. Start Floently Read narration and verify the user-controlled reading/player experience.
 
 ## Reply to App Review — send only after all gates are complete
 
