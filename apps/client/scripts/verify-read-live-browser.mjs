@@ -553,11 +553,12 @@ assert.ok(home.includes('activateReadDocumentMediaSession') &&
   deviceBrowser.includes('activateReadDocumentMediaSession') &&
   deviceBrowser.includes('syncReadDocumentMediaTimeline') &&
   deviceBrowser.includes('subscribeReadDocumentMediaSeek'),
-  'both Reader surfaces must publish and consume the whole-document iOS media timeline');
+  'both Reader surfaces must publish and consume the whole-document native media timeline');
 assert.ok(mediaSession.includes('setLogicalLockScreenTimeline') &&
   mediaSession.includes("'logicalSeekRequested'") &&
-  mediaSession.includes("Platform.OS === 'ios'"),
-  'logical iOS Now Playing duration/elapsed/seek must be bridged explicitly instead of inheriting hidden clip metadata');
+  !mediaSession.includes("Platform.OS === 'ios'") &&
+  !mediaSession.includes("Platform.OS !== 'ios'"),
+  'logical iOS/Android system-media duration, elapsed time and seeks must use the document bridge instead of inheriting hidden clip metadata');
 assert.ok(
   mediaSession.indexOf('nativePlayer.clearLockScreenControls()') <
     mediaSession.indexOf('nativePlayer.clearLogicalLockScreenTimeline?.()'),
