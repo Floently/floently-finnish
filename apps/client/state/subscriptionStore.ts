@@ -61,7 +61,6 @@ type SubscriptionState = {
   hydrate: (input?: AuthUser | { email?: string | null; subscriptionTierHint?: string | null } | null) => Promise<void>;
   refresh: (input?: AuthUser | { email?: string | null; subscriptionTierHint?: string | null } | null) => Promise<void>;
   clear: () => void;
-  applyStoreReadAccess: (input: { readAccess?: boolean; creatorAccess?: boolean }) => void;
   reconcileVerifiedReadAccess: (input: { readAccess?: boolean; creatorAccess?: boolean }) => void;
   setActiveContext: (context: LearningContext) => void;
   startPreview: (path: PreviewPath) => void;
@@ -687,34 +686,6 @@ export const useSubscriptionStore = create<SubscriptionState>((set, get) => ({
   clear() {
     set({ hasLoaded: false, isLoading: false, status: null, activeContext: 'none', previewPath: null });
   },
-  applyStoreReadAccess(input) {
-    const readAccess = Boolean(input.readAccess || input.creatorAccess);
-    const createAccess = Boolean(input.creatorAccess);
-    if (!readAccess && !createAccess) return;
-
-    const current = get().status ?? fallbackForUser(null);
-    const tier = createAccess ? 'creator_monthly' : 'reader_monthly';
-    const nextStatus: CompatSubscriptionStatus = {
-      ...current,
-      tier: current.tier === 'free' || !current.tier ? tier : current.tier,
-      billingTier: current.billingTier === 'free' || !current.billingTier ? tier : current.billingTier,
-      planLabel: createAccess ? 'Floently Read Creator' : 'Floently Read',
-      accessSummary: createAccess
-        ? 'Floently Read Creator access is active from your app-store subscription.'
-        : 'Floently Read access is active from your app-store subscription.',
-      hasAnySubscription: true,
-      isActive: true,
-      readAccess: true,
-      createAccess: current.createAccess || createAccess,
-      entitlements: {
-        ...current.entitlements,
-        readAccess: true,
-        createAccess: current.entitlements.createAccess || createAccess,
-      },
-    };
-
-    set({ hasLoaded: true, isLoading: false, status: nextStatus });
-  },
   reconcileVerifiedReadAccess(input) {
     const current = get().status ?? fallbackForUser(null);
 
@@ -743,11 +714,16 @@ export const useSubscriptionStore = create<SubscriptionState>((set, get) => ({
       : current.billingTier === 'free' && readAccess
         ? verifiedReadTier
         : current.billingTier;
-    const nextHasAnySubscription = Boolean(
+    const hasIndependentSubscription = Boolean(
       hasNonReadEntitlement ||
-      readAccess ||
-      (!currentTierIsRead && current.hasAnySubscription)
+      (
+        current.hasAnySubscription &&
+        !current.readAccess &&
+        !current.createAccess &&
+        !currentTierIsRead
+      )
     );
+    const nextHasAnySubscription = hasIndependentSubscription || readAccess;
     const readOnlyPresentation = currentTierIsRead || (current.tier === 'free' && !hasNonReadEntitlement);
 
     set({
