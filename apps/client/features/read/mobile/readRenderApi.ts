@@ -75,6 +75,12 @@ export type SyncReadRevenueCatResult = {
   creatorAccess?: boolean | null;
 };
 
+export type ReadAccessSnapshot = {
+  readPlan: string | null;
+  readAccess: boolean;
+  creatorAccess: boolean;
+};
+
 function getReadApiBaseUrl(): string {
   const fromEnv = process.env.EXPO_PUBLIC_READ_API_BASE_URL?.trim();
   return fromEnv || DEFAULT_READ_API_BASE_URL;
@@ -285,6 +291,16 @@ export const readRenderApi = {
     });
 
     return normalizeDocument(unwrapProject(payload));
+  },
+
+  async getAccessStatus(): Promise<ReadAccessSnapshot> {
+    const payload = await requestReadApi<unknown>('/api/v1/read/access');
+    const record = asRecord(unwrapData(payload));
+    return {
+      readPlan: typeof record.readPlan === 'string' ? record.readPlan : null,
+      readAccess: record.readAccess === true,
+      creatorAccess: record.creatorAccess === true,
+    };
   },
 
   async syncRevenueCatEntitlements(input: SyncReadRevenueCatInput): Promise<SyncReadRevenueCatResult> {
