@@ -151,8 +151,9 @@ jobs:
           grep -F "FLOENTLY_LOGICAL_NOW_PLAYING_V1" node_modules/expo-audio/android/src/main/java/expo/modules/audio/AudioPlayer.kt
           grep -F 'Function("setLogicalLockScreenTimeline")' node_modules/expo-audio/android/src/main/java/expo/modules/audio/AudioModule.kt
           grep -F "class LogicalTimelinePlayer" node_modules/expo-audio/android/src/main/java/expo/modules/audio/service/AudioControlsService.kt
-          grep -F "return LogicalTimelinePlayer(player)" node_modules/expo-audio/android/src/main/java/expo/modules/audio/service/AudioControlsService.kt
-          grep -F "session.setPlayer(resolveSessionPlayer(player, currentOptions))" node_modules/expo-audio/android/src/main/java/expo/modules/audio/service/AudioControlsService.kt
+          grep -F "val sessionPlayer: Player = if (player.logicalLockScreenTimeline != null)" node_modules/expo-audio/android/src/main/java/expo/modules/audio/service/AudioControlsService.kt
+          grep -F "MediaSession.Builder(context, sessionPlayer)" node_modules/expo-audio/android/src/main/java/expo/modules/audio/service/AudioControlsService.kt
+          grep -F "session.setPlayer(sessionPlayer)" node_modules/expo-audio/android/src/main/java/expo/modules/audio/service/AudioControlsService.kt
           echo "ANDROID_LOGICAL_MEDIA_PATCH_APPLIED=PASS"
       - name: Verify Android Read native surface
         run: |
