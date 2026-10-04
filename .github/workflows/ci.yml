@@ -148,10 +148,21 @@ jobs:
         run: pnpm exec expo prebuild --platform android --clean --no-install
       - name: Verify Android Read native surface
         run: |
+          manifest="apps/client/android/app/src/main/AndroidManifest.xml"
           test -f apps/client/android/gradlew
           test -f apps/client/android/app/build.gradle
+          test -f "$manifest"
           grep -Eq "applicationId[[:space:]]+['\"]com\.vitusidi\.floently['\"]" apps/client/android/app/build.gradle
           grep -F '"react-native-webview": "13.16.1"' apps/client/package.json
+          grep -F 'android:allowBackup="false"' "$manifest"
+          if grep -Fq 'android.permission.SYSTEM_ALERT_WINDOW' "$manifest"; then
+            echo "Android release manifest must not request SYSTEM_ALERT_WINDOW." >&2
+            exit 1
+          fi
+          grep -F 'android.permission.FOREGROUND_SERVICE' "$manifest"
+          grep -F 'android.permission.FOREGROUND_SERVICE_MEDIA_PLAYBACK' "$manifest"
+          grep -F 'expo.modules.audio.service.AudioControlsService' "$manifest"
+          grep -F 'android:foregroundServiceType="mediaPlayback"' "$manifest"
           echo "ANDROID_READ_NATIVE_SOURCE=PASS"
       - name: Compile generated Android debug app
         working-directory: apps/client/android
