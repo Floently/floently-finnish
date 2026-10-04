@@ -22,6 +22,10 @@ const readProtectedRouteSource = fs.readFileSync(
   path.join(clientRoot, 'features/read/mobile/ReadProtectedRoute.tsx'),
   'utf8',
 );
+const readLiveBrowserSource = fs.readFileSync(
+  path.join(clientRoot, 'features/read/mobile/ReadLiveBrowserScreen.tsx'),
+  'utf8',
+);
 const readRenderApiSource = fs.readFileSync(
   path.join(clientRoot, 'features/read/mobile/readRenderApi.ts'),
   'utf8',
@@ -189,6 +193,17 @@ if (!readProtectedRouteSource.includes('await readRenderApi.getAccessStatus();')
   throw new Error(
     'Subscription authority invariant failed: direct Read routes must refresh persisted FlowReader access',
   );
+}
+
+for (const [label, guardedSource, forbidden] of [
+  ['ReadProtectedRoute', readProtectedRouteSource, 'user?.readAccess'],
+  ['ReadLiveBrowserScreen', readLiveBrowserSource, 'user.readAccess'],
+]) {
+  if (guardedSource.includes(forbidden)) {
+    throw new Error(
+      `Subscription authority invariant failed: ${label} must not use stale auth-user Read access as an authorization fallback`,
+    );
+  }
 }
 if (!readProtectedRouteSource.includes('!readAccessCheckComplete')) {
   throw new Error(
