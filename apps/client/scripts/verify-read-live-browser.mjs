@@ -630,6 +630,25 @@ assert.ok(home.includes('buildReaderParagraphIndex') &&
   home.includes('Math.floor((low + high) / 2)'),
   'very long books must map high-frequency document progress to the active paragraph with a pre-indexed binary search instead of rescanning the book every status tick');
 
+assert.ok(home.includes("import { useAuthStore } from '../../../state/authStore';") &&
+  home.includes('const storeUserId = user?.id ?? null') &&
+  home.includes('preflightReadStoreBillingPlans(visibleReadPlanIds, storeUserId)'),
+  'Floently Read paywall must use the signed-in app identity and preflight the read_default store offering');
+assert.ok(home.includes('startReadStorePurchase(planId, storeUserId)') &&
+  home.includes('restoreReadStorePurchases(storeUserId)'),
+  'Floently Read purchase and restore must identify the signed-in RevenueCat user');
+assert.ok(home.includes('availability?.priceString') &&
+  home.includes("'Loading store price…'") &&
+  home.includes("'Unavailable in your store'"),
+  'Floently Read paywall must render localized store pricing and fail closed while products are unresolved');
+assert.ok(!home.includes('11.99 EUR / month') &&
+  !home.includes('119.90 EUR / year') &&
+  !home.includes('priceHint'),
+  'Floently Read native paywall must not advertise hard-coded EUR prices instead of App Store/Play localized prices');
+assert.ok(home.includes("availability?.available ? 'Choose plan' : 'Unavailable'") &&
+  home.includes('disabled={Boolean(busyPlan) || purchaseUnavailable}'),
+  'Floently Read paywall must disable checkout for missing/unverified store products');
+
 assert.ok(guard.includes('requireReadAccess = true'),
   'Read content guard must require Read access by default');
 assert.ok(guard.includes('subscription?.entitlements?.readAccess'),
