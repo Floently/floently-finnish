@@ -2217,6 +2217,17 @@ function verifiedReadAccess(syncResult: SyncReadRevenueCatResult | null): {
   };
 }
 
+function verifiedReadAccessSnapshot(syncResult: SyncReadRevenueCatResult | null): {
+  readAccess: boolean;
+  creatorAccess: boolean;
+} | null {
+  if (typeof syncResult?.readAccess !== 'boolean') return null;
+  return {
+    readAccess: syncResult.readAccess,
+    creatorAccess: syncResult.creatorAccess === true,
+  };
+}
+
 export function ReadSubscriptionScreen() {
   const user = useAuthStore((state) => state.user);
   const subscriptionState = useSubscriptionStore((state) => state);
@@ -2237,11 +2248,11 @@ export function ReadSubscriptionScreen() {
         create_access?: boolean;
       };
     } | null;
-    applyStoreReadAccess?: (input: { readAccess?: boolean; creatorAccess?: boolean }) => void;
+    reconcileVerifiedReadAccess?: (input: { readAccess?: boolean; creatorAccess?: boolean }) => void;
     refresh?: () => Promise<void> | void;
   };
   const subscriptionStatus = subscriptionAny.status;
-  const applyStoreReadAccess = subscriptionAny.applyStoreReadAccess;
+  const reconcileVerifiedReadAccess = subscriptionAny.reconcileVerifiedReadAccess;
   const refreshSubscription = subscriptionAny.refresh;
   const readAccess = Boolean(
     subscriptionStatus?.readAccess ||
@@ -2315,12 +2326,13 @@ export function ReadSubscriptionScreen() {
       const result = await startReadStorePurchase(planId, storeUserId);
       const syncResult = await syncReadPurchaseToBackend(result, planId);
       const verifiedAccess = verifiedReadAccess(syncResult);
+      const verifiedSnapshot = verifiedReadAccessSnapshot(syncResult);
 
       if (typeof refreshSubscription === 'function') {
         await refreshSubscription();
       }
-      if (verifiedAccess && typeof applyStoreReadAccess === 'function') {
-        applyStoreReadAccess(verifiedAccess);
+      if (verifiedSnapshot && typeof reconcileVerifiedReadAccess === 'function') {
+        reconcileVerifiedReadAccess(verifiedSnapshot);
       }
 
       setMessage(
@@ -2353,12 +2365,13 @@ export function ReadSubscriptionScreen() {
       const result = await restoreReadStorePurchases(storeUserId);
       const syncResult = await syncReadPurchaseToBackend(result, getReadPurchasePackageId(result));
       const verifiedAccess = verifiedReadAccess(syncResult);
+      const verifiedSnapshot = verifiedReadAccessSnapshot(syncResult);
 
       if (typeof refreshSubscription === 'function') {
         await refreshSubscription();
       }
-      if (verifiedAccess && typeof applyStoreReadAccess === 'function') {
-        applyStoreReadAccess(verifiedAccess);
+      if (verifiedSnapshot && typeof reconcileVerifiedReadAccess === 'function') {
+        reconcileVerifiedReadAccess(verifiedSnapshot);
       }
 
       setMessage(
