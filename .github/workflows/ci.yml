@@ -244,11 +244,17 @@ jobs:
             grep -F "workflow_dispatch:" "$workflow"
             grep -F "product_owner_approval:" "$workflow"
             grep -F "known_blockers:" "$workflow"
+            grep -F "read_billing_ready:" "$workflow"
             grep -F "APPROVE_IOS_BUILD" "$workflow"
             grep -F "ZERO_KNOWN_BLOCKERS" "$workflow"
+            grep -F "READ_BILLING_READY" "$workflow"
           done
           grep -F "inputs.product_owner_approval == 'APPROVE_IOS_BUILD'" apps/client/.eas/workflows/ios-testflight-release.yml
           grep -F "inputs.known_blockers == 'ZERO_KNOWN_BLOCKERS'" apps/client/.eas/workflows/ios-testflight-release.yml
+          grep -F "inputs.read_billing_ready == 'READ_BILLING_READY'" apps/client/.eas/workflows/ios-testflight-release.yml
+          grep -F "https://flowreader-api.onrender.com/api/v1/read/billing-readiness" .github/workflows/ios-testflight-release.yml
+          grep -F "revenuecat-server-authoritative-v1" .github/workflows/ios-testflight-release.yml
+          grep -F "PRODUCTION_READ_BILLING_READINESS=PASS" .github/workflows/ios-testflight-release.yml
           echo "IOS_BUILD_FREEZE_CONTRACT=PASS"
 
       - name: Verify EAS release workflow source contracts
