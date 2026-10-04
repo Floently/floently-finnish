@@ -27,22 +27,27 @@ const revenueCatService = read('features/billing/services/revenueCatService.ts')
 const billingRoute = read('state/BillingRoute.tsx');
 
 const expectedMappings = [
-  ['yki_monthly', 'yki_monthly'],
-  ['yki_3_months', 'yki_3months'],
-  ['yki_yearly', 'yki_yearly'],
-  ['professional_monthly', 'prof_monthly'],
-  ['professional_3_months', 'prof_3months'],
-  ['professional_yearly', 'prof_yearly'],
-  ['combined_monthly', 'combo_monthly'],
-  ['combined_3_months', 'combo_3months'],
-  ['combined_yearly', 'combo_yearly'],
+  ['yki_monthly', 'yki_monthly', 'floently_yki_monthly'],
+  ['yki_3_months', 'yki_3months', 'floently_yki_3months'],
+  ['yki_yearly', 'yki_yearly', 'floently_yki_yearly'],
+  ['professional_monthly', 'prof_monthly', 'floently_prof_monthly'],
+  ['professional_3_months', 'prof_3months', 'floently_prof_3months'],
+  ['professional_yearly', 'prof_yearly', 'floently_prof_yearly'],
+  ['combined_monthly', 'combo_monthly', 'floently_combo_monthly'],
+  ['combined_3_months', 'combo_3months', 'floently_combo_3months'],
+  ['combined_yearly', 'combo_yearly', 'floently_combo_yearly'],
 ];
 
-for (const [planId, packageId] of expectedMappings) {
+for (const [planId, packageId, productId] of expectedMappings) {
   requireText(
     storeService,
     `${planId}: '${packageId}'`,
     `expected plan/package mapping ${planId} -> ${packageId} must remain explicit`,
+  );
+  requireText(
+    storeService,
+    `${packageId}: '${productId}'`,
+    `expected iOS package/product mapping ${packageId} -> ${productId} must remain explicit`,
   );
 }
 
@@ -63,8 +68,23 @@ requireText(
 );
 requireText(
   storeService,
-  'const available = Boolean(packageId && matchedPackage && productIdentifier && priceString);',
-  'a plan must not be marked available without package, App Store product ID, and localized price',
+  "platform === 'ios' && packageId",
+  'iOS preflight must resolve the exact expected Apple product identifier for the RevenueCat package',
+);
+requireText(
+  storeService,
+  'productIdentifier === expectedProductIdentifier',
+  'iOS preflight must reject a RevenueCat package that resolves to a legacy or unexpected Apple product',
+);
+requireText(
+  storeService,
+  'productIdentifierMatches',
+  'store availability must consume exact iOS product-identifier validation',
+);
+requireText(
+  storeService,
+  'const available = Boolean(',
+  'a plan must not be marked available without the complete package/product/price contract',
 );
 requireText(
   storeService,
@@ -173,7 +193,7 @@ forbidText(
   'iOS/mobile pricing cards must not render static EUR estimates directly after store preflight integration',
 );
 
-console.log('PASS: all nine core KieliValmis plans retain explicit RevenueCat package mappings.');
+console.log('PASS: all nine core KieliValmis plans retain explicit RevenueCat package and Apple Product ID mappings.');
 console.log('PASS: preflight requires offering package, product identifier, and localized store price.');
 console.log('PASS: purchase rechecks the selected plan before RevenueCat purchase execution.');
 console.log('PASS: RevenueCat purchase/restore failures are converted to stable user-safe errors.');
