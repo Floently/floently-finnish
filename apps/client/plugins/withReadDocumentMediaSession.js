@@ -680,6 +680,79 @@ class AudioControlsService : MediaSessionService() {`,
 
   next = replaceRequired(
     next,
+    `  private fun setActivePlayerInternal(
+    player: AudioPlayer?,
+    metadata: Metadata? = null,
+    options: AudioLockScreenOptions? = null
+  ) {
+    appContext?.mainQueue?.launch {
+      val playbackListener = playbackListener ?: return@launch
+      currentPlayer?.ref?.removeListener(playbackListener)
+    }
+
+    playbackListener = null
+    currentPlayer?.isActiveForLockScreen = false`,
+    `  private fun setActivePlayerInternal(
+    player: AudioPlayer?,
+    metadata: Metadata? = null,
+    options: AudioLockScreenOptions? = null
+  ) {
+    removePlayerListener()
+    currentPlayer?.isActiveForLockScreen = false`,
+    'Android old-player listener removal'
+  );
+
+  next = replaceRequired(
+    next,
+    `  private fun removePlayerListener() {
+    appContext?.mainQueue?.launch {
+      val listener = playbackListener ?: return@launch
+      currentPlayer?.ref?.removeListener(listener)
+      playbackListener = null
+    }
+  }`,
+    `  private fun removePlayerListener() {
+    // Capture both references before currentPlayer/playbackListener can change.
+    // Otherwise the queued main-thread cleanup can detach from the wrong
+    // session or no-op after teardown has already nulled service state.
+    val player = currentPlayer
+    val listener = playbackListener
+    playbackListener = null
+
+    if (player == null || listener == null) {
+      return
+    }
+
+    appContext?.mainQueue?.launch {
+      player.ref.removeListener(listener)
+    }
+  }`,
+    'Android playback listener capture'
+  );
+
+  next = replaceRequired(
+    next,
+    `    mediaSession?.release()
+    mediaSession = null
+    currentPlayer = null
+    currentMetadata = null
+    currentOptions = null
+    currentArtwork = null
+    currentArtworkUrl = null
+    removePlayerListener()`,
+    `    mediaSession?.release()
+    mediaSession = null
+    removePlayerListener()
+    currentPlayer = null
+    currentMetadata = null
+    currentOptions = null
+    currentArtwork = null
+    currentArtworkUrl = null`,
+    'Android service destroy listener ordering'
+  );
+
+  next = replaceRequired(
+    next,
     `  private fun clearSessionInternal() {
     currentPlayer?.isActiveForLockScreen = false
     removePlayerListener()
