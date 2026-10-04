@@ -218,6 +218,13 @@ if (!appShellSource.includes('reconcileVerifiedReadAccess(verifiedRead);')) {
     'Subscription authority invariant failed: AppShell must reconcile the verified FlowReader snapshot',
   );
 }
+if (!appShellSource.includes("subscriptionStatus?.entitlements?.readAccess ? 'read' : 'no-read'") ||
+    !appShellSource.includes("subscriptionStatus?.entitlements?.createAccess ? 'create' : 'no-create'")) {
+  throw new Error(
+    'Subscription authority invariant failed: AppShell route reconciliation must react to Read/Create entitlement changes',
+  );
+}
+
 
 if (!readProtectedRouteSource.includes('await readRenderApi.getAccessStatus();')) {
   throw new Error(
@@ -249,5 +256,6 @@ if (!readRenderApiSource.includes("requestReadApi<unknown>('/api/v1/read/access'
 
 console.log('PASS: Read purchase/restore reconciliation follows backend verification.');
 console.log('PASS: persisted Read access is rehydrated from FlowReader on startup and direct route entry.');
+console.log('PASS: Read/Create entitlement changes retrigger guarded route reconciliation.');
 
 console.log('SUBSCRIPTION_AUTHORITY_INVARIANTS=PASS');
