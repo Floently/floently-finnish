@@ -56,11 +56,24 @@ const PACKAGE_MAPPING: Record<string, string> = {
   read_creator_yearly: 'creator_yearly',
 };
 
+const IOS_PRODUCT_IDENTIFIER_BY_PACKAGE: Record<string, string> = {
+  yki_monthly: 'floently_yki_monthly',
+  yki_3months: 'floently_yki_3months',
+  yki_yearly: 'floently_yki_yearly',
+  prof_monthly: 'floently_prof_monthly',
+  prof_3months: 'floently_prof_3months',
+  prof_yearly: 'floently_prof_yearly',
+  combo_monthly: 'floently_combo_monthly',
+  combo_3months: 'floently_combo_3months',
+  combo_yearly: 'floently_combo_yearly',
+};
+
 export type StorePlanAvailability = {
   planId: string;
   packageId: string | null;
   available: boolean;
   productIdentifier: string | null;
+  expectedProductIdentifier: string | null;
   priceString: string | null;
   trialEligible: boolean;
 };
@@ -150,20 +163,35 @@ export async function preflightStoreBillingPlans(
         ? snapshot.packages.find((item) => revenueCatPackageSnapshotMatches(item, packageId))
         : null;
       const productIdentifier = matchedPackage?.productIdentifier?.trim() || null;
+      const expectedProductIdentifier =
+        platform === 'ios' && packageId
+          ? IOS_PRODUCT_IDENTIFIER_BY_PACKAGE[packageId] ?? null
+          : null;
       const priceString = matchedPackage?.priceString?.trim() || null;
+      const productIdentifierMatches =
+        platform !== 'ios' ||
+        !expectedProductIdentifier ||
+        productIdentifier === expectedProductIdentifier;
 
       // A plan is considered store-ready only when RevenueCat returned the
-      // expected package, the underlying App Store product identifier, and the
-      // localized store price. This prevents presenting an enabled purchase CTA
-      // when the exact failure Apple saw (store product cannot be fetched) is
-      // already observable before the reviewer taps Buy.
-      const available = Boolean(packageId && matchedPackage && productIdentifier && priceString);
+      // expected package, the underlying store product, and localized price.
+      // For the nine KieliValmis iOS subscriptions, the package must also point
+      // to the exact Apple Product ID submitted with the app. A legacy/wrong
+      // product behind the correct RevenueCat alias therefore fails closed.
+      const available = Boolean(
+        packageId &&
+        matchedPackage &&
+        productIdentifier &&
+        priceString &&
+        productIdentifierMatches
+      );
 
       return {
         planId,
         packageId,
         available,
         productIdentifier,
+        expectedProductIdentifier,
         priceString,
         trialEligible: Boolean(available && matchedPackage?.trialEligible),
       };
