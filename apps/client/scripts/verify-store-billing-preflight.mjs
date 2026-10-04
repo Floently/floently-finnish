@@ -51,6 +51,21 @@ for (const [planId, packageId, productId] of expectedMappings) {
   );
 }
 
+const expectedReadProducts = [
+  ['reader_monthly', 'floently_read_reader_monthly'],
+  ['reader_yearly', 'floently_read_reader_yearly'],
+  ['creator_monthly', 'floently_read_creator_monthly'],
+  ['creator_yearly', 'floently_read_creator_yearly'],
+];
+
+for (const [packageId, productId] of expectedReadProducts) {
+  requireText(
+    storeService,
+    `${packageId}: '${productId}'`,
+    `expected Floently Read iOS package/product mapping ${packageId} -> ${productId} must remain explicit`,
+  );
+}
+
 requireText(
   storeService,
   'export async function preflightStoreBillingPlans(',
@@ -58,8 +73,18 @@ requireText(
 );
 requireText(
   storeService,
-  'const snapshot = await getRevenueCatOfferingSnapshot(userId);',
-  'preflight must query the resolved RevenueCat offering before purchase',
+  'const snapshot = await getRevenueCatOfferingSnapshot(userId, offeringIdentifier);',
+  'preflight must query the explicitly resolved RevenueCat offering before purchase',
+);
+requireText(
+  storeService,
+  'export async function preflightReadStoreBillingPlans(',
+  'Floently Read must have a dedicated offering-aware store preflight',
+);
+requireText(
+  storeService,
+  'return preflightStoreBillingPlansForOffering(planIds, userId, READ_OFFERING_ID);',
+  'Floently Read preflight must resolve the read_default offering instead of the KieliValmis default offering',
 );
 requireText(
   storeService,
@@ -96,6 +121,17 @@ requireText(
   'const catalog = await preflightStoreBillingPlans([planId], userId);',
   'purchase must re-check the exact requested plan before invoking the store purchase',
 );
+requireText(
+  storeService,
+  'const catalog = await preflightReadStoreBillingPlans([planId], userId);',
+  'Floently Read purchase must re-check its exact plan in read_default before RevenueCat purchase execution',
+);
+requireText(
+  storeService,
+  'purchaseRevenueCatPackage(packageId, userId, READ_OFFERING_ID)',
+  'Floently Read purchase must execute only against the read_default offering',
+);
+
 requireText(
   storeService,
   "export const STORE_BILLING_UNAVAILABLE_MESSAGE = 'Purchases are temporarily unavailable. Please try again later.';",
@@ -193,9 +229,9 @@ forbidText(
   'iOS/mobile pricing cards must not render static EUR estimates directly after store preflight integration',
 );
 
-console.log('PASS: all nine core KieliValmis plans retain explicit RevenueCat package and Apple Product ID mappings.');
+console.log('PASS: all nine core KieliValmis plans and Floently Read plans retain explicit RevenueCat/Apple product mappings.');
 console.log('PASS: preflight requires offering package, product identifier, and localized store price.');
-console.log('PASS: purchase rechecks the selected plan before RevenueCat purchase execution.');
+console.log('PASS: KieliValmis and Floently Read purchases recheck the selected offering/package before RevenueCat purchase execution.');
 console.log('PASS: RevenueCat purchase/restore failures are converted to stable user-safe errors.');
 console.log('PASS: BillingRoute preflights visible store plans before enabling purchase CTAs.');
 console.log('PASS: unavailable store products disable the paywall purchase action and trial action.');
