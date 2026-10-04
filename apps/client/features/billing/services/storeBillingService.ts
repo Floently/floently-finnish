@@ -66,6 +66,10 @@ const IOS_PRODUCT_IDENTIFIER_BY_PACKAGE: Record<string, string> = {
   combo_monthly: 'floently_combo_monthly',
   combo_3months: 'floently_combo_3months',
   combo_yearly: 'floently_combo_yearly',
+  reader_monthly: 'floently_read_reader_monthly',
+  reader_yearly: 'floently_read_reader_yearly',
+  creator_monthly: 'floently_read_creator_monthly',
+  creator_yearly: 'floently_read_creator_yearly',
 };
 
 export type StorePlanAvailability = {
@@ -144,9 +148,10 @@ export function revenueCatPackageForPlan(planId: string): string | null {
   return PACKAGE_MAPPING[planId] ?? null;
 }
 
-export async function preflightStoreBillingPlans(
+async function preflightStoreBillingPlansForOffering(
   planIds: string[],
   userId?: string | null,
+  offeringIdentifier?: string | null,
 ): Promise<StoreBillingCatalog> {
   const platform = mobilePlatform();
   if (!platform) {
@@ -155,7 +160,7 @@ export async function preflightStoreBillingPlans(
 
   try {
     const uniquePlanIds = Array.from(new Set(planIds.map((item) => String(item || '').trim()).filter(Boolean)));
-    const snapshot = await getRevenueCatOfferingSnapshot(userId);
+    const snapshot = await getRevenueCatOfferingSnapshot(userId, offeringIdentifier);
 
     const plans = uniquePlanIds.map<StorePlanAvailability>((planId) => {
       const packageId = revenueCatPackageForPlan(planId);
@@ -207,8 +212,18 @@ export async function preflightStoreBillingPlans(
       missingPlanIds,
     };
   } catch (error) {
-    throwUserSafeStoreError('preflight', error);
+    if (error instanceof StoreBillingUnavailableError || error instanceof StorePurchaseCancelledError) {
+      throw error;
+    }
+    throwUserSafeStoreError(offeringIdentifier === READ_OFFERING_ID ? 'read_preflight' : 'preflight', error);
   }
+}
+
+export async function preflightStoreBillingPlans(
+  planIds: string[],
+  userId?: string | null,
+): Promise<StoreBillingCatalog> {
+  return preflightStoreBillingPlansForOffering(planIds, userId);
 }
 
 export async function startStorePurchase(
@@ -289,6 +304,13 @@ export function revenueCatPackageForReadPlan(planId: ReadStorePlanId): string {
   return planId;
 }
 
+export async function preflightReadStoreBillingPlans(
+  planIds: ReadStorePlanId[],
+  userId?: string | null,
+): Promise<StoreBillingCatalog> {
+  return preflightStoreBillingPlansForOffering(planIds, userId, READ_OFFERING_ID);
+}
+
 function activeEntitlementSet(result: RevenueCatPurchaseResult): Set<string> {
   return new Set(result.activeEntitlements.map((item) => String(item).trim()).filter(Boolean));
 }
@@ -317,6 +339,21 @@ export async function startReadStorePurchase(
 
   const packageId = revenueCatPackageForReadPlan(planId);
   try {
+    // Read uses a separate RevenueCat offering. Re-resolve the exact package,
+    // underlying store product and localized price immediately before purchase
+    // so a stale/misconfigured read_default offering can never reach checkout.
+    const catalog = await preflightReadStoreBillingPlans([planId], userId);
+    if (!catalog.ready) {
+      logger.error('Floently Read purchase blocked by package preflight.', {
+        actionType: 'STORE_BILLING_PREFLIGHT_BLOCKED',
+        operation: 'read_purchase',
+        planId,
+        missingPlanIds: catalog.missingPlanIds,
+        offeringIdentifier: catalog.offeringIdentifier,
+      });
+      throw new StoreBillingUnavailableError();
+    }
+
     const result = await purchaseRevenueCatPackage(packageId, userId, READ_OFFERING_ID);
     const access = readAccessFromRevenueCatResult(result);
 
@@ -328,6 +365,9 @@ export async function startReadStorePurchase(
       platform,
     };
   } catch (error) {
+    if (error instanceof StoreBillingUnavailableError || error instanceof StorePurchaseCancelledError) {
+      throw error;
+    }
     throwUserSafeStoreError('read_purchase', error);
   }
 }
