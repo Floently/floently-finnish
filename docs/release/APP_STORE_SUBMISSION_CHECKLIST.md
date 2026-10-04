@@ -34,7 +34,7 @@ Apple supports additional current dimensions. Follow the current App Store Conne
 
 ## Guideline 2.1(b) — subscriptions/IAP package
 
-Current source maps the KieliValmis subscription surface to these nine Apple products:
+The current React Native candidate exposes eleven purchasable Apple subscription products: nine KieliValmis plans plus two Floently Read Reader plans:
 
 - [ ] `floently_yki_monthly`
 - [ ] `floently_yki_3months`
@@ -45,6 +45,8 @@ Current source maps the KieliValmis subscription surface to these nine Apple pro
 - [ ] `floently_combo_monthly`
 - [ ] `floently_combo_3months`
 - [ ] `floently_combo_yearly`
+- [ ] `floently_read_reader_monthly`
+- [ ] `floently_read_reader_yearly`
 
 For **each** checked product above, verify all of the following before marking it complete:
 
@@ -61,7 +63,7 @@ Additional package gates:
 - [ ] **BLOCKING** The draft App Review submission visibly contains every subscription exposed by the submitted app.
 - [ ] **BLOCKING** No subscription is left only in App Store Connect inventory without being added for review.
 
-Historical evidence records KieliValmis Premium group ID `22077944`, but current App Store Connect state must be checked again rather than inferred from August evidence.
+Historical evidence records KieliValmis Premium group ID `22077944`, but current App Store Connect state must be checked again rather than inferred from August evidence. Also verify the current subscription group/status for `floently_read_reader_monthly` and `floently_read_reader_yearly`.
 
 ## Source/runtime billing verification
 
@@ -82,7 +84,7 @@ Apple explicitly requested a new binary.
 - [x] Active React Native release lane is PR #75 / `agent/build-48-native-read-release-20260929`.
 - [x] iOS build workflow is manual/approval-gated; ordinary source pushes must not consume a mobile build.
 - [ ] **BLOCKING** Media Manager repair is ready before consuming the scarce replacement build.
-- [ ] **BLOCKING** All nine subscription review packages are ready to add/are added to the draft submission before consuming the scarce replacement build.
+- [ ] **BLOCKING** All eleven currently purchasable subscription review packages are ready to add/are added to the draft submission before consuming the scarce replacement build.
 - [ ] **BLOCKING** Exact candidate SHA has green client/backend/native-source CI and zero known release blockers.
 - [ ] **BLOCKING** Product owner has explicitly approved the iOS build from the exact candidate.
 - [ ] Generate one replacement production iOS binary from the approved exact SHA.
@@ -97,7 +99,7 @@ Before clicking **Submit for Review**:
 
 - [ ] App version/build is present in the draft.
 - [ ] KieliValmis Premium subscription group is present if required.
-- [ ] All nine required subscriptions are present.
+- [ ] All eleven subscriptions purchasable in the exact release candidate are present.
 - [ ] Every subscription has an App Review screenshot.
 - [ ] Corrected screenshots are present in every applicable size/localization.
 - [ ] No non-iOS status bar/device chrome is visible.
