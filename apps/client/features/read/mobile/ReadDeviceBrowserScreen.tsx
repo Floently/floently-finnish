@@ -465,7 +465,8 @@ const WATCH_LIVE_AUTH_STATE = `
 })();
 `;
 
-const EXTRACT_READABLE_PAGE = `
+function buildExtractReadablePageScript(requestId: number) {
+  return `
 (function () {
   try {
     const normalizeInline = (value) => String(value || '')
@@ -525,6 +526,7 @@ const EXTRACT_READABLE_PAGE = `
     if (hasVisibleCredentialField || (hasVisibleAccountField && hasVisibleAuthAction)) {
       window.ReactNativeWebView.postMessage(JSON.stringify({
         type: 'FLOENTLY_DEVICE_BROWSER_READ_ERROR',
+        requestId: ${JSON.stringify(requestId)},
         message: 'Finish signing in before starting Reader on this page.'
       }));
       return true;
@@ -596,6 +598,7 @@ const EXTRACT_READABLE_PAGE = `
 
     window.ReactNativeWebView.postMessage(JSON.stringify({
       type: 'FLOENTLY_DEVICE_BROWSER_READ_PAGE',
+      requestId: ${JSON.stringify(requestId)},
       title: normalizeBlock(document.title) || location.hostname,
       url: location.href,
       language: String(
@@ -608,12 +611,14 @@ const EXTRACT_READABLE_PAGE = `
   } catch (error) {
     window.ReactNativeWebView.postMessage(JSON.stringify({
       type: 'FLOENTLY_DEVICE_BROWSER_READ_ERROR',
+      requestId: ${JSON.stringify(requestId)},
       message: String(error && error.message ? error.message : error)
     }));
   }
   true;
 })();
 `;
+}
 
 export default function ReadDeviceBrowserScreen() {
   const params = useLocalSearchParams<{ url?: string }>();
@@ -642,6 +647,7 @@ export default function ReadDeviceBrowserScreen() {
   const lastSavedProgressRef = useRef(0);
   const audioGenerationRef = useRef(0);
   const pageReadingGenerationRef = useRef(0);
+  const extractionRequestRef = useRef(0);
   const latestUrlRef = useRef<string | null>(null);
   const prefetchGenerationRef = useRef(0);
   const voiceChangeResumeRef = useRef<{ index: number; autoplay: boolean } | null>(null);
@@ -1293,6 +1299,7 @@ export default function ReadDeviceBrowserScreen() {
 
   const hardRestart = (message = 'Reloading with a fresh browser process…') => {
     pageReadingGenerationRef.current += 1;
+    extractionRequestRef.current += 1;
     setPasskeyDeferred(false);
     persistBrowserProgress(displayedProgress);
     setLoadError(null);
@@ -1307,6 +1314,7 @@ export default function ReadDeviceBrowserScreen() {
   };
 
   const stopReadingPage = () => {
+    extractionRequestRef.current += 1;
     persistBrowserProgress(displayedProgress);
     clearPreparedAudio();
     setReading(null);
@@ -1327,6 +1335,7 @@ export default function ReadDeviceBrowserScreen() {
       return;
     }
     pageReadingGenerationRef.current += 1;
+    extractionRequestRef.current += 1;
     setPasskeyDeferred(false);
     latestUrlRef.current = target;
     if (!isProtectedAuthenticationUrl(target)) {
@@ -1382,11 +1391,12 @@ export default function ReadDeviceBrowserScreen() {
       return;
     }
     pageReadingGenerationRef.current += 1;
+    const requestId = ++extractionRequestRef.current;
     latestUrlRef.current = currentUrl;
     setAudioError(null);
     setAudioState('extracting');
     setStatus('Preparing this page for continuous reading…');
-    webViewRef.current?.injectJavaScript(EXTRACT_READABLE_PAGE);
+    webViewRef.current?.injectJavaScript(buildExtractReadablePageScript(requestId));
   };
 
   const startReadingPage = async (payload: BrowserReading) => {
@@ -1825,6 +1835,7 @@ export default function ReadDeviceBrowserScreen() {
               // reload (same raw URL) or a different document still resets the
               // reading snapshot because the page contents may have changed.
               if (!hashOnlyNavigation) {
+                extractionRequestRef.current += 1;
                 setPageAuthActive(false);
                 setPasskeyDeferred(false);
                 pageReadingGenerationRef.current += 1;
@@ -1871,6 +1882,7 @@ export default function ReadDeviceBrowserScreen() {
               const target = event.nativeEvent.targetUrl;
               if (/^https?:\/\//i.test(target)) {
                 pageReadingGenerationRef.current += 1;
+                extractionRequestRef.current += 1;
                 latestUrlRef.current = target;
                 if (!isProtectedAuthenticationUrl(target)) {
                   void AsyncStorage.setItem(BROWSER_LAST_URL_KEY, target).catch(() => {});
@@ -1898,8 +1910,11 @@ export default function ReadDeviceBrowserScreen() {
                   message?: string;
                   language?: string;
                   active?: boolean;
+                  requestId?: number;
                 };
                 if (payload.type === 'FLOENTLY_DEVICE_BROWSER_PASSKEY_DEFERRED') {
+                  extractionRequestRef.current += 1;
+                  if (audioState === 'extracting') setAudioState('idle');
                   setPasskeyDeferred(true);
                   setPageAuthActive(true);
                   setStatus('Passkey deferred here · choose password, or open in Safari');
@@ -1907,6 +1922,10 @@ export default function ReadDeviceBrowserScreen() {
                 }
                 if (payload.type === 'FLOENTLY_DEVICE_BROWSER_AUTH_STATE') {
                   const active = Boolean((payload as { active?: boolean }).active);
+                  if (active) {
+                    extractionRequestRef.current += 1;
+                    if (audioState === 'extracting') setAudioState('idle');
+                  }
                   setPageAuthActive(active);
                   if (!active) {
                     setPasskeyDeferred(false);
@@ -1914,6 +1933,14 @@ export default function ReadDeviceBrowserScreen() {
                   }
                   return;
                 }
+                const isExtractionMessage =
+                  payload.type === 'FLOENTLY_DEVICE_BROWSER_READ_ERROR' ||
+                  payload.type === 'FLOENTLY_DEVICE_BROWSER_READ_PAGE';
+                if (
+                  isExtractionMessage &&
+                  payload.requestId !== extractionRequestRef.current
+                ) return;
+
                 if (payload.type === 'FLOENTLY_DEVICE_BROWSER_READ_ERROR') {
                   setAudioState('error');
                   setAudioError(payload.message || 'This page could not be prepared for reading.');
