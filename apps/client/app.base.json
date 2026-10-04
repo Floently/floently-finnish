@@ -69,7 +69,10 @@
         }
       ],
       "icon": "./assets/images/kielivalmis-app-icon.png",
-      "runtimeVersion": "1.0.5"
+      "runtimeVersion": "1.0.5",
+      "blockedPermissions": [
+        "android.permission.SYSTEM_ALERT_WINDOW"
+      ]
     },
     "web": {
       "output": "static",
