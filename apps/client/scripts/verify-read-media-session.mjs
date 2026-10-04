@@ -148,7 +148,10 @@ for (const marker of [
   'if (player.logicalLockScreenTimeline != null) {',
   'mediaSession?.setPlayer(resolveSessionPlayer(player, options))',
   'Keep the existing Android MediaSession alive',
+  'removePlayerListener()',
   'val player = currentPlayer',
+  'val listener = playbackListener',
+  'player.ref.removeListener(listener)',
   'player?.assignBasicMediaSession()',
 ]) {
   assert.ok(
