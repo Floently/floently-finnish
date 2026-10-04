@@ -618,6 +618,34 @@ class AudioControlsService : MediaSessionService() {`,
 
   next = replaceRequired(
     next,
+    `  private fun clearSessionInternal() {
+    currentPlayer?.isActiveForLockScreen = false
+    removePlayerListener()
+    currentPlayer = null
+    currentMetadata = null
+    mediaSession?.release()
+    mediaSession = null
+    currentPlayer?.assignBasicMediaSession()
+    stopForeground(STOP_FOREGROUND_REMOVE)
+  }`,
+    `  private fun clearSessionInternal() {
+    val player = currentPlayer
+    player?.isActiveForLockScreen = false
+    removePlayerListener()
+    currentPlayer = null
+    currentMetadata = null
+    mediaSession?.release()
+    mediaSession = null
+    // Preserve a usable basic session for the next activation. The upstream
+    // ordering nulled currentPlayer before this restoration could execute.
+    player?.assignBasicMediaSession()
+    stopForeground(STOP_FOREGROUND_REMOVE)
+  }`,
+    'Android media-session teardown ordering'
+  );
+
+  next = replaceRequired(
+    next,
     `  fun setPlayerMetadata(player: AudioPlayer, metadata: Metadata?) {
     updateMetadataInternal(player, metadata)
   }
