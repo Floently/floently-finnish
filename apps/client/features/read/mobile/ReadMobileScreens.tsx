@@ -4,6 +4,7 @@ import {
   AppState,
   FlatList,
   Image,
+  Linking,
   Pressable,
   ScrollView,
   StyleSheet,
@@ -48,6 +49,7 @@ import {
   type ReadStorePlanId,
   type StoreBillingCatalog,
 } from '../../billing/services/storeBillingService';
+import { LEGAL_URLS } from '../../../config/legalUrls';
 import { useAuthStore } from '../../../state/authStore';
 import { useSubscriptionStore } from '../../../state/subscriptionStore';
 
@@ -2306,7 +2308,11 @@ export function ReadSubscriptionScreen() {
         await refreshSubscription();
       }
       const backendSynced = await syncReadPurchaseToBackend(result, planId);
-      setMessage(`Purchase complete.${backendSynced ? ' Backend access is synced.' : ''}`);
+      setMessage(
+        backendSynced
+          ? 'Purchase complete. Your Floently Read access is ready.'
+          : 'Purchase complete. If access does not refresh, use Restore purchases.',
+      );
     } catch (error) {
       setMessage(error instanceof Error ? error.message : String(error));
     } finally {
@@ -2339,7 +2345,11 @@ export function ReadSubscriptionScreen() {
         await refreshSubscription();
       }
       const backendSynced = await syncReadPurchaseToBackend(result, getReadPurchasePackageId(result));
-      setMessage(`Purchases restored.${backendSynced ? ' Backend access is synced.' : ''}`);
+      setMessage(
+        backendSynced
+          ? 'Purchases restored. Your Floently Read access is up to date.'
+          : 'Purchases restored. Reopen this screen if access does not refresh immediately.',
+      );
     } catch (error) {
       setMessage(error instanceof Error ? error.message : String(error));
     } finally {
@@ -2347,10 +2357,18 @@ export function ReadSubscriptionScreen() {
     }
   }
 
+  async function openReadLegal(url: string, label: string) {
+    try {
+      await Linking.openURL(url);
+    } catch {
+      setMessage(`${label} could not be opened. Please try again.`);
+    }
+  }
+
   return (
     <AppShell active="subscribe">
       <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={styles.scrollScreen}>
-        <Header showBack title="Floently Read access" subtitle="Native plans, RevenueCat, and backend entitlements" />
+        <Header showBack title="Floently Read access" subtitle="Choose a Reader plan and continue your library across devices" />
         <View style={[styles.panel, { backgroundColor: palette.surface, borderColor: palette.border }]}>
           <Text style={[styles.cardTitle, { color: palette.text }]}>{readAccess || creatorAccess ? 'Access active' : 'Upgrade Read'}</Text>
           <Text style={[styles.cardBody, { color: palette.muted }]}>Read, listen, import, and continue your library across sessions.</Text>
@@ -2388,6 +2406,28 @@ export function ReadSubscriptionScreen() {
           onPress={() => void restore()}
           disabled={Boolean(busyPlan) || !isMobileStoreBilling || !storeUserId}
         />
+        <View style={[styles.subscriptionDisclosure, { backgroundColor: palette.surfaceSoft, borderColor: palette.border }]}>
+          <Text style={[styles.subscriptionDisclosureText, { color: palette.muted }]}>
+            Payment is charged to your App Store or Google Play account at confirmation. Subscriptions renew automatically unless canceled before renewal. Manage or cancel them in your store account settings.
+          </Text>
+          <View style={styles.subscriptionLegalRow}>
+            <Pressable
+              accessibilityRole="link"
+              accessibilityLabel="Open Privacy Policy"
+              onPress={() => void openReadLegal(LEGAL_URLS.privacyPolicy, 'Privacy Policy')}
+            >
+              <Text style={[styles.subscriptionLegalLink, { color: palette.accent }]}>Privacy Policy</Text>
+            </Pressable>
+            <Text style={[styles.subscriptionLegalDivider, { color: palette.faint }]}>•</Text>
+            <Pressable
+              accessibilityRole="link"
+              accessibilityLabel="Open Terms of Use"
+              onPress={() => void openReadLegal(LEGAL_URLS.termsOfUse, 'Terms of Use')}
+            >
+              <Text style={[styles.subscriptionLegalLink, { color: palette.accent }]}>Terms of Use</Text>
+            </Pressable>
+          </View>
+        </View>
         {message ? <Text style={[styles.messageText, { color: palette.muted }]}>{message}</Text> : null}
       </ScrollView>
     </AppShell>
@@ -2557,6 +2597,11 @@ const styles = StyleSheet.create({
   planCard: { borderRadius: 24, borderWidth: 1, padding: 16, gap: 12 },
   priceText: { fontSize: 22, fontWeight: '900' },
   noteText: { fontSize: 12, lineHeight: 18, fontWeight: '700' },
+  subscriptionDisclosure: { borderRadius: 18, borderWidth: 1, padding: 14, gap: 10 },
+  subscriptionDisclosureText: { fontSize: 12, lineHeight: 18, fontWeight: '600' },
+  subscriptionLegalRow: { flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 10, flexWrap: 'wrap' },
+  subscriptionLegalLink: { fontSize: 12, fontWeight: '900' },
+  subscriptionLegalDivider: { fontSize: 12, fontWeight: '800' },
   messageText: { fontSize: 13, lineHeight: 20, fontWeight: '700', textAlign: 'center' },
   bottomNav: { position: 'absolute', left: 14, right: 14, bottom: 12, minHeight: 72, borderRadius: 32, borderWidth: 1, flexDirection: 'row', alignItems: 'center', justifyContent: 'space-around', paddingHorizontal: 8, shadowOpacity: 1, shadowRadius: 26, shadowOffset: { width: 0, height: 16 } },
   navItem: { minWidth: 56, alignItems: 'center', justifyContent: 'center', gap: 3 },
