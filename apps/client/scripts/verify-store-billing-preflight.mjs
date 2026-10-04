@@ -162,6 +162,12 @@ requireText(
   'export function revenueCatPackageSnapshotMatches(',
   'package alias matching must be reusable by preflight and purchase code',
 );
+requireText(
+  revenueCatService,
+  "if (wanted === 'read_default') {",
+  'the named Floently Read offering must fail closed instead of falling back to RevenueCat current/default',
+);
+
 
 requireText(
   billingRoute,
