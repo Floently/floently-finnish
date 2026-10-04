@@ -175,14 +175,17 @@ async function preflightStoreBillingPlansForOffering(
       const priceString = matchedPackage?.priceString?.trim() || null;
       const productIdentifierMatches =
         platform !== 'ios' ||
-        !expectedProductIdentifier ||
-        productIdentifier === expectedProductIdentifier;
+        Boolean(
+          expectedProductIdentifier &&
+          productIdentifier === expectedProductIdentifier
+        );
 
       // A plan is considered store-ready only when RevenueCat returned the
       // expected package, the underlying store product, and localized price.
-      // For the nine KieliValmis iOS subscriptions, the package must also point
-      // to the exact Apple Product ID submitted with the app. A legacy/wrong
-      // product behind the correct RevenueCat alias therefore fails closed.
+      // On iOS every purchasable package must have an explicitly pinned Apple
+      // Product ID and resolve to that exact product. A new/unreviewed package,
+      // or a legacy product behind the correct RevenueCat alias, therefore
+      // fails closed until the release matrix is deliberately updated.
       const available = Boolean(
         packageId &&
         matchedPackage &&
