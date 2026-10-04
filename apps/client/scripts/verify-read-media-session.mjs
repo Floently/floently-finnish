@@ -211,7 +211,7 @@ assert.equal(
 assert.equal(
   appBase.expo?.runtimeVersion,
   '1.0.4',
-  'Android/general runtime must remain compatible with the existing 1.0.4 binary family',
+  'root fallback runtime remains 1.0.4 while native platforms use their explicit capability runtimes',
 );
 assert.equal(
   appBase.expo?.ios?.runtimeVersion,
