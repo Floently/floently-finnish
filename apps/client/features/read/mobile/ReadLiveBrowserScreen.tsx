@@ -101,7 +101,6 @@ export default function ReadLiveBrowserScreen() {
     if (!token || !user) return null;
     const plan = String(user.subscriptionTier || subscription?.tier || 'free').trim() || 'free';
     const readAccess = Boolean(
-      user.readAccess ||
       subscription?.isInternalAllAccess ||
       subscription?.entitlements?.readAccess,
     );
