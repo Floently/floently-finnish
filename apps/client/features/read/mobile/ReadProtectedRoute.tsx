@@ -1,4 +1,4 @@
-import { useEffect, type ReactNode } from 'react';
+import { useEffect, useState, type ReactNode } from 'react';
 import { ActivityIndicator, Pressable, StyleSheet, Text, View } from 'react-native';
 import { router } from 'expo-router';
 
@@ -6,6 +6,7 @@ import { getAuthToken } from '@core/api/apiClient';
 import { useAuthStore } from '../../../state/authStore';
 import { useSubscriptionStore } from '../../../state/subscriptionStore';
 import ReadAuthScreen from './ReadAuthScreen';
+import { readRenderApi } from './readRenderApi';
 
 type Props = {
   children: ReactNode;
@@ -24,6 +25,8 @@ export default function ReadProtectedRoute({
   const subscriptionLoading = useSubscriptionStore((state) => state.isLoading);
   const subscription = useSubscriptionStore((state) => state.status);
   const hydrateSubscription = useSubscriptionStore((state) => state.hydrate);
+  const reconcileVerifiedReadAccess = useSubscriptionStore((state) => state.reconcileVerifiedReadAccess);
+  const [readAccessCheckComplete, setReadAccessCheckComplete] = useState(false);
   const hasToken = Boolean(token || getAuthToken());
 
   useEffect(() => {
@@ -33,19 +36,43 @@ export default function ReadProtectedRoute({
   }, [hasHydrated, hydrateSession]);
 
   useEffect(() => {
-    if (
-      hasHydrated &&
-      hasToken &&
-      user &&
-      !subscriptionLoaded &&
-      !subscriptionLoading
-    ) {
-      void hydrateSubscription(user);
+    if (!hasHydrated || !hasToken || !user) {
+      setReadAccessCheckComplete(false);
+      return;
     }
+
+    let cancelled = false;
+    setReadAccessCheckComplete(false);
+
+    void (async () => {
+      if (!subscriptionLoaded && !subscriptionLoading) {
+        await hydrateSubscription(user);
+      }
+
+      try {
+        const verifiedRead = await readRenderApi.getAccessStatus();
+        if (!cancelled) {
+          reconcileVerifiedReadAccess(verifiedRead);
+        }
+      } catch {
+        // Fall back to the already-hydrated entitlement state if FlowReader is
+        // temporarily unreachable. A failed request is not evidence to grant
+        // or revoke access.
+      } finally {
+        if (!cancelled) {
+          setReadAccessCheckComplete(true);
+        }
+      }
+    })();
+
+    return () => {
+      cancelled = true;
+    };
   }, [
     hasHydrated,
     hasToken,
     hydrateSubscription,
+    reconcileVerifiedReadAccess,
     subscriptionLoaded,
     subscriptionLoading,
     user,
@@ -63,7 +90,7 @@ export default function ReadProtectedRoute({
     return <>{children}</>;
   }
 
-  if (!subscriptionLoaded || subscriptionLoading) {
+  if (!subscriptionLoaded || subscriptionLoading || !readAccessCheckComplete) {
     return <ReadLoadingScreen label="Checking Read access…" />;
   }
 
