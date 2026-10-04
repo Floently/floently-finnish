@@ -164,8 +164,9 @@ jobs:
           grep -Eq "applicationId[[:space:]]+['\"]com\.vitusidi\.floently['\"]" apps/client/android/app/build.gradle
           grep -F '"react-native-webview": "13.16.1"' apps/client/package.json
           grep -F 'android:allowBackup="false"' "$manifest"
-          if grep -Fq 'android.permission.SYSTEM_ALERT_WINDOW' "$manifest"; then
-            echo "Generated Android app manifest must not declare SYSTEM_ALERT_WINDOW." >&2
+          grep -F 'android.permission.SYSTEM_ALERT_WINDOW' "$manifest" | grep -F 'tools:node="remove"'
+          if grep -F 'android.permission.SYSTEM_ALERT_WINDOW' "$manifest" | grep -vq 'tools:node="remove"'; then
+            echo "Generated Android app manifest must contain SYSTEM_ALERT_WINDOW only as an explicit removal marker." >&2
             grep -n -F 'android.permission.SYSTEM_ALERT_WINDOW' "$manifest" >&2 || true
             exit 1
           fi
