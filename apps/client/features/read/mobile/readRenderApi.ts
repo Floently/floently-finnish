@@ -274,6 +274,16 @@ export const readRenderApi = {
     });
   },
 
+  async deleteAccount(): Promise<void> {
+    await requestReadApi<unknown>('/api/v1/account/delete', {
+      method: 'POST',
+      body: JSON.stringify({
+        confirm_delete: true,
+        confirmDelete: true,
+      }),
+    });
+  },
+
   async uploadDocument(input: UploadReadDocumentInput): Promise<ReadRenderDocument> {
     const formData = new FormData();
     const title = (input.title || input.name.replace(/\.[^/.]+$/, '') || 'Imported document').trim();
