@@ -125,7 +125,7 @@ assert.ok(deviceBrowser.includes('getClientRects().length > 0') &&
   deviceBrowser.includes("style.display !== 'none'") &&
   deviceBrowser.includes("style.visibility !== 'hidden'"),
   'hidden login drawers must not falsely disable Reader on otherwise readable pages');
-assert.ok(deviceBrowser.includes('injectJavaScript(EXTRACT_READABLE_PAGE)') &&
+assert.ok(deviceBrowser.includes('buildExtractReadablePageScript(requestId)') &&
   deviceBrowser.includes('createReadingPlaybackManifest(pageReading.text, speed, 1400, 220)') &&
   deviceBrowser.includes('readTtsApi.prerenderReading') &&
   deviceBrowser.includes('player.replace(result.audioUrl)'),
@@ -252,10 +252,13 @@ assert.ok(deviceBrowser.includes('score: text.length + semantic + wholePage - de
   !deviceBrowser.includes('Math.min(text.length, 40000)'),
   'browser extraction must prefer the complete multi-section book/page instead of tying/truncating candidates at a fixed text-length cap');
 assert.ok(deviceBrowser.includes('pageReadingGenerationRef') &&
+  deviceBrowser.includes('extractionRequestRef') &&
+  deviceBrowser.includes('requestId: ${JSON.stringify(requestId)}') &&
+  deviceBrowser.includes('payload.requestId !== extractionRequestRef.current') &&
   deviceBrowser.includes('latestUrlRef') &&
   deviceBrowser.includes('pageReadingGenerationRef.current !== generation') &&
   deviceBrowser.includes('isSameBrowserReadingPage(pageReading.url, currentLatestUrl)'),
-  'late extraction/resume work from a previous page must never start narration after browser navigation');
+  'late extraction/resume work from a previous page or same-URL reload must never start narration after browser navigation');
 assert.ok(deviceBrowser.includes('onLoadStart={(event) => {') &&
   deviceBrowser.includes('if (!hashOnlyNavigation) {') &&
   deviceBrowser.includes('if (reading) {') &&
