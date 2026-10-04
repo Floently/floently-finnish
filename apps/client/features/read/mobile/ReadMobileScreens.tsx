@@ -42,6 +42,7 @@ import {
   readingProgressForSegment,
 } from './readingPlaybackManifest';
 import {
+  isReadStorePlanSupported,
   preflightReadStoreBillingPlans,
   restoreReadStorePurchases,
   startReadStorePurchase,
@@ -2278,9 +2279,13 @@ export function ReadSubscriptionScreen() {
   const palette = paletteFor(theme);
   const isMobileStoreBilling = supportsStoreBilling();
   const storeUserId = user?.id ?? null;
-  const visibleReadPlanIds = useMemo(
-    () => readPlans.map((plan) => plan.id),
+  const visibleReadPlans = useMemo(
+    () => readPlans.filter((plan) => isReadStorePlanSupported(plan.id)),
     [],
+  );
+  const visibleReadPlanIds = useMemo(
+    () => visibleReadPlans.map((plan) => plan.id),
+    [visibleReadPlans],
   );
 
   useEffect(() => {
@@ -2404,7 +2409,7 @@ export function ReadSubscriptionScreen() {
           <Text style={[styles.cardTitle, { color: palette.text }]}>{readAccess || creatorAccess ? 'Access active' : 'Upgrade Read'}</Text>
           <Text style={[styles.cardBody, { color: palette.muted }]}>Read, listen, import, and continue your library across sessions.</Text>
         </View>
-        {readPlans.map((plan) => {
+        {visibleReadPlans.map((plan) => {
           const availability = storeCatalog?.plans.find((item) => item.planId === plan.id);
           const purchaseUnavailable =
             !isMobileStoreBilling ||
