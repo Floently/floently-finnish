@@ -11,11 +11,15 @@ on:
         type: string
         required: true
         description: Type ZERO_KNOWN_BLOCKERS only after the release ledger is clear
+      read_billing_ready:
+        type: string
+        required: true
+        description: Type READ_BILLING_READY only after production FlowReader server verification is ready
 
 jobs:
   build_ios:
     name: Build native iOS production app
-    if: ${{ inputs.product_owner_approval == 'APPROVE_IOS_BUILD' && inputs.known_blockers == 'ZERO_KNOWN_BLOCKERS' }}
+    if: ${{ inputs.product_owner_approval == 'APPROVE_IOS_BUILD' && inputs.known_blockers == 'ZERO_KNOWN_BLOCKERS' && inputs.read_billing_ready == 'READ_BILLING_READY' }}
     type: build
     params:
       platform: ios
