@@ -525,6 +525,7 @@ class AudioControlsService : MediaSessionService() {`,
     `// ${PATCH_MARKER}
 // Media3 remains connected to the physical ExoPlayer for playback, while this
 // wrapper exposes Floently's complete reading as one logical media item.
+@OptIn(UnstableApi::class)
 private class LogicalTimelinePlayer(
   private val audioPlayer: AudioPlayer
 ) : ForwardingPlayer(audioPlayer.ref) {
