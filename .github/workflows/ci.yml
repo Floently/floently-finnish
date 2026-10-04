@@ -282,6 +282,12 @@ jobs:
           pnpm exec expo export --platform ios --output-dir /tmp/kielivalmis-build47-authority-export --clear
           test -n "$(find /tmp/kielivalmis-build47-authority-export -type f -print -quit)"
           echo "IOS_OTA_EXPORT=PASS"
+      - name: Export Android OTA bundle
+        run: |
+          cd apps/client
+          pnpm exec expo export --platform android --output-dir /tmp/kielivalmis-android-authority-export --clear
+          test -n "$(find /tmp/kielivalmis-android-authority-export -type f -print -quit)"
+          echo "ANDROID_OTA_EXPORT=PASS"
       - name: Verify navigation invariants
         run: pnpm --dir apps/client run verify:navigation
       - name: Verify account deletion access invariants
