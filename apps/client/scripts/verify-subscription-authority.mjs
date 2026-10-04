@@ -148,6 +148,17 @@ if (!readMobileSource.includes(
   );
 }
 
+forbidText(
+  'applyStoreReadAccess',
+  'grant-only Read access mutation must not coexist with verified reconciliation',
+);
+
+if (readMobileSource.includes('applyStoreReadAccess')) {
+  throw new Error(
+    'Subscription authority invariant failed: Read purchase UI must not use a grant-only entitlement helper',
+  );
+}
+
 requireText(
   'reconcileVerifiedReadAccess: (input: { readAccess?: boolean; creatorAccess?: boolean }) => void;',
   'subscription store must expose verified Read reconciliation',
