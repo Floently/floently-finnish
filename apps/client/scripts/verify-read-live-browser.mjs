@@ -260,10 +260,13 @@ assert.ok(deviceBrowser.includes('pageReadingGenerationRef') &&
   deviceBrowser.includes('isSameBrowserReadingPage(pageReading.url, currentLatestUrl)'),
   'late extraction/resume work from a previous page or same-URL reload must never start narration after browser navigation');
 assert.ok(deviceBrowser.includes('onLoadStart={(event) => {') &&
-  deviceBrowser.includes('if (!hashOnlyNavigation) {') &&
+  deviceBrowser.includes('if (!samePageAnchorNavigation) {') &&
+  deviceBrowser.includes("hash.startsWith('#/')") &&
+  deviceBrowser.includes("hash.startsWith('#!/')") &&
+  deviceBrowser.includes("hash.startsWith('#?')") &&
   deviceBrowser.includes('if (reading) {') &&
   deviceBrowser.includes('clearPreparedAudio();'),
-  'real top-level reload/navigation must stop old narration before the new rendered page becomes interactive while hash-only SPA moves stay continuous');
+  'real reload/navigation and hash-router page changes must stop old narration, while plain in-document anchor moves may stay continuous');
 assert.ok(deviceBrowser.includes('browserVisualPhrase') &&
   deviceBrowser.includes('const bucketSize = 7') &&
   deviceBrowser.includes('audioResult?.wordTimings') &&
