@@ -192,6 +192,8 @@ export default function AppShell({ requestedScreen = "root" }: Props) {
     subscriptionStatus?.entitlements?.learnAccess ? 'learn' : 'no-learn',
     subscriptionStatus?.entitlements?.ykiAccess ? 'yki' : 'no-yki',
     subscriptionStatus?.entitlements?.professionalAccess ? 'professional' : 'no-professional',
+    subscriptionStatus?.entitlements?.readAccess ? 'read' : 'no-read',
+    subscriptionStatus?.entitlements?.createAccess ? 'create' : 'no-create',
     (subscriptionStatus?.entitlements?.professions ?? []).join(','),
   ].join('|');
   const hydrateSubscription = useSubscriptionStore((state) => state.hydrate);
