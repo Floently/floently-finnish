@@ -72,6 +72,11 @@ const IOS_PRODUCT_IDENTIFIER_BY_PACKAGE: Record<string, string> = {
   creator_yearly: 'floently_read_creator_yearly',
 };
 
+const ANDROID_READ_PRODUCT_IDENTIFIER_BY_PACKAGE: Partial<Record<ReadStorePlanId, string>> = {
+  reader_monthly: 'floently_read_reader:monthly',
+  creator_monthly: 'floently_read_creator:monthly',
+};
+
 export type StorePlanAvailability = {
   planId: string;
   packageId: string | null;
@@ -171,21 +176,33 @@ async function preflightStoreBillingPlansForOffering(
       const expectedProductIdentifier =
         platform === 'ios' && packageId
           ? IOS_PRODUCT_IDENTIFIER_BY_PACKAGE[packageId] ?? null
-          : null;
+          : platform === 'android' &&
+              offeringIdentifier === READ_OFFERING_ID &&
+              packageId
+            ? ANDROID_READ_PRODUCT_IDENTIFIER_BY_PACKAGE[
+                packageId as ReadStorePlanId
+              ] ?? null
+            : null;
       const priceString = matchedPackage?.priceString?.trim() || null;
       const productIdentifierMatches =
-        platform !== 'ios' ||
-        Boolean(
-          expectedProductIdentifier &&
-          productIdentifier === expectedProductIdentifier
-        );
+        platform === 'ios'
+          ? Boolean(
+              expectedProductIdentifier &&
+              productIdentifier === expectedProductIdentifier
+            )
+          : platform === 'android' && offeringIdentifier === READ_OFFERING_ID
+            ? Boolean(
+                expectedProductIdentifier &&
+                productIdentifier === expectedProductIdentifier
+              )
+            : true;
 
       // A plan is considered store-ready only when RevenueCat returned the
       // expected package, the underlying store product, and localized price.
-      // On iOS every purchasable package must have an explicitly pinned Apple
-      // Product ID and resolve to that exact product. A new/unreviewed package,
-      // or a legacy product behind the correct RevenueCat alias, therefore
-      // fails closed until the release matrix is deliberately updated.
+      // On iOS every purchasable package must resolve to the explicitly pinned
+      // Apple Product ID. Floently Read also pins its documented Android monthly
+      // Google Play product IDs, so a miswired RevenueCat alias cannot charge a
+      // product that the server-authoritative verifier would later reject.
       const available = Boolean(
         packageId &&
         matchedPackage &&
