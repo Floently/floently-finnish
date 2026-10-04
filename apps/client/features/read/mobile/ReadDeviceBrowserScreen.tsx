@@ -673,6 +673,7 @@ export default function ReadDeviceBrowserScreen() {
     currentTime: 0,
   });
   const previousSystemPlayingRef = useRef(false);
+  const browserProgressSyncRef = useRef<Promise<void>>(Promise.resolve());
 
   const initialUrl = useMemo(() => {
     const value = Array.isArray(params.url) ? params.url[0] : params.url;
@@ -950,11 +951,16 @@ export default function ReadDeviceBrowserScreen() {
   const persistBrowserProgress = (value = displayedProgress) => {
     if (!reading) return;
     const next = Math.max(0, Math.min(1, value));
+    const key = browserReadingProgressKey(reading);
     lastSavedProgressRef.current = next;
-    void AsyncStorage.setItem(
-      browserReadingProgressKey(reading),
-      String(next),
-    ).catch(() => {});
+
+    // Pause/background/seek can all persist nearly simultaneously. Serialize
+    // writes so a slower older AsyncStorage request can never overwrite the
+    // user's newer logical position and cause a backwards resume later.
+    browserProgressSyncRef.current = browserProgressSyncRef.current
+      .catch(() => {})
+      .then(() => AsyncStorage.setItem(key, String(next)))
+      .catch(() => {});
   };
 
   useEffect(() => {
