@@ -604,6 +604,96 @@ function toUserLike(input?: AuthUser | { email?: string | null; subscriptionTier
   };
 }
 
+let subscriptionRefreshRevision = 0;
+let verifiedReadRevision = 0;
+
+function withVerifiedReadAccess(
+  current: CompatSubscriptionStatus,
+  input: { readAccess?: boolean; creatorAccess?: boolean },
+): CompatSubscriptionStatus {
+  // Internal all-access is a separate backend-owned authority and must never
+  // be downgraded by the Read product backend.
+  if (current.isInternalAllAccess) return current;
+
+  const readAccess = Boolean(input.readAccess || input.creatorAccess);
+  const createAccess = Boolean(input.creatorAccess);
+  const currentTierIsRead = tierHasReadAccess(current.tier);
+  const currentBillingTierIsRead = tierHasReadAccess(current.billingTier);
+  const verifiedReadTier = createAccess ? 'creator_monthly' : 'reader_monthly';
+  const hasNonReadEntitlement = Boolean(
+    current.entitlements.learnAccess ||
+    current.entitlements.ykiAccess ||
+    current.entitlements.professionalAccess
+  );
+
+  const nextTier = currentTierIsRead
+    ? (readAccess ? verifiedReadTier : 'free')
+    : current.tier === 'free' && readAccess
+      ? verifiedReadTier
+      : current.tier;
+  const nextBillingTier = currentBillingTierIsRead
+    ? (readAccess ? verifiedReadTier : 'free')
+    : current.billingTier === 'free' && readAccess
+      ? verifiedReadTier
+      : current.billingTier;
+  const hasIndependentSubscription = Boolean(
+    hasNonReadEntitlement ||
+    (
+      current.hasAnySubscription &&
+      !current.readAccess &&
+      !current.createAccess &&
+      !currentTierIsRead
+    )
+  );
+  const nextHasAnySubscription = hasIndependentSubscription || readAccess;
+  const readOnlyPresentation =
+    currentTierIsRead ||
+    (current.tier === 'free' && !hasNonReadEntitlement);
+
+  return {
+    ...current,
+    tier: nextTier,
+    billingTier: nextBillingTier,
+    plan: readOnlyPresentation
+      ? {
+          ...current.plan,
+          id: nextTier,
+          title: readAccess
+            ? (createAccess ? 'Floently Read Creator' : 'Floently Read')
+            : 'Free',
+          category: 'none',
+        }
+      : current.plan,
+    planLabel: readOnlyPresentation
+      ? (
+          readAccess
+            ? (createAccess ? 'Floently Read Creator' : 'Floently Read')
+            : 'Free'
+        )
+      : current.planLabel,
+    accessSummary: readOnlyPresentation
+      ? (
+          readAccess
+            ? (
+                createAccess
+                  ? 'Floently Read Creator access is active from verified store billing.'
+                  : 'Floently Read access is active from verified store billing.'
+              )
+            : 'No active Floently Read subscription is verified.'
+        )
+      : current.accessSummary,
+    hasAnySubscription: nextHasAnySubscription,
+    isActive: current.isPreview || nextHasAnySubscription,
+    readAccess,
+    createAccess,
+    entitlements: {
+      ...current.entitlements,
+      readAccess,
+      createAccess,
+    },
+  };
+}
+
 export const useSubscriptionStore = create<SubscriptionState>((set, get) => ({
   hasLoaded: false,
   isLoading: false,
@@ -621,6 +711,8 @@ export const useSubscriptionStore = create<SubscriptionState>((set, get) => ({
     await get().refresh(input);
   },
   async refresh(input) {
+    const requestRevision = ++subscriptionRefreshRevision;
+    const readRevisionAtStart = verifiedReadRevision;
     const user = toUserLike(input);
     const currentStatus = get().status;
     const previewPath = get().previewPath;
@@ -634,6 +726,8 @@ export const useSubscriptionStore = create<SubscriptionState>((set, get) => ({
     set({ isLoading: true, status: { ...fallback, entitlements: { ...fallback.entitlements, activeContext: fallbackContext } }, activeContext: fallbackContext });
     try {
       const remoteRaw = await getSubscriptionStatus();
+      if (requestRevision !== subscriptionRefreshRevision) return;
+
       const remote = normalizeRemoteStatus(remoteRaw, user);
 
       // If a background refresh without user context returns an empty/free shape,
@@ -649,11 +743,24 @@ export const useSubscriptionStore = create<SubscriptionState>((set, get) => ({
         !remote.isActive &&
         !previewFallback;
 
-      const effectiveRemote = shouldPreserveCurrent
+      let effectiveRemote = shouldPreserveCurrent
         ? currentStatus
         : (!remote.hasAnySubscription && !remote.isInternalAllAccess && previewFallback)
           ? previewFallback
           : remote;
+
+      // FlowReader is the authority for Read access. If its verified snapshot
+      // changed while the Learn subscription request was in flight, preserve
+      // that newer grant/revocation over the late Learn response.
+      if (verifiedReadRevision !== readRevisionAtStart) {
+        const authoritativeRead = get().status;
+        if (authoritativeRead) {
+          effectiveRemote = withVerifiedReadAccess(effectiveRemote, {
+            readAccess: authoritativeRead.readAccess,
+            creatorAccess: authoritativeRead.createAccess,
+          });
+        }
+      }
 
       const activeContext = resolveContext(effectiveRemote, get().activeContext);
       set({
@@ -669,6 +776,7 @@ export const useSubscriptionStore = create<SubscriptionState>((set, get) => ({
         activeContext,
       });
     } catch {
+      if (requestRevision !== subscriptionRefreshRevision) return;
       set({
         hasLoaded: true,
         isLoading: false,
@@ -684,93 +792,20 @@ export const useSubscriptionStore = create<SubscriptionState>((set, get) => ({
     }
   },
   clear() {
+    // Invalidate any Learn response still in flight so logout/account changes
+    // cannot repopulate subscription state after it has been cleared.
+    subscriptionRefreshRevision += 1;
     set({ hasLoaded: false, isLoading: false, status: null, activeContext: 'none', previewPath: null });
   },
   reconcileVerifiedReadAccess(input) {
     const current = get().status ?? fallbackForUser(null);
-
-    // Internal all-access is a separate backend-owned authority and must never
-    // be downgraded by the Read product backend.
     if (current.isInternalAllAccess) return;
 
-    const readAccess = Boolean(input.readAccess || input.creatorAccess);
-    const createAccess = Boolean(input.creatorAccess);
-    const currentTierIsRead = tierHasReadAccess(current.tier);
-    const currentBillingTierIsRead = tierHasReadAccess(current.billingTier);
-    const verifiedReadTier = createAccess ? 'creator_monthly' : 'reader_monthly';
-    const hasNonReadEntitlement = Boolean(
-      current.entitlements.learnAccess ||
-      current.entitlements.ykiAccess ||
-      current.entitlements.professionalAccess
-    );
-
-    const nextTier = currentTierIsRead
-      ? (readAccess ? verifiedReadTier : 'free')
-      : current.tier === 'free' && readAccess
-        ? verifiedReadTier
-        : current.tier;
-    const nextBillingTier = currentBillingTierIsRead
-      ? (readAccess ? verifiedReadTier : 'free')
-      : current.billingTier === 'free' && readAccess
-        ? verifiedReadTier
-        : current.billingTier;
-    const hasIndependentSubscription = Boolean(
-      hasNonReadEntitlement ||
-      (
-        current.hasAnySubscription &&
-        !current.readAccess &&
-        !current.createAccess &&
-        !currentTierIsRead
-      )
-    );
-    const nextHasAnySubscription = hasIndependentSubscription || readAccess;
-    const readOnlyPresentation = currentTierIsRead || (current.tier === 'free' && !hasNonReadEntitlement);
-
+    verifiedReadRevision += 1;
     set({
       hasLoaded: true,
       isLoading: false,
-      status: {
-        ...current,
-        tier: nextTier,
-        billingTier: nextBillingTier,
-        plan: readOnlyPresentation
-          ? {
-              ...current.plan,
-              id: nextTier,
-              title: readAccess
-                ? (createAccess ? 'Floently Read Creator' : 'Floently Read')
-                : 'Free',
-              category: 'none',
-            }
-          : current.plan,
-        planLabel: readOnlyPresentation
-          ? (
-              readAccess
-                ? (createAccess ? 'Floently Read Creator' : 'Floently Read')
-                : 'Free'
-            )
-          : current.planLabel,
-        accessSummary: readOnlyPresentation
-          ? (
-              readAccess
-                ? (
-                    createAccess
-                      ? 'Floently Read Creator access is active from verified store billing.'
-                      : 'Floently Read access is active from verified store billing.'
-                  )
-                : 'No active Floently Read subscription is verified.'
-            )
-          : current.accessSummary,
-        hasAnySubscription: nextHasAnySubscription,
-        isActive: current.isPreview || nextHasAnySubscription,
-        readAccess,
-        createAccess,
-        entitlements: {
-          ...current.entitlements,
-          readAccess,
-          createAccess,
-        },
-      },
+      status: withVerifiedReadAccess(current, input),
     });
   },
   startPreview(path) {
