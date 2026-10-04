@@ -62,6 +62,7 @@ type SubscriptionState = {
   refresh: (input?: AuthUser | { email?: string | null; subscriptionTierHint?: string | null } | null) => Promise<void>;
   clear: () => void;
   applyStoreReadAccess: (input: { readAccess?: boolean; creatorAccess?: boolean }) => void;
+  reconcileVerifiedReadAccess: (input: { readAccess?: boolean; creatorAccess?: boolean }) => void;
   setActiveContext: (context: LearningContext) => void;
   startPreview: (path: PreviewPath) => void;
   endPreview: () => void;
@@ -139,10 +140,12 @@ function tierHasReadAccess(tier: string) {
   return (
     normalized === 'reader' ||
     normalized === 'read' ||
+    normalized === 'creator' ||
     normalized === 'read_premium' ||
     normalized === 'reader_premium' ||
     normalized.startsWith('read_') ||
     normalized.startsWith('reader_') ||
+    normalized.startsWith('creator_') ||
     normalized.includes('floently_read')
   );
 }
@@ -711,6 +714,88 @@ export const useSubscriptionStore = create<SubscriptionState>((set, get) => ({
     };
 
     set({ hasLoaded: true, isLoading: false, status: nextStatus });
+  },
+  reconcileVerifiedReadAccess(input) {
+    const current = get().status ?? fallbackForUser(null);
+
+    // Internal all-access is a separate backend-owned authority and must never
+    // be downgraded by the Read product backend.
+    if (current.isInternalAllAccess) return;
+
+    const readAccess = Boolean(input.readAccess || input.creatorAccess);
+    const createAccess = Boolean(input.creatorAccess);
+    const currentTierIsRead = tierHasReadAccess(current.tier);
+    const currentBillingTierIsRead = tierHasReadAccess(current.billingTier);
+    const verifiedReadTier = createAccess ? 'creator_monthly' : 'reader_monthly';
+    const hasNonReadEntitlement = Boolean(
+      current.entitlements.learnAccess ||
+      current.entitlements.ykiAccess ||
+      current.entitlements.professionalAccess
+    );
+
+    const nextTier = currentTierIsRead
+      ? (readAccess ? verifiedReadTier : 'free')
+      : current.tier === 'free' && readAccess
+        ? verifiedReadTier
+        : current.tier;
+    const nextBillingTier = currentBillingTierIsRead
+      ? (readAccess ? verifiedReadTier : 'free')
+      : current.billingTier === 'free' && readAccess
+        ? verifiedReadTier
+        : current.billingTier;
+    const nextHasAnySubscription = Boolean(
+      hasNonReadEntitlement ||
+      readAccess ||
+      (!currentTierIsRead && current.hasAnySubscription)
+    );
+    const readOnlyPresentation = currentTierIsRead || (current.tier === 'free' && !hasNonReadEntitlement);
+
+    set({
+      hasLoaded: true,
+      isLoading: false,
+      status: {
+        ...current,
+        tier: nextTier,
+        billingTier: nextBillingTier,
+        plan: readOnlyPresentation
+          ? {
+              ...current.plan,
+              id: nextTier,
+              title: readAccess
+                ? (createAccess ? 'Floently Read Creator' : 'Floently Read')
+                : 'Free',
+              category: 'none',
+            }
+          : current.plan,
+        planLabel: readOnlyPresentation
+          ? (
+              readAccess
+                ? (createAccess ? 'Floently Read Creator' : 'Floently Read')
+                : 'Free'
+            )
+          : current.planLabel,
+        accessSummary: readOnlyPresentation
+          ? (
+              readAccess
+                ? (
+                    createAccess
+                      ? 'Floently Read Creator access is active from verified store billing.'
+                      : 'Floently Read access is active from verified store billing.'
+                  )
+                : 'No active Floently Read subscription is verified.'
+            )
+          : current.accessSummary,
+        hasAnySubscription: nextHasAnySubscription,
+        isActive: current.isPreview || nextHasAnySubscription,
+        readAccess,
+        createAccess,
+        entitlements: {
+          ...current.entitlements,
+          readAccess,
+          createAccess,
+        },
+      },
+    });
   },
   startPreview(path) {
     const status = buildPreviewStatus(path);
