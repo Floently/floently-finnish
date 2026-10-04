@@ -160,9 +160,9 @@ jobs:
           grep -Eq "applicationId[[:space:]]+['\"]com\.vitusidi\.floently['\"]" apps/client/android/app/build.gradle
           grep -F '"react-native-webview": "13.16.1"' apps/client/package.json
           grep -F 'android:allowBackup="false"' "$manifest"
-          grep -F 'android.permission.SYSTEM_ALERT_WINDOW' "$manifest" | grep -F 'tools:node="remove"'
-          if grep -F 'android.permission.SYSTEM_ALERT_WINDOW' "$manifest" | grep -vq 'tools:node="remove"'; then
-            echo "Android source manifest must only contain SYSTEM_ALERT_WINDOW as an explicit removal marker." >&2
+          if grep -Fq 'android.permission.SYSTEM_ALERT_WINDOW' "$manifest"; then
+            echo "Generated Android app manifest must not declare SYSTEM_ALERT_WINDOW." >&2
+            grep -n -F 'android.permission.SYSTEM_ALERT_WINDOW' "$manifest" >&2 || true
             exit 1
           fi
           grep -F 'android.permission.FOREGROUND_SERVICE' "$manifest"
@@ -175,8 +175,19 @@ jobs:
         run: |
           chmod +x gradlew
           ./gradlew --no-daemon :app:processReleaseMainManifest
-          merged_manifest="$(find app/build/intermediates -path '*merged_manifests*release*AndroidManifest.xml' -print -quit)"
-          test -n "$merged_manifest"
+          merged_manifest="$(
+            find app/build/intermediates app/build/outputs \
+              -type f -name AndroidManifest.xml \
+              -path '*release*' \
+              -print \
+              | head -n 1
+          )"
+          if [ -z "$merged_manifest" ]; then
+            echo "Could not locate the processed release AndroidManifest.xml." >&2
+            find app/build/intermediates app/build/outputs -type f -name AndroidManifest.xml -print >&2 || true
+            exit 1
+          fi
+          echo "release_manifest=$merged_manifest"
           if grep -Fq 'android.permission.SYSTEM_ALERT_WINDOW' "$merged_manifest"; then
             echo "Merged Android release app must not request SYSTEM_ALERT_WINDOW." >&2
             grep -n -F 'android.permission.SYSTEM_ALERT_WINDOW' "$merged_manifest" >&2 || true
