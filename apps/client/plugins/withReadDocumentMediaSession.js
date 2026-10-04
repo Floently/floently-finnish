@@ -350,6 +350,293 @@ function patchMediaControllerSwift(source) {
   return next;
 }
 
+
+function patchAudioPlayerKotlin(source) {
+  if (source.includes(PATCH_MARKER)) return source;
+
+  let next = source;
+
+  next = replaceRequired(
+    next,
+    `private const val AUDIO_SAMPLE_UPDATE = "audioSampleUpdate"
+private const val SEEK_JUMP_INTERVAL_MS: Long = 10_000
+
+@UnstableApi
+class AudioPlayer(`,
+    `private const val AUDIO_SAMPLE_UPDATE = "audioSampleUpdate"
+private const val SEEK_JUMP_INTERVAL_MS: Long = 10_000
+
+// ${PATCH_MARKER}
+// The ExoPlayer source is a hidden narration segment. Android's MediaSession
+// receives a virtual document timeline through LogicalTimelinePlayer.
+internal data class LogicalLockScreenTimeline(
+  val durationMs: Long,
+  val elapsedAtAnchorMs: Long,
+  val mediaTimeAtAnchorMs: Long,
+  val playbackSpeed: Double
+)
+
+@UnstableApi
+class AudioPlayer(`,
+    'Android AudioPlayer logical timeline model'
+  );
+
+  next = replaceRequired(
+    next,
+    `  internal var lockScreenOptions: AudioLockScreenOptions? = null
+  internal var mediaSession: MediaSession = buildBasicMediaSession(context, ref)
+  val serviceConnection = AudioPlaybackServiceConnection(WeakReference(this), appContext)`,
+    `  internal var lockScreenOptions: AudioLockScreenOptions? = null
+  internal var logicalLockScreenTimeline: LogicalLockScreenTimeline? = null
+  internal var mediaSession: MediaSession = buildBasicMediaSession(context, ref)
+  val serviceConnection = AudioPlaybackServiceConnection(WeakReference(this), appContext)`,
+    'Android AudioPlayer lock-screen state'
+  );
+
+  next = replaceRequired(
+    next,
+    `  fun setActiveForLockScreen(active: Boolean, metadata: Metadata? = null, options: AudioLockScreenOptions? = null) {`,
+    `  fun setLogicalLockScreenTimeline(durationSeconds: Double, elapsedSeconds: Double, playbackSpeed: Double) {
+    val safeDurationMs = (durationSeconds.coerceAtLeast(0.1) * 1000.0).toLong().coerceAtLeast(100L)
+    val safeElapsedMs = (elapsedSeconds.coerceAtLeast(0.0) * 1000.0).toLong().coerceIn(0L, safeDurationMs)
+    val safeSpeed = playbackSpeed.coerceIn(0.1, 2.0)
+
+    logicalLockScreenTimeline = LogicalLockScreenTimeline(
+      durationMs = safeDurationMs,
+      elapsedAtAnchorMs = safeElapsedMs,
+      mediaTimeAtAnchorMs = ref.currentPosition.coerceAtLeast(0L),
+      playbackSpeed = safeSpeed
+    )
+    serviceConnection.playbackServiceBinder?.service?.refreshLogicalTimeline(this)
+  }
+
+  fun clearLogicalLockScreenTimeline() {
+    logicalLockScreenTimeline = null
+    serviceConnection.playbackServiceBinder?.service?.refreshLogicalTimeline(this)
+  }
+
+  internal fun logicalDurationMs(): Long {
+    return logicalLockScreenTimeline?.durationMs ?: ref.duration.coerceAtLeast(0L)
+  }
+
+  internal fun logicalCurrentPositionMs(): Long {
+    val timeline = logicalLockScreenTimeline ?: return ref.currentPosition.coerceAtLeast(0L)
+    val mediaDeltaMs = (ref.currentPosition - timeline.mediaTimeAtAnchorMs).toDouble()
+    val logicalDeltaMs = mediaDeltaMs / timeline.playbackSpeed
+    return (timeline.elapsedAtAnchorMs + logicalDeltaMs.toLong())
+      .coerceIn(0L, timeline.durationMs)
+  }
+
+  internal fun requestLogicalSeek(positionMs: Long) {
+    val timeline = logicalLockScreenTimeline ?: return
+    val bounded = positionMs.coerceIn(0L, timeline.durationMs)
+    emit(
+      "logicalSeekRequested",
+      mapOf("positionSeconds" to bounded / 1000.0)
+    )
+  }
+
+  fun setActiveForLockScreen(active: Boolean, metadata: Metadata? = null, options: AudioLockScreenOptions? = null) {`,
+    'Android AudioPlayer logical timeline methods'
+  );
+
+  next = replaceRequired(
+    next,
+    `  fun clearLockScreenControls() {
+    if (isActiveForLockScreen) {
+      serviceConnection.playbackServiceBinder?.service?.unregisterPlayer()
+    }
+  }`,
+    `  fun clearLockScreenControls() {
+    if (isActiveForLockScreen) {
+      serviceConnection.playbackServiceBinder?.service?.unregisterPlayer()
+    }
+    logicalLockScreenTimeline = null
+  }`,
+    'Android AudioPlayer clear lock-screen controls'
+  );
+
+  return next;
+}
+
+function patchAudioModuleKotlin(source) {
+  if (source.includes(PATCH_MARKER)) return source;
+
+  let next = source;
+
+  next = replaceRequired(
+    next,
+    `      Function("clearLockScreenControls") { ref: AudioPlayer ->
+        runOnMain {
+          ref.clearLockScreenControls()
+        }
+      }
+
+      Function("setAudioSamplingEnabled")`,
+    `      Function("clearLockScreenControls") { ref: AudioPlayer ->
+        runOnMain {
+          ref.clearLockScreenControls()
+        }
+      }
+
+      // ${PATCH_MARKER}
+      Function("setLogicalLockScreenTimeline") {
+        ref: AudioPlayer,
+        duration: Double,
+        elapsed: Double,
+        playbackSpeed: Double ->
+        runOnMain {
+          ref.setLogicalLockScreenTimeline(duration, elapsed, playbackSpeed)
+        }
+      }
+
+      Function("clearLogicalLockScreenTimeline") { ref: AudioPlayer ->
+        runOnMain {
+          ref.clearLogicalLockScreenTimeline()
+        }
+      }
+
+      Function("setAudioSamplingEnabled")`,
+    'Android AudioModule logical timeline bridge'
+  );
+
+  return next;
+}
+
+function patchAudioControlsServiceKotlin(source) {
+  if (source.includes(PATCH_MARKER)) return source;
+
+  let next = source;
+
+  next = replaceRequired(
+    next,
+    `import androidx.media3.common.Player
+import androidx.media3.common.util.UnstableApi`,
+    `import androidx.media3.common.ForwardingPlayer
+import androidx.media3.common.Player
+import androidx.media3.common.util.UnstableApi`,
+    'Android AudioControlsService ForwardingPlayer import'
+  );
+
+  next = replaceRequired(
+    next,
+    `@OptIn(UnstableApi::class)
+class AudioControlsService : MediaSessionService() {`,
+    `// ${PATCH_MARKER}
+// Media3 remains connected to the physical ExoPlayer for playback, while this
+// wrapper exposes Floently's complete reading as one logical media item.
+private class LogicalTimelinePlayer(
+  private val audioPlayer: AudioPlayer
+) : ForwardingPlayer(audioPlayer.ref) {
+  override fun getDuration(): Long = audioPlayer.logicalDurationMs()
+
+  override fun getContentDuration(): Long = audioPlayer.logicalDurationMs()
+
+  override fun getCurrentPosition(): Long = audioPlayer.logicalCurrentPositionMs()
+
+  override fun getContentPosition(): Long = audioPlayer.logicalCurrentPositionMs()
+
+  override fun seekTo(positionMs: Long) {
+    audioPlayer.requestLogicalSeek(positionMs)
+  }
+
+  override fun seekTo(mediaItemIndex: Int, positionMs: Long) {
+    audioPlayer.requestLogicalSeek(positionMs)
+  }
+
+  override fun seekBack() {
+    audioPlayer.requestLogicalSeek(
+      audioPlayer.logicalCurrentPositionMs() - AudioControlsService.SEEK_INTERVAL_MS
+    )
+  }
+
+  override fun seekForward() {
+    audioPlayer.requestLogicalSeek(
+      audioPlayer.logicalCurrentPositionMs() + AudioControlsService.SEEK_INTERVAL_MS
+    )
+  }
+}
+
+@OptIn(UnstableApi::class)
+class AudioControlsService : MediaSessionService() {`,
+    'Android logical MediaSession player'
+  );
+
+  next = replaceRequired(
+    next,
+    `        ACTION_SEEK_FORWARD -> currentPlayerRef.seekTo(currentPlayerRef.currentPosition + SEEK_INTERVAL_MS)
+        ACTION_SEEK_BACKWARD -> currentPlayerRef.seekTo(currentPlayerRef.currentPosition - SEEK_INTERVAL_MS)`,
+    `        ACTION_SEEK_FORWARD -> {
+          val player = currentPlayer
+          if (player?.logicalLockScreenTimeline != null) {
+            player.requestLogicalSeek(player.logicalCurrentPositionMs() + SEEK_INTERVAL_MS)
+          } else {
+            currentPlayerRef.seekTo(currentPlayerRef.currentPosition + SEEK_INTERVAL_MS)
+          }
+        }
+        ACTION_SEEK_BACKWARD -> {
+          val player = currentPlayer
+          if (player?.logicalLockScreenTimeline != null) {
+            player.requestLogicalSeek(player.logicalCurrentPositionMs() - SEEK_INTERVAL_MS)
+          } else {
+            currentPlayerRef.seekTo(currentPlayerRef.currentPosition - SEEK_INTERVAL_MS)
+          }
+        }`,
+    'Android legacy notification logical seek'
+  );
+
+  next = replaceRequired(
+    next,
+    `        val session = MediaSession.Builder(context, player.ref)
+          .setCallback(AudioMediaSessionCallback())
+          .build()`,
+    `        val sessionPlayer: Player = if (player.logicalLockScreenTimeline != null) {
+          LogicalTimelinePlayer(player)
+        } else {
+          player.ref
+        }
+        val session = MediaSession.Builder(context, sessionPlayer)
+          .setCallback(AudioMediaSessionCallback())
+          .build()`,
+    'Android MediaSession logical player binding'
+  );
+
+  next = replaceRequired(
+    next,
+    `  fun setPlayerMetadata(player: AudioPlayer, metadata: Metadata?) {
+    updateMetadataInternal(player, metadata)
+  }
+
+  fun setPlayerOptions(`,
+    `  fun setPlayerMetadata(player: AudioPlayer, metadata: Metadata?) {
+    updateMetadataInternal(player, metadata)
+  }
+
+  fun refreshLogicalTimeline(player: AudioPlayer) {
+    if (player != currentPlayer) {
+      return
+    }
+
+    appContext?.mainQueue?.launch {
+      val session = mediaSession ?: return@launch
+      val sessionPlayer: Player = if (player.logicalLockScreenTimeline != null) {
+        LogicalTimelinePlayer(player)
+      } else {
+        player.ref
+      }
+      session.setPlayer(sessionPlayer)
+      updateSessionCustomLayout(player.ref.isPlaying)
+      postOrStartForegroundNotification(startInForeground = false)
+    }
+  }
+
+  fun setPlayerOptions(`,
+    'Android media-session logical timeline refresh'
+  );
+
+  return next;
+}
+
 function patchExpoAudioAt(packageRoot) {
   const iosRoot = path.join(packageRoot, 'ios');
   const files = [
@@ -388,8 +675,38 @@ function resolveExpoAudioPackageRoot(projectRoot) {
   return packageRoot;
 }
 
+function patchExpoAudioAndroidAt(packageRoot) {
+  const androidRoot = path.join(
+    packageRoot,
+    'android',
+    'src',
+    'main',
+    'java',
+    'expo',
+    'modules',
+    'audio'
+  );
+  const files = [
+    ['AudioPlayer.kt', patchAudioPlayerKotlin],
+    ['AudioModule.kt', patchAudioModuleKotlin],
+    [path.join('service', 'AudioControlsService.kt'), patchAudioControlsServiceKotlin],
+  ];
+
+  for (const [relativePath, transform] of files) {
+    const filePath = path.join(androidRoot, relativePath);
+    if (!fs.existsSync(filePath)) {
+      throw new Error(`Floently Read Android media-session patch missing expo-audio file: ${filePath}`);
+    }
+    const before = fs.readFileSync(filePath, 'utf8');
+    const after = transform(before);
+    if (after !== before) {
+      fs.writeFileSync(filePath, after);
+    }
+  }
+}
+
 function withReadDocumentMediaSession(config) {
-  return withDangerousMod(config, [
+  let next = withDangerousMod(config, [
     'ios',
     async (config) => {
       const projectRoot = config.modRequest.projectRoot;
@@ -398,6 +715,18 @@ function withReadDocumentMediaSession(config) {
       return config;
     },
   ]);
+
+  next = withDangerousMod(next, [
+    'android',
+    async (config) => {
+      const projectRoot = config.modRequest.projectRoot;
+      const packageRoot = resolveExpoAudioPackageRoot(projectRoot);
+      patchExpoAudioAndroidAt(packageRoot);
+      return config;
+    },
+  ]);
+
+  return next;
 }
 
 module.exports = withReadDocumentMediaSession;
@@ -408,3 +737,8 @@ module.exports.patchAudioModuleSwift = patchAudioModuleSwift;
 module.exports.patchMediaControllerSwift = patchMediaControllerSwift;
 module.exports.patchExpoAudioAt = patchExpoAudioAt;
 module.exports.resolveExpoAudioPackageRoot = resolveExpoAudioPackageRoot;
+
+module.exports.patchAudioPlayerKotlin = patchAudioPlayerKotlin;
+module.exports.patchAudioModuleKotlin = patchAudioModuleKotlin;
+module.exports.patchAudioControlsServiceKotlin = patchAudioControlsServiceKotlin;
+module.exports.patchExpoAudioAndroidAt = patchExpoAudioAndroidAt;
