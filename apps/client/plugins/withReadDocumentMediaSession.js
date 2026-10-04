@@ -633,7 +633,7 @@ class AudioControlsService : MediaSessionService() {`,
 
   next = replaceRequiredRegex(
     next,
-    /(  private fun resolveSessionPlayer\(([^\r\n]+)\): Player \{\r?\n)/,
+    /([ \t]*private fun resolveSessionPlayer\(([^)]*)\)\s*:\s*Player\s*\{\r?\n)/,
     (signature, parameters) => {
       const playable = String(parameters).match(
         /\b([A-Za-z_][A-Za-z0-9_]*):\s*(AudioPlayer|LockScreenPlayable)\b/
