@@ -48,21 +48,7 @@ const patchedModule = plugin.patchAudioModuleSwift(audioModuleSource);
 const patchedController = plugin.patchMediaControllerSwift(mediaControllerSource);
 const patchedAndroidPlayer = plugin.patchAudioPlayerKotlin(androidAudioPlayerSource);
 const patchedAndroidModule = plugin.patchAudioModuleKotlin(androidAudioModuleSource);
-let patchedAndroidControls;
-try {
-  patchedAndroidControls = plugin.patchAudioControlsServiceKotlin(androidControlsSource);
-} catch (error) {
-  const shape = androidControlsSource
-    .split(/\r?\n/)
-    .filter((line) =>
-      /\bfun\b|MediaSession|currentPlayer|currentPlayable|LockScreen|register|setPlayer|seek/i.test(line),
-    )
-    .slice(0, 180)
-    .join('\n');
-  console.error('EXPO_AUDIO_55_0_14_ANDROID_CONTROLS_SHAPE');
-  console.error(shape);
-  throw error;
-}
+const patchedAndroidControls = plugin.patchAudioControlsServiceKotlin(androidControlsSource);
 
 for (const [name, patched] of [
   ['AudioPlayer.swift', patchedPlayer],
@@ -155,14 +141,12 @@ for (const marker of [
   'override fun getPlaybackParameters(): PlaybackParameters = PlaybackParameters(1.0f)',
   'override fun seekToDefaultPosition()',
   'audioPlayer.requestLogicalSeek(positionMs)',
-  'logicalLockScreenTimeline != null',
-  'return LogicalTimelinePlayer(',
+  'val sessionPlayer: Player = if (player.logicalLockScreenTimeline != null)',
+  'LogicalTimelinePlayer(player)',
   'MediaSession.Builder(context, sessionPlayer)',
   'fun refreshLogicalTimeline(player: AudioPlayer)',
-  'session.setPlayer(resolveSessionPlayer(player, currentOptions))',
-  'if (player.logicalLockScreenTimeline != null) {',
-  'mediaSession?.setPlayer(resolveSessionPlayer(player, options))',
-  'Keep the existing Android MediaSession alive',
+  'session.setPlayer(sessionPlayer)',
+  'Re-anchor the public document timeline without rebuilding the session',
   'removePlayerListener()',
   'val player = currentPlayer',
   'val listener = playbackListener',
