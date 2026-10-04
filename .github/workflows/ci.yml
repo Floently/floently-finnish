@@ -141,7 +141,6 @@ jobs:
         with:
           distribution: temurin
           java-version: '17'
-          cache: gradle
       - name: Install frozen workspace dependencies
         run: pnpm install --frozen-lockfile
       - name: Generate exact native Android project
@@ -150,8 +149,9 @@ jobs:
       - name: Verify Android Read native surface
         run: |
           test -f apps/client/android/gradlew
-          grep -F 'package="com.vitusidi.floently"' apps/client/android/app/src/main/AndroidManifest.xml || true
-          grep -R -F 'react-native-webview' apps/client/android apps/client/package.json >/dev/null
+          test -f apps/client/android/app/build.gradle
+          grep -Eq "applicationId[[:space:]]+['\"]com\.vitusidi\.floently['\"]" apps/client/android/app/build.gradle
+          grep -F '"react-native-webview": "13.16.1"' apps/client/package.json
           echo "ANDROID_READ_NATIVE_SOURCE=PASS"
       - name: Compile generated Android debug app
         working-directory: apps/client/android
