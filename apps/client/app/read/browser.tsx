@@ -1,10 +1,10 @@
 import ReadProtectedRoute from '../../features/read/mobile/ReadProtectedRoute';
-import ReadLiveBrowserScreen from '../../features/read/mobile/ReadLiveBrowserScreen';
+import ReadDeviceBrowserScreen from '../../features/read/mobile/ReadDeviceBrowserScreen';
 
 export default function ReadBrowserRouteEntry() {
   return (
     <ReadProtectedRoute>
-      <ReadLiveBrowserScreen />
+      <ReadDeviceBrowserScreen />
     </ReadProtectedRoute>
   );
 }

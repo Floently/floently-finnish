@@ -55,6 +55,7 @@ import { UtilityDrawer } from "@ui/components";
 import { audioSession } from "../features/shared/services/audioSession";
 import { goToLearn, isLearnHost } from "./learnRouting";
 import { useTranslator } from "../features/i18n";
+import { readRenderApi } from "../features/read/mobile/readRenderApi";
 import type { RoleplayMode } from "@core/api/roleplay";
 import LanguageSelector from "../features/i18n/LanguageSelector";
 
@@ -191,10 +192,13 @@ export default function AppShell({ requestedScreen = "root" }: Props) {
     subscriptionStatus?.entitlements?.learnAccess ? 'learn' : 'no-learn',
     subscriptionStatus?.entitlements?.ykiAccess ? 'yki' : 'no-yki',
     subscriptionStatus?.entitlements?.professionalAccess ? 'professional' : 'no-professional',
+    subscriptionStatus?.entitlements?.readAccess ? 'read' : 'no-read',
+    subscriptionStatus?.entitlements?.createAccess ? 'create' : 'no-create',
     (subscriptionStatus?.entitlements?.professions ?? []).join(','),
   ].join('|');
   const hydrateSubscription = useSubscriptionStore((state) => state.hydrate);
   const clearSubscription = useSubscriptionStore((state) => state.clear);
+  const reconcileVerifiedReadAccess = useSubscriptionStore((state) => state.reconcileVerifiedReadAccess);
   const setActiveContext = useSubscriptionStore((state) => state.setActiveContext);
   const { t } = useTranslator();
   const lastLoggedScreenRef = useRef<string | null>(null);
@@ -275,8 +279,37 @@ export default function AppShell({ requestedScreen = "root" }: Props) {
       clearSubscription();
       return;
     }
-    void hydrateSubscription(user);
-  }, [clearSubscription, hasHydrated, hydrateSubscription, user]);
+
+    let cancelled = false;
+
+    void (async () => {
+      await hydrateSubscription(user);
+      try {
+        const verifiedRead = await readRenderApi.getAccessStatus();
+        if (!cancelled) {
+          reconcileVerifiedReadAccess(verifiedRead);
+        }
+      } catch (error) {
+        // Preserve the successfully hydrated KieliValmis state when FlowReader
+        // is temporarily unreachable. A network failure must not invent either
+        // a Read grant or a revocation.
+        logger.warn("Could not refresh verified Floently Read access.", {
+          actionType: "READ_ACCESS_REFRESH_FAILED",
+          error: error instanceof Error ? error.message : String(error),
+        });
+      }
+    })();
+
+    return () => {
+      cancelled = true;
+    };
+  }, [
+    clearSubscription,
+    hasHydrated,
+    hydrateSubscription,
+    reconcileVerifiedReadAccess,
+    user,
+  ]);
 
   useEffect(() => {
     void placementHydrate(placementUserKey);

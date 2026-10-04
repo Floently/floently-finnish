@@ -1,4 +1,8 @@
 name: ci
+concurrency:
+  group: ci-${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
 on:
   push:
     branches: [ main, master ]
@@ -64,6 +68,146 @@ jobs:
           FLOENTLY_ENV: development
           SIGNED_SESSION_SECRET: ci-test-secret
 
+  ios-native-source:
+    if: github.event_name == 'pull_request' && github.head_ref == 'agent/build-48-native-read-release-20260929'
+    runs-on: macos-15
+    timeout-minutes: 50
+    steps:
+      - uses: actions/checkout@v4
+      - name: Pin pnpm
+        uses: pnpm/action-setup@v6
+        with:
+          version: '10.34.0'
+          run_install: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: pnpm
+          cache-dependency-path: pnpm-lock.yaml
+      - name: Install frozen workspace dependencies
+        run: pnpm install --frozen-lockfile
+      - name: Verify document media-session source patch
+        run: pnpm --dir apps/client run verify:read-media-session
+      - name: Generate exact native iOS project
+        working-directory: apps/client
+        run: pnpm exec expo prebuild --platform ios --clean --no-install
+      - name: Verify expo-audio was patched by prebuild
+        run: |
+          grep -F "FLOENTLY_LOGICAL_NOW_PLAYING_V1" node_modules/expo-audio/ios/AudioPlayer.swift
+          grep -F "logicalSeekRequested" node_modules/expo-audio/ios/AudioPlayer.swift
+          grep -F "MPMediaItemPropertyPlaybackDuration] = logical.duration" node_modules/expo-audio/ios/MediaController.swift
+          grep -F "player.requestLogicalSeek(to: event.positionTime)" node_modules/expo-audio/ios/MediaController.swift
+          echo "IOS_LOGICAL_MEDIA_PATCH_APPLIED=PASS"
+      - name: Install iOS pods
+        working-directory: apps/client/ios
+        run: pod install
+      - name: Compile generated iOS release simulator app
+        working-directory: apps/client
+        run: |
+          workspace="$(find ios -maxdepth 1 -name '*.xcworkspace' -print -quit)"
+          test -n "$workspace"
+          scheme="$(xcodebuild -workspace "$workspace" -list -json | python3 -c 'import json,sys; print(json.load(sys.stdin)["workspace"]["schemes"][0])')"
+          test -n "$scheme"
+          echo "workspace=$workspace scheme=$scheme"
+          xcodebuild \
+            -workspace "$workspace" \
+            -scheme "$scheme" \
+            -configuration Release \
+            -destination 'generic/platform=iOS Simulator' \
+            -derivedDataPath /tmp/floently-read-release-derived \
+            CODE_SIGNING_ALLOWED=NO \
+            COMPILER_INDEX_STORE_ENABLE=NO \
+            build
+
+
+  android-native-source:
+    if: github.event_name == 'pull_request' && github.head_ref == 'agent/build-48-native-read-release-20260929'
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - name: Pin pnpm
+        uses: pnpm/action-setup@v6
+        with:
+          version: '10.34.0'
+          run_install: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: pnpm
+          cache-dependency-path: pnpm-lock.yaml
+      - name: Set up Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+      - name: Install frozen workspace dependencies
+        run: pnpm install --frozen-lockfile
+      - name: Generate exact native Android project
+        working-directory: apps/client
+        run: pnpm exec expo prebuild --platform android --clean --no-install
+      - name: Verify Android logical media-session patch
+        run: |
+          grep -F "FLOENTLY_LOGICAL_NOW_PLAYING_V1" node_modules/expo-audio/android/src/main/java/expo/modules/audio/AudioPlayer.kt
+          grep -F 'Function("setLogicalLockScreenTimeline")' node_modules/expo-audio/android/src/main/java/expo/modules/audio/AudioModule.kt
+          grep -F "class LogicalTimelinePlayer" node_modules/expo-audio/android/src/main/java/expo/modules/audio/service/AudioControlsService.kt
+          grep -F "val sessionPlayer: Player = if (player.logicalLockScreenTimeline != null)" node_modules/expo-audio/android/src/main/java/expo/modules/audio/service/AudioControlsService.kt
+          grep -F "MediaSession.Builder(context, sessionPlayer)" node_modules/expo-audio/android/src/main/java/expo/modules/audio/service/AudioControlsService.kt
+          grep -F "session.setPlayer(sessionPlayer)" node_modules/expo-audio/android/src/main/java/expo/modules/audio/service/AudioControlsService.kt
+          echo "ANDROID_LOGICAL_MEDIA_PATCH_APPLIED=PASS"
+      - name: Verify Android Read native surface
+        run: |
+          manifest="apps/client/android/app/src/main/AndroidManifest.xml"
+          test -f apps/client/android/gradlew
+          test -f apps/client/android/app/build.gradle
+          test -f "$manifest"
+          grep -Eq "applicationId[[:space:]]+['\"]com\.vitusidi\.floently['\"]" apps/client/android/app/build.gradle
+          grep -F '"react-native-webview": "13.16.1"' apps/client/package.json
+          grep -F 'android:allowBackup="false"' "$manifest"
+          grep -F 'android.permission.SYSTEM_ALERT_WINDOW' "$manifest" | grep -F 'tools:node="remove"'
+          if grep -F 'android.permission.SYSTEM_ALERT_WINDOW' "$manifest" | grep -vq 'tools:node="remove"'; then
+            echo "Generated Android app manifest must contain SYSTEM_ALERT_WINDOW only as an explicit removal marker." >&2
+            grep -n -F 'android.permission.SYSTEM_ALERT_WINDOW' "$manifest" >&2 || true
+            exit 1
+          fi
+          grep -F 'android.permission.FOREGROUND_SERVICE' "$manifest"
+          grep -F 'android.permission.FOREGROUND_SERVICE_MEDIA_PLAYBACK' "$manifest"
+          grep -F 'expo.modules.audio.service.AudioControlsService' "$manifest"
+          grep -F 'android:foregroundServiceType="mediaPlayback"' "$manifest"
+          echo "ANDROID_READ_NATIVE_SOURCE=PASS"
+      - name: Verify release Android permission surface
+        working-directory: apps/client/android
+        run: |
+          chmod +x gradlew
+          ./gradlew --no-daemon :app:processReleaseMainManifest
+          merged_manifest="$(
+            find app/build/intermediates app/build/outputs \
+              -type f -name AndroidManifest.xml \
+              -path '*release*' \
+              -print \
+              | head -n 1
+          )"
+          if [ -z "$merged_manifest" ]; then
+            echo "Could not locate the processed release AndroidManifest.xml." >&2
+            find app/build/intermediates app/build/outputs -type f -name AndroidManifest.xml -print >&2 || true
+            exit 1
+          fi
+          echo "release_manifest=$merged_manifest"
+          if grep -Fq 'android.permission.SYSTEM_ALERT_WINDOW' "$merged_manifest"; then
+            echo "Merged Android release app must not request SYSTEM_ALERT_WINDOW." >&2
+            grep -n -F 'android.permission.SYSTEM_ALERT_WINDOW' "$merged_manifest" >&2 || true
+            exit 1
+          fi
+          echo "ANDROID_RELEASE_PERMISSION_SURFACE=PASS"
+      - name: Compile generated Android debug app
+        working-directory: apps/client/android
+        run: |
+          chmod +x gradlew
+          ./gradlew --no-daemon :app:assembleDebug
+          test -f app/build/outputs/apk/debug/app-debug.apk
+          echo "ANDROID_DEBUG_APK_COMPILE=PASS"
+          echo "ANDROID_NATIVE_COMPILE=PASS"
+
   client:
     runs-on: ubuntu-latest
     steps:
@@ -84,10 +228,76 @@ jobs:
         run: pnpm install --frozen-lockfile
       - name: TypeScript check
         run: pnpm --dir apps/client exec tsc --noEmit
+
+      - name: Verify iOS build freeze contract
+        run: |
+          test -f .github/workflows/ios-testflight-release.yml
+          test -f apps/client/.eas/workflows/ios-testflight-release.yml
+          for workflow in \
+            .github/workflows/ios-testflight-release.yml \
+            apps/client/.eas/workflows/ios-testflight-release.yml
+          do
+            if grep -Eq '^[[:space:]]*push:' "$workflow"; then
+              echo "$workflow must never auto-trigger from push while monthly builds are constrained." >&2
+              exit 1
+            fi
+            grep -F "workflow_dispatch:" "$workflow"
+            grep -F "product_owner_approval:" "$workflow"
+            grep -F "known_blockers:" "$workflow"
+            grep -F "read_billing_ready:" "$workflow"
+            grep -F "APPROVE_IOS_BUILD" "$workflow"
+            grep -F "ZERO_KNOWN_BLOCKERS" "$workflow"
+            grep -F "READ_BILLING_READY" "$workflow"
+          done
+          grep -F "inputs.product_owner_approval == 'APPROVE_IOS_BUILD'" apps/client/.eas/workflows/ios-testflight-release.yml
+          grep -F "inputs.known_blockers == 'ZERO_KNOWN_BLOCKERS'" apps/client/.eas/workflows/ios-testflight-release.yml
+          grep -F "inputs.read_billing_ready == 'READ_BILLING_READY'" apps/client/.eas/workflows/ios-testflight-release.yml
+          grep -F '"EXPO_PUBLIC_READ_API_BASE_URL": "https://flowreader-api.onrender.com"' apps/client/eas.json
+          grep -F "EXPO_PUBLIC_READ_API_BASE_URL" .github/workflows/ios-testflight-release.yml
+          grep -F 'readiness_url="${read_api_base%/}/api/v1/read/billing-readiness"' .github/workflows/ios-testflight-release.yml
+          grep -F "revenuecat-server-authoritative-v1" .github/workflows/ios-testflight-release.yml
+          grep -F "PRODUCTION_READ_BILLING_READINESS=PASS" .github/workflows/ios-testflight-release.yml
+          echo "IOS_BUILD_FREEZE_CONTRACT=PASS"
+
+      - name: Verify EAS release workflow source contracts
+        run: |
+          test -f apps/client/.eas/workflows/ios-testflight-release.yml
+          test -f apps/client/.eas/workflows/production-ota.yml
+          grep -F "type: build" apps/client/.eas/workflows/ios-testflight-release.yml
+          grep -F "platform: ios" apps/client/.eas/workflows/ios-testflight-release.yml
+          grep -F "type: submit" apps/client/.eas/workflows/ios-testflight-release.yml
+          grep -F "type: update" apps/client/.eas/workflows/production-ota.yml
+          grep -F "channel: production" apps/client/.eas/workflows/production-ota.yml
+          echo "EAS_WORKFLOW_SOURCE_CONTRACTS=PASS"
       - name: Verify subscription authority invariants
         run: pnpm --dir apps/client run verify:subscription-authority
-      - name: Verify live Read browser invariants
-        run: pnpm --dir apps/client run verify:read-live-browser
+      - name: Verify native Read product invariants
+        run: |
+          grep -F "ReadHomeScreen" apps/client/app/read/app.tsx
+          grep -F "ReadReaderScreen" apps/client/app/read/reader.tsx
+          if grep -Fq "ReadWebWorkspaceScreen" apps/client/app/read/app.tsx apps/client/app/read/reader.tsx; then
+            echo "Main Read product must remain React Native, not a WebView workspace." >&2
+            exit 1
+          fi
+          if grep -Fq "/app/reader?embed=react-native" apps/client/features/read/mobile/ReadLiveBrowserScreen.tsx; then
+            echo "Read Browser must not host the main Reader workspace." >&2
+            exit 1
+          fi
+          grep -F "ReadDeviceBrowserScreen" apps/client/app/read/browser.tsx
+          if grep -Fq "ReadLiveBrowserScreen" apps/client/app/read/browser.tsx; then
+            echo "Native Read Browser must not route through remote Browser V2." >&2
+            exit 1
+          fi
+          grep -F "source={{ uri: currentUrl }}" apps/client/features/read/mobile/ReadDeviceBrowserScreen.tsx
+          grep -F "sharedCookiesEnabled" apps/client/features/read/mobile/ReadDeviceBrowserScreen.tsx
+          grep -F "onContentProcessDidTerminate" apps/client/features/read/mobile/ReadDeviceBrowserScreen.tsx
+          grep -F "onRenderProcessGone" apps/client/features/read/mobile/ReadDeviceBrowserScreen.tsx
+          grep -F "createReadingPlaybackManifest" apps/client/features/read/mobile/ReadMobileScreens.tsx
+          grep -F "readingProgressForSegment" apps/client/features/read/mobile/ReadMobileScreens.tsx
+          grep -F "navigate('/read/browser')" apps/client/features/read/mobile/ReadMobileScreens.tsx
+          pnpm --dir apps/client run verify:read-live-browser
+          pnpm --dir apps/client run verify:read-media-session
+          echo "READ_NATIVE_PRODUCT_INVARIANTS=PASS"
       - name: Lint subscription authority hotfix
         run: pnpm --dir apps/client exec eslint state/subscriptionStore.ts scripts/verify-subscription-authority.mjs
       - name: Load production Expo public environment
@@ -100,7 +310,7 @@ jobs:
             fs.appendFileSync(process.env.GITHUB_ENV, `${key}<<__ENV__\n${String(value)}\n__ENV__\n`);
           }
           NODE
-      - name: Verify Build 47 OTA runtime identity
+      - name: Verify native audio OTA runtime identity
         run: |
           cd apps/client
           pnpm exec expo config --type public --json > /tmp/kielivalmis-config.json
@@ -110,14 +320,16 @@ jobs:
           const assert = (condition, message) => { if (!condition) throw new Error(message); };
           assert(config.name === 'KieliValmis', `Unexpected app name: ${config.name}`);
           assert(config.ios?.bundleIdentifier === 'com.vitusidi.floently', `Unexpected bundle ID: ${config.ios?.bundleIdentifier}`);
-          assert(config.runtimeVersion === '1.0.3', `Unexpected runtimeVersion: ${config.runtimeVersion}`);
+          assert(config.runtimeVersion === '1.0.4', `Unexpected root runtimeVersion: ${config.runtimeVersion}`);
+          assert(config.ios?.runtimeVersion === '1.0.5', `Unexpected iOS runtimeVersion: ${config.ios?.runtimeVersion}`);
+          assert(config.android?.runtimeVersion === '1.0.5', `Unexpected Android runtimeVersion: ${config.android?.runtimeVersion}`);
           assert(config.updates?.enabled === true, 'Expo Updates is not enabled');
           assert(
             config.updates?.url === 'https://u.expo.dev/fa02c141-0a3b-4dbc-9122-7c1cf31ba42c',
             `Unexpected update URL: ${config.updates?.url}`,
           );
           assert(config.updates?.checkAutomatically === 'ON_LOAD', `Unexpected update policy: ${config.updates?.checkAutomatically}`);
-          console.log('BUILD47_OTA_RUNTIME_IDENTITY=PASS');
+          console.log('NATIVE_AUDIO_OTA_RUNTIME_IDENTITY=PASS');
           NODE
       - name: Export iOS OTA bundle
         run: |
@@ -125,6 +337,12 @@ jobs:
           pnpm exec expo export --platform ios --output-dir /tmp/kielivalmis-build47-authority-export --clear
           test -n "$(find /tmp/kielivalmis-build47-authority-export -type f -print -quit)"
           echo "IOS_OTA_EXPORT=PASS"
+      - name: Export Android OTA bundle
+        run: |
+          cd apps/client
+          pnpm exec expo export --platform android --output-dir /tmp/kielivalmis-android-authority-export --clear
+          test -n "$(find /tmp/kielivalmis-android-authority-export -type f -print -quit)"
+          echo "ANDROID_OTA_EXPORT=PASS"
       - name: Verify navigation invariants
         run: pnpm --dir apps/client run verify:navigation
       - name: Verify account deletion access invariants

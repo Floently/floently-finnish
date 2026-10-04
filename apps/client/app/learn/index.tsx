@@ -1,5 +1,5 @@
 import { Platform } from 'react-native';
-import AppShell from '../../state/AppShell';
+import KieliValmisLandingScreen from '../../features/kielivalmis/KieliValmisLandingScreen';
 import { LEARN_ORIGIN } from '../../state/learnRouting';
 
 export default function LearningRouteEntry() {
@@ -12,5 +12,5 @@ export default function LearningRouteEntry() {
     return null;
   }
 
-  return <AppShell requestedScreen="learning" />;
+  return <KieliValmisLandingScreen />;
 }
