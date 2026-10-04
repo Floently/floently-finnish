@@ -143,6 +143,8 @@ for (const marker of [
   'MediaSession.Builder(context, sessionPlayer)',
   'fun refreshLogicalTimeline(player: AudioPlayer)',
   'session.setPlayer(sessionPlayer)',
+  'val player = currentPlayer',
+  'player?.assignBasicMediaSession()',
 ]) {
   assert.ok(
     patchedAndroidControls.includes(marker),
