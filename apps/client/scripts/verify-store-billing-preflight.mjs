@@ -25,6 +25,7 @@ function forbidText(source, text, label) {
 const storeService = read('features/billing/services/storeBillingService.ts');
 const revenueCatService = read('features/billing/services/revenueCatService.ts');
 const billingRoute = read('state/BillingRoute.tsx');
+const readMobileScreens = read('features/read/mobile/ReadMobileScreens.tsx');
 
 const expectedMappings = [
   ['yki_monthly', 'yki_monthly', 'floently_yki_monthly'],
@@ -83,8 +84,43 @@ requireText(
 );
 requireText(
   storeService,
-  'return preflightStoreBillingPlansForOffering(planIds, userId, READ_OFFERING_ID);',
-  'Floently Read preflight must resolve the read_default offering instead of the KieliValmis default offering',
+  "reader_monthly: ['ios', 'android']",
+  'Floently Read Reader monthly must remain supported on both native stores',
+);
+requireText(
+  storeService,
+  "reader_yearly: ['ios']",
+  'Floently Read Reader yearly must remain iOS-only until the Google Play yearly product is explicitly approved',
+);
+requireText(
+  storeService,
+  "creator_monthly: ['ios', 'android']",
+  'Floently Read Creator monthly must remain supported on both native stores',
+);
+requireText(
+  storeService,
+  "creator_yearly: ['ios']",
+  'Floently Read Creator yearly must remain iOS-only until the Google Play yearly product is explicitly approved',
+);
+requireText(
+  storeService,
+  'const supportedPlanIds = planIds.filter((planId) =>',
+  'Floently Read preflight must separate supported and unsupported store plans',
+);
+requireText(
+  storeService,
+  'unsupportedPlanIds.map<StorePlanAvailability>',
+  'unsupported Floently Read store plans must remain explicitly unavailable in the preflight catalog',
+);
+requireText(
+  storeService,
+  "operation: 'read_purchase',",
+  'Floently Read purchase must log blocked unsupported/store-missing plan attempts',
+);
+requireText(
+  storeService,
+  'if (!READ_PLAN_PLATFORM_SUPPORT[planId].includes(platform)) {',
+  'Floently Read purchase must reject unsupported plan/platform pairs before RevenueCat purchase execution',
 );
 requireText(
   storeService,
@@ -235,9 +271,22 @@ forbidText(
   'iOS/mobile pricing cards must not render static EUR estimates directly after store preflight integration',
 );
 
+requireText(
+  readMobileScreens,
+  'readPlans.filter((plan) => isReadStorePlanSupported(plan.id))',
+  'Floently Read paywall must hide plans unsupported on the current native store',
+);
+requireText(
+  readMobileScreens,
+  '{visibleReadPlans.map((plan) => {',
+  'Floently Read paywall must render only platform-supported Read plans',
+);
+
+
 console.log('PASS: all nine core KieliValmis plans and Floently Read plans retain explicit RevenueCat/Apple product mappings.');
 console.log('PASS: preflight requires offering package, product identifier, and localized store price.');
 console.log('PASS: KieliValmis and Floently Read purchases recheck the selected offering/package before RevenueCat purchase execution.');
+console.log('PASS: Android Read yearly plans remain hidden and fail closed until explicitly supported.');
 console.log('PASS: RevenueCat purchase/restore failures are converted to stable user-safe errors.');
 console.log('PASS: BillingRoute preflights visible store plans before enabling purchase CTAs.');
 console.log('PASS: unavailable store products disable the paywall purchase action and trial action.');
