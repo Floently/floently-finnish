@@ -193,12 +193,14 @@ assert.ok(deviceBrowser.includes('browserReadingFingerprint') &&
   deviceBrowser.includes('browserReadingFingerprint(reading.text)'),
   'browser progress/TTS cache identity must include page content so dynamic same-URL lessons cannot reuse stale narration');
 assert.ok(deviceBrowser.includes('function browserPageIdentity(value: string)') &&
-  deviceBrowser.includes("parsed.hash = '';") &&
+  deviceBrowser.includes("hash.startsWith('#/')") &&
+  deviceBrowser.includes("hash.startsWith('#!/')") &&
+  deviceBrowser.includes("hash.startsWith('#?')") &&
   deviceBrowser.includes('isSameBrowserReadingPage(navigation.url, reading!.url)') &&
   deviceBrowser.includes('${browserPageIdentity(reading.url)}:${browserReadingFingerprint(reading.text)}:${activeSegment}') &&
-  deviceBrowser.includes('const hashOnlyNavigation =') &&
-  deviceBrowser.includes("setStatus(hashOnlyNavigation && reading ? 'Reading this page'"),
-  'hash-only SPA navigation/load events must keep narration and hidden-segment playback guards on one canonical page identity');
+  deviceBrowser.includes('const samePageAnchorNavigation =') &&
+  deviceBrowser.includes("setStatus(samePageAnchorNavigation && reading ? 'Reading this page'"),
+  'plain fragment anchors may keep one reading identity, but hash-router page transitions must create a new Browser Reader identity');
 assert.ok(deviceBrowser.includes('styles.compactBar') &&
   deviceBrowser.includes('accessibilityLabel="Expand reader controls"') &&
   deviceBrowser.includes('compactRemaining') &&
@@ -566,6 +568,10 @@ assert.ok(appBase.expo?.plugins?.some((plugin) =>
   'Expo native config must enable background playback for the final binary');
 assert.ok(readStore.includes('progressSyncChains') && readStore.includes('queueProgressSync'),
   'native Read progress writes must be serialized to prevent stale resume overwrites');
+assert.ok(deviceBrowser.includes('browserProgressSyncRef') &&
+  deviceBrowser.includes('browserProgressSyncRef.current = browserProgressSyncRef.current') &&
+  deviceBrowser.includes('.then(() => AsyncStorage.setItem(key, String(next)))'),
+  'Browser Reader progress writes must be serialized so older pause/background/seek writes cannot overwrite a newer resume position');
 assert.ok(home.includes('15 / Math.max(15, readingManifest.estimatedPlaybackDurationSeconds)') &&
   deviceBrowser.includes('15 / totalSeconds') &&
   deviceBrowser.includes("AppState.addEventListener('change'"),
