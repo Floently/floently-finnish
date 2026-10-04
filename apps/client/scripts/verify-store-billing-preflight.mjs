@@ -67,6 +67,19 @@ for (const [packageId, productId] of expectedReadProducts) {
   );
 }
 
+const expectedAndroidReadProducts = [
+  ['reader_monthly', 'floently_read_reader:monthly'],
+  ['creator_monthly', 'floently_read_creator:monthly'],
+];
+
+for (const [packageId, productId] of expectedAndroidReadProducts) {
+  requireText(
+    storeService,
+    `${packageId}: '${productId}'`,
+    `expected Floently Read Android package/product mapping ${packageId} -> ${productId} must remain explicit`,
+  );
+}
+
 requireText(
   storeService,
   'export async function preflightStoreBillingPlans(',
@@ -141,6 +154,16 @@ requireText(
   storeService,
   'productIdentifierMatches',
   'store availability must consume exact iOS product-identifier validation',
+);
+requireText(
+  storeService,
+  "platform === 'android' && offeringIdentifier === READ_OFFERING_ID",
+  'Floently Read Android preflight must use exact Google Play product identifiers rather than package aliases alone',
+);
+requireText(
+  storeService,
+  'ANDROID_READ_PRODUCT_IDENTIFIER_BY_PACKAGE[',
+  'Floently Read Android product validation must use the pinned Google Play product map',
 );
 requireText(
   storeService,
@@ -285,6 +308,7 @@ requireText(
 
 console.log('PASS: all nine core KieliValmis plans and Floently Read plans retain explicit RevenueCat/Apple product mappings.');
 console.log('PASS: preflight requires offering package, product identifier, and localized store price.');
+console.log('PASS: Floently Read pins exact Apple and Google Play product identifiers before purchase.');
 console.log('PASS: KieliValmis and Floently Read purchases recheck the selected offering/package before RevenueCat purchase execution.');
 console.log('PASS: Android Read yearly plans remain hidden and fail closed until explicitly supported.');
 console.log('PASS: RevenueCat purchase/restore failures are converted to stable user-safe errors.');
