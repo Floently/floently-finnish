@@ -633,15 +633,34 @@ class AudioControlsService : MediaSessionService() {`,
 
   next = replaceRequiredRegex(
     next,
-    /  private fun resolveSessionPlayer\(player: AudioPlayer, options: AudioLockScreenOptions\?\): Player \{\r?\n/,
-    (signature) => `${signature}    // Floently's hidden TTS segment must never become the public system-media
+    /(  private fun resolveSessionPlayer\(([^\r\n]+)\): Player \{\r?\n)/,
+    (signature, parameters) => {
+      const playable = String(parameters).match(
+        /\b([A-Za-z_][A-Za-z0-9_]*):\s*(AudioPlayer|LockScreenPlayable)\b/
+      );
+      if (!playable) {
+        throw new Error(
+          `Floently Read media-session patch found an unsupported resolveSessionPlayer signature: ${parameters}`
+        );
+      }
+
+      const variable = playable[1];
+      const type = playable[2];
+      const guard = type === 'AudioPlayer'
+        ? `if (${variable}.logicalLockScreenTimeline != null) {
+      return LogicalTimelinePlayer(${variable})
+    }`
+        : `if (${variable} is AudioPlayer && ${variable}.logicalLockScreenTimeline != null) {
+      return LogicalTimelinePlayer(${variable})
+    }`;
+
+      return `${signature}    // Floently's hidden TTS segment must never become the public system-media
     // timeline. Prefer the logical document wrapper before applying Expo's
     // live-stream seek restrictions.
-    if (player.logicalLockScreenTimeline != null) {
-      return LogicalTimelinePlayer(player)
-    }
+    ${guard}
 
-`,
+`;
+    },
     'Android MediaSession logical player function'
   );
 
