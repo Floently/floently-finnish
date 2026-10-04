@@ -146,6 +146,13 @@ jobs:
       - name: Generate exact native Android project
         working-directory: apps/client
         run: pnpm exec expo prebuild --platform android --clean --no-install
+      - name: Verify Android logical media-session patch
+        run: |
+          grep -F "FLOENTLY_LOGICAL_NOW_PLAYING_V1" node_modules/expo-audio/android/src/main/java/expo/modules/audio/AudioPlayer.kt
+          grep -F 'Function("setLogicalLockScreenTimeline")' node_modules/expo-audio/android/src/main/java/expo/modules/audio/AudioModule.kt
+          grep -F "class LogicalTimelinePlayer" node_modules/expo-audio/android/src/main/java/expo/modules/audio/service/AudioControlsService.kt
+          grep -F "session.setPlayer(sessionPlayer)" node_modules/expo-audio/android/src/main/java/expo/modules/audio/service/AudioControlsService.kt
+          echo "ANDROID_LOGICAL_MEDIA_PATCH_APPLIED=PASS"
       - name: Verify Android Read native surface
         run: |
           manifest="apps/client/android/app/src/main/AndroidManifest.xml"
