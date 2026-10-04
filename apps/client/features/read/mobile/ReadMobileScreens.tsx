@@ -27,7 +27,7 @@ import {
 } from './readMobileStore';
 import { readTtsApi, type ReadTtsResult, type ReadVoice, type ReadWordTiming } from './readTtsApi';
 import { readAiApi, type ReadAiAction } from './readAiApi';
-import { readRenderApi } from './readRenderApi';
+import { readRenderApi, type SyncReadRevenueCatResult } from './readRenderApi';
 import {
   activateReadDocumentMediaSession,
   clearReadDocumentMediaSession,
@@ -2182,9 +2182,15 @@ function getReadPurchasePackageId(source: ReadRevenueCatSyncSource): ReadStorePl
   return null;
 }
 
-async function syncReadPurchaseToBackend(result: ReadRevenueCatSyncSource, planId?: ReadStorePlanId | null): Promise<boolean> {
+async function syncReadPurchaseToBackend(
+  result: ReadRevenueCatSyncSource,
+  planId?: ReadStorePlanId | null,
+): Promise<SyncReadRevenueCatResult | null> {
   try {
-    const syncResult = await readRenderApi.syncRevenueCatEntitlements({
+    return await readRenderApi.syncRevenueCatEntitlements({
+      // These SDK fields are diagnostic context only. The FlowReader backend
+      // must independently verify the authenticated RevenueCat subscriber
+      // before returning any access used by the app.
       readAccess: result.readAccess,
       creatorAccess: result.creatorAccess,
       activeEntitlements: result.activeEntitlements,
@@ -2194,11 +2200,21 @@ async function syncReadPurchaseToBackend(result: ReadRevenueCatSyncSource, planI
       platform: result.platform,
       status: result.status,
     });
-    return syncResult.ignoredReason !== 'not_authenticated';
   } catch (error) {
-    console.warn('Read RevenueCat backend sync failed', error);
-    return false;
+    console.warn('Read RevenueCat backend verification failed', error);
+    return null;
   }
+}
+
+function verifiedReadAccess(syncResult: SyncReadRevenueCatResult | null): {
+  readAccess: boolean;
+  creatorAccess: boolean;
+} | null {
+  if (syncResult?.readAccess !== true) return null;
+  return {
+    readAccess: true,
+    creatorAccess: syncResult.creatorAccess === true,
+  };
 }
 
 export function ReadSubscriptionScreen() {
@@ -2297,21 +2313,22 @@ export function ReadSubscriptionScreen() {
     setMessage(null);
     try {
       const result = await startReadStorePurchase(planId, storeUserId);
-      const accessResult = result as unknown as { readAccess?: boolean; creatorAccess?: boolean };
-      if (typeof applyStoreReadAccess === 'function') {
-        applyStoreReadAccess({
-          readAccess: Boolean(accessResult.readAccess),
-          creatorAccess: Boolean(accessResult.creatorAccess),
-        });
-      }
+      const syncResult = await syncReadPurchaseToBackend(result, planId);
+      const verifiedAccess = verifiedReadAccess(syncResult);
+
       if (typeof refreshSubscription === 'function') {
         await refreshSubscription();
       }
-      const backendSynced = await syncReadPurchaseToBackend(result, planId);
+      if (verifiedAccess && typeof applyStoreReadAccess === 'function') {
+        applyStoreReadAccess(verifiedAccess);
+      }
+
       setMessage(
-        backendSynced
+        verifiedAccess
           ? 'Purchase complete. Your Floently Read access is ready.'
-          : 'Purchase complete. If access does not refresh, use Restore purchases.',
+          : syncResult
+            ? 'Purchase completed in the store, but Floently Read could not verify active access yet. Use Restore purchases when your subscription is active.'
+            : 'Purchase completed in the store, but access verification is temporarily unavailable. Use Restore purchases when you are online.',
       );
     } catch (error) {
       setMessage(error instanceof Error ? error.message : String(error));
@@ -2334,21 +2351,22 @@ export function ReadSubscriptionScreen() {
     setMessage(null);
     try {
       const result = await restoreReadStorePurchases(storeUserId);
-      const accessResult = result as unknown as { readAccess?: boolean; creatorAccess?: boolean };
-      if (typeof applyStoreReadAccess === 'function') {
-        applyStoreReadAccess({
-          readAccess: Boolean(accessResult.readAccess),
-          creatorAccess: Boolean(accessResult.creatorAccess),
-        });
-      }
+      const syncResult = await syncReadPurchaseToBackend(result, getReadPurchasePackageId(result));
+      const verifiedAccess = verifiedReadAccess(syncResult);
+
       if (typeof refreshSubscription === 'function') {
         await refreshSubscription();
       }
-      const backendSynced = await syncReadPurchaseToBackend(result, getReadPurchasePackageId(result));
+      if (verifiedAccess && typeof applyStoreReadAccess === 'function') {
+        applyStoreReadAccess(verifiedAccess);
+      }
+
       setMessage(
-        backendSynced
+        verifiedAccess
           ? 'Purchases restored. Your Floently Read access is up to date.'
-          : 'Purchases restored. Reopen this screen if access does not refresh immediately.',
+          : syncResult
+            ? 'Restore completed, but no active Floently Read subscription was verified for this account.'
+            : 'Restore reached the store, but access verification is temporarily unavailable. Try Restore purchases again when you are online.',
       );
     } catch (error) {
       setMessage(error instanceof Error ? error.message : String(error));
