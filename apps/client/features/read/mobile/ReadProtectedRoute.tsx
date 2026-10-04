@@ -97,8 +97,7 @@ export default function ReadProtectedRoute({
   const readAccess = Boolean(
     subscription?.isInternalAllAccess ||
     subscription?.entitlements?.readAccess ||
-    subscription?.readAccess ||
-    user?.readAccess,
+    subscription?.readAccess,
   );
 
   if (!readAccess) {
