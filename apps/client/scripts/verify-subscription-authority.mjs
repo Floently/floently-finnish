@@ -202,8 +202,20 @@ requireText(
   'subscription store must implement verified Read reconciliation',
 );
 requireText(
-  'readAccess,\n        createAccess,',
-  'verified Read reconciliation must be able to write false as well as true',
+  'function withVerifiedReadAccess(',
+  'verified Read reconciliation must be centralized in a shared authority helper',
+);
+requireText(
+  'const readAccess = Boolean(input.readAccess || input.creatorAccess);',
+  'verified Read reconciliation must derive an explicit boolean that can represent revocation',
+);
+requireText(
+  'const createAccess = Boolean(input.creatorAccess);',
+  'verified Creator reconciliation must derive an explicit boolean that can represent revocation',
+);
+requireText(
+  'status: withVerifiedReadAccess(current, input),',
+  'verified Read reconciliation must commit the shared authority helper result',
 );
 
 const appHydrateIndex = appShellSource.indexOf('await hydrateSubscription(user);');
