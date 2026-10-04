@@ -537,6 +537,20 @@ private class LogicalTimelinePlayer(
 
   override fun getContentPosition(): Long = audioPlayer.logicalCurrentPositionMs()
 
+  override fun getBufferedPosition(): Long = audioPlayer.logicalCurrentPositionMs()
+
+  override fun getContentBufferedPosition(): Long = audioPlayer.logicalCurrentPositionMs()
+
+  override fun getTotalBufferedDuration(): Long = 0L
+
+  override fun seekToDefaultPosition() {
+    audioPlayer.requestLogicalSeek(0L)
+  }
+
+  override fun seekToDefaultPosition(mediaItemIndex: Int) {
+    audioPlayer.requestLogicalSeek(0L)
+  }
+
   override fun seekTo(positionMs: Long) {
     audioPlayer.requestLogicalSeek(positionMs)
   }
