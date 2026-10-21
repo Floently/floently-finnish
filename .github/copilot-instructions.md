@@ -1,0 +1,1 @@
+Copilot must read AGENTS.md; GLOBAL-AGENT-RUN-PROOF v1 applies every run. Give precise plan subsection and before/after stage, prove core app function, identify vetted/licensed reused vs adapted/scratch code, cite original CI/live evidence and overall DONE/IN PROGRESS/NOT STARTED/BLOCKED. Preserve more restrictive local instructions/permissions.
