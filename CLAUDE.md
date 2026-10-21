@@ -1,0 +1,1 @@
+Claude/other agents: root AGENTS.md is mandatory. Every run cite exact planned subpart, previous/new core behavior, existing product code reuse and safety/license vs justified scratch, authoritative CI/deployed proof, overall project progress/blockers and next task. Never override security/approval controls.
