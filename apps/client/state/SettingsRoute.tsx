@@ -6,6 +6,7 @@ import { getFloentlyPalette } from '@ui/theme/floentlyPalette';
 import { authService } from '@core/api/auth';
 import { LEGAL_URLS } from '../config/legalUrls';
 import { useTranslator } from '../features/i18n';
+import { readRenderApi } from '../features/read/mobile/readRenderApi';
 
 import { useAuthStore } from './authStore';
 import { SPEECH_RATE_PRESETS, usePreferencesStore } from './preferencesStore';
@@ -259,11 +260,25 @@ export default function SettingsRoute({ onBack, onOpenBilling, onOpenHelp, onOpe
                   onPress: () => {
                     void (async () => {
                       try {
+                        // Delete the Read-local identity/library while the
+                        // shared KieliValmis bearer token is still valid. If
+                        // this prerequisite fails, keep the main account/session
+                        // intact so the user can retry instead of receiving a
+                        // false-success deletion with orphaned Read data.
+                        await readRenderApi.deleteAccount();
                         await authService.deleteAccount({ deletionReason: 'in_app_settings' });
                         await logout();
-                        Alert.alert('Account deleted', 'Your deletion request was submitted. Sign in is now disabled for this account.');
+                        Alert.alert(
+                          'Account deleted',
+                          'Your KieliValmis and Floently Read account data deletion was submitted. Sign in is now disabled for this account.',
+                        );
                       } catch (error) {
-                        Alert.alert('Deletion failed', error instanceof Error ? error.message : 'Account deletion could not be completed.');
+                        Alert.alert(
+                          'Deletion failed',
+                          error instanceof Error
+                            ? error.message
+                            : 'Account deletion could not be completed. Your signed-in account remains available so you can try again.',
+                        );
                       }
                     })();
                   },

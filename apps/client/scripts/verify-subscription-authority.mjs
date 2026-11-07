@@ -10,6 +10,26 @@ const source = fs.readFileSync(
   path.join(clientRoot, 'state/subscriptionStore.ts'),
   'utf8',
 );
+const readMobileSource = fs.readFileSync(
+  path.join(clientRoot, 'features/read/mobile/ReadMobileScreens.tsx'),
+  'utf8',
+);
+const appShellSource = fs.readFileSync(
+  path.join(clientRoot, 'state/AppShell.tsx'),
+  'utf8',
+);
+const readProtectedRouteSource = fs.readFileSync(
+  path.join(clientRoot, 'features/read/mobile/ReadProtectedRoute.tsx'),
+  'utf8',
+);
+const readLiveBrowserSource = fs.readFileSync(
+  path.join(clientRoot, 'features/read/mobile/ReadLiveBrowserScreen.tsx'),
+  'utf8',
+);
+const readRenderApiSource = fs.readFileSync(
+  path.join(clientRoot, 'features/read/mobile/readRenderApi.ts'),
+  'utf8',
+);
 
 function requireText(text, label) {
   if (!source.includes(text)) {
@@ -62,6 +82,192 @@ requireText(
   'remote backend status must continue to drive normalized client state',
 );
 
+requireText(
+  'const requestRevision = ++subscriptionRefreshRevision;',
+  'subscription refreshes must have a shared monotonic revision so stale concurrent responses cannot win',
+);
+requireText(
+  'if (requestRevision !== subscriptionRefreshRevision) return;',
+  'stale Learn subscription responses must be discarded',
+);
+requireText(
+  'const readRevisionAtStart = verifiedReadRevision;',
+  'Learn refresh must snapshot the FlowReader authority revision before network work',
+);
+requireText(
+  'if (verifiedReadRevision !== readRevisionAtStart) {',
+  'late Learn responses must detect a newer verified FlowReader grant or revocation',
+);
+requireText(
+  'effectiveRemote = withVerifiedReadAccess(effectiveRemote, {',
+  'late Learn responses must overlay the newer verified Read authority before committing state',
+);
+requireText(
+  'subscriptionRefreshRevision += 1;',
+  'clearing subscription state must invalidate in-flight Learn refreshes',
+);
+requireText(
+  'verifiedReadRevision += 1;',
+  'every verified FlowReader reconciliation must advance the Read authority revision',
+);
+
 console.log('PASS: client email access overrides are development-only.');
 console.log('PASS: production subscription state remains backend-authoritative.');
+console.log('PASS: concurrent Learn/FlowReader hydration cannot overwrite newer verified Read authority.');
+
+function readFunctionBlock(startMarker, endMarker) {
+  const start = readMobileSource.indexOf(startMarker);
+  const end = readMobileSource.indexOf(endMarker, start + startMarker.length);
+  if (start < 0 || end < 0 || end <= start) {
+    throw new Error(
+      `Subscription authority invariant failed: could not isolate ${startMarker}`,
+    );
+  }
+  return readMobileSource.slice(start, end);
+}
+
+function requireReadOrder(block, before, after, label) {
+  const beforeIndex = block.indexOf(before);
+  const afterIndex = block.indexOf(after);
+  if (beforeIndex < 0 || afterIndex < 0 || beforeIndex >= afterIndex) {
+    throw new Error(`Subscription authority invariant failed: ${label}`);
+  }
+}
+
+const readPurchaseBlock = readFunctionBlock(
+  '  async function purchase(planId: ReadStorePlanId) {',
+  '  async function restore() {',
+);
+const readRestoreBlock = readFunctionBlock(
+  '  async function restore() {',
+  '  async function openReadLegal(',
+);
+
+for (const [label, block] of [
+  ['Read purchase', readPurchaseBlock],
+  ['Read restore', readRestoreBlock],
+]) {
+  requireReadOrder(
+    block,
+    'const syncResult = await syncReadPurchaseToBackend',
+    'reconcileVerifiedReadAccess(verifiedSnapshot)',
+    `${label} must verify with FlowReader before reconciling local access`,
+  );
+  if (block.includes('applyStoreReadAccess({\n          readAccess: Boolean(accessResult.readAccess)')) {
+    throw new Error(
+      `Subscription authority invariant failed: ${label} must not grant SDK-reported entitlements directly`,
+    );
+  }
+}
+
+if (!readMobileSource.includes(
+  'function verifiedReadAccess(syncResult: SyncReadRevenueCatResult | null)',
+)) {
+  throw new Error(
+    'Subscription authority invariant failed: Read access must be derived from the backend sync result',
+  );
+}
+
+if (!readMobileSource.includes('if (syncResult?.readAccess !== true) return null;')) {
+  throw new Error(
+    'Subscription authority invariant failed: Read store access must fail closed unless backend readAccess is true',
+  );
+}
+
+if (!readMobileSource.includes(
+  "if (typeof syncResult?.readAccess !== 'boolean') return null;",
+)) {
+  throw new Error(
+    'Subscription authority invariant failed: store reconciliation must ignore malformed/non-authoritative sync shapes',
+  );
+}
+
+forbidText(
+  'applyStoreReadAccess',
+  'grant-only Read access mutation must not coexist with verified reconciliation',
+);
+
+if (readMobileSource.includes('applyStoreReadAccess')) {
+  throw new Error(
+    'Subscription authority invariant failed: Read purchase UI must not use a grant-only entitlement helper',
+  );
+}
+
+requireText(
+  'reconcileVerifiedReadAccess: (input: { readAccess?: boolean; creatorAccess?: boolean }) => void;',
+  'subscription store must expose verified Read reconciliation',
+);
+requireText(
+  'reconcileVerifiedReadAccess(input) {',
+  'subscription store must implement verified Read reconciliation',
+);
+requireText(
+  'function withVerifiedReadAccess(',
+  'verified Read reconciliation must be centralized in a shared authority helper',
+);
+requireText(
+  'const readAccess = Boolean(input.readAccess || input.creatorAccess);',
+  'verified Read reconciliation must derive an explicit boolean that can represent revocation',
+);
+requireText(
+  'const createAccess = Boolean(input.creatorAccess);',
+  'verified Creator reconciliation must derive an explicit boolean that can represent revocation',
+);
+requireText(
+  'status: withVerifiedReadAccess(current, input),',
+  'verified Read reconciliation must commit the shared authority helper result',
+);
+
+const appHydrateIndex = appShellSource.indexOf('await hydrateSubscription(user);');
+const appReadIndex = appShellSource.indexOf('await readRenderApi.getAccessStatus();');
+if (appHydrateIndex < 0 || appReadIndex < 0 || appHydrateIndex >= appReadIndex) {
+  throw new Error(
+    'Subscription authority invariant failed: AppShell must hydrate KieliValmis first, then reconcile persisted FlowReader access',
+  );
+}
+if (!appShellSource.includes('reconcileVerifiedReadAccess(verifiedRead);')) {
+  throw new Error(
+    'Subscription authority invariant failed: AppShell must reconcile the verified FlowReader snapshot',
+  );
+}
+if (!appShellSource.includes("subscriptionStatus?.entitlements?.readAccess ? 'read' : 'no-read'") ||
+    !appShellSource.includes("subscriptionStatus?.entitlements?.createAccess ? 'create' : 'no-create'")) {
+  throw new Error(
+    'Subscription authority invariant failed: AppShell route reconciliation must react to Read/Create entitlement changes',
+  );
+}
+
+
+if (!readProtectedRouteSource.includes('await readRenderApi.getAccessStatus();')) {
+  throw new Error(
+    'Subscription authority invariant failed: direct Read routes must refresh persisted FlowReader access',
+  );
+}
+
+for (const [label, guardedSource, forbidden] of [
+  ['ReadProtectedRoute', readProtectedRouteSource, 'user?.readAccess'],
+  ['ReadLiveBrowserScreen', readLiveBrowserSource, 'user.readAccess'],
+]) {
+  if (guardedSource.includes(forbidden)) {
+    throw new Error(
+      `Subscription authority invariant failed: ${label} must not use stale auth-user Read access as an authorization fallback`,
+    );
+  }
+}
+if (!readProtectedRouteSource.includes('!readAccessCheckComplete')) {
+  throw new Error(
+    'Subscription authority invariant failed: protected Read routes must wait for the persisted-access check',
+  );
+}
+
+if (!readRenderApiSource.includes("requestReadApi<unknown>('/api/v1/read/access')")) {
+  throw new Error(
+    'Subscription authority invariant failed: persisted Read access must come from the authenticated FlowReader access endpoint',
+  );
+}
+
+console.log('PASS: Read purchase/restore reconciliation follows backend verification.');
+console.log('PASS: persisted Read access is rehydrated from FlowReader on startup and direct route entry.');
+console.log('PASS: Read/Create entitlement changes retrigger guarded route reconciliation.');
+
 console.log('SUBSCRIPTION_AUTHORITY_INVARIANTS=PASS');

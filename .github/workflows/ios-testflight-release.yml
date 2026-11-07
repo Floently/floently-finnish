@@ -1,0 +1,173 @@
+name: iOS TestFlight release candidate
+
+on:
+  workflow_dispatch:
+    inputs:
+      product_owner_approval:
+        description: "Type APPROVE_IOS_BUILD only after the product owner explicitly approves consuming one monthly build"
+        required: true
+        type: string
+      known_blockers:
+        description: "Type ZERO_KNOWN_BLOCKERS only after the release ledger has no known blocking defect"
+        required: true
+        type: string
+      read_billing_ready:
+        description: "Type READ_BILLING_READY only after production FlowReader server verification reports ready"
+        required: true
+        type: string
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ios-testflight-release-candidate
+  cancel-in-progress: false
+
+jobs:
+  build-and-submit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      EXPO_TOKEN: ${{ secrets.EXPO_TOKEN }}
+
+    steps:
+      - name: Enforce explicit build approval
+        run: |
+          test "${{ inputs.product_owner_approval }}" = "APPROVE_IOS_BUILD" || {
+            echo "iOS build blocked: explicit product-owner approval is required." >&2
+            exit 1
+          }
+          test "${{ inputs.known_blockers }}" = "ZERO_KNOWN_BLOCKERS" || {
+            echo "iOS build blocked: release ledger still has known blockers or was not explicitly cleared." >&2
+            exit 1
+          }
+          test "${{ inputs.read_billing_ready }}" = "READ_BILLING_READY" || {
+            echo "iOS build blocked: production Read billing authority has not been explicitly cleared." >&2
+            exit 1
+          }
+          echo "IOS_BUILD_APPROVAL_GATE=PASS"
+
+      - name: Check out exact candidate
+        uses: actions/checkout@v4
+
+      - name: Set up pnpm
+        uses: pnpm/action-setup@v6
+        with:
+          version: "10.34.0"
+          run_install: false
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: pnpm
+          cache-dependency-path: pnpm-lock.yaml
+
+      - name: Install frozen workspace dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Verify production Read billing authority
+        run: |
+          read_api_base="$(node -e "const e=require('./apps/client/eas.json'); process.stdout.write(String(e?.build?.production?.env?.EXPO_PUBLIC_READ_API_BASE_URL || ''))")"
+          test -n "$read_api_base" || {
+            echo "iOS build blocked: production EXPO_PUBLIC_READ_API_BASE_URL is not configured." >&2
+            exit 1
+          }
+          readiness_url="${read_api_base%/}/api/v1/read/billing-readiness"
+          body_file="/tmp/read-billing-readiness.json"
+          status="$(curl --silent --show-error --location --max-time 20 --output "$body_file" --write-out '%{http_code}' "$readiness_url")"
+          if [ "$status" != "200" ]; then
+            echo "iOS build blocked: production FlowReader billing readiness returned HTTP $status." >&2
+            cat "$body_file" >&2 || true
+            exit 1
+          fi
+          node - "$body_file" <<'NODE'
+          const fs = require('fs');
+          const file = process.argv[2];
+          const payload = JSON.parse(fs.readFileSync(file, 'utf8'));
+          const readiness = payload?.data ?? {};
+          if (
+            payload?.ok !== true ||
+            readiness.authorityVersion !== 'revenuecat-server-authoritative-v1' ||
+            readiness.serverVerificationConfigured !== true ||
+            readiness.readyForStorePurchases !== true
+          ) {
+            throw new Error('Production FlowReader is not ready for server-authoritative Read purchases.');
+          }
+          console.log('PRODUCTION_READ_BILLING_READINESS=PASS');
+          NODE
+
+      - name: Verify Expo authentication
+        run: |
+          if [ -z "$EXPO_TOKEN" ]; then
+            echo "Missing GitHub Actions secret EXPO_TOKEN." >&2
+            exit 1
+          fi
+          npx --yes eas-cli@latest whoami
+
+      - name: TypeScript release check
+        run: pnpm --dir apps/client exec tsc --noEmit
+
+      - name: Verify native Read architecture
+        run: |
+          grep -F "ReadHomeScreen" apps/client/app/read/app.tsx
+          grep -F "ReadReaderScreen" apps/client/app/read/reader.tsx
+          if grep -Fq "ReadWebWorkspaceScreen" apps/client/app/read/app.tsx apps/client/app/read/reader.tsx; then
+            echo "Floently Read must remain native React Native." >&2
+            exit 1
+          fi
+          if grep -Fq "/app/reader?embed=react-native" apps/client/features/read/mobile/ReadLiveBrowserScreen.tsx; then
+            echo "Browser Reader must not host the main Reader workspace." >&2
+            exit 1
+          fi
+          grep -F "ReadDeviceBrowserScreen" apps/client/app/read/browser.tsx
+          if grep -Fq "ReadLiveBrowserScreen" apps/client/app/read/browser.tsx; then
+            echo "Native Read Browser must not route through remote Browser V2." >&2
+            exit 1
+          fi
+          grep -F "source={{ uri: currentUrl }}" apps/client/features/read/mobile/ReadDeviceBrowserScreen.tsx
+          grep -F "sharedCookiesEnabled" apps/client/features/read/mobile/ReadDeviceBrowserScreen.tsx
+          grep -F "onContentProcessDidTerminate" apps/client/features/read/mobile/ReadDeviceBrowserScreen.tsx
+          grep -F "onRenderProcessGone" apps/client/features/read/mobile/ReadDeviceBrowserScreen.tsx
+          grep -F "createReadingPlaybackManifest" apps/client/features/read/mobile/ReadMobileScreens.tsx
+          grep -F "seekDocumentBySeconds" apps/client/features/read/mobile/ReadMobileScreens.tsx
+          pnpm --dir apps/client run verify:read-live-browser
+          pnpm --dir apps/client run verify:read-media-session
+          echo "NATIVE_READ_RELEASE_GATE=PASS"
+
+      - name: Verify release and billing invariants
+        run: |
+          pnpm --dir apps/client run verify:subscription-authority
+          pnpm --dir apps/client run verify:navigation
+          pnpm --dir apps/client run verify:account-deletion-access
+          pnpm --dir apps/client run verify:revenuecat-identity
+          pnpm --dir apps/client run verify:store-billing-preflight
+          pnpm --dir apps/client run verify:ios-release-identity
+
+      - name: Verify OTA configuration in release binary
+        working-directory: apps/client
+        run: |
+          pnpm exec expo config --type public --json > /tmp/floently-expo-config.json
+          node - <<'NODE'
+          const fs = require('fs');
+          const config = JSON.parse(fs.readFileSync('/tmp/floently-expo-config.json', 'utf8'));
+          const assert = (ok, msg) => { if (!ok) throw new Error(msg); };
+          assert(config.ios?.bundleIdentifier === 'com.vitusidi.floently', 'Unexpected iOS bundle identifier');
+          assert(config.runtimeVersion === '1.0.4', `Unexpected root runtimeVersion: ${config.runtimeVersion}`);
+          assert(config.ios?.runtimeVersion === '1.0.5', `Unexpected iOS runtimeVersion: ${config.ios?.runtimeVersion}`);
+          assert(config.android?.runtimeVersion === '1.0.5', `Unexpected Android runtimeVersion: ${config.android?.runtimeVersion}`);
+          assert(config.updates?.enabled === true, 'Expo Updates must be enabled');
+          assert(config.updates?.url === 'https://u.expo.dev/fa02c141-0a3b-4dbc-9122-7c1cf31ba42c', 'Unexpected Expo Updates URL');
+          assert(config.updates?.checkAutomatically === 'ON_LOAD', 'OTA must check on app load');
+          console.log('IOS_RELEASE_OTA_CONFIG=PASS');
+          NODE
+
+      - name: Queue build and auto-submit to TestFlight
+        working-directory: apps/client
+        run: >
+          npx --yes eas-cli@latest build
+          --platform ios
+          --profile production
+          --non-interactive
+          --auto-submit-with-profile production
+          --no-wait

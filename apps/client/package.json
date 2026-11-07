@@ -28,7 +28,8 @@
     "verify:professional-listening": "node ./scripts/verify-professional-listening.mjs",
     "verify:build47-source-candidate": "node ./scripts/verify-build47-source-candidate.mjs",
     "verify:voice-conversation-ui": "node ./scripts/verify-voice-conversation-ui.mjs",
-    "verify:read-live-browser": "node ./scripts/verify-read-live-browser.mjs"
+    "verify:read-live-browser": "node ./scripts/verify-read-live-browser.mjs",
+    "verify:read-media-session": "node ./scripts/verify-read-media-session.mjs"
   },
   "dependencies": {
     "@expo/metro-runtime": "^55.0.11",
@@ -41,7 +42,7 @@
     "expo": "~55.0.26",
     "expo-application": "~55.0.15",
     "expo-asset": "^55.0.17",
-    "expo-audio": "^55.0.0",
+    "expo-audio": "55.0.14",
     "expo-auth-session": "~55.0.16",
     "expo-constants": "~55.0.16",
     "expo-crypto": "~55.0.15",

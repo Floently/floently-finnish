@@ -1,5 +1,7 @@
 # M20 Native Read Rebuild Status
 
+> **CURRENT RELEASE HANDOFF (2026-09-29):** Before continuing native Read work, read `docs/product/READ_RELEASE_HANDOFF_20260929.md` and GitHub issue #77. That ledger contains the current Build 48 defects, fixes, OTA runtime 1.0.4 rules, TestFlight state, and mandatory reporting format. Where this older status file conflicts with the handoff, the handoff is authoritative.
+
 Current decision:
 - iOS build 19 must not be submitted or used as final testing build.
 - Learn is still preserved.

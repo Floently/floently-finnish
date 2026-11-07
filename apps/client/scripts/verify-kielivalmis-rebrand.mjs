@@ -40,7 +40,7 @@ const compatibility = [
   ['scheme', base.scheme, 'floently'],
   ['ios.bundleIdentifier', base.ios?.bundleIdentifier, 'com.vitusidi.floently'],
   ['android.package', base.android?.package, 'com.vitusidi.floently'],
-  ['runtimeVersion', base.runtimeVersion, '1.0.3'],
+  ['runtimeVersion', base.runtimeVersion, '1.0.4'],
   ['owner', base.owner, 'vitus-idi'],
   ['eas.projectId', base.extra?.eas?.projectId, 'fa02c141-0a3b-4dbc-9122-7c1cf31ba42c'],
 ];

@@ -56,11 +56,33 @@ const PACKAGE_MAPPING: Record<string, string> = {
   read_creator_yearly: 'creator_yearly',
 };
 
+const IOS_PRODUCT_IDENTIFIER_BY_PACKAGE: Record<string, string> = {
+  yki_monthly: 'floently_yki_monthly',
+  yki_3months: 'floently_yki_3months',
+  yki_yearly: 'floently_yki_yearly',
+  prof_monthly: 'floently_prof_monthly',
+  prof_3months: 'floently_prof_3months',
+  prof_yearly: 'floently_prof_yearly',
+  combo_monthly: 'floently_combo_monthly',
+  combo_3months: 'floently_combo_3months',
+  combo_yearly: 'floently_combo_yearly',
+  reader_monthly: 'floently_read_reader_monthly',
+  reader_yearly: 'floently_read_reader_yearly',
+  creator_monthly: 'floently_read_creator_monthly',
+  creator_yearly: 'floently_read_creator_yearly',
+};
+
+const ANDROID_READ_PRODUCT_IDENTIFIER_BY_PACKAGE: Partial<Record<ReadStorePlanId, string>> = {
+  reader_monthly: 'floently_read_reader:monthly',
+  creator_monthly: 'floently_read_creator:monthly',
+};
+
 export type StorePlanAvailability = {
   planId: string;
   packageId: string | null;
   available: boolean;
   productIdentifier: string | null;
+  expectedProductIdentifier: string | null;
   priceString: string | null;
   trialEligible: boolean;
 };
@@ -131,9 +153,10 @@ export function revenueCatPackageForPlan(planId: string): string | null {
   return PACKAGE_MAPPING[planId] ?? null;
 }
 
-export async function preflightStoreBillingPlans(
+async function preflightStoreBillingPlansForOffering(
   planIds: string[],
   userId?: string | null,
+  offeringIdentifier?: string | null,
 ): Promise<StoreBillingCatalog> {
   const platform = mobilePlatform();
   if (!platform) {
@@ -142,7 +165,7 @@ export async function preflightStoreBillingPlans(
 
   try {
     const uniquePlanIds = Array.from(new Set(planIds.map((item) => String(item || '').trim()).filter(Boolean)));
-    const snapshot = await getRevenueCatOfferingSnapshot(userId);
+    const snapshot = await getRevenueCatOfferingSnapshot(userId, offeringIdentifier);
 
     const plans = uniquePlanIds.map<StorePlanAvailability>((planId) => {
       const packageId = revenueCatPackageForPlan(planId);
@@ -150,20 +173,50 @@ export async function preflightStoreBillingPlans(
         ? snapshot.packages.find((item) => revenueCatPackageSnapshotMatches(item, packageId))
         : null;
       const productIdentifier = matchedPackage?.productIdentifier?.trim() || null;
+      const expectedProductIdentifier =
+        platform === 'ios' && packageId
+          ? IOS_PRODUCT_IDENTIFIER_BY_PACKAGE[packageId] ?? null
+          : platform === 'android' &&
+              offeringIdentifier === READ_OFFERING_ID &&
+              packageId
+            ? ANDROID_READ_PRODUCT_IDENTIFIER_BY_PACKAGE[
+                packageId as ReadStorePlanId
+              ] ?? null
+            : null;
       const priceString = matchedPackage?.priceString?.trim() || null;
+      const productIdentifierMatches =
+        platform === 'ios'
+          ? Boolean(
+              expectedProductIdentifier &&
+              productIdentifier === expectedProductIdentifier
+            )
+          : platform === 'android' && offeringIdentifier === READ_OFFERING_ID
+            ? Boolean(
+                expectedProductIdentifier &&
+                productIdentifier === expectedProductIdentifier
+              )
+            : true;
 
       // A plan is considered store-ready only when RevenueCat returned the
-      // expected package, the underlying App Store product identifier, and the
-      // localized store price. This prevents presenting an enabled purchase CTA
-      // when the exact failure Apple saw (store product cannot be fetched) is
-      // already observable before the reviewer taps Buy.
-      const available = Boolean(packageId && matchedPackage && productIdentifier && priceString);
+      // expected package, the underlying store product, and localized price.
+      // On iOS every purchasable package must resolve to the explicitly pinned
+      // Apple Product ID. Floently Read also pins its documented Android monthly
+      // Google Play product IDs, so a miswired RevenueCat alias cannot charge a
+      // product that the server-authoritative verifier would later reject.
+      const available = Boolean(
+        packageId &&
+        matchedPackage &&
+        productIdentifier &&
+        priceString &&
+        productIdentifierMatches
+      );
 
       return {
         planId,
         packageId,
         available,
         productIdentifier,
+        expectedProductIdentifier,
         priceString,
         trialEligible: Boolean(available && matchedPackage?.trialEligible),
       };
@@ -179,8 +232,18 @@ export async function preflightStoreBillingPlans(
       missingPlanIds,
     };
   } catch (error) {
-    throwUserSafeStoreError('preflight', error);
+    if (error instanceof StoreBillingUnavailableError || error instanceof StorePurchaseCancelledError) {
+      throw error;
+    }
+    throwUserSafeStoreError(offeringIdentifier === READ_OFFERING_ID ? 'read_preflight' : 'preflight', error);
   }
+}
+
+export async function preflightStoreBillingPlans(
+  planIds: string[],
+  userId?: string | null,
+): Promise<StoreBillingCatalog> {
+  return preflightStoreBillingPlansForOffering(planIds, userId);
 }
 
 export async function startStorePurchase(
@@ -257,8 +320,64 @@ export async function restoreStorePurchases(
 
 export type ReadStorePlanId = 'reader_monthly' | 'reader_yearly' | 'creator_monthly' | 'creator_yearly';
 
+const READ_PLAN_PLATFORM_SUPPORT: Record<ReadStorePlanId, readonly BillingPlatform[]> = {
+  reader_monthly: ['ios', 'android'],
+  reader_yearly: ['ios'],
+  creator_monthly: ['ios', 'android'],
+  creator_yearly: ['ios'],
+};
+
 export function revenueCatPackageForReadPlan(planId: ReadStorePlanId): string {
   return planId;
+}
+
+export function isReadStorePlanSupported(planId: ReadStorePlanId): boolean {
+  const platform = mobilePlatform();
+  return Boolean(platform && READ_PLAN_PLATFORM_SUPPORT[planId].includes(platform));
+}
+
+export async function preflightReadStoreBillingPlans(
+  planIds: ReadStorePlanId[],
+  userId?: string | null,
+): Promise<StoreBillingCatalog> {
+  const platform = mobilePlatform();
+  if (!platform) {
+    throw new StoreBillingUnavailableError();
+  }
+
+  const supportedPlanIds = planIds.filter((planId) =>
+    READ_PLAN_PLATFORM_SUPPORT[planId].includes(platform),
+  );
+  const unsupportedPlanIds = planIds.filter(
+    (planId) => !READ_PLAN_PLATFORM_SUPPORT[planId].includes(platform),
+  );
+  const catalog = await preflightStoreBillingPlansForOffering(
+    supportedPlanIds,
+    userId,
+    READ_OFFERING_ID,
+  );
+
+  if (!unsupportedPlanIds.length) return catalog;
+
+  return {
+    ...catalog,
+    ready: false,
+    plans: [
+      ...catalog.plans,
+      ...unsupportedPlanIds.map<StorePlanAvailability>((planId) => ({
+        planId,
+        packageId: revenueCatPackageForReadPlan(planId),
+        available: false,
+        productIdentifier: null,
+        expectedProductIdentifier: null,
+        priceString: null,
+        trialEligible: false,
+      })),
+    ],
+    missingPlanIds: Array.from(
+      new Set([...catalog.missingPlanIds, ...unsupportedPlanIds]),
+    ),
+  };
 }
 
 function activeEntitlementSet(result: RevenueCatPurchaseResult): Set<string> {
@@ -287,8 +406,33 @@ export async function startReadStorePurchase(
     throw new StoreBillingUnavailableError();
   }
 
+  if (!READ_PLAN_PLATFORM_SUPPORT[planId].includes(platform)) {
+    logger.error('Floently Read purchase blocked for unsupported store plan.', {
+      actionType: 'STORE_BILLING_PREFLIGHT_BLOCKED',
+      operation: 'read_purchase',
+      planId,
+      platform,
+    });
+    throw new StoreBillingUnavailableError();
+  }
+
   const packageId = revenueCatPackageForReadPlan(planId);
   try {
+    // Read uses a separate RevenueCat offering. Re-resolve the exact package,
+    // underlying store product and localized price immediately before purchase
+    // so a stale/misconfigured read_default offering can never reach checkout.
+    const catalog = await preflightReadStoreBillingPlans([planId], userId);
+    if (!catalog.ready) {
+      logger.error('Floently Read purchase blocked by package preflight.', {
+        actionType: 'STORE_BILLING_PREFLIGHT_BLOCKED',
+        operation: 'read_purchase',
+        planId,
+        missingPlanIds: catalog.missingPlanIds,
+        offeringIdentifier: catalog.offeringIdentifier,
+      });
+      throw new StoreBillingUnavailableError();
+    }
+
     const result = await purchaseRevenueCatPackage(packageId, userId, READ_OFFERING_ID);
     const access = readAccessFromRevenueCatResult(result);
 
@@ -300,6 +444,9 @@ export async function startReadStorePurchase(
       platform,
     };
   } catch (error) {
+    if (error instanceof StoreBillingUnavailableError || error instanceof StorePurchaseCancelledError) {
+      throw error;
+    }
     throwUserSafeStoreError('read_purchase', error);
   }
 }
