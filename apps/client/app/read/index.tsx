@@ -1,12 +1,5 @@
-import { router } from 'expo-router';
-
-import { NativeReadPreviewScreen } from '../../features/publicMarketing/screens/NativePublicMarketingScreens';
+import { FloentlyReadLandingScreen } from '../../features/publicMarketing/screens/FloentlyWebParityScreens';
 
 export default function ReadRouteEntry() {
-  return (
-    <NativeReadPreviewScreen
-      onOpenGateway={() => router.push('/products' as never)}
-      onOpenLearn={() => router.push('/' as never)}
-    />
-  );
+  return <FloentlyReadLandingScreen />;
 }

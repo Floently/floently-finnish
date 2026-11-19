@@ -25,6 +25,15 @@ function forbidText(source, text, label) {
 const appShell = read('state/AppShell.tsx');
 const settingsRoute = read('state/SettingsRoute.tsx');
 const sidebar = read('config/navigation/AppShell_sidebar_sections.ts');
+const readRenderApi = read('features/read/mobile/readRenderApi.ts');
+const deleteAccountPage = fs.readFileSync(
+  path.join(clientRoot, '..', 'kielivalmis-domain-static', 'delete-account', 'index.html'),
+  'utf8',
+);
+const deleteAccountLocales = fs.readFileSync(
+  path.join(clientRoot, '..', 'kielivalmis-domain-static', 'shared', 'page-locales-1.js'),
+  'utf8',
+);
 
 const accountManagementHelper = appShell.match(
   /function isAccountManagementScreen\([\s\S]*?\n}\n/,
@@ -99,13 +108,70 @@ requireText(
   'Delete Account must call the authenticated account-deletion API',
 );
 requireText(
+  readRenderApi,
+  "async deleteAccount(): Promise<void>",
+  'Read API must expose authenticated account deletion',
+);
+requireText(
+  readRenderApi,
+  "requestReadApi<unknown>('/api/v1/account/delete'",
+  'Read account deletion must call the FlowReader authenticated deletion endpoint',
+);
+requireText(
+  settingsRoute,
+  'await readRenderApi.deleteAccount();',
+  'Settings deletion must remove Floently Read data before main account deletion',
+);
+
+const readDeleteIndex = settingsRoute.indexOf('await readRenderApi.deleteAccount();');
+const mainDeleteIndex = settingsRoute.indexOf(
+  "await authService.deleteAccount({ deletionReason: 'in_app_settings' });",
+);
+if (readDeleteIndex < 0 || mainDeleteIndex < 0 || readDeleteIndex >= mainDeleteIndex) {
+  throw new Error(
+    'Account deletion access invariant failed: FlowReader deletion must complete before KieliValmis account/session deletion',
+  );
+}
+requireText(
   settingsRoute,
   'onPress={handleDeleteAccount}',
   'the visible Delete Account control must remain wired to the deletion handler',
+);
+requireText(
+  deleteAccountPage,
+  'Floently Read library and reading progress',
+  'public deletion disclosure must cover Floently Read library/progress data',
+);
+requireText(
+  deleteAccountPage,
+  'open Settings and choose Delete account',
+  'public deletion disclosure must document the in-app deletion path',
+);
+requireText(
+  deleteAccountLocales,
+  'Avaa mobiilisovelluksessa Asetukset ja valitse Poista tili',
+  'Finnish deletion disclosure must document the in-app deletion path',
+);
+requireText(
+  deleteAccountLocales,
+  'Floently Read -kirjaston ja lukemisen edistymisen',
+  'Finnish deletion disclosure must cover Read library/progress data',
+);
+requireText(
+  deleteAccountLocales,
+  'Öppna Inställningar i mobilappen och välj Radera konto',
+  'Swedish deletion disclosure must document the in-app deletion path',
+);
+requireText(
+  deleteAccountLocales,
+  'Floently Read-biblioteket och läsframsteg',
+  'Swedish deletion disclosure must cover Read library/progress data',
 );
 
 console.log('PASS: authenticated free users can reach account-management routes.');
 console.log('PASS: paid learning routes are not reclassified as account management.');
 console.log('PASS: Settings remains discoverable from the drawer.');
 console.log('PASS: Settings retains an in-app account-deletion action.');
+console.log('PASS: account deletion removes FlowReader data before invalidating the main identity.');
+console.log('PASS: public deletion disclosure matches the in-app cross-product cascade.');
 console.log('ACCOUNT_DELETION_ACCESS_INVARIANTS=PASS');

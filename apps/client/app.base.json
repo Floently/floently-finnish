@@ -36,7 +36,8 @@
         "NSSpeechRecognitionUsageDescription": "KieliValmis uses speech recognition to transcribe your Finnish speaking practice so you can review and improve your answers."
       },
       "icon": "./assets/images/kielivalmis-app-icon.png",
-      "buildNumber": "11"
+      "buildNumber": "11",
+      "runtimeVersion": "1.0.5"
     },
     "android": {
       "adaptiveIcon": {
@@ -67,7 +68,11 @@
           ]
         }
       ],
-      "icon": "./assets/images/kielivalmis-app-icon.png"
+      "icon": "./assets/images/kielivalmis-app-icon.png",
+      "runtimeVersion": "1.0.5",
+      "blockedPermissions": [
+        "android.permission.SYSTEM_ALERT_WINDOW"
+      ]
     },
     "web": {
       "output": "static",
@@ -94,7 +99,7 @@
         "expo-audio",
         {
           "microphonePermission": "KieliValmis uses your microphone to record your Finnish speaking practice, roleplay responses, and YKI answers.",
-          "enableBackgroundPlayback": false,
+          "enableBackgroundPlayback": true,
           "enableBackgroundRecording": false
         }
       ],
@@ -124,9 +129,12 @@
       }
     },
     "owner": "vitus-idi",
-    "runtimeVersion": "1.0.3",
+    "runtimeVersion": "1.0.4",
     "updates": {
-      "enabled": false
+      "enabled": true,
+      "url": "https://u.expo.dev/fa02c141-0a3b-4dbc-9122-7c1cf31ba42c",
+      "checkAutomatically": "ON_LOAD",
+      "fallbackToCacheTimeout": 0
     },
     "favicon": "./assets/images/kielivalmis-app-icon.png"
   }

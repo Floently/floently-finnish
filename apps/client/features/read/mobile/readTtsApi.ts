@@ -3,6 +3,12 @@ import { getAuthToken } from '@core/api/apiClient';
 const DEFAULT_READ_API_BASE_URL = 'https://flowreader-api.onrender.com';
 const DEFAULT_TTS_VOICE_ID = 'google:en-US-Neural2-C';
 
+export type ReadWordTiming = {
+  word: string;
+  start: number;
+  end: number;
+};
+
 export type ReadTtsResult = {
   audioPath?: string | null;
   audioUrl: string;
@@ -14,7 +20,7 @@ export type ReadTtsResult = {
   timeProviderMode?: string | null;
   timeScaleFactor?: number | null;
   voiceId?: string | null;
-  wordTimings?: unknown[];
+  wordTimings: ReadWordTiming[];
 };
 
 export type ReadVoice = {
@@ -67,6 +73,18 @@ async function readJson(response: Response): Promise<unknown> {
   }
 }
 
+function normalizeWordTimings(value: unknown): ReadWordTiming[] {
+  if (!Array.isArray(value)) return [];
+  return value.flatMap((item) => {
+    const timing = asRecord(item);
+    const word = typeof timing.word === 'string' ? timing.word : '';
+    const start = Number(timing.start);
+    const end = Number(timing.end);
+    if (!word || !Number.isFinite(start) || !Number.isFinite(end) || start < 0 || end < start) return [];
+    return [{ word, start, end }];
+  });
+}
+
 function normalizeTtsResult(payload: unknown): ReadTtsResult {
   const record = asRecord(payload);
   const data = asRecord(record.data);
@@ -88,11 +106,15 @@ function normalizeTtsResult(payload: unknown): ReadTtsResult {
     timeProviderMode: typeof source.timeProviderMode === 'string' ? source.timeProviderMode : null,
     timeScaleFactor: typeof source.timeScaleFactor === 'number' ? source.timeScaleFactor : null,
     voiceId: typeof source.voiceId === 'string' ? source.voiceId : typeof source.voice_id === 'string' ? source.voice_id : null,
-    wordTimings: Array.isArray(source.wordTimings) ? source.wordTimings : [],
+    wordTimings: normalizeWordTimings(source.wordTimings ?? source.word_timings),
   };
 }
 
-async function postReadApi(path: string, body: Record<string, unknown>): Promise<unknown> {
+async function postReadApi(
+  path: string,
+  body: Record<string, unknown>,
+  timeoutMs = 0,
+): Promise<unknown> {
   const token = getAuthToken();
   const headers = new Headers({
     Accept: 'application/json',
@@ -103,11 +125,27 @@ async function postReadApi(path: string, body: Record<string, unknown>): Promise
     headers.set('Authorization', `Bearer ${token}`);
   }
 
-  const response = await fetch(`${getReadApiBaseUrl()}${path}`, {
-    method: 'POST',
-    headers,
-    body: JSON.stringify(body),
-  });
+  const controller = timeoutMs > 0 ? new AbortController() : null;
+  const timeout = controller
+    ? setTimeout(() => controller.abort(), timeoutMs)
+    : null;
+
+  let response: Response;
+  try {
+    response = await fetch(`${getReadApiBaseUrl()}${path}`, {
+      method: 'POST',
+      headers,
+      body: JSON.stringify(body),
+      signal: controller?.signal,
+    });
+  } catch (error) {
+    if (controller?.signal.aborted) {
+      throw new Error('Voice generation took too long. Tap Play to retry.');
+    }
+    throw error;
+  } finally {
+    if (timeout) clearTimeout(timeout);
+  }
 
   const payload = await readJson(response);
 
@@ -194,7 +232,7 @@ export const readTtsApi = {
       text,
       language: input.language ?? 'auto',
       voiceId: pickVoiceId(input.voiceId, input.language),
-    });
+    }, 20_000);
 
     return normalizeTtsResult(payload);
   },

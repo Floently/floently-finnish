@@ -25,24 +25,58 @@ function forbidText(source, text, label) {
 const storeService = read('features/billing/services/storeBillingService.ts');
 const revenueCatService = read('features/billing/services/revenueCatService.ts');
 const billingRoute = read('state/BillingRoute.tsx');
+const readMobileScreens = read('features/read/mobile/ReadMobileScreens.tsx');
 
 const expectedMappings = [
-  ['yki_monthly', 'yki_monthly'],
-  ['yki_3_months', 'yki_3months'],
-  ['yki_yearly', 'yki_yearly'],
-  ['professional_monthly', 'prof_monthly'],
-  ['professional_3_months', 'prof_3months'],
-  ['professional_yearly', 'prof_yearly'],
-  ['combined_monthly', 'combo_monthly'],
-  ['combined_3_months', 'combo_3months'],
-  ['combined_yearly', 'combo_yearly'],
+  ['yki_monthly', 'yki_monthly', 'floently_yki_monthly'],
+  ['yki_3_months', 'yki_3months', 'floently_yki_3months'],
+  ['yki_yearly', 'yki_yearly', 'floently_yki_yearly'],
+  ['professional_monthly', 'prof_monthly', 'floently_prof_monthly'],
+  ['professional_3_months', 'prof_3months', 'floently_prof_3months'],
+  ['professional_yearly', 'prof_yearly', 'floently_prof_yearly'],
+  ['combined_monthly', 'combo_monthly', 'floently_combo_monthly'],
+  ['combined_3_months', 'combo_3months', 'floently_combo_3months'],
+  ['combined_yearly', 'combo_yearly', 'floently_combo_yearly'],
 ];
 
-for (const [planId, packageId] of expectedMappings) {
+for (const [planId, packageId, productId] of expectedMappings) {
   requireText(
     storeService,
     `${planId}: '${packageId}'`,
     `expected plan/package mapping ${planId} -> ${packageId} must remain explicit`,
+  );
+  requireText(
+    storeService,
+    `${packageId}: '${productId}'`,
+    `expected iOS package/product mapping ${packageId} -> ${productId} must remain explicit`,
+  );
+}
+
+const expectedReadProducts = [
+  ['reader_monthly', 'floently_read_reader_monthly'],
+  ['reader_yearly', 'floently_read_reader_yearly'],
+  ['creator_monthly', 'floently_read_creator_monthly'],
+  ['creator_yearly', 'floently_read_creator_yearly'],
+];
+
+for (const [packageId, productId] of expectedReadProducts) {
+  requireText(
+    storeService,
+    `${packageId}: '${productId}'`,
+    `expected Floently Read iOS package/product mapping ${packageId} -> ${productId} must remain explicit`,
+  );
+}
+
+const expectedAndroidReadProducts = [
+  ['reader_monthly', 'floently_read_reader:monthly'],
+  ['creator_monthly', 'floently_read_creator:monthly'],
+];
+
+for (const [packageId, productId] of expectedAndroidReadProducts) {
+  requireText(
+    storeService,
+    `${packageId}: '${productId}'`,
+    `expected Floently Read Android package/product mapping ${packageId} -> ${productId} must remain explicit`,
   );
 }
 
@@ -53,8 +87,53 @@ requireText(
 );
 requireText(
   storeService,
-  'const snapshot = await getRevenueCatOfferingSnapshot(userId);',
-  'preflight must query the resolved RevenueCat offering before purchase',
+  'const snapshot = await getRevenueCatOfferingSnapshot(userId, offeringIdentifier);',
+  'preflight must query the explicitly resolved RevenueCat offering before purchase',
+);
+requireText(
+  storeService,
+  'export async function preflightReadStoreBillingPlans(',
+  'Floently Read must have a dedicated offering-aware store preflight',
+);
+requireText(
+  storeService,
+  "reader_monthly: ['ios', 'android']",
+  'Floently Read Reader monthly must remain supported on both native stores',
+);
+requireText(
+  storeService,
+  "reader_yearly: ['ios']",
+  'Floently Read Reader yearly must remain iOS-only until the Google Play yearly product is explicitly approved',
+);
+requireText(
+  storeService,
+  "creator_monthly: ['ios', 'android']",
+  'Floently Read Creator monthly must remain supported on both native stores',
+);
+requireText(
+  storeService,
+  "creator_yearly: ['ios']",
+  'Floently Read Creator yearly must remain iOS-only until the Google Play yearly product is explicitly approved',
+);
+requireText(
+  storeService,
+  'const supportedPlanIds = planIds.filter((planId) =>',
+  'Floently Read preflight must separate supported and unsupported store plans',
+);
+requireText(
+  storeService,
+  'unsupportedPlanIds.map<StorePlanAvailability>',
+  'unsupported Floently Read store plans must remain explicitly unavailable in the preflight catalog',
+);
+requireText(
+  storeService,
+  "operation: 'read_purchase',",
+  'Floently Read purchase must log blocked unsupported/store-missing plan attempts',
+);
+requireText(
+  storeService,
+  'if (!READ_PLAN_PLATFORM_SUPPORT[planId].includes(platform)) {',
+  'Floently Read purchase must reject unsupported plan/platform pairs before RevenueCat purchase execution',
 );
 requireText(
   storeService,
@@ -63,8 +142,33 @@ requireText(
 );
 requireText(
   storeService,
-  'const available = Boolean(packageId && matchedPackage && productIdentifier && priceString);',
-  'a plan must not be marked available without package, App Store product ID, and localized price',
+  "platform === 'ios' && packageId",
+  'iOS preflight must resolve the exact expected Apple product identifier for the RevenueCat package',
+);
+requireText(
+  storeService,
+  'productIdentifier === expectedProductIdentifier',
+  'iOS preflight must reject a RevenueCat package that resolves to a legacy or unexpected Apple product',
+);
+requireText(
+  storeService,
+  'productIdentifierMatches',
+  'store availability must consume exact iOS product-identifier validation',
+);
+requireText(
+  storeService,
+  "platform === 'android' && offeringIdentifier === READ_OFFERING_ID",
+  'Floently Read Android preflight must use exact Google Play product identifiers rather than package aliases alone',
+);
+requireText(
+  storeService,
+  'ANDROID_READ_PRODUCT_IDENTIFIER_BY_PACKAGE[',
+  'Floently Read Android product validation must use the pinned Google Play product map',
+);
+requireText(
+  storeService,
+  'const available = Boolean(',
+  'a plan must not be marked available without the complete package/product/price contract',
 );
 requireText(
   storeService,
@@ -76,6 +180,17 @@ requireText(
   'const catalog = await preflightStoreBillingPlans([planId], userId);',
   'purchase must re-check the exact requested plan before invoking the store purchase',
 );
+requireText(
+  storeService,
+  'const catalog = await preflightReadStoreBillingPlans([planId], userId);',
+  'Floently Read purchase must re-check its exact plan in read_default before RevenueCat purchase execution',
+);
+requireText(
+  storeService,
+  'purchaseRevenueCatPackage(packageId, userId, READ_OFFERING_ID)',
+  'Floently Read purchase must execute only against the read_default offering',
+);
+
 requireText(
   storeService,
   "export const STORE_BILLING_UNAVAILABLE_MESSAGE = 'Purchases are temporarily unavailable. Please try again later.';",
@@ -106,6 +221,12 @@ requireText(
   'export function revenueCatPackageSnapshotMatches(',
   'package alias matching must be reusable by preflight and purchase code',
 );
+requireText(
+  revenueCatService,
+  "if (wanted === 'read_default') {",
+  'the named Floently Read offering must fail closed instead of falling back to RevenueCat current/default',
+);
+
 
 requireText(
   billingRoute,
@@ -173,9 +294,23 @@ forbidText(
   'iOS/mobile pricing cards must not render static EUR estimates directly after store preflight integration',
 );
 
-console.log('PASS: all nine core KieliValmis plans retain explicit RevenueCat package mappings.');
+requireText(
+  readMobileScreens,
+  'readPlans.filter((plan) => isReadStorePlanSupported(plan.id))',
+  'Floently Read paywall must hide plans unsupported on the current native store',
+);
+requireText(
+  readMobileScreens,
+  '{visibleReadPlans.map((plan) => {',
+  'Floently Read paywall must render only platform-supported Read plans',
+);
+
+
+console.log('PASS: all nine core KieliValmis plans and Floently Read plans retain explicit RevenueCat/Apple product mappings.');
 console.log('PASS: preflight requires offering package, product identifier, and localized store price.');
-console.log('PASS: purchase rechecks the selected plan before RevenueCat purchase execution.');
+console.log('PASS: Floently Read pins exact Apple and Google Play product identifiers before purchase.');
+console.log('PASS: KieliValmis and Floently Read purchases recheck the selected offering/package before RevenueCat purchase execution.');
+console.log('PASS: Android Read yearly plans remain hidden and fail closed until explicitly supported.');
 console.log('PASS: RevenueCat purchase/restore failures are converted to stable user-safe errors.');
 console.log('PASS: BillingRoute preflights visible store plans before enabling purchase CTAs.');
 console.log('PASS: unavailable store products disable the paywall purchase action and trial action.');

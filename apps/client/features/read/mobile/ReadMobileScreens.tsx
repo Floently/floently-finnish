@@ -1,7 +1,10 @@
 import { useEffect, useMemo, useRef, useState, type ReactNode } from 'react';
 import {
   ActivityIndicator,
+  AppState,
+  FlatList,
   Image,
+  Linking,
   Pressable,
   ScrollView,
   StyleSheet,
@@ -12,7 +15,7 @@ import {
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import * as DocumentPicker from 'expo-document-picker';
-import { setAudioModeAsync, useAudioPlayer, useAudioPlayerStatus } from 'expo-audio';
+import { clearPreloadedSource, preload, setAudioModeAsync, useAudioPlayer, useAudioPlayerStatus } from 'expo-audio';
 import Svg, { Circle } from 'react-native-svg';
 import { router } from 'expo-router';
 
@@ -22,14 +25,37 @@ import {
   type ReadDocument,
   type ReadTheme,
 } from './readMobileStore';
-import { readTtsApi, type ReadTtsResult, type ReadVoice } from './readTtsApi';
+import { readTtsApi, type ReadTtsResult, type ReadVoice, type ReadWordTiming } from './readTtsApi';
 import { readAiApi, type ReadAiAction } from './readAiApi';
-import { readRenderApi } from './readRenderApi';
-import { restoreReadStorePurchases, startReadStorePurchase, type ReadStorePlanId } from '../../billing/services/storeBillingService';
+import { readRenderApi, type SyncReadRevenueCatResult } from './readRenderApi';
+import {
+  activateReadDocumentMediaSession,
+  clearReadDocumentMediaSession,
+  subscribeReadDocumentMediaSeek,
+  syncReadDocumentMediaTimeline,
+} from './readDocumentMediaSession';
+import {
+  createReadingPlaybackManifest,
+  formatReadingClock,
+  readingPositionForProgress,
+  readingPrefetchIndexes,
+  readingProgressForSegment,
+} from './readingPlaybackManifest';
+import {
+  isReadStorePlanSupported,
+  preflightReadStoreBillingPlans,
+  restoreReadStorePurchases,
+  startReadStorePurchase,
+  supportsStoreBilling,
+  type ReadStorePlanId,
+  type StoreBillingCatalog,
+} from '../../billing/services/storeBillingService';
+import { LEGAL_URLS } from '../../../config/legalUrls';
+import { useAuthStore } from '../../../state/authStore';
 import { useSubscriptionStore } from '../../../state/subscriptionStore';
 
 type ReadTab = 'home' | 'library' | 'import' | 'reader' | 'settings' | 'analytics' | 'subscribe' | 'browser';
-type ImportMode = 'file' | 'paste' | 'url' | 'scan' | 'record';
+type ImportMode = 'file' | 'paste' | 'url';
 type AudioPlaybackState = 'idle' | 'preparing' | 'ready' | 'playing' | 'paused' | 'error';
 type ReadTone = 'blue' | 'purple' | 'teal' | 'amber' | 'rose' | 'neutral';
 
@@ -69,17 +95,15 @@ const bottomTabs: Array<{ key: ReadTab; label: string; route: string; icon: stri
   { key: 'settings', label: 'Settings', route: '/read/settings', icon: 'Set' },
 ];
 
-const importActions: Array<{ mode: ImportMode; label: string; detail: string; icon: string; soon?: boolean }> = [
+const importActions: Array<{ mode: ImportMode; label: string; detail: string; icon: string }> = [
   { mode: 'file', label: 'File', detail: 'PDF, DOCX, TXT, EPUB', icon: 'File' },
-  { mode: 'scan', label: 'Scan', detail: 'Camera scan soon', icon: 'Cam', soon: true },
   { mode: 'url', label: 'Link', detail: 'Paste any URL', icon: 'Link' },
   { mode: 'paste', label: 'Paste', detail: 'Text from clipboard', icon: 'Text' },
-  { mode: 'record', label: 'Record', detail: 'Audio import soon', icon: 'Mic', soon: true },
 ];
 
-const readPlans: Array<{ id: ReadStorePlanId; title: string; priceHint: string; body: string; platformNote?: string }> = [
-  { id: 'reader_monthly', title: 'Reader Monthly', priceHint: '11.99 EUR / month', body: 'Read, listen, import text, and continue your library across sessions.' },
-  { id: 'reader_yearly', title: 'Reader Yearly', priceHint: '119.90 EUR / year', body: 'Annual Reader access for reading, listening, and document practice.', platformNote: 'Android yearly can be enabled after RevenueCat compatibility is clear; iOS yearly is ready.' },
+const readPlans: Array<{ id: ReadStorePlanId; title: string; body: string }> = [
+  { id: 'reader_monthly', title: 'Reader Monthly', body: 'Read, listen, import text, and continue your library across sessions.' },
+  { id: 'reader_yearly', title: 'Reader Yearly', body: 'Annual Reader access for reading, listening, and document practice.' },
 ];
 
 function paletteFor(theme: ReadTheme): Palette {
@@ -217,60 +241,81 @@ function readerParagraphs(text: string) {
     .filter(Boolean);
 }
 
-function readerAudioChunks(text: string, maxChars = 3600): string[] {
-  const normalized = text.replace(/\r\n/g, '\n').trim();
-  if (!normalized) return [];
+type ReaderParagraphIndex = {
+  ends: number[];
+  total: number;
+};
 
-  const units = normalized
-    .split(/(?<=[.!?])\s+|\n{2,}/)
-    .map((value) => value.trim())
-    .filter(Boolean);
-
-  const chunks: string[] = [];
-  let current = '';
-
-  const flush = () => {
-    const value = current.trim();
-    if (value) chunks.push(value);
-    current = '';
-  };
-
-  for (const unit of units) {
-    if (unit.length > maxChars) {
-      flush();
-      let remaining = unit;
-      while (remaining.length > maxChars) {
-        let cut = remaining.lastIndexOf(' ', maxChars);
-        if (cut < Math.floor(maxChars * 0.6)) cut = maxChars;
-        chunks.push(remaining.slice(0, cut).trim());
-        remaining = remaining.slice(cut).trim();
-      }
-      if (remaining) current = remaining;
-      continue;
-    }
-
-    const candidate = current ? `${current} ${unit}` : unit;
-    if (candidate.length > maxChars) {
-      flush();
-      current = unit;
-    } else {
-      current = candidate;
-    }
+function buildReaderParagraphIndex(paragraphs: string[]): ReaderParagraphIndex {
+  const ends: number[] = [];
+  let total = 0;
+  for (const paragraph of paragraphs) {
+    total += Math.max(1, paragraph.length);
+    ends.push(total);
   }
-  flush();
-  return chunks;
+  return { ends, total };
 }
 
-function chunkIndexForProgress(chunks: string[], progress: number): number {
-  if (!chunks.length) return 0;
-  const total = chunks.reduce((sum, chunk) => sum + chunk.length, 0);
-  const target = Math.max(0, Math.min(1, progress)) * total;
-  let cursor = 0;
-  for (let index = 0; index < chunks.length; index += 1) {
-    cursor += chunks[index].length;
-    if (target < cursor) return index;
+function paragraphIndexForProgress(
+  index: ReaderParagraphIndex,
+  progress: number,
+): number {
+  if (!index.ends.length || index.total <= 0) return 0;
+
+  const target = Math.max(0, Math.min(1, progress)) * index.total;
+  let low = 0;
+  let high = index.ends.length - 1;
+  while (low < high) {
+    const middle = Math.floor((low + high) / 2);
+    if (target < index.ends[middle]) high = middle;
+    else low = middle + 1;
   }
-  return chunks.length - 1;
+  return low;
+}
+
+function timedChunkProgress(
+  text: string,
+  timings: ReadWordTiming[],
+  currentTime: number,
+  duration: number,
+): number {
+  const fallback = duration > 0
+    ? Math.max(0, Math.min(1, currentTime / duration))
+    : 0;
+  if (!text || !timings.length) return fallback;
+
+  const words = [...text.matchAll(/[\p{L}\p{N}]+(?:['’\-][\p{L}\p{N}]+)*/gu)];
+  if (!words.length) return fallback;
+
+  const lastTiming = timings[timings.length - 1];
+  if (currentTime >= lastTiming.end) return 1;
+
+  let timingIndex = -1;
+  for (let index = 0; index < timings.length; index += 1) {
+    if (currentTime < timings[index].start) break;
+    timingIndex = index;
+  }
+  if (timingIndex < 0) return 0;
+
+  const timing = timings[timingIndex];
+  const word = words[Math.min(timingIndex, words.length - 1)];
+  const startChar = word.index ?? 0;
+  const wordLength = word[0]?.length ?? 0;
+  const timingSpan = Math.max(0.001, timing.end - timing.start);
+  const withinWord = Math.max(0, Math.min(1, (currentTime - timing.start) / timingSpan));
+  return Math.max(0, Math.min(1, (startChar + wordLength * withinWord) / Math.max(1, text.length)));
+}
+
+async function resolveLoadedAudioDuration(
+  player: ReturnType<typeof useAudioPlayer>,
+  fallbackSeconds: number,
+): Promise<number> {
+  for (let attempt = 0; attempt < 12; attempt += 1) {
+    const duration = Number(player.duration || 0);
+    if (Number.isFinite(duration) && duration > 0) return duration;
+    await new Promise((resolve) => setTimeout(resolve, 50));
+  }
+  return Math.max(0, fallbackSeconds);
 }
 
 function safePct(value: number) {
@@ -301,7 +346,9 @@ function cardTone(tone: ReadTone, palette: Palette) {
 }
 
 function setPlayerPlaybackRate(player: ReturnType<typeof useAudioPlayer>, rate: number) {
-  const safeRate = Math.max(0.1, Math.min(3, Number.isFinite(rate) ? rate : 1));
+  // Expo Audio supports up to 2x on native iOS/Android. Never expose a rate the
+  // native player may clamp or reject differently across platforms.
+  const safeRate = Math.max(0.1, Math.min(2, Number.isFinite(rate) ? rate : 1));
   const maybePlayer = player as unknown as { setPlaybackRate?: (rate: number) => void; playbackRate?: number };
 
   try {
@@ -585,22 +632,22 @@ export function ReadHomeScreen() {
           <View style={styles.homeHeroText}>
             <Text style={[styles.kicker, { color: palette.accent2 }]}>Floently Read</Text>
             <Text style={[styles.homeTitle, { color: palette.text }]}>Read, listen, and understand.</Text>
-            <Text style={[styles.homeSubtitle, { color: palette.muted }]}>Import anything, browse live websites, continue instantly, and listen with a calm reader.</Text>
+            <Text style={[styles.homeSubtitle, { color: palette.muted }]}>Import anything, browse websites on this device, continue instantly, and listen with a calm reader.</Text>
           </View>
-          <MetricPill label="Day streak" value="7" tone="amber" />
+          <MetricPill label="Library" value={String(documents.length)} tone="blue" />
         </View>
 
         <SyncBanner />
 
         <View style={[styles.sectionCard, { backgroundColor: palette.surfaceRaised, borderColor: palette.borderStrong }]}>
           <View>
-            <Text style={[styles.kicker, { color: palette.accent2 }]}>Live web Reader</Text>
-            <Text style={[styles.sectionTitle, { color: palette.text, marginTop: 6 }]}>Browse the real website</Text>
+            <Text style={[styles.kicker, { color: palette.accent2 }]}>Browser Reader</Text>
+            <Text style={[styles.sectionTitle, { color: palette.text, marginTop: 6 }]}>Read websites without leaving Floently</Text>
             <Text style={[styles.cardBody, { color: palette.muted, marginTop: 6 }]}>
-              Open a site in the secure remote browser, sign in when needed, interact normally, and use Reader without converting the website into a static document.
+              Open articles and websites in the dedicated Browser Reader, interact normally, and keep the native Read experience around the page.
             </Text>
           </View>
-          <PrimaryButton label="Open live browser" onPress={() => navigate('/read/browser')} />
+          <PrimaryButton label="Open browser" onPress={() => navigate('/read/browser')} />
         </View>
 
         <View style={[styles.sectionCard, { backgroundColor: palette.surface, borderColor: palette.border }]}>
@@ -759,10 +806,10 @@ export function ReadImportScreen() {
               onPress={() => setMode(action.mode)}
               style={[styles.importOption, { backgroundColor: palette.surfaceRaised, borderColor: mode === action.mode ? palette.borderStrong : palette.border }]}
             >
-              <Text style={[styles.importOptionIcon, { color: action.soon ? palette.warning : palette.accent }]}>{action.icon}</Text>
+              <Text style={[styles.importOptionIcon, { color: palette.accent }]}>{action.icon}</Text>
               <View style={styles.importOptionText}>
                 <Text style={[styles.importOptionTitle, { color: palette.text }]}>{action.label}</Text>
-                <Text style={[styles.importOptionBody, { color: palette.muted }]}>{action.soon ? 'Coming soon' : action.detail}</Text>
+                <Text style={[styles.importOptionBody, { color: palette.muted }]}>{action.detail}</Text>
               </View>
             </Pressable>
           ))}
@@ -790,12 +837,6 @@ export function ReadImportScreen() {
           </View>
         ) : null}
 
-        {(mode === 'scan' || mode === 'record') ? (
-          <View style={[styles.panel, cardTone('amber', palette)]}>
-            <Text style={[styles.cardTitle, { color: palette.text }]}>{mode === 'scan' ? 'Scan document' : 'Record audio'}</Text>
-            <Text style={[styles.cardBody, { color: palette.muted }]}>This entry is designed into the app now and will be connected after the reader/import foundation is stable.</Text>
-          </View>
-        ) : null}
 
         {importError ? <Text style={[styles.errorText, { color: palette.danger }]}>{importError}</Text> : null}
       </ScrollView>
@@ -834,19 +875,60 @@ export function ReadLibraryScreen() {
   );
 }
 
-function ReaderText({ document, activeIndex }: { document: ReadDocument; activeIndex: number }) {
+function ReaderText({
+  document,
+  activeIndex,
+  followActive,
+}: {
+  document: ReadDocument;
+  activeIndex: number;
+  followActive: boolean;
+}) {
   const theme = useReadMobileStore((state) => state.readTheme);
   const palette = paletteFor(theme);
-  const paragraphs = readerParagraphs(document.generatedText);
+  const listRef = useRef<FlatList<string>>(null);
+  const paragraphs = useMemo(
+    () => readerParagraphs(document.generatedText),
+    [document.generatedText],
+  );
+
+  useEffect(() => {
+    if (!followActive || activeIndex < 0 || activeIndex >= paragraphs.length) return;
+    const timer = setTimeout(() => {
+      listRef.current?.scrollToIndex({
+        index: activeIndex,
+        animated: true,
+        viewPosition: 0.35,
+      });
+    }, 80);
+    return () => clearTimeout(timer);
+  }, [activeIndex, followActive, paragraphs.length]);
+
   return (
-    <View style={[styles.readerPaper, { backgroundColor: palette.readerPaper, borderColor: palette.border }]}>
-      <Text style={[styles.readerChapter, { color: palette.readerMuted }]}>Chapter 1</Text>
-      <Text style={[styles.readerTitle, { color: palette.readerText }]}>{document.title}</Text>
-      {paragraphs.slice(0, 24).map((paragraph, index) => {
-        const active=index===activeIndex;
+    <FlatList
+      ref={listRef}
+      data={paragraphs}
+      keyExtractor={(paragraph, index) => `${paragraph.slice(0, 24)}-${index}`}
+      style={[
+        styles.readerVirtualList,
+        { backgroundColor: palette.readerPaper, borderColor: palette.border },
+      ]}
+      contentContainerStyle={styles.readerVirtualContent}
+      showsVerticalScrollIndicator={false}
+      initialNumToRender={14}
+      maxToRenderPerBatch={10}
+      windowSize={9}
+      updateCellsBatchingPeriod={40}
+      ListHeaderComponent={
+        <View style={styles.readerVirtualHeader}>
+          <Text style={[styles.readerChapter, { color: palette.readerMuted }]}>Chapter 1</Text>
+          <Text style={[styles.readerTitle, { color: palette.readerText }]}>{document.title}</Text>
+        </View>
+      }
+      renderItem={({ item: paragraph, index }) => {
+        const active = index === activeIndex;
         return (
           <Text
-            key={`${paragraph.slice(0, 16)}-${index}`}
             accessibilityState={{ selected: active }}
             style={[
               styles.readerParagraph,
@@ -862,17 +944,42 @@ function ReaderText({ document, activeIndex }: { document: ReadDocument; activeI
             {paragraph}
           </Text>
         );
-      })}
-    </View>
+      }}
+      onScrollToIndexFailed={({ index, averageItemLength }) => {
+        listRef.current?.scrollToOffset({
+          offset: Math.max(0, averageItemLength * Math.max(0, index - 2)),
+          animated: true,
+        });
+        setTimeout(() => {
+          listRef.current?.scrollToIndex({
+            index,
+            animated: true,
+            viewPosition: 0.35,
+          });
+        }, 180);
+      }}
+    />
   );
 }
 
 export function ReadReaderScreen() {
   const document = useActiveReadDocument();
   const updateProgress = useReadMobileStore((state) => state.updateProgress);
+  const refreshDocument = useReadMobileStore((state) => state.refreshDocument);
+  const syncStatus = useReadMobileStore((state) => state.syncStatus);
   const setPlaybackSpeed = useReadMobileStore((state) => state.setPlaybackSpeed);
   const setVoiceId = useReadMobileStore((state) => state.setVoiceId);
-  const player = useAudioPlayer(null, { updateInterval: 500 });
+  const player = useAudioPlayer(null, {
+    updateInterval: 100,
+    // Start streaming the active narration as soon as its URL is ready.
+    // Future hidden segments are still preloaded ahead of the cursor.
+    downloadFirst: false,
+    // A paused long-form reading must remain resumable from iOS/Android system
+    // media controls; deactivating the audio session would make remote Play
+    // depend on a fresh in-app gesture.
+    keepAudioSessionActive: true,
+    preferredForwardBufferDuration: 30,
+  });
   const playbackStatus = useAudioPlayerStatus(player);
   const [audioState, setAudioState] = useState<AudioPlaybackState>('idle');
   const [audioError, setAudioError] = useState<string | null>(null);
@@ -880,6 +987,9 @@ export function ReadReaderScreen() {
   const [voices, setVoices] = useState<ReadVoice[]>([]);
   const [defaultVoiceId, setDefaultVoiceId] = useState<string | null>(null);
   const [studyOpen, setStudyOpen] = useState(false);
+  const [playerExpanded, setPlayerExpanded] = useState(false);
+  const [controlsHidden, setControlsHidden] = useState(false);
+  const [readerProgressTrackWidth, setReaderProgressTrackWidth] = useState(0);
   const [studyBusy, setStudyBusy] = useState(false);
   const [studyAction, setStudyAction] = useState<ReadAiAction | null>(null);
   const [studyTitle, setStudyTitle] = useState('Summary & AI');
@@ -888,13 +998,109 @@ export function ReadReaderScreen() {
   const [studyQuestion, setStudyQuestion] = useState('');
   const [activeAudioChunk, setActiveAudioChunk] = useState(0);
   const audioChunkCache = useRef(new Map<string, ReadTtsResult>());
+  const audioChunkPrepareCache = useRef(new Map<string, Promise<ReadTtsResult>>());
+  const audioPreloadCache = useRef(new Map<string, Promise<void>>());
+  const resumeFractionRef = useRef(0);
   const handledFinishedChunk = useRef<string | null>(null);
+  const activePlaybackKeyRef = useRef<string | null>(null);
+  const startedPlaybackKeyRef = useRef<string | null>(null);
+  const audioGenerationRef = useRef(0);
+  const prefetchGenerationRef = useRef(0);
+  const voiceChangeResumeRef = useRef<{ index: number; autoplay: boolean } | null>(null);
+  const playAttemptRef = useRef(0);
+  const seekGenerationRef = useRef(0);
+  const logicalMediaSeekRef = useRef<(positionSeconds: number) => void>(() => {});
+  const playbackHealthRef = useRef({
+    playing: false,
+    isBuffering: false,
+    currentTime: 0,
+  });
+  const previousSystemPlayingRef = useRef(false);
   const theme = useReadMobileStore((state) => state.readTheme);
   const palette = paletteFor(theme);
 
   useEffect(() => {
-    void setAudioModeAsync({ playsInSilentMode: true });
+    void setAudioModeAsync({
+      playsInSilentMode: true,
+      shouldPlayInBackground: true,
+      // Expo Audio requires exclusive focus for reliable lock-screen controls.
+      // It also lets the OS deliver interruption/focus behavior consistently
+      // instead of silently mixing a long-form Reader behind another session.
+      interruptionMode: 'doNotMix',
+    });
   }, []);
+
+  useEffect(() => {
+    playbackHealthRef.current = {
+      playing: playbackStatus.playing,
+      isBuffering: playbackStatus.isBuffering,
+      currentTime: playbackStatus.currentTime,
+    };
+  }, [
+    playbackStatus.currentTime,
+    playbackStatus.isBuffering,
+    playbackStatus.playing,
+  ]);
+
+  useEffect(() => {
+    if (!document || document.status !== 'processing' || syncStatus === 'syncing') return;
+
+    let cancelled = false;
+    let timer: ReturnType<typeof setTimeout> | null = null;
+    let attempt = 0;
+
+    const poll = async () => {
+      if (cancelled || !document.id) return;
+      await refreshDocument(document.id);
+      if (cancelled) return;
+      attempt += 1;
+      // Fast early polling makes a freshly imported book become readable as
+      // soon as extraction finishes; back off so genuinely large files do not
+      // hammer the document service.
+      const delay = attempt < 5 ? 900 : Math.min(4_000, 1_500 + attempt * 250);
+      timer = setTimeout(() => { void poll(); }, delay);
+    };
+
+    timer = setTimeout(() => { void poll(); }, 500);
+    return () => {
+      cancelled = true;
+      if (timer) clearTimeout(timer);
+    };
+  }, [document?.id, document?.status, refreshDocument, syncStatus]);
+
+  const monitorPlaybackStart = () => {
+    const attempt = ++playAttemptRef.current;
+
+    setTimeout(() => {
+      if (playAttemptRef.current !== attempt) return;
+      const health = playbackHealthRef.current;
+      if (health.playing || health.isBuffering || health.currentTime > 0.05) return;
+
+      player.pause();
+      clearReadDocumentMediaSession(player);
+      playAttemptRef.current += 1;
+      setAudioState('paused');
+      setAudioError(
+        'Audio did not start. If a call or another app is using audio, end or pause it and tap Play again.',
+      );
+      setPlayerExpanded(true);
+    }, 5_000);
+
+    setTimeout(() => {
+      if (playAttemptRef.current !== attempt) return;
+      const health = playbackHealthRef.current;
+      if (health.playing || health.currentTime > 0.05) return;
+
+      player.pause();
+      clearReadDocumentMediaSession(player);
+      playAttemptRef.current += 1;
+      setAudioState('paused');
+      setAudioError(
+        'Audio is still buffering. Check the connection, then tap Play to retry.',
+      );
+      setPlayerExpanded(true);
+    }, 12_000);
+  };
 
   useEffect(() => {
     let cancelled = false;
@@ -923,42 +1129,97 @@ export function ReadReaderScreen() {
     }
   }, [audioResult, audioState, playbackStatus.playing]);
 
+  const readingManifest = useMemo(
+    () => createReadingPlaybackManifest(
+      document?.generatedText ?? '',
+      document?.playbackSpeed ?? 1,
+      1800,
+      240,
+    ),
+    [document?.generatedText, document?.playbackSpeed],
+  );
   const audioChunks = useMemo(
-    () => document ? readerAudioChunks(document.generatedText) : [],
-    [document],
+    () => readingManifest.segments.map((segment) => segment.text),
+    [readingManifest],
   );
 
   const displayedProgress = useMemo(() => {
     if (!document) return 0;
     if (playbackStatus.duration > 0 && audioChunks.length) {
-      const totalChars = audioChunks.reduce((sum, chunk) => sum + chunk.length, 0);
-      const completedChars = audioChunks
-        .slice(0, activeAudioChunk)
-        .reduce((sum, chunk) => sum + chunk.length, 0);
-      const clipRatio = Math.max(0, Math.min(1, playbackStatus.currentTime / playbackStatus.duration));
-      const currentChars = (audioChunks[activeAudioChunk]?.length || 0) * clipRatio;
-      return totalChars > 0 ? Math.max(0, Math.min(1, (completedChars + currentChars) / totalChars)) : 0;
+      const activeChunkText = audioChunks[activeAudioChunk] || '';
+      const clipRatio = timedChunkProgress(
+        activeChunkText,
+        audioResult?.wordTimings ?? [],
+        playbackStatus.currentTime,
+        playbackStatus.duration,
+      );
+      return readingProgressForSegment(readingManifest, activeAudioChunk, clipRatio);
     }
     return document.readingProgress;
-  }, [activeAudioChunk, audioChunks, document, playbackStatus.currentTime, playbackStatus.duration]);
+  }, [activeAudioChunk, audioChunks, audioResult, document, playbackStatus.currentTime, playbackStatus.duration, readingManifest]);
+
+  const progressSyncThreshold = Math.min(
+    0.01,
+    15 / Math.max(15, readingManifest.estimatedPlaybackDurationSeconds),
+  );
+
+  useEffect(() => {
+    const wasPlaying = previousSystemPlayingRef.current;
+    previousSystemPlayingRef.current = playbackStatus.playing;
+    if (!document || !wasPlaying || playbackStatus.playing) return;
+
+    // This transition also fires for lock-screen Pause, headphones unplugging,
+    // and audio-session interruptions — paths that do not call pauseAudio().
+    updateProgress(document.id, displayedProgress);
+    syncReadDocumentMediaTimeline(player, {
+      durationSeconds: readingManifest.estimatedPlaybackDurationSeconds,
+      elapsedSeconds:
+        readingManifest.estimatedPlaybackDurationSeconds * displayedProgress,
+      playbackSpeed: document.playbackSpeed,
+    });
+  }, [
+    displayedProgress,
+    document,
+    playbackStatus.playing,
+    player,
+    readingManifest.estimatedPlaybackDurationSeconds,
+    updateProgress,
+  ]);
 
   useEffect(() => {
     if (!document || !playbackStatus.duration || playbackStatus.duration <= 0) return;
-    if (Math.abs(displayedProgress - document.readingProgress) >= 0.01) {
+    if (Math.abs(displayedProgress - document.readingProgress) >= progressSyncThreshold) {
       updateProgress(document.id, displayedProgress);
     }
-  }, [displayedProgress, document, playbackStatus.duration, updateProgress]);
+  }, [
+    displayedProgress,
+    document,
+    playbackStatus.duration,
+    progressSyncThreshold,
+    updateProgress,
+  ]);
+
+  useEffect(() => {
+    const subscription = AppState.addEventListener('change', (nextState) => {
+      if (nextState !== 'active' && document) {
+        updateProgress(document.id, displayedProgress);
+      }
+    });
+    return () => subscription.remove();
+  }, [displayedProgress, document, updateProgress]);
 
   const readerParagraphList = useMemo(
     () => document ? readerParagraphs(document.generatedText) : [],
-    [document],
+    [document?.generatedText],
   );
-  const activeParagraphIndex = readerParagraphList.length
-    ? Math.min(
-        readerParagraphList.length - 1,
-        Math.floor(displayedProgress * readerParagraphList.length),
-      )
-    : 0;
+  const readerParagraphIndex = useMemo(
+    () => buildReaderParagraphIndex(readerParagraphList),
+    [readerParagraphList],
+  );
+  const activeParagraphIndex = paragraphIndexForProgress(
+    readerParagraphIndex,
+    displayedProgress,
+  );
 
   const readerVoices = useMemo(() => {
     if (!document) return voices;
@@ -974,23 +1235,88 @@ export function ReadReaderScreen() {
     readerVoices[0] ||
     null;
 
+  const playbackIsPlaying = audioState === 'playing' || playbackStatus.playing;
+  const playbackHasStarted =
+    playbackStatus.playing &&
+    !playbackStatus.isBuffering &&
+    playbackStatus.currentTime > 0.05;
+
+  useEffect(() => {
+    if (!document || !playbackHasStarted || playerExpanded || audioError) {
+      setControlsHidden(false);
+      return;
+    }
+    if (controlsHidden) return;
+
+    const timer = setTimeout(() => setControlsHidden(true), 3_500);
+    return () => clearTimeout(timer);
+  }, [audioError, controlsHidden, document?.id, playbackHasStarted, playerExpanded]);
+
   useEffect(() => {
     if (!document) return;
-    setActiveAudioChunk(chunkIndexForProgress(audioChunks, document.readingProgress));
+    playAttemptRef.current += 1;
+    seekGenerationRef.current += 1;
+    previousSystemPlayingRef.current = false;
+    player.pause();
+    clearReadDocumentMediaSession(player)
+    const savedPosition = readingPositionForProgress(readingManifest, document.readingProgress);
+    setActiveAudioChunk(savedPosition.index);
+    resumeFractionRef.current = savedPosition.fraction;
     setAudioResult(null);
     setAudioState('idle');
     setAudioError(null);
+    audioGenerationRef.current += 1;
+    prefetchGenerationRef.current += 1;
     audioChunkCache.current.clear();
+    audioChunkPrepareCache.current.clear();
+    for (const url of audioPreloadCache.current.keys()) {
+      void clearPreloadedSource(url).catch(() => {});
+    }
+    audioPreloadCache.current.clear();
     handledFinishedChunk.current = null;
+    activePlaybackKeyRef.current = null;
+    startedPlaybackKeyRef.current = null;
   }, [document?.id]);
 
   useEffect(() => {
+    audioGenerationRef.current += 1;
+    prefetchGenerationRef.current += 1;
     audioChunkCache.current.clear();
+    audioChunkPrepareCache.current.clear();
+    for (const url of audioPreloadCache.current.keys()) {
+      void clearPreloadedSource(url).catch(() => {});
+    }
+    audioPreloadCache.current.clear();
     handledFinishedChunk.current = null;
+    activePlaybackKeyRef.current = null;
+    startedPlaybackKeyRef.current = null;
+
+    const resume = voiceChangeResumeRef.current;
+    voiceChangeResumeRef.current = null;
+    if (!resume) return;
+
+    const timer = setTimeout(() => {
+      if (resume.autoplay) {
+        void playAudioChunk(resume.index);
+      } else {
+        void preloadAudioChunk(resume.index).catch(() => {});
+      }
+    }, 0);
+    return () => clearTimeout(timer);
   }, [document?.voiceId]);
 
+  useEffect(() => () => {
+    audioGenerationRef.current += 1;
+    prefetchGenerationRef.current += 1;
+    clearReadDocumentMediaSession(player)
+    for (const url of audioPreloadCache.current.keys()) {
+      void clearPreloadedSource(url).catch(() => {});
+    }
+    audioPreloadCache.current.clear();
+  }, [player]);
+
   const chunkCacheKey = (index: number) =>
-    `${document?.id || 'none'}:${document?.voiceId || selectedVoice?.id || defaultVoiceId || 'default'}:${index}`;
+    `${document?.id || 'none'}:${selectedVoice?.id || defaultVoiceId || document?.voiceId || 'default'}:${index}`;
 
   async function prepareAudioChunk(index: number): Promise<ReadTtsResult> {
     if (!document || !audioChunks[index]) throw new Error('No readable audio segment is available.');
@@ -998,42 +1324,224 @@ export function ReadReaderScreen() {
     const cached = audioChunkCache.current.get(key);
     if (cached) return cached;
 
-    const result = await readTtsApi.prerenderReading({
+    const inFlight = audioChunkPrepareCache.current.get(key);
+    if (inFlight) return inFlight;
+
+    // Reuse speculative lookahead when this segment becomes active. This
+    // avoids duplicate TTS calls during seeks/handoffs and keeps the nearest
+    // required audio ahead of distant speculative work.
+    const generation = audioGenerationRef.current;
+    const request = readTtsApi.prerenderReading({
       text: audioChunks[index],
       language: document.language,
-      voiceId: document.voiceId || selectedVoice?.id || defaultVoiceId,
+      voiceId: selectedVoice?.id || defaultVoiceId || document.voiceId,
+    }).then((result) => {
+      if (audioGenerationRef.current === generation) {
+        audioChunkCache.current.set(key, result);
+        while (audioChunkCache.current.size > 16) {
+          const oldest = audioChunkCache.current.keys().next().value as string | undefined;
+          if (!oldest || oldest === key) break;
+          audioChunkCache.current.delete(oldest);
+        }
+      }
+      return result;
+    }).finally(() => {
+      if (audioChunkPrepareCache.current.get(key) === request) {
+        audioChunkPrepareCache.current.delete(key);
+      }
     });
-    audioChunkCache.current.set(key, result);
+
+    audioChunkPrepareCache.current.set(key, request);
+    return request;
+  }
+
+  async function prepareActiveAudioChunk(
+    index: number,
+    generation: number,
+  ): Promise<ReadTtsResult> {
+    try {
+      return await prepareAudioChunk(index);
+    } catch (firstError) {
+      if (audioGenerationRef.current !== generation) throw firstError;
+      await new Promise((resolve) => setTimeout(resolve, 350));
+      if (audioGenerationRef.current !== generation) throw firstError;
+
+      // Active narration gets one bounded recovery attempt. This protects a
+      // long reading from a single transient TTS/CDN failure without creating
+      // an unbounded retry loop or freezing the player.
+      return prepareAudioChunk(index);
+    }
+  }
+
+  async function preloadAudioChunk(index: number): Promise<ReadTtsResult> {
+    const generation = audioGenerationRef.current;
+    const result = await prepareAudioChunk(index);
+    if (audioGenerationRef.current !== generation) return result;
+    let pending = audioPreloadCache.current.get(result.audioUrl);
+    if (!pending) {
+      pending = preload(result.audioUrl, { preferredForwardBufferDuration: 30 }).catch(() => {});
+      audioPreloadCache.current.set(result.audioUrl, pending);
+      while (audioPreloadCache.current.size > 12) {
+        const oldestUrl = audioPreloadCache.current.keys().next().value as string | undefined;
+        if (!oldestUrl || oldestUrl === result.audioUrl) break;
+        audioPreloadCache.current.delete(oldestUrl);
+        void clearPreloadedSource(oldestUrl).catch(() => {});
+      }
+    }
+    await pending;
     return result;
+  }
+
+  function staggerImmediateHandoffWarmup(index: number, generation: number) {
+    const nextIndex = index + 1;
+    if (!audioChunks[nextIndex]) return;
+
+    // Give the active synthesis a short exclusive head start, then begin only
+    // the immediately upcoming hidden segment while the first one is still
+    // being prepared. This buys continuity time without stampeding TTS.
+    setTimeout(() => {
+      if (audioGenerationRef.current !== generation) return;
+      void preloadAudioChunk(nextIndex).catch(() => {});
+    }, 700);
+  }
+
+  function prefetchReadingHorizon(index: number) {
+    const indexes = readingPrefetchIndexes(readingManifest, index, 120, 4);
+    const generation = ++prefetchGenerationRef.current;
+
+    // Warm the next hidden segment before later lookahead. Sequential
+    // preparation avoids a TTS request stampede that can make the nearest
+    // handoff less reliable even though several distant clips are in flight.
+    void (async () => {
+      for (const nextIndex of indexes) {
+        if (prefetchGenerationRef.current !== generation) return;
+        try {
+          await preloadAudioChunk(nextIndex);
+        } catch {
+          // Give only the immediately upcoming handoff one bounded retry.
+          // Distant lookahead stays best-effort and cannot block the reader.
+          if (nextIndex === indexes[0] && prefetchGenerationRef.current === generation) {
+            await new Promise((resolve) => setTimeout(resolve, 450));
+            if (prefetchGenerationRef.current !== generation) return;
+            try {
+              await preloadAudioChunk(nextIndex);
+            } catch {}
+          }
+        }
+      }
+    })();
+  }
+
+  function enableLockScreenControls(
+    elapsedSeconds = readingManifest.estimatedPlaybackDurationSeconds * displayedProgress,
+  ) {
+    if (!document) return;
+    try {
+      activateReadDocumentMediaSession(player, {
+        durationSeconds: readingManifest.estimatedPlaybackDurationSeconds,
+        elapsedSeconds,
+        playbackSpeed: document.playbackSpeed,
+        metadata: {
+          title: document.title,
+          artist: 'Floently Read',
+          albumTitle: document.detectedLanguageLabel,
+        },
+      });
+    } catch {
+      // Playback remains functional if system media controls are unavailable.
+    }
   }
 
   async function playAudioChunk(index: number) {
     if (!document || !audioChunks[index]) return;
+    const generation = audioGenerationRef.current;
     setAudioState('preparing');
     setAudioError(null);
     try {
-      const result = await prepareAudioChunk(index);
+      // The active clip must not wait for a full local pre-download. Give it
+      // a short priority window, then begin warming exactly the next hidden
+      // segment while synthesis is still in flight.
+      staggerImmediateHandoffWarmup(index, generation);
+      const result = await prepareActiveAudioChunk(index, generation);
+      if (audioGenerationRef.current !== generation) return;
       setActiveAudioChunk(index);
       handledFinishedChunk.current = null;
+      // Begin next-segment preparation before seek/player startup work so
+      // resumes near a segment boundary still have a warm handoff.
+      prefetchReadingHorizon(index);
+      const playbackKey = `${document.id}:${index}:${result.cacheKey || result.audioUrl}`;
+      activePlaybackKeyRef.current = playbackKey;
+      startedPlaybackKeyRef.current = null;
       setAudioResult(result);
       player.replace(result.audioUrl);
       setPlayerPlaybackRate(player, document.playbackSpeed);
-      player.play();
-      setAudioState('playing');
-      if (audioChunks[index + 1]) {
-        void prepareAudioChunk(index + 1).catch(() => {});
+
+      const resumeFraction = Math.max(0, Math.min(0.995, resumeFractionRef.current));
+      if (resumeFraction > 0) {
+        const estimatedSourceDuration =
+          readingManifest.segments[index]?.estimatedSourceDurationSeconds ?? 0.6;
+        const loadedDuration = await resolveLoadedAudioDuration(
+          player,
+          Number(result.duration || 0) || estimatedSourceDuration,
+        );
+        if (loadedDuration > 0) {
+          await player.seekTo(loadedDuration * resumeFraction);
+        }
       }
+      if (audioGenerationRef.current !== generation) return;
+      const logicalStartProgress = readingProgressForSegment(
+        readingManifest,
+        index,
+        resumeFraction,
+      );
+      resumeFractionRef.current = 0;
+
+      enableLockScreenControls(
+        readingManifest.estimatedPlaybackDurationSeconds * logicalStartProgress,
+      );
+      player.play();
+      monitorPlaybackStart();
+      setAudioState('playing');
+      setPlayerExpanded(false);
+      setControlsHidden(false);
     } catch (error) {
+      if (audioGenerationRef.current !== generation) return;
+      clearReadDocumentMediaSession(player);
       setAudioState('error');
       setAudioError(error instanceof Error ? error.message : String(error));
     }
   }
 
   useEffect(() => {
+    if (!document || !audioResult) return;
+    const currentKey = `${document.id}:${activeAudioChunk}:${audioResult.cacheKey || audioResult.audioUrl}`;
+    if (
+      activePlaybackKeyRef.current === currentKey &&
+      (playbackStatus.playing || playbackStatus.currentTime > 0)
+    ) {
+      startedPlaybackKeyRef.current = currentKey;
+    }
+  }, [
+    activeAudioChunk,
+    audioResult,
+    document,
+    playbackStatus.currentTime,
+    playbackStatus.playing,
+  ]);
+
+  useEffect(() => {
     if (!document || !audioResult || !playbackStatus.didJustFinish) return;
     const finishedKey = `${document.id}:${activeAudioChunk}:${audioResult.cacheKey || audioResult.audioUrl}`;
-    if (handledFinishedChunk.current === finishedKey) return;
+    // Expo Audio can leave didJustFinish=true for one status tick after
+    // replace(). Never let that stale event instantly skip the newly loaded
+    // hidden segment before it has actually started.
+    if (
+      activePlaybackKeyRef.current !== finishedKey ||
+      startedPlaybackKeyRef.current !== finishedKey ||
+      handledFinishedChunk.current === finishedKey
+    ) return;
     handledFinishedChunk.current = finishedKey;
+    startedPlaybackKeyRef.current = null;
 
     const nextIndex = activeAudioChunk + 1;
     if (nextIndex < audioChunks.length) {
@@ -1042,34 +1550,55 @@ export function ReadReaderScreen() {
     }
 
     updateProgress(document.id, 1);
+    setAudioResult(null);
+    resumeFractionRef.current = 1;
+    activePlaybackKeyRef.current = null;
+    startedPlaybackKeyRef.current = null;
+    setControlsHidden(false);
+    clearReadDocumentMediaSession(player)
     setAudioState('paused');
   }, [activeAudioChunk, audioChunks.length, audioResult, document, playbackStatus.didJustFinish, updateProgress]);
 
+  useEffect(() => {
+    if (!document || !audioResult) return;
+    syncReadDocumentMediaTimeline(player, {
+      durationSeconds: readingManifest.estimatedPlaybackDurationSeconds,
+      elapsedSeconds:
+        readingManifest.estimatedPlaybackDurationSeconds * displayedProgress,
+      playbackSpeed: document.playbackSpeed,
+    });
+  }, [document?.playbackSpeed]);
+
   const timeLabel = useMemo(() => {
     if (!document) return '00:00 / 00:00';
-    const estimatedTotalSeconds = Math.max(
-      30,
-      Math.ceil(document.generatedText.length / Math.max(6, 12 * document.playbackSpeed)),
-    );
-    const singleClip = audioChunks.length <= 1 && playbackStatus.duration > 0;
-    const totalSeconds = singleClip ? Math.ceil(playbackStatus.duration) : estimatedTotalSeconds;
-    const currentSeconds = singleClip
-      ? Math.floor(playbackStatus.currentTime)
-      : Math.floor(totalSeconds * displayedProgress);
-    const format = (seconds: number) => `${String(Math.floor(seconds / 60)).padStart(2, '0')}:${String(seconds % 60).padStart(2, '0')}`;
-    return `${format(currentSeconds)} / ${format(totalSeconds)}`;
-  }, [audioChunks.length, displayedProgress, document, playbackStatus.currentTime, playbackStatus.duration]);
+    const totalSeconds = Math.max(1, readingManifest.estimatedPlaybackDurationSeconds);
+    const currentSeconds = totalSeconds * displayedProgress;
+    return `${formatReadingClock(currentSeconds)} / ${formatReadingClock(totalSeconds)}`;
+  }, [displayedProgress, document, readingManifest]);
 
   async function generateAndPlayAudio() {
     if (!document || document.status === 'processing' || !audioChunks.length) return;
 
+    if (displayedProgress >= 0.999) {
+      setActiveAudioChunk(0);
+      setAudioResult(null);
+      resumeFractionRef.current = 0;
+      updateProgress(document.id, 0);
+      await playAudioChunk(0);
+      return;
+    }
+
     if (audioResult?.audioUrl) {
       setPlayerPlaybackRate(player, document.playbackSpeed);
+      enableLockScreenControls(
+        readingManifest.estimatedPlaybackDurationSeconds * displayedProgress,
+      );
       player.play();
+      monitorPlaybackStart();
       setAudioState('playing');
-      if (audioChunks[activeAudioChunk + 1]) {
-        void prepareAudioChunk(activeAudioChunk + 1).catch(() => {});
-      }
+      setPlayerExpanded(false);
+      setControlsHidden(false);
+      prefetchReadingHorizon(activeAudioChunk);
       return;
     }
 
@@ -1077,9 +1606,133 @@ export function ReadReaderScreen() {
   }
 
   function pauseAudio() {
+    playAttemptRef.current += 1;
     player.pause();
+    if (document) updateProgress(document.id, displayedProgress);
     setAudioState('paused');
+    setControlsHidden(false);
   }
+
+  async function seekDocumentBySeconds(deltaSeconds: number) {
+    if (!document || !readingManifest.segments.length) return;
+
+    const seekGeneration = ++seekGenerationRef.current;
+    const totalSeconds = Math.max(1, readingManifest.estimatedPlaybackDurationSeconds);
+    const targetProgress = Math.max(
+      0,
+      Math.min(1, displayedProgress + deltaSeconds / totalSeconds),
+    );
+    const target = readingPositionForProgress(readingManifest, targetProgress);
+    const wasPlaying = playbackStatus.playing || audioState === 'playing';
+
+    updateProgress(document.id, targetProgress);
+
+    if (
+      target.index === activeAudioChunk &&
+      audioResult?.audioUrl &&
+      playbackStatus.duration > 0
+    ) {
+      resumeFractionRef.current = 0;
+      handledFinishedChunk.current = null;
+      try {
+        await player.seekTo(playbackStatus.duration * target.fraction);
+        if (seekGenerationRef.current !== seekGeneration) return;
+        syncReadDocumentMediaTimeline(player, {
+          durationSeconds: totalSeconds,
+          elapsedSeconds: totalSeconds * targetProgress,
+          playbackSpeed: document.playbackSpeed,
+        });
+      } catch {
+        // If the active AVPlayer item is not seekable yet, fall through to a
+        // clean source reload at the requested logical document position.
+        if (seekGenerationRef.current !== seekGeneration) return;
+        audioGenerationRef.current += 1;
+        prefetchGenerationRef.current += 1;
+        playAttemptRef.current += 1;
+        player.pause();
+        setAudioResult(null);
+        activePlaybackKeyRef.current = null;
+        startedPlaybackKeyRef.current = null;
+        resumeFractionRef.current = target.fraction;
+        if (wasPlaying) await playAudioChunk(target.index);
+      }
+      return;
+    }
+
+    // Crossing a hidden-source boundary is a new playback generation. Any
+    // older seek/TTS completion must be unable to overwrite the newest cursor.
+    audioGenerationRef.current += 1;
+    prefetchGenerationRef.current += 1;
+    playAttemptRef.current += 1;
+    handledFinishedChunk.current = null;
+    activePlaybackKeyRef.current = null;
+    startedPlaybackKeyRef.current = null;
+    player.pause();
+    setActiveAudioChunk(target.index);
+    setAudioResult(null);
+    resumeFractionRef.current = target.fraction;
+
+    if (wasPlaying) {
+      await playAudioChunk(target.index);
+    } else {
+      const seekAudioGeneration = audioGenerationRef.current;
+      try {
+        const result = await prepareAudioChunk(target.index);
+        if (
+          seekGenerationRef.current !== seekGeneration ||
+          audioGenerationRef.current !== seekAudioGeneration
+        ) return;
+        setAudioResult(result);
+        const playbackKey =
+          `${document.id}:${target.index}:${result.cacheKey || result.audioUrl}`;
+        activePlaybackKeyRef.current = playbackKey;
+        startedPlaybackKeyRef.current = null;
+        player.replace(result.audioUrl);
+        setPlayerPlaybackRate(player, document.playbackSpeed);
+
+        const estimatedSourceDuration =
+          readingManifest.segments[target.index]?.estimatedSourceDurationSeconds ?? 0.6;
+        const loadedDuration = await resolveLoadedAudioDuration(
+          player,
+          Number(result.duration || 0) || estimatedSourceDuration,
+        );
+        if (loadedDuration > 0 && target.fraction > 0) {
+          await player.seekTo(loadedDuration * target.fraction);
+        }
+        if (
+          seekGenerationRef.current !== seekGeneration ||
+          audioGenerationRef.current !== seekAudioGeneration
+        ) return;
+
+        resumeFractionRef.current = 0;
+        enableLockScreenControls(totalSeconds * targetProgress);
+        setAudioState('paused');
+        prefetchReadingHorizon(target.index);
+      } catch (error) {
+        clearReadDocumentMediaSession(player);
+        setAudioState('error');
+        setAudioError(error instanceof Error ? error.message : String(error));
+      }
+    }
+  }
+
+  logicalMediaSeekRef.current = (positionSeconds: number) => {
+    if (!document) return;
+    const totalSeconds = Math.max(
+      1,
+      readingManifest.estimatedPlaybackDurationSeconds,
+    );
+    const currentSeconds = totalSeconds * displayedProgress;
+    void seekDocumentBySeconds(positionSeconds - currentSeconds);
+  };
+
+  useEffect(() => {
+    const subscription = subscribeReadDocumentMediaSeek(
+      player,
+      (positionSeconds) => logicalMediaSeekRef.current(positionSeconds),
+    );
+    return () => subscription.remove();
+  }, [player]);
 
   function cycleVoice() {
     if (!document || !readerVoices.length) {
@@ -1090,23 +1743,30 @@ export function ReadReaderScreen() {
     const currentIndex = readerVoices.findIndex((voice) => voice.id === currentId);
     const nextVoice = readerVoices[(currentIndex + 1 + readerVoices.length) % readerVoices.length];
     if (!nextVoice) return;
+
+    // Voice is a document-wide setting. Preserve the exact logical cursor and
+    // continue automatically when the user changes voice during playback.
+    const wasPlaying = playbackStatus.playing || audioState === 'playing';
+    const progress = displayedProgress;
+    const position = readingPositionForProgress(readingManifest, progress);
+    updateProgress(document.id, progress);
+    playAttemptRef.current += 1;
+    seekGenerationRef.current += 1;
+    audioGenerationRef.current += 1;
+    prefetchGenerationRef.current += 1;
     player.pause();
+    clearReadDocumentMediaSession(player)
+    setActiveAudioChunk(position.index);
     setAudioResult(null);
     setAudioError(null);
-    setAudioState('idle');
-    audioChunkCache.current.clear();
+    setAudioState('paused');
+    setControlsHidden(false);
+    resumeFractionRef.current = position.fraction;
     handledFinishedChunk.current = null;
+    activePlaybackKeyRef.current = null;
+    startedPlaybackKeyRef.current = null;
+    voiceChangeResumeRef.current = { index: position.index, autoplay: wasPlaying };
     setVoiceId(document.id, nextVoice.id);
-  }
-
-  function replayAudio() {
-    if (!document || !audioChunks.length) return;
-    player.pause();
-    updateProgress(document.id, 0);
-    setActiveAudioChunk(0);
-    setAudioResult(null);
-    handledFinishedChunk.current = null;
-    void playAudioChunk(0);
   }
 
   async function runStudy(action: ReadAiAction, title: string, question?: string) {
@@ -1144,15 +1804,17 @@ export function ReadReaderScreen() {
   }
 
   const isPreparing = audioState === 'preparing' || playbackStatus.isBuffering;
-  const isPlaying = audioState === 'playing' || playbackStatus.playing;
+  const isPlaying = playbackIsPlaying;
   const isProcessing = document.status === 'processing';
+  const hasReadableDocument = audioChunks.length > 0 && document.generatedText.trim().length > 0;
+  const canPlayDocument = !isProcessing && hasReadableDocument;
 
   return (
     <AppShell active="reader" showBottomNav={false}>
       <View style={[styles.readerScreen, { backgroundColor: palette.background }]}>
         <Header showBack title={document.title} subtitle={`${sourceLabel(document)} • ${document.detectedLanguageLabel}`} right={<Pressable accessibilityRole="button" onPress={() => navigate('/read/settings')} style={[styles.iconButton, { backgroundColor: palette.surfaceSoft, borderColor: palette.border }]}><Text style={[styles.iconMini, { color: palette.text }]}>Aa</Text></Pressable>} />
-        <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={styles.readerScroll}>
-          {isProcessing ? (
+        {isProcessing ? (
+          <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={styles.readerScroll}>
             <View style={[styles.processingReader, { backgroundColor: palette.surface, borderColor: palette.borderStrong }]}>
               <ActivityIndicator color={palette.accent} />
               <Text style={[styles.processingTitle, { color: palette.text }]}>Preparing your reading</Text>
@@ -1160,71 +1822,196 @@ export function ReadReaderScreen() {
               <ProgressBar progress={0.62} />
               <SecondaryButton label="Open library" onPress={() => navigate('/read/library')} />
             </View>
-          ) : (
-            <ReaderText document={document} activeIndex={activeParagraphIndex} />
-          )}
-        </ScrollView>
-        <View style={[styles.readerDock, { backgroundColor: palette.nav, borderColor: palette.border, shadowColor: palette.shadow }]}>
-          {readerParagraphList[activeParagraphIndex] ? (
-            <View style={[styles.readerNowReading, { backgroundColor: palette.surfaceSoft, borderColor: palette.borderStrong }]}>
-              <Text style={[styles.readerNowLabel, { color: palette.accent2 }]}>NOW READING</Text>
-              <Text numberOfLines={2} style={[styles.readerNowText, { color: palette.text }]}>
-                {readerParagraphList[activeParagraphIndex]}
+          </ScrollView>
+        ) : hasReadableDocument ? (
+          <ReaderText
+            document={document}
+            activeIndex={activeParagraphIndex}
+            followActive={isPlaying}
+          />
+        ) : (
+          <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={styles.readerScroll}>
+            <View style={[styles.processingReader, { backgroundColor: palette.surface, borderColor: palette.borderStrong }]}>
+              <Text style={[styles.processingTitle, { color: palette.text }]}>This reading is not ready yet</Text>
+              <Text style={[styles.processingBody, { color: palette.muted }]}>
+                {document.statusMessage || 'Floently could not load readable text for this item yet.'}
               </Text>
+              <PrimaryButton
+                label="Retry"
+                onPress={() => { void refreshDocument(document.id); }}
+              />
+              <SecondaryButton label="Open library" onPress={() => navigate('/read/library')} />
             </View>
-          ) : null}
-          <View style={styles.readerDockTop}>
-            <Text style={[styles.readerTime, { color: palette.muted }]}>{timeLabel}</Text>
-            <Text style={[styles.readerTime, { color: palette.muted }]}>{safePct(displayedProgress)}%</Text>
-          </View>
-          <ProgressBar progress={displayedProgress} height={4} />
-          <View style={styles.readerControls}>
-            <Pressable
-              accessibilityRole="button"
-              onPress={() => {
-                if (playbackStatus.duration > 0) {
-                  void player.seekTo(Math.max(0, playbackStatus.currentTime - 10));
-                } else {
-                  updateProgress(document.id, Math.max(0, document.readingProgress - 0.1));
-                }
-              }}
-              style={[styles.roundControl, { backgroundColor: palette.surfaceSoft, borderColor: palette.border }]}
-            >
-              <Text style={[styles.roundControlText, { color: palette.text }]}>-10</Text>
-            </Pressable>
-            <Pressable accessibilityRole="button" onPress={isPlaying ? pauseAudio : generateAndPlayAudio} disabled={isPreparing || isProcessing} style={[styles.mainPlay, { backgroundColor: palette.accent }, (isPreparing || isProcessing) && styles.disabled]}>
-              <Text style={[styles.mainPlayText, { color: palette.accentText }]}>{isPreparing ? '...' : isPlaying ? 'Pause' : 'Play'}</Text>
-            </Pressable>
-            <Pressable accessibilityRole="button" onPress={replayAudio} disabled={!audioResult || isPreparing || isProcessing} style={[styles.roundControl, { backgroundColor: palette.surfaceSoft, borderColor: palette.border }, (!audioResult || isPreparing || isProcessing) && styles.disabled]}>
-              <Text style={[styles.roundControlText, { color: palette.text }]}>Replay</Text>
-            </Pressable>
-          </View>
-          <View style={styles.readerDockBottom}>
-            <SecondaryButton
-              label={selectedVoice ? `Voice · ${selectedVoice.name}` : 'Voice'}
-              onPress={cycleVoice}
-            />
-            <SecondaryButton
-              label={`${document.playbackSpeed.toFixed(document.playbackSpeed % 1 === 0 ? 0 : 1)}x`}
-              onPress={() => {
-                const speeds=[0.8,1,1.2,1.5,1.8,2,2.25,2.5,2.75,3];
-                const current=speeds.findIndex((value)=>Math.abs(value-document.playbackSpeed)<0.01);
-                setPlaybackSpeed(document.id,speeds[(current+1+speeds.length)%speeds.length]);
-              }}
-            />
-            <SecondaryButton label={document.detectedLanguageLabel} onPress={() => navigate('/read/settings')} />
-          </View>
+          </ScrollView>
+        )}
+        {canPlayDocument ? (controlsHidden && isPlaying ? (
           <Pressable
             accessibilityRole="button"
-            accessibilityState={{ expanded: studyOpen }}
-            onPress={() => setStudyOpen((value) => !value)}
-            style={[styles.readerStudyToggle, { backgroundColor: palette.surfaceSoft, borderColor: palette.borderStrong }]}
+            accessibilityLabel="Show reader controls"
+            onPress={() => setControlsHidden(false)}
+            style={[styles.readerHiddenPill, { backgroundColor: palette.nav, borderColor: palette.border, shadowColor: palette.shadow }]}
           >
-            <Text style={[styles.readerStudyToggleText, { color: palette.text }]}>
-              {studyOpen ? 'Hide study tools' : 'Summary & AI'}
+            <View style={[styles.readerHiddenLiveDot, { backgroundColor: palette.accent2 }]} />
+            <Text style={[styles.readerHiddenPillTime, { color: palette.text }]}>
+              {formatReadingClock(Math.max(0, readingManifest.estimatedPlaybackDurationSeconds * (1 - displayedProgress)))}
             </Text>
+            <Text style={[styles.readerHiddenPillText, { color: palette.muted }]}>⌃</Text>
           </Pressable>
-          {studyOpen ? (
+        ) : (
+        <View style={[styles.readerDock, { backgroundColor: palette.nav, borderColor: palette.border, shadowColor: palette.shadow }]}>
+          {!playerExpanded ? (
+            <>
+              <View style={styles.readerCompactBar}>
+                <Pressable
+                  accessibilityRole="button"
+                  accessibilityLabel={isPlaying ? 'Pause reading' : 'Play reading'}
+                  onPress={isPlaying ? pauseAudio : generateAndPlayAudio}
+                  disabled={isPreparing || isProcessing}
+                  style={[styles.readerCompactPlay, { backgroundColor: palette.accent }, (isPreparing || isProcessing) && styles.disabled]}
+                >
+                  {isPreparing ? (
+                    <ActivityIndicator color={palette.accentText} size="small" />
+                  ) : (
+                    <Text style={[styles.readerCompactPlayText, { color: palette.accentText }]}>{isPlaying ? 'Ⅱ' : '▶'}</Text>
+                  )}
+                </Pressable>
+
+                <Pressable
+                  accessibilityRole="button"
+                  accessibilityLabel="Expand player"
+                  accessibilityState={{ expanded: false }}
+                  onPress={() => setPlayerExpanded(true)}
+                  style={styles.readerCompactNow}
+                >
+                  <Text style={[styles.readerNowLabel, { color: palette.accent2 }]}>NOW READING</Text>
+                  <Text numberOfLines={1} style={[styles.readerCompactNowText, { color: palette.text }]}>
+                    {readerParagraphList[activeParagraphIndex] || document.title}
+                  </Text>
+                </Pressable>
+
+                <Text style={[styles.readerCompactRemaining, { color: palette.muted }]}>
+                  {formatReadingClock(Math.max(0, readingManifest.estimatedPlaybackDurationSeconds * (1 - displayedProgress)))}
+                </Text>
+
+                <Pressable
+                  accessibilityRole="button"
+                  accessibilityLabel="Expand player"
+                  onPress={() => setPlayerExpanded(true)}
+                  style={styles.readerCompactExpand}
+                >
+                  <Text style={[styles.readerExpandGlyph, { color: palette.muted }]}>⌃</Text>
+                </Pressable>
+              </View>
+              <ProgressBar progress={displayedProgress} height={3} />
+            </>
+          ) : (
+            <>
+              {readerParagraphList[activeParagraphIndex] ? (
+                <Pressable
+                  accessibilityRole="button"
+                  accessibilityState={{ expanded: true }}
+                  accessibilityLabel="Minimize player"
+                  onPress={() => setPlayerExpanded(false)}
+                  style={[styles.readerNowReading, { backgroundColor: palette.surfaceSoft, borderColor: palette.borderStrong }]}
+                >
+                  <View style={styles.readerNowBody}>
+                    <Text style={[styles.readerNowLabel, { color: palette.accent2 }]}>NOW READING</Text>
+                    <Text numberOfLines={2} style={[styles.readerNowText, { color: palette.text }]}>
+                      {readerParagraphList[activeParagraphIndex]}
+                    </Text>
+                  </View>
+                  <Text style={[styles.readerExpandGlyph, { color: palette.muted }]}>⌄</Text>
+                </Pressable>
+              ) : null}
+
+              <View style={styles.readerDockTop}>
+                <Text style={[styles.readerTime, { color: palette.muted }]}>{timeLabel}</Text>
+                <Text style={[styles.readerTime, { color: palette.muted }]}>{safePct(displayedProgress)}%</Text>
+              </View>
+              <Pressable
+                accessibilityRole="adjustable"
+                accessibilityLabel="Seek through reading"
+                accessibilityValue={{ now: Math.round(displayedProgress * 100), min: 0, max: 100 }}
+                onLayout={(event) => setReaderProgressTrackWidth(event.nativeEvent.layout.width)}
+                onPress={(event) => {
+                  if (!readerProgressTrackWidth) return;
+                  const targetProgress = Math.max(
+                    0,
+                    Math.min(1, event.nativeEvent.locationX / readerProgressTrackWidth),
+                  );
+                  const total = Math.max(1, readingManifest.estimatedPlaybackDurationSeconds);
+                  void seekDocumentBySeconds((targetProgress - displayedProgress) * total);
+                }}
+                style={styles.readerSeekTrack}
+              >
+                <ProgressBar progress={displayedProgress} height={4} />
+              </Pressable>
+
+              <View style={styles.readerControls}>
+                <Pressable
+                  accessibilityRole="button"
+                  accessibilityLabel="Back 10 seconds"
+                  disabled={isPreparing || isProcessing}
+                  onPress={() => { void seekDocumentBySeconds(-10); }}
+                  style={[styles.roundControl, { backgroundColor: palette.surfaceSoft, borderColor: palette.border }, (isPreparing || isProcessing) && styles.disabled]}
+                >
+                  <Text style={[styles.roundControlText, { color: palette.text }]}>-10s</Text>
+                </Pressable>
+
+                <Pressable
+                  accessibilityRole="button"
+                  accessibilityLabel={isPlaying ? 'Pause reading' : 'Play reading'}
+                  onPress={isPlaying ? pauseAudio : generateAndPlayAudio}
+                  disabled={isPreparing || isProcessing}
+                  style={[styles.mainPlay, { backgroundColor: palette.accent }, (isPreparing || isProcessing) && styles.disabled]}
+                >
+                  {isPreparing ? (
+                    <ActivityIndicator color={palette.accentText} />
+                  ) : (
+                    <Text style={[styles.mainPlayText, { color: palette.accentText }]}>{isPlaying ? 'Ⅱ' : '▶'}</Text>
+                  )}
+                </Pressable>
+
+                <Pressable
+                  accessibilityRole="button"
+                  accessibilityLabel="Forward 10 seconds"
+                  disabled={isPreparing || isProcessing || displayedProgress >= 1}
+                  onPress={() => { void seekDocumentBySeconds(10); }}
+                  style={[styles.roundControl, { backgroundColor: palette.surfaceSoft, borderColor: palette.border }, (isPreparing || isProcessing || displayedProgress >= 1) && styles.disabled]}
+                >
+                  <Text style={[styles.roundControlText, { color: palette.text }]}>+10s</Text>
+                </Pressable>
+              </View>
+
+              <View style={styles.readerDockBottom}>
+                <SecondaryButton
+                  label={selectedVoice ? `Voice · ${selectedVoice.name}` : 'Voice'}
+                  onPress={cycleVoice}
+                />
+                <SecondaryButton
+                  label={`${document.playbackSpeed.toFixed(document.playbackSpeed % 1 === 0 ? 0 : 1)}x`}
+                  onPress={() => {
+                    const speeds=[0.8,1,1.2,1.5,1.8,2];
+                    const current=speeds.findIndex((value)=>Math.abs(value-document.playbackSpeed)<0.01);
+                    setPlaybackSpeed(document.id,speeds[(current+1+speeds.length)%speeds.length]);
+                  }}
+                />
+                <SecondaryButton label={document.detectedLanguageLabel} onPress={() => navigate('/read/settings')} />
+              </View>
+
+              <Pressable
+                accessibilityRole="button"
+                accessibilityState={{ expanded: studyOpen }}
+                onPress={() => setStudyOpen((value) => !value)}
+                style={[styles.readerStudyToggle, { backgroundColor: palette.surfaceSoft, borderColor: palette.borderStrong }]}
+              >
+                <Text style={[styles.readerStudyToggleText, { color: palette.text }]}>
+                  {studyOpen ? 'Hide study tools' : 'Summary & AI'}
+                </Text>
+              </Pressable>
+            </>
+          )}
+          {playerExpanded && studyOpen ? (
             <View style={[styles.readerStudyPanel, { backgroundColor: palette.surface, borderColor: palette.border }]}>
               <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={styles.readerStudyActions}>
                 {([
@@ -1294,6 +2081,7 @@ export function ReadReaderScreen() {
           ) : null}
           {audioError ? <Text style={[styles.errorText, { color: palette.danger }]}>{audioError}</Text> : null}
         </View>
+        )) : null}
       </View>
     </AppShell>
   );
@@ -1339,7 +2127,7 @@ export function ReadSettingsScreen() {
           </View>
           {activeDocument ? (
             <View style={styles.speedRow}>
-              {[0.8, 1.0, 1.2, 1.5, 1.8, 2.0, 2.25, 2.5, 2.75, 3.0].map((speed) => (
+              {[0.8, 1.0, 1.2, 1.5, 1.8, 2.0].map((speed) => (
                 <Pressable key={speed} onPress={() => setPlaybackSpeed(activeDocument.id, speed)} style={[styles.speedChip, { backgroundColor: Math.abs(activeDocument.playbackSpeed - speed) < 0.01 ? palette.accent : palette.surfaceSoft, borderColor: Math.abs(activeDocument.playbackSpeed - speed) < 0.01 ? palette.accent : palette.border }]}>
                   <Text style={[styles.speedChipText, { color: Math.abs(activeDocument.playbackSpeed - speed) < 0.01 ? palette.accentText : palette.text }]}>{speed.toFixed(1)}x</Text>
                 </Pressable>
@@ -1395,9 +2183,15 @@ function getReadPurchasePackageId(source: ReadRevenueCatSyncSource): ReadStorePl
   return null;
 }
 
-async function syncReadPurchaseToBackend(result: ReadRevenueCatSyncSource, planId?: ReadStorePlanId | null): Promise<boolean> {
+async function syncReadPurchaseToBackend(
+  result: ReadRevenueCatSyncSource,
+  planId?: ReadStorePlanId | null,
+): Promise<SyncReadRevenueCatResult | null> {
   try {
-    const syncResult = await readRenderApi.syncRevenueCatEntitlements({
+    return await readRenderApi.syncRevenueCatEntitlements({
+      // These SDK fields are diagnostic context only. The FlowReader backend
+      // must independently verify the authenticated RevenueCat subscriber
+      // before returning any access used by the app.
       readAccess: result.readAccess,
       creatorAccess: result.creatorAccess,
       activeEntitlements: result.activeEntitlements,
@@ -1407,14 +2201,36 @@ async function syncReadPurchaseToBackend(result: ReadRevenueCatSyncSource, planI
       platform: result.platform,
       status: result.status,
     });
-    return syncResult.ignoredReason !== 'not_authenticated';
   } catch (error) {
-    console.warn('Read RevenueCat backend sync failed', error);
-    return false;
+    console.warn('Read RevenueCat backend verification failed', error);
+    return null;
   }
 }
 
+function verifiedReadAccess(syncResult: SyncReadRevenueCatResult | null): {
+  readAccess: boolean;
+  creatorAccess: boolean;
+} | null {
+  if (syncResult?.readAccess !== true) return null;
+  return {
+    readAccess: true,
+    creatorAccess: syncResult.creatorAccess === true,
+  };
+}
+
+function verifiedReadAccessSnapshot(syncResult: SyncReadRevenueCatResult | null): {
+  readAccess: boolean;
+  creatorAccess: boolean;
+} | null {
+  if (typeof syncResult?.readAccess !== 'boolean') return null;
+  return {
+    readAccess: syncResult.readAccess,
+    creatorAccess: syncResult.creatorAccess === true,
+  };
+}
+
 export function ReadSubscriptionScreen() {
+  const user = useAuthStore((state) => state.user);
   const subscriptionState = useSubscriptionStore((state) => state);
   const subscriptionAny = subscriptionState as unknown as {
     status?: {
@@ -1433,11 +2249,11 @@ export function ReadSubscriptionScreen() {
         create_access?: boolean;
       };
     } | null;
-    applyStoreReadAccess?: (input: { readAccess?: boolean; creatorAccess?: boolean }) => void;
+    reconcileVerifiedReadAccess?: (input: { readAccess?: boolean; creatorAccess?: boolean }) => void;
     refresh?: () => Promise<void> | void;
   };
   const subscriptionStatus = subscriptionAny.status;
-  const applyStoreReadAccess = subscriptionAny.applyStoreReadAccess;
+  const reconcileVerifiedReadAccess = subscriptionAny.reconcileVerifiedReadAccess;
   const refreshSubscription = subscriptionAny.refresh;
   const readAccess = Boolean(
     subscriptionStatus?.readAccess ||
@@ -1457,26 +2273,80 @@ export function ReadSubscriptionScreen() {
   );
   const [busyPlan, setBusyPlan] = useState<ReadStorePlanId | 'restore' | null>(null);
   const [message, setMessage] = useState<string | null>(null);
+  const [storeCatalog, setStoreCatalog] = useState<StoreBillingCatalog | null>(null);
+  const [storeCatalogLoading, setStoreCatalogLoading] = useState(false);
   const theme = useReadMobileStore((state) => state.readTheme);
   const palette = paletteFor(theme);
+  const isMobileStoreBilling = supportsStoreBilling();
+  const storeUserId = user?.id ?? null;
+  const visibleReadPlans = useMemo(
+    () => readPlans.filter((plan) => isReadStorePlanSupported(plan.id)),
+    [],
+  );
+  const visibleReadPlanIds = useMemo(
+    () => visibleReadPlans.map((plan) => plan.id),
+    [visibleReadPlans],
+  );
+
+  useEffect(() => {
+    if (!isMobileStoreBilling || !storeUserId) {
+      setStoreCatalog(null);
+      setStoreCatalogLoading(false);
+      return;
+    }
+
+    let cancelled = false;
+    setStoreCatalogLoading(true);
+
+    void preflightReadStoreBillingPlans(visibleReadPlanIds, storeUserId)
+      .then((catalog) => {
+        if (!cancelled) setStoreCatalog(catalog);
+      })
+      .catch(() => {
+        if (!cancelled) setStoreCatalog(null);
+      })
+      .finally(() => {
+        if (!cancelled) setStoreCatalogLoading(false);
+      });
+
+    return () => {
+      cancelled = true;
+    };
+  }, [isMobileStoreBilling, storeUserId, visibleReadPlanIds]);
 
   async function purchase(planId: ReadStorePlanId) {
+    const availability = storeCatalog?.plans.find((item) => item.planId === planId);
+    if (!storeUserId) {
+      setMessage('Sign in before purchasing Floently Read.');
+      return;
+    }
+    if (!isMobileStoreBilling || !availability?.available) {
+      setMessage('This Floently Read plan is not available from your device store right now.');
+      return;
+    }
+
     setBusyPlan(planId);
     setMessage(null);
     try {
-      const result = await startReadStorePurchase(planId);
-      const accessResult = result as unknown as { readAccess?: boolean; creatorAccess?: boolean };
-      if (typeof applyStoreReadAccess === 'function') {
-        applyStoreReadAccess({
-          readAccess: Boolean(accessResult.readAccess),
-          creatorAccess: Boolean(accessResult.creatorAccess),
-        });
-      }
+      const result = await startReadStorePurchase(planId, storeUserId);
+      const syncResult = await syncReadPurchaseToBackend(result, planId);
+      const verifiedAccess = verifiedReadAccess(syncResult);
+      const verifiedSnapshot = verifiedReadAccessSnapshot(syncResult);
+
       if (typeof refreshSubscription === 'function') {
         await refreshSubscription();
       }
-      const backendSynced = await syncReadPurchaseToBackend(result, planId);
-      setMessage(`Purchase complete.${backendSynced ? ' Backend access is synced.' : ''}`);
+      if (verifiedSnapshot && typeof reconcileVerifiedReadAccess === 'function') {
+        reconcileVerifiedReadAccess(verifiedSnapshot);
+      }
+
+      setMessage(
+        verifiedAccess
+          ? 'Purchase complete. Your Floently Read access is ready.'
+          : syncResult
+            ? 'Purchase completed in the store, but Floently Read could not verify active access yet. Use Restore purchases when your subscription is active.'
+            : 'Purchase completed in the store, but access verification is temporarily unavailable. Use Restore purchases when you are online.',
+      );
     } catch (error) {
       setMessage(error instanceof Error ? error.message : String(error));
     } finally {
@@ -1485,22 +2355,37 @@ export function ReadSubscriptionScreen() {
   }
 
   async function restore() {
+    if (!storeUserId) {
+      setMessage('Sign in before restoring Floently Read purchases.');
+      return;
+    }
+    if (!isMobileStoreBilling) {
+      setMessage('Restore purchases is available in the iOS or Android app.');
+      return;
+    }
+
     setBusyPlan('restore');
     setMessage(null);
     try {
-      const result = await restoreReadStorePurchases();
-      const accessResult = result as unknown as { readAccess?: boolean; creatorAccess?: boolean };
-      if (typeof applyStoreReadAccess === 'function') {
-        applyStoreReadAccess({
-          readAccess: Boolean(accessResult.readAccess),
-          creatorAccess: Boolean(accessResult.creatorAccess),
-        });
-      }
+      const result = await restoreReadStorePurchases(storeUserId);
+      const syncResult = await syncReadPurchaseToBackend(result, getReadPurchasePackageId(result));
+      const verifiedAccess = verifiedReadAccess(syncResult);
+      const verifiedSnapshot = verifiedReadAccessSnapshot(syncResult);
+
       if (typeof refreshSubscription === 'function') {
         await refreshSubscription();
       }
-      const backendSynced = await syncReadPurchaseToBackend(result, getReadPurchasePackageId(result));
-      setMessage(`Purchases restored.${backendSynced ? ' Backend access is synced.' : ''}`);
+      if (verifiedSnapshot && typeof reconcileVerifiedReadAccess === 'function') {
+        reconcileVerifiedReadAccess(verifiedSnapshot);
+      }
+
+      setMessage(
+        verifiedAccess
+          ? 'Purchases restored. Your Floently Read access is up to date.'
+          : syncResult
+            ? 'Restore completed, but no active Floently Read subscription was verified for this account.'
+            : 'Restore reached the store, but access verification is temporarily unavailable. Try Restore purchases again when you are online.',
+      );
     } catch (error) {
       setMessage(error instanceof Error ? error.message : String(error));
     } finally {
@@ -1508,24 +2393,77 @@ export function ReadSubscriptionScreen() {
     }
   }
 
+  async function openReadLegal(url: string, label: string) {
+    try {
+      await Linking.openURL(url);
+    } catch {
+      setMessage(`${label} could not be opened. Please try again.`);
+    }
+  }
+
   return (
     <AppShell active="subscribe">
       <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={styles.scrollScreen}>
-        <Header showBack title="Floently Read access" subtitle="Native plans, RevenueCat, and backend entitlements" />
+        <Header showBack title="Floently Read access" subtitle="Choose a Reader plan and continue your library across devices" />
         <View style={[styles.panel, { backgroundColor: palette.surface, borderColor: palette.border }]}>
           <Text style={[styles.cardTitle, { color: palette.text }]}>{readAccess || creatorAccess ? 'Access active' : 'Upgrade Read'}</Text>
           <Text style={[styles.cardBody, { color: palette.muted }]}>Read, listen, import, and continue your library across sessions.</Text>
         </View>
-        {readPlans.map((plan) => (
-          <View key={plan.id} style={[styles.planCard, { backgroundColor: palette.surfaceRaised, borderColor: palette.border }]}>
-            <Text style={[styles.cardTitle, { color: palette.text }]}>{plan.title}</Text>
-            <Text style={[styles.priceText, { color: palette.accent }]}>{plan.priceHint}</Text>
-            <Text style={[styles.cardBody, { color: palette.muted }]}>{plan.body}</Text>
-            {plan.platformNote ? <Text style={[styles.noteText, { color: palette.warning }]}>{plan.platformNote}</Text> : null}
-            <PrimaryButton label={busyPlan === plan.id ? 'Processing...' : 'Choose plan'} onPress={() => void purchase(plan.id)} disabled={Boolean(busyPlan)} />
+        {visibleReadPlans.map((plan) => {
+          const availability = storeCatalog?.plans.find((item) => item.planId === plan.id);
+          const purchaseUnavailable =
+            !isMobileStoreBilling ||
+            !storeUserId ||
+            storeCatalogLoading ||
+            !availability?.available;
+          const priceLabel = storeCatalogLoading
+            ? 'Loading store price…'
+            : availability?.priceString ||
+              (!storeUserId
+                ? 'Sign in to load store price'
+                : 'Unavailable in your store');
+
+          return (
+            <View key={plan.id} style={[styles.planCard, { backgroundColor: palette.surfaceRaised, borderColor: palette.border }]}>
+              <Text style={[styles.cardTitle, { color: palette.text }]}>{plan.title}</Text>
+              <Text style={[styles.priceText, { color: availability?.available ? palette.accent : palette.muted }]}>{priceLabel}</Text>
+              <Text style={[styles.cardBody, { color: palette.muted }]}>{plan.body}</Text>
+              {storeCatalogLoading ? <ActivityIndicator size="small" color={palette.accent} /> : null}
+              <PrimaryButton
+                label={busyPlan === plan.id ? 'Processing...' : availability?.available ? 'Choose plan' : 'Unavailable'}
+                onPress={() => void purchase(plan.id)}
+                disabled={Boolean(busyPlan) || purchaseUnavailable}
+              />
+            </View>
+          );
+        })}
+        <SecondaryButton
+          label={busyPlan === 'restore' ? 'Restoring...' : 'Restore purchases'}
+          onPress={() => void restore()}
+          disabled={Boolean(busyPlan) || !isMobileStoreBilling || !storeUserId}
+        />
+        <View style={[styles.subscriptionDisclosure, { backgroundColor: palette.surfaceSoft, borderColor: palette.border }]}>
+          <Text style={[styles.subscriptionDisclosureText, { color: palette.muted }]}>
+            Payment is charged to your App Store or Google Play account at confirmation. Subscriptions renew automatically unless canceled before renewal. Manage or cancel them in your store account settings.
+          </Text>
+          <View style={styles.subscriptionLegalRow}>
+            <Pressable
+              accessibilityRole="link"
+              accessibilityLabel="Open Privacy Policy"
+              onPress={() => void openReadLegal(LEGAL_URLS.privacyPolicy, 'Privacy Policy')}
+            >
+              <Text style={[styles.subscriptionLegalLink, { color: palette.accent }]}>Privacy Policy</Text>
+            </Pressable>
+            <Text style={[styles.subscriptionLegalDivider, { color: palette.faint }]}>•</Text>
+            <Pressable
+              accessibilityRole="link"
+              accessibilityLabel="Open Terms of Use"
+              onPress={() => void openReadLegal(LEGAL_URLS.termsOfUse, 'Terms of Use')}
+            >
+              <Text style={[styles.subscriptionLegalLink, { color: palette.accent }]}>Terms of Use</Text>
+            </Pressable>
           </View>
-        ))}
-        <SecondaryButton label={busyPlan === 'restore' ? 'Restoring...' : 'Restore purchases'} onPress={() => void restore()} disabled={Boolean(busyPlan)} />
+        </View>
         {message ? <Text style={[styles.messageText, { color: palette.muted }]}>{message}</Text> : null}
       </ScrollView>
     </AppShell>
@@ -1633,33 +2571,50 @@ const styles = StyleSheet.create({
   readerScreen: { flex: 1 },
   readerScroll: { paddingHorizontal: 18, paddingBottom: 250, gap: 18 },
   readerPaper: { borderRadius: 28, borderWidth: 1, paddingHorizontal: 22, paddingTop: 24, paddingBottom: 30, gap: 14 },
+  readerVirtualList: { flex: 1, marginHorizontal: 18, borderRadius: 28, borderWidth: 1 },
+  readerVirtualContent: { paddingHorizontal: 22, paddingTop: 24, paddingBottom: 280, gap: 14 },
+  readerVirtualHeader: { gap: 10, marginBottom: 2 },
   readerChapter: { textAlign: 'center', fontSize: 13, fontWeight: '800', textTransform: 'uppercase', letterSpacing: 1.4 },
   readerTitle: { textAlign: 'center', fontSize: 24, lineHeight: 30, fontWeight: '900', marginBottom: 8 },
   readerParagraph: { fontSize: 18, lineHeight: 31, padding: 10, borderRadius: 14, borderWidth: 0, fontFamily: 'serif' },
   processingReader: { borderRadius: 28, borderWidth: 1, padding: 26, gap: 14, alignItems: 'center' },
   processingTitle: { fontSize: 22, fontWeight: '900', textAlign: 'center' },
   processingBody: { fontSize: 14, lineHeight: 21, textAlign: 'center', fontWeight: '600' },
-  readerDock: { position: 'absolute', left: 14, right: 14, bottom: 16, borderRadius: 30, borderWidth: 1, padding: 14, gap: 10, shadowOpacity: 1, shadowRadius: 26, shadowOffset: { width: 0, height: 14 } },
-  readerNowReading: { borderRadius: 12, borderWidth: 1, paddingHorizontal: 12, paddingVertical: 9, gap: 3 },
+  readerHiddenPill: { position: 'absolute', right: 14, bottom: 12, zIndex: 100, elevation: 20, minWidth: 96, height: 42, borderRadius: 21, borderWidth: 1, paddingHorizontal: 11, flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 7, shadowOpacity: 1, shadowRadius: 14, shadowOffset: { width: 0, height: 7 } },
+  readerHiddenLiveDot: { width: 7, height: 7, borderRadius: 4 },
+  readerHiddenPillTime: { fontSize: 11, fontWeight: '800', fontVariant: ['tabular-nums'] },
+  readerHiddenPillText: { fontSize: 15, fontWeight: '900' },
+  readerDock: { position: 'absolute', left: 12, right: 12, bottom: 10, zIndex: 100, elevation: 20, borderRadius: 22, borderWidth: 1, padding: 10, gap: 8, shadowOpacity: 1, shadowRadius: 20, shadowOffset: { width: 0, height: 10 } },
+  readerCompactBar: { minHeight: 50, flexDirection: 'row', alignItems: 'center', gap: 9 },
+  readerCompactPlay: { width: 44, height: 44, borderRadius: 22, alignItems: 'center', justifyContent: 'center' },
+  readerCompactPlayText: { fontSize: 17, fontWeight: '900' },
+  readerCompactNow: { flex: 1, minWidth: 0, justifyContent: 'center' },
+  readerCompactNowText: { fontSize: 12, lineHeight: 16, fontWeight: '800' },
+  readerCompactExpand: { width: 44, height: 44, alignItems: 'center', justifyContent: 'center' },
+  readerNowReading: { borderRadius: 14, borderWidth: 1, paddingHorizontal: 12, paddingVertical: 9, gap: 8, flexDirection: 'row', alignItems: 'center' },
+  readerNowBody: { flex: 1, gap: 3 },
+  readerExpandGlyph: { width: 30, textAlign: 'center', fontSize: 22, fontWeight: '900' },
   readerNowLabel: { fontSize: 9, fontWeight: '900', letterSpacing: 1.1 },
   readerNowText: { fontSize: 12, lineHeight: 17, fontWeight: '700' },
   readerDockTop: { flexDirection: 'row', justifyContent: 'space-between' },
-  readerTime: { fontSize: 12, fontWeight: '800' },
-  readerControls: { flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 20 },
-  roundControl: { minWidth: 56, height: 48, borderRadius: 24, borderWidth: 1, alignItems: 'center', justifyContent: 'center', paddingHorizontal: 8 },
+  readerTime: { fontSize: 11, fontWeight: '800' },
+  readerSeekTrack: { minHeight: 18, justifyContent: 'center', paddingVertical: 6 },
+  readerControls: { minHeight: 54, flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 18 },
+  readerCompactRemaining: { minWidth: 74, fontSize: 11, fontWeight: '800' },
+  roundControl: { minWidth: 56, height: 44, borderRadius: 22, borderWidth: 1, alignItems: 'center', justifyContent: 'center', paddingHorizontal: 8 },
   roundControlText: { fontSize: 12, fontWeight: '900' },
-  mainPlay: { minWidth: 82, height: 62, borderRadius: 31, alignItems: 'center', justifyContent: 'center', paddingHorizontal: 14 },
-  mainPlayText: { fontSize: 15, fontWeight: '900' },
+  mainPlay: { width: 50, minWidth: 50, height: 50, borderRadius: 25, alignItems: 'center', justifyContent: 'center' },
+  mainPlayText: { fontSize: 18, fontWeight: '900' },
   readerDockBottom: { flexDirection: 'row', gap: 8, justifyContent: 'space-between' },
-  readerStudyToggle: { minHeight: 42, borderRadius: 14, borderWidth: 1, alignItems: 'center', justifyContent: 'center', paddingHorizontal: 14 },
+  readerStudyToggle: { minHeight: 44, borderRadius: 14, borderWidth: 1, alignItems: 'center', justifyContent: 'center', paddingHorizontal: 14 },
   readerStudyToggleText: { fontSize: 12, fontWeight: '900' },
   readerStudyPanel: { borderRadius: 16, borderWidth: 1, padding: 10, gap: 10, maxHeight: 330 },
   readerStudyActions: { gap: 8, paddingRight: 4 },
-  readerStudyChip: { minHeight: 36, borderRadius: 999, borderWidth: 1, paddingHorizontal: 12, alignItems: 'center', justifyContent: 'center' },
+  readerStudyChip: { minHeight: 44, borderRadius: 999, borderWidth: 1, paddingHorizontal: 12, alignItems: 'center', justifyContent: 'center' },
   readerStudyChipText: { fontSize: 11, fontWeight: '900' },
   readerAiRow: { flexDirection: 'row', gap: 8, alignItems: 'center' },
-  readerAiInput: { flex: 1, minHeight: 42, borderRadius: 12, borderWidth: 1, paddingHorizontal: 12, fontSize: 13, fontWeight: '600' },
-  readerAiButton: { minHeight: 42, borderRadius: 12, paddingHorizontal: 13, alignItems: 'center', justifyContent: 'center' },
+  readerAiInput: { flex: 1, minHeight: 44, borderRadius: 12, borderWidth: 1, paddingHorizontal: 12, fontSize: 13, fontWeight: '600' },
+  readerAiButton: { minHeight: 44, borderRadius: 12, paddingHorizontal: 13, alignItems: 'center', justifyContent: 'center' },
   readerAiButtonText: { fontSize: 12, fontWeight: '900' },
   readerStudyResult: { borderRadius: 12, borderWidth: 1, padding: 10, gap: 7 },
   readerStudyResultTitle: { fontSize: 12, fontWeight: '900' },
@@ -1678,6 +2633,11 @@ const styles = StyleSheet.create({
   planCard: { borderRadius: 24, borderWidth: 1, padding: 16, gap: 12 },
   priceText: { fontSize: 22, fontWeight: '900' },
   noteText: { fontSize: 12, lineHeight: 18, fontWeight: '700' },
+  subscriptionDisclosure: { borderRadius: 18, borderWidth: 1, padding: 14, gap: 10 },
+  subscriptionDisclosureText: { fontSize: 12, lineHeight: 18, fontWeight: '600' },
+  subscriptionLegalRow: { flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 10, flexWrap: 'wrap' },
+  subscriptionLegalLink: { fontSize: 12, fontWeight: '900' },
+  subscriptionLegalDivider: { fontSize: 12, fontWeight: '800' },
   messageText: { fontSize: 13, lineHeight: 20, fontWeight: '700', textAlign: 'center' },
   bottomNav: { position: 'absolute', left: 14, right: 14, bottom: 12, minHeight: 72, borderRadius: 32, borderWidth: 1, flexDirection: 'row', alignItems: 'center', justifyContent: 'space-around', paddingHorizontal: 8, shadowOpacity: 1, shadowRadius: 26, shadowOffset: { width: 0, height: 16 } },
   navItem: { minWidth: 56, alignItems: 'center', justifyContent: 'center', gap: 3 },

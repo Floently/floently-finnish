@@ -29,6 +29,7 @@ type ReadMobileState = {
   syncStatus: 'idle' | 'loading' | 'syncing' | 'offline' | 'error';
   syncError: string | null;
   refreshLibrary: () => Promise<void>;
+  refreshDocument: (id: string) => Promise<void>;
   readAutomatically: boolean;
   readTheme: ReadTheme;
   documents: ReadDocument[];
@@ -57,6 +58,24 @@ const LANGUAGE_LABELS: Record<ReadLanguage, string> = {
 };
 
 const PROCESSING_COPY = 'Floently is extracting readable text and preparing this document. You can continue using the app while it finishes.';
+
+const progressSyncChains = new Map<string, Promise<void>>();
+
+function queueProgressSync(
+  id: string,
+  input: { progress: number; playbackSpeed?: number; voiceId?: string | null },
+  onError: (error: unknown) => void,
+) {
+  const previous = progressSyncChains.get(id) ?? Promise.resolve();
+  const next = previous
+    .catch(() => {})
+    .then(() => readRenderApi.updateProgress(id, input))
+    .catch(onError)
+    .finally(() => {
+      if (progressSyncChains.get(id) === next) progressSyncChains.delete(id);
+    });
+  progressSyncChains.set(id, next);
+}
 
 function normalizeReadLanguage(value: unknown): ReadLanguage {
   const normalized = String(value || 'auto').trim().toLowerCase();
@@ -129,7 +148,7 @@ function toLocalDocument(remote: ReadRenderDocument): ReadDocument {
     sourceUrl: remote.sourceUrl ?? remote.source_url ?? null,
     createdAtIso: String(remote.createdAt ?? remote.created_at ?? new Date().toISOString()),
     readingProgress: progressToRatio(remote.progress ?? remote.progressPercent ?? remote.progress_percent),
-    playbackSpeed: Number(remote.playbackSpeed ?? remote.playback_speed ?? 1) || 1,
+    playbackSpeed: Math.max(0.8, Math.min(2, Number(remote.playbackSpeed ?? remote.playback_speed ?? 1) || 1)),
     voiceId: String(remote.voiceId || remote.voice_id || '').trim() || null,
     status: sourceText ? 'ready' : 'processing',
     statusMessage: sourceText ? null : PROCESSING_COPY,
@@ -168,6 +187,29 @@ export const useReadMobileStore = create<ReadMobileState>((set, get) => ({
       const documents = remoteDocuments.map(toLocalDocument);
       set({ documents, syncStatus: 'idle', syncError: null });
     } catch (error) {
+      const message = error instanceof Error ? error.message : String(error);
+      set({ syncStatus: 'offline', syncError: message });
+    }
+  },
+
+  async refreshDocument(id) {
+    if (!id) return;
+    try {
+      const remoteDocument = await readRenderApi.getDocument(id);
+      const syncedDocument = toLocalDocument(remoteDocument);
+      set((state) => ({
+        documents: state.documents.map((item) =>
+          item.id === id ? syncedDocument : item,
+        ),
+        activeDocumentId:
+          state.activeDocumentId === id ? syncedDocument.id : state.activeDocumentId,
+        syncStatus: 'idle',
+        syncError: null,
+      }));
+    } catch (error) {
+      // Processing documents are polled by the Reader. A transient backend
+      // miss must not throw the user out of the reading screen; retain the
+      // optimistic/local document and let the next bounded poll retry.
       const message = error instanceof Error ? error.message : String(error);
       set({ syncStatus: 'offline', syncError: message });
     }
@@ -362,17 +404,18 @@ export const useReadMobileStore = create<ReadMobileState>((set, get) => ({
       ),
     }));
 
-    void readRenderApi.updateProgress(id, {
+    queueProgressSync(id, {
       progress: nextProgress,
       playbackSpeed: document?.playbackSpeed,
-    }).catch((error) => {
+      voiceId: document?.voiceId,
+    }, (error) => {
       const message = error instanceof Error ? error.message : String(error);
       set({ syncStatus: 'offline', syncError: message });
     });
   },
 
   setPlaybackSpeed: (id, speed) => {
-    const nextSpeed = Math.max(0.5, Math.min(3, speed));
+    const nextSpeed = Math.max(0.8, Math.min(2, speed));
     const document = get().documents.find((item) => item.id === id);
     set((state) => ({
       documents: state.documents.map((item) =>
@@ -380,11 +423,11 @@ export const useReadMobileStore = create<ReadMobileState>((set, get) => ({
       ),
     }));
     if (document) {
-      void readRenderApi.updateProgress(id, {
+      queueProgressSync(id, {
         progress: document.readingProgress,
         playbackSpeed: nextSpeed,
         voiceId: document.voiceId,
-      }).catch((error) => {
+      }, (error) => {
         set({ syncStatus: 'offline', syncError: error instanceof Error ? error.message : String(error) });
       });
     }
@@ -399,11 +442,11 @@ export const useReadMobileStore = create<ReadMobileState>((set, get) => ({
       ),
     }));
     if (document) {
-      void readRenderApi.updateProgress(id, {
+      queueProgressSync(id, {
         progress: document.readingProgress,
         playbackSpeed: document.playbackSpeed,
         voiceId: nextVoiceId,
-      }).catch((error) => {
+      }, (error) => {
         set({ syncStatus: 'offline', syncError: error instanceof Error ? error.message : String(error) });
       });
     }
