@@ -1,0 +1,8 @@
+# BEST-FIT-TECH-001 native source gate; operator must separately require this status.
+when:
+  - event: [push, pull_request]
+steps:
+  - name: best-fit-bootstrap
+    image: python:3.12-alpine
+    commands:
+      - python3 quality/best_fit_gate.py --root . --bootstrap-only
