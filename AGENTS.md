@@ -36,3 +36,6 @@ Prefer **action-oriented visual flows** and progressive disclosure to heavy expl
 
 Canonical: https://github.com/obumai/obum-delivery/blob/main/docs/LEAN_REA_FLOW_001_STANDARD.md
 Receipt: https://github.com/obumai/obum-delivery/blob/main/templates/LEAN_REA_FLOW_001_RUN_RECEIPT.md
+
+## TYPE-TASTE-UI-2026-11-19 — Design, font and typography skills
+For UI or user-facing copy changes, read https://github.com/galapoto/Projects/blob/main/docs/governance/TYPE_TASTE_UI_2026_11_19.md and apply the relevant pinned Web Typography, Font Pairing, Apple HIG, Emil Kowalski, Impeccable, Taste and UI-UX Pro Max techniques. Record actual skill use, legally reusable sources/versions, accessibility, dark/light and responsive behavior, tests, and released user outcome. REA and lawful reuse come first; ship the smallest qualified user feature promptly. **Independent peer review is OPTIONAL** under OWNER-REVIEW-OPTIONAL-2026-11-18. Preserve existing stronger security, approval, CI, legal and release rules. Non-UI modules mark visual criteria NOT_APPLICABLE.
