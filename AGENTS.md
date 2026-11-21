@@ -1,3 +1,8 @@
+<!-- BEST-FIT-TECH-001 -->
+## Mandatory BEST-FIT-TECH-001 first-read for all coding agents
+Before starting or continuing any work, read AGENTS.md, latest approved spec/security rules and https://github.com/obumai/obum-delivery/blob/main/docs/BEST_FIT_TECH_001.md. First substantive reply must acknowledge `BEST-FIT-TECH-001 acknowledged` with project, current approved user action/result, reusable donor and license, actual applicable skills, missing compiler/toolchain steps, tests and release state. Select best-fit technology/language/UI components down to text, colors, spacing, icons and alignment based on measured reliability/quality, not habit; inspect existing/sibling code, qualified upstream and authorized REA. Obtain trusted pinned missing tooling in authorized isolation or request exact owner permission. Prove real-browser/a11y/visual or backend functional/security/negative/performance/recovery tests, exact-SHA build and authentic authorized deployment. Do not claim skill mentioned/plan-only == implemented. Stricter project rules prevail.
+<!-- /BEST-FIT-TECH-001 -->
+
 # Owner policy supersession — effective 2026-11-18
 
 **OWNER-REVIEW-OPTIONAL-2026-11-18:** An independent human code reviewer, reviewer assignment, and a separate reviewer approval are **NOT mandatory** for implementation, PR merge or software deployment. The project agent/authorized maintainer must conduct direct technical review and complete the applicable tests, security/privacy checks, exact-SHA build, release evidence and rollback verification. An independent peer review is optional if expressly wanted, never a standing blocker.
